@@ -18,7 +18,7 @@ The query scope defines the records that are evaluated by the query. This will u
 
 The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
-![Scope displayed in portal](media/scope/scope.png)
+:::image type="content" source="media/scope/scope.png" lightbox="media/scope/scope.png" alt-text="Scope displayed in portal":::
 
 The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it. The following table lists the different types of scope used and different details for each.
 
@@ -53,11 +53,11 @@ Setting the scope to a resource or set of resources is a particularly powerful f
 Log Analytics helps protect against excessive overhead from queries that span workspaces in multiple regions by issuing a warning or error when a certain number of regions are being used. 
 Your query will receive a warning if the scope includes workspaces in 5 or more regions. it will still run, but it may take excessive time to complete.
 
-![Query warning](media/scope/query-warning.png)
+:::image type="content" source="media/scope/query-warning.png" lightbox="media/scope/query-warning.png" alt-text="Query warning":::
 
 Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, and you should reduce the number of regions before attempting to run the query again.
 
-![Query failed](media/scope/query-failed.png)
+:::image type="content" source="media/scope/query-failed.png" lightbox="media/scope/query-failed.png" alt-text="Query failed":::
 
 
 ## Time range
@@ -66,21 +66,21 @@ The time range specifies the set of records that are evaluated for the query bas
 
 Set the time range by selecting it from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
 
-![Time picker](media/scope/time-picker.png)
+:::image type="content" source="media/scope/time-picker.png" lightbox="media/scope/time-picker.png" alt-text="Time picker":::
 
 If you set a filter in the query that uses the standard time column as shown in the table above, the time picker changes to **Set in query**, and the time picker is disabled. In this case, it's most efficient to put the filter at the top of the query so that any subsequent processing only needs to work with the filtered records.
 
-![Filtered query](media/scope/query-filtered.png)
+:::image type="content" source="media/scope/query-filtered.png" lightbox="media/scope/query-filtered.png" alt-text="Filtered query":::
 
 If you use the [workspace](../logs/workspace-expression.md) or [app](../logs/app-expression.md) command to retrieve data from another workspace or classic application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is a classic Application Insights application and you use **workspace**, then Log Analytics may not understand that the column used in the filter should determine the time filter.
 
 In the following example, the scope is set to a Log Analytics workspace.  The query uses **workspace** to retrieve data from another Log Analytics workspace. The time picker changes to **Set in query** because it sees a filter that uses the expected **TimeGenerated** column.
 
-![Query with workspace](media/scope/query-workspace.png)
+:::image type="content" source="media/scope/query-workspace.png" lightbox="media/scope/query-workspace.png" alt-text="Query with workspace":::
 
 If the query uses **app** to retrieve data from a classic Application Insights application though, Log Analytics doesn't recognize the **timestamp** column in the filter, and the time picker remains unchanged. In this case, both filters are applied. In the example, only records created in the last 24 hours are included in the query even though it specifies 7 days in the **where** clause.
 
-![Query with app](media/scope/query-app.png)
+:::image type="content" source="media/scope/query-app.png" lightbox="media/scope/query-app.png" alt-text="Query with app":::
 
 ## Next steps
 
