@@ -14,54 +14,10 @@ author: SnehaSudhirG
 
 This article describes on the key capabilities of pre and post scripts, the applicable scenarios and how to enable them in Azure Update Manager.
 
-## Key capabilities
 
-- **Customized patching** - You can customize your patching workflows with custom execution before and after a scheduled patching.
-- **Multiple end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
-- **Integration with the [Event Grid](../event-grid/overview.md)** to receive notifications.
+## Configure pre and post events on existing schedule
 
-## Workflow to configure pre and postscript maintenance activities
-
-Review the workflow to configure the pre and post maintenance activities:
-
-1. [Create a new maintenance configuration](#create-maintenance-configuration).
-1. [Create Event Subscriptions](#create-event-subscription).
-
-
-## User scenarios
-The new capability ensures that by using pre and postscripts feature you can customize the patching workflows with custom execution before and after scheduled maintenance activity. Following are the scenarios where you can define the pre and post tasks:
-
-#### [Prescript user scenarios](#tab/prescript)
-
-| **Scenario**| **Description**|
-|----------|-------------|
-|Turn on machines | Turn on the machine to apply updates.|
-|Create snapshot | Disk snaps used to recover data.| 
-|Automation tutorial with identity | Runbooks using Managed Identity| 
-|Start/configure Windows Update (WU) | Ensures that the WU is up and running before patching is attempted. | 
-|Enable maintenance | Puts the machine in maintenance mode. |
-|Notification email | Send a notification alert before patching is triggered. |
-|Add network security group| Add the network security group.|
-|Stop services | To stop services like Gateway services, NPExServices, SQL services etc.| 
-
-#### [Postscript user scenarios](#tab/postscript)
-
-| **Scenario**| **Description**|
-|----------|-------------|
-|Turn off | Turn off the machines after applying updates. | 
-|Disable maintenance | Disable the maintenance mode on machines. | 
-|Stop/Configure WU| Ensures that the WU is stopped after the patching is complete.|
-|Notifications | Send patch summary or an alert that patching is complete.|
-|Delete network security group| Delete the network security group.|
-|Hybrid Worker| Configuration of Hybrid runbook worker. |
-|Mute VM alerts | Enable VM alerts post patching. |
-|Start services | Start services like SQL, health services etc.|
-|Reports| Post patching report.|
-|Tag change | Change tags and occasionally, turns off with tag change.|
-
----
-
-## Create Pre and Post-tasks with the maintenance configuration
+You can configure pre and post events on an existing schedule and can add multiple pre and post events to a single schedule. To add a pre and post event, follow these steps:
 
 ### Create maintenance configuration
 
