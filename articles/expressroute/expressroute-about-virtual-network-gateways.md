@@ -176,17 +176,17 @@ ErGwScale is free of charge during public preview. For information about Express
 
 #### Supported performance per scale unit
 
-| Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
-|--|--|--|--|--|
-| 1 | 100,000 | 7,000 | 2,000 | 200,000 |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+|--|--|--|--|--|--|
+| 1 | 1 | 100,000 | 7,000 | 2,000 | 200,000 |
 
 #### Sample performance with scale unit
 
-| Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
-|--|--|--|--|--|
-| 10 | 1,000,000 | 70,000 | 20,000 | 2,000,000 |
-| 20 | 2,000,000 | 140,000 | 40,000 | 4,000,000 |
-| 40 | 4,000,000 | 280,000 | 80,000 | 8,000,000 |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+|--|--|--|--|--|--|
+| 10 | 10 | 1,000,000 | 70,000 | 20,000 | 2,000,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 4,000,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 8,000,000 |
 
 ## Next steps
 
