@@ -23,7 +23,9 @@ Azure OpenAI enables your applications to take advantage of large-scale, generat
 
 The following video shows how Azure Spring Apps uses Azure OpenAI to build intelligent applications:  
 
-> [!VIDEO https://www.youtube.com/watch?v=wxgGoLohvsg title="Video that shows how Azure Spring Apps uses the power of Azure OpenAI."]
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/wxgGoLohvsg]
 
 ## Prerequisites
 
