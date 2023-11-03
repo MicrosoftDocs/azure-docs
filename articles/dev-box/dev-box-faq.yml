@@ -86,7 +86,7 @@ sections:
                 If you are in the developer portal, you may have seen a *QuotaExceeded* error during dev box creation. 
                 If you see this error, please contact your administrator for assistance to increase this quota. You can point them to the documentation on [requesting a quota limit](/azure/dev-box/how-to-request-quota-increase). 
                 If your admin cannot increase the quota limit at this time, please try selecting another pool with a region close to your location.  
-       - question: How can I check my Dev Box quota? # Question.
+     - question: How can I check my Dev Box quota? # Question.
         answer: |
                 You can check your Dev Box quota using either: 
                 - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
