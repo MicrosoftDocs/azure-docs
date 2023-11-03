@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 11/03/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -185,7 +185,7 @@ bicep --help
 ```
 
 > [!NOTE]
-> The installation of Bicep CLI version 0.16 or newer does not need Gatekeeper exception. However, [nightly builds](#install-the-nightly-builds) of the Bicep CLI still require the exception.
+> The installation of [Bicep CLI version 0.16.X or higher](./install.md) does not need Gatekeeper exception. However, [nightly builds](#install-the-nightly-builds) of the Bicep CLI still require the exception.
 
 ### Windows
 
