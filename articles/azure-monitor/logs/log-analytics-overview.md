@@ -22,8 +22,8 @@ Whether you work with the results of your queries interactively or use them with
 To start Log Analytics in the Azure portal, on the **Azure Monitor** menu select **Logs**. You'll also see this option on the menu for most Azure resources. No matter where you start Log Analytics, the tool is the same. But the menu you use to start Log Analytics determines the data that's available.
 
 If you start Log Analytics from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all the records in a workspace. If you select **Logs** from another type of resource, your data will be limited to log data for that resource. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](./scope.md).
-
-[![Screenshot that shows starting Log Analytics.](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/log-analytics-overview/start-log-analytics.png" lightbox="media/log-analytics-overview/start-log-analytics.png" alt-text="Screenshot that shows starting Log Analytics." border="false":::
 
 When you start Log Analytics, a dialog appears that contains [example queries](../logs/queries.md). The queries are categorized by solution. Browse or search for queries that match your requirements. You might find one that does exactly what you need. You can also load one to the editor and modify it as required. Browsing through example queries is a good way to learn how to write your own queries.
 
@@ -33,7 +33,7 @@ If you want to start with an empty script and write it yourself, close the examp
 
 The following image identifies four Log Analytics components.
 
-[![Screenshot that shows the Log Analytics interface with four features identified.](media/log-analytics-overview/log-analytics.png)](media/log-analytics-overview/log-analytics.png#lightbox)
+:::image type="content" source="media/log-analytics-overview/log-analytics.png" lightbox="media/log-analytics-overview/log-analytics.png" alt-text="Screenshot that shows the Log Analytics interface with four features identified.":::
 
 ### Top action bar
 
