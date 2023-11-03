@@ -29,6 +29,14 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Setup your development environment
+    items:
+    - name: Get started with the Azure AI SDK
+      href: ai-studio/how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: ai-studio/how-to/cli-install.md
+    - name: Get started with projects in VS Code (Web)
+      href: ai-studio/how-to/vscode-web.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
