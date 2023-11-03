@@ -48,7 +48,7 @@ Learn more about the general [process for creating Azure support requests](../az
 
 ## Gather information for your request
 
-You'll find submitting a support request for an increase in quota is quicker if you gather the required information before you begin the request process. 
+Submitting a support request for an increase in quota is quicker if you gather the required information before you begin the request process. 
 
 - **Determine your current quota usage**
 
@@ -79,11 +79,11 @@ Start the process of requesting a limit increase by opening **Support + troubles
 
 :::image type="content" source="media/how-to-request-quota-increase/help-support-toolbar.png" alt-text="Screenshot of the Azure portal showing the Support and troubleshoot button.":::
 
-Azure presents two different ways to get you the right help and support. After you open **Support + troubleshooting** you see either:
+Azure presents two different ways to get you the right help and support. When **Support + troubleshooting** opens, you see either:
 - A question asking **How can we help you?**
 - A classic style support request form
 
-Select the appropriate tab and follow the steps to request a limit increase:  
+From the following tabs, select the style appropriate for your experience and use the steps to request a limit increase:  
 
 #### [Question style](#tab/Questions/)
 
