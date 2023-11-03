@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 10/20/2023
+ms.date: 11/03/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -120,6 +120,25 @@ The currently supported versions of the `microsoft.flux` extension are described
 
 > [!IMPORTANT]
 > Eventually, a major version update (v2.x.x) for the `microsoft.flux` extension will be released. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+
+> [!NOTE]
+> When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
+
+### 1.8.1 (November 2023)
+
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
+
+- source-controller: v1.1.2
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- Upgrades Flux to [v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
+- Updates to each `fluxConfiguration` status are now relayed back to Azure once every minute, provided there are any changes to report
 
 ### 1.8.0 (October 2023)
 
