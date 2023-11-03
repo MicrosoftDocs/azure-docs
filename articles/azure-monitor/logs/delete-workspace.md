@@ -89,12 +89,12 @@ You can recover your workspace during the soft-delete period, including its data
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
 1. Select **Recover** on the top left menu to open a page with workspaces in a soft-delete state that can be recovered.
-
-   :::image type="content" source="media/delete-workspace/recover-menu.png" lightbox="media/delete-workspace/recover-menu.png" alt-text="Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/delete-workspace/recover-menu.png" lightbox="media/delete-workspace/recover-menu.png" alt-text="Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar." border="false":::
 
 1. Select the workspace. Then select **Recover** to recover the workspace.
-
-   :::image type="content" source="media/delete-workspace/recover-workspace.png" lightbox="media/delete-workspace/recover-workspace.png" alt-text="Screenshot that shows the Recycle bin with a workspace and the Recover button.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/delete-workspace/recover-workspace.png" lightbox="media/delete-workspace/recover-workspace.png" alt-text="Screenshot that shows the Recycle bin with a workspace and the Recover button." border="false":::
 
 ### PowerShell
 ```PowerShell
