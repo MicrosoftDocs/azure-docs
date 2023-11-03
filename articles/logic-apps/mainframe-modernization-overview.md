@@ -1,5 +1,5 @@
 ---
-title: Mainframe and midrange integration workflows
+title: Mainframe and midrange modernization
 description: Learn about building mainframe and midrange system integration solutions in Azure Logic Apps using mainframe and midrange connectors.
 author: haroldcampos
 ms.author: hcampos

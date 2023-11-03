@@ -6,9 +6,9 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 9/12/2023
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 11/02/2023
+author: mrbullwinkle
+ms.author: mbullwin
 recommendations: false
 keywords: 
 
@@ -75,15 +75,7 @@ foreach (float item in returnValue.Value.Data[0].Embedding)
 
 ### Verify inputs don't exceed the maximum length
 
-The maximum length of input text for our embedding models is 2048 tokens (equivalent to around 2-3 pages of text). You should verify that your inputs don't exceed this limit before making a request.
-
-### Choose the best model for your task
-
-For the search models, you can obtain embeddings in two ways. The `<search_model>-doc` model is used for longer pieces of text (to be searched over) and the `<search_model>-query` model is used for shorter pieces of text, typically queries or class labels in zero shot classification. You can read more about all of the Embeddings models in our [Models](../concepts/models.md) guide.
-
-### Replace newlines with a single space
-
-Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.
+The maximum length of input text for our latest embedding models is 8192 tokens. You should verify that your inputs don't exceed this limit before making a request.
 
 ## Limitations & risks
 
