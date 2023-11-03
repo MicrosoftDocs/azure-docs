@@ -35,32 +35,6 @@ To perform the operations described in this article using PowerShell:
 
 1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
-1. Install [the latest version of PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
-
-    ```azurepowershell
-    Install-Module -Name PowerShellGet -AllowPrerelease
-    ```
-
-    You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
-
-1. Install the prerelease version of the `Az.ElasticSan` module.
-
-    ```azurepowershell
-    Install-Module -Name Az.ElasticSan -AllowPrerelease
-    ```
-
-1. Install version 2.0.0 or later of the [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell module.
-
-    ```azurepowershell
-    Install-Module -Name Az.ElasticSan -AllowPrerelease
-    ```
-
-1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
-
-    ```azurepowershell
-    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
-    ```
-
 1. Sign in to Azure.
 
     ```azurepowershell
@@ -79,7 +53,7 @@ $RgName          = "<ResourceGroupName>"
 # The name of the Elastic SAN that contains the volume group to be configured.
 $EsanName        = "<ElasticSanName>"
 # The name of the Elastic SAN volume group to be configured.
-$EsanVgName      = "<ElasticSanVolumeGroupName>
+$EsanVgName      = "<ElasticSanVolumeGroupName>"
 # The region where the new resources will be created.
 $Location        = "<Location>"
 # The name of the Azure Key Vault that will contain the KEK.
@@ -458,8 +432,8 @@ $NewVgArguments        = @{
     ResourceGroupName            = $RgName
     ProtocolType                 = "Iscsi"
     Encryption                   = "EncryptionAtRestWithCustomerManagedKey"
-    KeyVaultPropertyKeyName      = $KeyName
-    KeyVaultPropertyKeyVaultUri  = $KeyVault.VaultUri
+    KeyName                      = $KeyName
+    KeyVaultUri                  = $KeyVault.VaultUri
     IdentityType                 = "UserAssigned"
     IdentityUserAssignedIdentity = @{$UserIdentity.Id=$UserIdentity}
     EncryptionIdentityEncryptionUserAssignedIdentity = $UserIdentity.Id
@@ -469,7 +443,7 @@ $NewVgArguments        = @{
 New-AzElasticSanVolumeGroup @NewVgArguments
 ```
 
-To configure customer-managed keys with **manual** updating of the key version during creation of a new volume group using PowerShell, add the `KeyVaultPropertyKeyVersion` parameter as shown in this sample:
+To configure customer-managed keys with **manual** updating of the key version during creation of a new volume group using PowerShell, add the `KeyVersion` parameter as shown in this sample:
 
 ```azurepowershell
 # Setup the parameters to create the volume group.
@@ -479,9 +453,9 @@ $NewVgArguments        = @{
     ResourceGroupName            = $RgName
     ProtocolType                 = "Iscsi"
     Encryption                   = "EncryptionAtRestWithCustomerManagedKey"
-    KeyVaultPropertyKeyName      = $KeyName
-    KeyVaultPropertyKeyVaultUri  = $KeyVault.VaultUri
-    KeyVaultPropertyKeyVersion   = $Key.Version
+    KeyName                      = $KeyName
+    KeyVaultUri                  = $KeyVault.VaultUri
+    KeyVersion                   = $Key.Version
     IdentityType                 = "UserAssigned"
     IdentityUserAssignedIdentity = @{$UserIdentity.Id=$UserIdentity}
     EncryptionIdentityEncryptionUserAssignedIdentity = $UserIdentity.Id
@@ -568,15 +542,15 @@ $UpdateVgArguments        = @{
     ResourceGroupName            = $RgName
     ProtocolType                 = "Iscsi"
     Encryption                   = "EncryptionAtRestWithCustomerManagedKey"
-    KeyVaultPropertyKeyName      = $KeyName
-    KeyVaultPropertyKeyVaultUri  = $KeyVault.VaultUri
+    KeyName      = $KeyName
+    KeyVaultUri  = $KeyVault.VaultUri
 }
 
 # Update the volume group.
 Update-AzElasticSanVolumeGroup @UpdateVgArguments
 ```
 
-To configure an existing volume group to use customer-managed keys with a system-assigned identity and **manual** updating of the key version using PowerShell, add the `KeyVaultPropertyKeyVersion` parameter as shown in this sample:
+To configure an existing volume group to use customer-managed keys with a system-assigned identity and **manual** updating of the key version using PowerShell, add the `KeyVersion` parameter as shown in this sample:
 
 ```azurepowershell
 # Get the Elastic SAN volume group.
@@ -606,9 +580,9 @@ $UpdateVgArguments        = @{
     ResourceGroupName            = $RgName
     ProtocolType                 = "Iscsi"
     Encryption                   = "EncryptionAtRestWithCustomerManagedKey"
-    KeyVaultPropertyKeyName      = $KeyName
-    KeyVaultPropertyKeyVaultUri  = $KeyVault.VaultUri
-    KeyVaultPropertyKeyVersion   = $Key.Version
+    KeyName      = $KeyName
+    KeyVaultUri  = $KeyVault.VaultUri
+    KeyVersion   = $Key.Version
 }
 
 # Update the volume group.
