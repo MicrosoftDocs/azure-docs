@@ -35,9 +35,9 @@ You can view replication status on the source volume or the destination volume. 
             This is the state after you break the peering relationship. The destination volume is `‘RW’` and snapshots are present.
     * **Relationship status** – Shows one of the following values: 
         * *Idle*:  
-            No transfer operation is in progress and future transfers are not disabled.
+            No transfer operation is in progress and future transfers aren't disabled.
         * *Transferring*:  
-            A transfer operation is in progress and future transfers are not disabled.
+            A transfer operation is in progress and future transfers aren't disabled.
     * **Replication schedule** – Shows how frequently incremental mirroring updates will be performed when the initialization (baseline copy) is complete.
 
     * **Total progress** – Shows the total number of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
@@ -49,7 +49,7 @@ You can view replication status on the source volume or the destination volume. 
 
 ## Set alert rules to monitor replication
 
-Ceate [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
 
 1. In Azure Monitor, select **Alerts**.
 2. From the **Alerts** window, select the **Create** dropdown then **Alert rule**.
@@ -58,9 +58,9 @@ Ceate [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 5. Select the target volume you'd like to monitor and select **Apply**.
 6. From the **Condition** tab, use the **Signal name** dropdown to select **See all signals**. Identify the **Volume replication lag time** signal then select **Apply**.
 7. Confirm **Greater than** is selected for the **Operator** field.
-8. For the **Threshold** value field, enter the number of seconds equal to you replication schedule plus 20%. For example:
+8. For the **Threshold** value field, enter the number of seconds equal to your replication schedule plus 20%. For example:
     * If your replication schedule is 10 minutes, enter 720 (10 minutes * 60 seconds * 1.2). 
-    * If you replication schedule is hourly, enter 4,320 (60 minutes * 60 seconds * 1.2). 
+    * If your replication schedule is hourly, enter 4,320 (60 minutes * 60 seconds * 1.2). 
     * If your replication schedule is daily, enter 103,680 (24 hours * 60 minutes * 60 seconds * 1.2).
 9.	Select **Review + create**. The alert rule is ready for use.
 
