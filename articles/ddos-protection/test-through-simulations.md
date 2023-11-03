@@ -36,7 +36,7 @@ Our testing partners' simulation environments are built within Azure. You can on
 For this tutorial, you'll create a test environment that includes:
 - A DDoS protection plan
 - A virtual network
-- A Azure Bastion host 
+- An Azure Bastion host 
 - A load balancer 
 - Two virtual machines. 
 
@@ -438,7 +438,7 @@ BreakingPoint Cloud offers:
 
 - A simplified user interface and an “out-of-the-box” experience.
 - pay-per-use model.
-- Pre-defined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.v
+- Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
 
 > [!NOTE]
 > For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud). 

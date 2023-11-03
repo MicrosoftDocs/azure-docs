@@ -230,6 +230,8 @@ The following AzureCloud tags don't have regional names formatted according to t
 
 - AzureCloud.usstagec (SouthCentralUSSTG)
 
+- AzureCloud.brazilse (BrazilSoutheast)
+
 > [!TIP]
 > 
 > - You can detect updates from one publication to the next by noting increased *changeNumber* values in the JSON file. Each subsection (for example, **Storage.WestUS**) has its own *changeNumber* that's incremented as changes occur. The top level of the file's *changeNumber* is incremented when any of the subsections is changed.

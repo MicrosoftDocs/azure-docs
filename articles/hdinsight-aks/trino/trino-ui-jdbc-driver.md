@@ -2,19 +2,20 @@
 title: Trino JDBC driver
 description: Using the Trino JDBC driver.
 ms.service: hdinsight-aks
+ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Trino JDBC driver
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-HDInsight on AKS Trino provides JDBC driver, which supports Microsoft Entra authentication and adds few parameters for it. 
+Trino with HDInsight on AKS provides JDBC driver, which supports Microsoft Entra authentication and adds few parameters for it. 
 
 ## Install
 
-JDBC driver jar is included in the Trino CLI package, [Install HDInsight on AKS Trino CLI](./trino-ui-command-line-interface.md). If CLI is already installed, you can find it on your file system at following path:
+JDBC driver jar is included in the Trino CLI package, [Install Trino CLI for HDInsight on AKS](./trino-ui-command-line-interface.md). If CLI is already installed, you can find it on your file system at following path:
 > Windows: `C:\Program Files (x86)\Microsoft SDKs\Azure\TrinoCli-<version>\lib`
 >
 > Linux: `~/lib/trino-cli`
