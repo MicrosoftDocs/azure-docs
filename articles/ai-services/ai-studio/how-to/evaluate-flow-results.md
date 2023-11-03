@@ -1,7 +1,7 @@
 ---
-title: How to evaluate prompt flow results via flows in the Azure AI Studio
+title: How to view evaluation results in Azure AI Studio
 titleSuffix: Azure AI services
-description: This article provides instructions on how to evaluate prompt flow results via flows in the Azure AI Studio.
+description: This article provides instructions on how to view evaluationi results in Azure AI Studio.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to evaluate prompt flow results via flows in the Azure AI Studio
+# How to view evaluation results in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 

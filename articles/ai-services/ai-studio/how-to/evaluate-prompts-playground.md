@@ -1,7 +1,7 @@
 ---
-title: How to evaluate prompts from the Azure AI Studio playground 
+title: How to evaluate from the Azure AI Studio playground 
 titleSuffix: Azure AI services
-description: Quickly test and evaluate prompts from the Azure AI Studio playground.
+description: Quickly test and evaluate from the Azure AI Studio Playground.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# Evaluate prompts from the Azure AI Studio playground 
+# Evaluate from the Azure AI Studio playground 
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 

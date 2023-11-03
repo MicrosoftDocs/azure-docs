@@ -1,7 +1,7 @@
 ---
-title: How to evaluate your generative AI application
+title: How to evaluate with Azure AI Studio and SDK
 titleSuffix: Azure AI services
-description: Evaluate your generated data from your generative model with the Azure AI Studio and Azure AI SDK.
+description: Evaluate your generative AI application with Azure AI Studio UI and SDK.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -11,7 +11,9 @@ ms.author: eur
 zone_pivot_groups: azure-ai-studio-sdk
 ---
 
-# How to evaluate your generative AI applications with the Azure AI
+# How to evaluate with Azure AI Studio and SDK
+
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 ::: zone pivot="ai-studio"
 [!INCLUDE [Azure AI Studio include](../includes/evaluations/from-data/studio.md)]
