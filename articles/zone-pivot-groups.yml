@@ -1858,7 +1858,7 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-python
-    title: Python
+    title: Python (DALL-E 3)
   - id: programming-language-powershell
     title: PowerShell
   - id: rest-api
