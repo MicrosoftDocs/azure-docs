@@ -58,8 +58,6 @@ items:
           href: manage-devices-assets/howto-manage-assets-remotely.md
         - name: Autodetect assets
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
-        - name: Install or uninstall Azure IoT Akri
-          href: manage-devices-assets/howto-install-akri.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview
