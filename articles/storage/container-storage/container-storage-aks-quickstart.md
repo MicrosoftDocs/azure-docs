@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 10/27/2023
+ms.date: 11/03/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 > [!IMPORTANT]
-> This Quickstart will work for most use cases. The only exception is if you plan to use Azure Elastic SAN Preview as backing storage for your storage pool and you don't have owner-level access to the Azure subscription. If both these statements apply to you, use the [manual installation steps](install-container-storage-aks.md) instead.
+> This Quickstart will work for most use cases. An exception is if you plan to use Azure Elastic SAN Preview as backing storage for your storage pool and you don't have owner-level access to the Azure subscription. If both these statements apply to you, use the [manual installation steps](install-container-storage-aks.md) instead. Alternatively, you can complete this Quickstart with the understanding that a storage pool won't be automatically created, and then [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ## Getting started
 
@@ -28,12 +28,18 @@ ms.custom: devx-track-azurecli
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
 
-## Install the latest AKS preview extension
+## Install the required extensions
 
 Upgrade to the latest version of the `aks-preview` cli extension by running the following command.
 
 ```azurecli-interactive
 az extension add --upgrade --name aks-preview
+```
+
+Add or upgrade to the latest version of k8s-extension by running the following command.
+
+```azurecli-interactive
+az extension add --upgrade --name k8s-extension
 ```
 
 ## Set subscription context
@@ -127,6 +133,8 @@ The deployment will take 10-15 minutes to complete.
 
 If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm-type-for-your-cluster), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
 
+Running this command will enable Azure Container Storage on a node pool named `nodepool1`, which is the default node pool name. If you want to install it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools).
+
 > [!IMPORTANT]
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
@@ -135,3 +143,19 @@ az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-contain
 ```
 
 The deployment will take 10-15 minutes to complete.
+
+### Install Azure Container Storage on specific node pools
+
+If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs each.
+
+1. Run the following command to view the list of available node pools. Replace `<resource-group-name>` and `<cluster-name>` with your own values.
+
+```azurecli-interactive
+az aks nodepool list --resource-group <resource-group-name> --cluster-name <cluster-name>
+```
+
+1. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names> 
+```
