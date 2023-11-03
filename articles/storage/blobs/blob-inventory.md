@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 09/22/2023
+ms.date: 10/23/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.custom: references_regions
@@ -115,6 +115,7 @@ Several filters are available for customizing a blob inventory report:
 | Filter name | Filter type | Notes | Required? |
 |--|--|--|--|
 | blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field isn't applicable for inventory on a container, (objectType: `container`). | Yes |
+| creationTime | Number |  Specifies the number of days ago within which the blob must have been created. For example, a value of `3` includes in the report only those blobs which were created in the last 3 days. | No |
 | prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
 | excludePrefix | Array of up to 10 strings for prefixes to be excluded. | Specifies the blob paths to exclude from the inventory report.<br><br>An *excludePrefix* must be a container name prefix or a container name. An empty *excludePrefix* would mean that all blobs with names matching any *prefixMatch* string will be listed.<br><br>If you want to include a certain prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. For example, if you want to include all blobs under `container-a` except those under the folder `container-a/folder`, then *prefixMatch* should be set to `container-a` and *excludePrefix* should be set to `container-a/folder`. | No |
 | includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field isn't applicable for inventory on a container, (objectType: `container`). | No |

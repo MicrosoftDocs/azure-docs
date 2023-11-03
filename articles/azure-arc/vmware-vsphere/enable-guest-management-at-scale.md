@@ -14,7 +14,7 @@ manager: jsuri
 
 # Install Arc agents at scale for your VMware VMs
 
-In this article, you will learn how to install Arc agents at scale for VMware VMs and use Azure management capabilities.
+In this article, you learn how to install Arc agents at scale for VMware VMs and use Azure management capabilities.
 
 ## Prerequisites
 

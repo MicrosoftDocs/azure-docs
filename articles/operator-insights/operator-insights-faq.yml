@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Operator Insights frequently asked questions
+  description: Get answers to frequently asked questions (FAQs) for Azure Operator Insights.
+  author: bettylew
+  ms.author: bettylew
+  ms.service: operator-insights
+  ms.topic: faq
+  ms.date: 10/26/2023
+  ms.custom: references_regions
+title: Azure Operator Insights frequently asked questions
+summary: |
+    If you can't find answers to your questions and still need help, contact Microsoft Support.  
+sections:
+  - name: Data and privacy
+    questions:
+      - question: Where does Azure Operator Insights store customer data?
+        answer: |
+          Azure Operator Insights doesn't move or store customer data out of the region it's deployed in. 
+
+          The only exceptions are the West Central US or South Central US regions. If you deploy to these regions, the data is stored in the East US region.
+
+      - question: Does Azure Operator Insights support CMK-based encryption?
+        answer: |
+          Azure Operator Insights supports use of customer-managed key (CMK) for all regions except West Central US or South Central US.         
+
+  - name: Getting access to Azure Operator Insights
+    questions:
+      - question: |
+          How do I get access to Azure Operator Insights? 
+        answer: |
+          Access is currently limited. For now, we're working with customers with an existing partnership with Microsoft and particular use cases. In addition to applying for initial access, 
+          all requests for Azure Operator Insights are required to go through a use case review. [Apply here](https://aka.ms/AAn1mi6) for initial access.         
+      - question: |
+          In which Azure regions can I deploy Azure Operator Insights Data Products?
+        answer: |
+          The following regions are currently available: 
+          - East US 
+          - South Central US
+          - West Central US
+          - Canada Central 
+          - UK South
+          - North Europe 
+          - West Europe
+          - Australia East 
+
+          We'll be enabling other regions. If your region isn't in the list, contact your local Microsoft representative.

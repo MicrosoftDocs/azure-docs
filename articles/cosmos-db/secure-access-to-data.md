@@ -110,7 +110,7 @@ For information and sample code to configure RBAC for the Azure Cosmos DB for Mo
 
 Resource tokens provide access to the application resources within a database. Resource tokens:
 
-- Provide access to specific containers, partition keys, documents, attachments, stored procedures, triggers, and UDFs.
+- Provide access to specific containers, partition keys, documents, attachments.
 - Are created when a [user](#users) is granted [permissions](#permissions) to a specific resource.
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
