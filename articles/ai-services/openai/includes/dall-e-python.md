@@ -54,7 +54,7 @@ Open a command prompt and browse to your project folder. Create a new python fil
 Install the OpenAI Python SDK by using the following command: 
 
 ```bash
-pip install openai
+pip install openai==0.28.1
 ```
 
 Install the following libraries as well:

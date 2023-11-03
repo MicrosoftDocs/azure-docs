@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 10/26/2023
+ms.date: 10/31/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -119,7 +119,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7, 7.0, 8.0
+* VMware vSphere version 7.0, 8.0
 * Azure Stack HCI
 * SCVMM
 
