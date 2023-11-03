@@ -147,20 +147,20 @@ The data type that Azure Monitor uses for each property depends on whether the r
 * If the record type does exist, Azure Monitor attempts to create a new record based on existing properties. If the data type for a property in the new record doesn’t match and can’t be converted to the existing type, or if the record includes a property that doesn’t exist, Azure Monitor creates a new property that has the relevant suffix.
 
 For example, the following submission entry would create a record with three properties, **number_d**, **boolean_b**, and **string_s**:
-
-:::image type="content" source="media/data-collector-api/record-01.png" lightbox="media/data-collector-api/record-01.png" alt-text="Screenshot of sample record 1.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collector-api/record-01.png" lightbox="media/data-collector-api/record-01.png" alt-text="Screenshot of sample record 1." border="false":::
 
 If you were to submit this next entry, with all values formatted as strings, the properties wouldn't change. You can convert the values to existing data types.
-
-:::image type="content" source="media/data-collector-api/record-02.png" lightbox="media/data-collector-api/record-02.png" alt-text="Screenshot of sample record 2.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collector-api/record-02.png" lightbox="media/data-collector-api/record-02.png" alt-text="Screenshot of sample record 2." border="false":::
 
 But, if you then make this next submission, Azure Monitor would create the new properties **boolean_d** and **string_d**. You can't convert these values.
-
-:::image type="content" source="media/data-collector-api/record-03.png" lightbox="media/data-collector-api/record-03.png" alt-text="Screenshot of sample record 3.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collector-api/record-03.png" lightbox="media/data-collector-api/record-03.png" alt-text="Screenshot of sample record 3." border="false":::
 
 If you then submit the following entry, before the record type is created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
-
-:::image type="content" source="media/data-collector-api/record-04.png" lightbox="media/data-collector-api/record-04.png" alt-text="Screenshot of sample record 4.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-collector-api/record-04.png" lightbox="media/data-collector-api/record-04.png" alt-text="Screenshot of sample record 4." border="false":::
 
 ## Reserved properties
 The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:

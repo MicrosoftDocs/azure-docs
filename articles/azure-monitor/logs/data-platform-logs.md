@@ -68,8 +68,8 @@ You can:
 Insights include prebuilt queries to support their views and workbooks.
 
 For a list of where log queries are used and references to tutorials and other documentation to get you started, see [Log queries in Azure Monitor](./log-query-overview.md).
-
-:::image type="content" source="media/data-platform-logs/log-analytics.png" lightbox="media/data-platform-logs/log-analytics.png" alt-text="Screenshot that shows queries in Log Analytics.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-logs/log-analytics.png" lightbox="media/data-platform-logs/log-analytics.png" alt-text="Screenshot that shows queries in Log Analytics." border="false":::
 
 ## Relationship to Azure Data Explorer
 Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. For information on KQL, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
