@@ -94,8 +94,8 @@ Run the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription/)
 1. Open the menu for the resource group where any solutions are installed.
 1. Select the solutions to remove.
 1. Select **Delete Resources** and then confirm the resources to be removed by selecting **Delete**.
-
-   :::image type="content" source="media/move-workspace/delete-solutions.png" lightbox="media/move-workspace/delete-solutions.png" alt-text="Screenshot that shows deleting solutions.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/move-workspace/delete-solutions.png" lightbox="media/move-workspace/delete-solutions.png" alt-text="Screenshot that shows deleting solutions." border="false":::
 
 ### [REST API](#tab/rest-api)
 
@@ -138,8 +138,8 @@ To remove the **Start/Stop VMs** solution, you also need to remove the alert rul
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
    - SequencedStartStop_Parent
-
-    :::image type="content" source="media/move-workspace/delete-rules.png" lightbox="media/move-workspace/delete-rules.png" alt-text="Screenshot that shows deleting rules.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/move-workspace/delete-rules.png" lightbox="media/move-workspace/delete-rules.png" alt-text="Screenshot that shows deleting rules." border="false":::
 
 ### [REST API](#tab/rest-api)
 

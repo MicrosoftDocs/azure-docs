@@ -119,8 +119,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 
 ### Allow trusted Microsoft services
 If you've configured your Storage Account to allow access from selected networks, you need to add an exception to allow Azure Monitor to write to the account. From **Firewalls and virtual networks** for your Storage Account, select **Allow Azure services on the trusted services list to access this Storage Account**.
-
-:::image type="content" source="media/logs-data-export/storage-account-network.png" lightbox="media/logs-data-export/storage-account-network.png" alt-text="Screenshot that shows the option Allow Azure services on the trusted services list.":::
+<!-- convertborder later -->
+:::image type="content" source="media/logs-data-export/storage-account-network.png" lightbox="media/logs-data-export/storage-account-network.png" alt-text="Screenshot that shows the option Allow Azure services on the trusted services list." border="false":::
 
 ### Monitor destinations
 
@@ -475,8 +475,8 @@ Use the following command to create a data export rule to a specific Event Hub b
    :::image type="content" source="media/logs-data-export/export-view-1.png" lightbox="media/logs-data-export/export-view-1.png" alt-text="Screenshot that shows the Data Export screen.":::
 
 1. Select a rule for a configuration view.
-
-   <img src="media/logs-data-export/export-view-2.png" alt="Screenshot of data export rule view." title= "Data export rule configuration view" width="65%"/>
+   <!-- convertborder later -->
+   :::image type="content" source="media/logs-data-export/export-view-2.png" lightbox="media/logs-data-export/export-view-2.png" alt-text="Screenshot of data export rule view." border="false":::
 
 # [PowerShell](#tab/powershell)
 
