@@ -76,9 +76,9 @@ Curated environments are provided by Machine Learning and are available in your 
 
 In custom environments, you're responsible for setting up your environment. Make sure to install the packages and any other dependencies that your training or scoring script needs on the compute. Machine Learning allows you to create your own environment by using:
 
-* A docker image.
-* A base docker image with a conda YAML to customize further.
-* A docker build context.
+* A Docker image.
+* A base Docker image with a conda YAML to customize further.
+* A Docker build context.
 
 ## Model
 
