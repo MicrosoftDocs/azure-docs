@@ -233,7 +233,7 @@ In the following steps, leave all values at their default unless otherwise speci
 
     This simple JQ transformation passes through the incoming message unchanged.
 
-1. Finally, select **Add destination**, select **E4K** from the list of destinations, enter the following information and then select **Apply**:
+1. Finally, select **Add destination**, select **MQ** from the list of destinations, enter the following information and then select **Apply**:
 
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
