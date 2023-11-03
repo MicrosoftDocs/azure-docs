@@ -147,7 +147,6 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 The output from a successful image generation API call looks like the following example. The `url` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
 
-
 #### [DALL-E 3](#tab/dalle3)
 
 ```json
@@ -187,7 +186,6 @@ The output from a successful image generation API call looks like the following 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
-
 
 
 #### [DALL-E 3](#tab/dalle3)
