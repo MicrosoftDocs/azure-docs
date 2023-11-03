@@ -209,7 +209,7 @@ A Subscription is a billing and management container in Azure that holds resourc
 ## T
 
 ### Tenant
-A Tenant refers to an organization or entity that owns and manages a Microsoft Entra ID instance. Tenants provide a way to manage and control access to Azure resources, ensuring secure and controlled access for users and applications.
+A Tenant refers to an organization or entity that owns and manages a Microsoft Entra ID instance.  It serves as a secure container for Azure resources, allowing organizations to control and manage access. Tenants enable organizations to efficiently allocate resources, enforce access policies, and integrate with Azure services, providing a centralized and secure environment for managing their cloud infrastructure.
 
 ## U
 
