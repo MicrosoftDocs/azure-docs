@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
+You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets can belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
 Depending on your configuration, applications on peered virtual networks or on-premises networks can also access volumes in the group. On-premises networks must be connected to the virtual network by a VPN or ExpressRoute. For more information about virtual network configurations, see [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
@@ -39,7 +39,7 @@ You can enable or disable public Internet access to your Elastic SAN endpoints a
 > [!TIP]
 > The original local service endpoints, identified as **Microsoft.Storage**, are still supported for backward compatibility, but you should create cross-region endpoints, identified as **Microsoft.Storage.Global**, for new deployments.
 >
-> Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, you may have to delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
+> Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, you might have to delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
 
 ## Private endpoints
 
@@ -61,7 +61,7 @@ For details on how to configure private endpoints, see [Enable private endpoint]
 
 To further secure access to your Elastic SAN volumes, you can create virtual network rules for volume groups configured with service endpoints to allow access from specific subnets. You don't need network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
-Each volume group supports up to 200 virtual network rules. If you delete a subnet that has been included in a network rule, it is removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
+Each volume group supports up to 200 virtual network rules. If you delete a subnet that has been included in a network rule, it's removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
 Clients granted access via these network rules must also be granted the appropriate permissions to the Elastic SAN to volume group.
 

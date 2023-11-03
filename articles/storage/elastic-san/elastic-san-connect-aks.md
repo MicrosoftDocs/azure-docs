@@ -57,13 +57,13 @@ kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 
 You need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
 
-You may get them with the following Azure PowerShell command:
+You can get them with the following Azure PowerShell command:
 
 ```azurepowershell
 Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume 
 ```
 
-You may also get them with the following Azure CLI command:
+You can also get them with the following Azure CLI command:
 
 ```azurecli
 az elastic-san volume show --elastic-san-name --name --resource-group --volume-group-name
