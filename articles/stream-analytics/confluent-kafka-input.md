@@ -10,7 +10,7 @@ ms.date: 11/02/2023
 
 # Stream data from confluent cloud Kafka with Azure Stream Analytics
 
-This articles describes how to connect your Azure Stream Analytics job directly to confluent cloud kafka as an input.
+This article describes how to connect your Azure Stream Analytics job directly to confluent cloud kafka as an input.
 
 
 ## Prerequisites
@@ -19,7 +19,7 @@ This articles describes how to connect your Azure Stream Analytics job directly 
 - You have an API Key file for your kafka cluster which contains the API key to use as a username, API Secret to use as a password and the Bootstrap server address.
 - You have an Azure Stream Analytics job. You an create an Azure Stream Analytics job by following the documentation: [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 - Your confluent cloud kafka cluster must be publicly accessible and not behind a firewall or secured in an virtual network.
-- The timestamp type of the topic of your confluent cloud kafka cluster should be **LogAppendTime**. NOte that the default for confluent cloud kafka topic is **CreateTime**.
+- The timestamp type of the topic of your confluent cloud kafka cluster should be **LogAppendTime**. Note that the default for confluent cloud kafka topic is **CreateTime**.
 - You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
 
 ## Configure Azure Stream Analytics to use managed identity
@@ -41,14 +41,14 @@ The stream analytics kafka input is a librdkafka-based client, and to connect to
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-    :::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt" lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt" lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 
 ## Configure KeyVault with Permissions
 
-Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets. To be able to use the certificate you downloaded, you must upload it to key vault first.
+Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets. To use the certificate you downloaded, you must upload it to key vault first.
 
-To be able to upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access:
+To upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access:
 
 > [!NOTE]
 > You must have "**Owner**" permissions to grant other key vault permissions.
@@ -162,16 +162,16 @@ Use the following configuration:
  | Certificate | name of the certificate uploaded to KeyVault |
 
 
-    :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-input.png" :::
+:::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-input.png" :::
 
 
 
 ## Save your configuration
 
 Save your configuration. Your Azure Stream Analytics job will automatically validate using the configuration provided.
-A successful connection will show up in the portal if you stream analytics is able to connect to your kafka cluster.
+A successful connection will show up in the portal if your stream analytics can connect to your kafka cluster.
 
-    :::image type="content" source="./media/kafka/kafka-test-connection.png" alt-text="Screenshot showing successful test connection confluent kafka input" lightbox="./media/kafka/kafka-test-connection.png" :::
+:::image type="content" source="./media/kafka/kafka-test-connection.png" alt-text="Screenshot showing successful test connection confluent kafka input" lightbox="./media/kafka/kafka-test-connection.png" :::
    
 
 ### Limitations
