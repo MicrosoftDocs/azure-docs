@@ -34,6 +34,6 @@ Currently only available in the following regions:
 - US Gov Virginia (Three availability zones)
 - West Europe (Three availability zones)
 - West US 2 (Three availability zones)
-- West US 2 (Three availability zones)
+- West US 3 (Three availability zones)
 
   
