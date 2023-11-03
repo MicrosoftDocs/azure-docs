@@ -42,7 +42,7 @@ No. You can purchase a private connection of any speed from your service provide
 
 ### Is it possible to use more bandwidth than I procured for my ExpressRoute circuit?
 
-Yes, you may use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
+Yes, you can use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
 
 If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
@@ -104,7 +104,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * CDN
 * Azure Front Door
-* Multi-factor Authentication Server (legacy)
+* Multifactor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
 
@@ -318,11 +318,11 @@ You can update the bandwidth of the ExpressRoute circuit using the Azure portal,
 
 ### I received a notification about maintenance on my ExpressRoute circuit. What is the technical effect of this maintenance?
 
-You should experience minimal to no disruption during maintenance if you operate your circuit in [active-active mode](./designing-for-high-availability-with-expressroute.md#active-active-connections). Maintenance gets performed on the primary and secondary connections of your circuit separately. During maintenance, you may see longer AS-path prepend over one of the connections. The reason is to gracefully shift traffic from one connection to another. You must not ignore longer AS path, as it can cause asymmetric routing, resulting in a service outage. It's advisable to configure [BFD](expressroute-bfd.md) for faster BGP failover between Primary and Secondary connection in the event a BGP failure is detected during maintenance. Scheduled maintenance is performed outside of business hours in the time zone of the peering location, and you can't select a maintenance time.
+You should experience minimal to no disruption during maintenance if you operate your circuit in [active-active mode](./designing-for-high-availability-with-expressroute.md#active-active-connections). Maintenance gets performed on the primary and secondary connections of your circuit separately. During maintenance, you might see longer AS-path prepend over one of the connections. The reason is to gracefully shift traffic from one connection to another. You must not ignore longer AS path, as it can cause asymmetric routing, resulting in a service outage. It's advisable to configure [BFD](expressroute-bfd.md) for faster BGP failover between Primary and Secondary connection in the event a BGP failure is detected during maintenance. Scheduled maintenance is performed outside of business hours in the time zone of the peering location, and you can't select a maintenance time.
 
 ### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical effect of this maintenance?
 
-You should experience minimal to no disruption during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. There may be temporarily lower network throughput to the virtual network but the gateway itself doesn't experience any downtime.
+You should experience minimal to no disruption during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. There might be temporarily lower network throughput to the virtual network but the gateway itself doesn't experience any downtime.
 
 ### Why are certain ports opened on my ExpressRoute gateway?
 
@@ -386,7 +386,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. Specifically, with a Local SKU you can only advertise routes over Microsoft and private peering from the corresponding local region of the ExpressRoute circuit. You won't receive routes for other regions different than the defined local region.
 
-ExpressRoute Local may not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
+ExpressRoute Local might not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
 
 ### What are the benefits of ExpressRoute Local?
 
@@ -503,7 +503,7 @@ For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
 
 ### What is the effect of maintenance on flow logging?
 
-You should experience minimal to no disruption during maintenance on your ExpressRoute Traffic Collector. ExpressRoute Traffic Collector has multiple instances on different update domains, during an upgrade, instances are taken offline one at a time. While you may experience lower ingestion of sample flows into the Log Analytics workspace, the ExpressRoute Traffic Collector itself doesn't experience any downtime. Loss of sampled flows during maintenance shouldn't affect network traffic analysis, when sampled data is aggregated over a longer time frame.
+You should experience minimal to no disruption during maintenance on your ExpressRoute Traffic Collector. ExpressRoute Traffic Collector has multiple instances on different update domains, during an upgrade, instances are taken offline one at a time. While you might experience lower ingestion of sample flows into the Log Analytics workspace, the ExpressRoute Traffic Collector itself doesn't experience any downtime. Loss of sampled flows during maintenance shouldn't affect network traffic analysis, when sampled data is aggregated over a longer time frame.
 
 ### Does ExpressRoute Traffic Collector support availability zones?
 
@@ -513,6 +513,14 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
+
+## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
+
+[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+
+### How do I find out more about customer-controlled gateway maintenance?
+
+For more information, see the [ExpressRoute customer-controlled gateway maintenance](customer-controlled-gateway-maintenance.md) article.
 
 ## Privacy
 

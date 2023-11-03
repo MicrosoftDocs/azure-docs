@@ -321,3 +321,4 @@ Continue on to any of the following optional quickstarts:
 - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 - [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
+- [Integrate Azure OpenAI](quickstart-fitness-store-azure-openai.md)
