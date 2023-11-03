@@ -54,7 +54,7 @@ The following table describes the SQL Server source configuration parameters:
 | Data format | [Format](#select-data-format) | Data format of the incoming data | Required | NA | `{"type": "json"}` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
 
-<!-- TODO: Add link to AKV secret article -->
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy/howto-manage-secrets.md).
 
 > [!NOTE]
 > Requests timeout in 30 seconds if there's no response from the SQL server.
