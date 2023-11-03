@@ -1,24 +1,33 @@
 ---
-title: Configure IoT Layered Network Management Level 3 cluster
+title: Configure IoT Layered Network Management level 3 cluster
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure IoT Layered Network Management Level 3 cluster.
+description: Configure IoT Layered Network Management level 3 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/03/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure IoT Layered Network Management Level 3 cluster
+# Configure IoT Layered Network Management level 3 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management.
+You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management. For example, level 3 or lower in the ISA-95 network architecture.
+
+Before you start this process, the Layered Network Management service in the parent level has to be ready for accepting the connection request from this level.
+
+You'll complete the following tasks:
+- Set up the host system and install all the required software in an internet facing environment.
+- Install the Kubernetes of your choice.
+- Move the host to the isolated network environment.
+- Use a customized DNS setting to direct the network traffic to the Layered Network Management service in parent level.
+- Arc-enable the cluster.
 
 ## Configure a Kubernetes cluster
 
-You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) hosted on Windows 11 or a K3S cluster on Ubuntu.
+You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) hosted on Windows 11 or a K3S cluster on Ubuntu for the Kubernetes cluster.
 
 # [AKS Edge Essentials](#tab/aksee)
 
@@ -40,7 +49,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
     az extension add --name k8s-extension
     az extension add --name customlocation
     ```
-
+1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
 1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
 1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
@@ -78,6 +87,8 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 
 # [K3S cluster](#tab/k3s)
 
+You should complete this step in an *internet facing environment outside of the isolated network*. Otherwise, you need to prepare the offline installation package for the following software in the next section.
+
 ## Prepare an Ubuntu machine
 
 1. Ubuntu 22.04 LTS is the recommended version for the host machine.
@@ -91,7 +102,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     az extension add --name k8s-extension
     az extension add --name customlocation
     ```
-
+1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
 1. Install `nfs-common` on the host machine.
 
     ```bash
@@ -112,21 +123,11 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
-
-
-## Move the device to level 3 isolated network
-
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
-
-After the device is moved to L3, configure the DNS setting using the following steps:
-
-1. Open the **Wi-Fi Settings**.
-1. Select the setting of the current connection.
-1. In the IPv4 tab, disable the **Automatic** setting for DNS and enter the local IP of DNS server.
-
 ## Create the K3S cluster
 
-1. Configure the K3S offline using the steps in the [Air-Gap Install](https://docs.k3s.io/installation/airgap) documentation.
+1. [Install the K3S with online command](https://docs.k3s.io/quick-start).
+
+    As an alternative, you can configure the K3S offline using the steps in the [Air-Gap Install](https://docs.k3s.io/installation/airgap) documentation *after* you move the device to the isolated network environment.
 1. Copy the K3s configuration yaml file to `.kube/config`.
 
     ```bash
@@ -139,6 +140,16 @@ After the device is moved to L3, configure the DNS setting using the following s
     #switch to k3s context
     kubectl config use-context default
     ```
+
+## Move the device to level 3 isolated network
+
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
+
+After the device is moved to L3, configure the DNS setting using the following steps:
+
+1. Open the **Wi-Fi Settings**.
+1. Select the setting of the current connection.
+1. In the IPv4 tab, disable the **Automatic** setting for DNS and enter the local IP of DNS server.
 
 ---
 

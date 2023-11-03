@@ -16,6 +16,13 @@ ms.date: 10/24/2023
 
 Azure IoT Layered Network Management is a Kubernetes-based solution that provides secure communication between devices and the cloud through **isolated network environments** based on the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/)*. The solution is deployed and managed as a component of Azure IoT Operations Preview on Arc-enabled Kubernetes clusters.
 
+Azure IoT Layered Network Management service is a component that facilitates the connection between Azure and clusters in isolated network environment. In industrial scenarios, the isolated network follows the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/)*. The Layered Network Management service can route the network traffic from a non-internet facing layer through an internet facing layer and then to Azure. This service is deployed and managed as a component of Azure IoT Operations Preview on Arc-enabled Kubernetes clusters. Review the network architecture of your solution and use the Layered Network Management service if it's applicable and necessary for your scenarios. If you have already integrated other mechanism of controlling internet access for the isolated network, you should compare the functionality with Layered Network Management service and choose the one that fits your needs the best. Layered Network Management is an optional component and it's not a dependency for any feature of Azure IoT Operations Preview.
+
+> [!IMPORTANT]
+> The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for productional usage.
+>
+> Although network isolation is a security topic, the Layered Network Management service isn't designed for increasing the security of your solution. It's designed for maintaining the security level of your original design as much as possible while enabling the connection to Azure Arc.
+
 Layered Network Management provides several benefits including:
 
 * Kubernetes-based configuration and compatibility with IP and NIC mapping for crossing levels

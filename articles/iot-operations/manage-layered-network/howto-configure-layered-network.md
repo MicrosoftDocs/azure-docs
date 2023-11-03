@@ -37,7 +37,7 @@ Layered Network Management is deployed to the dual NIC cluster. The cluster in t
 
 The following example is an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
-<!--![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge-diagram.png)-->
+![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge.png)
 
 The multiple levels of networks in this test setup are accomplished using subnets within a network:
 
@@ -65,8 +65,6 @@ The following configuration only contains the necessary endpoints for enabling A
 
 ```conf
 # Add domains which you want to force to an IP address here.
-# The example below send any host in double-click.net to a local
-# web-server.
 address=/management.azure.com/10.104.0.10
 address=/dp.kubernetesconfiguration.azure.com/10.104.0.10
 address=/.dp.kubernetesconfiguration.azure.com/10.104.0.10
@@ -117,14 +115,8 @@ address=/servicebus.windows.net/fe80::20d:60ff:fe36:f833
 # Repeat the line for more than one interface.
 interface=enp1s0
 
-# Or you can specify which interface _not_ to listen on
-# except-interface=
-# Or which to listen on by address (remember to include 127.0.0.1 if
-# you use this.)
 listen-address=::1,127.0.0.1,10.102.0.72
 
-# If you don't want dnsmasq to read /etc/hosts, uncomment the
-# following line.
 no-hosts
 ```
 
@@ -132,8 +124,6 @@ As an alternative, you can put `address=/#/<IP of upper level Layered Network Ma
 
 ```conf
 # Add domains which you want to force to an IP address here.
-# The example below send any host in double-click.net to a local
-# web-server.
 address=/#/<IP of upper level Layered Network Management service>
 
 # --address (and --server) work with IPv6 addresses too.
@@ -145,15 +135,16 @@ address=/#/fe80::20d:60ff:fe36:f833
 # Repeat the line for more than one interface.
 interface=enp1s0
 
-# Or you can specify which interface _not_ to listen on
-# except-interface=
-# Or which to listen on by address (remember to include 127.0.0.1 if
-# you use this.)
 listen-address=::1,127.0.0.1,10.102.0.72
 
-# If you don't want dnsmasq to read /etc/hosts, uncomment the
-# following line.
 no-hosts
+```
+
+Restart the *dnsmasq* service to apply the changes.
+
+```bash
+sudo systemctl restart dnsmasq
+systemctl status dnsmasq
 ```
 
 ## Related content
