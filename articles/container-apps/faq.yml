@@ -97,19 +97,19 @@ sections:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
           
-  - name: Build Java Application in Cloud Build Service
+  - name: Deploy Java applications
     questions:
       - question: |
-          Which JDK versions are supported and how does the Cloud Build Service determine which JDK version to use?
+          Which JDK versions are supported?
         answer: |
-          Four LTS JDK versions are supported: JDK 8, JDK 11, JDK 17 and JDK 21. 
+          Container Apps supports four LTS JDK versions are supported: JDK 8, JDK 11, JDK 17 and JDK 21. 
           For source code build, the default version is JDK 17.
           For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
       - question: |
-          Which build tools are supported in the Cloud Build Service?
+          Which Java build tools are supported?
         answer: |
           Maven
       - question: |
-          How to configure Maven in the Cloud Build Service?
+          Are build environment variables supported?
         answer: |
-          Build environment variable isn't supported in Cloud Build Service.
+          No. Container Apps automatically selects the Maven version. 
