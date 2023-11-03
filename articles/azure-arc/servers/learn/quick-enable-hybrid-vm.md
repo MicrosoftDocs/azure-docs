@@ -43,9 +43,7 @@ Use the Azure portal to create a script that automates the agent download and in
     > [!NOTE]
     > In the portal, you can also reach this page by searching for and selecting "Servers - Azure Arc" and then selecting **+Add**.
 
-1. Review the information on the **Prerequisites** page, then select **Next**.
-
-1. On the **Resource details** page, provide the following:
+1. On the **Basics** page, provide the following:
 
    1. Select the subscription and resource group where you want the machine to be managed within Azure.
    1. For **Region**, choose the Azure region in which the server's metadata will be stored.
