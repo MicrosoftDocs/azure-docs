@@ -58,7 +58,7 @@ The Azure Arc-enabled servers Private Link Scope object has a number of limits y
 - An Azure Arc-enabled machine or server resource can only connect to one Azure Arc-enabled servers Private Link Scope.
 - All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 - The Azure Arc-enabled server and Azure Arc Private Link Scope must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled server.
-- Network traffic to Azure Active Directory and Azure Resource Manager does not traverse the Azure Arc Private Link Scope and will continue to use your default network route to the internet. You can optionally [configure a resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) to send Azure Resource Manager traffic to a private endpoint.
+- Network traffic to Microsoft Entra ID and Azure Resource Manager does not traverse the Azure Arc Private Link Scope and will continue to use your default network route to the internet. You can optionally [configure a resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) to send Azure Resource Manager traffic to a private endpoint.
 - Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
 - Remote access to the server using Windows Admin Center or SSH is not supported over private link at this time.
 
@@ -72,7 +72,7 @@ To connect your server to Azure Arc over a private link, you need to configure y
 
 1. Update the DNS configuration on your local network to resolve the private endpoint addresses.
 
-1. Configure your local firewall to allow access to Azure Active Directory and Azure Resource Manager.
+1. Configure your local firewall to allow access to Microsoft Entra ID and Azure Resource Manager.
 
 1. Associate the machines or servers registered with Azure Arc-enabled servers with the private link scope.
 
@@ -87,13 +87,13 @@ This article assumes you have already set up your ExpressRoute circuit or site-t
 
 ## Network configuration
 
-Azure Arc-enabled servers integrate with several Azure services to bring cloud management and governance to your hybrid machines or servers. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the internet until these services offer private endpoints.
+Azure Arc-enabled servers integrate with several Azure services to bring cloud management and governance to your hybrid machines or servers. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Microsoft Entra ID and Azure Resource Manager over the internet until these services offer private endpoints.
 
 There are two ways you can achieve this:
 
-- If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+- If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Microsoft Entra ID and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
 
-    |Setting |Azure AD rule | Azure rule |
+    |Setting |Microsoft Entra ID rule | Azure rule |
     |--------|--------------|-----------------------------|
     |Source |Virtual network |Virtual network |
     |Source port ranges |* |* |
@@ -105,7 +105,7 @@ There are two ways you can achieve this:
     |Priority |150 (must be lower than any rules that block internet access) |151 (must be lower than any rules that block internet access) |
     |Name |AllowAADOutboundAccess |AllowAzOutboundAccess |
 
-- Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The [JSON file](https://www.microsoft.com/en-us/download/details.aspx?id=56519) contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+- Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Microsoft Entra ID and Azure using the downloadable service tag files. The [JSON file](https://www.microsoft.com/en-us/download/details.aspx?id=56519) contains all the public IP address ranges used by Microsoft Entra ID and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 See the visual diagram under the section [How it works](#how-it-works) for the network traffic flows.
 
@@ -272,7 +272,7 @@ The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAg
 The script will return status messages letting you know if onboarding was successful after it completes.
 
 > [!TIP]
-> Network traffic from the Azure Connected Machine agent to Azure Active Directory and Azure Resource Manager will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You may also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
+> Network traffic from the Azure Connected Machine agent to Microsoft Entra ID and Azure Resource Manager will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You may also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
 
 ### Configure an existing Azure Arc-enabled server
 
@@ -300,7 +300,7 @@ It may take up to 15 minutes for the Private Link Scope to accept connections fr
     nslookup agentserviceapi.guestconfiguration.azure.com
     ```
 
-1. If you are having trouble onboarding a machine or server, confirm that you've added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
+1. If you are having trouble onboarding a machine or server, confirm that you've added the Microsoft Entra ID and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
 
 ## Next steps
 

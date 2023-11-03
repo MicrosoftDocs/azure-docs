@@ -108,16 +108,16 @@ If you want to configure diagnostics package gathering during site creation, see
 
 ## Choose the authentication method for local monitoring tools
 
-Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Microsoft Entra authentication to improve security in your deployment.
 
-If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you want to access your local monitoring tools using Microsoft Entra ID, after creating a site you'll need to follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
 If you want to access your local monitoring tools using local usernames and passwords, you don't need to set any additional configuration. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
 
 You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 > [!NOTE]
-> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Azure AD. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
+> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Microsoft Entra ID. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
 
 ## Collect local monitoring values
 

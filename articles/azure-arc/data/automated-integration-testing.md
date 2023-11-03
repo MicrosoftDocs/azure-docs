@@ -247,13 +247,15 @@ export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.
 ```
 The CLI version to Blob URL mapping can be found [here](https://azcliextensionsync.blob.core.windows.net/index1/index.json).
 
-##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
+<a name='3-custom_location_oid---custom-locations-object-id-from-your-specific-azure-ad-tenant'></a>
+
+##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Microsoft Entra tenant
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
-The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Azure AD tenant.
+The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Microsoft Entra tenant.
 
-There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
+There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Microsoft Entra tenant.
 
 1. Via Azure CLI:
 
@@ -264,7 +266,7 @@ There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure A
 
     ![A screenshot of a PowerShell terminal that shows `az ad sp show --id <>`.](media/automated-integration-testing/custom-location-oid-cli.png)
 
-2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
+2. Via Azure portal - navigate to your Microsoft Entra blade, and search for `Custom Locations RP`:
 
     ![A screenshot of the custom locations RP.](media/automated-integration-testing/custom-location-oid-portal.png)
 

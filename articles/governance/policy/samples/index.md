@@ -52,6 +52,7 @@ Azure:
 - [NIST SP 800-53 Rev. 4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-53 Rev. 5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
+- [NL BIO Cloud Theme](./nl-bio-cloud-theme.md)
 - [PCI DSS 3.2.1](./pci-dss-3-2-1.md)
 - [PCI DSS 4.0](./pci-dss-4-0.md)
 - [RBI ITF Banks v2016](./rbi-itf-banks-2016.md)

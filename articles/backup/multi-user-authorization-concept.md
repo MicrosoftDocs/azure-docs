@@ -77,7 +77,7 @@ Here's the flow of events in a typical scenario:
 
    If the Backup admin didn't have the required permissions/roles, the request would have failed.
 
-1. The security admin ensures that the privileges to perform critical operations are revoked after authorized actions are performed or after a defined duration. Using JIT tools  [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) may be useful in ensuring this.
+1. The security admin ensures that the privileges to perform critical operations are revoked after authorized actions are performed or after a defined duration. Using JIT tools  [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) may be useful in ensuring this.
 
 >[!NOTE]
 >MUA provides protection on the above listed operations performed on the vaulted backups only. Any operations performed directly on the data source (that is, the Azure resource/workload that is protected) are beyond the scope of the Resource Guard. 

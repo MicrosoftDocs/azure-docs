@@ -17,6 +17,8 @@ Before you add any resources for Microsoft Sentinel, use the [Azure pricing calc
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
+This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
+
 ## Free trial
 
 Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
@@ -58,7 +60,7 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 - Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers which are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
 
-    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100 GB bills you for the committed 100 GB data volume, plus any extra GB/day at the discounted rate for that tier.
+    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100-GB bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted rate for that tier.
 
     Increase your commitment tier anytime to optimize costs as your data volume increases. Lowering the commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
@@ -148,7 +150,7 @@ If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft S
 
 # [Free data meters](#tab/free-data-meters/simplified)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -159,7 +161,7 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 # [Free data meters](#tab/free-data-meters/classic)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -174,7 +176,7 @@ Learn how to [view and download your Azure bill](../cost-management-billing/unde
 
 ## Costs and pricing for other services
 
-Microsoft Sentinel integrates with many other Azure services, including Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have extra charges. Some of Microsoft Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
+Microsoft Sentinel integrates with many other Azure services, including Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services might have extra charges. Some of Microsoft Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
 Learn about pricing for these services:
 
@@ -214,14 +216,14 @@ The following data sources are free with Microsoft Sentinel:
 - Security alerts, including alerts from Microsoft Defender for Cloud, Microsoft 365 Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
 - Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. 
 
-Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
+Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Microsoft Entra ID, and Azure Information Protection (AIP) data types are paid.
 
 The following table lists the data sources in Microsoft Sentinel that aren't charged. This is the same list as Log Analytics. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
 
 | Microsoft Sentinel data connector   | Free data type | 
 |-------------------------------------|--------------------------------|
 | **Azure Activity Logs**         | AzureActivity                  |           
-| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | 
+| **Microsoft Entra ID Protection**         | SecurityAlert (IPC)                  | 
 | **Office 365**                     | OfficeActivity (SharePoint)    | 
 || OfficeActivity (Exchange)|
 || OfficeActivity (Teams)          | 
@@ -244,7 +246,7 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 
 - [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
 - [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 
 # Deploy to Azure Container Instances from Azure Container Registry using a service principal
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. One way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. One way to configure registry access is to create a Microsoft Entra service principal and password, and store the login credentials in an Azure key vault.
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 05/05/2023
+  ms.date: 10/28/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -64,11 +64,23 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
+  - title: Configure Deployment Environments from the CLI
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and configure a dev center 
+            url: how-to-create-configure-dev-center.md
+          - text: Create and configure a project 
+            url: how-to-create-configure-projects.md
+          - text: Create environments
+            url: how-to-create-access-environments.md
+        
+  # Card
   - title: Provide access to create and manage environments
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Provide access to dev center project admin
             url: how-to-configure-project-admin.md
-          - text: Provide access to create environments
+          - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md

@@ -94,7 +94,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
+In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it a Microsoft Entra identity.
 
 The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 

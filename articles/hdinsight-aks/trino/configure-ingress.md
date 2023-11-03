@@ -25,7 +25,7 @@ The following instructions add a second layer of authentication in the form of a
    |client-id|Your Azure service principal client ID. Oauth proxy requires this ID to be a secret.|
    |oauth2proxy-redis-password|Proxy cache password. The password used by the Oauth proxy to access the back end Redis deployment instance on Kubernetes. Generate a strong password.|
    |oauth2proxy-cookie-secret|Cookie secret, used to encrypt the cookie data. This cookie secret must be 32 characters long.|
-1. Add these callbacks in your Azure AD application configuration.
+1. Add these callbacks in your Microsoft Entra application configuration.
 
    * `https://{{YOUR_HOST_NAME}}/oauth2/callback`
       - for Oauth2 Proxy

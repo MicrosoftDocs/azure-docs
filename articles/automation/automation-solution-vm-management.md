@@ -35,7 +35,7 @@ The following are limitations with the current feature:
 
 You must have certain permissions to enable VMs for the Start/Stop VMs during off-hours feature. The permissions are different depending on whether the feature uses a pre-created Automation account and Log Analytics workspace or creates a new account and workspace.
 
-You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Azure Active Directory (AD) tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
+You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Microsoft Entra tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
 
 ### Permissions for pre-existing Automation account and Log Analytics workspace
 

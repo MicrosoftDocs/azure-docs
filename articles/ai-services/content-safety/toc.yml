@@ -41,6 +41,8 @@ items:
     href: how-to/use-blocklist.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
+  - name: Migrate from public preview to GA
+    href: how-to/migrate-to-general-availability.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
@@ -57,6 +59,10 @@ items:
     href: https://aka.ms/content-safety-python-sdk
   - name: Content Safety C# SDK
     href: https://aka.ms/content-safety-csharp-sdk
+  - name: Content Safety Java SDK
+    href: /java/api/overview/azure/ai-contentsafety-readme
+  - name: Content Safety JavaScript SDK
+    href: https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1
   - name: Response codes
     href: concepts/response-codes.md
 - name: Resources

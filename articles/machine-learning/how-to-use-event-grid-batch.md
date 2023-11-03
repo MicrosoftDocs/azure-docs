@@ -45,11 +45,11 @@ The workflow looks as follows:
 
 ## Authenticating against batch endpoints
 
-Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../connectors/connectors-native-http.md) activity. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling.
 
 We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario.
 
-1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a service principal following the steps at [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. Take note of the client secret **Value** that is generated. This is only displayed once.
 1. Take note of the `client ID` and the `tenant id` in the **Overview** pane of the application.

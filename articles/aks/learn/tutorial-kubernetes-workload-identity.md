@@ -12,14 +12,14 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect (OIDC) Issuer and managed identity.
 * Create an Azure Key Vault and secret.
-* Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account.
+* Create a Microsoft Entra Workload ID and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Deploy the workload and verify authentication with the workload identity.
 
 ## Before you begin
 
 * This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
-* If you aren't familiar with Azure AD workload identity, see the [Azure AD workload identity overview][workload-identity-overview].
+* If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][workload-identity-overview].
 * When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups]
 
 ## Prerequisites
@@ -264,7 +264,7 @@ You may wish to leave these resources in place. If you no longer need these reso
 
 ## Next steps
 
-In this tutorial, you deployed a Kubernetes cluster and deployed a simple container application to test working with an Azure AD workload identity.
+In this tutorial, you deployed a Kubernetes cluster and deployed a simple container application to test working with a Microsoft Entra Workload ID.
 
 This tutorial is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 

@@ -11,9 +11,6 @@ ms.date: 08/10/2023
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

@@ -12,9 +12,9 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-You can use [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
+You can use [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
 
-To improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
+To improve security in your deployment, we recommend setting up Microsoft Entra authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
 
 In this how-to guide, you'll learn how to use the Azure portal to change the authentication method and the certificate used for securing access to a site's local monitoring tools.
 
@@ -74,9 +74,9 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
 Follow this step if you changed the authentication type for local monitoring access.
 
-If you switched from local usernames and passwords to Azure AD, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you switched from local usernames and passwords to Microsoft Entra ID, follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
-If you switched from Azure AD to local usernames and passwords:
+If you switched from Microsoft Entra ID to local usernames and passwords:
 
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Delete the Kubernetes Secret Objects:

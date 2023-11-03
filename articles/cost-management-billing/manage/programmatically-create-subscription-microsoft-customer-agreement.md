@@ -17,7 +17,7 @@ This article helps you programmatically create Azure subscriptions for a Microso
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
-If you need to create an Azure MCA subscription across Azure Active Directory tenants, see [Programmatically create MCA subscriptions across Azure Active Directory tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
+If you need to create an Azure MCA subscription across Microsoft Entra tenants, see [Programmatically create MCA subscriptions across Microsoft Entra tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
 
 When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
@@ -27,7 +27,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
+If you're using an SPN to create subscriptions, use the ObjectId of the Microsoft Entra Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
 
 > [!NOTE]
 > Permissions differ between the legacy API (api-version=2018-03-01-preview) and the latest API (api-version=2020-05-01). Although you may have a role sufficient to use the legacy API, you might need an EA admin to delegate you a role to use the latest API.
@@ -390,7 +390,7 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
+To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in below example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
 Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 

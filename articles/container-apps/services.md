@@ -5,19 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 10/11/2023
 ms.author: cshoe
 ---
 
 # Connect to services in Azure Container Apps (preview)
 
-As you develop applications in Azure Container Apps, you often need to connect to different services.
+As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "add-ons".
 
-Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "dev services".
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
-Dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
-
-Services available as dev services include:
+Services available as an add-on include:
 
 - Open-source Redis
 - Open-source PostgreSQL
@@ -26,19 +24,19 @@ Once you're ready for your app to use a production level service, you can connec
 
 ## Features
 
-dev services come with the following features:
+Add-ons come with the following features:
 
-- **Scope**: The service runs in the same environment as the connected container app.
-- **Scaling**: The service can scale in to zero when there's no demand for the service.
-- **Pricing**: Service billing falls under consumption-based pricing. Billing only happens when instances of the service are running.
-- **Storage**: The service uses persistent storage to ensure there's no data loss as a service scales in to zero.
-- **Revisions**: Anytime you change a dev service, a new revision of your container app is created.
+- **Scope**: The add-on runs in the same environment as the connected container app.
+- **Scaling**: The add-on can scale in to zero when there's no demand for the service.
+- **Pricing**: Add-on billing falls under consumption-based pricing. Billing only happens when instances of the add-on are running.
+- **Storage**: The add-on uses persistent storage to ensure there's no data loss as the add-on scales in to zero.
+- **Revisions**: Anytime you change an add-on, a new revision of your container app is created.
 
 See the service-specific features for managed services.
 
 ## Binding
 
-Both dev mode and managed services connect to a container via a "binding".
+Both add-ons and managed services connect to a container via a "binding".
 
 The Container Apps runtime binds a container app to a service by:
 
@@ -50,11 +48,11 @@ Once a binding is established, the container app can read these configuration an
 
 ## Development vs production
 
-As you move from development to production, you can move from a dev service to a managed service.
+As you move from development to production, you can move from an add-on to a managed service.
 
 The following table shows you which service to use in development, and which service to use in production.
 
-| Functionality | dev service | Production managed service |
+| Functionality | Add on | Production managed service |
 |---|---|---|
 | Cache | Open-source Redis | Azure Cache for Redis |
 | Database | N/A | Azure Cosmos DB |
@@ -106,9 +104,9 @@ For more information on the service commands and arguments, see the
 
 ## Limitations
 
-- dev services are in public preview.
-- Any container app created before May 23, 2023 isn't eligible to use dev services.
-- dev services come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
+- Add ons are in public preview.
+- Any container app created before May 23, 2023 isn't eligible to use add ons.
+- Add ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
 
 ## Next steps
 

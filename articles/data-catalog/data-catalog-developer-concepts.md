@@ -31,7 +31,7 @@ There are several different roles a user can have. For information on roles, see
 
 Individual users and security groups can be added.
 
-Azure Data Catalog uses Azure Active Directory for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
+Azure Data Catalog uses Microsoft Entra ID for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
 
 ### Assets
 
@@ -222,9 +222,9 @@ Common types can be used as the types for properties, but aren't Items.
 ||address|Dictionary\<string,object\>|Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it's meaningless without knowing the protocol.|
 ||authentication|string|Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.|
 ||connectionProperties|Dictionary\<string,object\>|Optional. Additional information on how to connect to a data source.|
-|DataSourceLocation|||The backend doesn't perform any validation of provided properties against Azure Active Directory during publishing.|
+|DataSourceLocation|||The backend doesn't perform any validation of provided properties against Microsoft Entra ID during publishing.|
 ||upn|string|Required. Unique email address of user. Must be specified if objectId isn't provided or in the context of "lastRegisteredBy" property, otherwise optional.|
-||objectId|Guid|Optional. User or security group Azure Active Directory identity. Optional. Must be specified if upn isn't provided, otherwise optional.|
+||objectId|Guid|Optional. User or security group Microsoft Entra identity. Optional. Must be specified if upn isn't provided, otherwise optional.|
 ||firstName|string|First name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Can’t be specified when providing security principal for "roles", "permissions" and "experts".|
 ||lastName|string|Last name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Can’t be specified when providing security principal for "roles", "permissions" and "experts".|
 |Column|name|string|Name of the column or attribute.|

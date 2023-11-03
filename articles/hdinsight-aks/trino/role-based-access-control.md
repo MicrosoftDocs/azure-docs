@@ -10,7 +10,7 @@ ms.date: 08/29/2023
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article describes how to provide Role Based Access Control and auto assign users to Apache Superset roles. This Role Based Access Control enables you to manage user groups in Azure Active Directory but configure access permissions in Superset. 
+This article describes how to provide Role Based Access Control and auto assign users to Apache Superset roles. This Role Based Access Control enables you to manage user groups in Microsoft Entra ID but configure access permissions in Superset. 
 For example, if you have a security group called `datateam`, you can propagate membership of this group to Superset, which means Superset can automatically deny access if a user is removed from this security group.
 
 1. Create a role that forbids access to Superset.
@@ -60,9 +60,9 @@ helm repo update
 helm upgrade --install --values values.yaml superset superset/superset
 ```
 
-1. Modify Azure Active Directory App Registration.
+1. Modify Microsoft Entra App Registration.
 
-   Search for your application in Azure Active Directory and select your app under the "app registration" heading.
+   Search for your application in Microsoft Entra ID and select your app under the "app registration" heading.
    Edit your app registration's roles by selecting "App roles" from the left navigation, and add all of the Superset roles you would like to use. It's recommended you add at least the Admin and Public roles.
 
     |Value|Display Name|Description|Allowed Member Types|
@@ -72,11 +72,11 @@ helm upgrade --install --values values.yaml superset superset/superset
 
     Example:
 
-    :::image type="content" source="./media/role-based-access-control/role-assignment.png" alt-text="Screenshot showing role assignments in Azure Active Directory app roles.":::
+    :::image type="content" source="./media/role-based-access-control/role-assignment.png" alt-text="Screenshot showing role assignments in Microsoft Entra app roles.":::
 
 1. Assign User Roles in Enterprise App Registration.
 
-    1. Search for your application again in Azure Active Directory but this time, select your application under the heading "enterprise applications."
+    1. Search for your application again in Microsoft Entra ID but this time, select your application under the heading "enterprise applications."
     
     1. Select "Users and groups" from the left navigation and add yourself to the admin role, and any other groups or users you want to assign at this time.
 

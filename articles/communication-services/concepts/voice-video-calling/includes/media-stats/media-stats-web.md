@@ -53,7 +53,7 @@ If you set the following values:
 
 The `mediaStatsEmitted` or `summaryReported` event is raised every 60 seconds and contains 1 unique unit for each statistic recorded.
 
-### SDK version 1.8.0 or later
+### SDK version 1.8.0 beta and later
 
 As a developer, you can invoke the `createCollector` method with optional `mediaStatsSubscriptionOptions`.
 To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
@@ -84,7 +84,7 @@ However, if you are using SDK version less than 1.8.0-beta.1, you need use `disp
 
 If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-## Media quality statistics metrics for SDK version 1.8.0 or later
+## Media quality statistics metrics for SDK version 1.8.0 beta and later
 
 In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
 

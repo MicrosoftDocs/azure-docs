@@ -142,16 +142,18 @@ To confirm account ownership:
   The status changes from **Pending** to **Active**. When Active, dates shown under the **Start/End Date** column are the start and end dates of the agreement.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
-## Add an account from another Azure AD tenant
+<a name='add-an-account-from-another-azure-ad-tenant'></a>
 
-By default, an enrollment is associated with a specific Azure AD tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Azure AD tenant.
+## Add an account from another Microsoft Entra tenant
+
+By default, an enrollment is associated with a specific Microsoft Entra tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Microsoft Entra tenant.
 
 To add an account from any tenant:
 
 1.	In the Azure Enterprise portal, select **Manage** in the left navigation area.
 1. Select the appropriate enrollment. Note the current setting for **Auth level**, if you want to restore the setting later.
 1.	If not already configured, change the Auth level to **Work and School Account Cross Tenant**.
-1. Add the account using the Azure AD sign-in information, as described in the previous section.
+1. Add the account using the Microsoft Entra sign-in information, as described in the previous section.
 1.	Return the **Auth level** to its previous setting, or set it as **Work and School Account**.
 1.	Sign in to the EA portal to verify that you can view the appropriate subscription offers so that you can then add subscriptions in the Azure portal.
 
@@ -170,8 +172,8 @@ Before performing the ownership transfer, understand these Azure role-based acce
 - When performing subscription or account ownership transfers between two organizational IDs within the same tenant, Azure RBAC policies, existing service administrator, and co-administrator roles are preserved.
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
-    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Microsoft Entra tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Microsoft Entra tenant and only transfer the billing ownership for the account.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
 Before changing an account owner:
@@ -187,8 +189,8 @@ To transfer account ownership for all subscriptions:
 1. Select the change account owner icon on the right. The icon resembles a person.  
     ![Image showing the Change Account Owner symbol](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 1. Choose the destination account to transfer to and then select **Next**.
-1. If you want to transfer the account ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
-    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. If you want to transfer the account ownership across Microsoft Entra tenants, select the **Move the subscriptions to the recipient's Microsoft Entra tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirm the transfer and select **Submit**.
 
 To transfer account ownership for a single subscription:
@@ -199,8 +201,8 @@ To transfer account ownership for a single subscription:
 1. Select the transfer subscriptions icon on the right. The icon resembles a page.  
     ![Image showing the Transfer Subscriptions symbol](./media/ea-portal-administration/ea-transfer-subscriptions.png)
 1. Choose the destination account to transfer the subscription and then select **Next**.
-1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
-    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. If you want to transfer the subscription ownership across Microsoft Entra tenants, select the **Move the subscriptions to the recipient's Microsoft Entra tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Microsoft Entra tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirm the transfer and then select **Submit**.
 
 
@@ -427,7 +429,7 @@ If you need assistance, create a [support request](https://portal.azure.com/#b
 
 ## Conversion to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Azure Active Directory) authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Microsoft Entra ID) authentication type.
 
 To begin:
 
@@ -459,7 +461,7 @@ To begin:
 - **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
 - **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
 - **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
-- **Work or school account**: For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
+- **Work or school account**: For organizations that have set up Microsoft Entra ID with federation to the cloud and all accounts are on a single tenant.
 
 ### Enrollment statuses
 

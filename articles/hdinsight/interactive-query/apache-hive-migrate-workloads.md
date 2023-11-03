@@ -504,7 +504,7 @@ This step avoids the query failures, which fail with "Invalid column name" once 
 
 ## Secure Hive across HDInsight versions
 
-HDInsight optionally integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
+HDInsight optionally integrates with Microsoft Entra ID using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
 1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
 1. Navigate to the policy named **HIVE** and export the policy to a json file.

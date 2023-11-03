@@ -3,7 +3,7 @@ title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 10/12/2023
 ---
 
 # Date functions for Bicep
@@ -29,6 +29,17 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 The datetime value that results from adding the duration value to the base value.
+
+### Remarks
+
+The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+
+```bicep
+output add1MonthOutput string = dateTimeAdd('2023-01-31 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
+output add1MonthLeapOutput string = dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')  //2024-03-01T00:00:00Z
+```
+
+In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
 
 ### Examples
 

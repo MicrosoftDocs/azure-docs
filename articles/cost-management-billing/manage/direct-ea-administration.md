@@ -242,7 +242,7 @@ Before starting the ownership transfer, get familiar with the following Azure ro
     - Coadministrator roles
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid losing Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient's Azure AD tenant** selection remains cleared. This selection keeps the services, Azure roles, and policies on the current Azure AD tenant and only transfers the billing ownership for the account.
+- To avoid losing Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient's Microsoft Entra tenant** selection remains cleared. This selection keeps the services, Azure roles, and policies on the current Microsoft Entra tenant and only transfers the billing ownership for the account.
 
 Before changing an account owner:
 
@@ -259,7 +259,7 @@ To transfer account ownership for all subscriptions:
 1. Select **Transfer subscriptions**.  
     :::image type="content" source="./media/direct-ea-administration/transfer-subscriptions-01.png" alt-text="Screenshot showing where to transfer subscriptions." lightbox="./media/direct-ea-administration/transfer-subscriptions-01.png" :::
 1. On the Transfer subscriptions page, select the destination account to transfer to and then select **Next**.
-1. If you want to transfer the account ownership across Azure AD tenants, select the **Yes, I would also like to move the subscriptions to the new account's Azure AD tenant** confirmation.
+1. If you want to transfer the account ownership across Microsoft Entra tenants, select the **Yes, I would also like to move the subscriptions to the new account's Microsoft Entra tenant** confirmation.
 1. Confirm the transfer and select **Submit**.  
     :::image type="content" source="./media/direct-ea-administration/transfer-account-confirmation.png" alt-text="Screenshot showing the transfer subscription confirmation." lightbox="./media/direct-ea-administration/transfer-account-confirmation.png" :::
 
@@ -272,7 +272,7 @@ To transfer account ownership for a single subscription:
 1. On the Azure Subscriptions page, to the right of a subscription, select the ellipsis (**…**) symbol.
 1. Select **Transfer subscription**.
 1. On the Transfer subscription page, select the destination account to transfer the subscription and then select  **Next**.
-1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Yes, I would like to also move the subscriptions to the to the new account's Azure AD tenant** option.
+1. If you want to transfer the subscription ownership across Microsoft Entra tenants, select the **Yes, I would like to also move the subscriptions to the to the new account's Microsoft Entra tenant** option.
 1. Confirm the transfer and then select **Submit**.
 
 ## Associate an account to a department
@@ -516,12 +516,12 @@ If you need assistance, create a [support request](https://portal.azure.com/#b
 
 ## Convert to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account. A Work or School Account uses the Azure Active Directory authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account. A Work or School Account uses the Microsoft Entra authentication type.
 
 ### To begin
 
 1. Add the work or school account to the Azure portal in the role(s) needed.
-1. If you get errors, the account may not be valid in Azure Active Directory. Azure uses User Principal Name (UPN), which isn't always identical to the email address.
+1. If you get errors, the account may not be valid in Microsoft Entra ID. Azure uses User Principal Name (UPN), which isn't always identical to the email address.
 1. Authenticate to the Azure portal using the work or school account.
 
 ### To convert subscriptions from Microsoft accounts to work or school accounts
@@ -576,7 +576,7 @@ The person who accesses and manages subscriptions and development projects.
 Represents an Azure EA subscription and is a container of Azure services managed by the same service administrator.
 
 **Work or school account**<br>
-For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
+For organizations that have set up Microsoft Entra ID with federation to the cloud and all accounts are on a single tenant.
 
 ## Enrollment status
 

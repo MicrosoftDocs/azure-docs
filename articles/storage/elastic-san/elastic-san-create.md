@@ -1,15 +1,15 @@
 ---
-title: Create an Azure Elastic SAN (preview)
-description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Create an Azure Elastic SAN Preview
+description: Learn how to deploy an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Deploy an Elastic SAN (preview)
+# Deploy an Elastic SAN Preview
 
 This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
 
@@ -32,6 +32,7 @@ There are no additional registration steps required.
 1. Select **+ Create a new SAN**
 1. On the basics page, fill in the appropriate values.
     - **Elastic SAN name** must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+    For best performance, your SAN should be in the same zone as your VM.
 
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 

@@ -28,13 +28,13 @@ Follow these steps to enable the Microsoft Playwright Testing service principal:
 
 1. Open an elevated Windows PowerShell command prompt (run Windows PowerShell as an administrator).
  
-1. Install the Microsoft Azure Active Directory Module for Windows PowerShell by running the following cmdlet:
+1. Install the Microsoft Azure Active Directory module for Windows PowerShell by running the following cmdlet:
 
     ```powershell
     Install-Module MSOnline
     ```
 
-1. Connect to Azure AD for your Microsoft 365 subscription by running the following cmdlet:
+1. Connect to Microsoft Entra ID for your Microsoft 365 subscription by running the following cmdlet:
 
     ```powershell
     Connect-MsolService
