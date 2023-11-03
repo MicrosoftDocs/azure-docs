@@ -107,29 +107,7 @@ spec:
 
 Azure IoT MQ generates a client ID for each MqttBridgeConnector client, using a prefix that you specify, in the format of `{clientIdPrefix}-{routeName}`. This client ID is important for Azure IoT MQ to mitigate message loss and avoid conflicts or collisions with existing client IDs since MQTT specification allows only one connection per client ID.
 
-For example:
-
-```yaml
-kind: MqttBridgeConnector
-# ...
-spec:
-  clientIdPrefix: "client-"
-#...
-kind: MqttBridgeTopicMap
-#...
-spec:
-  routes:
-    - direction: remote-to-local
-      name: "route1"
-      qos: 1
-      source: "command"
-    - direction: local-to-remote
-      name: "route2"
-      qos: 1
-      source: "report"
-```
-
-In the example, the client IDs are: *client-route1* and *client-route2*.
+For example, if `clientIdPrefix: "client-"`, and there are two `routes` in the topic map, the client IDs are: *client-route1* and *client-route2*.
 
 ### Remote broker connection
 
