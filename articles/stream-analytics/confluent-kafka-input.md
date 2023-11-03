@@ -162,6 +162,7 @@ Use the following configuration:
 
 :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
 
+
 ### Save configuration and test connection
 
 Save your configuration. Your Azure Stream Analytics job validates using the configuration provided.
