@@ -81,8 +81,8 @@ To see how many virtual machines exist in each of the management groups or subsc
     :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot that shows other onboarding options page of VM insights with the Enable using policy option.":::
 
     The **Azure Monitor for VMs Policy Coverage** page appears.
-
-    :::image type="content" source="media/vminsights-enable-policy/manage-policy-page-01.png" lightbox="media/vminsights-enable-policy/manage-policy-page-01.png" alt-text="Screenshot that shows the VM insights Azure Monitor for VMs Policy Coverage page.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/vminsights-enable-policy/manage-policy-page-01.png" lightbox="media/vminsights-enable-policy/manage-policy-page-01.png" alt-text="Screenshot that shows the VM insights Azure Monitor for VMs Policy Coverage page." border="false":::
 
     The following table describes the compliance information presented on the **Azure Monitor for VMs Policy Coverage** page.
     
@@ -98,8 +98,8 @@ To see how many virtual machines exist in each of the management groups or subsc
     | **Compliance State** | **Compliant**: All VMs in the scope have Azure Monitor Agent or the Log Analytics agent and Dependency agent deployed to them, or any new VMs in the scope haven't yet been evaluated.<br>**Noncompliant**: There are VMs that aren't enabled and might need remediation.<br>**Not Started**: A new assignment was added.<br>**Lock**: You don't have sufficient privileges to the management group.<br>**Blank**: No policy assigned.  |
 
 1. Select the ellipsis (**...**) > **View Compliance**.
-
-    :::image type="content" source="media/vminsights-enable-policy/view-compliance.png" lightbox="media/vminsights-enable-policy/view-compliance.png" alt-text="Screenshot that shows View Compliance.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/vminsights-enable-policy/view-compliance.png" lightbox="media/vminsights-enable-policy/view-compliance.png" alt-text="Screenshot that shows View Compliance." border="false":::
 
     The **Compliance** page appears. It lists assignments that match the specified filter and indicates whether they're compliant.
 
