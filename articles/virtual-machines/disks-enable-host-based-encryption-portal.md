@@ -52,7 +52,7 @@ You must enable the feature for your subscription before you can use encryption 
    ```
    ---
 
-1. Confirm that the registration state is **Registered** (registration may take a few minutes) using the following command before trying out the feature.
+1. Confirm that the registration state is **Registered** (registration might take a few minutes) using the following command before trying out the feature.
 
    ### [Azure PowerShell](#tab/azure-powershell)
 
