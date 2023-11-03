@@ -27,7 +27,7 @@ This article describes how to connect your Azure Stream Analytics job directly t
 Azure Stream Analytics requires you to configure managed identity to access key vault.
 You can configure your ASA job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
-:::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job" lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
+:::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job." lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
 
 1.	Click on the **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
@@ -41,7 +41,7 @@ The stream analytics kafka output is a librdkafka-based client, and to connect t
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt" lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 
 ## Configure Key vault with permissions
@@ -93,7 +93,7 @@ az account set --subscription mymicrosoftsubscription
 
 **The following command can upload the certificate as a secret to your key vault:**
 
-The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the key vault. Note the name; you will use it to configure your kafka output in your ASA job. `<file path to certificate>` is the path to where you have downloaded your certificate. You can right-click and copy the path to the certificate.
+The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the key vault. `<file path to certificate>` is the path to where you have downloaded your certificate. You can right-click and copy the path to the certificate.
 
 ```PowerShell
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to certificate>
@@ -157,12 +157,12 @@ Use the following configuration:
  | Truststore certificates | name of the key vault secret that holds the ISRG Root X1 certificate |
 
 
-:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job" lightbox="./media/kafka/kafka-output.png" :::
+:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job." lightbox="./media/kafka/kafka-output.png" :::
 
 Save your configuration. Your Azure Stream Analytics job will automatically validate using the configuration provided.
 A successful test connection will show up in the portal if your stream analytics job can connect to your kafka cluster.
 
-:::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection to confluent kafka output" lightbox="./media/kafka/kafka-output-test-connection.png" :::
+:::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection to confluent kafka output." lightbox="./media/kafka/kafka-output-test-connection.png" :::
    
 
 ### Limitations
