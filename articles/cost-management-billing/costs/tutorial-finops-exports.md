@@ -79,9 +79,9 @@ On the Exports page, at the top of the page, select **+ Create**.
 
 1. On the Add export page, select the **Type of data**, the **Dataset version**, and enter an **Export name**. Optionally, enter an **Export description**.
 2. For **Type of data**, when you select **Reservation recommendations**, select values for the other fields that appear:
-  - Reservation scope
-  - Resource type
-  - Look back period
+    - Reservation scope
+    - Resource type
+    - Look back period
 3. Depending on the **Type of data** and **Frequency** that you select, you might need to specify more fields to define the date range in UTC format.
 4. Select **Add** to see the export listed on the Basic tab.
 
@@ -118,7 +118,7 @@ You can view and manage your exports by navigating to the Exports page where a s
 - Storage account
 - Estimated next run date and time
 
-You can perform the following actions by selecting the ellipsis ( **…** ) on the right side of the page or by selecting the individual export.
+You can perform the following actions by selecting the ellipsis (**…**) on the right side of the page or by selecting the individual export.
 
 - Run now - Queues an unplanned export to run at the next available moment, regardless of the scheduled run time.
 - Export selected dates - Reruns an export for a historical date range instead of creating a new one-time export. You can extract up to 13 months of historical data in three-month chunks. This option isn't available for price sheets.
@@ -164,11 +164,11 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 ### Price sheet, Reservation details, Reservation recommendations, and Reservation transactions
 
-| **Supported channel**   | **Export scope**   | **Required role**   | **Supported actions**   |
+| **Agreement type**   | **Export scope**   | **Required role**   | **Supported actions**   |
 | --- | --- | --- | --- |
 | Enterprise Agreement  | Billing account, also known as enrollment scope.  | Enterprise admin, enterprise read only  | Create, read, update, delete  |
 | Microsoft Customer Agreement (MCA)  | Billing profile  | Billing profile owner, billing profile contributor, billing profile reader and invoice manager   | Read and update for invoice manager. Create, read, update, delete for all other roles.|
 
 ## Next steps
 
-- Learn more about Exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
+- Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
