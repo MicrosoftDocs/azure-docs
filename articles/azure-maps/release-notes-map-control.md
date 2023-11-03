@@ -16,6 +16,18 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.0.2] (November 1, 2023)
+
+#### Bug fixes (3.0.2)
+
+- Addressed several errors in the type declaration file and added a dependency for `@maplibre/maplibre-gl-style-spec`.
+
+#### Other changes (3.0.2)
+
+- Removed Authorization headers from style, thumbnail, sprite, and glyph requests to enhance CDN caching for static assets.
+
+- Updated the documentation for `map.clear()` and `layers.clear()`.
+
 ### [3.0.1] (October 6, 2023)
 
 #### Bug fixes (3.0.1)
@@ -92,10 +104,9 @@ The preview is available on [npm][3.0.0-preview.10] and CDN.
 
 #### Bug fixes (3.0.0-preview.9)
 
-- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+- Fixed an issue where accessibility-related duplicated DOM elements might result when `map.setServiceOptions` is called
 
 #### Installation (3.0.0-preview.9)
-
 The preview is available on [npm][3.0.0-preview.9] and CDN.
 
 - **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
@@ -276,7 +287,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
 #### New features (3.0.0-preview.3)
 
 - **\[BREAKING\]** Migrated from [adal-angular] to [@azure/msal-browser] used for authentication with Microsoft Azure Active Directory ([Azure AD]).
-  Changes that may be required:
+  Changes that might be required:
   - `Platform / Reply URL` Type must be set to `Single-page application` on Azure AD App Registration portal.
   - Code change is required if a custom `authOptions.authContext` is used.
   - For more information, see [How to migrate a JavaScript app from ADAL.js to MSAL.js][migration guide].
@@ -350,6 +361,14 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2
 
+### [2.3.4] (November 1, 2023)
+
+#### Other changes (2.3.4)
+
+- Removed Authorization headers from style, thumbnail, sprite, and glyph requests to enhance CDN caching for static assets.
+
+- Updated the documentation for `map.clear()` and `layers.clear()`.
+
 ### [2.3.3] (October 6, 2023)
 
 #### Bug fixes (2.3.3)
@@ -360,7 +379,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.3.2)
 
-- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called.
+- Fixed an issue where accessibility-related duplicated DOM elements might result when `map.setServiceOptions` is called.
 
 - Fixed zoom control to take into account the `maxBounds` [CameraOptions].
 
@@ -372,7 +391,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.3.1)
 
-- Fix `ImageSpriteManager` icon images may get removed during style change 
+- Fix `ImageSpriteManager` icon images might get removed during style change 
 
 #### Other changes (2.3.1)
 
@@ -485,6 +504,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.2
 [3.0.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.1
 [3.0.0]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0
 [3.0.0-preview.10]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.10
@@ -497,6 +517,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.4]: https://www.npmjs.com/package/azure-maps-control/v/2.3.4
 [2.3.3]: https://www.npmjs.com/package/azure-maps-control/v/2.3.3
 [2.3.2]: https://www.npmjs.com/package/azure-maps-control/v/2.3.2
 [2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
