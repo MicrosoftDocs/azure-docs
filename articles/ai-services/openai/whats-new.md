@@ -24,7 +24,7 @@ GPT-4V lets you use images and videos in your AI chat conversations. The AI mode
 - Video augmentation using GPT-4V is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data," and support for Video Q&A. 
 - Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
 - Region availability is currently limited to `SwedenCentral` and `SwitzerlandNorth`.
-- Learn more about the [known limitations of GPT-4V](http/azure/ai-services/openai/faq#what-are-the-known-limitations-of-the-gpt-4v-model-).
+- Learn more about the [known limitations of GPT-4V](/azure/ai-services/openai/faq#what-are-the-known-limitations-of-the-gpt-4v-model-).
 
 ## October 2023
 
