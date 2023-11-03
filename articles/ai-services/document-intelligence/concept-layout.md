@@ -803,20 +803,20 @@ The Layout model extracts annotations in documents, such as checks and crosses. 
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
-::: moniker range="doc-intel-4.0.0"
+:::moniker range="doc-intel-4.0.0"
 
 ### Output to markdown format (2023-10-31-preview)
 
 The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content will be output as part of the `content` section.
 
   ```json
-  "analyzeResult": {
-  "apiVersion": "2023-10-31-preview",
-  "modelId": "prebuilt-layout",
-  "contentFormat": "markdown",
-  "content": "# CONTOSO LTD...",
-  ...
-                    }
+      "analyzeResult": {
+      "apiVersion": "2023-10-31-preview",
+      "modelId": "prebuilt-layout",
+      "contentFormat": "markdown",
+      "content": "# CONTOSO LTD...",
+      ...
+                        }
   ```
 
 ::: moniker-end
