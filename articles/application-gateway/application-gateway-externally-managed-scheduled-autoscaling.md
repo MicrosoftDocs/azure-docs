@@ -35,8 +35,8 @@ To implement scheduled autoscaling:
 Suppose the requirement is to increase the min count to 4 during business hours and to decrease the min count to 2 during non business hours. 
 
 Two runbooks are created: 
-1.	IncreaseMin - Sets the min count of the autoscaling configuration to 4 
-2.	DecreaseMin - Sets the min count of the autoscaling configuration to 2 
+- IncreaseMin - Sets the min count of the autoscaling configuration to 4 
+- DecreaseMin - Sets the min count of the autoscaling configuration to 2 
 
 Use the following PowerShell runbook to adjust capacity:
 
@@ -53,20 +53,21 @@ $gw = Set-AzApplicationGateway -ApplicationGateway $gw
 
 Next, create the following two schedules:
 
-1.	WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
-2.	WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
+- WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
+- WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
 
 ## FAQs
 
-1. Q: What is the SLA for timely job executions?  
-A: Azure Automation has a SLA of 99.9% for a timely start of jobs.  
+- What is the SLA for timely job executions?  
 
-2. Q: What happens if jobs are interrupted during execution?
+  Azure Automation has a SLA of 99.9% for a timely start of jobs.  
+
+- What happens if jobs are interrupted during execution?
    
-    * A: If the job already sends the request to AppGW before getting interrupted, then the request goes through.  
-    * A: If the job gets interrupted before sending the request to Application Gateway, then it will be one of the scenarios described in next section.  
+    - If the job already sends the request to AppGW before getting interrupted, then the request goes through.  
+    - If the job gets interrupted before sending the request to Application Gateway, then it will be one of the scenarios described in next section.  
 
-3. Q: What happens if job tasks don’t occur? 
+- What happens if job tasks don’t occur? 
 
    | Absent job |	Impact  | 
    | --- | --- |  
