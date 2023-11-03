@@ -42,7 +42,7 @@ Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate 
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of lets encrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 
 ## Configure Key vault with permissions
@@ -110,7 +110,7 @@ az keyvault secret set --vault-name mykeyvault --name confluentsecret --file C:\
 ## Grant the Stream Analytics job permissions to access the certificate in the key vault
 
 For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
-You can do this by configuring the service principal of your stream analytics job to have special permissions to the key vault. 
+Follow the guidance below to grant special permissions your job:
 
 1. In your key vault, select **Access control (IAM)**.
 
@@ -141,13 +141,13 @@ You can do this by configuring the service principal of your stream analytics jo
 | Kafka topic                  | The name of your kafka topic in your confluent cloud kafka cluster.|
 | Security Protocol            | Select **SASL_SSL** |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
-| Partition key                | Azure Stream Analytics assigns partitions using round partitioning. Keep blank if a key does not partition your input |
+| Partition key                | Azure Stream Analytics assigns partitions using round partitioning. Keep blank if a key doesn't partition your input |
 | Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            | 
 
 > [!IMPORTANT]
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
-To authenticate to confluent cloud you will need to use SASL_SSL and configure you job to authenticate to confluent cloud using your API key .
+To authenticate to confluent cloud you will need to use SASL_SSL and configure your job to authenticate to confluent cloud using your API key .
 
 Use the following configuration:
 
@@ -169,8 +169,8 @@ A successful test connection shows up in the portal if your stream analytics job
 
 ### Limitations
  
-* The certificate you will upload to key vault must be in PEM format. 
-* The minimum version of kafka you can configure Azure Stream Analytics to connect to is kafka version 0.10.
+* The certificate you upload to key vault must be in PEM format. 
+* The minimum version of kafka must be kafka version 0.10.
 * Azure Stream Analytics doesn't support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol.
 * You must use Azure CLI to upload certificate as a secret to key vault. You can't upload certificates with multiline secrets to key vault using the Azure portal.
 
