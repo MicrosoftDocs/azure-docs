@@ -12,9 +12,9 @@ ms.custom: ignite-2023
 
 # Quickstart: Build and deploy JAR to Azure Container Apps
 
-This article demonstrates how to build and deploy a JAR file to Azure Container Apps. JAR files are archive files that include a Java-specific manifest file. They're built on the ZIP format and typically have a .jar file extension.
+This article demonstrates how to build and deploy a JAR file to Azure Container Apps. JAR files are archive files that include a Java-specific manifest file. They're built on the ZIP format and typically have a *.jar* file extension.
 
-In this quickstart, you'll create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -75,7 +75,6 @@ az extension add --name containerapp --upgrade
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-
 ```azurepowershell
 az extension add --name containerapp --upgrade
 ```
@@ -117,7 +116,7 @@ RESOURCE_GROUP="album-containerapps"
 LOCATION="canadacentral"
 ENVIRONMENT="env-album-containerapps"
 API_NAME="album-api"
-SUBSCRIPTION=<your-subscription-id>
+SUBSCRIPTION=<YOUR_SUBSCRIPTION_ID>
 ```
 
 You can check your subscription ID with:
@@ -135,7 +134,7 @@ $RESOURCE_GROUP="album-containerapps"
 $LOCATION="canadacentral"
 $ENVIRONMENT="env-album-containerapps"
 $API_NAME="album-api"
-$SUBSCRIPTION=<your-subscription-id>
+$SUBSCRIPTION=<YOUR_SUBSCRIPTION_ID>
 ```
 
 You can check your subscription ID with:
@@ -147,6 +146,7 @@ az account list --output table
 ---
 
 ## Prepare the GitHub repository
+
 Now you can clone the sample repository.
 
 Use the following git command to clone the sample app into the *code-to-cloud* folder:
@@ -160,10 +160,12 @@ cd code-to-cloud
 ```
 
 ## Build a JAR file
+
 > [!NOTE]
-> The Java sample only supports a Maven build, which results is an executable JAR file. The build uses default settings as passing in environment variables is unsupported.
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses default settings as passing in environment variables is unsupported.
 
 Build the project with [Maven](https://maven.apache.org/download.cgi).
+
 # [Bash](#tab/bash)
 
 ```azurecli
