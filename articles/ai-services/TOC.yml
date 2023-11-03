@@ -122,9 +122,9 @@
     - name: Network security
       items:
       - name: Configure managed network
-        href: ai-studio/configure-managed-network.md
+        href: ai-studio/how-to/configure-managed-network.md
       - name: Configure private link
-        href: ai-studio/configure-private-link.md
+        href: ai-studio/how-to/configure-private-link.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys

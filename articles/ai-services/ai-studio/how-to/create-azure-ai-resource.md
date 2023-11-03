@@ -31,7 +31,7 @@ In this article, you learn how to create an Azure AI resource from the Azure por
 
     :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set resource information" lightbox="../media/how-to/resource-create-resources.png"::: 
 
-4.	Set up Network isolation. Read more on [network isolation](how-to-configure-managed-network.md).
+4.	Set up Network isolation. Read more on [network isolation](configure-managed-network.md).
 
     :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set network isolation information" lightbox="../media/how-to/resource-create-networking.png":::  
 
@@ -81,7 +81,7 @@ At Azure AI resource creation, select between the three networking isolation mod
 
 At Azure AI resource creation in the Azure portal, creation of associated Azure AI services, Storage account, Key vault, Application insights, and Container registry is given. These resources are found on the Resources tab during creation. 
 
-To connect to Azure AI services (Azure OpenAI, Cognitive Search, and Azure Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the PNA flag is disabled when creating the private endpoint connection. For more about Azure AI service connections, follow documentation [here](../../cognitive-services-virtual-networks.md). Users can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
+To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the PNA flag is disabled when creating the private endpoint connection. For more about Azure AI service connections, follow documentation [here](../../cognitive-services-virtual-networks.md). Users can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
 
 ### Encryption
 Projects that use the same Azure AI resource, share their encryption configuration. Encryption mode can be set only at the time of Azure AI resource creation between Microsoft-managed keys and Customer-managed keys. 

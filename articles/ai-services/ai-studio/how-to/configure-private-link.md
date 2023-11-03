@@ -22,8 +22,8 @@ You get several Azure AI default resources in your resource group. You need to c
 
 1. Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry, Azure AI Services and Azure AI Search.
 1. Establish private endpoint connection to Azure AI.
-1. Establish private endpoint connection to Azure AI Services created with your Azure AI. See [this](https://learn.microsoft.com/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints) for details.
-1. (optional) Private endpoint connection to Storage created with your Azure AI or your own Azure AI Search if you need direct access to them. Not required if you interact with them in Azure AI.
+1. Establish private endpoint connection to Azure AI Services created with your Azure AI. For more information, see [this article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints).
+1. (Optional) Private endpoint connection to Storage created with your Azure AI or your own Azure AI Search if you need direct access to them. Not required if you interact with them in Azure AI.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ You get several Azure AI default resources in your resource group. You need to c
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network or on-premises.
 
-* [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
+* Disable network policies for private endpoints before adding the private endpoint.
 
 ## Limitations
 
@@ -196,7 +196,7 @@ To remove a private endpoint, use the following information:
 
 # [Azure CLI](#tab/cli)
 
-When using the [Azure CLI](how-to-configure-cli.md), use the following command to remove the private endpoint:
+When using the Azure CLI, use the following command to remove the private endpoint:
 
 ```azurecli
 az network private-endpoint delete \
@@ -209,6 +209,8 @@ az network private-endpoint delete \
 1. From the [Azure portal](https://portal.azure.com), select your Azure AI.
 1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
 1. Select the endpoint to remove and then select __Remove__.
+
+---
 
 ## Enable public access
 

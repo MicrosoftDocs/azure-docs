@@ -47,7 +47,7 @@ The managed VNet is preconfigured with [required default rules](#list-of-require
 
 The following diagram shows a managed VNet configured to __allow internet outbound__:
 
-:::image type="content" source="../media/how-to/network/internet-outbound.png" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox=".../media/how-to/network/internet-outbound.png":::
+:::image type="content" source="../media/how-to/network/internet-outbound.png" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox="../media/how-to/network/internet-outbound.png":::
 
 The following diagram shows a managed VNet configured to __allow only approved outbound__:
 
@@ -281,7 +281,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
-* Azure Cognitive Search
+* Azure AI Search
 * Azure SQL Server
 * Azure Data Factory
 * Azure Cosmos DB (all sub resource types)
