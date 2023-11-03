@@ -161,6 +161,9 @@ Use the following configuration:
 
 :::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job." lightbox="./media/kafka/kafka-output.png" :::
 
+
+### Save configuration and test connection
+
 Save your configuration. Your Azure Stream Analytics job validates using the configuration provided.
 A successful test connection shows up in the portal if your stream analytics job can connect to your kafka cluster.
 
