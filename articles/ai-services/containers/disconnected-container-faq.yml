@@ -47,8 +47,8 @@ sections:
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
       - question: What if my use case can't satisfy the requirements listed above?
         answer: |
-          If your use case can't satisfy above requirements but you're interested in running containers on premises, you may be able to use [connected containers](../cognitive-services-container-support.md).   
-      - question: What are some reasons my application may be denied?
+          If your use case can't satisfy above requirements but you're interested in running containers on premises, you might be able to use [connected containers](../cognitive-services-container-support.md).   
+      - question: What are some reasons my application might be denied?
         answer: |
           Possible causes for a denied application are as follows: 
           *	Not being an existing Microsoft partner or enterprise agreement customer  
