@@ -126,7 +126,7 @@ To apply the resiliency policies from a YAML file you created for your container
 az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml MyYAMLPath
 ```
 
-This command passes the resiliency policy YAML file, which may look similar to the following example:
+This command passes the resiliency policy YAML file, which might look similar to the following example:
 
 ```yaml
 timeoutPolicy:
@@ -298,7 +298,7 @@ matches: {
 | `prefixMatch` | Retries are performed based on the prefix of the header value. |
 | `exactMatch` | Retries are performed based on an exact match of the header value. |
 | `suffixMatch` | Retries are performed based on the suffix of the header value. |
-| `regexMatch` | Retries are performed based on an regular expression rule where the header value must match the regex pattern. |
+| `regexMatch` | Retries are performed based on a regular expression rule where the header value must match the regex pattern. |
 
 ##### Errors
 
@@ -320,7 +320,7 @@ matches: {
 | Metadata | Description |
 | -------- | ----------- |
 | `retriable-headers` | HTTP response headers that trigger a retry. A retry are performed if any of the header matches match the upstream response headers. Required if you'd like to retry on any matching headers. |
-| `retriable-status-codes` | HTTP status codes that should trigger a retries. Required if you'd like to retry on any matching status codes. |
+| `retriable-status-codes` | HTTP status codes that should trigger retries. Required if you'd like to retry on any matching status codes. |
 | `5xx` | Retry if upstream server responds with any 5xx response codes. |
 | `reset` | Retry if the upstream server doesn't respond. |
 | `connect-failure` | Retry if request failed due to a connection failure with the upstream container app. |
