@@ -163,10 +163,7 @@ Conversely, if the share permission is set to “Read” for a specific user, bu
 
 In dual=protocol NAS environments, SMB share ACLs only apply to SMB users. NFS clients leverage export policies and rules for share access rules. As such, controlling permissions at the file and folder level is preferred over share-level ACLs, especially for dual=protocol NAS volumes.
 
-#### How to manage share ACLs in Azure NetApp Files
-
-Share ACLs in Azure NetApp Files can be viewed one of two ways.
-
+To learn how to configure ACLs, see [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-acls.md).
 
 ## File access permissions 
 
@@ -972,3 +969,4 @@ Alternatively, in dual-protocol environments, NTFS ACLs can be used to granularl
 * [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md)
 * [Understand NAS](network-attached-storage-concept.md)
 * [Understand NAS permissions](network-attached-storage-permissions.md)
+* [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-acls.md)
