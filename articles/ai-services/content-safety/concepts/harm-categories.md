@@ -39,17 +39,6 @@ Every harm category the service applies also comes with a severity level rating.
 
 **Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
 
-| **Severity Level** | **Description** |
-| --- | --- |
-| Level 0 – Safe | Content that might be related to violence, self-harm, sexual or hate & fairness categories, but the terms are used in general, journalistic, scientific, medical, or similar professional contexts that are **appropriate for most audiences**. This level doesn't include content unrelated to the above categories.  |
-| Level 1 | Content that might be related to violence, self-harm, sexual or hate & fairness categories but the terms are used in general, journalistic, scientific, medial, and similar professional contexts that **may not be appropriate for all audiences**. This level might contain content that, in other contexts, might acquire a different meaning and higher severity level. Content can express **negative or positive sentiments towards identity groups or representations without endorsement of action.** |
-| Level 2 – Low  | Content that expresses **general hate speech that does not target identity groups**, expressions **targeting identity groups with positive sentiment or intent**, use cases exploring a **fictional world** (for example, gaming, literature) and depictions at low intensity. |
-| Level 3 | Content that expresses **prejudiced, judgmental or opinionated views**, including offensive use of language, stereotyping, and depictions aimed at **identity groups with negative sentiment**. |
-| Level 4 – Medium  | Content that **uses offensive, insulting language towards identity groups, including fantasies or harm at medium intensity**. |
-| Level 5 | Content that displays harmful instructions, **attacks against identity groups**, and **displays of harmful actions** with the **aim of furthering negative sentiments**. |
-| Level 6 – High  | Content that displays **harmful actions, damage** , including promotion of severe harmful acts, radicalization, and non-consensual power exchange or abuse. |
-| Level 7 | Content of the highest severity and maturity that **endorses, glorifies, or promotes extreme forms of activity towards identity groups**, includes extreme or illegal forms of harm, and radicalization. |
-
 ## Next steps
 
 Follow a quickstart to get started using Content Safety in your application.
