@@ -29,7 +29,7 @@ In this article, you learn how to consume Azure Machine Learning batch deploymen
         - Create/manage batch endpoints and deployments: Use roles Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
         - Create ARM deployments in the workspace resource group: Use roles Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
 - A model deployed to a batch endpoint. If you don't have one, use the steps in [Deploy models for scoring in batch endpoints](how-to-use-batch-model-deployments.md) to create one.
-- Download the _heart-unlabeled.csv_ sample dataset to use for scoring. [[@facundo: where is this dataset stored?]]
+- Download the [_heart-unlabeled.csv_](https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci-unlabeled/heart-unlabeled.csv) sample dataset to use for scoring.
 
 ## Architecture
 
