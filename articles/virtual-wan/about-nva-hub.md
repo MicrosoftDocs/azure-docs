@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -22,7 +22,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 
 * **Pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units))**: Microsoft and the partner work together to validate throughput and bandwidth limits prior to solution being made available to customers.
 * **Built-in availability and resiliency**: Virtual WAN NVA deployments are Availability Zone (AZ) aware and are automatically configured to be highly available.
-* **No-hassle provisioning and boot-strapping**: A managed application is pre-qualified for provisioning and boot-strapping for the Virtual WAN platform. This managed application is available through the Azure Marketplace link.
+* **No-hassle provisioning and boot-strapping**: A managed application is prequalified for provisioning and boot-strapping for the Virtual WAN platform. This managed application is available through the Azure Marketplace link.
 * **Simplified routing**: Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
 * **Integrated support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
 * **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
@@ -33,7 +33,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 
 ## Partners
 
-The following tables describes the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVA's deployed in the Virtual Hub.
+The following tables describe the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVAs deployed in the Virtual hub.
  
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
@@ -78,19 +78,19 @@ All NVA offerings that are available to be deployed into a Virtual WAN hub will 
 * Bill software licensing costs directly, or through Azure Marketplace.
 * Expose custom properties and resource meters.
 
-NVA Partners may create different resources depending on their appliance deployment, configuration licensing, and management needs. When a customer creates an NVA in a Virtual WAN hub, like all managed applications, there will be two resource groups created in their subscription.
+NVA Partners might create different resources depending on their appliance deployment, configuration licensing, and management needs. When a customer creates an NVA in a Virtual WAN hub, like all managed applications, there will be two resource groups created in their subscription.
 
-* **Customer resource group** - This will contain an application placeholder for the managed application. Partners can use this to expose whatever customer properties they choose here.
-* **Managed resource group** - Customers can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group will contain the **NetworkVirtualAppliances** resource.
+* **Customer resource group** - This contains an application placeholder for the managed application. Partners can use this to expose whatever customer properties they choose here.
+* **Managed resource group** - Customers can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group contains the **NetworkVirtualAppliances** resource.
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Managed Application resource groups":::
 
 
 ### Managed resource group permissions
 
-By default, all managed resource groups have a deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+By default, all managed resource groups have a deny-all Microsoft Entra assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
 
-However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
+However, partners might create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
 
 Permissions on resources in existing managed resource groups aren't dynamically updated as new permitted actions are added by partners and require a manual refresh.
 
@@ -107,16 +107,16 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 When you create an NVA in a Virtual WAN hub, you must choose the number of NVA Infrastructure Units you want to deploy it with. An **NVA Infrastructure Unit** is a unit of aggregate bandwidth capacity for an NVA in a Virtual WAN hub. An **NVA Infrastructure Unit** is similar to a VPN [Scale Unit](pricing-concepts.md#scale-unit) in terms of the way you think about capacity and sizing.
 
-* NVA Infrastructure Units are a guideline for how much aggregate networking throughput the **virtual machine infrastructure** on which NVA's are deployed can support.  1 NVA Infrastructure Unit corresponds to 500 Mbps of aggregate throughput. This 500 Mbps number does not take into consideration differences between the software that runs on Network Virtual Appliances. Depending on the features turned on in the NVA or partner-specific software implementation, networking functions such as encryption/decryption, encapsulation/decapsulation or deep packet inspection may be more intensive, meaning you may see less throughput than the NVA infrastructure unit. For a mapping of Virtual WAN NVA infrastructure units to expected throughputs, please contact the vendor. 
-*  Azure supports deployments ranging from 2-80 NVA Infrastructure Units for a given NVA virtual hub deployment, but partners may choose which scale units they support. As such, you may not be able to deploy all possible scale unit configurations.
+* NVA Infrastructure Units are a guideline for how much aggregate networking throughput the **virtual machine infrastructure** on which NVAs are deployed can support. 1 NVA Infrastructure Unit corresponds to 500 Mbps of aggregate throughput. This 500 Mbps number doesn't take into consideration differences between the software that runs on Network Virtual Appliances. Depending on the features turned on in the NVA or partner-specific software implementation, networking functions such as encryption/decryption, encapsulation/decapsulation or deep packet inspection might be more intensive. This means you might see less throughput than the NVA infrastructure unit. For a mapping of Virtual WAN NVA infrastructure units to expected throughputs, please contact the vendor.
+* Azure supports deployments ranging from 2-80 NVA Infrastructure Units for a given NVA virtual hub deployment, but partners might choose which scale units they support. As such, you might not be able to deploy all possible scale unit configurations.
 
-NVAs in Virtual WAN are deployed to ensure you always are able to achieve at minimum the vendor-specific throughput numbers for a particular chosen scale unit. To achieve this, NVAs in Virtual WAN are overprovisioned with additional capacity in the form of multiple instances in a 'n+1' manner. This means that at any given time you may see aggregate throughput across the instances to be greater than the vendor-specific throughput numbers. This ensures if an instance is unhealthy, the remaining 'n' instance(s) can service customer traffic and provide the vendor-specific throughput for that scale unit.
+NVAs in Virtual WAN are deployed to ensure you always are able to achieve at minimum the vendor-specific throughput numbers for a particular chosen scale unit. To achieve this, NVAs in Virtual WAN are overprovisioned with additional capacity in the form of multiple instances in a 'n+1' manner. This means that at any given time you might see aggregate throughput across the instances to be greater than the vendor-specific throughput numbers. This ensures if an instance is unhealthy, the remaining 'n' instance(s) can service customer traffic and provide the vendor-specific throughput for that scale unit.
 
-If the total amount of traffic that passes through a NVA at a given time goes above the vendor-specific throughput numbers for the chosen scale unit, events that may cause a NVA instance to be unavailable including but not limited to routine Azure platform maintenance activities or software upgrades can result in service or connectivity disruption. To minimize service disruptions, you should choose the scale unit based on your peak traffic profile and vendor-specific throughput numbers for a particular scale unit as opposed to relying on best-case throughput numbers observed during testing.
+If the total amount of traffic that passes through an NVA at a given time goes above the vendor-specific throughput numbers for the chosen scale unit, events that might cause an NVA instance to be unavailable including but not limited to routine Azure platform maintenance activities or software upgrades can result in service or connectivity disruption. To minimize service disruptions, you should choose the scale unit based on your peak traffic profile and vendor-specific throughput numbers for a particular scale unit as opposed to relying on best-case throughput numbers observed during testing.
  
 ## <a name="configuration"></a>NVA configuration process
 
-Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA has been provisioned into the virtual hub, any additional configuration that may be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA isn't available.
+Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA is provisioned into the virtual hub, any additional configuration that might be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA isn't available.
 
 ## <a name="resources"></a>Site and connection resources with NVAs
 

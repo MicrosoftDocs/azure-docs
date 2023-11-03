@@ -1,6 +1,6 @@
 ---
-title: Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview) 
-description: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview)
+title: Configure remote write for Azure managed service for Prometheus using Microsoft Entra Workload ID (preview) 
+description: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra Workload ID (preview)
 author: EdB-MSFT
 services: azure-monitor
 ms.author: edbaynash
@@ -9,16 +9,16 @@ ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---
 
-# Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview)
+# Configure remote write for Azure managed service for Prometheus using Microsoft Entra Workload ID (preview)
 
-This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from your Azure managed Prometheus cluster using Azure Active Directory workload identity.
+This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from your Azure managed Prometheus cluster using Microsoft Entra Workload ID.
 
 ## Prerequisites
 
 * The cluster must have OIDC-specific feature flags and an OIDC issuer URL: 
-  * For managed clusters (AKS/EKS/GKE), see [Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
-  * For self-managed clusters, see [Self-Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters.html)  
-* Installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html)
+  * For managed clusters (AKS/EKS/GKE), see [Managed Clusters - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
+  * For self-managed clusters, see [Self-Managed Clusters - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters.html)  
+* Installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html)
 * The cluster already has Prometheus running. This guide assumes that the Prometheus is set up using [kube-prometheus-stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), however, you can set up Prometheus any other way.
 
 ## Configure workload identity
@@ -40,7 +40,7 @@ This article describes how to configure [remote-write](prometheus-remote-write.m
 
     For `SERVICE_ACCOUNT_NAME`, check if there's a service account (apart from the "default" service account) already associated with Prometheus pod, check for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service account you would like to associate with your Prometheus pod.
 
-1. Create an Azure Active Directory app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
+1. Create a Microsoft Entra app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
     ```azurecli
     # create an Azure Active Directory application
     az ad sp create-for-rbac --name "${APPLICATION_NAME}"
@@ -49,7 +49,7 @@ This article describes how to configure [remote-write](prometheus-remote-write.m
     az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}"
     ```
 
-    Assign the *Monitoring Metrics Publisher* role to the Azure Active Directory app or user-assigned managed identity. For more information, see [Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-monitoring-metrics-publisher-role-on-the-data-collection-rule-to-the-managed-identity).
+    Assign the *Monitoring Metrics Publisher* role to the Microsoft Entra app or user-assigned managed identity. For more information, see [Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-monitoring-metrics-publisher-role-on-the-data-collection-rule-to-the-managed-identity).
 
 1. Create or Update your Kubernetes service account Prometheus pod.  
    Often there's a Kubernetes service account created and associated with the pod running the Prometheus container. If you're using kube-prometheus-stack, it automatically creates `prometheus-kube-prometheus-prometheus` service account.
@@ -74,7 +74,7 @@ This article describes how to configure [remote-write](prometheus-remote-write.m
     kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/client-id="${APPLICATION_OR_USER_ASSIGNED_IDENTITY_CLIENT_ID}" –overwrite
     ```
 
-    If your Azure Active Directory app or user assigned managed identity isn't in the same tenant as your cluster, add the following annotation to your service account:
+    If your Microsoft Entra app or user assigned managed identity isn't in the same tenant as your cluster, add the following annotation to your service account:
     
     ```bash
     kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/tenant-id="${APPLICATION_OR_USER_ASSIGNED_IDENTITY_TENANT_ID}" –overwrite
@@ -94,9 +94,9 @@ This article describes how to configure [remote-write](prometheus-remote-write.m
       --subject "system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}"
 	```
 
-    * Azure AD
+    * Microsoft Entra ID
     ```CLI
-	# Get the ObjectID of the Azure Active Directory app.
+	# Get the ObjectID of the Microsoft Entra app.
 
     export APPLICATION_OBJECT_ID="$(az ad app show --id ${APPLICATION_CLIENT_ID} --query id -otsv)"
 
@@ -179,6 +179,6 @@ prometheus:
 * [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
 * [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 * [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
-* [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
+* [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
 * [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-* [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
+* [Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)

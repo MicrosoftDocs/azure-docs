@@ -41,7 +41,7 @@ In this guide, you learn how to:
 
 ## Grant Diagnostic Services access to your storage account
 
-A BYOS storage account is linked to an Application Insights resource. Start by granting the `Storage Blob Data Contributor` role to the Azure Active Directory (Azure AD) application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.  
+A BYOS storage account is linked to an Application Insights resource. Start by granting the `Storage Blob Data Contributor` role to the Microsoft Entra application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.  
 
 1. Select **Access control (IAM)**.
 

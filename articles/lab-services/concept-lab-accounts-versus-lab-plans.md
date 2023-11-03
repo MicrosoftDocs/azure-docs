@@ -28,7 +28,7 @@ By using lab plans, you can unlock several new capabilities:
 
 **[Per-customer assigned capacity](capacity-limits.md#per-customer-assigned-capacity)**. You don't have to share capacity with others anymore. If your organization has requested more quota, Azure Lab Services allocates it just for you.
 
-**[Advanced networking](how-to-connect-vnet-injection.md)**.  Advanced networking with virtual network injection replaces virtual network peering. In your Azure subscription, you can create a virtual network in the same region as the lab plan, and delegate a subnet to Azure Lab Services.
+**[Advanced networking](how-to-connect-vnet-injection.md)**.  Advanced networking replaces virtual network peering. In your Azure subscription, you can create a virtual network in the same region as the lab plan, and delegate a subnet to Azure Lab Services.
 
 **[Improved auto-shutdown](how-to-configure-auto-shutdown-lab-plans.md)**. Auto-shutdown settings are now available for Windows and Linux operating systems. Learn more about the [supported Linux distributions](./how-to-enable-shutdown-disconnect.md#supported-linux-distributions-for-automatic-shutdown).
 
@@ -38,7 +38,7 @@ By using lab plans, you can unlock several new capabilities:
 
 **[Updates to lab owner experience](how-to-manage-labs.md)**. Choose to skip the template creation process when creating a new lab if you already have an image ready to use. In addition, you can add a non-admin user to lab VMs.
 
-**[Updates to lab user experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. In addition to reimaging their lab VM, lab users can now also redeploy their lab VM without losing the data inside the lab VM. In addition, the lab registration experience is simplified when you use labs in Teams, Canvas, or with Azure AD groups. In these cases, Azure Lab Services *automatically* assigns a lab VM to a lab user.
+**[Updates to lab user experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. In addition to reimaging their lab VM, lab users can now also redeploy their lab VM without losing the data inside the lab VM. In addition, the lab registration experience is simplified when you use labs in Teams, Canvas, or with Microsoft Entra groups. In these cases, Azure Lab Services *automatically* assigns a lab VM to a lab user.
 
 **SDKs**. Azure Lab Services is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps) and supports Azure Resource Manager (ARM) templates. Also, you can use either the [.NET SDK](/dotnet/api/overview/azure/labservices) or [Python SDK](https://pypi.org/project/azure-mgmt-labservices/).
 
@@ -66,7 +66,7 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 
 ## Known issues
 
-- When using virtual network injection, use caution in making changes to the virtual network, subnet, and resources created by Lab Services attached to the subnet. Also, labs using advanced networking must be deleted before deleting the virtual network.
+- When using advanced networking, use caution in making changes to the virtual network, subnet, and resources created by Lab Services attached to the subnet. Also, labs using advanced networking must be deleted before deleting the virtual network.
 
 - Moving lab plan and lab resources from one Azure region to another isn't supported.
 
@@ -76,6 +76,6 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 
 ## Next steps
 
-If you're using lab accounts, follow these steps to [migrate your lab accounts to lab plans](./migrate-to-2022-update.md).
+If you're using lab accounts, follow these steps to [migrate your lab accounts to lab plans](./how-to-migrate-lab-acounts-to-lab-plans.md).
 
 If you're new to Azure Lab Services, get started by [creating a new lab plan](./quick-create-resources.md).

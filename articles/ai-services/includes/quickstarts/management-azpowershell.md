@@ -5,7 +5,7 @@ description: Get started with Azure AI services by using Azure PowerShell comman
 services: cognitive-services
 author: mgreenegit
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: include
 ms.date: 08/29/2022

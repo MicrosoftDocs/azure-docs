@@ -8,7 +8,7 @@ ms.reviewer: cogoodson
 
 # Migrate from Application Insights instrumentation keys to connection strings
 
-This article walks you through migrating from [instrumentation keys](separate-resources.md#about-resources-and-instrumentation-keys) to [connection strings](sdk-connection-string.md#overview).
+This article walks through migrating from instrumentation keys to [connection strings](sdk-connection-string.md#overview).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ This process can be [automated in your Azure deployments](../../azure-resource-m
 Connection strings provide a single configuration setting and eliminate the need for multiple proxy settings.
 
 - **Reliability**: Connection strings make telemetry ingestion more reliable by removing dependencies on global ingestion endpoints.
-- **Security**: Connection strings allow authenticated telemetry ingestion by using [Azure Active Directory (Azure AD) authentication for Application Insights](azure-ad-authentication.md).
+- **Security**: Connection strings allow authenticated telemetry ingestion by using [Microsoft Entra authentication for Application Insights](azure-ad-authentication.md).
 - **Customized endpoints (sovereign or hybrid cloud environments)**: Endpoint settings allow sending data to a specific Azure Government region. ([See examples](sdk-connection-string.md#set-a-connection-string).)
 - **Privacy (regional endpoints)**: Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
@@ -132,9 +132,11 @@ The connection string is also included in the Resource Manager resource properti
 
 Autoinstrumentation scenarios aren't affected.
 
-### Can I use Azure AD authentication with autoinstrumentation?
+<a name='can-i-use-azure-ad-authentication-with-autoinstrumentation'></a>
 
-You can't enable [Azure AD authentication](azure-ad-authentication.md) for [autoinstrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
+### Can I use Microsoft Entra authentication with autoinstrumentation?
+
+You can't enable [Microsoft Entra authentication](azure-ad-authentication.md) for [autoinstrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
 
 ### What's the difference between global and regional ingestion?
 

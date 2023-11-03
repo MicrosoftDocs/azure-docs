@@ -146,7 +146,7 @@ Azure Policy operations can have a significant effect on your Azure environment.
 > permissions to create or update targeted resources. For more information, see
 > [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
 
-### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
+### Special permissions requirement for Azure Policy with Azure Virtual Network Manager
 
 [Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager (AVNM) dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
 

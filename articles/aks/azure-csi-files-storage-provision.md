@@ -161,27 +161,27 @@ The following YAML creates a pod that uses the persistent volume claim *my-azure
 
     ```yaml
     kind: Pod
-apiVersion: v1
-metadata:
-  name: mypod
-spec:
-  containers:
-    - name: mypod
-      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 250m
-          memory: 256Mi
-      volumeMounts:
-        - mountPath: /mnt/azure
-          name: volume
-  volumes:
-   - name: volume
-     persistentVolumeClaim:
-       claimName: my-azurefile
+    apiVersion: v1
+    metadata:
+      name: mypod
+    spec:
+      containers:
+        - name: mypod
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /mnt/azure
+              name: volume
+      volumes:
+       - name: volume
+         persistentVolumeClaim:
+           claimName: my-azurefile
     ```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.

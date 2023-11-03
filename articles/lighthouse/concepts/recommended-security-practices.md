@@ -12,18 +12,20 @@ When using [Azure Lighthouse](../overview.md), it's important to consider securi
 > [!TIP]
 > These recommendations also apply to [enterprises managing multiple tenants](enterprise.md) with Azure Lighthouse.
 
-## Require Azure AD Multi-Factor Authentication
+<a name='require-azure-ad-multi-factor-authentication'></a>
 
-[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Azure AD Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+## Require Microsoft Entra multifactor authentication
 
-We recommend that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
+[Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Microsoft Entra multifactor authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+
+We recommend that you ask your customers to implement Microsoft Entra multifactor authentication in their tenants as well.
 
 ## Assign permissions to groups, using the principle of least privilege
 
-To make management easier, use Azure Active Directory (Azure AD) groups for each role required to manage your customers' resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to each user.
+To make management easier, use Microsoft Entra groups for each role required to manage your customers' resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to each user.
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for a Microsoft Entra group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 When creating your permission structure, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
 
@@ -46,5 +48,5 @@ Keep  in mind that when you [onboard customers through a public managed service 
 ## Next steps
 
 - Review the [security baseline information](/security/benchmark/azure/baselines/lighthouse-security-baseline) to understand how guidance from the Microsoft cloud security benchmark applies to Azure Lighthouse.
-- [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Deploy Microsoft Entra multifactor authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

@@ -1,10 +1,47 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/29/2023
 ms.author: eur
 ---
+
+### November 2023 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with 6 additional languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+  | Language | Locale (BCP-47) | 
+  |--|--|
+  |Arabic (Saudi Arabia)|`ar-SA` |
+  |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+  |Chinese (Mandarin, Simplified)|`zh-CN`|
+  |English (Australia)|`en-AU`|
+  |English (Canada)|`en-CA` |
+  |English (India)|`en-IN` |
+  |English (United Kingdom)|`en-GB`|
+  |English (United States)|`en-US`|  
+  |French (Canada)|`fr-CA`| 
+  |French (France)|`fr-FR`|  
+  |German (Germany)|`de-DE`|
+  |Hindi (India)|`hi-IN`<sup>1</sup>|
+  |Italian (Italy)|`it-IT`|
+  |Japanese (Japan)|`ja-JP`|
+  |Korean (Korea)|`ko-KR`|
+  |Malay (Malaysia)|`ms-MY`|
+  |Norwegian Bokmål (Norway)|`nb-NO`|
+  |Portuguese (Brazil)|`pt-BR`|
+  |Russian (Russia)|`ru-RU`<sup>1</sup>|
+  |Spanish (Mexico)|`es-MX` | 
+  |Spanish (Spain)|`es-ES` | 
+  |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
+  |Tamil (India)|`ta-IN`<sup>1</sup> | 
+  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+
+  <sup>1</sup> The language is in public preview for pronunciation assessment.
+
+- We are excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
 
 ### September 2023 release
 

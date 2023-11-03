@@ -1,7 +1,7 @@
 ---
 title: How to configure Azure OpenAI Service with managed identities
 titleSuffix: Azure OpenAI
-description: Provides guidance on how to set managed identity with Azure Active Directory
+description: Provides guidance on how to set managed identity with Microsoft Entra ID
 ms.service: azure-ai-openai
 ms.topic: how-to 
 ms.date: 06/24/2022
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # How to configure Azure OpenAI Service with managed identities
 
-More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Azure Active Directory (Azure AD).
+More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.
 
 In the following sections, you'll use  the Azure CLI to assign roles, and obtain a bearer token to call the OpenAI resource. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
@@ -23,7 +23,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 - Access granted to the Azure OpenAI Service in the desired Azure subscription
 -   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the [Request Access to Azure OpenAI Service form](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
-- [Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.](
+- [Custom subdomain names are required to enable features like Microsoft Entra ID for authentication.](
 ../../cognitive-services-custom-subdomains.md)
 
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
@@ -57,7 +57,7 @@ Assigning yourself to the "Cognitive Services User" role will allow you to use y
     > [!NOTE]
     > Role assignment change will take ~5 mins to become effective.
 
-3. Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
+3. Acquire a Microsoft Entra access token. Access tokens expire in one hour. you'll then need to acquire another one.
 
     ```azurecli
     export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com --query "accessToken" -o tsv)
@@ -77,7 +77,7 @@ curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-versi
 
 ## Authorize access to managed identities
 
-OpenAI supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+OpenAI supports Microsoft Entra authentication with [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Microsoft Entra credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 ## Enable managed identities on a VM
 
@@ -90,4 +90,3 @@ Before you can use managed identities for Azure resources to authorize access to
 - [Azure Resource Manager client libraries](../../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 For more information about managed identities, see [Managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
-

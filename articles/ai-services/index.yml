@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure AI services documentation
   description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
-  ms.service: cognitive-services
+  ms.service: azure-ai-services
   ms.topic: hub-page
   author: eric-urban
   ms.author: eur
@@ -95,7 +95,7 @@ productDirectory:
     - title: Video Indexer
       imageSrc: ./media/service-icons/video-indexer.svg
       summary: Extract actionable insights from your videos
-      url: ../azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
       imageSrc: ./media/service-icons/immersive-reader.svg

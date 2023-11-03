@@ -4,7 +4,7 @@ description: In this quickstart, get started with the Azure management client li
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 10/5/2023
 ms.author: eur
@@ -35,7 +35,7 @@ You can install the client library with:
 pip install azure-mgmt-cognitiveservices
 ```
 
-Also install the [Azure Identity library](/python/api/overview/azure/identity-readme) for Azure Active Directory (Azure AD) token authentication support. 
+Also install the [Azure Identity library](/python/api/overview/azure/identity-readme) for Microsoft Entra token authentication support. 
 
 ```console
 pip install azure-identity

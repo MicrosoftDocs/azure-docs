@@ -94,7 +94,7 @@ When you configure object replication, you create a replication policy on the de
 
 A source account can replicate to no more than two destination accounts, with one policy for each destination account. Similarly, an account may serve as the destination account for no more than two replication policies.
 
-The source and destination accounts may be in the same region or in different regions. They may also reside in the same subscription or in different subscriptions. Optionally, the source and destination accounts may reside in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
+The source and destination accounts may be in the same region or in different regions. They may also reside in the same subscription or in different subscriptions. Optionally, the source and destination accounts may reside in different Microsoft Entra tenants. Only one replication policy may be created for each source account/destination account pair.
 
 ### Replication rules
 
@@ -152,7 +152,7 @@ The full resource ID is in the following format:
 /subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Azure AD tenants](#prevent-replication-across-azure-ad-tenants).
+The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Microsoft Entra tenants](#prevent-replication-across-azure-ad-tenants).
 
 While providing only the account name is still supported when cross-tenant replication is allowed for a storage account, Microsoft recommends always providing the full resource ID as a best practice. All previous versions of the Azure Storage resource provider REST API support using the full resource ID path in object replication policies.
 
@@ -172,17 +172,19 @@ The following table summarizes which values to use for the **policyId** and **ru
 | Destination account | The string value *default*. Azure Storage will create the policy ID value for you. | An empty string. Azure Storage will create the rule ID values for you. |
 | Source account | The value of the policy ID returned when you download the policy definition file for the destination account. | The values of the rule IDs returned when you download the policy definition file for the destination account. |
 
-## Prevent replication across Azure AD tenants
+<a name='prevent-replication-across-azure-ad-tenants'></a>
 
-An Azure Active Directory (Azure AD) tenant is a dedicated instance of Azure AD that represents an organization for identity and access management. Each Azure subscription has a trust relationship with a single Azure AD tenant. All resources in a subscription, including storage accounts, are associated with the same Azure AD tenant. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+## Prevent replication across Microsoft Entra tenants
 
-By default, a user with appropriate permissions can configure object replication with a source storage account that is in one Azure AD tenant and a destination account that is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Azure AD tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
+A Microsoft Entra tenant is a dedicated instance of Microsoft Entra ID that represents an organization for identity and access management. Each Azure subscription has a trust relationship with a single Microsoft Entra tenant. All resources in a subscription, including storage accounts, are associated with the same Microsoft Entra tenant. For more information, see [What is Microsoft Entra ID?](../../active-directory/fundamentals/active-directory-whatis.md)
+
+By default, cross-tenant replication is disabled in the Azure portal. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Microsoft Entra tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
 
 To disallow cross-tenant object replication for a storage account, set the **AllowCrossTenantReplication** property to *false*. If the storage account doesn't currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination.
 
 If the storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* isn't permitted. You must delete the existing cross-tenant policies before you can disallow cross-tenant replication.
 
-By default, the **AllowCrossTenantReplication** property isn't set for a storage account, and its value is *null*, which is equivalent to *true*. When the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
+By default, the **AllowCrossTenantReplication** property isn't set for a storage account, and its value is *null*, which is equivalent to *false*. When the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
 You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
@@ -220,7 +222,7 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 |Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
 |Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
 ||Storage cost of the blob and each blob version<sup>1</sup>|
-||Cost of network egress<sup>2</sup>|
+||Cost of network egress<sup>3</sup>|
 
 
 
@@ -235,8 +237,6 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 ## Next steps
 
 - [Configure object replication](object-replication-configure.md)
-- [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
+- [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-
-

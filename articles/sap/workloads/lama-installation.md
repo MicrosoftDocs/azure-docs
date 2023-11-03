@@ -82,7 +82,7 @@ The connector for Azure uses the Azure Resource Manager API to manage your Azure
 Follow these steps to create a service principal for the SAP LaMa connector for Azure:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-1. Open the **Azure Active Directory** pane.
+1. Open the **Microsoft Entra ID** pane.
 1. Select **App registrations**.
 1. Select **New registration**.
 1. Enter a name, and then select **Register**.
@@ -112,7 +112,7 @@ Open the SAP LaMa website and go to **Infrastructure**. On the **Cloud Managers*
 * **Monitoring Interval (Seconds)**: Enter an interval of at least 300.
 * **Use Managed Identity**: Select to enable SAP LaMa to use a system-assigned or user-assigned identity to authenticate against the Azure API.
 * **Subscription ID**: Enter the Azure subscription ID.
-* **Azure Active Directory Tenant ID**: Enter the ID of the Active Directory tenant.
+* **Microsoft Entra tenant ID**: Enter the ID of the Active Directory tenant.
 * **Proxy host**: Enter the host name of the proxy if SAP LaMa needs a proxy to connect to the internet.
 * **Proxy port**: Enter the TCP port of the proxy.
 * **Change Storage Type to save costs**: Enable this setting if the Azure adapter should change the storage type of the managed disks to save costs when the disks are not in use.
