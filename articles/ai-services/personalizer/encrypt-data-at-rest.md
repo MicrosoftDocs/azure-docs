@@ -20,14 +20,8 @@ Personalizer is a service in Azure AI services that uses a machine learning mode
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
-> [!IMPORTANT]
-> Customer-managed keys are only available with the E0 pricing tier. To request the ability to use customer-managed keys, fill out and submit the [Personalizer Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It takes approximately 3-5 business days to hear back about the status of your request. If demand is high, you might be placed in a queue and approved when space becomes available.
->
-> After you're approved to use customer-managed keys with Personalizer, create a new Personalizer resource and select E0 as the pricing tier. After you've created that resource, you can use Azure Key Vault to set up your managed identity.
-
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
 ## Next steps
 
-* [Personalizer Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

@@ -40,8 +40,6 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Azure AI se
 
 * [Azure OpenAI encryption of data at rest](../openai/encrypt-data-at-rest.md)
 
-
 ## Next steps
 
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)

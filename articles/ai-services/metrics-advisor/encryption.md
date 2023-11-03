@@ -96,5 +96,4 @@ By completing all the above steps, you've successfully created a Metrics Advisor
 
 ## Next steps
 
-* [Metrics Advisor Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

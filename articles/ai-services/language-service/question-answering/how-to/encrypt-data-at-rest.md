@@ -39,9 +39,6 @@ Follow these steps to enable CMKs:
 > [!IMPORTANT]
 > It is recommended to set your CMK in a fresh Azure Cognitive Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
 
-> [!NOTE]
-> To request the ability to use customer-managed keys, fill out and submit the [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
-
 ## Regional availability
 
 Customer-managed keys are available in all Azure Search regions.
