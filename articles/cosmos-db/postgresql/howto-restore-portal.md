@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 11/02/2023
 ---
 
 # Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
