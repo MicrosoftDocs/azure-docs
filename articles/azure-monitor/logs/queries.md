@@ -26,14 +26,14 @@ When you open Log Analytics, the **Queries** dialog automatically appears. If yo
 Each query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for modification.
 
 You can also access it by selecting **Queries** in the upper-right corner.
-
-:::image type="content" source="media/queries/queries-button.png" lightbox="media/queries/queries-button.png" alt-text="Screenshot that shows the Queries button.":::
+<!-- convertborder later -->
+:::image type="content" source="media/queries/queries-button.png" lightbox="media/queries/queries-button.png" alt-text="Screenshot that shows the Queries button." border="false":::
 
 ### Query sidebar
 
 You can access the same functionality of the dialog experience from the **Queries** pane on the left sidebar of Log Analytics. Hover over a query name to get the query description and more functionality.
-
-:::image type="content" source="media/queries/query-sidebar.png" lightbox="media/queries/query-sidebar.png" alt-text="Screenshot that shows the Query sidebar.":::
+<!-- convertborder later -->
+:::image type="content" source="media/queries/query-sidebar.png" lightbox="media/queries/query-sidebar.png" alt-text="Screenshot that shows the Query sidebar." border="false":::
 
 ## Find and filter queries
 

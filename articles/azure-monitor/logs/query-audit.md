@@ -19,8 +19,8 @@ Query auditing is enabled with a [diagnostic setting](../essentials/diagnostic-s
 Access the diagnostic setting for a Log Analytics workspace in the Azure portal in either of the following locations:
 
 - From the **Azure Monitor** menu, select **Diagnostic settings**, and then locate and select the workspace.
-
-    :::image type="content" source="media/query-audit/diagnostic-setting-monitor.png" lightbox="media/query-audit/diagnostic-setting-monitor.png" alt-text="Diagnostic settings Azure Monitor"::: 
+    <!-- convertborder later -->
+    :::image type="content" source="media/query-audit/diagnostic-setting-monitor.png" lightbox="media/query-audit/diagnostic-setting-monitor.png" alt-text="Diagnostic settings Azure Monitor" border="false"::: 
 
 - From the **Log Analytics workspaces** menu, select the workspace, and then select **Diagnostic settings**.
 
