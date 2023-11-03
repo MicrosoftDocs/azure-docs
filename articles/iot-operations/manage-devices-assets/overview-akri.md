@@ -44,8 +44,6 @@ With Azure IoT Akri, you can dynamically provision devices like the following ex
 - IP cameras that you don't want to look up IP addresses for
 - OPC UA servers simulated on your host machine to test Kubernetes workloads
 
-> [!NOTE]
-> In addition to connecting proximal devices, you can also use Azure IoT Akri with Azure Programmable Connectivity MEC clusters to provision devices across multiple locations and networks.
 
 ### Compatibility with Kubernetes
 Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes primitives lets users apply their expertise creating applications or managing infrastructure. Small devices connected in an Akri-configured site can appear as Kubernetes resources, just like memory or CPUs. The Azure IoT Akri controller enables the cluster operator to start brokers, jobs or other workloads for individual connected devices or groups of devices. These Azure IoT Akri device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
