@@ -23,7 +23,7 @@ The sample application deployed in this tutorial allows you to interface with a 
 
 Once deployed, you have the opportunity to run code in the Jupyter Notebook to interface with song data in the database.
 
-:::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the Jupyter Notebook deployed in the container image.":::
+:::image type="content" source="media/add-on-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the Jupyter Notebook deployed in the container image.":::
 
 In this tutorial you:
 
@@ -198,7 +198,7 @@ Now that your container app is running and connected to Qdrant, you can configur
 
     Once you authenticate, you are able to interact with the code and data in the Jupyter Notebook.
 
-    :::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the deployed Jupyter Notebook in the container image.":::
+    :::image type="content" source="media/add-on-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the deployed Jupyter Notebook in the container image.":::
 
     With the notebook launched, follow the instructions to interact with the code and data.
 
