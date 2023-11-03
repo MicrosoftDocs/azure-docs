@@ -141,6 +141,9 @@ $ssevmss | update-azvmss
 
 Copy the script, replace all of the example values with your own parameters, and then run it.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```PowerShell
 $VMLocalAdminUser = "yourLocalAdminUser"
 $VMLocalAdminSecurePassword = ConvertTo-SecureString Password@123 -AsPlainText -Force
@@ -162,7 +165,7 @@ $Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGrou
 
 $ipConfig = New-AzVmssIpConfig -Name "myIPConfig" -SubnetId $Vnet.Subnets[0].Id 
 
-$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic'
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic' -OrchestrationMode 'Uniform'
 
 $VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
 
