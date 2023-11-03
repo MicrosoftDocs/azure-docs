@@ -35,7 +35,7 @@ The following diagram shows how Azure Elastic SAN uses Microsoft Entra ID and a 
 
 The following list explains the numbered steps in the diagram:
 
-1. An Azure Key Vault admin grants permissions to a managed identity to access the key vault that contains the encryption keys. The managed identity may be either a user-assigned identity that you create and manage, or a system-assigned identity that is associated with the volume group.
+1. An Azure Key Vault admin grants permissions to a managed identity to access the key vault that contains the encryption keys. The managed identity can be either a user-assigned identity that you create and manage, or a system-assigned identity that is associated with the volume group.
 1. An Azure [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) configures encryption with a customer-managed key for the volume group.
 1. Azure Elastic SAN uses the managed identity granted permissions in step 1 to authenticate access to the key vault via Microsoft Entra ID.
 1. Azure Elastic SAN wraps the data encryption key with the customer-managed key from the key vault.
