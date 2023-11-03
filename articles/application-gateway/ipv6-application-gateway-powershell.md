@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 [Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 address are not supported.
 
-To support IPv6 frontend support, you must create a dual-stack VNet. This dual-stack VNet will have subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
+To support IPv6 frontend support, you must create a dual stack VNet. This dual stack VNet will have subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
 > [!IMPORTANT]
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
@@ -46,13 +46,15 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 
 ## Limitations
 
-* IPv6 frontend is currently supported for v2 SKU only
+* Only v2 SKU supports a frontend with both IPv4 and IPv6 addresses
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
-* IPv6-only Application Gateway is currently not supported
+* IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
 * Deletion of frontend IP addresses are not supported
 * Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
-* Using the same port for Public and Private IPv6 listeners currently not  supported
+
+> [!NOTE]
+> If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
 
 
 ## Register to the preview
