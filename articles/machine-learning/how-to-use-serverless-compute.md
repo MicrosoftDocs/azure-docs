@@ -54,10 +54,8 @@ Serverless compute can be used to fine-tune models in the model catalog such as 
 
 * When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as the compute type.
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
-
-> [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using managed network isolation. For more information, see [workspace managed network isolation](how-to-managed-network.md).
-
+* You can use serverless compute for responsible AI dashboard
+  * [AutoML Image Classification scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-automl-image-classification-fridge.ipynb) 
 
 ## Performance considerations
 
