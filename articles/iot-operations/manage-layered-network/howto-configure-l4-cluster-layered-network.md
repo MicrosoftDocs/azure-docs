@@ -81,7 +81,7 @@ The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your
 
     For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
 
-1. Create the AKS Edge Essentials cluster using the steps for AKS Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md).
+1. Create the AKS Edge Essentials cluster using the steps for AKS Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md&tabs=aks-edge-essentials).
 
 1. Create `aks-ee-config.json` file with the `New-AksEdgeDeployment` command then make the following modifications:
 

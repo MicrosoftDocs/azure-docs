@@ -48,8 +48,8 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 1. Create the Layered Network Management custom resource by creating a file named *level4.yaml* with the following contents:
 
     ```yaml
-    apiVersion: az-edge.com/v1
-    kind: E4in
+    apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
+    kind: Lmn
     metadata:
       name: level4
       namespace: default
