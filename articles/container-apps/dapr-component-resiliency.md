@@ -35,7 +35,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 - [Timeouts](#timeouts)
 - [Retries (HTTP)](#retries)
 
-## Creating resiliency policies
+## Configuring resiliency policies
 
 You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
@@ -214,6 +214,9 @@ properties: {
 | `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
+
+## Resiliency observability
+
 
 ## Related content
 

@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/03/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -36,9 +36,9 @@ The following screenshot shows how an application uses a retry policy to attempt
 - [Circuit breakers](#circuit-breakers)
 - [Connection pools (HTTP and TCP)](#connection-pools)
 
-## Creating resiliency policies
+## Configuring resiliency policies
 
-Whether you create resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
+Whether you configure resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
 
 When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B are not guaranteed to retry in failure. 
 
@@ -363,6 +363,10 @@ properties: {
 
 ### Connection pools
 
+Azure Container App's connection pooling enhances the efficiency and performance of service communication. It maintains a pool of reusable, established connections to upstream container apps, reducing the overhead of creating and tearing down connections for each request.
+
+Connection pools allow you to specify the maximum number of requests or connections that can be established and maintained to an upstream service. This setting limits the total number of concurrent connections that can be maintained for that specific service. When this limit is reached, new connections won't be established to that service until existing connections are released or closed, preventing resource exhaustion and ensuring that connections are managed efficiently.
+
 #### httpConnectionPool
 
 ```bicep
@@ -392,6 +396,10 @@ properties: {
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
 | `maxConnections` | Yes | Maximum number of concurrent connections to an upstream container app. | `100` |
+
+## Resiliency observability
+
+
 
 ## Related content
 
