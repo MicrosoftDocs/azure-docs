@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - Prepare for Launch and Early Operations
+title: Azure Orbital Ground Station - Prepare for launch and early operations
 description: Learn how to get ready for Launch with Azure Orbital.
 author: hrshelar
 ms.service: orbital
@@ -9,7 +9,7 @@ ms.date: 10/12/2023
 ms.author: hrshelar
 ---
 
-# Prepare for Launch and Early Operations
+# Prepare for launch and early operations
 
 Follow these steps to get ready for an upcoming satellite launch and acquire your satellite with Azure Orbital Ground Station.
 
@@ -30,7 +30,7 @@ Compatibility testing is an important risk reduction process in the launch campa
 
 This option is preferred if you're standing up a new satellite constellation and plan to periodically launch satellites. By procuring your own lab equipment, you can fully verify all aspects of RF functionality.
 
-We can connect you with our digitizer and software modem partner, [Kratos](https://www.kratosdefense.com/products/space/signals/signal-processing). Relevant equipment may include [wideband and narrowband digitzers](https://www.kratosdefense.com/products/space/networks/network-devices/spectralnet?r=krtl), a [wideband software receiver](https://www.kratosdefense.com/products/space/signals/signal-processing/quantumrx), and a [virtualized narrowband modem](https://www.kratosdefense.com/products/space/satellites/ttc-devices-and-software/quantumradio).
+We can connect you with our digitizer and software modem partner, [Kratos](https://www.kratosdefense.com/products/space/signals/signal-processing). Relevant equipment could include [wideband and narrowband digitizers](https://www.kratosdefense.com/products/space/networks/network-devices/spectralnet?r=krtl), a [wideband software receiver](https://www.kratosdefense.com/products/space/signals/signal-processing/quantumrx), and a [virtualized narrowband modem](https://www.kratosdefense.com/products/space/satellites/ttc-devices-and-software/quantumradio).
 
 ### Option 2 - Use our Free Professional Services
 
