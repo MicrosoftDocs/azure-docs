@@ -1,11 +1,11 @@
 ---
-title: Rate limiting for ExpressRoute Direct circuits (Preview) - ExpressRoute | Microsoft Docs
+title: Rate limiting for ExpressRoute Direct circuits (Preview) - Azure ExpressRoute | Microsoft Docs
 description: This document provides guidance on how to enable rate limiting for an ExpressRoute Direct circuit.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 11/03/2023
 ms.author: duau
 ---
 
@@ -63,25 +63,25 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
 ## Frequently asked questions
 
-1. What is the benefit of rate limiting on ExpressRoute Direct circuits?
+* What is the benefit of rate limiting on ExpressRoute Direct circuits?
  
     Rate limiting enables you to manage and restrict the data transfer rate over your ExpressRoute Direct circuits, which helps optimize network performance and costs.
 
-1. How is rate limiting applied?
+* How is rate limiting applied?
 
     Rate limiting is applied on the Microsoft and private peering subinterfaces of Microsoft edge routers that connect to customer edge routers.
 
-1. How does rate limiting affect my circuit performance?
+* How does rate limiting affect my circuit performance?
 
     An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth gets set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, it isn't a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
 
-1. How can I check the rate limiting status of my ExpressRoute Direct port circuits?
+* How can I check the rate limiting status of my ExpressRoute Direct port circuits?
 
     In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See the following screenshot:
 
     :::image type="content" source="./media/rate-limiting/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
 
-1. How can I monitor if my traffic gets affected by the rate limiting feature?
+* How can I monitor if my traffic gets affected by the rate limiting feature?
 
     To monitor your traffic, follow these steps:
 
@@ -93,7 +93,7 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
     :::image type="content" source="./media/rate-limiting/drop-bits-metric.png" alt-text="Screenshot of the drop bits per seconds metrics for an ExpressRoute Direct circuit.":::
 
-1. How can I change my circuit bandwidth? 
+* How can I change my circuit bandwidth? 
 
     To change your circuit bandwidth, follow these steps:
 
@@ -105,15 +105,16 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
     
     1. Select the **Save** button at the top of the page to apply the changes. If you enabled rate limiting for your circuit, it automatically adjusts to the new bandwidth value.
     
-1. How does increasing the circuit bandwidth affect the traffic flow through the circuit? 
+
+* How does increasing the circuit bandwidth affect the traffic flow through the circuit? 
 
     Increasing the circuit bandwidth doesn’t affect the traffic flow through the circuit. The bandwidth increase is seamless and the circuit bandwidth upgrade reflects in a few minutes. However, the bandwidth increase is irreversible.
 
-1. Can I enable or disable rate limiting for a specific circuit configured over my ExpressRoute Direct port? 
+* Can I enable or disable rate limiting for a specific circuit configured over my ExpressRoute Direct port? 
 
     Yes, you can enable or disable rate limiting for a specific circuit.
 
-1. Is this feature available in sovereign clouds? 
+* Is this feature available in sovereign clouds? 
 
     No, this feature is only available in the public cloud.
 
