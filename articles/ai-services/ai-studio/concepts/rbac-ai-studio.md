@@ -12,6 +12,8 @@ ms.author: eur
 
 # Role-based access control in Azure AI Studio 
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 In this article, you learn how to manage access (authorization) to an Azure AI resource. Azure Role-based access control is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles. 
 
 > [!WARNING]

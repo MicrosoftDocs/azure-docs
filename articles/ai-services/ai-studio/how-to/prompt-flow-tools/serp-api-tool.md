@@ -12,6 +12,8 @@ ms.author: eur
 
 # Serp API tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+
 The prompt flow *Serp API* tool provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api). 
 
 You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can specify a range of search parameters, such as the search query, location, device type, and more.

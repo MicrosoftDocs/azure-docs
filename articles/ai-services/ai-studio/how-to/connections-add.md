@@ -12,6 +12,8 @@ ms.author: eur
 
 # How to add a new connection in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 In this article, you learn how to add a new connection in Azure AI Studio.
 
 Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI resource. 
