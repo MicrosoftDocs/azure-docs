@@ -15,9 +15,9 @@ ms.date: 11/03/2023
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) supports this feature.
 
-*Integrated vectorization* adds data chunking and text-to-vector embedding to skills in indexer-based indexing, and text-to-vector conversions to queries. 
+*Integrated vectorization* adds data chunking and text-to-vector embedding to skills in indexer-based indexing. It also adds text-to-vector conversions to queries. 
 
-This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectors are streamlined through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. The same vectorizers used during indexing are also called during queries to convert text to vectors.
+This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectorization are built into indexing through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. Any vectorizers used during indexing can also be called on queries to convert text to vectors.
 
 For indexing, integrated vectorization requires:
 
@@ -39,12 +39,12 @@ The following diagram shows the components of integrated vectorization.
 
 Here's a checklist of the components responsible for integrated vectorization:
 
-+ An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
-+ A data source supported by indexers.
++ A supported data source for indexer-based indexing.
 + An index that specifies vector fields, and a vectorizer definition assigned to vector fields.
-+ A skillset providing a Text Split skill for data chunking, and an AzureOpenAiEmbedding skill or a custom skill that points to the embedding model.
-+ Index projections (also defined in a skillset) if you're using a secondary index for chunked data.
-+ An indexer specifying a schedule, mappings, and properties for change detection.
++ A skillset providing a Text Split skill for data chunking, and a skill for vectorization (either the AzureOpenAiEmbedding skill or a custom skill pointing to an external embedding model).
++ Optionally, index projections (also defined in a skillset) to push chunked data to a secondary index
++ An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
++ An indexer for driving the process end-t-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
 
 This checklist focuses on integrated vectorization, but your solution isn't limited to this list. You can add more skills for AI enrichment, create a knowledge store, add semantic ranking, add relevance tuning, and other query features.
 
@@ -89,7 +89,7 @@ A more common scenario - data chunking and vectorization during indexing:
 Optionally, [create secondary indexes](index-projections-concept-intro.md) for advanced scenarios where chunked content is in one index, and non-chunked in another index. Chunked indexes (or secondary indexes) are useful for RAG apps.
 
 > [!TIP]
-> [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal let's you try out integrated vectorization before writing any code.
+> [Try the new **Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to explore integrated vectorization before writing any code.
 >
 > Or, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
 
@@ -103,11 +103,11 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 Here are some of the key benefits of the integrated vectorization: 
 
-+ Streamlined maintenance: No separate data chunking and vectorization pipeline. Code is simpler to write and maintain.  
++ No separate data chunking and vectorization pipeline. Code is simpler to write and maintain.  
 
-+ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as in Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline, from retrieval, to document cracking, through optional AI-enrichment, data chunking, vectorization, and indexing.
++ Automate indexing end-to-end. When data changes in the source (such as in Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline, from retrieval, to document cracking, through optional AI-enrichment, data chunking, vectorization, and indexing.
 
-+ Project or redirect chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
++ Projecting chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
   Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, especially in a chat-style search app.
 
