@@ -35,7 +35,7 @@ You can configure your ASA job to use managed identity by navigating to the **Ma
 4.	Review and **save**.
 
 
-## Download Certificate from LetsEncrypt
+## Download certificate from LetsEncrypt
 
 The stream analytics kafka output is a librdkafka-based client. For the output to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server authentication. 
 Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). 
@@ -106,7 +106,6 @@ For example:
 az keyvault secret set --vault-name mykeyvault --name confluentsecret --file C:\Users\Downloads\isrgrootx1.pem
 ```
 
-
 ## Grant the Stream Analytics job permissions to access the certificate in the key vault
 
 For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
@@ -125,7 +124,6 @@ Use the following steps to grant special permissions to your stream analytics jo
  | Members | \<Name of your Stream Analytics job> or \<name of user-assigned identity> |
 
    
-
 ## Configure kafka output in your stream analytics job
 
 1. In your stream analytics job, select **Outputs** under **Job Topology**
