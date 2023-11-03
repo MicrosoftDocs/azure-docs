@@ -29,12 +29,12 @@ The migration helps produce the following results:
    - **Data in Log Analytics**: Before migration, the data remains in the workspace in which Network performance monitor is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table, NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table in the same workspace. After the tests are disabled in Network performance monitor, the data is stored only in the NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table.
    - **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table. To re-create the alerts in metrics, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
 - For ExpressRoute monitoring:
-	- **End to end loss and latency**:  Connection monitor will power this, and it will be easier than Network performance monitor, as you don't need to configure which circuits and peerings to monitor. Circuits in the path are automatically discovered, data is available in metrics (faster than LA, which was where Network performance monitor stored the results). Topology will work as is as well.
+	- **End to end loss and latency**:  This is easier in Connection monitor than in Network performance monitor, as you don't need to configure which circuits and peerings to monitor. Circuits in the path are automatically discovered, data is available in metrics (faster than LA, which was where Network performance monitor stored the results).
 	- **Bandwidth measurements**: With the launch of bandwidth related metrics, Network performance monitor’s log analytics based approach wasn't effective in bandwidth monitoring for ExpressRoute customers. This capability is now not available in Connection monitor.
 	
 ## Prerequisites
 
-- Ensure that Network Watcher is enabled in the subscription and region of the Log Analytics workspace. If not done, you'll see an error stating "Before you attempt to migrate, enable Network watcher extension in subscription and location of LA workspace selected."
+- Ensure that Network Watcher is enabled in the subscription and region of the Log Analytics workspace. If not done, you see an error stating "Before you attempt to migrate, enable Network watcher extension in subscription and location of LA workspace selected."
 - In case Azure virtual machine (VM) belongs to a different region/subscription than that of Log Analytics workspace is used as an endpoint, make sure Network Watcher is enabled for that subscription and region.
 - Azure virtual machines with Log Analytics agents installed must be enabled with the Network Watcher extension.
 
@@ -48,7 +48,7 @@ To migrate the tests from Network performance monitor to Connection monitor, fol
 	
 1. In the drop-down lists, select your subscription and workspace, and then select the Network performance monitor feature you want to migrate. 
 1. Select **Import** to migrate the tests.
-- If Network performance monitor isn't enabled on the workspace, you'll see an error stating "No valid NPM config found". 
+- If Network performance monitor isn't enabled on the workspace, you see an error stating "No valid NPM config found". 
 - If no tests exist in the feature you chose in step 2, you'll see an error stating "Workspace selected doesn't have \<feature\> config".
 - If there are no valid tests, you'll see an error stating "Workspace selected does not have valid tests"
 - Your tests might contain agents that are no longer active, but have been active in the past. You'll see an error stating "Few tests contain agents that are no longer active. These agents might be running in the past but are shut down/not running anymore. Enable agents and migrate to Connection monitor. Select continue to migrate the tests that do not contain agents that are not active."
