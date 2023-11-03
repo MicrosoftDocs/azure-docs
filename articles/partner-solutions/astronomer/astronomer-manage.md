@@ -11,7 +11,7 @@ ms.date: 11/13/2023
 
 ## Single sign-on
 
-Single sign-on is already enabled when you created your Astro resrouce. To access Astro via SSO, follow these steps:
+Single sign-on (SSO) is already enabled when you created your Astro resource. To access Astro through SSO, follow these steps:
 
 1. Navigate to the Overview for your instance of the Astro resource. Select on the SSO Url.
 
@@ -42,7 +42,6 @@ Once the Astro resource is deleted, all billing stops for that resource through 
 1. Select the reason why would you like to delete the resource.
 
 1. Select **Delete**.
-
 
 ## Next steps
 

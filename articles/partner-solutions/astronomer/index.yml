@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is 
+          - text: What is Apache Airflow on Astro?
             url: astronomer-overview.md
       - linkListType: how-to-guide
         links:

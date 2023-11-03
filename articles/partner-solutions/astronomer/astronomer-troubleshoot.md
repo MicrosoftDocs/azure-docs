@@ -9,7 +9,7 @@ ms.date: 11/13/2023
 
 # Troubleshooting Astro integration with Azure
 
-You can get support for your Astro deployment through a **New Support request**. The procedure for creating the request is here. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, we have included other troubleshooting for problems you might experience in creating and using an Astro resource.
+You can get support for your Astro deployment through a **New Support request**. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, we have included other troubleshooting for problems you might experience in creating and using an Astro resource.
 
 ## Getting support
 
@@ -54,7 +54,7 @@ If the deployment fails and the Astro resource has a status of `Failed`, delete 
 If SSO isn't working for the Astronomer portal, verify you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
 
 > [!NOTE]
-> If you are seeing an Admin consent screen along with the User consent on your first-time login via SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
+> If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
 
 For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
 

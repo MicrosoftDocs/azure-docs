@@ -14,5 +14,5 @@ items:
   items:
   - name: Manage your Apache Airflow on Astro resource
     href: astronomer-manage.md
-  - name: Troubleshoot Astronomer
+  - name: Troubleshoot Astro
     href: astronomer-troubleshoot.md
