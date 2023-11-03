@@ -769,7 +769,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "WindowsServer",
             "publisher": "MicrosoftWindowsServer",
             "sku": "2019-Datacenter",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "",
+            "sharedGalleryImageId": "",
+            "exactVersion": ""
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -908,7 +911,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "UbuntuServer",
             "publisher": "Canonical",
             "sku": "16.04.0-LTS",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "",
+            "sharedGalleryImageId": "",
+            "exactVersion": ""
         },
         "osDisk": {
             "caching": "ReadWrite",
