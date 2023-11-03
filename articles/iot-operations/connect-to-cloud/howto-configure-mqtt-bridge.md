@@ -30,9 +30,9 @@ To bridge to another broker, Azure IoT MQ must know the remote broker endpoint U
 
    ```console
    $ kubectl apply -f my-mqtt-bridge.yaml 
-   mqttbridgeconnectors.az-edge.com "my-mqtt-bridge" created
+   mqttbridgeconnectors.mq.iotoperations.azure.com "my-mqtt-bridge" created
    $ kubectl apply -f my-topic-map.yaml
-   mqttbridgetopicmaps.az-edge.com "my-topic-map" created
+   mqttbridgetopicmaps.mq.iotoperations.azure.com "my-topic-map" created
    ```
 
 Once deployed, use `kubectl get pods` to verify messages start flowing to and from your endpoint.
