@@ -68,8 +68,6 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
-          - text: Preview of Azure Confidential VM with Intel TDX
-            url: tdx-confidential-vm-overview.md
       - linkListType: concept
         links:
           - text: Guest attestation for confidential VMs
@@ -96,16 +94,20 @@ landingContent:
         links:
           - text: AMD confidential VMs FAQ 
             url: confidential-vm-faq-amd.yml
-          - text: DCasv5 and DCadsv5-series virtual machines
+          - text: DCasv5 and DCadsv5-series VM specs
             url: ../virtual-machines/dcasv5-dcadsv5-series.md
-          - text: ECasv5 and ECadsv5-series virtual machines
+          - text: ECasv5 and ECadsv5-series VM specs
             url: ../virtual-machines/ecasv5-ecadsv5-series.md
+          - text: DCesv5 and DCedsv5-series VM specs
+            url: ../virtual-machines/dcesv5-dcedsv5-series.md
+          - text: ECesv5 and ECedsv5-series VM specs
+            url: ../virtual-machines/ecesv5-ecedsv5-series.md
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: DCesv5 and ECesv5 Confidential VMs with Intel TDX
-            url: https://aka.ms/tdx-blog/
+          - text: Confidential VMs with Intel TDX (Public Preview)
+            url: https://aka.ms/TDX-CVM-pubprev
 
   # Card
   - title: Container compute
