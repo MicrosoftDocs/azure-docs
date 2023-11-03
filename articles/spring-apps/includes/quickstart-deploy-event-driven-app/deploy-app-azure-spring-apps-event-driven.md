@@ -30,7 +30,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
    The following list describes the command interaction:
 
-    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see from the following log messages that the deployment was successful:
 

@@ -28,7 +28,7 @@ Use the following steps to prepare the sample locally:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to prepare the sample locally:
+Use the following steps to clone and run the app locally:
 
 [!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
@@ -48,7 +48,7 @@ Use the following steps to create a Service Bus instance and an Azure Spring App
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create a Service Bus instance
 
@@ -70,20 +70,20 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+1. From the navigation pane, open the **Apps** pane, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-event-driven-app* and leave other with default values.
+1. On the **Create App** page, for the app name, use *simple-event-driven-app* and leave all the other fields with their default values.
 
-1. Select **Create** to finish the app creation and select the app to view the details.
+1. Select **Create** to finish creating the app and then select the app to view the details.
 
-1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+1. Select **Service Connector** from the navigation pane, then select **Create** to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
     - **Service type**: Select **Service Bus**.
-    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Connection name**: Populated with an automatically generated name that you can modify.
     - **Subscription**: Select your subscription.
     - **Namespace**: Select the namespace you created.
     - **Client type**: Select **SpringBoot**.
@@ -96,7 +96,7 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png":::
 
-1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service**.
 
 1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
@@ -245,7 +245,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
    The following list describes the command interaction:
 
-    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see from the following log messages that the deployment was successful:
 
