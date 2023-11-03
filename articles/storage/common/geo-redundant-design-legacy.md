@@ -3,12 +3,12 @@ title: Use geo-redundancy to design highly available applications (.NET v11 SDK)
 titleSuffix: Azure Storage
 description: Learn how to use geo-redundant storage to design a highly available application using the .NET v11 SDK that is flexible enough to handle outages.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 08/23/2022
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: artek
 ms.subservice: storage-common-concepts
 ms.devlang: csharp

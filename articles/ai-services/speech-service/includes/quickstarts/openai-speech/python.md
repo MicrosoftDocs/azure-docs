@@ -41,14 +41,14 @@ Follow these steps to create a new console application.
     ```
 1. Run this command to install the OpenAI SDK:  
     ```console
-    pip install openai
+    pip install openai==0.28.1
     ```
     > [!NOTE]
     > This library is maintained by OpenAI (not Microsoft Azure). Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 1. Copy the following code into `openai-speech.py`: 
 
-    ```Python
+```Python
     import os
     import azure.cognitiveservices.speech as speechsdk
     import openai
@@ -75,26 +75,30 @@ Follow these steps to create a new console application.
     # The language of the voice that responds on behalf of Azure OpenAI.
     speech_config.speech_synthesis_voice_name='en-US-JennyMultilingualNeural'
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
+
+    # tts sentence end mark
+    tts_sentence_end = [ ".", "!", "?", ";", "。", "！", "？", "；", "\n" ]
     
     # Prompts Azure OpenAI with a request and synthesizes the response.
     def ask_openai(prompt):
+        # Ask Azure OpenAI in streaming way
+        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=200, stream=True)
+        collected_messages = []
+        last_tts_request = None
     
-        # Ask Azure OpenAI
-        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
-        text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
-        print('Azure OpenAI response:' + text)
-        
-        # Azure text to speech output
-        speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
-    
-        # Check result
-        if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-            print("Speech synthesized to speaker for text [{}]".format(text))
-        elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
-            cancellation_details = speech_synthesis_result.cancellation_details
-            print("Speech synthesis canceled: {}".format(cancellation_details.reason))
-            if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                print("Error details: {}".format(cancellation_details.error_details))
+        # iterate through the stream response stream
+        for chunk in response:
+            if len(chunk['choices']) > 0:
+                chunk_message = chunk['choices'][0]['text']  # extract the message
+                collected_messages.append(chunk_message)  # save the message
+                if chunk_message in tts_sentence_end: # sentence end found
+                    text = ''.join(collected_messages).strip() # join the recieved message together to build a sentence
+                    if text != '': # if sentence only have \n or space, we could skip
+                        print(f"Speech synthesized to speaker for: {text}")
+                        last_tts_request = speech_synthesizer.speak_text_async(text)
+                        collected_messages.clear()
+        if last_tts_request:
+            last_tts_request.get()
     
     # Continuously listens for speech input to recognize and send as text to Azure OpenAI
     def chat_with_open_ai():
@@ -128,7 +132,8 @@ Follow these steps to create a new console application.
         chat_with_open_ai()
     except Exception as err:
         print("Encountered exception. {}".format(err))
-    ```
+```
+
 1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `max_tokens` parameter. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 Run your new console application to start speech recognition from a microphone:

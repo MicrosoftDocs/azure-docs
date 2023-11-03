@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/13/2023
+ms.date: 10/19/2023
 ms.topic: how-to
 ms.custom: references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -33,7 +33,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 :::moniker range="azureml-api-2"
-* [Use managed networks](how-to-managed-network.md) (preview)
+* [Use managed networks](how-to-managed-network.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
@@ -170,7 +170,10 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
+
+- The workspace and default storage account must be in the same VNet. However, subnets within the same VNet are allowed. For example, the workspace in one subnet and storage in another.
+
+    We _recommend_ that the Azure Key Vault and Azure Container Registry for the workspace are also in the same VNet. However both of these resources can also be in a [peered](/azure/virtual-network/virtual-network-peering-overview) VNet.
 
 ## Secure the training environment
 

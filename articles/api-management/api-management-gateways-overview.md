@@ -76,13 +76,14 @@ The following table compares features available in the managed gateway versus th
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) |  ❌ | ❌ | ✔️ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
-| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ | 
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
-<sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
-<sup>3</sup> Requires configuration of local CA certificates.<br/>
+<sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
+<sup>3</sup>CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>4</sup> Client protocol needs to be enabled.
 
 ### Backend APIs
 
@@ -166,7 +167,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 * In environments such as [Kubernetes](how-to-self-hosted-gateway-on-kubernetes-in-production.md), add multiple gateway replicas to handle expected usage.
 * Optionally [configure autoscaling](how-to-self-hosted-gateway-on-kubernetes-in-production.md#autoscaling) to meet traffic demands.
 
-## Next steps
+## Related content
 
 -   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
