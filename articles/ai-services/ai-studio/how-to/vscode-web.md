@@ -1,8 +1,7 @@
 ---
-title: How to work with Azure AI Studio projects in VS Code (Web)
+title: Get started with Azure AI projects in VS Code (Web)
 titleSuffix: Azure AI services
-description: This article provides instructions on how to work with Azure AI Studio projects in VS Code (Web).
-services: cognitive-services
+description: This article provides instructions on how to get started with Azure AI projects in VS Code (Web).
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -11,7 +10,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to work with Azure AI Studio projects in VS Code (Web)
+# Get started with Azure AI projects in VS Code (Web)
 
 Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS Code is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
 
@@ -35,7 +34,7 @@ Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS
 
 ## The custom container folder structure
 
-Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
+Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
@@ -52,29 +51,40 @@ This table summarizes the folder structure:
 > [!IMPORTANT]
 > It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your Azure AI resource's storage account, and therefore aren't lost if the compute instance is deleted.
 
-## Get started with the Azure AI Generative SDK
+### The Azure AI SDK
 
-To get started with the [Azure AI Generative SDK](./sdk-install.md), try out an example notebook from the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository.
+To get started with the AI SDK, we recommend the [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sample) as a comprehensive starter repository that includes a few different copilot implementations. For the full list of samples, check out the [Azure AI Samples repository](https://github.com/azure-samples/azureai-samples).
 
 1. Open a terminal
-1. Clone the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository into your project's `code` folder. You might be prompted to authenticate.
+1. Clone a sample repo into your project's `code` folder. You might be prompted to authenticate to GitHub
 
-    ```bash
-    cd code
-    git clone https://github.com/azure/aistudio-copilot-sample
-    ```
+```bash
+cd code
+git clone https://github.com/azure/aistudio-copilot-sample
+```
 
-1. To work with LangChain, open the sample notebook (that you cloned from [/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb](https://github.com/Azure/aistudio-copilot-sample/blob/main/src/langchain/langchain_qna.ipynb)) at `/code/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb` and run through the notebook cells.
+3. If you have existing notebooks or code files, you can import `import azure.ai.generative` and use intellisense to browse capabilities included in that package
 
-## Get started with the Azure AI CLI
+### The Azure AI CLI
 
-If you prefer to work interactively, pen a terminal to get started with the Azure AI CLI.
-1. The `ai help` command guides you through Azure AI CLI capabilities.
-1. The `ai init` command guides you to configure your resources in your development environment.
+If you prefer to work interactively, the AI CLI has everything you need to build generative AI solutions.
+
+1. Open a terminal to get started
+1. `ai help` guides you through CLI capabilities
+1. `ai init` configures your resources in your development environment
+
+### Working with prompt flows
+
+You can use the Azure AI SDK and AI CLI to create, reference and work with the flows.
+
+Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder using the CLIs and SDKs.
+
+1. To reference an existing flow using the Azure AI CLI, use `ai flow invoke`
+1. To create a new flow using the Azure AI CLI, use `ai flow new`
+
+For prompt flow specific capabilities that aren't present in the AI SDK and CLI, you can work directly with the Prompt flow CLI or SDK, or the Prompt flow VS Code extension (all preinstalled in this environment). For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
 
 ## Remarks
-
-For prompt flow specific capabilities that aren't present in the Azure AI SDK and CLI, you can work directly with the Prompt flow CLI, SDK, or VS Code extension (that are all preinstalled in the VS Code (Web) environment). For more information about prompt flow, see [prompt flow reference](https://microsoft.github.io/promptflow/reference/index.html).
 
 If you plan to work across multiple code and data directories, or multiple repositories, you can use the split root file explorer feature in VS Code. To try this feature, follow these steps:
 1. Enter *Ctrl+Shift+p* to open the command palette. Search for and select **Workspaces: Add Folder to Workspace**.

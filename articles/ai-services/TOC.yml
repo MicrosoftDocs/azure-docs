@@ -33,9 +33,9 @@
     items:
     - name: Get started with the Azure AI SDK
       href: ai-studio/how-to/sdk-install.md
-    - name: Install the Azure AI CLI
+    - name: Get started with the Azure AI CLI
       href: ai-studio/how-to/cli-install.md
-    - name: Work with Azure AI Studio projects in VS Code (Web)
+    - name: Get started with projects in VS Code (Web)
       href: ai-studio/how-to/vscode-web.md
   - name: Create Azure AI projects and resources
     items:

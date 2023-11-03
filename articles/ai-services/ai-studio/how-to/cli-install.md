@@ -1,7 +1,7 @@
 ---
-title: How to install the Azure AI CLI
+title: Get started with the Azure AI CLI
 titleSuffix: Azure AI services
-description: This article provides instructions on how to install the Azure AI CLI.
+description: This article provides instructions on how to install and get started with the Azure AI CLI.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to install the Azure AI CLI
+# Get started the Azure AI CLI
 
 The Azure AI command-line interface (CLI) is a cross-platform command-line tool to connect to Azure AI services and execute control-plane and data-plane operations without having to write any code. The Azure AI CLI allows the execution of commands through a terminal using interactive command-line prompts or via script. 
 
