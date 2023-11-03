@@ -15,7 +15,7 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _E4K_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The E4K destination doesn't support batching.
+Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ To configure and use an Azure Data Explorer destination pipeline stage, you need
 
 ## Configure the destination stage
 
-The E4K destination stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI, or provide the JSON configuration on the **Advanced** tab:
+The MQ destination stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI, or provide the JSON configuration on the **Advanced** tab:
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
