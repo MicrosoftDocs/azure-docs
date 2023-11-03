@@ -144,9 +144,6 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 | Security Protocol            | Select **SASL_SSL** |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
 
-
-## Step Seven - Authentication and encryption to confluent cloud using API key
-
 > [!IMPORTANT]
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
