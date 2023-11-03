@@ -3,10 +3,13 @@ title: Performance and scaling best practices for small to medium workloads in A
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/03/2023
 ---
 
 # Best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS)
+
+> [!NOTE]
+> This article focuses on best practices for **small to medium workloads**. For best practices for **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale-large.md).
 
 As you deploy and maintain clusters in AKS, you can use the following best practices to help you optimize performance and scaling.
 
@@ -18,12 +21,8 @@ In this article, you learn about:
 > * Managing node scaling and efficiency based on your workload demands.
 > * Networking considerations for ingress and egress traffic.
 > * Monitoring and troubleshooting control plane and node performance.
-> * Limitations and recommendations for using add-ons with your workloads.
 > * Capacity planning, surge scenarios, and cluster upgrades.
 > * Storage and networking considerations for data plane performance.
-
-> [!NOTE]
-> This article focuses on best practices for **small to medium workloads**. For best practices for **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale-large.md).
 
 ## Application autoscaling vs. infrastructure autoscaling
 
@@ -46,7 +45,8 @@ The HPA provides resource utilization metrics by default. You can also integrate
 
 Implementing [vertical pod autoscaling](./vertical-pod-autoscaler.md) is useful for applications with fluctuating and unpredictable resource demands. The Vertical Pod Autoscaler (VPA) allows you to fine-tune resource requests, including CPU and memory, for individual pods, enabling precise control over resource allocation. This granularity minimizes resource waste and enhances the overall efficiency of cluster utilization. The VPA also streamlines application management by automating resource allocation, freeing up resources for critical tasks.
 
-You shouldn't use the VPA in conjunction with the HPA on the same CPU or memory metrics. This combination can lead to conflicts, as both autoscalers attempt to respond to changes in demand using the same metrics. However, you can use the VPA for CPU or memory in conjunction with the HPA for custom metrics to prevent overlap and ensure that each autoscaler focuses on distinct aspects of workload scaling.
+> [!WARNING]
+> You shouldn't use the VPA in conjunction with the HPA on the same CPU or memory metrics. This combination can lead to conflicts, as both autoscalers attempt to respond to changes in demand using the same metrics. However, you can use the VPA for CPU or memory in conjunction with the HPA for custom metrics to prevent overlap and ensure that each autoscaler focuses on distinct aspects of workload scaling.
 
 > [!NOTE]
 > The VPA works based on historical data. We recommend waiting at least *24 hours* after deploying the VPA before applying any changes to give it time to collect recommendation data.
@@ -129,7 +129,7 @@ Node scaling allows you to dynamically adjust the number of nodes in your cluste
 >
 > Use the latest node image version to ensure that you have the latest security patches and bug fixes.
 
-Using the latest node image version provides the best performance experience. AKS ships performance improvements within the weekly image releases. Falling behind on updates might have a negative impact on performance, so it's important to avoid large gaps between versions.
+Using the latest node image version provides the best performance experience. AKS ships performance improvements within the weekly image releases. The latest daemonset images are cached on the latest VHD image, which provide lower latency benefits for node provisioning and bootstrapping. Falling behind on updates might have a negative impact on performance, so it's important to avoid large gaps between versions.
 
 #### Azure Linux
 
@@ -141,7 +141,7 @@ Azure Linux is lightweight, only including the necessary set of packages to run 
 
 The [Ubuntu 2204 image](https://github.com/Azure/AKS/blob/master/CHANGELOG.md) is the default node image for AKS. It's a lightweight and efficient operating system optimized for running containerized workloads. This means that it can help reduce resource usage and improve overall performance. The image includes the latest security patches and updates, which help ensure that your workloads are protected from vulnerabilities.
 
-The Ubuntu 2204 image is fully supported by Microsoft and the Ubuntu community and can help you achieve better performance and security for your containerized workloads.
+The Ubuntu 2204 image is fully supported by Microsoft, Canonical, and the Ubuntu community and can help you achieve better performance and security for your containerized workloads.
 
 ### Virtual machines (VMs)
 
@@ -151,11 +151,9 @@ The Ubuntu 2204 image is fully supported by Microsoft and the Ubuntu community a
 
 Application performance is closely tied to the VM SKUs you use in your workloads. Larger and more powerful VMs, generally provide better performance. For *mission critical or product workloads*, we recommend using VMs with at least an 8-core CPU. VMs with newer hardware generations, like v4 and v5, can also help improve performance. Keep in mind that create and scale latency might vary depending on the VM SKUs you use.
 
-OS disks are responsible for storing the operating system and its associated files, and the VMs are responsible for running the applications. When selecting a VM, ensure the size and performance of the OS disk and VM SKU don't have a large discrepancy. A discrepancy in size or performance can cause performance issues and resource contention. For example, if the OS disk is significantly smaller than the VMs, it can limit the amount of space available for application data and cause the system to run out of disk space. If the OS disk has lower performance than the VMs, it can become a bottleneck and limit the overall performance of the system. Make sure the size and performance are balanced to ensure optimal performance in Kubernetes.
-
 ### Node pools
 
-For scaling performance and reliability, we recommend using a dedicated system node pool. The system node pool reserves resources for critical components like system OS daemons and kernel memory. We recommend running your application in a user node pool to increase the availability of allocatable resources for your workloads. This configuration also helps mitigate the risk of resource competition between the system and application.
+For scaling performance and reliability, we recommend using a dedicated system node pool. With this configuration, the dedicated system node pool reserves space for critical system resources such as system OS daemons. Your application workload can then run in a user node pool to increase the availability of allocatable resources for your application. This configuration also helps mitigate the risk of resource competition between the system and application.
 
 ### Create operations
 
@@ -238,28 +236,18 @@ The following table provides a breakdown of suggested use cases for OS disks sup
 
 Input/output operations per second (IOPS) refers to the number of read and write operations that a disk can perform in a second. Throughout refers to the amount of data that can be transferred in a given time period.
 
-In Kubernetes, the IOPS and throughput of a disk can have a significant impact on the performance of the system. When a Kubernetes cluster runs multiple applications, the disk IOPS and throughput might cause a bottleneck, especially for applications requiring high disk performance. It's important to choose a disk that can handle the workload and provide sufficient IOPS and throughput.
+OS disks are responsible for storing the operating system and its associated files, and the VMs are responsible for running the applications. When selecting a VM, ensure the size and performance of the OS disk and VM SKU don't have a large discrepancy. A discrepancy in size or performance can cause performance issues and resource contention. For example, if the OS disk is significantly smaller than the VMs, it can limit the amount of space available for application data and cause the system to run out of disk space. If the OS disk has lower performance than the VMs, it can become a bottleneck and limit the overall performance of the system. Make sure the size and performance are balanced to ensure optimal performance in Kubernetes.
+
+You can use the following steps to monitor IOPS and bandwidth meters on OS disks in the Azure portal:
+
+1. Navigate to the [Azure portal](https://portal.azure.com/).
+2. Search for **Virtual machine scale sets** and select your virtual machine scale set.
+3. Under **Monitoring**, select **Metrics**.
 
 Ephemeral OS disks can provide dynamic IOPS and throughput for your application, whereas managed disks have capped IOPS and throughput. For more information, see [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 
 [Azure Premium SSD v2](../virtual-machines/disks-types.md#premium-ssd-v2) is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. It's suited for a broad range of workloads, such as SQL server, Oracle, MariaDB, SAP, Cassandra, MongoDB, big data/analytics, gaming, and more. This disk type is the highest performing option currently available for persistent volumes.
 
-### Networking types
-
-> **Best practice guidance**:
->
-> Use Dynamic IP Allocation or CNI Overlay networking for optimal networking performance.
-
-We recommend using Dynamic IP allocation or CNI Overlay networking for optimal networking performance.
-
-**Dynamic IP allocation** assigns IP addresses automatically, which helps reduce the time and effort required for manual IP address management. It also helps prevent IP address conflicts and improves scalability.
-
-**CNI Overlay** allows you to create virtual networks on top of physical networks, which helps reduce network latency and improve network throughput. It also helps simplify network configuration and management, making it easier to deploy and manage Kubernetes applications. Overall, these technologies help improve the performance and scalability of your Kubernetes workloads while also simplifying network management and reducing the risk of errors.
-
-For more information, see [Dynamic IP allocation overview](./configure-azure-cni-dynamic-ip-allocation.md) and [CNI Overlay overview](./azure-cni-overlay.md).
-
 ### Pod scheduling
 
-The memory and CPU resources allocated to a VM have a direct impact on the performance of the pods running on the VM. When a pod is created, it's assigned a certain amount of memory and CPU resources, which are used to run the application. If the VM doesn't have enough memory or CPU resources available, it can cause the pods to slow down or even crash. If the VM has too much memory or CPU resources available, it can cause the pods to run inefficiently, wasting resources and increasing costs.
-
-It's important to ensure that your VMs have the appropriate amount of memory and CPU resources to ensure optimal performance of your Kubernetes pods. To help ensure optimal performance, you can monitor resource usage and adjust the allocation as needed to ensure the VM uses the resources efficiently and effectively. You can set the maximum pods per node based on your capacity planning using `--max-pods`.
+The memory and CPU resources allocated to a VM have a direct impact on the performance of the pods running on the VM. When a pod is created, it's assigned a certain amount of memory and CPU resources, which are used to run the application. If the VM doesn't have enough memory or CPU resources available, it can cause the pods to slow down or even crash. If the VM has too much memory or CPU resources available, it can cause the pods to run inefficiently, wasting resources and increasing costs. We recommend monitoring the total pod requests across your workloads against the total allocatable resources for best scheduling predictability and performance. You can also set the maximum pods per node based on your capacity planning using `--max-pods`.
