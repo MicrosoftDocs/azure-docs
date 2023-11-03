@@ -14,7 +14,7 @@ Microsoft Copilot for Azure (preview) can help you deploy [virtual machines in A
 
 For best results, start on the **Virtual machines** page in Azure. When you ask Microsoft Copilot for Azure (preview) for help with a VM, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the VM for which you want assistance.
 
-While it can be helpful to have some familiarity with different VM configuration options such as pricing, scalability, availability, and size can be beneficial, Microsoft Copilot for Azure (preivew) is designed to help you regardless of your level of expertise. In all cases, we recommend that you closely review the suggestions to confirm that they meet your needs.
+While it can be helpful to have some familiarity with different VM configuration options such as pricing, scalability, availability, and size can be beneficial, Microsoft Copilot for Azure (preview) is designed to help you regardless of your level of expertise. In all cases, we recommend that you closely review the suggestions to confirm that they meet your needs.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -34,13 +34,13 @@ During the VM creation process, you can ask "How do I reduce the cost of my virt
 
 :::image type="content" source="media/deploy-vms-effectively/vm-reduce-costs.png" lightbox="media/deploy-vms-effectively/vm-reduce-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing ways to lower VM costs.":::
 
-Once you've gone through all of the available options, you can review and create the VM with the provided recommendations, or continue to make other changes.
+Once you complete the options that Microsoft Copilot for Azure (preview) suggests, you can review and create the VM with the provided recommendations, or continue to make other changes.
 
 :::image type="content" source="media/deploy-vms-effectively/vm-reduce-costs-complete.png" lightbox="media/deploy-vms-effectively/vm-reduce-costs-complete.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) completing its recommendations to reduce VM costs.":::
 
 ## Create highly available and scalable VMs
 
-Whether you are looking to create virtual machines in availability zones, understanding if a Virtual Machine Scale Set is the right option for your needs or assess if certain networking requirements will help in effective traffic management across your Compute instances, Copilot can help provide additional context that you may need and aid in guiding you to successfully deploy singular or multiple virtual machines, with the requisite networking resources (inclusive of Azure Load balancers or Application gateways).
+Microsoft Copilot for Azure (preview) can provide additional context to help you create high-availability VMs. It can help you create VNs in availability zones, decide whether a Virtual Machine Scale Set is the right option for your needs, or assess which networking resources will help manage traffic effectively across your compute resources.
 
 ### Sample prompts
 
@@ -73,7 +73,7 @@ If you want to reset the password for a VM, Microsoft Copilot for Azure (preview
 
 ### Examples
 
-When working with a VM, you can say "Reset VM password". Microsoft Copilot for Azure (preview) provides a button you can select to reset your password, along with information about password reset options.
+You can say "Reset VM password" when working with a VM. Microsoft Copilot for Azure (preview) provides a button you can select to reset your password, along with information about password reset options.
 
 :::image type="content" source="media/deploy-vms-effectively/vm-reset-password.png" lightbox="media/deploy-vms-effectively/vm-reset-password.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) when prompted to reset a VM password.":::
 
