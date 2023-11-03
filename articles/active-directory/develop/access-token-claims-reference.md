@@ -99,7 +99,7 @@ The v1.0 tokens include the following claims if applicable, but not v2.0 tokens 
 | Claim | Format | Description |
 |-------|--------|-------------|
 | `ipaddr`| String | The IP address the user authenticated from. |
-| `onprem_sid`| String, in [SID format](/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. Use this claim for authorization in legacy applications. |
+| `onprem_sid`| String, in [SID format](/windows/win32/secauthz/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. Use this claim for authorization in legacy applications. |
 | `pwd_exp`| int, a Unix timestamp | Indicates when the user's password expires. |
 | `pwd_url`| String | A URL where users can reset their password. |
 | `in_corp`| boolean | Signals if the client is signing in from the corporate network. |

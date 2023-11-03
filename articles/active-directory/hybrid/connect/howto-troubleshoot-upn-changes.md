@@ -51,7 +51,7 @@ For example, if you add labs.contoso.com and change the user UPNs and email to r
 
    >[!IMPORTANT]
    > If you change the suffix in Active Directory, add and verify a matching custom domain name in Microsoft Entra ID. 
-   > [Add your custom domain name using the Microsoft Entra portal](../../fundamentals/add-custom-domain.md)
+   > [Add your custom domain name using the Microsoft Entra admin center](../../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -185,7 +185,7 @@ Learn more: [How to use the Microsoft Authenticator app](https://support.microso
 
 Microsoft Authenticator app has four main functions:
 
-* **multifactor authentication** with push notification or verification code
+* **Multifactor authentication** with push notification or verification code
 * **Authentication broker** on iOS and Android devices fir SSO for applications using brokered authentication
   * [Enable cross-app SSO on Android using MSAL](../../develop/msal-android-single-sign-on.md)
 * **Device registration** or workplace join, to Microsoft Entra ID, which is a requirement for Intune App Protection and Device Enrolment/Management

@@ -42,7 +42,7 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). If SSH keys do not 
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 

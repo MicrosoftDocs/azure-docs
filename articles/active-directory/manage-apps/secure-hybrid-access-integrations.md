@@ -1,5 +1,5 @@
 ---
-title: Secure hybrid access with Microsoft Entra ID integration
+title: Secure hybrid access with Microsoft Entra integration
 description: Help customers discover and migrate SaaS applications into Microsoft Entra ID and connect apps that use legacy authentication methods with Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
@@ -15,11 +15,11 @@ ms.custom: not-enterprise-apps
 
 ---
 
-# Secure hybrid access with Microsoft Entra partner integrations
+# Secure hybrid access with Microsoft Entra integration
 
 Microsoft Entra ID supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Microsoft Entra ID and provide authentication for legacy applications.
 
-Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
+Learn more: [Zero Trust security](/azure/security/fundamentals/zero-trust)
 
 Microsoft Entra ID natively supports modern protocols:
 
@@ -112,7 +112,7 @@ The following diagram illustrates the user authentication flow:
 
 ### Users sign in to the applications
 
-When users sign in to applications, they use OIDC or SAML. If the applications need to interact with Microsoft Graph or Microsoft Entra ID-protected API, we recommend you configure them to use OICD. This configuration ensures the JWT is applied to interact with Microsoft Graph. If there's no need for applications to interact with Microsoft Graph, or Microsoft Entra protected APIs, then use SAML.
+When users sign in to applications, they use OIDC or SAML. If the applications need to interact with Microsoft Graph or Microsoft Entra protected API, we recommend you configure them to use OICD. This configuration ensures the JWT is applied to interact with Microsoft Graph. If there's no need for applications to interact with Microsoft Graph, or Microsoft Entra protected APIs, then use SAML.
 
 The following diagram shows user authentication flow:
 
@@ -136,7 +136,7 @@ We recommend use of the following APIs. Use Microsoft Entra ID to configure dele
 * **Conditional Access API** - Apply Microsoft Entra Conditional Access policies to user applications 
   * Permissions required: Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All
 
-Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0&preserve-view=true)
+Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph/api/1.0&view=graph-rest-1.0&preserve-view=true)
 
 ## Microsoft Graph API scenarios
 

@@ -1,6 +1,6 @@
 ---
 title: Analyze Microsoft Entra sign-in logs with the Microsoft Graph API 
-description: Learn how to access the sign-ins log and analyze a single sign-in attempt using the Microsoft Graph API.
+description: Learn how to access the sign-in log and analyze a single sign-in attempt using the Microsoft Graph API.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -15,7 +15,7 @@ ms.reviewer: besiler
 ---
 # Quickstart: Access Microsoft Entra logs with the Microsoft Graph API 
 
-With the information in the Microsoft Entra sign-in logs, you can figure out what happened if a sign-in of a user failed. This quickstart shows you how to access the sign-ins log using the Microsoft Graph API.
+With the information in the Microsoft Entra sign-in logs, you can figure out what happened if a sign-in of a user failed. This quickstart shows you how to access the sign-in log using the Microsoft Graph API.
 
 
 ## Prerequisites
@@ -31,11 +31,11 @@ To complete the scenario in this quickstart, you need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-ins log.
+The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-in log.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log.
+2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-in log.
 
 
 ## Find the failed sign-in

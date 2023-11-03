@@ -77,7 +77,7 @@ You must change or delete any such resource in your Microsoft Entra organization
 
 You can **ForceDelete** a domain name in the [Azure portal](https://portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
 
-To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists. For more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Also, the **ForceDelete** operation won't succeed if either of the following is true:
+To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists. For more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
 * You purchased a domain via Microsoft 365 domain subscription services
 * You are a partner administering on behalf of another customer organization
@@ -128,11 +128,11 @@ If you find that any of the conditions haven’t been met, manually clean up the
 
 Most management tasks for domain names in Microsoft Entra ID can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
-* [Using PowerShell to manage domain names in Microsoft Entra ID](/powershell/module/azuread/#domains&preserve-view=true)
+* [Using PowerShell to manage domain names in Microsoft Entra ID](/powershell/module/azuread/?preserve-view=true#domains)
 * [Domain resource type](/graph/api/resources/domain)
 
 ## Next steps
 
-* [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Microsoft Entra ID](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Microsoft Entra ID](/exchange/recipients/mail-enabled-security-groups?preserve-view=true#Remove%20mail-enabled%20security%20groups)
 * [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete)

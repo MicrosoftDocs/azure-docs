@@ -851,7 +851,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 # [Microsoft Graph](#tab/ms-graph)
 
-1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-synchronization-secrets) API to save your credentials.
+1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-serviceprincipal-put-synchronization) API to save your credentials.
 
     **Request**
     
@@ -1532,5 +1532,5 @@ You are likely trying to update an object that doesn't exist using `PATCH`.
 
 ## Next steps
 
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+- [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](../app-provisioning/use-scim-to-provision-users-and-groups.md)

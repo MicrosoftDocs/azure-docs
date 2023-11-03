@@ -119,7 +119,7 @@ Here is an example:
 
 In *Out to AD - User Exchange hybrid* the following flow can be found:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-This expression should be read as: if the user mailbox is located in Microsoft Entra ID, then flow the attribute from Microsoft Entra ID to AD. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
+This expression should be read as: if the user mailbox is located in Microsoft Entra ID, then flow the attribute from Microsoft Entra ID to Active Directory. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
 
 ### ImportedValue
 

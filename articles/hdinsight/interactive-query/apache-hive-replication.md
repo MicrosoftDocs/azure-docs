@@ -140,9 +140,9 @@ In HDInsight Active Primary – Standby Secondary is a common business continuit
 
 ### Hive replication with Enterprise Security Package  
 
-In cases where Hive replication is planned on HDInsight Hadoop clusters with Enterprise Security Package, you have to factor in replication mechanisms for Ranger metastore and Azure Active Directory Domain Services (AD DS).  
+In cases where Hive replication is planned on HDInsight Hadoop clusters with Enterprise Security Package, you have to factor in replication mechanisms for Ranger metastore and Microsoft Entra Domain Services.  
 
-Use the Azure AD DS replica sets feature to create more than one Azure AD DS replica set per Azure AD tenant across multiple regions. Each individual replica set needs to be peered with HDInsight VNets in their respective regions. In this configuration, changes to Azure AD DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using Azure AD DS replication.
+Use the Microsoft Entra Domain Services replica sets feature to create more than one Microsoft Entra Domain Services replica set per Microsoft Entra tenant across multiple regions. Each individual replica set needs to be peered with HDInsight VNets in their respective regions. In this configuration, changes to Microsoft Entra Domain Services, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using Microsoft Entra Domain Services replication.
   
 Ranger policies can be periodically backed up and replicated from the primary to the secondary using Ranger Import-Export functionality. You can choose to replicate all or a subset of Ranger policies depending on the level of authorizations you are seeking to implement on the secondary cluster.  
 

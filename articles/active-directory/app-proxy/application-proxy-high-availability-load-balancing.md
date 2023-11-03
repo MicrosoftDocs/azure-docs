@@ -29,7 +29,7 @@ Connectors establish their connections based on principles for high availability
 
 1. A user on a client device tries to access an on-premises application published through Application Proxy.
 2. The request goes through an Azure Load Balancer to determine which Application Proxy service instance should take the request. There are tens of instances available to accept the requests for all traffic in the region. This method helps to evenly distribute the traffic across the service instances.
-3. The request is sent to [Service Bus](../../service-bus-messaging/index.yml).
+3. The request is sent to [Service Bus](/azure/service-bus-messaging/).
 4. Service Bus signals to an available connector. The connector then picks up the request from Service Bus.
    - In step 2, requests go to different Application Proxy service instances, so connections are more likely to be made with different connectors. As a result, connectors are almost evenly used within the group.
 5. The connector passes the request to the application’s back-end server. Then the application sends the response back to the connector.

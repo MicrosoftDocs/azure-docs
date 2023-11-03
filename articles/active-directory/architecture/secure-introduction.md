@@ -73,7 +73,7 @@ Applications that use Microsoft Entra ID require directory objects to be configu
 
 ### Access to Azure resources
 
-Users, groups, and service principal objects (workload identities) in the Microsoft Entra tenant are granted roles by using [Azure Role Based Access Control](../../role-based-access-control/overview.md) (RBAC) and [Azure attribute-based access control](../../role-based-access-control/conditions-overview.md) (ABAC).
+Users, groups, and service principal objects (workload identities) in the Microsoft Entra tenant are granted roles by using [Azure Role Based Access Control](/azure/role-based-access-control/overview) (RBAC) and [Azure attribute-based access control](/azure/role-based-access-control/conditions-overview) (ABAC).
 
 * Azure RBAC enables you to provide access based on role as determined by security principal, role definition, and scope.
 
@@ -87,7 +87,7 @@ Azure resources that [support Managed Identities](../managed-identities-azure-re
 
 Applications using Microsoft Entra ID for sign-in may also use Azure resources such as compute or storage as part of its implementation. For example, a custom application that runs in Azure and trusts Microsoft Entra ID for authentication has directory objects and Azure resources.
 
-Lastly, all Azure resources in the Microsoft Entra tenant affect tenant-wide [Azure Quotas and Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Lastly, all Azure resources in the Microsoft Entra tenant affect tenant-wide [Azure Quotas and Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Access to Directory Objects
 
@@ -263,7 +263,7 @@ Who should have the ability to administer the environment and its resources? The
 
 Given the interdependence between a Microsoft Entra tenant and its resources, it's critical to understand the security and operational risks of compromise or error. If you're operating in a federated environment with synchronized accounts, an on-premises compromise can lead to a Microsoft Entra ID compromise.
 
-* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the effect of compromised non-privileged identities is largely contained, compromised administrators can have broad implications. For example, if a Microsoft Entra Global Administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Microsoft Entra Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create Conditional Access policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/compass/privileged-access-strategy).
+* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the effect of compromised non-privileged identities is largely contained, compromised administrators can have broad implications. For example, if a Microsoft Entra Global Administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/privileged-access-workstations/privileged-access-access-model) and ensure that you follow principles of least privilege for [Microsoft Entra Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create Conditional Access policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/privileged-access-workstations/privileged-access-strategy).
 
 * **Federated environment compromise**
 

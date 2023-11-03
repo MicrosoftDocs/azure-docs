@@ -23,7 +23,7 @@ The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a W
 
 Using an authentication broker such as WAM has numerous benefits:
 
-- Enhanced security. See [Token protection](/azure/active-directory/conditional-access/concept-token-protection).
+- Enhanced security. See [Token protection](../conditional-access/concept-token-protection.md).
 - Support for Windows Hello, Conditional Access, and FIDO keys.
 - Integration with the Windows **Email & accounts** view.
 - Fast single sign-on.
@@ -93,7 +93,7 @@ ms-appx-web://microsoft.aad.brokerplugin/{client_id}
 
 ### Token cache persistence
 
-It's important to persist the MSAL token cache because MSAL continues to store ID tokens and account metadata there. For more information, see [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop).
+It's important to persist the MSAL token cache because MSAL continues to store ID tokens and account metadata there. For more information, see [Token cache serialization in MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization?tabs=desktop).
 
 ### Account for silent login
 

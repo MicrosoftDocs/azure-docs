@@ -22,7 +22,7 @@ This is a step-by-step guide that walks you through the steps of setting up a Se
 * Authenticate administrators using certificates.
 
 > [!NOTE]
-> For more advanced security options, such as user authentication with Azure Active Directory and setting up certificates for application security, [create your cluster using Azure Resource Manager][create-cluster-arm].
+> For more advanced security options, such as user authentication with Microsoft Entra ID and setting up certificates for application security, [create your cluster using Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
@@ -50,7 +50,7 @@ Additional client certificates authenticate administrators for cluster managemen
 You do not need to upload Client authentication certificates to Key Vault to work with Service Fabric. These certificates only need to be provided to users who are authorized for cluster management. 
 
 > [!NOTE]
-> Azure Active Directory is the recommended way to authenticate clients for cluster management operations. To use Azure Active Directory, you must [create a cluster using Azure Resource Manager][create-cluster-arm].
+> Microsoft Entra ID is the recommended way to authenticate clients for cluster management operations. To use Microsoft Entra ID, you must [create a cluster using Azure Resource Manager][create-cluster-arm].
 > 
 > 
 

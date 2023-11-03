@@ -50,7 +50,7 @@ You can create a new administrative unit by using either the Microsoft Entra adm
 
 1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-    ![Screenshot of the Administrative units page in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot of the Administrative units page.](./media/admin-units-manage/nav-to-admin-units.png)
 
 1. Select **Add**.
 
@@ -89,7 +89,7 @@ $params = @{
 $adminUnitObj = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
-Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
+Use the [New-MgBetaDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.beta.identity.directorymanagement/new-mgbetadirectoryadministrativeunit) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
 
 ```powershell
 Select-MgProfile -Name beta
@@ -122,7 +122,7 @@ $restrictedAU = New-AzureADMSAdministrativeUnit -DisplayName "Contoso Executive 
 
 ### Microsoft Graph API
 
-Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?branch=main) API to create a new administrative unit.
+Use the [Create administrativeUnit](/graph/api/directory-post-administrativeunits?branch=main) API to create a new administrative unit.
 
 Request
 

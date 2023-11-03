@@ -105,7 +105,7 @@ To access the sign-in logs report, go to **Identity** > **Monitoring & health** 
 ## Send logs to Azure Monitor
 
 The Microsoft Entra activity logs only store information for a maximum of 30 days. Depending on your needs, you may require extra storage to back up the activity logs data. Using the Azure Monitor, you can archive the audit and sign logs to an Azure storage account to retain the data for a longer time. 
-The Azure Monitor is also useful for rich visualization, monitoring and alerting of data. To learn more about the Azure Monitor and the cost considerations for extra storage, see [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
+The Azure Monitor is also useful for rich visualization, monitoring and alerting of data. To learn more about the Azure Monitor and the cost considerations for extra storage, see [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md).
 
 To send logs to your logs analytics workspace:
 

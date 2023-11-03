@@ -20,7 +20,7 @@ Azure Migrate automatically handles these configuration changes for the followin
 
 - Windows Server 2008 or later
 - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.7, 7.6, 7.5, 7.4, 6.x
+- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
@@ -170,7 +170,7 @@ The preparation script executes the following changes based on the OS type of th
    1. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
       >[!NOTE]
-      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](../virtual-machines/linux/create-upload-generic.md#installing-kernel-modules-without-hyper-v)
+      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](../virtual-machines/linux/create-upload-generic.md#install-kernel-modules-without-hyper-v)
 
       An illustrative example for rebuilding initrd
 

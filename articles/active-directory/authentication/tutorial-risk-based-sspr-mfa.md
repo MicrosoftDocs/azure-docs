@@ -1,6 +1,6 @@
 ---
 title: Risk-based user sign-in protection in Microsoft Entra ID
-description: In this tutorial, you learn how to enable Azure Identity Protection to protect users when risky sign-in behavior is detected on their account.
+description: In this tutorial, you learn how to enable Microsoft Entra ID Protection to protect users when risky sign-in behavior is detected on their account.
 
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ author: justinha
 manager: amycolannino
 ms.collection: M365-identity-device-management
 
-# Customer intent: As a Microsoft Entra Administrator, I want to learn how to use Azure Identity Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.
+# Customer intent: As a Microsoft Entra Administrator, I want to learn how to use Microsoft Entra ID Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.
 ---
 # Tutorial: Use risk detections for user sign-ins to trigger Microsoft Entra multifactor authentication or password changes
 
@@ -81,7 +81,7 @@ Microsoft Entra ID Protection includes a default policy that can help get users 
 It's recommended to enable the MFA registration policy for users that are to be enabled for additional Microsoft Entra ID Protection policies. To enable this policy, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
-1. Browse to **Protection** > **multifactor authentication** > **MFA registration policy**.
+1. Browse to **Protection** > **Multifactor authentication** > **MFA registration policy**.
 1. By default, the policy applies to *All users*. If desired, select **Assignments**, then choose the users or groups to apply the policy on.
 1. Under *Controls*, select **Access**. Make sure the option for *Require Microsoft Entra multifactor authentication registration* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.

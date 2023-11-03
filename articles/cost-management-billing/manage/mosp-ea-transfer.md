@@ -21,7 +21,7 @@ This article helps you understand the steps needed to transfer an individual Mic
 If you want to transfer a different subscription type to EA, see [Azure subscription and reservation transfer hub](subscription-transfer.md) for supported transfer options.
 
 > [!NOTE]
-> The transfer process doesn't change Azure AD Directory information that the subscriptions are linked to. If you want to make an Azure AD Directory change, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+> The transfer process doesn't change Microsoft Entra Directory information that the subscriptions are linked to. If you want to make a Microsoft Entra Directory change, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Prerequisites
 

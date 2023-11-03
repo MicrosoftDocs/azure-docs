@@ -74,7 +74,7 @@ Prior BIG-IP experience isn't necessary, but you need:
 
 ## BIG-IP configuration
 
-This tutorial uses Guided Configuration 16.1 with an Easy Button template. With the Easy Button, admins don't go back and forth between Microsoft Entra ID and a BIG-IP to enable services for SHA. The deployment and policy management is handled between the APM Guided Configuration wizard and Microsoft Graph. This integration between BIG-IP APM and Microsoft Entra ensures applications support identity federation, SSO, and Microsoft Entra Conditional Access, reducing administrative overhead.
+This tutorial uses Guided Configuration 16.1 with an Easy Button template. With the Easy Button, admins don't go back and forth between Microsoft Entra ID and a BIG-IP to enable services for SHA. The deployment and policy management is handled between the APM Guided Configuration wizard and Microsoft Graph. This integration between BIG-IP APM and Microsoft Entra ID ensures applications support identity federation, SSO, and Microsoft Entra Conditional Access, reducing administrative overhead.
 
 >[!NOTE]
 >Replace example strings or values in this guide with those for your environment.
@@ -113,7 +113,7 @@ This first step creates a tenant app registration to authorize the **Easy Button
 
 Initiate the APM **Guided Configuration** to launch the **Easy Button** template.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Microsoft Entra Application**.
 
 
     ![Screenshot of the Microsoft Entra Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
@@ -174,7 +174,6 @@ Use the optional **Security Settings** to specify whether Microsoft Entra ID enc
 This section contains properties to manually configure a new BIG-IP SAML application in your Microsoft Entra tenant. Easy Button has application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, and an SHA template for other apps. 
 
 For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
-
 
    ![Screenshot of the Add option under Configuration Properties on Azure Configuration.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 

@@ -655,7 +655,7 @@ The FormatDateTime function is used to format a DateTime to a string with a spec
 * format: a string representing the format to convert to.
 
 **Remarks:**  
-The possible values for the format can be found here: [Custom date and time formats for the FORMAT function](/dax/custom-date-and-time-formats-for-the-format-function).
+The possible values for the format can be found here: [Custom date and time formats for the FORMAT function](/dax/format-function-dax).
 
 **Example:**  
 
@@ -710,7 +710,7 @@ Returns the position where the substring was found or 0 if not found.
 
 **Example:**  
 `InStr("The quick brown fox","quick")`  
-Evalues to 5
+Evaluates to 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Evaluates to 7

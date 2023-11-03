@@ -55,7 +55,7 @@ The process for inviting a guest is the same as [adding a new user](./add-users.
 
 ## Add other users
 
-There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
+There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](/azure/active-directory-b2c/manage-users-portal).
 
 If you have an environment with both Microsoft Entra ID (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
@@ -92,11 +92,7 @@ When a user is deleted, any licenses consumed by the user are made available for
 After you've added your users, you can do the following basic processes:
 
 - [Add or change profile information](./how-to-manage-user-profile-info.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Create a basic group and add members](./how-to-manage-groups.md)
-
 - [Work with dynamic groups and users](../enterprise-users/groups-create-rule.md)
-
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)

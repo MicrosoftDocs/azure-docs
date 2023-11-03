@@ -33,8 +33,14 @@ In this article, you learn how to:
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-
 - **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
+
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
+## Login to your Azure Account
+
+[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
 ## Implement the Terraform code
 
@@ -201,3 +207,6 @@ Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
 
 > [!div class="nextstepaction"]
 > [Learn more about using AKS](/azure/aks)
+
+<!-- LINKS - Internal -->
+[intro-azure-linux]: ../../azure-linux/intro-azure-linux.md

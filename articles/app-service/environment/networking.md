@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 07/21/2023
+ms.date: 10/02/2023
 ms.author: madsd
 ---
 
@@ -97,7 +97,7 @@ The normal app access ports inbound are as follows:
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
 
-Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, dependencies could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you're using [continuous deployment in App Service](../deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you need to allow `oryx-cdn.microsoft.io:443`.
+Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, dependencies could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Microsoft Entra ID. If you're using [continuous deployment in App Service](../deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you need to allow `oryx-cdn.microsoft.io:443`.
 
 You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
 
@@ -121,7 +121,7 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. Note that for App Service Environment domains, the site name will be truncated at 40 characters because of DNS limits. If you have a slot, the slot name will be truncated at 19 characters.
 
 ### DNS configuration to your App Service Environment
 

@@ -47,7 +47,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2: Configure Zendesk to support provisioning with Microsoft Entra ID
 
-1. Log in to [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click  **Apps and integrations** in the sidebar, then select **APIs > Zendesk APIs**.
+1. Sign in to [Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb).
+1. Navigate to **Apps and integrations** > **APIs** > **Zendesk APIs**.
 1. Click the **Settings** tab, and make sure Token Access is **enabled**.
 1. Click the **Add API token** button to the right of **Active API Tokens**.The token is generated and displayed.
 1. Enter an **API token description**.

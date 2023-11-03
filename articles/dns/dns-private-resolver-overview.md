@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 10/09/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -92,10 +92,11 @@ A DNS forwarding rule includes one or more target DNS servers that are used for 
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
 
-## Restrictions:
+## Restrictions
 
-> [!NOTE]
-> See [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-) for a list of usage limits for the DNS private resolver. 
+The following limits currently apply to Azure DNS Private Resolver: 
+
+[!INCLUDE [dns-limits-private-resolver](../../includes/dns-limits-private-resolver.md)]
 
 ### Virtual network restrictions 
 
@@ -106,7 +107,7 @@ The following restrictions hold with respect to virtual networks:
 ### Subnet restrictions 
 
 Subnets used for DNS resolver have the following limitations:
-- A subnet must be a minimum of /28 address space or a maximum of /24 address space.
+- A subnet must be a minimum of /28 address space or a maximum of /24 address space. A /28 subnet is sufficient to accommodate current endpoint limits. A subnet size of /27 to /24 can provide flexibility if these limits change.
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.

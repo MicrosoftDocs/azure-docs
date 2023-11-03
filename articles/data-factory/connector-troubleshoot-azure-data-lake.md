@@ -50,7 +50,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     `Failed to get access token by using service principal.  
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.`
 
-- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Microsoft Entra ID is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 

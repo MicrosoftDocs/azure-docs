@@ -120,11 +120,13 @@ Create a new `room` using the `participants` defined in the code snippet above:
 # Create a room
 valid_from = datetime.now()
 valid_until = valid_from + timedelta(weeks=4)
+pstn_dial_out_enabled = False
 
 try:
     create_room = rooms_client.create_room(
         valid_from=valid_from,
         valid_until=valid_until,
+        pstn_dial_out_enabled=pstn_dial_out_enabled,
         participants=participants
     )
     print("\nCreated a room with id: " + create_room.id)
@@ -156,10 +158,11 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 # Update the lifetime of a room
 valid_from =  datetime.now()
 valid_until = valid_from + timedelta(weeks=7)
+pstn_dial_out_enabled=True
 
 try:
-    updated_room = rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
-     print("\nUpdated room with validFrom: " + updated_room.valid_from + " and validUntil: " + updated_room.valid_until)
+    updated_room = rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until, pstn_dial_out_enabled=pstn_dial_out_enabled)
+     print("\nUpdated room with validFrom: " + updated_room.valid_from + ", validUntil: " + updated_room.valid_until + " and pstn_dial_out_enabled: " + updated_room.pstn_dial_out_enabled)
 except HttpResponseError as ex:
     print(ex)
 ```
@@ -179,7 +182,9 @@ try:
         print("\nPrinting the first room in list"
             "\nRoom Id: " + room.id +
             "\nCreated date time: " + str(room.created_at) +
-            "\nValid From: " + str(room.valid_from) + "\nValid Until: " + str(room.valid_until))
+            "\nValid From: " + str(room.valid_from) + 
+            "\nValid Until: " + str(room.valid_until) +
+            "\nPSTN Dial-Out Enabled: " + str(room.pstn_dial_out_enabled))
         count += 1
 except HttpResponseError as ex:
     print(ex)
@@ -270,13 +275,14 @@ Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom: 2023-05-03T00:00:00+00:00  and validUntil: 2023-06-23T00:00:00+00:00
+Updated room with validFrom: 2023-05-03T00:00:00+00:00, validUntil: 2023-06-23T00:00:00+00:00 and pstn_dial_out_enabled: True
 
 Printing the first room in list
 Room Id: 99445276259151407
 Created date time: 2023-05-03T00:00:00+00:00
 Valid From: 2023-05-03T00:00:00+00:00
 Valid Until: 2023-06-23T00:00:00+00:00
+PSTN Dial-Out Enabled: True
 
 Add or update participants in room
 

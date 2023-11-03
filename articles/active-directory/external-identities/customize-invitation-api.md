@@ -18,7 +18,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 ---
 # Microsoft Entra B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process. [With our API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
+[With the Microsoft Graph REST API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 
@@ -120,7 +120,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Make sure you have the latest version of the Azure AD  PowerShell module or AzureADPreview PowerShell module. 
+> Make sure you have the latest version of the Azure AD PowerShell module or AzureADPreview PowerShell module. 
 
 ## See also
 

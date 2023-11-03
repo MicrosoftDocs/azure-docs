@@ -49,6 +49,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 - To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
 
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ## Issues that may occur with service upgrades/restarts
 
@@ -79,7 +80,7 @@ The identity doesn't have permissions to access the Service Bus topic.
 ### Resolution
 To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
 
-To learn how to assign permissions to roles, see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md).
+To learn how to assign permissions to roles, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md).
 
 ## Service Bus Exception: Put token failed
 
@@ -87,6 +88,8 @@ To learn how to assign permissions to roles, see [Authenticate a managed identit
 You receive the following error message: 
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ### Cause
 Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 

@@ -30,7 +30,7 @@ Workbooks are a set of queries that collect and visualize information that is av
 
 Microsoft Entra ID doesn't send sign-in events to Azure Monitor by default, which the Sign-ins workbook in Azure Monitor requires.
 
-Configure AD to send sign-in events to Azure Monitor by following the steps in [Integrate your Microsoft Entra sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). In the **Diagnostic settings** configuration step, select the **SignInLogs** check box.
+Configure AD to send sign-in events to Azure Monitor by following the steps in [Integrate your Microsoft Entra sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md). In the **Diagnostic settings** configuration step, select the **SignInLogs** check box.
 
 No sign-in event that occurred *before* you configure Microsoft Entra ID to send the events to Azure Monitor will appear in the Sign-ins workbook.
 
@@ -40,8 +40,8 @@ No sign-in event that occurred *before* you configure Microsoft Entra ID to send
 
 Once you've integrated your Microsoft Entra sign-in and audit logs with Azure Monitor as specified in the Azure Monitor integration, access the sign-ins workbook:
 
-   1. Sign in to the [Azure portal](https://portal.azure.com).
-   1. Navigate to **Identity** > **Monitoring & health** > **Workbooks**.
+   1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+   1. Browse to **Identity** > **Monitoring & health** > **Workbooks**.
    1. In the **Usage** section, open the **Sign-ins** workbook.
 
    :::image type="content" source="media/howto-get-list-of-all-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure portal workbooks interface highlighting the sign-ins workbook.":::

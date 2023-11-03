@@ -35,7 +35,7 @@ When a Microsoft CSP creates a GDAP relationship request for your tenant a globa
 * The roles that the partner needs to delegate to their technicians
 * The expiration date
 
-If you have GDAP relationships in your tenant, you will see a notification banner on the **Delegated Administration** page in the Microsoft Entra admin portal. Select the notification banner to see and manage GDAP relationships in the **Partners** page in Microsoft Admin Center.
+If you have GDAP relationships in your tenant, you will see a notification banner on the **Delegated Administration** page in the Microsoft Entra admin center. Select the notification banner to see and manage GDAP relationships in the **Partners** page in Microsoft Admin Center.
 
 ## Delegated admin permission
 

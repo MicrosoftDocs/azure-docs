@@ -78,7 +78,7 @@ Here is what the migration process could look like:
 
 Learn more about other scenarios for group license management:
 
-- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md)
 - [Assigning licenses to a group in Microsoft Entra ID](licensing-groups-assign.md)
 - [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
 - [How to migrate users between product licenses using group-based licensing in Microsoft Entra ID](licensing-groups-change-licenses.md)

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 10/03/2023
 ms.author: barclayn
 ---
 
@@ -18,11 +18,12 @@ If your organization wants its employees to get their place of work verified on 
 1. Setup your Microsoft Entra Verified ID service by following these [instructions](verifiable-credentials-configure-tenant.md).
 1. [Create](how-to-use-quickstart-verifiedemployee.md#create-a-verified-employee-credential) a Verified ID Employee credential.
 1. Deploy the custom webapp from [GitHub](https://github.com/Azure-Samples/VerifiedEmployeeIssuance).
-1. Configure the LinkedIn company page  with your organization DID (decentralized identity) and URL of the custom Webapp. You cannot self-service the LinkedIn company page. Today, you need to fill in [this form](https://aka.ms/enablelinkedin) and we can enable your organization.
+1. Configure the LinkedIn company page  with your organization DID (decentralized identity) and URL of the custom Webapp. You cannot self-service the LinkedIn company page.
+1. Today, you need to fill in [this form](https://aka.ms/enablelinkedin) and we can enable your organization.
 1. Once you deploy the updated LinkedIn mobile app your employees can get verified.
 
 >[!IMPORTANT]
-> The app version required is Android **4.1.813** or newer, or IOS we require **9.27.2173** or newer. Keep in mind that inside the app, the version number shows **9.27.2336**, but in the App store the version number would be **9.1.312** or higher.
+> The form requires that you provide your account manager as the Microsoft contact. The app version required is Android **4.1.813** or newer, or IOS we require **9.27.2173** or newer. Keep in mind that inside the app, the version number shows **9.27.2336**, but in the App store the version number would be **9.1.312** or higher.
 
 >[!NOTE]
 > Review LinkedIn's documentation for information on [verifications on LinkedIn profiles.](https://www.linkedin.com/help/linkedin/answer/a1359065).

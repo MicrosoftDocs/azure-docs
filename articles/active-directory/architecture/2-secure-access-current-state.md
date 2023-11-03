@@ -37,7 +37,7 @@ Generally, users seeking external collaboration know the applications to use, an
 
 To find collaborating users:
 
-* Microsoft 365 [Audit log activities](/microsoft-365/compliance/audit-log-activities?view=o365-worldwide&preserve-view=true) - search for events and discover activities audited in Microsoft 365
+* Microsoft 365 [Audit log activities](/purview/audit-log-activities?view=o365-worldwide&preserve-view=true) - search for events and discover activities audited in Microsoft 365
 * [Auditing and reporting a B2B collaboration user](../external-identities/auditing-and-reporting.md) - verify guest user access, and see records of system and user activities
 
 ## Enumerate guest users and organizations
@@ -73,7 +73,7 @@ If you use entitlement management, you can confine access packages to a subset o
 
 With an inventory of external users and organizations, determine the access to grant to the users. You can use the Microsoft Graph API to determine Microsoft Entra group membership or application assignment.
 
-* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0&preserve-view=true)
+* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph/context&view=graph-rest-1.0&preserve-view=true)
 * [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0&preserve-view=true)
 
 ### Enumerate application permissions
@@ -85,7 +85,7 @@ Investigate access to your sensitive apps for awareness about external access. S
 If your email and network plans are enabled, you can investigate content sharing through email or unauthorized software as a service (SaaS) apps. 
 
 * Identify, prevent, and monitor accidental sharing
-  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true)
+  * [Learn about data loss prevention](/purview/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true)
 * Identify unauthorized apps
   * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 

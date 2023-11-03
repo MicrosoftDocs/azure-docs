@@ -4265,7 +4265,7 @@ To define an OData linked service, set the **type** of the linked service to **O
 | Property | Description | Required |
 | --- | --- | --- |
 | url |Url of the OData service. |Yes |
-| authenticationType |Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous, Basic, and OAuth (note Azure Data Factory currently only support Azure Active Directory based OAuth). <br/><br/> For on-premises OData, possible values are Anonymous, Basic, and Windows. |Yes |
+| authenticationType |Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous, Basic, and OAuth (note Azure Data Factory currently only support Microsoft Entra ID based OAuth). <br/><br/> For on-premises OData, possible values are Anonymous, Basic, and Windows. |Yes |
 | username |Specify user name if you are using Basic authentication. |Yes (only if you are using Basic authentication) |
 | password |Specify password for the user account you specified for the username. |Yes (only if you are using Basic authentication) |
 | authorizedCredential |If you are using OAuth, click **Authorize** button in the Data Factory Copy Wizard or Editor and enter your credential, then the value of this property will be auto-generated. |Yes (only if you are using OAuth authentication) |

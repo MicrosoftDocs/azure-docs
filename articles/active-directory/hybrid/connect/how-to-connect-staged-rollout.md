@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Staged Rollout allows you to selectively test groups of users with cloud authentication capabilities like Microsoft Entra multifactor authentication, Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. This article discusses how to make the switch. Before you begin the Staged Rollout, however, you should consider the implications if one or more of the following conditions is true:
     
--  You're currently using an on-premises multifactor authentication server. 
+-  You're currently using an on-premises Multi-Factor Authentication Server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
 
@@ -149,7 +149,7 @@ Enable *seamless SSO* by doing the following tasks:
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it's set to false at the tenant level.
 
-   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
+   ![Example of the PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Call `$creds = Get-Credential`. At the prompt, enter the domain administrator credentials for the intended Active Directory forest.
 

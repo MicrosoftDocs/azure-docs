@@ -215,7 +215,7 @@ Regardless of the value you selected for **Scope** in the previous step, you can
 
 1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
-1. Select **Provision Azure Active Directory Users**.
+1. Select **Provision Microsoft Entra users**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provisioning-mappings.png" alt-text="Screenshot that shows the Provisioning page with the Mappings section expanded." lightbox="./media/cross-tenant-synchronization-configure/provisioning-mappings.png":::
 
@@ -245,7 +245,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
-1. Select **Provision Azure Active Directory Users**.
+1. Select **Provision Microsoft Entra users**.
 
 1. On the **Attribute Mapping** page, scroll down to review the user attributes that are synchronized between tenants in the **Attribute Mappings** section.
 

@@ -42,7 +42,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 ### Migration steps
 
-![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
+:::image type="content" source="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" lightbox="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" alt-text="Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.":::  
 
 1. Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule) automatically.<sup>1</sup> 
 
@@ -90,7 +90,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 Azure Monitor Agent is generally available for data collection. Most services that used Log Analytics agent for data collection have migrated to Azure Monitor Agent. 
 
-The following features and services now have and Azure Monitor Agent version (some are still in Public Preview). This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service.
+The following features and services now have an Azure Monitor Agent version (some are still in Public Preview). This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service.
     
 |	Service or feature	|	Migration recommendation	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|

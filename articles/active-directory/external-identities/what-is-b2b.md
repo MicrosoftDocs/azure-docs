@@ -16,7 +16,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # B2B collaboration overview
 
-Microsoft Entra B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Microsoft Entra ID or an IT department.
+B2B collaboration is a feature within Microsoft Entra External ID that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Microsoft Entra ID or an IT department.
 
 ![Diagram illustrating B2B collaboration.](media/what-is-b2b/b2b-collaboration-overview.png)
 
@@ -43,7 +43,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
-- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure operated by 21Vianet](/azure/china).
+- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](/azure/azure-government/) or [Microsoft Azure operated by 21Vianet](/azure/china/).
 
 ## Easily invite guest users from the Azure portal
 

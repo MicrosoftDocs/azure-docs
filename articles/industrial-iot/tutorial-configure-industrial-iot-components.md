@@ -38,9 +38,11 @@ Here are some of the more relevant customization settings for the components.
 * Secrets: Manage platform settings.
 * Access policies: Manage which applications and users may access the data in the key vault and which operations (for example, read, write, list, delete) they are allowed to perform on the network, firewall, virtual network, and private endpoints.
 
-### Azure Active Directory app registrations
+<a name='azure-active-directory-app-registrations'></a>
 
-* <APP_NAME>-web (authentication): Manage reply URIs, which are the lists of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Azure Active Directory (Azure AD) administrator rights. You might want to add or modify URIs when you're changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
+### Microsoft Entra app registrations
+
+* <APP_NAME>-web (authentication): Manage reply URIs, which are the lists of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Microsoft Entra administrator rights. You might want to add or modify URIs when you're changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
 
 ### Azure App Service
 

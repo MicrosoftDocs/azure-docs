@@ -89,7 +89,7 @@ There are two different approaches you can take with a disaster recovery (DR) si
 
 ### Serve multiple companies from a single tenant
 
-There are many different ways to implement a model in which a single service provider deploys and maintains Microsoft Entra ID related services for multiple companies. Connector groups help the admin segregate the connectors and applications into different groups. One way, which is suitable for small companies, is to have a single Microsoft Entra tenant while the different companies have their own domain name and networks. This is also true for M&A scenarios and situations where a single IT division serves several companies for regulatory or business reasons.
+There are many different ways to implement a model in which a single service provider deploys and maintains Microsoft Entra related services for multiple companies. Connector groups help the admin segregate the connectors and applications into different groups. One way, which is suitable for small companies, is to have a single Microsoft Entra tenant while the different companies have their own domain name and networks. This is also true for M&A scenarios and situations where a single IT division serves several companies for regulatory or business reasons.
 
 ## Sample configurations
 

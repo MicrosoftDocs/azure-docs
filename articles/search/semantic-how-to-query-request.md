@@ -60,7 +60,7 @@ A *semantic configuration* is a section in your index that establishes field inp
 
 You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
 
-Across all configuration properties, fields must be:
+Across all semantic configuration properties, the fields you assign must be:
 
 + Attributed as `searchable` and `retrievable`.
 + Strings of type `Edm.String`, `Edm.ComplexType`, or `Collection(Edm.String)`.

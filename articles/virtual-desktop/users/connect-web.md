@@ -55,7 +55,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 1. A prompt for **Access local resources** may be displayed asking you confirm which local resources you want to be available in the remote session. Make your selection, then select **Allow**.
 
 >[!TIP]
->If you've already signed in to the web browser with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
+>If you've already signed in to the web browser with a different Microsoft Entra account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
 
 ## Preview features
 

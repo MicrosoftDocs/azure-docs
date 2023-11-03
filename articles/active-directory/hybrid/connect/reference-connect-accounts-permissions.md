@@ -49,7 +49,7 @@ You also need the following accounts to *install* Microsoft Entra Connect:
 > Beginning in build 1.4.###.#, you no longer can use an Enterprise Administrator account or a Domain Administrator account as the AD DS Connector account. If you attempt to enter an account that is an Enterprise Administrator or Domain Administrator for **Use existing account**, the wizard displays an error message and you can't proceed.
 
 > [!NOTE]
-> You can manage the administrative accounts that are used in Microsoft Entra Connect by using an *enterprise access model*. An organization can use an enterprise access model to host administrative accounts, workstations, and groups in an environment that has stronger security controls than a production environment. For more information, see [Enterprise access model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> You can manage the administrative accounts that are used in Microsoft Entra Connect by using an *enterprise access model*. An organization can use an enterprise access model to host administrative accounts, workstations, and groups in an environment that has stronger security controls than a production environment. For more information, see [Enterprise access model](/security/privileged-access-workstations/privileged-access-access-model#esae-administrative-forest-design-approach).
 >
 > The Global Administrator role isn't required after initial setup. After setup, the only required account is the Directory Synchronization Accounts role account. Instead of removing the account that has the Global Administrator role, we recommend that you change the role to a role that has a lower level of permissions. Completely removing the account might introduce issues if you ever need to run the wizard again. You can add permissions if you need to use the Microsoft Entra Connect wizard again.
 
@@ -138,7 +138,7 @@ The following table is a summary of the custom settings wizard pages, the creden
 ### Create the AD DS Connector account
 
 > [!IMPORTANT]
-> A new PowerShell Module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Microsoft Entra DS Connector account.
+> A new PowerShell module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Microsoft Entra Domain Services Connector account.
 >
 > For more information, see [Microsoft Entra Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
 

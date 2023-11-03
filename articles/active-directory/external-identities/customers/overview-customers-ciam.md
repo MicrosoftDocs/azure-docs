@@ -37,10 +37,11 @@ If you've worked with Microsoft Entra ID, you're already familiar with using a M
 
 - **Extensions**: If you need to add user attributes and data from external systems, you can create custom authentication extensions for your user flows.
 
-- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. Learn more
+- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. 
 
 - **Encryption keys**: Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
+Learn more about [password and one-time passcode](how-to-enable-password-reset-customers.md) login, and about [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) federation.
 
 There are two types of user accounts you can manage in your customer tenant:
 
@@ -98,7 +99,7 @@ Learn more about the [security and governance](concept-security-customers.md) fe
 
 ## About Azure AD B2C
 
-If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](../../../active-directory-b2c/index.yml) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
+If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](/azure/active-directory-b2c/) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
 
 - You have an immediate need to deploy a production ready build for customer-facing apps.
   

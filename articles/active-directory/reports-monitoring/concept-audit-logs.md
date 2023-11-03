@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -47,6 +47,9 @@ Audit logs in Microsoft Entra ID provide access to system activity records, ofte
 - Has a service principal for an application changed?
 - Have the names of applications been changed?
  
+> [!NOTE]
+> Entries in the audit logs are system generated and can't be changed or deleted.
+
 ## What do the logs show?
 
 Audit logs have a default list view that shows:
@@ -76,7 +79,7 @@ You can download the audit logs from the Microsoft Entra admin center, up to 250
 
 ## Microsoft 365 activity logs
 
-You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Even though Microsoft 365 activity and Microsoft Entra activity logs share many directory resources, only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview). Even though Microsoft 365 activity and Microsoft Entra activity logs share many directory resources, only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -22,7 +22,7 @@ This article shows how you can stream your logs to an event hub, to integrate wi
 
 To stream logs to a SIEM tool, you first need to create an **Azure event hub**. 
 
-Once you have an event hub that contains Microsoft Entra activity logs, you can set up the SIEM tool integration using the **Microsoft Entra Diagnostics Settings**.
+Once you have an event hub that contains Microsoft Entra activity logs, you can set up the SIEM tool integration using the **Microsoft Entra diagnostic settings**.
 
 ## Stream logs to an event hub
 
@@ -44,7 +44,9 @@ To use this feature, you need the [Splunk Add-on for Microsoft Cloud Services](h
 
 <a name='integrate-azure-ad-logs-with-splunk'></a>
 
-### Integrate Microsoft Entra ID logs with Splunk
+<a name='integrate-microsoft-entra-id-logs-with-splunk'></a>
+
+### Integrate Microsoft Entra logs with Splunk
 
 1. Open your Splunk instance and select **Data Summary**.
 
@@ -66,7 +68,9 @@ To use this feature, you need a SumoLogic single sign-on enabled subscription.
 
 <a name='integrate-azure-ad-logs-with-sumologic-'></a>
 
-### Integrate Microsoft Entra ID logs with SumoLogic 
+<a name='integrate-microsoft-entra-id-logs-with-sumologic'></a>
+
+### Integrate Microsoft Entra logs with SumoLogic 
 
 1. Configure your SumoLogic instance to [collect logs for Microsoft Entra ID](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#collecting-logs-for-azure-active-directory).
 
@@ -82,12 +86,14 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 <a name='integrate-azure-ad-logs-with-arcsight'></a>
 
-## Integrate Microsoft Entra ID logs with ArcSight
+<a name='integrate-microsoft-entra-id-logs-with-arcsight'></a>
+
+## Integrate Microsoft Entra logs with ArcSight
 
 1. Complete the steps in the **Prerequisites** section of the ArcSight configuration guide. This section includes the following steps:
     * Set user permissions in Azure to ensure there's a user with the **owner** role to deploy and configure the connector.
     * Open ports on the server with Syslog NG Daemon SmartConnector so it's accessible from Azure. 
-    * The deployment runs a Windows PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
+    * The deployment runs a PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
 
 1. Follow the steps in the **Deploying the Connector** section of the ArcSight configuration guide to deploy the connector. This section walks you through how to download and extract the connector, configure application properties and run the deployment script from the extracted folder. 
 
@@ -105,7 +111,7 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Activity log integration options and considerations
 
-If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up **custom tooling** by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up **custom tooling** by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 **IBM QRadar** is another option for integrating with Microsoft Entra activity logs. The DSM and Azure Event Hubs Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
 

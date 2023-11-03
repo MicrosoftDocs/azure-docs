@@ -65,7 +65,7 @@ After you create the Google application, in this step you set the Google client 
 1. Browse to **Identity** > **External Identities** > **All identity providers**.
 2. Select **+ Google**.
 
-   <!-- ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/sign-in-with-google/configure-google-idp.png)-->
+   <!-- ![Screenshot that shows how to add Google identity provider in Microsoft Entra ID.](./media/sign-in-with-google/configure-google-idp.png)-->
 
 1. Enter a **Name**. For example, *Google*.
 1. For the **Client ID**, enter the Client ID of the Google application that you created earlier.

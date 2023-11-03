@@ -32,6 +32,7 @@ There are no additional registration steps required.
 1. Select **+ Create a new SAN**
 1. On the basics page, fill in the appropriate values.
     - **Elastic SAN name** must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+    For best performance, your SAN should be in the same zone as your VM.
 
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 

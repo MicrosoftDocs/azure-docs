@@ -158,13 +158,13 @@ In the code:
 
 - Prepare the `tokenRequest` and `apiConfig` object. The `tokenRequest` contains the scope for which you request an access token. The scope looks something like `api://Enter_the_Web_Api_Application_Id_Here/.default`. The `apiConfig` object contains the endpoint to your web API. Learn more about [OAuth 2.0 client credentials flow](../../develop/v2-oauth2-client-creds-grant-flow.md).
 
-- You create a confidential client instance by passing the `msalConfig` object to the [ConfidentialClientApplication](/javascript/api/@azure/msal-node/confidentialclientapplication#constructors) class' constructor.
+- You create a confidential client instance by passing the `msalConfig` object to the [ConfidentialClientApplication](/javascript/api/%40azure/msal-node/confidentialclientapplication#constructors) class' constructor.
 
     ```javascript
     const cca = new msal.ConfidentialClientApplication(msalConfig);
     ```
 
-- You then use the [acquireTokenByClientCredential](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
+- You then use the [acquireTokenByClientCredential](/javascript/api/%40azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbyclientcredential) function to acquire an access token. You implement this logic in the `getToken` function: 
 
     ```javascript
     cca.acquireTokenByClientCredential(tokenRequest);

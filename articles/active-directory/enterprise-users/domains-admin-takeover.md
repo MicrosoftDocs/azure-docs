@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Microsoft Entra ID
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Microsoft Entra ID formerly known as Azure AD. When a self-service user signs up for a cloud service that uses Microsoft Entra ID, they're added to an unmanaged Microsoft Entra directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Microsoft Entra ID?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Microsoft Entra ID. When a self-service user signs up for a cloud service that uses Microsoft Entra ID, they're added to an unmanaged Microsoft Entra directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Microsoft Entra ID?](directory-self-service-signup.md)
 
 
 > [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
@@ -117,7 +117,7 @@ The key and templates aren't moved over when the unmanaged organization is in a 
 
 Although RMS for individuals is designed to support Microsoft Entra authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates weren't moved over, that content isn't accessible after the domain takeover.
 
-### Microsoft Entra ID PowerShell cmdlets for the ForceTakeover option
+### Azure AD PowerShell cmdlets for the ForceTakeover option
 
 You can see these cmdlets used in [PowerShell example](#powershell-example).
 
@@ -176,6 +176,9 @@ cmdlet | Usage
    ```powershell
    Confirm-MgDomain -DomainId "contoso.com"
    ```
+
+>[!NOTE]
+> The Confirm-MgDomain Cmdlet is being updated. You can monitor the [Confirm-MgDomain Cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/confirm-mgdomain?view=graph-powershell-1.0&preserve-view=true) article for updates.
 
 A successful challenge returns you to the prompt without an error.
 

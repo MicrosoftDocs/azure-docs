@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # How-to: Onboard your metric data to Metrics Advisor
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Use this article to learn about onboarding your data to Metrics Advisor. 
 
 ## Data schema requirements and configuration

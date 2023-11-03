@@ -46,9 +46,11 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Switzerland|
-|United States*|
+|United States|
+|Canada|
+|United Kingdom|
 
-\* Alphanumeric Sender ID
+
 
 
 ## Find information about other countries/regions

@@ -100,4 +100,4 @@ After you've resolved the issue, restart the provisioning job. Certain changes t
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Replace "{ID}" with the value of the Application ID, and replace "{jobId}" with the [ID of the synchronization job](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta&preserve-view=true#list-synchronization-jobs-in-the-context-of-the-service-principal).
+Replace "{ID}" with the value of the Application ID, and replace "{jobId}" with the [ID of the synchronization job](/graph/synchronization-configure-with-directory-extension-attributes?preserve-view=true&tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

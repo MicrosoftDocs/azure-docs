@@ -1,7 +1,8 @@
 ### YamlMime:Landing
 
 title: Anomaly Detector API Documentation 
-summary: Learn how to use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+summary: Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
+
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
@@ -10,8 +11,7 @@ metadata:
   services: cognitive-services
   author: mrbullwinkle
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: anomaly-detector
+  ms.service: azure-ai-anomaly-detector
   ms.topic: landing-page
   ms.date: 10/27/2022
   ms.author: mbullwin

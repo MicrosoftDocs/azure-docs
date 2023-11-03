@@ -57,6 +57,14 @@
       href: supportability/how-to-manage-azure-support-request.md
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
+- name: Azure mobile app
+  items:
+  - name: Overview
+    href: mobile-app/overview.md
+    displayName: mobile, app, ios, android
+  - name: Home
+    href: mobile-app/home.md
+    displayName: mobile, app, start
 - name: Reference
   items:
   - name: Keyboard shortcuts

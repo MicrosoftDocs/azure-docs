@@ -71,7 +71,7 @@ To allow delegated roles, such as catalog creators and access package managers, 
 
     ![Microsoft Entra user settings - Administration portal](./media/entitlement-management-delegate-catalog/user-settings.png)
 
-## Manage role assignments programmatically (preview)
+## Manage role assignments programmatically
 
 You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 

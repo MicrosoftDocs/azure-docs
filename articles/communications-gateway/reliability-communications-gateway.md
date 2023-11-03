@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom:
   - subject-reliability
   - references_regions
-ms.date: 05/11/2023
+ms.date: 10/09/2023
 ---
 
 # Reliability in Azure Communications Gateway

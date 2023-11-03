@@ -1,6 +1,6 @@
 ---
 title: Quickstart guide to analyze a failed Microsoft Entra sign-in
-description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Microsoft Entra ID.
+description: In this quickstart, you learn how you can use the sign-in log to determine the reason for a failed sign-in to Microsoft Entra ID.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -11,11 +11,11 @@ author: shlipsey3
 manager: amycolannino
 ms.reviewer: besiler
 
-#Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
+#Customer intent: As an IT admin, you need to know how to use the sign-in log so that you can fix sign-in issues.
 ---
-# Quickstart: Analyze sign-ins with the Microsoft Entra sign-ins log 
+# Quickstart: Analyze sign-ins with the Microsoft Entra sign-in log 
 
-With the information in the Microsoft Entra sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-ins log.
+With the information in the Microsoft Entra sign-in log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-in log.
 
 
 ## Prerequisites
@@ -28,16 +28,16 @@ To complete the scenario in this quickstart, you need:
 
 ## Perform a failed sign-in
 
-The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-ins log.
+The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-in log.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find the event in the sign-ins log.
+2. Wait for 5 minutes to ensure that you can find the event in the sign-in log.
 
 
 ## Find the failed sign-in
 
-This section provides you with the steps to analyze a failed sign-in. Filter the sign-ins log to remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user. Then you can review the error details. The log details provide helpful information. You can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with information to troubleshoot a sign-in error. 
+This section provides you with the steps to analyze a failed sign-in. Filter the sign-in log to remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user. Then you can review the error details. The log details provide helpful information. You can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with information to troubleshoot a sign-in error. 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 

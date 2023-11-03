@@ -17,7 +17,7 @@ ms.custom: has-adal-ref, devx-track-js
 
 # How to migrate a JavaScript app from ADAL.js to MSAL.js
 
-[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as *msal-browser*) 2.x is the authentication library we recommend using with JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
+[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as `msal-browser`) 2.x is the authentication library we recommend using with JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
 
 > [!NOTE]
 > We strongly recommend MSAL.js 2.x over MSAL.js 1.x. The auth code grant flow is more secure and allows single-page applications to maintain a good user experience despite the privacy measures browsers like Safari have implemented to block 3rd party cookies, among other benefits.
@@ -173,7 +173,7 @@ In addition, as MSAL.js is implemented in TypeScript unlike ADAL.js, it exposes 
 
 ## Use scopes instead of resources
 
-An important difference between the Microsoft Entra ID **v1.0** vs. **v2.0** endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
+An important difference between the Azure Active Directory v1.0 versus 2.0 endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
 
 ```javascript
 authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error, token) {

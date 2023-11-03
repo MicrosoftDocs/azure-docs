@@ -198,8 +198,6 @@ On the next page, you can select optional features for your scenario.
 >[!WARNING]
 >Microsoft Entra Connect versions 1.0.8641.0 and earlier rely on Azure Access Control Service for password writeback.  This service was retired on November 7, 2018.  If you use any of these versions of Microsoft Entra Connect and have enabled password writeback, users might lose the ability to change or reset their passwords when the service is retired. These versions of Microsoft Entra Connect don't support password writeback.
 >
->For more information, see [Migrate from Azure Access Control Service](../../azuread-dev/active-directory-acs-migration.md).
->
 >If you want to use password writeback, download the [latest version of Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Screenshot showing the "Optional Features" page.](./media/how-to-connect-install-custom/optional2a.png)
@@ -267,7 +265,7 @@ On a computer that has Group Policy management tools:
 1. Open the Group Policy management tools.
 2. Edit the group policy that will be applied to all users. For example, the Default Domain policy.
 3. Go to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
-4. Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1`. Your setup should look like the following image.
+4. Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com`and `https://aadg.windows.net.nsatc.net` with a value of `1` for both URLs. Your setup should look like the following image.
   
     ![Screenshot showing intranet zones.](./media/how-to-connect-install-custom/sitezone.png)
 

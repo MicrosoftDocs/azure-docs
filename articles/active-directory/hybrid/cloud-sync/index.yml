@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra Connect cloud sync documentation
-summary:  Microsoft Entra Connect cloud sync helps simplify and automate the management of Microsoft Entra users, through cloud-managed rules for synchronizing those users from existing AD forests.
+title: Microsoft Entra Cloud Sync documentation
+summary:  Microsoft Entra Cloud Sync helps simplify and automate the management of Microsoft Entra users, through cloud-managed rules for synchronizing those users from existing AD forests.
 
 
 
@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Entra Connect cloud sync?
+          - text: What is Microsoft Entra Cloud Sync?
             url: what-is-cloud-sync.md
  
   # Card
@@ -45,11 +45,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Prerequisites for Microsoft Entra Connect cloud sync
+          - text: Prerequisites for Microsoft Entra Cloud Sync
             url: how-to-prerequisites.md
-          - text: Install Microsoft Entra Connect cloud sync
+          - text: Install Microsoft Entra Cloud Sync
             url: how-to-install.md
-          - text: Microsoft Entra Connect provisioning agent configuration
+          - text: Microsoft Entra Provisioning Agent configuration
             url: how-to-configure.md
       - linkListType: reference
         links:

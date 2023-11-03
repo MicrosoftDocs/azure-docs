@@ -147,7 +147,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     git clone https://github.com/Azure/sap-automation-samples.git samples
 
     cp -Rp samples/Terraform/WORKSPACES ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    
+
     ```
 
 1. Optionally, validate the versions of Terraform and the Azure CLI available on your instance of Cloud Shell.
@@ -170,11 +170,11 @@ When you choose a name for your service principal, make sure that the name is un
 1. Give the service principal Contributor and User Access Administrator permissions.
 
     ```cloudshell-interactive
-    export         subscriptionId="<subscriptionId>"
+    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
     export control_plane_env_code="MGMT"
 
     az ad sp create-for-rbac --role="Contributor"           \
-      --scopes="/subscriptions/${subscriptionId}"           \
+      --scopes="/subscriptions/${ARM_SUBSCRIPTION_ID}"      \
       --name="${control_plane_env_code}-Deployment-Account"
     ```
 
@@ -207,7 +207,7 @@ When you choose a name for your service principal, make sure that the name is un
 
     az role assignment create --assignee ${appId} \
       --role "User Access Administrator" \
-      --scope /subscriptions/${subscriptionId}
+      --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
 If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
@@ -258,12 +258,49 @@ If you don't assign the User Access Administrator role to the service principal,
     management_bastion_subnet_address_prefix = "10.10.20.128/26"
     bastion_deployment = true
 
-
+    # deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
     deployer_enable_public_ip = true
-    
+
+    # deployer_count defines how many deployer VMs will be deployed
+    deployer_count = 1
+
+    # use_service_endpoint defines that the management subnets have service endpoints enabled
+    use_service_endpoint = true
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+    use_private_endpoint = false
+
+    # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
+    enable_firewall_for_keyvaults_and_storage = false
+
+    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
+    public_network_access_enabled = true
+
+
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
+
+1. Find the Terraform variable files for the SAP Library in the appropriate subfolder. For example, the `LIBRARY` Terraform variable file might look like this example:
+
+    ```terraform
+    # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
+    environment = "MGMT"
+    # The location/region value is a mandatory field, it is used to control where the resources are deployed
+    location = "westeurope"
+
+    #Defines the DNS suffix for the resources
+    dns_label = "azure.contoso.net"
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+    use_private_endpoint = false
+    ```
+
+    Note the Terraform variable file locations for future edits during deployment.
+
+> [!IMPORTANT]
+> Ensure that the ´dns_label´ matches your Azure Private DNS.
+
 
 ## Deploy the control plane
 
@@ -275,52 +312,62 @@ For example, choose **North Europe** as the deployment location, with the four-c
 
 The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
 
+Set the environment variables for the service principal:
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+
+```
+
 1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
 
-    ```bash
+```bash
 
-    export subscriptionId="<subscriptionId>"
-    export         spn_id="<appId>"
-    export     spn_secret="<password>"
-    export      tenant_id="<tenantId>"
-    export       env_code="MGMT"
-    export      vnet_code="DEP00"
-    export    region_code="<region_code>"
+export            env_code="MGMT"
+export           vnet_code="DEP00"
+export         region_code="<region_code>"
 
-    export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
-    export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 
-    cd $CONFIG_REPO_PATH
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                        \
-        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars \
-        --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                            \
-        --subscription "${subscriptionId}"                                                                                                               \
-        --spn_id "${spn_id}"                                                                                                                             \
-        --spn_secret "${spn_secret}"                                                                                                                     \
-        --tenant_id "${tenant_id}"                                                                                                                       \
-        --auto-approve
-    ```
+cd $CONFIG_REPO_PATH
 
-    If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.
+deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
 
-    Wait for the automation framework to run the Terraform operations `plan` and `apply`.
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+    --deployer_parameter_file "${deployer_parameter_file}"         \
+    --library_parameter_file "${library_parameter_file}"            \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --spn_id "${ARM_CLIENT_ID}"                                    \
+    --spn_secret "${ARM_CLIENT_SECRET}"                            \
+    --tenant_id "${ARM_TENANT_ID}"
 
-    The deployment of the deployer might run for about 15 to 20 minutes.
+```
 
-    You need to note some values for upcoming steps. Look for this text block in the output:
+If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.
 
-    ```text
-    #########################################################################################
-    #                                                                                       #
-    #  Please save these values:                                                            #
-    #     - Key Vault: MGMTNOEUDEP00user39B                                                 #
-    #     - Deployer IP: x.x.x.x                                                            #
-    #     - Storage Account: mgmtnoeutfstate53e                                             #
-    #                                                                                       #
-    #########################################################################################
-    ```
+Wait for the automation framework to run the Terraform operations `plan` and `apply`.
+
+The deployment of the deployer might run for about 15 to 20 minutes.
+
+You need to note some values for upcoming steps. Look for this text block in the output:
+
+```text
+#########################################################################################
+#                                                                                       #
+#  Please save these values:                                                            #
+#     - Key Vault: MGMTNOEUDEP00user39B                                                 #
+#     - Deployer IP: x.x.x.x                                                            #
+#     - Storage Account: mgmtnoeutfstate53e                                             #
+#                                                                                       #
+#########################################################################################
+```
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -334,7 +381,7 @@ The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
     The Terraform state file is now placed in the storage account whose name contains `tfstate`. The storage account has a container named `tfstate` with the deployer and library state files. The contents of the `tfstate` container after a successful control plane deployment are shown here.
 
-    :::image type="content" source="media/tutorial/terraform-state-files.png" alt-text="Screenshot that shows the control plane tfstate files.":::
+    :::image type="content" source="media/tutorial/terraform-state-files.png" alt-text="Screenshot that shows the control plane terraform state files.":::
 
 ### Common issues and solutions
 
@@ -347,7 +394,7 @@ Here are some troubleshooting tips:
     The file must contain the environment attribute!!
     ```
 
-- The following error is transient. Rerun the same command, `prepare_controlplane.sh`.
+- The following error is transient. Rerun the same command, `deploy_controlplane.sh`.
 
     ```text
     Error: file provisioner error
@@ -355,7 +402,7 @@ Here are some troubleshooting tips:
     timeout - last error: dial tcp
     ```
 
-- If you have authentication issues directly after you run the script `prepare_controlplane.sh`, run this command:
+- If you have authentication issues directly after you run the script `deploy_controlplane.sh`, run this command:
 
     ```azurecli
     az logout
@@ -420,24 +467,81 @@ To connect to the deployer:
 
 1. Connect to the virtual machine.
 
-To configure the deployer, run the following script:
+
+The rest of the tasks must be executed on the deployer.
+
+## Securing the control plane
+
+The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
+
+To copy the control plane configuration files to the deployer VM, you can use the `sync_deployer.sh` script. Sign in to the deployer VM and run the following commands:
 
 ```bash
 
-mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-git clone https://github.com/Azure/sap-automation.git sap-automation
+../sap-automation/deploy/scripts/sync_deployer.sh --storageaccountname mgtneweeutfstate### --state_subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-git clone https://github.com/Azure/sap-automation-samples.git samples
 
-cd sap-automation/deploy/scripts
-
-./configure_deployer.sh
 ```
 
-The script installs Terraform and Ansible and configures the deployer.
+This copies the tfvars configuration files from the SAP Library's storage account to the deployer VM.
 
-The rest of the tasks must be executed on the deployer.
+Change the configuration files for the control plane to 
+
+```terraform
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+    use_private_endpoint = true
+
+    # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
+    enable_firewall_for_keyvaults_and_storage = true
+
+    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
+    public_network_access_enabled = false
+
+```
+
+Rerun the deployment to apply the changes. Update the storage account name and key vault name in the script.
+
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+
+```
+
+1. Create the deployer and the SAP library. 
+
+```bash
+
+export            env_code="MGMT"
+export           vnet_code="DEP00"
+export         region_code="<region_code>"
+
+storage_accountname="mgmtneweeutfstate###"
+vault_name="MGMTNOEUDEP00user###"
+
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+
+cd $CONFIG_REPO_PATH
+
+deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+    --deployer_parameter_file "${deployer_parameter_file}"         \
+    --library_parameter_file "${library_parameter_file}"           \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --storageaccountname "${storage_accountname}"                  \
+    --vault "${vault_name}"
+```
+
+
 
 ## Get SAP software by using the Bill of Materials
 
@@ -533,7 +637,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
 
     ```
 
@@ -543,8 +647,8 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
-    kv_name:                       <Deployer KeyVault Name>
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
+    deployer_kv_name:              <Deployer KeyVault Name>
 
     ```
 
@@ -554,9 +658,9 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010
-    kv_name:                       <Deployer KeyVault Name>
-    check_storage_account:         false
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
+    deployer_kv_name:              <Deployer KeyVault Name>
+    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
 
     ```
 
@@ -601,13 +705,14 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     The first time an environment is instantiated, a Service Principal must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, a Service Principal must be registered for the `DEV` environment.
 
     ```bash
-    export           subscriptionId="<subscriptionId>"
-    export                   spn_id="<appID>"
-    export               spn_secret="<password>"
-    export                tenant_id="<tenant>"
-    export                key_vault="<vaultID>"
-    export                 env_code="DEV"
-    export              region_code="<region_code>"
+    export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+    export       ARM_CLIENT_ID="<appID>"
+    export   ARM_CLIENT_SECRET="<password>"
+    export       ARM_TENANT_ID="<tenant>"
+    export           key_vault="<vaultName>"
+    export            env_code="DEV"
+    export         region_code="<region_code>"
+
     export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 
@@ -615,10 +720,10 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
         --environment "${env_code}"                           \
         --region "${region_code}"                             \
         --vault "${key_vault}"                                \
-        --subscription "${subscriptionId}"                    \
-        --spn_id "${spn_id}"                                  \
-        --spn_secret "${spn_secret}"                          \
-        --tenant_id "${tenant_id}"
+        --subscription "${ARM_SUBSCRIPTION_ID}"               \
+        --spn_id "${ARM_CLIENT_ID}"                           \
+        --spn_secret "${ARM_CLIENT_SECRET}"                   \
+        --tenant_id "${ARM_TENANT_ID}"
     ```
 
 ## Prepare the workload zone deployment
@@ -649,44 +754,44 @@ Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy th
    - Name of the `tfstate` storage account
    - Name of the deployer key vault
 
-    ```bash
+```bash
 
-    export tfstate_storage_account="<storageaccountName>"
-    export       deployer_env_code="MGMT"
-    export            sap_env_code="DEV"
-    export             region_code="<region_code>"
-    export               key_vault="<vaultID>"
-    
-    export      deployer_vnet_code="DEP01"
-    export               vnet_code="SAP02"
-    
-    export     ARM_SUBSCRIPTION_ID="<subscriptionId>"
-    export           ARM_CLIENT_ID="<appId>"
-    export       ARM_CLIENT_SECRET="<password>"
-    export           ARM_TENANT_ID="<tenantId>"
-    
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE
-    
-    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
-    export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-    
-    az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
-    
-    cd "${CONFIG_REPO_PATH}/LANDSCAPE/${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE"
-    parameterFile="${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
-    deployerState="${deployer_env_code}-${region_code}-${deployer_vnet_code}-INFRASTRUCTURE.terraform.tfstate"
-    
-    $SAP_AUTOMATION_REPO_PATH/deploy/scripts/install_workloadzone.sh  \
-        --parameterfile "${parameterFile}"                            \
-        --deployer_environment "${deployer_env_code}"                 \ 
-        --deployer_tfstate_key  "${deployerState}"                    \
-        --keyvault "${key_vault}"                                     \
-        --storageaccountname "${tfstate_storage_account}"             \
-        --subscription "${ARM_SUBSCRIPTION_ID}"                       \
-        --spn_id "${ARM_CLIENT_ID}"                                   \
-        --spn_secret "${ARM_CLIENT_SECRET}"                           \
-        --tenant_id "${ARM_TENANT_ID}"
-    ```
+export tfstate_storage_account="<storageaccountName>"
+export       deployer_env_code="MGMT"
+export            sap_env_code="DEV"
+export             region_code="<region_code>"
+export               key_vault="<vaultID>"
+
+export      deployer_vnet_code="DEP01"
+export               vnet_code="SAP02"
+
+export     ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export           ARM_CLIENT_ID="<appId>"
+export       ARM_CLIENT_SECRET="<password>"
+export           ARM_TENANT_ID="<tenantId>"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE
+
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+cd "${CONFIG_REPO_PATH}/LANDSCAPE/${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE"
+parameterFile="${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+deployerState="${deployer_env_code}-${region_code}-${deployer_vnet_code}-INFRASTRUCTURE.terraform.tfstate"
+
+$SAP_AUTOMATION_REPO_PATH/deploy/scripts/install_workloadzone.sh  \
+    --parameterfile "${parameterFile}"                            \
+    --deployer_environment "${deployer_env_code}"                 \
+    --deployer_tfstate_key  "${deployerState}"                    \
+    --keyvault "${key_vault}"                                     \
+    --storageaccountname "${tfstate_storage_account}"             \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                       \
+    --spn_id "${ARM_CLIENT_ID}"                                   \
+    --spn_secret "${ARM_CLIENT_SECRET}"                           \
+    --tenant_id "${ARM_TENANT_ID}"
+```
 
 The workload zone deployment should start automatically.
 
@@ -716,14 +821,15 @@ Deploy the SAP system.
 export             sap_env_code="DEV"
 export              region_code="<region_code>"
 export                vnet_code="SAP01"
+export                      SID="X00"
 
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-X00
+cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-${SID}
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                          \
-    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-X00.tfvars" \
+    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-${SID}.tfvars" \
     --type sap_system
 ```
 
@@ -733,8 +839,8 @@ The deployment command for the `northeurope` example looks like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-    --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
-    --type sap_system                                  \
+    --parameterfile DEV-NOEU-SAP01-X00.tfvars        \
+    --type sap_system                                \
     --auto-approve
 ```
 
@@ -820,14 +926,14 @@ Before you begin, sign in to your Azure account. Then, check that you're in the 
 Go to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
 
 ```bash
-export sap_env_code="DEV"
-export  region_code="NOEU"
-export    vnet_code="SAP01"
+export  sap_env_code="DEV"
+export   region_code="NOEU"
+export sap_vnet_code="SAP02"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-X00
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                   \
-  --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-X00.tfvars" \
+  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-X00.tfvars" \
   --type sap_system
 ```
 
@@ -837,14 +943,14 @@ Go to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folde
 
 ```bash
 
-export sap_env_code="DEV"
-export  region_code="NOEU"
-export    vnet_code="SAP01"
+export  sap_env_code="DEV"
+export   region_code="NOEU"
+export sap_vnet_code="SAP01"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                                       \
-      --parameterfile ${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars \
+      --parameterfile ${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE.tfvars \
       --type sap_landscape
 ```
 

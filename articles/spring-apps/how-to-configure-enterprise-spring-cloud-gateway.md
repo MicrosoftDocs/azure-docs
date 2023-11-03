@@ -182,7 +182,7 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
 
-To set up SSO with Azure Active Directory, see [Set up single sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Microsoft Entra ID, see [Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
 
 You can use the Azure portal or the Azure CLI to edit SSO properties.
 

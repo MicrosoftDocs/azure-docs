@@ -1,6 +1,6 @@
 ---
 
-title: Microsoft Entra audit activity reference
+title: Microsoft Entra audit log activity reference
 description: Get an overview of the audit activities that can be logged in your audit logs in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
@@ -252,7 +252,7 @@ The Microsoft Entra multifactor authentication audit logs can help you track tre
 
 ## B2C
 
-This set of audit logs is related to [B2C](../../active-directory-b2c/overview.md). Due to the number of connected resources and potential external accounts, this service has a large set of categories and activities. Audit categories include ApplicationManagement, Authentication, Authorization, DirectoryManagement, IdentityProtection, KeyManagement, PolicyManagement, and ResourceManagement. Logs related to one-time passwords are found in the Other category.
+This set of audit logs is related to [B2C](/azure/active-directory-b2c/overview). Due to the number of connected resources and potential external accounts, this service has a large set of categories and activities. Audit categories include ApplicationManagement, Authentication, Authorization, DirectoryManagement, IdentityProtection, KeyManagement, PolicyManagement, and ResourceManagement. Logs related to one-time passwords are found in the Other category.
 
 |Audit Category|Activity|
 |---|---|
@@ -905,7 +905,7 @@ If you're using Entitlement Management to streamline how you assign members of M
 
 ## Global Secure Access (preview)
 
-If you're using Microsoft Entra Internet Access or Microsoft Entra Private Access to acquire and secure network traffic to your corporate resources, these logs can help identify when changes were made to your network policies. These logs capture changes to traffic forwarding policies and remote networks, such as branch office locations. For more information, see [What is Global Secure Access](../../global-secure-access/overview-what-is-global-secure-access.md).
+If you're using Microsoft Entra Internet Access or Microsoft Entra Private Access to acquire and secure network traffic to your corporate resources, these logs can help identify when changes were made to your network policies. These logs capture changes to traffic forwarding policies and remote networks, such as branch office locations. For more information, see [What is Global Secure Access](/entra/global-secure-access/overview-what-is-global-secure-access).
 
 |Audit Category|Activity|
 |---|---|
@@ -1362,4 +1362,4 @@ The Self-service password management logs provide insight into changes made to p
 
 - [Microsoft Entra monitoring and health overview](overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)
+- [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)

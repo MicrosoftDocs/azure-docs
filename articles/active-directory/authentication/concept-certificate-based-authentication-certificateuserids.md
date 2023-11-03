@@ -35,7 +35,7 @@ The values stored in **certificateUserIds** should be in the format described in
 
 ## Roles to update certificateUserIds
 
-For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds. Cloud-only users can use both UX and MSGraph to write into certificateUserIds. For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute. Only Azure ADConnect can be used to update CertificateUserIds by syncing the value from on-prem for synched users. 
+For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds. Cloud-only users can use both UX and MSGraph to write into certificateUserIds. For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute. Only Microsoft Entra Connect can be used to update CertificateUserIds by syncing the value from on-prem for synched users. 
 
 >[!NOTE]
 >Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Microsoft Entra ID for any synched accounts.
@@ -72,10 +72,22 @@ Tenant admins can use the following steps to update certificate user IDs for a u
 
 Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds is stored in the **authorizationInfo** property.
 
-To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
+To retrieve certificateUserIds of all user objects:
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
+GET https://graph.microsoft.com/v1.0/users?$select=authorizationinfo
+ConsistencyLevel: eventual
+```
+To retrieve certificateUserIds for a given user by user's ObjectId:
+
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users/{user-object-id}?$select=authorizationinfo
+ConsistencyLevel: eventual
+```
+To retrieve the user object with a specific value in certificateUserIds:
+
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users?$select=authorizationinfo&$filter=authorizationInfo/certificateUserIds/any(x:x eq 'x509:<PN>user@contoso.com')&$count=true
 ConsistencyLevel: eventual
 ```
 
@@ -88,7 +100,7 @@ Run a PATCH request to update the certificateUserIds for a given user.
 #### Request body:
 
 ```http
-PATCH https://graph.microsoft.com/v1.0/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{user-object-id}
 Content-Type: application/json
 {
     "authorizationInfo": {
@@ -102,7 +114,7 @@ Content-Type: application/json
 
 For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/microsoftgraph/installation):
 
-1. Start Windows PowerShell with administrator privileges.
+1. Start PowerShell with administrator privileges.
 1. Install and Import the Microsoft Graph PowerShell SDK
 
    ```powershell

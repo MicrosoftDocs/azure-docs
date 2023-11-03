@@ -30,7 +30,9 @@ The following versions are supported:
 npm install @azure/arm-datalake-analytics
 ```
 
-## Authenticate using Azure Active Directory
+<a name='authenticate-using-azure-active-directory'></a>
+
+## Authenticate using Microsoft Entra ID
 
  ```javascript
  const { DefaultAzureCredential } = require("@azure/identity");

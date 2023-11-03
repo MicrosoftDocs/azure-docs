@@ -79,7 +79,7 @@ Some roles include privileged permissions, such as the ability to update credent
 
 :::image type="content" source="./media/best-practices/privileged-role-assignments-warning.png" alt-text="Screenshot of the Microsoft Entra roles and administrators page that shows the privileged role assignments warning." lightbox="./media/best-practices/privileged-role-assignments-warning.png":::
 
- You can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Microsoft Entra ID](privileged-roles-permissions.md).
+ You can identify roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Microsoft Entra ID](privileged-roles-permissions.md).
 
 <a name='7-use-groups-for-azure-ad-role-assignments-and-delegate-the-role-assignment'></a>
 

@@ -99,8 +99,29 @@ If you want to customize your Text-To-Speech output even more with Azure AI serv
 ``` csharp
 String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 
 
-var playSource = new SsmlSource(ssmlToPlay); 
+var playSource = new SsmlSource(ssmlToPlay);
 ```
+
+### Custom voice models
+If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](../../../../ai-services/speech-service/how-to-custom-voice.md).
+
+**Custom voice names regular text exmaple**
+``` csharp
+String textToPlay = "Welcome to Contoso"; 
+ 
+// Provide VoiceName and CustomVoiceEndpointId to select custom voice. 
+var playSource = new TextSource(textToPlay)
+    {
+        VoiceName = "YourCustomVoiceName",
+        CustomVoiceEndpointId = "YourCustomEndpointId"
+    };
+```
+**Custom voice names SSML example**
+``` javascriptString ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"YourCustomVoiceName\">Hello World!</voice></speak>"; 
+
+var playSource = new SsmlSource(ssmlToPlay,"YourCustomEndpointId");
+```
+
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio to all participants

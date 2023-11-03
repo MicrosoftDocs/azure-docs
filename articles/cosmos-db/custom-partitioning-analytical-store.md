@@ -1,5 +1,5 @@
 ---
-title: Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
+title: Custom partitioning in Azure Synapse Link for Azure Cosmos DB
 description: Custom partitioning enables you to partition the analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance.
 author: Rodrigossz
 ms.service: cosmos-db
@@ -9,18 +9,15 @@ ms.author: rosouz
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
+# Custom partitioning in Azure Synapse Link for Azure Cosmos DB
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
 In this article, you'll learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You'll also learn how the partitioned store helps to improve the query performance when your workloads have a significant number of updates or deletes.
 
-> [!IMPORTANT]
-> Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!NOTE]
-> Azure Cosmos DB accounts should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning.
+> Azure Cosmos DB accounts and containers should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning.
 
 ## How does it work?
 

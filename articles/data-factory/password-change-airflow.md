@@ -17,7 +17,7 @@ This article describes how to change the password for a Managed Airflow environm
 
 ## Updating the password
 
-We recommend using **Azure AD** authentication in Managed Airflow environments. However, if you choose to use **Basic** authentication, you can still update the Airflow password by editing the Airflow environment configuration and updating the username/password in the integration runtime settings, as shown here:
+We recommend using **Microsoft Entra ID** authentication in Managed Airflow environments. However, if you choose to use **Basic** authentication, you can still update the Airflow password by editing the Airflow environment configuration and updating the username/password in the integration runtime settings, as shown here:
 
 :::image type="content" source="media/password-change-airflow/password-change-airflow.png" alt-text="Screenshot showing how to change an Airflow password in the integration runtime settings.":::
 

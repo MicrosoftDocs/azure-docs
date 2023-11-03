@@ -2,14 +2,14 @@
 title: Configure API-driven inbound provisioning app
 description: Learn how to configure API-driven inbound provisioning app.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: jfields
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -36,11 +36,11 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 ## Create your API-driven provisioning app
 
 1. Log in to the [Microsoft Entra admin center](<https://entra.microsoft.com>) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
-2. Browse to **Microsoft Entra ID** > **Applications** > **Enterprise applications**.
+2. Browse to **Identity** > **Applications** > **Enterprise applications**.
 3. Click on **New application** to create a new provisioning application. 
      [![Screenshot of Microsoft Entra Admin Center.](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png)](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png#lightbox)
 4. Enter **API-driven** in the search field, then select the application for your setup:
-     * **API-driven Inbound User Provisioning to On-Premises AD**: Select this app if you're provisioning hybrid identities (identities that need both on-premises AD and Microsoft Entra account) from your system of record. Once these accounts are provisioned in on-premises AD, they are automatically synchronized to your Microsoft Entra tenant using Microsoft Entra Connect or Cloud Sync.
+     * **API-driven Inbound User Provisioning to On-Premises AD**: Select this app if you're provisioning hybrid identities (identities that need both on-premises AD and Microsoft Entra account) from your system of record. Once these accounts are provisioned in on-premises AD, they are automatically synchronized to your Microsoft Entra tenant using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync.
      * **API-driven Inbound User Provisioning to Microsoft Entra ID**: Select this app if you're provisioning cloud-only identities (identities that don't require on-premises AD accounts and only need Microsoft Entra account) from your system of record.
      
      [![Screenshot of API-driven provisioning apps.](media/inbound-provisioning-api-configure-app/api-driven-inbound-provisioning-apps.png)](media/inbound-provisioning-api-configure-app/api-driven-inbound-provisioning-apps.png#lightbox)

@@ -1030,7 +1030,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 View your telemetry:
 - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
-- [Search events and logs](./diagnostic-search.md) to diagnose problems.
+- [Search events and logs](./search-and-transaction-diagnostics.md?tabs=transaction-search) to diagnose problems.
 - [Use Log Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 

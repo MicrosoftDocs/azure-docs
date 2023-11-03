@@ -6,7 +6,7 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
-ms.custom: github-actions-azure, mode-other
+ms.custom: github-actions-azure, mode-other, devx-track-azurecli
 ms.date: 02/15/2023
 ---
 

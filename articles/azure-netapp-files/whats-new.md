@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 10/16/2023
 ms.author: anfdocs
 ---
 
@@ -21,7 +21,21 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## October 2023
+
+* [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md) 
+
+    The **diagnose and solve problems** tool simplifies the troubleshooting process, making it effortless to identify and resolve any issues affecting your Azure NetApp Files deployment. With the tool's proactive troubleshooting, user-friendly guidance, and seamless integration with Azure Support, you can more easily manage and maintain a reliable and high-performance Azure NetApp Files storage environment. Experience enhanced issue resolution and optimization capabilities today, ensuring a smoother Azure NetApp Files management experience.
+
+* [Snapshot manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
+
+    You can now see the name of the snapshot used to create a new volume. In the Volume overview page, the **Originated from** field identifies the source snapshot used in volume creation. If the field is empty, no snapshot was used. 
+
 ## September 2023
+
+* [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in select US Gov regions (Preview)](configure-customer-managed-keys.md#supported-regions)
+
+    Customer keys are protected from attacks for maximum security of their Azure NetApp File volumes. This capability is now available US Gov Virginia (preview). This increased security complements the additional security for deployments in US Gov. Healthcare, Finance, Government, and many other customers can now protect their customer-managed encryption keys within the secure confines of US Gov Virginia region.
 
 * [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
 

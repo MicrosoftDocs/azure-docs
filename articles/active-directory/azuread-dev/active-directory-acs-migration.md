@@ -125,13 +125,13 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 
 | Service | Guidance |
 | ------- | -------- |
-| Azure Service Bus | [Migrate to shared access signatures](../../service-bus-messaging/service-bus-sas.md) |
-| Azure Service Bus Relay | [Migrate to shared access signatures](../../azure-relay/relay-migrate-acs-sas.md) |
-| Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.yml) |
+| Azure Service Bus | [Migrate to shared access signatures](/azure/service-bus-messaging/service-bus-sas) |
+| Azure Service Bus Relay | [Migrate to shared access signatures](/azure/azure-relay/relay-migrate-acs-sas) |
+| Azure Managed Cache | [Migrate to Azure Cache for Redis](/azure/azure-cache-for-redis/cache-faq) |
 | Azure DataMarket | [Migrate to the Azure AI services APIs](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.yml) |
+| Azure Backup | [Upgrade the Azure Backup agent](/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -263,8 +263,8 @@ The following table compares the features of Access Control that are relevant to
 
 If you decide that Azure AD B2C is the best migration path for your applications and services, begin with the following resources:
 
-- [Azure AD B2C documentation](../../active-directory-b2c/overview.md)
-- [Azure AD B2C custom policies](../../active-directory-b2c/custom-policy-overview.md)
+- [Azure AD B2C documentation](/azure/active-directory-b2c/overview)
+- [Azure AD B2C custom policies](/azure/active-directory-b2c/custom-policy-overview)
 - [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### Migrate to Ping Identity or Auth0

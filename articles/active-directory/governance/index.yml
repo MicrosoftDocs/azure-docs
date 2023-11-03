@@ -79,7 +79,7 @@ landingContent:
           - text: On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center
             url: tutorial-onboard-custom-workflow-portal.md
           - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
-            url: tutorial-onboard-custom-workflow-graph.md
+            url: /graph/tutorial-lifecycle-workflows-onboard-custom-workflow
       - linkListType: concept
         links:
           - text: Understanding Lifecycle Workflows 

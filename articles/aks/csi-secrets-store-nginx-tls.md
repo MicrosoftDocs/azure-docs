@@ -81,13 +81,13 @@ You can import the ingress TLS certificate to the cluster using one of the follo
     spec:
       provider: azure
       secretObjects:                            # secretObjects defines the desired state of synced K8s secret objects
-     - secretName: ingress-tls-csi
-        type: kubernetes.io/tls
-        data: 
-        - objectName: $CERT_NAME
-          key: tls.key
-        - objectName: $CERT_NAME
-          key: tls.crt
+        - secretName: ingress-tls-csi
+          type: kubernetes.io/tls
+          data: 
+            - objectName: $CERT_NAME
+              key: tls.key
+            - objectName: $CERT_NAME
+              key: tls.crt
       parameters:
         usePodIdentity: "false"
         useVMManagedIdentity: "true"
@@ -140,7 +140,11 @@ Depending on your scenario, you can choose to bind the certificate to either the
 1. Bind the certificate to the ingress controller using the `helm install` command. The ingress controller’s deployment references the Secrets Store CSI Driver's Azure Key Vault provider.
 
     > [!NOTE]
-    > If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
+    > 
+    > - If not using Microsoft Entra pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
+    > 
+    > - Also, binding the SecretProviderClass to a pod is required for the Secrets Store CSI Driver to mount it and generate the Kubernetes secret. See [Sync mounted content with a Kubernetes secret][az-keyvault-mirror-as-secret] .
+
 
     ```bash
     helm install ingress-nginx/ingress-nginx --generate-name \
@@ -500,6 +504,7 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 [aks-cluster-secrets-csi]: ./csi-secrets-store-driver.md
 [aks-akv-instance]: ./csi-secrets-store-driver.md#create-or-use-an-existing-azure-key-vault
 [az-key-vault-certificate-import]: /cli/azure/keyvault/certificate#az-keyvault-certificate-import
+[az-keyvault-mirror-as-secret]: ./csi-secrets-store-driver.md#sync-mounted-content-with-a-kubernetes-secret
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

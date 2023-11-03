@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft Entra multifactor authentication Server with AD FS 2.0
+title: Use Azure Multi-Factor Authentication Server with AD FS 2.0
 description: Describes how to get started with Microsoft Entra multifactor authentication and AD FS 2.0.
 
 services: multi-factor-authentication
@@ -15,14 +15,14 @@ ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# Configure Azure multifactor authentication Server to work with AD FS 2.0
+# Configure Azure Multi-Factor Authentication Server to work with AD FS 2.0
 
-This article is for organizations that are federated with Microsoft Entra ID, and want to secure resources that are on-premises or in the cloud. Protect your resources by using the Azure multifactor authentication Server and configuring it to work with AD FS so that two-step verification is triggered for high-value end points.
+This article is for organizations that are federated with Microsoft Entra ID, and want to secure resources that are on-premises or in the cloud. Protect your resources by using the Azure Multi-Factor Authentication Server and configuring it to work with AD FS so that two-step verification is triggered for high-value end points.
 
-This documentation covers using the Azure multifactor authentication Server with AD FS 2.0. For information about AD FS, see [Securing cloud and on-premises resources using Azure multifactor authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md).
+This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0. For information about AD FS, see [Securing cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure multifactor authentication Server. Beginning September 30, 2024, Azure multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Microsoft Entra multifactor authentication service by using the latest Migration Utility included in the most recent [Microsoft Entra multifactor authentication Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Microsoft Entra multifactor authentication Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Microsoft Entra multifactor authentication service by using the latest Migration Utility included in the most recent [Azure Multi-Factor Authentication Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure Multi-Factor Authentication Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure multifactor authentication](tutorial-enable-azure-mfa.md).
 >
@@ -32,11 +32,11 @@ This documentation covers using the Azure multifactor authentication Server with
 
 ## Secure AD FS 2.0 with a proxy
 
-To secure AD FS 2.0 with a proxy, install the Azure multifactor authentication Server on the AD FS proxy server.
+To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the AD FS proxy server.
 
 ### Configure IIS authentication
 
-1. In the Azure multifactor authentication Server, click the **IIS Authentication** icon in the left menu.
+1. In the Azure Multi-Factor Authentication Server, click the **IIS Authentication** icon in the left menu.
 2. Click the **Form-Based** tab.
 3. Click **Add**.
 
@@ -97,9 +97,9 @@ Make sure users are imported from Active Directory into the Server. To allow use
 
 ## AD FS 2.0 Direct without a proxy
 
-You can secure AD FS when the AD FS proxy isn't used. Install the Azure multifactor authentication Server on the AD FS server and configure the Server per the following steps:
+You can secure AD FS when the AD FS proxy isn't used. Install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps:
 
-1. Within the Azure multifactor authentication Server, click the **IIS Authentication** icon in the left menu.
+1. Within the Azure Multi-Factor Authentication Server, click the **IIS Authentication** icon in the left menu.
 2. Click the **HTTP** tab.
 3. Click **Add**.
 4. In the Add Base URL dialogue box, enter the URL for the AD FS website where HTTP authentication is performed (like `https://sso.domain.com/adfs/ls/auth/integrated`) into the Base URL field. Then, enter an Application name (optional). The Application name appears in Azure multifactor authentication reports and may be displayed within SMS or Mobile App authentication messages.

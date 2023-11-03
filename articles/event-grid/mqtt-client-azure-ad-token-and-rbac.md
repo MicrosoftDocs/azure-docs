@@ -1,14 +1,14 @@
 ---
-title: Azure AD JWT authentication and RBAC authorization for clients with Azure AD identity
-description: Describes JWT authentication and RBAC roles to authorize clients with Azure AD identity to publish or subscribe MQTT messages
+title: Microsoft Entra JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+description: Describes JWT authentication and RBAC roles to authorize clients with Microsoft Entra identity to publish or subscribe MQTT messages
 ms.topic: conceptual
 ms.date: 8/11/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
-# Azure AD JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages
-You can authenticate MQTT clients with Azure AD JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Azure Active Directory identity, to publish or subscribe access to specific topic spaces.
+# Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages
+You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces.
 
 > [!IMPORTANT]
 > This feature is supported only when using MQTT v5
@@ -18,8 +18,10 @@ You can authenticate MQTT clients with Azure AD JWT to connect to Event Grid nam
 - Review the process to [create a custom role](/azure/role-based-access-control/custom-roles-portal)
 
 
-## Authentication using Azure AD JWT
-You can use the MQTT v5 CONNECT packet to provide the Azure AD JWT token to authenticate your client, and you can use the MQTT v5 AUTH packet to refresh the token.  
+<a name='authentication-using-azure-ad-jwt'></a>
+
+## Authentication using Microsoft Entra JWT
+You can use the MQTT v5 CONNECT packet to provide the Microsoft Entra JWT token to authenticate your client, and you can use the MQTT v5 AUTH packet to refresh the token.  
 
 In CONNECT packet, you can provide required values in the following fields:
 
@@ -42,7 +44,7 @@ Authenticate Reason Code with value 25 signifies reauthentication.
 > Audience: “aud” claim must be set to "https://eventgrid.azure.net/".
 
 ## Authorization to grant access permissions
-A client using Azure AD based JWT authentication needs to be authorized to communicate with the Event Grid namespace.  You can create custom roles to enable the client to communicate with Event Grid instances in your resource group, and then assign the roles to the client.  You can use following two data actions to provide publish or subscribe permissions, to clients with Azure AD identities, on specific topic spaces.
+A client using Microsoft Entra ID based JWT authentication needs to be authorized to communicate with the Event Grid namespace.  You can create custom roles to enable the client to communicate with Event Grid instances in your resource group, and then assign the roles to the client.  You can use following two data actions to provide publish or subscribe permissions, to clients with Microsoft Entra identities, on specific topic spaces.
 
 **Topic spaces publish** data action
 Microsoft.EventGrid/topicSpaces/publish/action
@@ -119,7 +121,9 @@ The following are sample role definitions that allow you to publish and subscrib
 1. Select **Create** in Review + create tab to create the custom role.
 1. Once the custom role is created, you can assign the role to an identity to provide the publish permission on the topic space.  You can learn how to assign roles [here](/azure/role-based-access-control/role-assignments-portal).
 
-## Assign the custom role to your Azure AD identity
+<a name='assign-the-custom-role-to-your-azure-ad-identity'></a>
+
+## Assign the custom role to your Microsoft Entra identity
 1. In the Azure portal, navigate to your Event Grid namespace
 1. Navigate to the topic space to which you want to authorize access.
 1. Go to the Access control (IAM) page of the topic space
@@ -138,7 +142,7 @@ The following are sample role definitions that allow you to publish and subscrib
 ## Next steps
 - See [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)
 - To learn more about how Managed Identities work, you can refer to [How managed identities for Azure resources work with Azure virtual machines - Microsoft Entra](/azure/active-directory/managed-identities-azure-resources/how-managed-identities-work-vm)  
-- To learn more about how to obtain tokens from Azure AD, you can refer to [obtaining Azure AD tokens](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token)
+- To learn more about how to obtain tokens from Microsoft Entra ID, you can refer to [obtaining Microsoft Entra tokens](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token)
 - To learn more about Azure Identity client library, you can refer to [using Azure Identity client library](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library)
 - To learn more about implementing an interface for credentials that can provide a token, you can refer to [TokenCredential Interface](/java/api/com.azure.core.credential.tokencredential)
 - To learn more about how to authenticate using Azure Identity, you can refer to [examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples)

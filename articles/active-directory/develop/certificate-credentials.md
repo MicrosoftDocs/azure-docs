@@ -25,7 +25,7 @@ If you're interested in using a JWT issued by another identity provider as a cre
 
 ## Assertion format
 
-To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its **Header**, **Claims**, and **Signature**.
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions). The information is carried by the token in its **Header**, **Claims**, and **Signature**.
 
 ### Header
 
@@ -136,6 +136,6 @@ Client assertions can be used anywhere a client secret would be used. For exampl
 
 ## Next steps
 
-The [MSAL.NET library handles this scenario](msal-net-client-assertions.md) in a single line of code.
+The [MSAL.NET library handles this scenario](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/confidential-client-assertions) in a single line of code.
 
 The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.

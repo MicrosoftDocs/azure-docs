@@ -47,7 +47,7 @@ You can use Microsoft Graph and PowerShell to extend the user schema for users i
 
 Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in the Microsoft Entra admin center, in most cases.
 
-When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you have more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute for cloud only users using Microsoft Graph
 You can extend the schema of Microsoft Entra users using [Microsoft Graph](/graph/overview).
@@ -58,7 +58,7 @@ First, list the apps in your tenant to get the ID of the app you're working on. 
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You'll need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty).
+Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty).
 
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
@@ -82,7 +82,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).  Note that the Graph v1.0 does not by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get). Graph v1.0 doesn't by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
@@ -92,7 +92,7 @@ GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_in
 ### Create an extension attribute on a cloud only user using PowerShell
 Create a custom extension using PowerShell and assign a value to a user.
 
-```
+```PowerShell
 #Connect to your Azure AD tenant
 Connect-AzureAD
 
@@ -116,24 +116,19 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
 
 ```
 ## Create an extension attribute using cloud sync
-Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to auto-discover these attributes and set up a corresponding mapping to Microsoft Entra ID.
+Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to autodiscover these attributes and set up a corresponding mapping to Microsoft Entra ID.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
-2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect**.
-3. Select **Manage Microsoft Entra cloud sync**.
+1. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Cloud sync**.
+1. Select the configuration you wish to add the extension attribute and mapping.
+1. Under **Manage attributes** select **click to edit mappings**.
+1. Select **Add attribute mapping**.  The attributes will automatically be discovered.
+1. The new attributes are available in the drop-down under **source attribute**.
+1. Fill in the type of mapping you want and select **Apply**.
 
-4. Select the configuration you wish to add the extension attribute and mapping.
-5. Under **Manage attributes** select **click to edit mappings**.
-6. Click **Add attribute mapping**.  The attributes will automatically be discovered.
-7. The new attributes will be available in the drop-down under **source attribute**.
-8. Fill in the type of mapping you want and click **Apply**.
    [![Custom attribute mapping](media/user-provisioning-sync-attributes-for-mapping/schema-1.png)](media/user-provisioning-sync-attributes-for-mapping/schema-1.png#lightbox)
 
-For more information, see [Cloud Sync Custom Attribute Mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
-
-
-
-
+For more information, see [Custom attribute mapping in Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 <a name='create-an-extension-attribute-using-azure-ad-connect'></a>
 
@@ -141,13 +136,13 @@ For more information, see [Cloud Sync Custom Attribute Mapping](../hybrid/cloud-
 
 If users who will access the applications originate in on-premises Active Directory, then you must sync the attributes with the users from Active Directory to Microsoft Entra ID. You will need to perform the following tasks before configuring provisioning to your application.
 
-1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they are not, extend the AD DS schema in the domains where those users have accounts.
+1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they aren't, extend the AD DS schema in the domains where those users have accounts.
 
 1. Open the Microsoft Entra Connect wizard, choose Tasks, and then choose **Customize synchronization options**.
 
    ![Microsoft Entra Connect wizard Additional tasks page](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
 
-2. Sign in as a Microsoft Entra Global Administrator.
+2. Sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 3. On the **Optional Features** page, select **Directory extension attribute sync**.
 

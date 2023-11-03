@@ -25,6 +25,8 @@ items:
       href: concept-sign-in-log-activity-details.md
     - name: Provisioning logs
       href: concept-provisioning-logs.md
+    - name: Microsoft Graph activity logs
+      href: /graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json
   - name: How-to guides 
     expanded: true
     items:
@@ -59,7 +61,7 @@ items:
     - name: How to use Identity Recommendations
       href: howto-use-recommendations.md
     - name: How to use Identity Workbooks
-      href: howto-use-azure-monitor-workbooks.md
+      href: ./howto-use-workbooks.md
   - name: Recommendations
     expanded: false
     items:
@@ -90,14 +92,14 @@ items:
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
-    - name: Sign-ins using legacy authentication  
-      href: workbook-legacy authentication.md
+    - name: Multifactor authentication gaps 
+      href: workbook-mfa-gaps.md 
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
-    - name: Multifactor authentication gaps 
-      href: workbook-mfa-gaps.md   
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy-authentication.md
 
 - name: Identity monitoring
   expanded: true
@@ -145,7 +147,7 @@ items:
   expanded: false
   items:
   - name: Microsoft Entra SLA performance
-    href: reference-azure-ad-sla-performance.md
+    href: ./reference-sla-performance.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference

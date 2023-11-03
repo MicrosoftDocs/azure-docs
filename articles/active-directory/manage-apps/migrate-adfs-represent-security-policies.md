@@ -42,7 +42,7 @@ This maps to Microsoft Entra ID in one of the following ways:
 
 1. In the **Users and groups tab**, assign your application to the **All Users** automatic group. You must [enable Dynamic Groups](../enterprise-users/groups-create-rule.md) in your Microsoft Entra tenant for the default **All Users** group to be available.
 
-    :::image type="content" source="media/migrate-adfs-represent-security-policies/permit-access-to-all-users-3.png" alt-text="Screenshot shows My SaaS Apps in Azure AD.":::
+    :::image type="content" source="media/migrate-adfs-represent-security-policies/permit-access-to-all-users-3.png" alt-text="Screenshot shows My SaaS Apps in Microsoft Entra ID.":::
 
 ### Example 2: Allow a group explicitly
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 10/17/2023
 
 ms.author: justinha
 author: justinha
@@ -43,7 +43,7 @@ To get started with passwordless sign-in, see [Enable passwordless sign-in with 
 The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
 
 > [!NOTE]
-> Starting in August, 2023, sign-ins from unfamiliar locations no longer generate notifications. Similar to how unfamiliar locations work in [Smart lockout](howto-password-smart-lockout.md), a location becomes "familiar" during the first 14 days of use, or the first 10 sign-ins. If the location is unfamiliar, or if the relevant Google or Apple service responsible for push notifications isn't available, users won't see their notification as usual. In that case, they should open Microsoft Authenticator, or Authenticator Lite in a relevant companion app like Outlook, refresh by either pulling down or hitting **Refresh**, and approve the request. 
+> Starting in August, 2023, anomalous sign-ins don't generate notifications, similarly to how sign-ins from unfamiliar locations don't generate notifications. To approve an anomalous sign-in, users can open Microsoft Authenticator, or Authenticator Lite in a relevant companion app like Outlook. Then they can either pull down to refresh or tap **Refresh**, and approve the request. 
 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
 

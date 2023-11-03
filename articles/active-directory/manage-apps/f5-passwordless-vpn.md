@@ -29,7 +29,7 @@ Enabling a BIG-IP SSL-VPN for Microsoft Entra single sign-on (SSO) provides many
 To learn about more benefits, see 
 
 * [Integrate F5 BIG-IP with Microsoft Entra ID](./f5-integration.md)
-* [What is single sign-on in Microsoft Entra ID?](/azure/active-directory/active-directory-appssoaccess-whatis)
+* [What is single sign-on in Microsoft Entra ID?](./what-is-single-sign-on.md)
 
 >[!NOTE]
 >Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Microsoft Entra ID](../fundamentals/five-steps-to-full-application-integration.md).
@@ -70,7 +70,7 @@ Set up a SAML federation trust between the BIG-IP to allow the Microsoft Entra B
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
-3. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.
+3. In the gallery, search for *F5* and select **F5 BIG-IP APM Azure AD integration**.
 4. Enter a name for the application.
 5. Select **Add** then **Create**. 
 6. The name, as an icon, appears in the Microsoft Entra admin center and Office 365 portal. 

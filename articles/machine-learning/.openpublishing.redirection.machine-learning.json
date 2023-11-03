@@ -483,7 +483,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
         "redirect_url": "/azure/machine-learning/how-to-train",
-        "redirect_document_id": "false"
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
@@ -1428,7 +1428,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-labeling.md",
         "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
-        "redirect_document_id": "false"
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-first-experiment-automated-ml.md",

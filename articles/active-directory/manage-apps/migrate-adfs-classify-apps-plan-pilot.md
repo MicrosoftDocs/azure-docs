@@ -94,7 +94,7 @@ There are two main categories of users of your apps and resources that Microsoft
 
 You can define groups for these users and populate these groups in diverse ways. You may choose that an administrator must manually add members into a group, or you can enable self-service group membership. Rules can be established that automatically add members into groups based on the specified criteria using [dynamic groups](../enterprise-users/groups-dynamic-membership.md).
 
-External users may also refer to customers. [Azure AD B2C](../../active-directory-b2c/overview.md), a separate product supports customer authentication. However, it is outside the scope of this paper.
+External users may also refer to customers. [Azure AD B2C](/azure/active-directory-b2c/overview), a separate product supports customer authentication. However, it is outside the scope of this paper.
 
 ## Plan a pilot
 
@@ -118,15 +118,15 @@ Before you initiate the migration process, take time to fully consider the secur
 
 ### Identities and data
 
-Most organizations have specific requirements about identities and data protection that vary by industry segment and by job functions within organizations. Refer to [identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations) for our recommendations including a prescribed set of [Conditional Access policies](../conditional-access/overview.md) and related capabilities.
+Most organizations have specific requirements about identities and data protection that vary by industry segment and by job functions within organizations. Refer to [identity and device access configurations](/microsoft-365/security/office-365-security/microsoft-365-policies-configurations) for our recommendations including a prescribed set of [Conditional Access policies](../conditional-access/overview.md) and related capabilities.
 
-You can use this information to protect access to all services integrated with Microsoft Entra ID. These recommendations are aligned with Microsoft Secure Score and the [identity score in Microsoft Entra ID](../fundamentals/identity-secure-score.md). The score helps you to:
+You can use this information to protect access to all services integrated with Microsoft Entra ID. These recommendations are aligned with Microsoft Secure Score and the [identity score in Microsoft Entra ID](../reports-monitoring/concept-identity-secure-score.md). The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
 - Review the success of your improvements
 
-This also helps you implement the [five steps to securing your identity  infrastructure](../../security/fundamentals/steps-secure-identity.md). Use the guidance as a starting point for your organization and adjust the policies to meet your organization's specific requirements.
+This also helps you implement the [five steps to securing your identity  infrastructure](/azure/security/fundamentals/steps-secure-identity). Use the guidance as a starting point for your organization and adjust the policies to meet your organization's specific requirements.
 
 ### Device/location used to access data
 

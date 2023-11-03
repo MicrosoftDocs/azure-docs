@@ -1,6 +1,6 @@
 ---
 title: Grant access to Azure resources on a Service Fabric cluster
-description: Learn how to grant a managed-identity-enabled Service Fabric application access to other Azure resources that support Azure Active Directory authentication.
+description: Learn how to grant a managed-identity-enabled Service Fabric application access to other Azure resources that support Microsoft Entra authentication.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
@@ -28,7 +28,7 @@ You can use the Service Fabric application's managed identity, which is user-ass
 1. Next, ensure the proper subscription is listed in **Subscription** dropdown list and then set **Resource Group** to **All resource groups**.
 1. Under **Select**, choose the UAI corresponding to the Service Fabric application and then select **Save**.
 
-Support for system-assigned Service Fabric managed identities doesn't include integration in the Azure portal. If your application uses a system-assigned identity, find the client ID of the application's identity, and then repeat the steps above but selecting the **Azure AD user, group, or service principal** option in the **Find** control.
+Support for system-assigned Service Fabric managed identities doesn't include integration in the Azure portal. If your application uses a system-assigned identity, find the client ID of the application's identity, and then repeat the steps above but selecting the **Microsoft Entra user, group, or service principal** option in the **Find** control.
 
 ## Grant access to Azure Key Vault
 

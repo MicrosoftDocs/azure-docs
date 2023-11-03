@@ -4,8 +4,8 @@ description: Guidance for configuring Azure Government services for DoD Impact L
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions, ignite-2022
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
 ms.date: 04/02/2023
 ---

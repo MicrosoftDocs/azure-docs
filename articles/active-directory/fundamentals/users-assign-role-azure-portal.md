@@ -15,12 +15,12 @@ ms.reviewer: jeffsta
 ---
 # Assign user roles with Microsoft Entra ID
 
-The ability to manage resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](../../security/fundamentals/zero-trust.md), use Just-In-Time and Just-Enough-Access policies when assigning roles.
+The ability to manage resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](/azure/security/fundamentals/zero-trust), use Just-In-Time and Just-Enough-Access policies when assigning roles.
 
 Before assigning roles to users, review the following Microsoft Learn articles:
 
 - [Learn about Microsoft Entra roles](../roles/concept-understand-roles.md)
-- [Learn about role based access control](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Learn about role based access control](/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Explore the Azure built-in roles](../roles/permissions-reference.md)
 
 ## Assign roles

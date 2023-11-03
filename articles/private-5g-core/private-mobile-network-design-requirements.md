@@ -30,6 +30,7 @@ The following capabilities must be present to allow user equipment (UEs) to atta
 - There must be a RAN, sending and receiving the cellular signal, to all parts of the enterprise site that contain UEs needing service.
 - There must be a packet core instance connected to the RAN and to an upstream network. The packet core is responsible for authenticating the UE's SIMs as they connect across the RAN and request service from the network. It applies policy to the resulting data flows to and from the UEs; for example, to set a quality of service.
 - The RAN, packet core, and upstream network infrastructure must be connected via Ethernet so that they can pass IP traffic to one another.
+- The site hosting the packet core must have a continuous, high speed connection to the internet (100 Mbps minimum) to allow for service management, telemetry, diagnostics, and upgrades.
 
 ## Designing a private mobile network
 
@@ -201,7 +202,7 @@ Building enterprise networks using automation and other programmatic techniques 
 
 We recommend adopting a programmatic, *infrastructure as code* approach to your deployments. You can use templates or the Azure REST API to build your deployment using parameters as inputs with values that you have collected during the design phase of the project. You should save provisioning information such as SIM data, switch/router configuration, and network policies in machine-readable format so that, in the event of a failure, you can reapply the configuration in the same way as you originally did. Another best practice to recover from failure is to deploy a spare Azure Stack Edge server to minimize recovery time if the first unit fails; you can then use your saved templates and inputs to quickly recreate the deployment. For more information on deploying a network using templates, refer to [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md).
 
-You must also consider how you integrate other Azure products and services with the private enterprise network. These products include [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and [role-based access control (RBAC)](../role-based-access-control/overview.md), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, and as your own approach to customer system management. For example, you might use [Azure Blueprints](../governance/blueprints/overview.md) to set up the subscriptions and resource group model that works best for your organization.
+You must also consider how you integrate other Azure products and services with the private enterprise network. These products include [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) and [role-based access control (RBAC)](../role-based-access-control/overview.md), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, and as your own approach to customer system management. For example, you might use [Azure Blueprints](../governance/blueprints/overview.md) to set up the subscriptions and resource group model that works best for your organization.
 
 ## Next steps
 

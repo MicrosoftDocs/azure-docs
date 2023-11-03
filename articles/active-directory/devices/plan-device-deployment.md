@@ -23,7 +23,7 @@ This article helps you evaluate the methods to integrate your device with Micros
 
 The landscape of your user's devices is constantly expanding. Organizations may provide desktops, laptops, phones, tablets, and other devices. Your users may bring their own array of devices, and access information from varied locations. In this environment, your job as an administrator is to keep your organizational resources secure across all devices.
 
-Microsoft Entra ID enables your organization to meet these goals with device identity management. You can now get your devices in Microsoft Entra ID and control them from a central location in the [Azure portal](https://portal.azure.com/). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
+Microsoft Entra ID enables your organization to meet these goals with device identity management. You can now get your devices in Microsoft Entra ID and control them from a central location in the [Microsoft Entra admin center](https://entra.microsoft.com). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
 
 There are multiple methods to integrate your devices into Microsoft Entra ID, they can work separately or together based on the operating system and your requirements:
 
@@ -47,7 +47,7 @@ The key benefits of giving your devices a Microsoft Entra identity:
 
 * Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](./enterprise-state-roaming-enable.md) for a unified experience across all Windows devices.
 
-* Simplify deployment and management – Simplify the process of bringing devices to Microsoft Entra ID with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Azure portal](https://portal.azure.com/).
+* Simplify deployment and management – Simplify the process of bringing devices to Microsoft Entra ID with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Plan the deployment project
 
@@ -124,17 +124,17 @@ Conditional Access <br>(Require Microsoft Entra hybrid joined devices) | | | ![C
 
 ## Microsoft Entra Registration 
 
-Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
+Registered devices are often managed with [Microsoft Intune](/mem/intune/fundamentals/deployment-guide-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
 Microsoft Entra registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Microsoft Entra [Conditional Access policies](../conditional-access/concept-conditional-access-grant.md) applied to the device and the user.
 
 ### Registering devices
 
-Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
+Registered devices are often managed with [Microsoft Intune](/mem/intune/fundamentals/deployment-guide-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
 BYOD and corporate owned mobile device are registered by users installing the Company portal app.
 
-* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/sign-in-to-the-company-portal)
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 * [Windows 10 or newer](/mem/intune/user-help/enroll-windows-10-device)
 * [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
@@ -220,7 +220,7 @@ You may determine that Microsoft Entra hybrid join is the best solution for a de
 
 ## Manage your devices
 
-Once you've registered or joined your devices to Microsoft Entra ID, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Microsoft Entra devices page enables you to:
+Once you've registered or joined your devices to Microsoft Entra ID, use the [Microsoft Entra admin center](https://entra.microsoft.com) as a central place to manage your device identities. The Microsoft Entra devices page enables you to:
 
 * [Configure your device settings](manage-device-identities.md#configure-device-settings).
 * You need to be a local administrator to manage Windows devices. [Microsoft Entra ID updates this membership for Microsoft Entra joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
@@ -237,7 +237,7 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools | Microsoft Entra registered | Microsoft Entra joined | Microsoft Entra hybrid joined |
 | --- | :---: | :---: | :---: |
-| [Mobile Device Management (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Mobile Device Management (MDM)](/windows/client-management/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Co-management with Microsoft Intune and Microsoft Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 

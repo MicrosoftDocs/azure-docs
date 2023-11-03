@@ -241,7 +241,7 @@
               - name: SSL-VPN
                 href: f5-passwordless-vpn.md  
               - name: B2C
-                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+                href: /azure/active-directory-b2c/partner-f5?context=/azure/active-directory/manage-apps/context/manage-apps-context
       - name: Silverfort
         href: silverfort-integration.md
     - name: Single sign-on
@@ -283,11 +283,11 @@
   - name: Reference
     items:
     - name: Application API - Microsoft Graph
-      href: /graph/api/resources/application?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      href: /graph/api/resources/application?context=/azure/active-directory/manage-apps/context/manage-apps-context
     - name: Service principals API - Microsoft Graph
-      href: /graph/api/resources/serviceprincipal?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      href: /graph/api/resources/serviceprincipal?context=/azure/active-directory/manage-apps/context/manage-apps-context
     - name: Manage apps using Microsoft Graph
-      href: /graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      href: /graph/tutorial-applications-basics?context=/azure/active-directory/manage-apps/context/manage-apps-context
     - name: Deletion and recovery FAQ
       href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ
@@ -307,7 +307,7 @@
         - name: Migration resources
           href: migration-resources.md
         - name: Support and help options for developers
-          href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+          href: ../develop/developer-support-help-options.md?context=/azure/active-directory/manage-apps/context/manage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
         - name: Microsoft Q&A question page

@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Tutorial: Develop a sample SCIM endpoint in Microsoft Entra ID
 
-This tutorial describes how to deploy the SCIM [reference code](https://aka.ms/scimreferencecode) with  [Azure App Service](../../app-service/index.yml). Then, test the code by using Postman or by integrating with the Microsoft Entra provisioning service. The tutorial is intended for developers who want to get started with SCIM, or anyone interested in testing a [SCIM endpoint](./use-scim-to-provision-users-and-groups.md). 
+This tutorial describes how to deploy the SCIM [reference code](https://aka.ms/scimreferencecode) with  [Azure App Service](/azure/app-service/). Then, test the code by using Postman or by integrating with the Microsoft Entra provisioning service. The tutorial is intended for developers who want to get started with SCIM, or anyone interested in testing a [SCIM endpoint](./use-scim-to-provision-users-and-groups.md). 
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 ## Deploy your SCIM endpoint in Azure
 
 
-The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Visual Studio Code](https://code.visualstudio.com/) with [Azure App Service](../../app-service/index.yml). The SCIM reference code can run locally, hosted by an on-premises server, or deployed to another external service.
+The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Visual Studio Code](https://code.visualstudio.com/) with [Azure App Service](/azure/app-service/). The SCIM reference code can run locally, hosted by an on-premises server, or deployed to another external service.
 
 ### Get and deploy the sample app
 
@@ -75,7 +75,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
 
 1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 

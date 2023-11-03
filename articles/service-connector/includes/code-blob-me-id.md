@@ -379,7 +379,7 @@ var blobServiceClient = new BlobServiceClient(
    :::zone-end
    
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install --save @azure/identity
