@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
-author: mumian
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.author: jgao
-ms.date: 03/15/2023
+ms.date: 11/03/2023
 ---
 # Lambda functions for Bicep
 
@@ -16,7 +14,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 ```
 
 > [!NOTE]
-> The lambda functions are only supported in Bicep CLI version 0.10.61 or newer.
+> The lambda functions are only supported in [Bicep CLI version 0.10.X or higher](./install.md).
 
 ## Limitations
 

@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/22/2023
+ms.date: 11/03/2023
 ---
 
 # Resource functions for Bicep
@@ -190,7 +190,7 @@ You can call a list function for any resource type with an operation that starts
 
 The syntax for this function varies by the name of the list operation. The returned values also vary by operation. Bicep doesn't currently support completions and validation for `list*` functions.
 
-With **Bicep version 0.4.412 or later**, you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `storageAccount.listKeys()`.
+With [Bicep CLI version 0.4.X or higher](./install.md), you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `storageAccount.listKeys()`.
 
 A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't needed because the function is used with a resource type.
 

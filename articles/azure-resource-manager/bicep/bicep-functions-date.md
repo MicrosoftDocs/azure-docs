@@ -3,7 +3,7 @@ title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/12/2023
+ms.date: 11/03/2023
 ---
 
 # Date functions for Bicep
@@ -107,7 +107,7 @@ An ISO 8601 datetime string.
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Example
 
@@ -149,7 +149,7 @@ An integer that represents the number of seconds from midnight on January 1, 197
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Examples
 
