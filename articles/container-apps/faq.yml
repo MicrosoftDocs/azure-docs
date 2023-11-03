@@ -95,3 +95,21 @@ sections:
           How can I request a Dapr feature enhancement for Azure Container Apps?
         answer:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+          You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+          
+  - name: Build Java Application in Cloud Build Service
+    questions:
+      - question: |
+          Which JDK versions are supported and how Cloud Build Service determine which JDK version to use?
+        answer: |
+          Four LTS JDK versions are supported: JDK 8, JDK 11, JDK 17 and JDK 21. 
+          For source code build, JDK 17 is used by default. Using environment variable BP_JVM_VERSION to override JDK version will be supported soon.
+          For jar file build, JDK version is read from file META-INF\MANIFEST.MF in the jar and use the default JDK version 17 if it's not available.
+      - question: |
+          Which build tools are supported in Cloud Build Service?
+        answer: |
+          Currently only Maven is supported, Gradle will be supported later.
+      - question: |
+          How to configure Maven in Cloud Build Service?
+        answer: |
+          Build environment variable is not supported in Cloud Build Service yet. It will be supported soon, then you can use [build environment variable to configure maven](https://github.com/paketo-buildpacks/maven#configuration)
