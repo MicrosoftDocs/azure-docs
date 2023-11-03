@@ -9,33 +9,36 @@
  ms.custom: include
 ---
 
-To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can evaluate in your development environment with the Azure AI SDK. Given either a test dataset or flow target, your generative AI application performance will be quantitatively measured with both mathematical based metrics and AI-assisted metrics. This evaluation run will provide you with comprehensive insights into the application's capabilities and limitations. 
+To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can evaluate in your development environment with the Azure AI SDK. Given either a test dataset or flow target, your generative AI application performance is quantitatively measured with both mathematical based metrics and AI-assisted metrics. This evaluation run provides you with comprehensive insights into the application's capabilities and limitations. 
 
-In this article you'll learn to create an evaluation run from a test dataset or flow with built-in evaluation metrics from Azure AI Studio SDK then view the results in Azure AI Studio if you choose to log it there. 
+In this article, you learn to create an evaluation run from a test dataset or flow with built-in evaluation metrics from Azure AI Studio SDK then view the results in Azure AI Studio if you choose to log it there. 
 
 ## Prerequisites
 
-To evaluate with AI-assisted metrics, you need the following:
+To evaluate with AI-assisted metrics, you need:
 
-+ A test dataset in `.jsonl` format. See following section for dataset requirements
-+ A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models. Learn more about how to create a deployment [here](*TODO:REPLACEWITHDEPLOYMENTDOCLINK*).  
++ A test dataset in `.jsonl` format. See the next section for dataset requirements
++ A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models.
 
 ## Supported scenarios and datasets
-We currently offer support for the following scenarios: 
+
+We currently offer support for these scenarios: 
 + **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
 + **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
 
-For more in-depth information on each metric definition and how it is calculated, learn more [here](https://aka.ms/azureaistudioevaluationmetrics).
+For more in-depth information on each metric definition and how it's calculated, learn more [here](https://aka.ms/azureaistudioevaluationmetrics).
 
 | Scenario           | Default metrics                          | All metrics                                                                                        |
 |--------------------|------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Question Answering | Groundedness, Relevance, Coherence       | Groundedness, Relevance, Coherence, Fluency, GPT Similarity, F1 Score, Exact Match, ADA Similarity |
 | Conversation       | Groundedness, Relevance, Retrieval Score | Groundedness, Relevance, Retrieval Score                                                           |
 
-When using AI-assisted metrics for evaluation, you must specify a GPT model for the calculation process. Please choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for your calculations. If you select ADA similarity, it requires an embedding model and you must additionally select a deployment featuring the `text-similarity-ada-001` or `text-similarity-ada-002` model to support ADA similarity calculations. 
+When using AI-assisted metrics for evaluation, you must specify a GPT model for the calculation process. Choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for your calculations. If you select ADA similarity, it requires an embedding model and you must also select a deployment featuring the `text-similarity-ada-001` or `text-similarity-ada-002` model to support ADA similarity calculations. 
 
 ### Supported input data format for Question Answering
-We require question and answer pairs in `.jsonl` format with the required additional fields as follows:
+
+We require question and answer pairs in `.jsonl` format with the required fields as follows:
+
 | Metric         | Question      | Response      | Context       | Ground truth  |
 |----------------|---------------|---------------|---------------|---------------|
 | Groundedness   | Required: Str | Required: Str | Required: Str | N/A           |
@@ -49,20 +52,31 @@ We require question and answer pairs in `.jsonl` format with the required additi
 
 - Question: the question asked by the user in Question Answer pair
 - Response: the response to question generated by the model as answer
-- Context: the source that response is generated with respect to (i.e. grounding documents)
+- Context: the source that response is generated with respect to (that is, grounding documents)
 - Ground truth: the response to question generated by user/human as the true answer
 
 An example of a question and answer pair with context and ground truth provided:
-```json
-{"question":"What is the capital of France?",
-"context":"France is in Europe",
-"answer":"Paris is the capital of France.",
-"ground_truth": "Paris"}
-```
-### Supported input data format for Conversation
-We require a chat payload in the following `.jsonl` format which is a list of conversation turns in a conversation (below is called `"messages"`), for each conversation turn, it contains `content` which is the content of that turn of the conversation, `role` which is either the user or assistant and `"citations"` within `"context"` which provides the documents and its ID as key value pairs from the retrieval-augmented generation model. 
 
-> **_NOTE:_** Currently only metrics for conversations or chat payloads with `"citations"` field provided (RAG scenario) are supported.
+```json
+{
+  "question":"What is the capital of France?",
+  "context":"France is in Europe",
+  "answer":"Paris is the capital of France.",
+  "ground_truth": "Paris"
+}
+```
+
+### Supported input data format for Conversation
+
+We require a chat payload in the following `.jsonl` format, which is a list of conversation turns (within `"messages"`) in a conversation. 
+
+Each conversation turn contains:
+- `content`: The content of that turn of the conversation.
+- `role`: Either the user or assistant.
+- `"citations"` (within `"context"`): Provides the documents and its ID as key value pairs from the retrieval-augmented generation model. 
+
+> [!NOTE]
+> Currently only metrics for conversations or chat payloads with `"citations"` field provided (RAG scenario) are supported.
 
 | Metric          | Citations from retrieved documents |
 |-----------------|---------------------|
@@ -93,21 +107,29 @@ We require a chat payload in the following `.jsonl` format which is a list of co
 
 
 ## Evaluate with Azure AI SDK
-Built-in evaluation metrics are available with the following installation
+
+Built-in evaluation metrics are available with the following installation:
+
 ```python
 pip install azure-ai-generative[evaluate]
 ```
-Import default metrics with
+
+Import default metrics with:
+
 ```python
 from azure.ai.generative.evaluate import evaluate
 ```
-For the supported scenarios above, we provide default metrics by `task_type` as shown in the chart below. The `evaluate()` function calculates a default set of metrics with option to override metrics with `metrics_list` which accepts metrics as string:
+
+For the supported scenarios mentioned previously, we provide default metrics by `task_type` as shown in the chart later in this article. The `evaluate()` function calculates a default set of metrics with option to override metrics with `metrics_list` which accepts metrics as string:
+
 | Scenario task type   | `task_type` value  | Default metrics | All metrics |
 |------------------------------------------------------------|--------------------------------------------------------------------------------------|---|--------------------------------------------------------------------------------------------------------------------------|
 | Question Answering                                         | `qa`              | `gpt_groundedness` (requires context), `gpt_relevance` (requires context), `gpt_coherence` | `gpt_groundedness`, `gpt_relevance`, `gpt_coherence`, `gpt_fluency`, `gpt_similarity`, `f1_score`, `exact_match`, `ada_similarity` |
 | Single and multi-turn conversation (context required) | `chat`            |  `gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |`gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |
-### Set up you Azure Open AI configurations for AI-assisted metrics
-Before calling `evaluate()`, you need to set up your large language model deployment configuration in your environment which will be required for generating the AI-assisted metrics. 
+
+### Set up your Azure Open AI configurations for AI-assisted metrics
+
+Before you call the `evaluate()` function, your environment needs to set up your large language model deployment configuration that's required for generating the AI-assisted metrics. 
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -115,9 +137,13 @@ from azure.ai.generative import AIClient
 
 client = AIClient.from_config(DefaultAzureCredential())
 ```
+
 ### Evaluate Question Answering: `qa`
+
 #### Run a flow and evaluate
-We provide an `evaluate` function call with the following interface for running a local flow then evaluating the results of those
+
+We provide an `evaluate` function call with the following interface for running a local flow and then evaluating the results. 
+
 ```python
 result = evaluate( 
     evaluation_name="my-qa-eval-with-flow", #name your evaluation to view in AI studio
@@ -143,7 +169,7 @@ result = evaluate(
 ```
 
 #### Evaluate on test dataset
-Alternatively if you already have a test dataset and *do not need to run a flow* to get the generated results, you can alter the above function call to not take in a `target` parameter. However, if no `target` is specified, you must provide `"y_pred"` in your `data_mapping` parameter.
+Alternatively if you already have a test dataset and *don't need to run a flow* to get the generated results, you can alter the above function call to not take in a `target` parameter. However, if no `target` is specified, you must provide `"y_pred"` in your `data_mapping` parameter.
 
 ```python
 result = evaluate( 
@@ -169,7 +195,7 @@ result = evaluate(
 )
 ```
 #### Evaluation result 
-`Evaluate()` will output an `EvaluationResult()` that includes a `metric_summary` and `artifacts`.
+`Evaluate()` outputs an `EvaluationResult()` that includes a `metric_summary` and `artifacts`.
 
 ```json
 metric_summary = {"mean_gpt_groundedness":4.8, "mean_gpt_relevance":3.7, "mean_gpt_coherence":4.1}
@@ -285,14 +311,3 @@ An example of an output:
   "gpt_relevance": 3.6666666667
 }
 ```
-
-
-## Next steps
- 
-If you logged your metrics to your AI studio project, you can locate the submitted evaluation run and its results within the run list by navigating to the 'Evaluation' tab of your Azure AI Studio project. Next, learn more about how to [view your evaluation results and metrics](*TODO:REPLACEWITHRELATIVELINK*).
-
-Learn more about how to evaluate your generative AI applications:
-+ [Evaluate your generative AI apps via the playground](https://aka.ms/evaluateplayground)
-+ [Monitor your generative AI app in production](https://aka.ms/azureaistudiomonitoring)
- 
-Learn more about the [supported task types and built-in metrics](https://aka.ms/azureaistudioevaluationmetrics) and  [harm mitigation techniques](https://aka.ms/azureaistudioharmsmitigations).
