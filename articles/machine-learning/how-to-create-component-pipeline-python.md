@@ -307,4 +307,4 @@ Using `ml_client.components.get()`, you can get a registered component by name a
 * For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines).
 * For how to use studio UI to submit and debug your pipeline, refer to [how to create pipelines using component in the UI](how-to-create-component-pipelines-ui.md).
 * For how to use Azure Machine Learning CLI to create components and pipelines, refer to [how to create pipelines using component with CLI](how-to-create-component-pipelines-cli.md).
-* For how to deploy pipelines into production using Batch Endpoints, see [how to deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md).
+* For how to deploy pipelines into production using Batch Endpoints, see [how to deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md).

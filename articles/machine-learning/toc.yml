@@ -910,7 +910,7 @@
               href: how-to-image-processing-batch.md
             - name: Deploy language models with batch model deployments
               href: how-to-nlp-processing-batch.md
-        - name: Deploy pipeline components (Preview)
+        - name: Deploy pipeline components
           items:
             - name: Deploy pipelines with batch endpoints
               href: how-to-use-batch-pipeline-deployments.md
