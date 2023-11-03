@@ -50,13 +50,16 @@ The time to live value is set in seconds, and it is interpreted as a delta from 
 
 This section shows some examples with different time to live values assigned to container and items:
 
+> [!NOTE]
+> Setting TTL to null on an item isn't supported. The item TTL value must be a nonzero positive integer less than or equal to 2147483647, or -1 which means the item will never expire. To use the default TTL on an item, ensure the TTL property isn't present.
+
 ### Example 1
 
 TTL on container is set to null (DefaultTimeToLive = null)
 
 |TTL on item| Result|
 |---|---|
-|ttl = null|TTL is disabled. The item will never expire (default).|
+|ttl property not present |TTL is disabled. The item will never expire (default).|
 |ttl = -1|TTL is disabled. The item will never expire.|
 |ttl = 2000|TTL is disabled. The item will never expire.|
 
@@ -66,7 +69,7 @@ TTL on container is set to -1 (DefaultTimeToLive = -1)
 
 |TTL on item| Result|
 |---|---|
-|ttl = null|TTL is enabled. The item will never expire (default).|
+|ttl property not present |TTL is enabled. The item will never expire (default).|
 |ttl = -1|TTL is enabled. The item will never expire.|
 |ttl = 2000|TTL is enabled. The item will expire after 2000 seconds.|
 
@@ -76,7 +79,7 @@ TTL on container is set to 1000 (DefaultTimeToLive = 1000)
 
 |TTL on item| Result|
 |---|---|
-|ttl = null|TTL is enabled. The item will expire after 1000 seconds (default).|
+|ttl property not present |TTL is enabled. The item will expire after 1000 seconds (default).|
 |ttl = -1|TTL is enabled. The item will never expire.|
 |ttl = 2000|TTL is enabled. The item will expire after 2000 seconds.|
 
