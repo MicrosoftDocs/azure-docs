@@ -38,7 +38,7 @@ Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-serv
 
 | ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
 
-### Document analysis models
+## Document analysis models
 
 Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress.
 
@@ -57,7 +57,7 @@ Document analysis models enable text extraction from forms and documents and ret
    :::column-end:::
 :::row-end:::
 
-### Prebuilt models
+## Prebuilt models
 
 Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models.
 
@@ -110,7 +110,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
 :::row-end:::
 
-### Custom models
+## Custom models
 
 Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
 
@@ -363,7 +363,17 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-### Add-on capabilities
+## Add-on capabilities
+
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
+
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
+
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
+
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
 :::moniker-end
 

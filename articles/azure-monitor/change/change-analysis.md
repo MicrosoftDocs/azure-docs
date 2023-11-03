@@ -128,6 +128,13 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
 - **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG keeps snapshot history of tracked resources only for 14 days.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does using Change Analysis incur cost?
+
+You can use Change Analysis at no extra cost. Enable the `Microsoft.ChangeAnalysis` resource provider, and anything supported by Change Analysis is open to you.
 
 ## Next steps
 

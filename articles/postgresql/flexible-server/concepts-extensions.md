@@ -123,7 +123,7 @@ After extensions are allow-listed and loaded, these must be installed in your da
 
 Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 
-## Postgres 15 extensions.
+## Postgres 15 extensions
 
 The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 15. 
 

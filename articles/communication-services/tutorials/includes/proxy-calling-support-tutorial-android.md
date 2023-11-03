@@ -14,7 +14,7 @@ In certain situations, it might be useful to have all your client traffic proxie
 >[!IMPORTANT]
 > The proxy feature will be available in a future public preview version of the Calling SDK.
 >[!IMPORTANT]
-> The proxy feature will NOT be available for Teams Identities and ACS Teams interop actions. 
+> The proxy feature will NOT be available for Teams Identities and Azure Communication Services Teams interop actions. 
 ## Proxy signaling traffic
 
 To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` through its property `CallNetworkOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services Android SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-android)) for the Quickstart on how to setup Voice and Video.
