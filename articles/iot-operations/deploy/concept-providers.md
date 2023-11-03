@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: concept-article 
-ms.date: 10/25/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -21,6 +21,8 @@ A provider encapsulates platform specific knowledge and implements a specific ca
 The Helm provider installs Helm charts on the target locations. The Helm provider uses the Helm chart name, repository, version, and other optional values to install and update the charts. The provider registers the new client with the Helm API, looks up the specified repository, and pulls the registry.
 
 The Helm provider works with OCI-based registries.
+
+If you need to troubleshoot the Helm provider, see [Helm provider error codes](howto-troubleshoot-deployment.md#helm-provider-error-codes).
 
 ### Helm provider configuration
 
@@ -98,6 +100,8 @@ The following solution snippet demonstrates installing a Helm chart using the He
 ## Kubectl
 
 The Kubectl provider applies the custom resources on the edge clusters through YAML data or a URL. The provider uses the Kubernetes API to get the resource definitions from an external YAML URL or directly from the solution component properties. The Kubernetes API then applies these custom resource definitions on the Arc-enabled clusters.
+
+If you need to troubleshoot the Kubectl provider, see [Kubectl provider error codes](howto-troubleshoot-deployment.md#kubectl-provider-error-codes).
 
 ### Kubectl provider configuration
 
