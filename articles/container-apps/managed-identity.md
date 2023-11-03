@@ -6,7 +6,7 @@ author: v-jaswel
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/25/2023
 ms.author: v-wellsjason
 ---
 
@@ -29,7 +29,7 @@ With managed identities:
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
 - You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
-- You can use managed identity to [authenticate with a private Azure Container Registry](containers.md#container-registries) without a username and password to pull containers for your Container App.
+- You can use managed identity to [authenticate with a private Azure Container Registry](./managed-identity-image-pull.md) without a username and password to pull containers for your Container App.
 - You can use [managed identity to create connections for Dapr-enabled applications via Dapr components](./dapr-overview.md)
 
 ### Common use cases
@@ -95,6 +95,17 @@ An ARM template can be used to automate deployment of your container app and res
 
 Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
+# [YAML](#tab/yaml)
+
+Some Azure CLI commands, including `az containerapp create` and `az containerapp job create`, support YAML files for input. To add a system-assigned identity, add an `identity` section to your YAML file.
+
+```yaml
+identity:
+  type: SystemAssigned
+```
+
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
+
 ---
 
 ### Add a user-assigned identity
@@ -153,6 +164,25 @@ Specify each user-assigned identity by adding an item to the `userAssignedIdenti
 ```
 
 For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
+
+> [!NOTE]
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+
+# [YAML](#tab/yaml)
+
+To add one or more user-assigned identities, add an `identity` section to your YAML configuration file. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+
+Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
+
+```yaml
+identity:
+    type: UserAssigned
+    userAssignedIdentities:
+        <IDENTITY1_RESOURCE_ID>: {}
+        <IDENTITY2_RESOURCE_ID>: {}
+```
+
+For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
 
 > [!NOTE]
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
@@ -336,6 +366,15 @@ To remove all identities, set the `type` of the container app's identity to `Non
 "identity": {
     "type": "None"
 }
+```
+
+# [YAML](#tab/yaml)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the YAML configuration file:
+
+```yaml
+identity:
+    type: None
 ```
 
 ---

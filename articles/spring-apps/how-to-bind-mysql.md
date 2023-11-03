@@ -51,7 +51,7 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
 
-For the default environment variable names, see [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md#default-environment-variable-names-or-application-properties-and-sample-codes).
+For the default environment variable names, see [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md#default-environment-variable-names-or-application-properties-and-sample-code).
 
 ---
 

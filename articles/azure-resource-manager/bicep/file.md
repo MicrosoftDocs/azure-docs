@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/11/2023
+ms.date: 11/03/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -252,9 +252,9 @@ For more information, see [Use Bicep modules](./modules.md).
 
 ## Resource and module decorators
 
-You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int) and description. You can only apply it to a resource or module definition that uses a `for` expression.
+You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int)` and `description`. You can only apply it to a resource or module definition that uses a `for` expression.
 
-By default, resources are deployed in parallel. When you add the `batchSize` decorator, you deploy instances serially.
+By default, resources are deployed in parallel. When you add the `batchSize(int)` decorator, you deploy instances serially.
 
 ```bicep
 @batchSize(3)
@@ -390,7 +390,7 @@ The preceding example is equivalent to the following JSON.
 
 ## Multiple-line declarations
 
-You can now use multiple lines in function, array and object declarations. This feature requires **Bicep version 0.7.4 or later**.
+You can now use multiple lines in function, array and object declarations. This feature requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 In the following example, the `resourceGroup()` definition is broken into multiple lines.
 

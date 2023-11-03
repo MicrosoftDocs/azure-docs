@@ -95,7 +95,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
 az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
 ```
 
-This process takes several minutes to complete. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
+This process takes several minutes to complete. You shouldn't experience any downtime while your cluster tier is being updated. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
 
 ```output
   },

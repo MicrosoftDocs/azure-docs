@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 10/18/2023
+ms.date: 11/01/2023
 ms.topic: reference
 ---
 
@@ -81,7 +81,7 @@ For more information, see [Support matrix for Azure Arc-enabled VMware vSphere (
 
 ## Additional endpoints
 
-Depending on your scenario, you may need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
+Depending on your scenario, you might need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
 
 - [Azure portal URLs](../azure-portal/azure-portal-safelist-urls.md)
 - [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints)

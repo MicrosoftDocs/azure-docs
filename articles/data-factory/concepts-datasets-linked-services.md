@@ -13,9 +13,6 @@ ms.date: 02/08/2023
 ---
 
 # Datasets in Azure Data Factory and Azure Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-create-datasets.md)
-> * [Current version](concepts-datasets-linked-services.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
