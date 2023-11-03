@@ -39,7 +39,7 @@ All group membership is recorded in Azure Resource Graph and available for your 
 
 ## Network groups and Azure Policy
 
-When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership. Learn how to [configure an Azure Policy for your network group](concept-azure-policy-integration).
+When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership.
 
 To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need:
 
