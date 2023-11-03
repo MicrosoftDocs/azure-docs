@@ -273,6 +273,9 @@ New-AzVM `
 
 You can also create a scale set on your host.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ### [Portal](#tab/portal)
 
 When you deploy a scale set, you specify the host group.
@@ -292,6 +295,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image myImage \
+  --orchestration-mode uniform \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \
@@ -316,6 +320,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
+  -OrchestrationMode 'Uniform' `
   -UpgradePolicyMode "Automatic"`
   -HostGroupId $hostGroup.Id
 ```
