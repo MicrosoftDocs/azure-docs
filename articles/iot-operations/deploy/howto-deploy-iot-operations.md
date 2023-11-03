@@ -75,18 +75,16 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 1. Wait for the validation to pass and then select **Create**.
 
-#### [GitHub actions](#tab/github)
+#### [GitHub Actions](#tab/github)
 
-The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
-
-[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
-
-You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
+Use GitHub Actions to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
 1. On GitHub, fork the [azure-iot-operations repo](https://github.com/azure/azure-iot-operations).
 
    >[!IMPORTANT]
    >You're going to be adding secrets to the repo to run the deployment steps. It's important that you fork the repo and do all of the following steps in your own fork.
+
+1. Review the [azure-iot-operations.json](https://github.com/Azure/azure-iot-operations/blob/main/release/azure-iot-operations.json) file in the repo. This template defines the Azure IoT Operations deployment.
 
 1. Create a service principal for the repository to use when deploying to your cluster. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command.
 
