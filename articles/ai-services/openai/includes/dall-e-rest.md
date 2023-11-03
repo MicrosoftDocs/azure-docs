@@ -14,13 +14,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ## Prerequisites
 
-#### [DALL-E 2](#tab/dalle2)
 
-- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to DALL-E in the desired Azure subscription.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
-- The following Python libraries installed: `os`, `requests`, `json`.
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -31,6 +25,14 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 - An Azure OpenAI resource created in the `EastUS` or `SwedenCentral` region. 
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
+#### [DALL-E 2](#tab/dalle2)
+
+- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
+- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- The following Python libraries installed: `os`, `requests`, `json`.
+- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- 
 ---
 
 > [!NOTE]
@@ -58,7 +60,38 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
-    #### [DALL-E 2](#tab/dalle2)
+    
+
+    #### [DALL-E 3](#tab/dalle3)
+
+    You also need to replace `<dalle3>` in the URL with the deployment name you chose when you deployed the DALL-E 3 model. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name. If you encounter an error, double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
+    
+    ```python
+    import requests
+    import time
+    import os
+    api_base = '<your_endpoint>'  # Enter your endpoint here
+    api_key = '<your_key>'        # Enter your API key here
+
+    api_version = '2023-11-01-preview'
+    url = f"{api_base}/openai/deployments/<dalle3>/images/generations?api-version={api_version}"
+    headers= { "api-key": api_key, "Content-Type": "application/json" }
+    body = {
+        # Enter your prompt text here
+        "prompt": "A multi-colored umbrella on the beach, disposable camera",
+        "size": "1024x1024",
+        "n": 1
+    }
+    submission = requests.post(url, headers=headers, json=body)
+    
+    image_url = submission.json()['data'][0]['url']
+    
+    print(image_url)
+    ```
+
+    The script makes a synchronous image generation API call.
+
+#### [DALL-E 2](#tab/dalle2)
 
     ```python
     import requests
@@ -96,35 +129,6 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     
     The script makes an image generation API call and then loops until the generated image is ready.
 
-    #### [DALL-E 3](#tab/dalle3)
-
-    You also need to replace `<dalle3>` in the URL with the deployment name you chose when you deployed the DALL-E 3 model. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name. If you encounter an error, double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
-    
-    ```python
-    import requests
-    import time
-    import os
-    api_base = '<your_endpoint>'  # Enter your endpoint here
-    api_key = '<your_key>'        # Enter your API key here
-
-    api_version = '2023-11-01-preview'
-    url = f"{api_base}/openai/deployments/<dalle3>/images/generations?api-version={api_version}"
-    headers= { "api-key": api_key, "Content-Type": "application/json" }
-    body = {
-        # Enter your prompt text here
-        "prompt": "A multi-colored umbrella on the beach, disposable camera",
-        "size": "1024x1024",
-        "n": 1
-    }
-    submission = requests.post(url, headers=headers, json=body)
-    
-    image_url = submission.json()['data'][0]['url']
-    
-    print(image_url)
-    ```
-
-    The script makes a synchronous image generation API call.
-
     ---
     
     > [!IMPORTANT]
@@ -141,6 +145,22 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 ## Output
 
 The output from a successful image generation API call looks like the following example. The `url` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
+
+
+
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{ 
+    "created": 1698116662, 
+    "data": [ 
+        { 
+            "url": "<URL_to_generated_image>" 
+        }
+    ],
+    "revised_prompt": "<prompt_that_was_used>" 
+} 
+```
 
 #### [DALL-E 2](#tab/dalle2)
 
@@ -162,25 +182,26 @@ The output from a successful image generation API call looks like the following 
 }
 ```
 
-#### [DALL-E 3](#tab/dalle3)
-
-```json
-{ 
-    "created": 1698116662, 
-    "data": [ 
-        { 
-            "url": "<URL_to_generated_image>" 
-        }
-    ],
-    "revised_prompt": "<prompt_that_was_used>" 
-} 
-```
-
 ---
 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
+
+
+
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1698435368,
+    "error":
+    {
+        "code": "contentFilter",
+        "message": "Your task failed as a result of our safety system."
+    }
+}
+```
 
 #### [DALL-E 2](#tab/dalle2)
 
@@ -196,6 +217,12 @@ The system returns an operation status of `Failed` and the `error.code` value in
 }
 ```
 
+
+---
+
+It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
+
+
 #### [DALL-E 3](#tab/dalle3)
 
 ```json
@@ -204,14 +231,10 @@ The system returns an operation status of `Failed` and the `error.code` value in
     "error":
     {
         "code": "contentFilter",
-        "message": "Your task failed as a result of our safety system."
+        "message": "Generated image was filtered as a result of our safety system."
     }
 }
 ```
-
----
-
-It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
 
 #### [DALL-E 2](#tab/dalle2)
 
@@ -236,18 +259,6 @@ It's also possible that the generated image itself is filtered. In this case, th
 }
 ```
 
-#### [DALL-E 3](#tab/dalle3)
-
-```json
-{
-    "created": 1698435368,
-    "error":
-    {
-        "code": "contentFilter",
-        "message": "Generated image was filtered as a result of our safety system."
-    }
-}
-```
 
 ---
 
