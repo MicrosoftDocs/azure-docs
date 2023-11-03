@@ -17,7 +17,7 @@ sections:
       - question: |
           Does Azure Container Apps provide direct access to the underlying Kubernetes API?
         answer: |
-          No, there is no access to the Kubernetes API.
+          No, there's no access to the Kubernetes API.
       - question: |
           Can I import my Azure Container Apps API from the context of API Management?
         answer: |
@@ -35,14 +35,14 @@ sections:
       - question: |
           Can I set up GitHub Actions to automatically build and deploy my code to Azure Container Apps?
         answer:
-          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, navigate to the "Continuous deployment" blade under your container app.
+          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, go to the "Continuous deployment" window under your container app.
 
   - name: Data management
     questions:
       - question: |
           Where does Azure Container Apps store customer data?
         answer: |
-          Azure Container Apps does not move or store customer data out of the region it's deployed in.
+          Azure Container Apps doesn't move or store customer data out of the deployed region.
 
   - name: Quotas
     questions:
@@ -62,15 +62,15 @@ sections:
           | Problem Type | Configuration and Management |
           | Problem Subtype | Scaling |
 
-          Please keep in mind the following when it comes to quota increase requests: 
+          Keep in mind the following when it comes to quota increase requests: 
 
-          - **Scaling apps vs environments**: There are a number of different quotas available to increase. Use these descriptions to help identify your needs:
+          - **Scaling apps vs environments**: There are many different quotas available to increase. Use these descriptions to help identify your needs:
             - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
-            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: Additional business context may be required if your request involves increasing environment-level quotas.
+            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: A detailed business context might be required if your request involves increasing environment-level quotas.
 
           - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
 
-          - **Specific compute requirements**: The platform supports 4GB per container app. Memory limits overrides are evaluated on a per-case basis.
+          - **Specific compute requirements**: The platform supports 4 GB per container app. Memory limits overrides are evaluated on a per-case basis.
 
           - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
 
@@ -84,7 +84,7 @@ sections:
       - question: |
           Are alpha Dapr APIs and components supported or available in Azure Container Apps?
         answer: |
-          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components is not guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation.
+          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components isn't guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation.
 
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
@@ -100,16 +100,16 @@ sections:
   - name: Build Java Application in Cloud Build Service
     questions:
       - question: |
-          Which JDK versions are supported and how Cloud Build Service determine which JDK version to use?
+          Which JDK versions are supported and how does the Cloud Build Service determine which JDK version to use?
         answer: |
           Four LTS JDK versions are supported: JDK 8, JDK 11, JDK 17 and JDK 21. 
-          For source code build, JDK 17 is used by default. Using environment variable BP_JVM_VERSION to override JDK version will be supported soon.
-          For jar file build, JDK version is read from file META-INF\MANIFEST.MF in the jar and use the default JDK version 17 if it's not available.
+          For source code build, the default version is JDK 17.
+          For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
       - question: |
-          Which build tools are supported in Cloud Build Service?
+          Which build tools are supported in the Cloud Build Service?
         answer: |
-          Currently only Maven is supported, Gradle will be supported later.
+          Maven
       - question: |
-          How to configure Maven in Cloud Build Service?
+          How to configure Maven in the Cloud Build Service?
         answer: |
-          Build environment variable is not supported in Cloud Build Service yet. It will be supported soon, then you can use [build environment variable to configure maven](https://github.com/paketo-buildpacks/maven#configuration)
+          Build environment variable isn't supported in Cloud Build Service.
