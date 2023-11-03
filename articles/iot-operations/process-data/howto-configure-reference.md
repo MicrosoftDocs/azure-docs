@@ -135,9 +135,7 @@ Each data set can only have one primary key.
 
 All incoming data within the pipeline is stored in the `equipment` dataset in the reference data store. The stored data includes the `installationDate` timestamp and keys such as `equipment` and `location`.
 
-These properties are available in the enrichment stages of other pipelines where you can use them to provide context and add additional information to the messages being processed. For example, you can use this data to supplement sensor readings from a specific piece of equipment with its installation date and location. To learn more, see the `Enrich` stage.
-
-<!-- TODO: Add link to Enrich stage above -->
+These properties are available in the enrichment stages of other pipelines where you can use them to provide context and add additional information to the messages being processed. For example, you can use this data to supplement sensor readings from a specific piece of equipment with its installation date and location. To learn more, see the [Enrich](howto-configure-enrich-stage.md) stage.
 
 Within the `equipment` data set, the `asset` key serves as the primary key. When th pipeline ingests new data, Data Processor checks this property to determine how to handle the incoming data:
 
