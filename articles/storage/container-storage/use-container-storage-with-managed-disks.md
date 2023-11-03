@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 11/03/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -27,10 +27,12 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
 
 > [!IMPORTANT]
 > If you want to use your own keys to encrypt your volumes instead of using Microsoft-managed keys, don't create your storage pool using the steps in this section. Instead, go to [Enable server-side encryption with customer-managed keys](#enable-server-side-encryption-with-customer-managed-keys) and follow the steps there.
+
+Follow these steps to create a storage pool for Azure Disks.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -75,9 +77,11 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 If you already created a storage pool or you prefer to use the default Microsoft-managed encryption keys, skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
 
-All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) to encrypt the persistent volumes that you'll create from an Azure Disk storage pool. To do this, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key, and you need to define CMK parameters when creating your storage pool. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) to encrypt the persistent volumes that you'll create from an Azure Disk storage pool.
 
-The required CMK encryption parameters are:
+To use your own key, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+
+When creating your storage pool, you must define the CMK parameters. The required CMK encryption parameters are:
 
 - **keyVersion** specifies the version of the key to use
 - **keyName** is the name of your key
@@ -88,7 +92,7 @@ Follow these steps to create a storage pool using your own encryption key. All p
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool-cmk.yaml`.
 
-1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Be sure to supply the encryption parameters.
+1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Be sure to supply the CMK encryption parameters.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1beta1
