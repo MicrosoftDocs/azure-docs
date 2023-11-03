@@ -100,16 +100,11 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
 To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
 
-To add a new secret to your Azure Key Vault:
+Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) quickstart:
 
-1. Navigate to your Azure Key Vault in the Azure portal.
-1. Select **Secrets** and then select **Generate/Import**.
-1. Create a new secret with the following values:
-
-    | Parameter     | Value                               |
-    | ------------- | ----------------------------------- |
-    | Name          | `AIOFabricSecret`                   |
-    | Secret value  | The password from the service principal you created previously. This is the service principal that has access to your Microsoft Fabric workspace. |
+```azurecli
+az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret --value <client-secret>
+```
 
 To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
 
@@ -194,7 +189,7 @@ The sample tags you added in the previous quickstart generate messages from your
 {
     "Timestamp": "2023-08-10T00:54:58.6572007Z", 
     "MessageType": "ua-deltaframe",
-    "Payload": {
+    "payload": {
       "temperature": {
         "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
         "Value": 7109
@@ -215,7 +210,7 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
@@ -267,7 +262,7 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -319,7 +314,7 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -343,14 +338,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["temperature"]` |
-    | Output path       | `.payload.Payload.temperature_lkv` |
+    | Input path        | `.payload.payload["temperature"]` |
+    | Output path       | `.payload.payload.temperature_lkv` |
     | Expiration time    | `01h` |
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["Tag 10"]` |
-    | Output path       | `.payload.Payload.tag1_lkv` |
+    | Input path        | `.payload.payload["Tag 10"]` |
+    | Output path       | `.payload.payload.tag1_lkv` |
     | Expiration time    | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
@@ -377,8 +372,8 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     ```jq
     .payload = {
-        assetName: .payload.DataSetWriterName,
-        Timestamp: .payload.Timestamp,
+        assetName: .payload.dataSetWriterName,
+        Timestamp: .payload.timestamp,
         Customer: .payload.enrich?.customer,
         Batch: .payload.enrich?.batch,
         Equipment: .payload.enrich?.equipment,
@@ -409,53 +404,16 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Use the following configuration to set up the columns in the output:
 
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Timestamp`          |
-    | Type           | `timestamp` |
-    | Path           | `.Timestamp`                |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `AssetName`         |
-    | Type           | `string` |
-    | Path           | `.assetName`               |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Customer`          |
-    | Type           | `string` |
-    | Path           | `.Customer`               |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Batch`         |
-    | Type           | `integer` |
-    | Path           | `.Batch`              |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `CurrentTemperature`          |
-    | Type           | `float` |
-    | Path           | `.CurrentTemperature`             |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `LastKnownTemperature`          |
-    | Type           | `float` |
-    | Path           | `.LastKnownTemperature`           |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Pressure`          |
-    | Type           | `float` |
-    | Path           | `.Pressure`           |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `IsSpare`          |
-    | Type           | `boolean` |
-    | Path           | `.IsSpare`           |
+    | Name | Type | Path |
+    | ---- | ---- | ---- |
+    | Timestamp | timestamp | `.Timestamp` |
+    | AssetName | string | `.assetName` |
+    | Customer | string | `.Customer` |
+    | Batch | integer | `.Batch` |
+    | CurrentTemperature | float | `.CurrentTemperature` |
+    | LastKnownTemperature | float | `.LastKnownTemperature` |
+    | Pressure | float | `.Pressure` |
+    | IsSpare | boolean | `.IsSpare` |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _contextualized-data-pipeline_. Select **Apply**.
 

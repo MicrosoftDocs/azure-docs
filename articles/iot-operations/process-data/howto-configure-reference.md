@@ -33,11 +33,12 @@ To add a dataset to the data store, you have two options:
 | Name | Name of the dataset. | Yes | `mes-sql` |
 | Description | Description of the dataset. | No | `erp data` |
 | Payload| [Path](concept-jq-path.md) to data within the message to store in the dataset | No | `.payload` |
-| Expiration Time | Time validity for the reference data applied to each ingested message. | No | `1h` |
+| Expiration time | Time validity for the reference data applied to each ingested message. | No | `12h` |
 | Timestamp | The [jq path](concept-jq-path.md) is for the timestamp field in the reference data. This field is used for timestamp-based joins in the enrich stage. | No | `.payload.saptimestamp` |
 | Keys | See keys configuration in the following table. |  |  |
 
 Timestamps referenced should be in RFC3339, ISO 8601, or Unix timestamp format.
+By default, the Expiration time for a dataset is set to `12h`. This default ensures that no stale data is enriched beyond 12 hours (if the data is not updated) or grow unbounded which can fill up the disk. 
 
 Each key includes:
 
@@ -74,9 +75,9 @@ To view the available datasets:
 
 ## Example
 
-This example describes a manufacturing facility where several pieces of equipment are installed at different locations. An ERP system tracks the installations and records the following details for each piece of equipment: name, location, installation date, and a boolean that indicates whether it's a spare. For example:
+This example describes a manufacturing facility where several pieces of equipment are installed at different locations. An ERP system tracks the installations, stores the data in database, and records the following details for each piece of equipment: name, location, installation date, and a boolean that indicates whether it's a spare. For example:
 
-| Equipment | Location | Installation Date | Spare |
+| equipment | location | installationDate | isSpare |
 |---|---|---|---|
 | Oven | Seattle | 3/5/2002 | FALSE |
 | Mixer | Tacoma | 11/15/2005 | FALSE |
@@ -84,29 +85,31 @@ This example describes a manufacturing facility where several pieces of equipmen
 
 This ERP data is a useful source of contextual data for the time series data that comes from each location. You can send this data to Data Processor to store in a reference dataset and use it to enrich messages in other pipelines.
 
-When you send the ERP data to Data Processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the ERP data:
+When you send data from a database, such as Microsoft SQL server, to Data Processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the data from a database within Data Processor:
 
 ```json
-"payload": [ 
-    { 
-        "equipment": "Oven", 
-        "location": "Seattle", 
-        "installationDate": "2002-03-05T00:00:00Z", 
-        "isSpare": false 
-    }, 
-    { 
-        "equipment": "Mixer", 
-        "location": "Tacoma", 
-        "installationDate": "2005-11-15T00:00:00Z", 
-        "isSpare": false 
-    }, 
-    { 
-        "equipment": "Slicer", 
-        "location": "Seattle", 
-        "installationDate": "2021-04-25T00:00:00Z", 
-        "isSpare": true 
-    } 
-] 
+{
+    "payload": { 
+        { 
+            "equipment": "Oven", 
+            "location": "Seattle", 
+            "installationDate": "2002-03-05T00:00:00Z", 
+            "isSpare": "FALSE" 
+        }, 
+        { 
+            "equipment": "Mixer", 
+            "location": "Tacoma", 
+            "installationDate": "2005-11-15T00:00:00Z", 
+            "isSpare": "FALSE"
+        }, 
+        { 
+            "equipment": "Slicer", 
+            "location": "Seattle", 
+            "installationDate": "2021-04-25T00:00:00Z", 
+            "isSpare": "TRUE"
+        } 
+    }
+} 
 ```
 
 Use the following configuration for the reference dataset:
@@ -115,29 +118,27 @@ Use the following configuration for the reference dataset:
 |---|---|
 | Name | `equipment` |
 | Timestamp | `.installationDate` |
-| Expiration time| `01h` |
+| Expiration time| `12h` |
 
 The two keys:
 
 | Field | Example |
 |---|---|
-| Property Name | `asset` |
-| Property Path | `.equipment` |
-| Primary Key | Yes |
+| Property name | `asset` |
+| Property path | `.equipment` |
+| Primary key | Yes |
 
 | Field | Example |
 |---|---|
-| Property Name | `location` |
-| Property Path | `.location` |
-| Primary Key | No |
+| Property name | `location` |
+| Property path | `.location` |
+| Primary key | No |
 
 Each data set can only have one primary key.
 
 All incoming data within the pipeline is stored in the `equipment` dataset in the reference data store. The stored data includes the `installationDate` timestamp and keys such as `equipment` and `location`.
 
-These properties are available in the enrichment stages of other pipelines where you can use them to provide context and add additional information to the messages being processed. For example, you can use this data to supplement sensor readings from a specific piece of equipment with its installation date and location. To learn more, see the `Enrich` stage.
-
-<!-- TODO: Add link to Enrich stage above -->
+These properties are available in the enrichment stages of other pipelines where you can use them to provide context and add additional information to the messages being processed. For example, you can use this data to supplement sensor readings from a specific piece of equipment with its installation date and location. To learn more, see the [Enrich](howto-configure-enrich-stage.md) stage.
 
 Within the `equipment` data set, the `asset` key serves as the primary key. When th pipeline ingests new data, Data Processor checks this property to determine how to handle the incoming data:
 

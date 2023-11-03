@@ -35,18 +35,18 @@ To prepare a Kubernetes cluster on Ubuntu:
 
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
-    ```bash
-    echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
-    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+   ```bash
+   echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
+   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
-    sudo sysctl -p
-    ```
+   sudo sysctl -p
+   ```
 
 1. For better performance, increase the file descriptor limit:
 
    ```bash
-   sudo sysctl fs.inotify.max_user_instances=8192
-   sudo sysctl fs.inotify.max_user_watches=524288
+   echo fs.file-max = 100000 | sudo tee -a /etc/sysctl.conf
+
    sudo sysctl -p
    ```
 

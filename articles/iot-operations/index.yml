@@ -31,23 +31,30 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure IoT Operations
-            url: deploy/overview-deploy-iot-operations.md
+            url: deploy/overview-deploy.md
           - text: Manage assets
             url: manage-devices-assets/overview-manage-assets.md
-          - text: Publish and subscribe with MQTT
+          - text: Manage MQTT connectivity
             url: manage-mqtt-connectivity/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
-          - text: Visualize and analyze telemetry
-            url: analyze-telemetry/overview-analyze-telemetry.md
           - text: Monitor service and asset health
             url: monitor/howto-configure-observability.md
 
-  - title: Guides
+  # Card
+  - title: Connect to the cloud
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Administrator guide
-            url: administer/overview-manage-solution.md
+          - text: Connect to MQTT or Event Grid
+            url: connect-to-cloud/howto-configure-mqtt-bridge.md
+          - text: Send data to a data lake
+            url: connect-to-cloud/howto-configure-data-lake.md
+          - text: Send data to Kafka or Azure Event Hubs
+            url: connect-to-cloud/howto-configure-kafka.md
+          - text: Send data to Azure Data Explorer from a pipeline
+            url: connect-to-cloud/howto-configure-destination-data-explorer.md
+          - text: Send data to Microsoft Fabric from a pipeline
+            url: connect-to-cloud/howto-configure-destination-fabric.md

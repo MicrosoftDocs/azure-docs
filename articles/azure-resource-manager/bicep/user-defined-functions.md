@@ -3,7 +3,7 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/13/2023
+ms.date: 11/02/2023
 ---
 
 # User-defined functions in Bicep (Preview)
@@ -23,6 +23,15 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
   }
 }
 ```
+
+## Limitations
+
+When defining a user function, there are some restrictions:
+
+* The function can't access variables.
+* The function can only use parameters that are defined in the function.
+* The function can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions.
+* Parameters for the function can't have default values.
 
 ## Define the function
 
@@ -73,6 +82,14 @@ The outputs from the preceding examples are:
 | nameArray | Array | ["John"] |
 | addNameArray | Array | ["Mary","Bob","John"] |
 
+With [Bicep version 0.23 or newer](./install.md), you have the flexibility to invoke another user-defined function within a user-defined function. In the preceding example, with the function definition of `sayHelloString`, you can redefine the `sayHelloObject` function as:
+
+```bicep
+func sayHelloObject(name string) object => {
+  hello: sayHelloString(name)
+}
+```
+
 User-defined functions support using [user-defined data types](./user-defined-data-types.md).  For example:
 
 ```bicep
@@ -95,15 +112,6 @@ The output from the preceding example is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | elements | positiveInt | 3 |
-
-## Limitations
-
-When defining a user function, there are some restrictions:
-
-* The function can't access variables.
-* The function can only use parameters that are defined in the function.
-* The function can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions.
-* Parameters for the function can't have default values.
 
 ## Next steps
 

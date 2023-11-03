@@ -54,16 +54,3 @@ Status:
     Status:        Failed
 Events:            <none>
 ```
-
-## Cause 2: \<summarize the key info of the cause>
-TODO: Add a description of the cause.
-
-### Solution 1: \<summarize the key info of the solution>
-
-1. Step 1.
-2. Step 2.
-
-### Solution 2: \<summarize the key info of the solution>
-
-1. Step 1.
-2. Step 2.
