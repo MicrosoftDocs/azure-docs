@@ -69,7 +69,7 @@ Document analysis models enable text extraction from forms and documents and ret
 
 ##### Model ID: **prebuilt-read**
 
-The following table lists read model language support for extracting and analyzing handwritten text.</br>
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -85,7 +85,7 @@ The following table lists read model language support for extracting and analyzi
 
 ##### Model ID: **prebuilt-read**
 
-The following table lists read model language support for extracting and analyzing handwritten text.</br>
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -97,7 +97,7 @@ The following table lists read model language support for extracting and analyzi
 :::moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-The following table lists read model language support for extracting and analyzing handwritten text.</br>
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -113,7 +113,7 @@ The following table lists read model language support for extracting and analyzi
 
 :::moniker range=">=doc-intel-3.1.0"
 
-The following table lists read model language support for extracting and analyzing printed text. </br>
+The following table lists read model language support for extracting and analyzing **printed** text. </br>
 
 ##### Model ID: **prebuilt-read**
 
@@ -440,7 +440,7 @@ The following table lists read model language support for extracting and analyzi
 
 ::: moniker range="doc-intel-3.0.0"
 
-The following table lists read model language support for extracting and analyzing printed text. </br>
+The following table lists read model language support for extracting and analyzing **printed** text. </br>
 
 ##### Model ID: **prebuilt-read**
 
@@ -674,7 +674,7 @@ The following table lists read model language support for extracting and analyzi
 
 ##### Model ID: **prebuilt-read**
 
-The [Read model API](concept-read.md) supports language detection for the following languages in your documents. This list can include languages not currently supported for text extraction.
+The [Read model API](concept-read.md) supports **language detection** for the following languages in your documents. This list can include languages not currently supported for text extraction.
 
 > [!IMPORTANT]
 > **Language detection**
@@ -822,7 +822,7 @@ The [Read model API](concept-read.md) supports language detection for the follow
 
 :::moniker range="doc-intel-4.0.0"
 
-The following table lists layout model language support for extracting and analyzing handwritten text. </br>
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -838,7 +838,7 @@ The following table lists layout model language support for extracting and analy
 
 ##### Model ID: **prebuilt-layout**
 
-The following table lists layout model language support for extracting and analyzing handwritten text. </br>
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -854,7 +854,7 @@ The following table lists layout model language support for extracting and analy
 
 ##### Model ID: **prebuilt-layout**
 
-The following table lists layout model language support for extracting and analyzing handwritten text. </br>
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -872,7 +872,7 @@ The following table lists layout model language support for extracting and analy
 
 ##### Model ID: **prebuilt-layout**
 
-The following table lists layout model language support for extracting and analyzing printed text. </br>
+The following table lists layout model language support for extracting and analyzing **printed** text. </br>
 
 :::row:::
    :::column span="":::
@@ -1199,7 +1199,7 @@ The following table lists layout model language support for extracting and analy
 
 ##### Model ID: **prebuilt-layout**
 
-The following table lists layout model language support for extracting and analyzing printed text. </br>
+The following table lists layout model language support for extracting and analyzing **printed** text. </br>
 
 :::row:::
    :::column span="":::
