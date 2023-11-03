@@ -144,7 +144,7 @@ Your application can authenticate to MQ using any of the [supported authenticati
     ```
 
     > [!IMPORTANT]
-    > The certificate chain (chain.pem above) is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
+    > The certificate chain (chain.pem above) is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual.md) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto.md).
 
 ## Set up authorization policy between the workload and MQ
 
