@@ -92,8 +92,8 @@ SecurityEvent
 ```
 
 Descending is the default sorting order, so you would usually omit the `desc` argument. The output looks like this example.
-
-![Screenshot that shows the top 10 records sorted in descending order.](media/get-started-queries/top10.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/top10.png" lightbox="media/get-started-queries/top10.png" alt-text="Screenshot that shows the top 10 records sorted in descending order." border="false":::
 
 ## The where operator: Filter on a condition
 Filters, as indicated by their name, filter the data by a specific condition. Filtering is the most common way to limit query results to relevant information.
@@ -142,8 +142,8 @@ You can specify a time range by using the time picker or a time filter.
 ### Use the time picker
 
 The time picker is displayed next to the **Run** button and indicates that you're querying records from only the last 24 hours. This default time range is applied to all queries. To get records from only the last hour, select **Last hour** and then run the query again.
-
-![Screenshot that shows the time picker and its list of time-range commands.](media/get-started-queries/timepicker.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/timepicker.png" lightbox="media/get-started-queries/timepicker.png" alt-text="Screenshot that shows the time picker and its list of time-range commands." border="false":::
 
 ### Add a time filter to the query
 
@@ -168,8 +168,8 @@ SecurityEvent
 ```
 
 The preceding example generates the following output:
-
-![Screenshot that shows the query "project" results list.](media/get-started-queries/project.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/project.png" lightbox="media/get-started-queries/project.png" alt-text="Screenshot that shows the query 'project' results list." border="false":::
 
 You can also use `project` to rename columns and define new ones. The next example uses `project` to do the following:
 
@@ -240,8 +240,8 @@ Perf
 ```
 
 To make the output clearer, you can select to display it as a time chart, which shows the available memory over time.
-
-![Screenshot that shows the values of a query memory over time.](media/get-started-queries/chart.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/chart.png" lightbox="media/get-started-queries/chart.png" alt-text="Screenshot that shows the values of a query memory over time." border="false":::
 
 ## Frequently asked questions
 
