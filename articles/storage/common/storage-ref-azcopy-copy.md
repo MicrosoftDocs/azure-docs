@@ -47,7 +47,7 @@ The built-in lookup table is small, but on Unix, it's augmented by the local sys
 
 On Windows, MIME types are extracted from the registry. This feature can be turned off with the help of a flag. Refer to the flag section.
 
-If you set an environment variable by using the command line, that variable will be readable in your command line history. Consider clearing variables that contain credentials from your command line history.  To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
+If you set an environment variable by using the command line, that variable is readable in your command line history. Consider clearing variables that contain credentials from your command line history.  To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
 
 ```azcopy
 azcopy copy [source] [destination] [flags]
@@ -102,7 +102,7 @@ Upload files and directories to Azure Storage account and set the query-string e
 - To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax:
 - `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
-- While setting tags on the blobs, there are more permissions('t' for tags) in SAS without which the service will give authorization error back.
+- While setting tags on the blobs, there are more permissions('t' for tags) in SAS without which the service gives authorization error back.
 
 Download a single file by using OAuth authentication. If you haven't yet logged into AzCopy, run the azcopy login command before you run the following command.
 
@@ -144,7 +144,7 @@ Download a subset of containers within a storage account by using a wildcard sym
 
 `azcopy cp "https://[srcaccount].blob.core.windows.net/[container*name]" "/path/to/dir" --recursive`
 
-Download all the versions of a blob from Azure Storage to local directory. Ensure that source is a valid blob, destination is a local folder and `versionidsFile` which takes in a path to the file where each version is written on a separate line. All the specified versions will get downloaded in the destination folder specified.
+Download all the versions of a blob from Azure Storage to local directory. Ensure that source is a valid blob, destination is a local folder and `versionidsFile` which takes in a path to the file where each version is written on a separate line. All the specified versions get downloaded in the destination folder specified.
 
 `azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]/[blobname]" "/path/to/dir" --list-of-versions="/another/path/to/dir/[versionidsFile]"`
 
