@@ -70,5 +70,5 @@ The following table list common errors that you might encounter during the migra
 
 ## Related content
 
-- [Migrate from Network Performance Monitor to Connection Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md).
-- [Create Connection Monitor by using the Azure portal](connection-monitor-create-using-portal.md).
+- [Migrate from Network performance monitor to Connection monitor](migrate-to-connection-monitor-from-network-performance-monitor.md).
+- [Create a connection monitor using the Azure portal](connection-monitor-create-using-portal.md).
