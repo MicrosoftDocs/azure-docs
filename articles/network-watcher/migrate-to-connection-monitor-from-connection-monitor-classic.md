@@ -1,14 +1,14 @@
 ---
 title: Migrate to Connection monitor from Connection monitor (classic)
 titleSuffix: Azure Network Watcher
-description: Learn how to migrate to Connection monitor from Connection monitor (classic).
+description: Learn how to migrate your connection monitors from Connection monitor (classic) to the new Connection monitor.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 11/03/2023
 
-#CustomerIntent: As an Azure administrator, I want to migrate from Connection monitor (classic) to the new Connection monitor so I can continue using my connection monitors. 
+#CustomerIntent: As an Azure administrator, I want to migrate my connection monitors from Connection monitor (classic) to the new Connection monitor so I avoid service disruption. 
 ---
 
 # Migrate to Connection monitor from Connection monitor (classic)
@@ -38,7 +38,7 @@ The migration helps produce the following results:
 
 1. To migrate the older connection monitors to the new Connection monitor, select **Connection monitor**, and then select **Migrate Connection Monitors**.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png" alt-text="Screenshot showing the migration of connection monitors to the new Connection monitor." lightbox="./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png":::
+    :::image type="content" source="./media/migrate-to-connection-monitor-from-connection-monitor-classic/migrate-classic-connection-monitors.png" alt-text="Screenshot showing the migration of connection monitors to the new Connection monitor." lightbox="./media/migrate-to-connection-monitor-from-connection-monitor-classic/migrate-classic-connection-monitors.png":::
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
 
@@ -58,9 +58,9 @@ After the migration begins, the following changes take place:
 - The migrated connection monitors are no longer displayed as the older connection monitor solution. They're now available for use only in Connection monitor.
 - Any external integrations, such as dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems, must be migrated manually. This is the only manual step you need to perform to migrate your setup.
 
-## Common Errors Encountered
+## Common errors encountered
 
-The following table list common errors faced during the migration: 
+The following table list common errors that you may encounter during the migration:
 
 | Error | Reason |
 | ----- | ------ |
@@ -72,8 +72,3 @@ The following table list common errors faced during the migration:
 
 - [Migrate from Network Performance Monitor to Connection Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md).
 - [Create Connection Monitor by using the Azure portal](connection-monitor-create-using-portal.md).
-
-
-	
- 
-	
