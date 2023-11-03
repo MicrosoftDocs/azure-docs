@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 [!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
-Metrics Advisor service automatically encrypts your data when it is persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
+Metrics Advisor service automatically encrypts your data when it's persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
 
 [!INCLUDE [cognitive-services-about-encryption](../../ai-services/includes/cognitive-services-about-encryption.md)]
 
@@ -24,11 +24,11 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 ## Steps to create a Metrics Advisor with BYOS
 
-### Step1. Create an Azure Database for PostgreSQL and set admin
+### Step 1. Create an Azure Database for PostgreSQL and set admin
 
 - Create an Azure Database for PostgreSQL
 
-    Log in to the Azure portal and create a resource of the Azure Database for PostgreSQL. Couple of things to notice:
+    Sign in to the Azure portal and create a resource of the Azure Database for PostgreSQL. Couple of things to notice:
 
     1. Please select the **'Single Server'** deployment option. 
     2. When choosing 'Datasource', please specify as **'None'**.
@@ -43,13 +43,13 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     After successfully creating your Azure Database for PostgreSQL. Go to the resource page of the newly created Azure PG resource. Select 'Active Directory admin' tab and set yourself as the Admin.
 
 
-### Step2. Create a Metrics Advisor resource and enable Managed Identity
+### Step 2. Create a Metrics Advisor resource and enable Managed Identity
 
 - Create a Metrics Advisor resource in the Azure portal
 
     Go to Azure portal again and search 'Metrics Advisor'. When creating Metrics Advisor, do remember the following:
 
-    1. Choose the **same 'region'** as you created Azure Database for PostgreSQL. 
+    1. Choose the **same 'region'** as your created Azure Database for PostgreSQL. 
     2. Mark 'Bring your own storage' as **'Yes'** and select the Azure Database for PostgreSQL you just created in the dropdown list.
 
 - Enable the Managed Identity for Metrics Advisor
@@ -60,14 +60,14 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
     Go to Microsoft Entra ID, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
 
-### Step3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
+### Step 3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
 
 - Grant **'Owner'** role for the Managed Identity on your Azure Database for PostgreSQL
 
 - Set firewall rules
 
     1. Set 'Allow access to Azure services' as 'Yes'. 
-    2. Add your clientIP address to log in to Azure Database for PostgreSQL.
+    2. Add your clientIP address to sign in to Azure Database for PostgreSQL.
 
 - Get the access-token for your account with resource type 'https://ossrdbms-aad.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
 
@@ -76,14 +76,14 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
    az account get-access-token --resource https://ossrdbms-aad.database.windows.net
    ```
 
-- After getting the token, use it to log in to your Azure Database for PostgreSQL. Replace the 'servername' as the one that you can find in the 'overview' of your Azure Database for PostgreSQL.
+- After getting the token, use it to sign in to your Azure Database for PostgreSQL. Replace the 'servername' as the one that you can find in the 'overview' of your Azure Database for PostgreSQL.
 
    ```
    export PGPASSWORD=<access-token>
    psql -h <servername> -U <adminaccount@servername> -d postgres
    ```
 
-- After login, execute the following commands to grant Metrics Advisor access permission to Azure Database for PostgreSQL. Replace the 'appid' with the one that you get in Step 2.
+- After sign in, execute the following commands to grant Metrics Advisor access permission to Azure Database for PostgreSQL. Replace the 'appid' with the one that you get in Step 2.
 
    ```
    SET aad_validate_oids_in_tenant = off;
