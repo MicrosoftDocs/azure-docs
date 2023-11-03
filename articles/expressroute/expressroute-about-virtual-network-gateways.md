@@ -182,7 +182,7 @@ ErGwScale is free of charge during public preview. For information about Express
 
 #### Sample performance with scale unit
 
-| Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Max number of flows |
+| Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
 |--|--|--|--|--|
 | 10 | 1,000,000 | 70,000 | 20,000 | 2,000,000 |
 | 20 | 2,000,000 | 140,000 | 40,000 | 4,000,000 |
