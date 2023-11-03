@@ -33,8 +33,8 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080`<sup>2</sup> | Allow your Client IPs to access Azure Container Apps when using HTTP. |
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443`<sup>2</sup> | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
 | TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
 # [Consumption only environment](#tab/consumption-only)
