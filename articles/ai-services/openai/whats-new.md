@@ -22,6 +22,8 @@ DALL-E 3 is the latest image generation model from OpenAI. It features enhanced 
 
 DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
 
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
 ## October 2023
 
 ### New fine-tuning models (preview)
