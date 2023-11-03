@@ -56,7 +56,7 @@ The metrics detail table offers a wealth of data that can guide your model impro
 
 Metrics results for conversation scenario:
 
-:::image type="content" source="../media/evaluations/view-results4-metrics-details-qa.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/4-metrics-details-qa.png":::
+:::image type="content" source="../media/evaluations/view-results/metrics-details-qa.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/metrics-details-qa.png":::
 
 Metrics results for question answering scenario:
 
@@ -65,18 +65,18 @@ Metrics results for question answering scenario:
 
 If there is something wrong with the run, you can also debug your evaluation run with the log and trace. 
 
-Here's the logs:
+Here's an example of the log:
 
-:::image type="content" source="../media/evaluations/view-results/log.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/log.png"::
+:::image type="content" source="../media/evaluations/view-results/eval-log.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/eval-log.png":::
 
-Here's the trace:
+And here's an example of the trace:
 
-:::image type="content" source="../media/evaluations/view-results/trace.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/trace.png"::
+:::image type="content" source="../media/evaluations/view-results/eval-trace.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/eval-trace.png":::
 
 To learn more about how the evaluation results are produced, select the **View in flow** button to navigate to the flow page linked to the evaluation run.
 :
 
-:::image type="content" source="../media/evaluations/view-results/view-in-flow.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/view-in-flow.png"::
+:::image type="content" source="../media/evaluations/view-results/view-in-flow.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/view-in-flow.png":::
 
 ## Compare the evaluation results 
 
