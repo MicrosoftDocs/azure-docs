@@ -10,6 +10,8 @@ ms.custom: references_regions
 
 # Manage Arc-enabled Azure VMware private cloud
 
+In this article, learn how to update the Arc appliance credentials, upgrade the Arc resource bridge, and collect logs from the Arc resource bridge.
+
 ## Update Arc appliance credential
 
 When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store. 
