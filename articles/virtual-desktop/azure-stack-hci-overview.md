@@ -63,8 +63,6 @@ There are different classifications of data for Azure Virtual Desktop, such as c
 
 Azure Virtual Desktop for Azure Stack HCI has the following limitations:
 
-- Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI release information](/azure-stack/hci/release-information) and [Updates and upgrades](/azure-stack/hci/concepts/updates).
-
 - Session hosts running on Azure Stack HCI don't support some Azure Virtual Desktop features, such as:
     
     - [Azure Virtual Desktop Insights](insights.md)
