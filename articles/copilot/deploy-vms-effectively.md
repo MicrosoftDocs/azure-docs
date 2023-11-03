@@ -32,7 +32,7 @@ Microsoft Copilot for Azure (preview) can guide you in suggesting different opti
 
 During the VM creation process, you can ask "How do I reduce the cost of my virtual machine?" Microsoft Copilot for Azure (preview) guides you through options to make your VM more cost-effective, providing options that you can enable.
 
-:::image type="content" source="media/deploy-vms-effectively/vm-reduce-costs.png" lightbox=="media/deploy-vms-effectively/vm-reduce-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing ways to lower VM costs.":::
+:::image type="content" source="media/deploy-vms-effectively/vm-reduce-costs.png" lightbox="media/deploy-vms-effectively/vm-reduce-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing ways to lower VM costs.":::
 
 Once you've gone through all of the available options, you can review and create the VM with the provided recommendations, or continue to make other changes.
 
@@ -79,7 +79,7 @@ When working with a VM, you can say "Reset VM password". Microsoft Copilot for A
 
 If you select **Reset password**, Microsoft Copilot for Azure (preview) opens the password reset page, allowing you to choose an option and reset the password for your VM.
 
-:::image type="content" source="media/deploy-vms-effectively/vm-reset-password-screen.png" lightbox=="media/deploy-vms-effectively/vm-reset-password.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) opening the VM password reset screen.":::
+:::image type="content" source="media/deploy-vms-effectively/vm-reset-password-screen.png" lightbox="media/deploy-vms-effectively/vm-reset-password.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) opening the VM password reset screen.":::
 
 ## Next steps
 
