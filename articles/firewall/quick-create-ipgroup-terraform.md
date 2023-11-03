@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Terraform'
 description: In this quickstart, you learn how to use Terraform to create an Azure Firewall and IP Groups.
 services: firewall
-author: cshea15
+author: cshea-msft
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform

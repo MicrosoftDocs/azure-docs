@@ -165,6 +165,13 @@ To set up an Azure monitor workspace as a data source for Grafana using a Resour
 If your Grafana instance is self managed, see [Use Azure Monitor managed service for Prometheus as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and managed service for Prometheus?
+        
+Yes. When you use managed service for Prometheus, you can create your Azure Monitor workspace in any of the supported regions. Your Azure Kubernetes Service clusters can be in any region and send data into an Azure Monitor workspace in a different region. Azure Managed Grafana can also be in a different region than where you created your Azure Monitor workspace. 
 
 
 

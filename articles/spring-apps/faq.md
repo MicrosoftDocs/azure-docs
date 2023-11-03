@@ -43,11 +43,11 @@ Azure Spring Apps intelligently schedules your applications on the underlying Ku
 
 ### In which regions is the Azure Spring Apps Basic/Standard plan available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2, China North 2, and China North 3. [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps).
 
 ### In which regions is the Azure Spring Apps Enterprise plan available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
+While the Azure Spring Apps Basic/Standard plan is available in regions of China, the Enterprise plan is not available in all regions on Azure China.
 
 ### Is any customer data stored outside of the specified region?
 
@@ -58,7 +58,7 @@ Azure Spring Apps is a regional service. All customer data in Azure Spring Apps 
 Azure Spring Apps has the following known limitations:
 
 * `spring.application.name` is overridden by the application name that's used to create each application.
-* `server.port` defaults to port 1025. If any other value is applied, it's overridden, so don't specify a server port in your code.
+* `server.port` defaults to port `1025` in the Basic/Standard plan and to port `8080` in the Enterprise plan. If you apply any other value, the default value overrides the one that you specify, so avoid specifying a server port in your code. If your code sets the server port explicitly rather than using `server.port`, ensure that the port is either `1025` or `8080` depending on the pricing plan of your Azure Spring Apps service instance.
 * The Azure portal, Azure Resource Manager templates, and Terraform don't support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spring Apps, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Apps.
 
 ### What pricing plans are available?
@@ -88,27 +88,6 @@ The Enterprise plan has built-in VMware Spring Runtime Support, so you can open 
 
 For the quickest way to get started with Azure Spring Apps, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md).
 
-::: zone pivot="programming-language-java"
-
-### Is Spring Boot 2.4.x supported?
-
-We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, include these two dependencies to enable TLS authentication between your apps and Eureka.
-
-```xml
-<dependency>
-    <groupId>com.sun.jersey</groupId>
-    <artifactId>jersey-client</artifactId>
-    <version>1.19.4</version>
-</dependency>
-<dependency>
-    <groupId>com.sun.jersey.contribs</groupId>
-    <artifactId>jersey-apache-client4</artifactId>
-    <version>1.19.4</version>
-</dependency>
-```
-
-::: zone-end
-
 ### Where can I view my Spring application logs and metrics?
 
 Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) tab.
@@ -136,7 +115,7 @@ Yes.
 
 ### How many outbound public IP addresses does an Azure Spring Apps instance have?
 
-The number of outbound public IP addresses may vary according to the plans and other factors.
+The number of outbound public IP addresses varies according to the plans and other factors.
 
 | Azure Spring Apps instance type    | Default number of outbound public IP addresses |
 |------------------------------------|------------------------------------------------|
@@ -211,10 +190,10 @@ Yes. For more information, see [Set up autoscale for applications](./how-to-setu
 
 ### How does Azure Spring Apps monitor the health status of my application?
 
-Azure Spring Apps continuously probes port 1025 for customer's applications. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Apps needs to restart the application container. Internally, Azure Spring Apps uses Kubernetes liveness and readiness probes to achieve the status monitoring.
+Azure Spring Apps continuously probes port `1025` for customer's applications with the Basic/Standard pricing plan, or port `8080` with the Enterprise plan. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Apps needs to restart the application container. Internally, Azure Spring Apps uses Kubernetes liveness and readiness probes to achieve the status monitoring.
 
 >[!NOTE]
-> Because of these probes, you currently can't launch applications in Azure Spring Apps without exposing port 1025.
+> Because of these probes, you currently can't launch applications in Azure Spring Apps without exposing port `1025` or `8080`.
 
 ### Whether and when is my application restarted?
 
@@ -243,7 +222,7 @@ Until December 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.
 
 ### What are the impacts of service registry rarely unavailable?
 
-In some rare scenarios, you may see errors like the following from your application logs:
+In some rare scenarios, you can see errors from your application logs similar to the following example:
 
 ```output
 RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available

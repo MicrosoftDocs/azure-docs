@@ -38,15 +38,15 @@ The feature is turned on at the subscription level.
 
 ## Required permissions and roles
 
-- To view the dashboard you must have either one of the following:
+- To view the dashboard you must have either one of the following scenarios:
 
-  - permissions:
+  - **all of the following permissions**:
 
     - Microsoft.Security/assessments/read
     - Microsoft.Security/assessments/subassessments/read
     - Microsoft.Security/alerts/read
 
-  - the minimum required privileged RBAC role of **Security Reader**.
+  - **the minimum required privileged RBAC role** of **Security Reader**.
 
 - Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
 

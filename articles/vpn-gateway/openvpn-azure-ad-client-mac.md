@@ -27,7 +27,7 @@ If you want to configure multiple computers, you can create a client profile on 
 
 ## Prerequisites
 
-Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
+Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md). Also, if your device is running MacOS M1 or MacOS M2, you must install Rosetta software if it is not already installed on the device, see instructions [here](https://support.apple.com/en-us/HT211861).
 
 ## Download the Azure VPN Client
 

@@ -28,7 +28,7 @@ ms.topic: include
 
 * IKE Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 
-* 'UsePolicyBasedTrafficSelectors' is an optional parameter on the connection. If you set **UsePolicyBasedTrafficSelectors** to $True on a connection, it will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any.
+* 'UsePolicyBasedTrafficSelectors' is an optional parameter on the connection. If you set **UsePolicyBasedTrafficSelectors** to $True on a connection, it will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. The Azure VPN gateway accepts whatever traffic selector is proposed by the remote VPN gateway irrespective of what is configured on the Azure VPN gateway.
 
   For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
 
