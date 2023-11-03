@@ -1,5 +1,5 @@
 ---
-title: "Consume models deployed in Azure Machine Learning from Fabric, using Batch Endpoints"
+title: "Consume models deployed in Azure Machine Learning from Fabric, using Batch Endpoints (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a machine learning model in batch endpoints to then consume it from within Fabric.
 services: machine-learning
@@ -13,11 +13,13 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Run Azure Machine Learning models from Fabric, using batch endpoints
+# Run Azure Machine Learning models from Fabric, using batch endpoints (preview)
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you learn how to consume Azure Machine Learning batch deployments from Microsoft Fabric. Although the workflow uses models that are deployed to batch endpoints, it also supports the use of batch pipeline deployments from Fabric.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -104,9 +106,9 @@ Upload some sample data for the endpoint to use as input:
 1. Go to your Fabric workspace.
 1. Select the lakehouse where you created the shortcut.
 1. Go to the **datasets** shortcut.
-1. Create a folder to store the sample dataset that you want to score. In this case *uci-heart-unlabeled*.
+1. Create a folder to store the sample dataset that you want to score. Name the folder _uci-heart-unlabeled_.
 
-1. Use the **Get data** option and select **Upload files** to upload the sample dataset.
+1. Use the **Get data** option and select **Upload files** to upload the sample dataset _heart-unlabeled.csv_.
 
     :::image type="content" source="./media/how-to-use-batch-fabric/fabric-lakehouse-get-data.png" alt-text="A screenshot showing how to upload data to an existing folder in OneLake." lightbox="media/how-to-use-batch-fabric/fabric-lakehouse-get-data.png":::
 
