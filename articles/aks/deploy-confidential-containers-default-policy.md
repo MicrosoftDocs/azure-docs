@@ -32,7 +32,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - AKS supports Confidential Containers (preview) on version 1.25.0 and higher.
 
-- A workload identity and a federated identity credential. If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][entra-id-workload-identity-overview] and review how [Workload Identity works with AKS][aks-workload-identity-overview].
+- A workload identity and a federated identity credential. The workload identity credential enables Kubernetes applications access to Azure resources securely with Microsoft Entra ID based on annotated service accounts. If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][entra-id-workload-identity-overview] and review how [Workload Identity works with AKS][aks-workload-identity-overview].
 
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][cluster-access-and-identity-options].
 
@@ -251,12 +251,6 @@ RUST_LOG=info az confcom katapolicygen -y my-pod.yaml
 For example, the app downloads the container image layers for each of the containers specified by the input YAML file. It calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
 
 ## Complete the configuration
-
-1. Generate the deployment policy by running the following command. Replace `<path to pod yaml>` with the name of the manifest saved in the previous step.
-
-    ```bash
-    az confcom katapolicygen -y <path to pod yaml>
-    ```
 
 1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
 
