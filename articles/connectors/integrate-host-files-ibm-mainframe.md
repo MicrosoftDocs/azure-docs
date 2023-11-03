@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ---
 
 # Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps
@@ -38,7 +38,7 @@ For customers interested in accessing and using databases, such as SQL Server or
 
 The following diagram shows how the **IBM Host File** connector in Azure Logic Apps interacts with other systems:
 
-:::image type="content" source="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png" alt-text="Conceptual diagram shows how the IBM Host File connector in Azure Logic Apps works with other systems.":::
+:::image type="content" source="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png" alt-text="Conceptual diagram shows how the IBM Host File connector in Azure Logic Apps works with other systems." lightbox="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png":::
 
 To extend hybrid cloud scenarios, the **IBM Host File** connector works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *data definition* or *data map* of the mainframe host file. For this task, the HIS Designer converts that data into metadata that the **IBM Host File** connector uses when running an action in your workflow. The connector performs the data type conversions, which are required to receive input from preceding workflow operations and to send output for use by subsequent workflow actions. The connector also provides tabular data definition and code page translation.
 
@@ -114,7 +114,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    This example continues with the **Azure Blob Storage** built-in, service provider-based trigger named **When a blob is added or updated**.
 
-   :::image type="content" source="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Azure Blob Storage trigger.":::
+   :::image type="content" source="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Azure Blob Storage trigger." lightbox="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png":::
 
 1. To get the content from the added or updated blob, [follow these general steps to add the **Azure Blob Storage** built-in connector action named **Read blob content**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
@@ -130,7 +130,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    For example:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-connection.png" alt-text="Screenshot showing the Parse Host File Contents action's connection properties.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-connection.png" alt-text="Screenshot showing the Parse Host File Contents action's connection properties." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-connection.png":::
 
 1. When you're done, select **Create New**.
 
@@ -144,7 +144,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    For example, the following image shows Visual Studio with a sample host file HIDX file with a **CUSTOMER** table and **CUSTOMER_RECORD** schema in the HIS Designer for Logic Apps:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows Visual Studio and the host file schema in the HIDX file.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows Visual Studio and the host file schema in the HIDX file." lightbox="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png":::
 
    **Provide HIDX file and schema**
 
@@ -152,11 +152,11 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    **Select binary data to read from blob**
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png":::
 
    When you're done, the **Parse Host File Contents** action looks like the following example with a subsequent action that creates a file on an SFTP server:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png" alt-text="Screenshot shows the completed Parse Host File Contents action.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png" alt-text="Screenshot shows the completed Parse Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
@@ -168,7 +168,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    This example continues with the **Azure Blob Storage** built-in, service provider-based trigger named **When a blob is added or updated**.
 
-   :::image type="content" source="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Azure Blob Storage trigger.":::
+   :::image type="content" source="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Azure Blob Storage trigger." lightbox="media/integrate-host-files-ibm-mainframe/blob-storage-trigger.png":::
 
 1. To get the content from the added or updated blob, [follow these general steps to add the **Azure Blob Storage** built-in connector action named **Read blob content**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
@@ -184,7 +184,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    For example:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-connection.png" alt-text="Screenshot showing Generate Host File Contents action's connection properties.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-connection.png" alt-text="Screenshot showing Generate Host File Contents action's connection properties." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-connection.png":::
 
 1. When you're done, select **Create New**.
 
@@ -198,11 +198,11 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    For example, the following image shows Visual Studio with a sample HIDX file in the HIS Designer for Logic Apps:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file." lightbox="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png":::
 
    **Provide HIDX file and schema**
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png":::
 
    **Select rows from blob to read and convert**
 
@@ -210,7 +210,7 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    When you're done, the **Generate Host File Contents** action looks like the following example with a subsequent action that creates a file on an SFTP server:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png" alt-text="Screenshot shows the completed Generate Host File Contents action.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png" alt-text="Screenshot shows the completed Generate Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
