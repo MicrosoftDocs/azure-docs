@@ -21,6 +21,5 @@
 | Max burst duration | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | Unlimited* | Unlimited* | Unlimited* | Unlimited* | Unlimited* | Unlimited* |
 | Eligible for reservation | No  | No  | No  | No  | No  | No  | No  | No  | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year |
 
-\*Applies only to disks with on-demand bursting enabled.
-
+\*Applies only to disks with on-demand bursting enabled.<br>
 \** Only applies to disks with performance plus (preview) enabled.

@@ -49,7 +49,7 @@ We assess whether an application is performing well or not by using performance 
 
 The technical terms for these performance indicators are IOPS, throughput or bandwidth, and latency.
 
-In this section, we discuss the common performance indicators in the context of Premium Storage. In the section [Performance application checklist for disks](performance-application-checklist-for-disks), you learn how to measure these performance indicators for your application. Later in [Optimize application performance](#optimize-application-performance), you learn about the factors that affect these performance indicators and recommendations to optimize them.
+In this section, we discuss the common performance indicators in the context of Premium Storage. In the section [Performance application checklist for disks](#performance-application-checklist-for-disks), you learn how to measure these performance indicators for your application. Later in [Optimize application performance](#optimize-application-performance), you learn about the factors that affect these performance indicators and recommendations to optimize them.
 
 ## IOPS
 
