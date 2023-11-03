@@ -1,5 +1,5 @@
 ---
-title: Vector search
+title: Vector database
 titleSuffix: Azure Cosmos DB
 description: Vector database functionalities in Azure Cosmos DB for retrieval augmented generation (RAG) and vector search.
 author: jacodel

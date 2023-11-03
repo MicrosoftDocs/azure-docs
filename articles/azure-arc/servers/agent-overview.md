@@ -163,7 +163,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   | MDE.Linux | Linux | 60% |
   | MicrosoftDnsAgent | Windows | 100% |
   | MicrosoftMonitoringAgent | Windows | 60% |
-  | OmsAgentForLinux | Windows | 60%|
+  | OmsAgentForLinux | Linux | 60%|
 
 During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
 
