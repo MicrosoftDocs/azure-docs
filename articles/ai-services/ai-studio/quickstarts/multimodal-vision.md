@@ -82,18 +82,19 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload image button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
-
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
-1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
     :::image type="content" source="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png" alt-text="Screenshot of the vision enhancement settings in the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png":::
 
     > [!NOTE]
     > You might need to select **Vision** enhancement button again to apply the changes.
+
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload image button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
+
+1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
+1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 
 1. In the chat session pane, select an image file and then select the right arrow icon to upload the image. 
 
@@ -118,12 +119,6 @@ In this chat session, you will be instructing the assistant to aid in understand
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-video-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-video-select.png":::
-
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations" You can tailor the prompt for the video or scenario. 
-1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 1. In the **Vision enhancements settings** dialog, select an Azure AI Vision resource and then select **Save**. 
 
@@ -132,6 +127,12 @@ In this chat session, you will be instructing the assistant to aid in understand
     > [!NOTE]
     > You might need to select **Vision** enhancement button again to apply the changes.
 
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-video-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-video-select.png":::
+
+1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations" You can tailor the prompt for the video or scenario. 
+1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the chat session pane, select a video file and then select the right arrow icon to upload the video. 
 1. Enter enter the following question: "Provide details from this car accident video", and then select the right arrow icon to send.
 
