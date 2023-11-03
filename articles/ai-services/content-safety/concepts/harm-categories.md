@@ -44,7 +44,7 @@ Every harm category the service applies also comes with a severity level rating.
 #### [Warning](#tab/warning)
 
 > [!WARNING]
-> The **Severity definitions** tabs in this document include examples of harmful content that may be disturbing to some readers.  
+> The **Severity definitions** tab in this document contains examples of harmful content that may be disturbing to some readers.  
 
 #### [Severity definitions](#tab/definitions)
 
