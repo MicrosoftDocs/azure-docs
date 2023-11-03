@@ -35,17 +35,17 @@ For help with assistant setup, chat sessions, settings, and panels, refer to the
  
 ## Start a chat session to analyze images 
 
-In this chat session, you will be instructing the assistant to aid in understanding images that you input. 
+In this chat session, you are instructing the assistant to aid in understanding images that you input. 
 1. To start, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
-1. In the chat session pane, enter the following question: "Describe this image", and upload an image. Then select **Send**. 
+1. In the chat session pane, enter the following question: "Describe this image," and upload an image. Then select **Send**. 
     1. tbd image
-1. Analyze the output provided. Consider asking follow up questions related to the analysis of your image to learn more. See below for an example. 
+1. Analyze the output provided. Consider asking follow-up questions related to the analysis of your image to learn more. 
     1. tbd image 
 
 ## Try an augmented vision chat session
 
-In this chat session, you will try out the capabilities of the augmented vision model.  
+In this chat session, you'll try out the capabilities of the augmented vision model.  
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section 
     1. tbd A screenshot of a computer
 1. Provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
@@ -59,7 +59,7 @@ In this chat session, you will try out the capabilities of the augmented vision 
 
 ## Try a chat session to analyze video
 
-In this chat session, you will be instructing the assistant to aid in understanding videos that you input. 
+In this chat session, you are instructing the assistant to aid in understanding videos that you input. 
 1. To start, provide this prompt to guide the assistant: "You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you are uploading. 
 1. In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people", and upload a video using the "Add media" button and then select **Send**. 
 
