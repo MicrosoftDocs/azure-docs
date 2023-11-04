@@ -143,9 +143,12 @@ Promotion of replicas can be done in two distinct manners:
 
 **Promote to primary server (preview)** 
 
-This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
+This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](#virtual-endpoints-preview) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will not be successful if the targeted replica is not included in the reader endpoint configuration, or if a reader virtual endpoint hasn't been established.
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server ":::
+The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
+
+
+:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server":::
 
 **Promote to independent server and remove from replication** 
 
