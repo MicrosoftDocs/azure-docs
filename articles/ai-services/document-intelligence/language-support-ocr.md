@@ -527,7 +527,7 @@ The following table lists read model language support for extracting and analyzi
   |Kazakh (Cyrillic)|kk-cyrl|
   |Kalaallisut|kl|
   :::column-end:::
-  :::column span="":::
+    :::column span="":::
   |Language| Code (optional) |
   |:-----|:----:|
   |Khaling|klr|
@@ -571,7 +571,7 @@ The following table lists read model language support for extracting and analyzi
   |Camling|rab|
   |Romansh|rm|
   :::column-end:::
-  :::column span="":::
+    :::column span="":::
   |Language| Code (optional) |
   |:-----|:----:|
   |Romanian|ro|
@@ -1320,7 +1320,7 @@ The following table lists layout model language support for extracting and analy
   |Camling|rab|
   |Romansh|rm|
   :::column-end:::
-  :::column span="":::
+    :::column span="":::
   |Language| Code (optional) |
   |:-----|:----:|
   |Romanian|ro|

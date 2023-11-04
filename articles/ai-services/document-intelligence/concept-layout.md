@@ -330,7 +330,7 @@ Extracting tables is a key requirement for processing documents containing large
 
 ### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](#handwritten-text). The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](language-support-ocr.md#layout-handwritten-text). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
