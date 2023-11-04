@@ -62,6 +62,7 @@ The following table shows the available models for each current preview and stab
 |[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
 |[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
 |[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 
 ::: moniker range=">=doc-intel-3.0.0"
