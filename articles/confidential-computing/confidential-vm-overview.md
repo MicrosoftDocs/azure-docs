@@ -49,8 +49,7 @@ You can also extend the protection of confidential disk encryption to the temp d
 
 The temp disk provides fast, local, and short-term storage for applications and processes. It is intended to only store data such as page files, log files, cached data, and other types of temporary data. Temp disks on CVMs contain the page file, also known as swap file, that can contain sensitive data. Without encryption, data on these disks may be accessible to the host. After enabling this feature, data on the temp disks is no longer exposed to the host.
 
-This feature can be enabled through an opt-in process. To learn more, read [the documentation](https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-temp-disk-encryption-for-confidential-vms-in-public/ba-p/3971393).
-
+This feature can be enabled through an opt-in process. To learn more, read [the documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 ### Encryption pricing differences
 
