@@ -13,26 +13,26 @@ ServiceNow is a cloud-based workflow automation platform. It helps enterprises s
 
 ServiceNow IT Service Management (ITSM) is a cloud-based, enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. It delivers resilient services that help increase your productivity.  
 
-ServiceNow is now integrated with Microsoft Defender for Cloud that will enable customers to connect ServiceNow to their Defender for Cloud environment. As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from MDC.   
-
-You can connect ServiceNow to your Microsoft Defender for Cloud environment to create or view ServiceNow tickets with links to recommendations from Microsoft Defender for Cloud. 
+ServiceNow is now integrated with Microsoft Defender for Cloud so organizations can easily create and view ServiceNow tickets and linked recommendations.   
 
 ## Common use cases and scenarios
 
-ServiceNow integration helps customers use third-party ticketing solutions from Microsoft Defender for Cloud to create and view tickets that are linked to recommendations. 
+As part of the integration, you can create and monitor tickets in ServiceNow directly from Microsoft Defender for Cloud:   
 
-## Prerequisites
+- **Incident**: An incident is an unplanned interruption of reduction in the quality of an IT service. It can be reported by a user or monitoring system. ServiceNow’s incident management module helps IT teams track and manage incidents, from initial reporting to resolution. 
+- **Problem**: A problem is the underlying cause of one or more incidents. It’s often a recurring or persistent issue that needs to be addressed to prevent future incidents.   
+- **Change**: A change is a planned alternation or addition to an IT service or its supporting infrastructure. A change management module helps IT teams plan, approve, and execute changes in a controlled and systematic manner. It minimizes the risk of service disruptions and maintains service quality.   
+
+## Preview prerequisites
 
 | Prerequisite | Details |
 |--------------|---------|
 | Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the SCOM ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
-| Roles  | - Security Admin<br>- Contributor<br>- Owner |
+| Roles  | To create an integration:<br>- Security Admin<br>- Contributor<br>- Owner<br>To create an assignment:<br> |
 | Cloud  | &#x2705; Azure <br> &#10060; Azure Government, Azure China 21Vianet, air-gapped clouds |
 
 
-## Onboarding ServiceNow to Defender for Cloud
-
-### Create an application registry in ServiceNOW
+## Create an application registry in ServiceNOW
 
 To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Secret for the ServiceNow instance. If you don't have a Client ID and Client Secret, follow these steps 
 to create them: 
@@ -59,17 +59,17 @@ Secret:
    - **Access Token Lifespan**: Time in seconds that the access token is valid.
 
    >[!NOTE]
-   >The default value of Refresh Token Lifespan is too low. Increase the value as much as possible so that you don't need to refresh the token soon.
+   >The default value of Refresh Token Lifespan is too small. Increase the value as much as possible so that you don't need to refresh the token soon.
 
    :::image type="content" border="true" source="./media/integration-servicenow/app-details.png" alt-text="Screenshot of application details.":::
 
 1. Click **Submit** to save the API Client ID and Client Secret. 
 
-After you complete these steps, you can use this user for integrating the instance to Microsoft Defender for Cloud.
+After you complete these steps, you can use this integration name (MDCIntegrationSNOW in our example) to connect ServiceNow to Microsoft Defender for Cloud.
 
-### Create ServiceNow Integration with MDC
+## Create ServiceNow Integration with MDC
 
-1. Sign in to [the Azure portal](https://aka.ms/integrations) and navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+1. Sign in to [the Azure portal](https://aka.ms/integrations) as at least a [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) and navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Click **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
 
    :::image type="content" border="true" source="./media/integration-servicenow/integrations.png" alt-text="Screenshot of integrations.":::
@@ -107,7 +107,7 @@ You can review the integrations in ARG both on the individual integration or on 
 
 :::image type="content" border="true" source="./media/integration-servicenow/all-integrations.png" alt-text="Screenshot of all integrations.":::
 
-The toolbar on the Integrations page includes an ‘Open in ARG’ button to explore the details in [Azure Resource Graph (ARG)](/azure/governance/resource-graph/), an Azure service that gives you the ability to query – across multiple subscriptions.
+You can review an integration, or all integrations, in [Azure Resource Graph (ARG)](/azure/governance/resource-graph), an Azure service that gives you the ability to query across multiple subscriptions. On the Integrations page, click **Open in ARG** to explore the details in ARG.
 
 :::image type="content" border="true" source="./media/integration-servicenow/open.png" alt-text="Screenshot of how to open in ARG.":::
 
