@@ -410,16 +410,16 @@ The storage profile of a VM is divided into three categories: image reference, O
 
 The image reference object contains the following information about the OS image:
 
-| Data | Description |
-|------|-------------|
-| `id` | Resource ID
-| `offer` | Offer of the platform or marketplace image
-| `publisher` | Image publisher
-| `sku` | Image sku
-| `version` | Version of the platform or marketplace image
-| `communityGalleryImageId` | Resource ID when using a community image
-| `sharedGalleryImageId` | Resource ID when using a direct shared image
-| `exactVersion` | Version of the community or direct shared image
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `id` | Resource ID | 2019-06-01
+| `offer` | Offer of the platform or marketplace image | 2019-06-01
+| `publisher` | Image publisher | 2019-06-01
+| `sku` | Image sku | 2019-06-01
+| `version` | Version of the platform or marketplace image | 2019-06-01
+| `communityGalleryImageId` | Resource ID when using a community image | 2023-07-01
+| `sharedGalleryImageId` | Resource ID when using a direct shared image | 2023-07-01
+| `exactVersion` | Version of the community or direct shared image | 2023-07-01
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
