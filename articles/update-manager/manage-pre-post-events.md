@@ -14,7 +14,6 @@ author: SnehaSudhirG
 
 This article describes on how to create, view, and cancel the pre and post events in Azure Update Manager.
 
-
 ## Configure pre and post events on existing schedule
 
 You can configure pre and post events on an existing schedule and can add multiple pre and post events to a single schedule. To add a pre and post event, follow these steps:
@@ -73,7 +72,23 @@ To delete pre and post events, follow these steps:
 1. On the selected event page, select **Delete**.
 
     :::image type="content" source="./media/manage-pre-post-events/delete-event-inline.png" alt-text="Screenshot that shows how to delete the pre and post events." lightbox="./media/manage-pre-post-events/delete-event-expanded.png":::
-   
+
+### Timeline example
+
+The following example shows the timeline for schedules with pre and post events:
+
+**Example** - If a maintenance schedule is set to start at **3:00 p.m. IST**.
+
+| **Time**| **Details** |
+|----------|-------------|
+|2:19 p.m. | You can modify the machines or dynamic scopes within the schedule's scope until this time. After this time, the resources will be included in the subsequent schedule run and not the current run. </br> **Note**</br> If you are creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the maintenance window for the pre-event to run. |
+|2:30 p.m. | The pre event will be initiated.|
+|2:50 p.m. | The pre script would complete all the tasks for a successful schedule run. </br> **Note** </br> - If the Pre-script keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancellation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancellation API from your script or Azure function code. If cancellation API fails to get invoked or has not been set up, the patch installation will proceed to run. |
+|3:00 p.m.| The schedule will get triggered. | 
+|6:55 p.m.| The schedule will complete patch installation.|
+|7:15 p.m.| The post event will initiate at 6:55 p.m. and complete by 7:15 p.m. |
+
+
 ## Cancel a schedule from a pre event
 
 To cancel the schedule, you must call the cancellation API in your pre event to set up the cancellation process (i.e.) in your Runbook script or Azure function code. Here, you must define the criteria from when the schedule must be cancelled. The system will not monitor and automatically cancels the schedule based on the status of the pre event. 
@@ -85,8 +100,36 @@ There are two types of cancellations:
 > [!NOTE]
 > If the cancellation API fails to get invoked or has not been set up, the patch installation will proceed to run.
  
+### View the cancellation status
 
+To view the cancellation status, follow these steps:
 
+1. In **Azure Update Manager** home page, go to **History**
+1. Select by the **Maintenance run ID** and choose the run ID for which you want to view the status.
+
+    :::image type="content" source="./media/manage-pre-post-events/view-cancellation-status-inline.png" alt-text="Screenshot that shows how to view the cancellation status." lightbox="./media/manage-pre-post-events/view-cancellation-status-expanded.png":::
+
+You can view the cancellation status from the error message in the JSON. The JSON can be obtained from the Azure Resource Graph (ARG). The corresponding maintenance configuration would be cancelled using the Cancellation API.
+
+   :::image type="content" source="./media/manage-pre-post-events/cancellation-api-user-inline.png" alt-text="Screenshot for cancellation done by the user." lightbox="./media/manage-pre-post-events/cancellation-api-user-expanded.png" :::
+
+   If the maintenance job is cancelled by the system due to any reason, the error message in the JSON is obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule cancelled due to internal platform failure**.
+
+#### Invoke the cancellation API
+
+```rest
+HTTPCopy
+ C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/<your-c-id-obtained-from-above>?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose 
+```
+
+> [!NOTE]
+> You must replace the **Correlation ID** received from the above ARG query and replace it in the Cancellation API.
+
+**Example**
+```http
+HTTPCopy  
+  C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/subscriptions/eee2cef4-bc47-4278-b4f8-cfc65f25dfd8/resourcegroups/fp02centraluseuap/providers/microsoft.maintenance/maintenanceconfigurations/prepostdemo7/providers/microsoft.maintenance/applyupdates/20230810085400?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose
+```
 
 ## Next steps
 For issues and workarounds, see [troubleshoot](troubleshoot.md)
