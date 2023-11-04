@@ -133,25 +133,25 @@ Security admins can now create and assign tickets directly from the Microsoft De
 
    To assign an affected recommendation to an owner who resides in ServiceNow, we provide a new unified experience for all platforms. Under **Assignment details**, complete the following fields:
    
-   - Assigned to: Choose the owner whom you would like to assign the affected recommendation to. 
-   - Caller: Represents the user defining the assignment. 
-   - Description and Short Description: If you chose a default integration earlier, description, and short description are automatically completed. 
-   - Remediation timeframe: Choose the remediation timeframe to desired deadline for the recommendation to be remediated. 
-   - Apply Grace Period: You can apply a grace period so that the resources that are given a due date don’t affect your Secure Score until they’re overdue.
-   - Set Email Notifications: You can send a remonder to the owners or the owner’s direct manager.
+   - **Assigned to**: Choose the owner whom you would like to assign the affected recommendation to. 
+   - **Caller**: Represents the user defining the assignment. 
+   - **Description and Short Description**: If you chose a default integration earlier, description, and short description are automatically completed. 
+   - **Remediation timeframe**: Choose the remediation timeframe to desired deadline for the recommendation to be remediated. 
+   - **Apply Grace Period**: You can apply a grace period so that the resources that are given a due date don’t affect your Secure Score until they’re overdue.
+   - **Set Email Notifications**: You can send a remonder to the owners or the owner’s direct manager.
 
    :::image type="content" border="true" source="./media/integration-servicenow/assignment-details.png" alt-text="Screenshot of how to complete the assignment details.":::
 
-After the assignment is created, you can see the Ticket ID assigned to this affected resource. The Ticket ID represents the ticket created in the ServiceNow portal.
+   After the assignment is created, you can see the Ticket ID assigned to this affected resource. The Ticket ID represents the ticket created in the ServiceNow portal.
 
-:::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
 
-Click the Ticket ID to go to the to the newly created incident in the ServiceNow portal.
+   Click the Ticket ID to go to the to the newly created incident in the ServiceNow portal.
 
-:::image type="content" border="true" source="./media/integration-servicenow/incident.png" alt-text="Screenshot of an incident.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/incident.png" alt-text="Screenshot of an incident.":::
 
->[!NOTE]
->When integration is deleted, all the assignments will be deleted. It could take up to 24 hrs. 
+   >[!NOTE]
+   >When integration is deleted, all the assignments will be deleted. It could take up to 24 hrs. 
 
 ## Bidirectional synchronization  
 
