@@ -109,7 +109,7 @@ The following three scenarios show examples of instances that would normally err
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 cluster. 
+This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID6/FTT2 and RAID1/FTT3 policies will be supported in future on AV64 SKU. Microsoft will allow customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with 6 or more nodes to meet the service level agreement.  
 
 |RAID configuration 	|Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|
