@@ -72,11 +72,11 @@ You already have an integration environment that includes an application group t
 
 For each stage, you define or specify the properties for the key business data to capture. You then map these properties to selected operations in a Standard logic app workflow that handles this data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
 
-:::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data.":::
+:::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
 When you're done, your stage and specified properties are mapped to the selected Standard logic app workflow, operation, and source data:
 
-:::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data.":::
+:::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
 When your workflows run, they populate the properties that you specified.
 
