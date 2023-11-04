@@ -65,14 +65,14 @@ A system-assigned managed identity is unique to your search service and bound to
 
 ### [**REST API**](#tab/rest-sys)
 
-See [Create or Update Service (Management REST API)](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity).
+See [Create or Update Service (Management REST API)](/rest/api/searchmanagement/services/create-or-update#searchcreateorupdateservicewithidentity).
 
-You can use the Management REST API instead of the portal to assign a user-assigned managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) for this task.
+You can use the Management REST API instead of the portal to assign a user-assigned managed identity.
 
-1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/services/create-or-update).
 
     ```http
-    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2021-04-01-preview
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2023-11-01
     {
       "location": "[region]",
       "sku": {
@@ -132,9 +132,9 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 ### [**REST API**](#tab/rest-user)
 
-You can use the Management REST API instead of the portal to assign a user-assigned managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) for this task.
+You can use the Management REST API instead of the portal to assign a user-assigned managed identity. Be sure to use the 2021-04-01-preview version for this task.
 
-1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/services/create-or-update).
 
     ```http
     PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2021-04-01-preview

@@ -82,7 +82,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
    To set the subscription, use `az account set --subscription {{subscription ID}}`
 
-1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure AI Search. 
+1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement) of Azure AI Search. 
 
    Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. Use `2021-04-01-preview` for this step`.
 
