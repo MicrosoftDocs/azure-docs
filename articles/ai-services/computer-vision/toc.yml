@@ -280,24 +280,14 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: Face quickstart
     href: quickstarts-sdk/identity-client-library.md
-  - name: Samples
-    href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
-  - name: Responsible use of AI
+  
+  - name: Concepts
     items:
-    - name: Transparency notes
-      items:
-      - name: Face use cases
-        href: /legal/cognitive-services/face/transparency-note?context=/azure/ai-services/computer-vision/context/context
-      - name: Characteristics and limitations
-        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
-    - name: Code of conduct
-      href: /legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context
-    - name: Data privacy and security
-      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/ai-services/computer-vision/context/context
-    - name: Limited Access features
-      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
+    - name: Face detection, attributes, and input data
+      href: concept-face-detection.md
+    - name: Face recognition
+      href: concept-face-recognition.md
+  
   - name: How-to guides
     items:
     - name: Face detection, landmarks, and attributes
@@ -328,13 +318,6 @@ items:
         href: how-to/identity-access-token.md
       - name: Use customer-managed keys
         href: identity-encrypt-data-at-rest.md
-
-  - name: Concepts
-    items:
-    - name: Face detection, attributes, and input data
-      href: concept-face-detection.md
-    - name: Face recognition
-      href: concept-face-recognition.md
   - name: Tutorials
     items:
     - name: Add users to a Face identification app
@@ -343,6 +326,26 @@ items:
         href: enrollment-overview.md
       - name: Build a React Native app to enroll users
         href: Tutorials/build-enrollment-app.md
+  - name: Samples
+    href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
+
+  - name: Responsible use of AI
+    items:
+    - name: Transparency notes
+      items:
+      - name: Face use cases
+        href: /legal/cognitive-services/face/transparency-note?context=/azure/ai-services/computer-vision/context/context
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
+    - name: Code of conduct
+      href: /legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context
+    - name: Data privacy and security
+      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/ai-services/computer-vision/context/context
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
+
   - name: Reference
     items:
     - name: Server-side
