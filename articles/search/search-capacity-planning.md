@@ -197,8 +197,8 @@ The error message "Service update operations aren't allowed at this time because
 Resolve this error by checking service status to verify provisioning status:
 
 1. Use the [Management REST API](/rest/api/searchmanagement), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
-1. Call [Get Service (REST)](/rest/api/searchmanagement/services/get?view=rest-searchmanagement-2023-11-01&tabs=HTTP&preserve-version=true) or equivalent for PowerShell or the CLI.
-1. Check the response for ["provisioningState": "provisioning"](/api/searchmanagement/services/get?view=rest-searchmanagement-2023-11-01&tabs=HTTP#provisioningstate&preserve-version=true)
+1. Call [Get Service (REST)](/rest/api/searchmanagement/services/get?view=rest-searchmanagement-2023-11-01&tabs=HTTP&preserve-view=true) or equivalent for PowerShell or the CLI.
+1. Check the response for ["provisioningState": "provisioning"](/api/searchmanagement/services/get?view=rest-searchmanagement-2023-11-01&tabs=HTTP#provisioningstate&preserve-view=true)
 
 If status is "Provisioning", wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There's no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
 
