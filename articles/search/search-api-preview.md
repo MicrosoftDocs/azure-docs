@@ -65,7 +65,7 @@ For content operations, [**`2023-10-01-Preview`**](/rest/api/searchservice/searc
 GET {endpoint}/indexes('{indexName}')?api-version=2023-10-01-Preview
 ```
 
-For management operations, [**`2021-04-01-Preview`**](/rest/api/searchmanagement/management-api-versions#2021-04-01-Preview) is the most recent preview version. The following example shows the syntax for [Update Service (preview)](/rest/api/searchmanagement/2021-04-01-preview/services/update).
+For management operations, [**`2021-04-01-Preview`**](/rest/api/searchmanagement/management-api-versions#2021-04-01-Preview) is the most recent preview version. The following example shows the syntax for Update Service 2021-04-01-preview version.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}?api-version=2021-04-01-preview

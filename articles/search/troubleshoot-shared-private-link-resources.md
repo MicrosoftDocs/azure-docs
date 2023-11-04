@@ -16,7 +16,7 @@ ms.date: 02/22/2023
 
 A shared private link allows Azure AI Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur.
 
-Creating a shared private link is search service control plane operation. You can [create a shared private link](search-indexer-howto-access-private.md) using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). During provisioning, the state of the request is "Updating". After the operation completes successfully, status is "Succeeded". A private endpoint to the resource, along with any DNS zones and mappings, is created. This endpoint is used exclusively by your search service instance and is managed through Azure AI Search.
+Creating a shared private link is search service control plane operation. You can [create a shared private link](search-indexer-howto-access-private.md) using either the portal or a [Management REST API](/rest/api/searchmanagement/shared-private-link-resources/create-or-update?view=rest-searchmanagement-2023-11-01&tabs=HTTP&preserve-view=true). During provisioning, the state of the request is "Updating". After the operation completes successfully, status is "Succeeded". A private endpoint to the resource, along with any DNS zones and mappings, is created. This endpoint is used exclusively by your search service instance and is managed through Azure AI Search.
 
 ![Steps involved in creating shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-states.png)
 
@@ -100,7 +100,7 @@ If you observe that the shared private link resource hasn't transitioned to a te
 
 ## Updating a shared private link resource
 
-An existing shared private link resource can be updated using the [Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). Search only allows for narrow updates to the shared private link resource - only the request message can be modified via this API.
+An existing shared private link resource can be updated using the [Create or Update API](/rest/api/searchmanagement/shared-private-link-resources/create-or-update?view=rest-searchmanagement-2023-11-01&tabs=HTTP&preserve-view=true). Search only allows for narrow updates to the shared private link resource - only the request message can be modified via this API.
 
 + It isn't possible to update any of the "core" properties of an existing shared private link resource (such as `privateLinkResourceId` or `groupId`) and this will always be unsupported. If any other property besides the request message needs to be changed, we advise customers to delete and re-create the shared private link resource.
 
@@ -134,4 +134,4 @@ Some common errors that occur during the deletion phase are listed below.
 Learn more about shared private link resources and how to use it for secure access to protected content.
 
 + [Accessing protected content via indexers](search-indexer-howto-access-private.md)
-+ [REST API reference](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources)
++ [REST API reference](/rest/api/searchmanagement)
