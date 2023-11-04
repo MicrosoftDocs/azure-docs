@@ -1,9 +1,7 @@
 ---
 title: Troubleshooting your Astro deployment
 description: This article provides information about getting support and troubleshooting an Apache Airflow on Astro - An Azure Native ISV Service integration.
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: how-to
 ms.date: 11/13/2023
 
@@ -11,7 +9,7 @@ ms.date: 11/13/2023
 
 # Troubleshooting Astro integration with Azure
 
-You can get support for your Astro deployment through a **New Support request**. The procedure for creating the request is here. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, we have included other troubleshooting for problems you might experience in creating and using an Astro resource.
+You can get support for your Astro deployment through a **New Support request**. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, this article includes  troubleshooting for problems you might experience in creating and using an Astro resource.
 
 ## Getting support
 
@@ -29,17 +27,17 @@ Here are some troubleshooting options to consider:
 
 ### Unable to create an Astro resource as not a subscription owner/ contributor
 
-The Astro resource can only be created by users who have Owner or Contributor access on the Azure subscription. Ensure you have the appropriate access before setting up this integration.
+The Astro resource can only be created by users who have _Owner_ or _Contributor_ access on the Azure subscription. Ensure you have the appropriate access before setting up this integration.
 
 ### Purchase errors
 
-- Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+#### Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
+Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
 
-- The EA subscription doesn't allow Marketplace purchases.
+#### The EA subscription doesn't allow Marketplace purchases
 
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
+Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
 
 ### DeploymentFailed error
 
@@ -56,7 +54,7 @@ If the deployment fails and the Astro resource has a status of `Failed`, delete 
 If SSO isn't working for the Astronomer portal, verify you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
 
 > [!NOTE]
-> If you are seeing an Admin consent screen along with the User consent on your first-time login via SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
+> If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
 
 For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
 
