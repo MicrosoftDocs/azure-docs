@@ -262,7 +262,7 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 
 ### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information, *see* [handwritten language support](language-support-ocr.md#read-handwritten-text). The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information, *see* [handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
