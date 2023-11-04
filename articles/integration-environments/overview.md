@@ -68,7 +68,7 @@ For example, suppose you're an integration developer at a power company. You man
 
 You already have an integration environment that includes an application group that logically organizes Azure resources for this business scenario. To expose some of this underlying information to stakeholders, you can visually define the supported business process and its stages by using the process designer in your integration environment, for example:
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows business process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
 For each stage, you define or specify the properties for the key business data to capture. You then map these properties to selected operations in a Standard logic app workflow that handles this data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
 

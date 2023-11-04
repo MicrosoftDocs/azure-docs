@@ -22,7 +22,7 @@ For example, suppose you're an integration developer at a power company. Your cu
 
 With the business process designer in your integration environment, you can visually describe this business process, for example:
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows business process designer in the busines process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
 Although this example shows a sequential business process, your process can also have parallel branches to represent decision paths.
 
