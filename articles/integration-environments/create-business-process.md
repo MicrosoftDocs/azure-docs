@@ -16,9 +16,9 @@ ms.date: 11/15/2023
 
 After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by visually defining one or more business processes. After you create these processes, you can add tracking for key business data by mapping business process stages to operations and data in Standard logic app workflows.
 
-For example, suppose you're the power company, and your customer service team has the following business process to resolve customer tickets for power outages:
+For example, suppose you're an integration developer at a power company. Your customer service team has the following business process to resolve a customer ticket for a power outage:
 
-:::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/business-process-stages-example.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
 With the business process designer in your integration environment, you can visually describe this business process, for example:
 
@@ -30,7 +30,7 @@ Although this example shows a sequential business process, your process can also
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with existing Azure resources.
+- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with existing Azure resources
 
 ## Create a business process
 
@@ -48,7 +48,7 @@ Although this example shows a sequential business process, your process can also
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*process-name*> | Name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>**Note**: When you deploy your business process, the platform uses this name to create a table in the Data Explorer database that's associated with your application group. Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. <br><br>This example uses **Track-Power-Outages**. |
+   | **Name** | Yes | <*process-name*> | Name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>**Note**: When you deploy your business process, the platform uses this name to create a table in the Data Explorer database that's associated with your application group. Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. <br><br>This example uses **Resolve-Power-Outage**. |
    | **Description** | No | <*process-description*> | Purpose for your business process |
    | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
    | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer**. <br><brThis example uses the **String** data type. |
