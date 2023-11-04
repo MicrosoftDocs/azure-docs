@@ -1,12 +1,12 @@
 ---
-title: How to create Kafka table on Apache FlinkSQL - Azure portal
-description: Learn how to create Kafka table on Apache FlinkSQL
+title: How to create Apache Kafka table on an Apache Flink® on HDInsight on AKS
+description: Learn how to create Apache Kafka table on Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/06/2023
+ms.date: 10/27/2023
 ---
 
-# Create Kafka table on Apache FlinkSQL
+# Create Apache Kafka® table on Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -14,14 +14,14 @@ Using this example, learn how to Create Kafka table on Apache FlinkSQL.
 
 ## Prerequisites
 
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [Apache Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [Apache Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 
 ## Kafka SQL connector on Apache Flink
 
 The Kafka connector allows for reading data from and writing data into Kafka topics. For more information, refer [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/kafka)
 
-## Create a Kafka table on Apache Flink SQL
+## Create a Kafka table on Flink SQL
 
 ### Prepare topic and data on HDInsight Kafka
 
@@ -123,7 +123,7 @@ Detailed instructions are provided on how to use Secure Shell for [Flink SQL cli
 
 ### Download Kafka SQL Connector & Dependencies into SSH
 
-We're using the **Kafka 3.2.0** dependencies in the below step, You're required to update the command based on your Kafka version on HDInsight. 
+We're using the **Kafka 3.2.0** dependencies in the below step, You're required to update the command based on your Kafka version on HDInsight cluster. 
 ```
 wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.2.0/kafka-clients-3.2.0.jar
 wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.0/flink-connector-kafka-1.16.0.jar
@@ -181,3 +181,4 @@ Here are the streaming jobs on Flink Web UI
 ## Reference
 
 * [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/kafka)
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

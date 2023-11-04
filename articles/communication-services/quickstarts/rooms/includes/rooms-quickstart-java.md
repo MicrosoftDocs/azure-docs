@@ -303,7 +303,7 @@ System.out.println("Participant(s) removed");
 
 ### List all active rooms
 
-Retrieve all active `rooms` under your ACS resource.
+Retrieve all active `rooms` under your Azure Communication Services resource.
 
 ```java
 try {

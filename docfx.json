@@ -726,7 +726,7 @@
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
       "feedback_system": {
-        "articles/active-directory-b2c/*.md": "None",
+        "articles/active-directory-b2c/*.md": "GitHub",
         "articles/ai-services/Academic-Knowledge/**/*.md": "None",
         "articles/ai-services/custom-decision-service/**/*.md": "None",
         "articles/ai-services/Emotion/**/*.md": "None",

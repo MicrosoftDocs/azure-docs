@@ -1,12 +1,12 @@
 ---
 title: Using Virtual Machine Restore Points
 description: Using Virtual Machine Restore Points
-author: mamccrea
-ms.author: mamccrea
+author: aarthiv
+ms.author: aarthiv
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 11/01/2023
 ms.custom: conceptual
 ---
 
@@ -55,9 +55,9 @@ Currently, restore points can only be created in one VM at a time, that is, you 
 - Restore points for Virtual Machine Scale Sets in Uniform orchestration mode are not supported. 
 - Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
  > [!Note]
- > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 
+ > Public preview of cross-region copying of VM restore points is available, with the following limitations: 
  > - Private links are not supported when copying restore points across regions or creating restore points in a region other than the source VM. 
- > - Customer-managed key encrypted restore points, when copied to a target region or created directly in the target region are created as platform-managed key encrypted restore points.
+ > - Customer-managed key encrypted restore points, when copied to a target region are created as platform-managed key encrypted restore points.
 
 ## Troubleshoot VM restore points
 Most common restore points failures are attributed to the communication with the VM agent and extension, and can be resolved by following the troubleshooting steps listed in the [troubleshooting](restore-point-troubleshooting.md) article.

@@ -71,7 +71,8 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
     You should see the following if the pod is primary: `successfully acquired lease azure-alb-system/alb-controller-leader-election`
 
 2. Collect the logs
-    Logs from ALB Controller will be returned in JSON format.
+
+   Logs from ALB Controller will be returned in JSON format.
     
     Execute the following kubectl command, replacing the name with the pod name returned in step 1:
     ```bash

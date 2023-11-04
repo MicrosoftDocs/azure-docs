@@ -40,7 +40,7 @@ If you're an existing **Azure Arc-enabled VMware** customer, for VMs that are Az
 5. Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (VMware)**.
 
     :::image type=" New VM browse view" source="media/switch-to-new-preview-version/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-preview-version/new-vm-browse-view-expanded.png":::
- 
+
 ## Next steps
 
 [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](/azure/azure-arc/vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script).
