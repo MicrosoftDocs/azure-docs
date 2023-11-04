@@ -152,7 +152,7 @@ The diagram below illustrates the configuration of the servers prior to the prom
 
 **Promote to independent server and remove from replication** 
 
-By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
+By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. It should be noted that while virtual endpoints can be configured, they are not a necessity for this operation. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion to independent server operation has been successfully completed.
 
@@ -189,7 +189,7 @@ The promote operation won't carry over certain configurations and parameters. He
 
 
 ## Virtual Endpoints (preview)
-Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the PostgreSQL instance. This means you don't have to update your application's connection string after promoting a replica. 
+Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the PostgreSQL instance. This means you don't have to update your application's connection string after performing the **promote to primary server** action, as the endpoints will automatically point to the correct instance following a role change. 
 
 All operations involving virtual endpoints, whether adding, editing, or removing, are performed in the context of the primary server. In the Azure portal, you'll manage these endpoints under the primary server blade. Similarly, when using tools like the CLI, REST API, or other utilities, commands and actions will target the primary server for endpoint management.
 
