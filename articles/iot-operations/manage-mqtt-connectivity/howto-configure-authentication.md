@@ -144,7 +144,7 @@ site = "site1"
 To encode the password using PBKDF2, download and install the CLI tool to generate PBKDF2 password hashes from Windows, macOS or Linux machines.
 
 ```bash
-az edge e4k get-password-hash --phrase TestPassword
+az iot ops mq get-password-hash --phrase TestPassword
 ```
 
 The output shows the PBKDF2 password hash to copy:

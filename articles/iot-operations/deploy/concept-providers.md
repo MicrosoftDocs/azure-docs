@@ -78,7 +78,7 @@ The following solution snippet demonstrates installing a Helm chart using the He
         "values": {
           "e4iNamespace": "default",
           "mqttBroker": {
-            "name": "azedge-dmqtt-frontend",
+            "name": "aio-mq-dmqtt-frontend",
             "namespace": "default",
             "authenticationMethod": "serviceAccountToken"
           },
