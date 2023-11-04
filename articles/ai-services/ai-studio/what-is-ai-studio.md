@@ -26,10 +26,10 @@ Azure AI Studio is designed for developers to:
 - Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
-- Build together as one team. Your Azure AI resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pre-trained models, data and compute.
+- Build together as one team. Your Azure AI resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
 - Organize your way. Your project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
-With Azure AI Studio, you can evaluate large language model (LLM) responses, pinpoint areas for fine-tuning, and orchestrate prompt application components with prompt flow for better performance. With clear cost and billing, the platform facilitates scalability, transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement supports long-term success.  
+With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
 ## Getting around in Azure AI Studio
 
@@ -46,7 +46,7 @@ The introduction to Azure AI, with information about what's new, access to any e
 
 This is where you can find a model, service, or solution to start working on. The goal is that you can find, and try, all of Azure AI from here. Explore is stateless, so when you want to save settings and assets such as data you create a project and continue on the [Build](?tabs=build) page. 
 
-- Growing suite of tools, patterns, and guidance on how to build with AI so that enterprise can scale PoCs with a paved path to full production
+- Explore has a growing suite of tools, patterns, and guidance on how to build with AI so that enterprise can scale PoCs with a paved path to full production.
 - Guidance about how to select the right models and tools based on your use case.
 - Test AI solutions with your app code and data and receive guidance on standardized methods to evaluate the model, prompt, and overall application pipeline.
 - The try-out and model catalog cards provide an easy way to spin up a new project or add to an existing project.
@@ -55,13 +55,13 @@ This is where you can find a model, service, or solution to start working on. Th
 
 # [Build](#tab/build)
 
-Developers will spend most time here. Some assets can be shared across projects, so a flow or content safety filter created in one project can be used by another. Your dataset or index can be shared. 
+Build is an experience where AI Devs and ML Pros can build or customize AI solutions and models. Developers can switch between studio and code.
 
 - Simplified development of large language model (LLM) solutions and copilots with end-to-end app templates and prompt samples for common use cases.
 - Orchestration framework to handle the complex mapping of functions and code between LLMs, tools, custom code, prompts, data, search indexes, and more.
 - Evaluate, deploy, and continuously monitor your AI application and app performance 
 
-:::image type="content" source="./media/explore/ai-studio-tab-build.png" alt-text="Screenshot of the signed-out Azure AI Studio build page." lightbox="./media/explore/ai-studio-tab-build.png":::
+:::image type="content" source="./media/explore/ai-studio-tab-build.png" alt-text="Screenshot of the signed-out Azure AI Studio Build page." lightbox="./media/explore/ai-studio-tab-build.png":::
 
 # [Manage](#tab/manage)
 
@@ -84,8 +84,7 @@ Azure AI Studio is currently available in all regions where Azure OpenAI Service
 
 ## How to get access
 
-You can sign in to Azure AI Studio if your Azure subscription has been granted access to the Azure OpenAI service. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You'll receive a follow-up email when your subscription has been added.
-
+You can explore Azure AI Studio without signing in, but for full functionality an Azure account is needed and apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription has been added.
 
 ## Next steps 
 

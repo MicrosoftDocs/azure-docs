@@ -33,7 +33,7 @@ For efficient navigation, it might be helpful to navigate by landmarks to move b
 
 In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this in the primary navigation landmark.
 
-Within **Explore**, you'll be able to explore many capabilities found within the secondary navigation. These include model catalog, model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
+Within **Explore**, you can explore many capabilities found within the secondary navigation. These include model catalog, model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
 - Model catalog contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
 - Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
@@ -46,7 +46,7 @@ To work within the Azure AI Studio, you must first create a project:
 
 You then get taken to the project details page. 
 
-Within a project, you'll be able to explore many capabilities found within the secondary navigation. These include playground, prompt flow, evaluation, and deployments. The secondary navigation contains an H2 heading with the project title, which can be used for efficient navigation.
+Within a project, you can explore many capabilities found within the secondary navigation. These include playground, prompt flow, evaluation, and deployments. The secondary navigation contains an H2 heading with the project title, which can be used for efficient navigation.
 
 ## Using the playground 
 
@@ -78,13 +78,13 @@ This is where you can chat to the model and test out your assistant
     ```
 
 
-## Using Prompt flow 
+## Using prompt flow 
 
 Prompt flow is a tool to create executable flows, linking LLMs, prompts and Python tools through a visualized graph. You can use this to prototype, experiment and iterate on your AI applications before deploying.  
 
 With the Build tab selected, navigate to the secondary navigation landmark and press the down arrow until you hear *flows*.  
 
-The Prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files and Graph sections each have their own H2 headings that can be used for navigation.
+The prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files and Graph sections each have their own H2 headings that can be used for navigation.
 
 
 ### Flow 
