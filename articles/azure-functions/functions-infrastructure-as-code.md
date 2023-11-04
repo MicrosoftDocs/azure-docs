@@ -1683,7 +1683,7 @@ The following site settings are required on the `siteConfig` property:
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 The following application settings are required for a specific operating system and hosting option:
 ::: zone-end  
-::: zone pivot="consumption-plan  
+::: zone pivot="consumption-plan"  
 
 ### [Windows](#tab/windows)
 
@@ -1710,7 +1710,7 @@ The following application settings are required for a specific operating system 
 
 <sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.   
 ::: zone-end  
-:::zone pivot="premium-plan  
+:::zone pivot="premium-plan"  
 ### [Windows](#tab/windows)
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
@@ -1737,7 +1737,7 @@ The following application settings are required for a specific operating system 
  
 [!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 ::: zone-end 
-:::zone pivot="dedicated-plan  
+:::zone pivot="dedicated-plan"  
 ### [Windows](#tab/windows)
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
