@@ -8,7 +8,7 @@ ms.reviewer: cogoodson
 
 # Migrate from Application Insights instrumentation keys to connection strings
 
-This article walks you through migrating from [instrumentation keys](create-workspace-resource.md#about-resources-and-instrumentation-keys) to [connection strings](sdk-connection-string.md#overview).
+This article walks through migrating from instrumentation keys to [connection strings](sdk-connection-string.md#overview).
 
 ## Prerequisites
 

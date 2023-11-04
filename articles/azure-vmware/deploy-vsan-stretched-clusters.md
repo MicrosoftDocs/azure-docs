@@ -57,7 +57,7 @@ It should be noted that these types of failures, although rare, fall outside the
 
 Azure VMware Solution stretched clusters are available in the following regions: 
 
-- UK South (on AV36) 
+- UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
 - Germany West Central (on AV36) 
 - Australia East (on AV36P) 

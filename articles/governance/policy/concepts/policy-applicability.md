@@ -22,9 +22,13 @@ Condition(s) in the `if` block of the policy rule are evaluated for applicabilit
 > [!NOTE]
 > Applicability is different from compliance, and the logic used to determine each is different. If a resource is **applicable** that means it is relevant to the policy. If a resource is **compliant** that means it adheres to the policy. Sometimes only certain conditions from the policy rule impact applicability, while all conditions of the policy rule impact compliance state.
 
-## Applicability logic for Resource Manager modes
+## Resource manager modes
 
-### Append, Audit, Manual, Modify and Deny policy effects
+### -IfNotExists policy effects
+
+The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
+
+### All other policy effects
 
 Azure Policy evaluates only `type`, `name`, and `kind` conditions in the policy rule `if` expression and treats other conditions as true (or false when negated). If the final evaluation result is true, the policy is applicable. Otherwise, it's not applicable.
 
@@ -41,17 +45,14 @@ Following are special cases to the previously described applicability logic:
 |When the `if` conditions consist of `type`, `name`, and other conditions |Both `type` and `name` conditions are considered when deciding applicability |
 |When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
-### AuditIfNotExists and DeployIfNotExists policy effects
 
-The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
-
-## Applicability logic for resource provider modes
+## Resource provider modes
 
 ### Microsoft.Kubernetes.Data
 
 The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
-### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, Microsoft.DataFactory.Data
+### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, and Microsoft.DataFactory.Data
 
 Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type.
 
@@ -71,8 +72,17 @@ Azure Data Factory component type:
 Policies with mode `Microsoft.Network.Data` are applicable if the `type` and `name` conditions of the policy rule evaluate to true. The `type` refers to  component type:
 - Microsoft.Network/virtualNetworks
 
+## Not Applicable Resources 
+
+There could be situations in which resources are applicable to an assignment based on conditions or scope, but they shouldn't be applicable due to business reasons. At that time, it would be best to apply [exclusions](./assignment-structure.md#excluded-scopes) or [exemptions](./exemption-structure.md). To learn more on when to use either, review [scope comparison](./scope.md#scope-comparison)
+
+> [!NOTE]
+> By design, Azure Policy does not evaluate resources under the `Microsoft.Resources` resource provider (RP) from
+policy evaluation, except for subscriptions and resource groups. 
+
 ## Next steps
 
+- Learn how to [mark resources as not applicable](./assignment-structure.md#excluded-scopes).
+- Lean more on [applicability limitations](https://github.com/azure/azure-policy#known-issues)
 - Learn how to [Get compliance data of Azure resources](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review the [update in policy compliance for resource type policies](https://azure.microsoft.com/updates/general-availability-update-in-policy-compliance-for-resource-type-policies/).

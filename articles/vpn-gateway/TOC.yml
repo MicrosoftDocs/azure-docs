@@ -93,8 +93,8 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Add additional site-to-site connections
-      href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
+    - name: Add or remove site-to-site-connections
+      href: add-remove-site-to-site-connections.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
   - name: Site-to-site with ExpressRoute connections
@@ -217,6 +217,8 @@
     items:
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
+    - name: Change a gateway SKU
+      href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
   - name: Routing, BGP, and VNet Peering
@@ -279,6 +281,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configure packet captures 
       href: packet-capture.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot VPN Gateway
@@ -315,7 +319,7 @@
       href: vpn-gateway-howto-vnet-vnet-portal-classic.md
     - name: Delete a VPN gateway
       href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Configure multiple site-to-site connections
+    - name: Add or remove site-to-site connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
       href: ./vpn-gateway-howto-site-to-site-classic-portal.md
