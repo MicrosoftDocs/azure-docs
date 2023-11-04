@@ -16,6 +16,8 @@
     href: ai-studio/faq.yml
 - name: Quickstarts
   items:
+  - name: Deploy a chat web app
+    href: ai-studio/quickstarts/deploy-chat-web-app.md
   - name: Generate product name ideas in the playground
     href: ai-studio/quickstarts/playground-completions.md
   - name: Moderate text and images with content safety

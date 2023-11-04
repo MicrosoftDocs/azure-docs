@@ -31,7 +31,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
-1. Select your deployment from the **Deployments** dropdown. If you don't make any changes, the **gpt-35-turbo** model is selected by default. 
+1. Select your deployment from the **Deployments** dropdown. 
 1. Select **Completions** from the **Mode** dropdown menu.
 1. Select **Generate product name ideas** from the **Examples** dropdown menu. The system prompt is prepopulated with something resembling the following text:
 
