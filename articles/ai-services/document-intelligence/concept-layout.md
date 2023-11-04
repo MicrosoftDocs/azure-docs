@@ -629,16 +629,16 @@ The layout model extracts text, selection marks, tables, paragraphs, and paragra
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
-    ```JSON
+```json
 
-    "paragraphs": [
-        {
-            "spans": [],
-            "boundingRegions": [],
-            "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-        }
-    ]
-    ```
+"paragraphs": [
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
+]
+```
 
 ### Paragraph roles
 
@@ -653,152 +653,152 @@ The new machine-learning based page object detection extracts logical roles like
 | `pageFooter`  | Text near the bottom edge of the page  |
 | `pageNumber`  | Page number  |
 
-    ```json
-    {
-        "paragraphs": [
-                    {
-                        "spans": [],
-                        "boundingRegions": [],
-                        "role": "title",
-                        "content": "NEWS TODAY"
-                    },
-                    {
-                        "spans": [],
-                        "boundingRegions": [],
-                        "role": "sectionHeading",
-                        "content": "Mirjam Nilsson"
-                    }
-        ]
-    }
+```json
+{
+    "paragraphs": [
+                {
+                    "spans": [],
+                    "boundingRegions": [],
+                    "role": "title",
+                    "content": "NEWS TODAY"
+                },
+                {
+                    "spans": [],
+                    "boundingRegions": [],
+                    "role": "sectionHeading",
+                    "content": "Mirjam Nilsson"
+                }
+    ]
+}
 
-    ```
+```
 
 ### Pages
 
 The pages collection is the first object you see in the service response.
 
-    ```json
-    "pages": [
-        {
-            "pageNumber": 1,
-            "angle": 0,
-            "width": 915,
-            "height": 1190,
-            "unit": "pixel",
-            "words": [],
-            "lines": [],
-            "spans": [],
-            "kind": "document"
-        }
-    ]
-    ```
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
+]
+```
 
 ### Text lines and words
 
 The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-    ```json
-    "words": [
-        {
-            "content": "While",
-            "polygon": [],
-            "confidence": 0.997,
-            "span": {}
-        },
-    ],
-    "lines": [
-        {
-            "content": "While healthcare is still in the early stages of its Al journey, we",
-            "polygon": [],
-            "spans": [],
-        }
-    ]
-    ```
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
 
 ### Selection marks
 
 The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
-    ```json
-    {
-        "selectionMarks": [
-            {
-                "state": "unselected",
-                "polygon": [],
-                "confidence": 0.995,
-                "span": {
-                    "offset": 1421,
-                    "length": 12
-                }
+```json
+{
+    "selectionMarks": [
+        {
+            "state": "unselected",
+            "polygon": [],
+            "confidence": 0.995,
+            "span": {
+                "offset": 1421,
+                "length": 12
             }
-        ]
-    }
-    ```
+        }
+    ]
+}
+```
 
 ### Tables
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
-    ```json
-    {
-        "tables": [
-            {
-                "rowCount": 9,
-                "columnCount": 4,
-                "cells": [
-                    {
-                        "kind": "columnHeader",
-                        "rowIndex": 0,
-                        "columnIndex": 0,
-                        "columnSpan": 4,
-                        "content": "(In millions, except earnings per share)",
-                        "boundingRegions": [],
-                        "spans": []
-                        },
-                ]
-            }
-        ]
-    }
+```json
+{
+    "tables": [
+        {
+            "rowCount": 9,
+            "columnCount": 4,
+            "cells": [
+                {
+                    "kind": "columnHeader",
+                    "rowIndex": 0,
+                    "columnIndex": 0,
+                    "columnSpan": 4,
+                    "content": "(In millions, except earnings per share)",
+                    "boundingRegions": [],
+                    "spans": []
+                    },
+            ]
+        }
+    ]
+}
 
-    ```
+```
 
 ### Handwritten style for text lines
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](#handwritten-text). The following example shows an example JSON snippet.
 
-    ```json
-    "styles": [
+```json
+"styles": [
+{
+    "confidence": 0.95,
+    "spans": [
     {
-        "confidence": 0.95,
-        "spans": [
-        {
-            "offset": 509,
-            "length": 24
-        }
-        "isHandwritten": true
-        ]
+        "offset": 509,
+        "length": 24
     }
-    ```
+    "isHandwritten": true
+    ]
+}
+```
 
 ### Annotations (available only in ``2023-07-31`` (v3.1 GA) API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
 
-    ```json
+```json
+    {
+    "pages": [
+    {
+        "annotations": [
         {
-      "pages": [
-        {
-          "annotations": [
-            {
-              "kind": "cross",
-              "polygon": [...],
-              "confidence": 1
-            }
-          ]
+            "kind": "cross",
+            "polygon": [...],
+            "confidence": 1
         }
-      ]
+        ]
     }
-    ```
+    ]
+}
+```
 
 ### Extract selected page(s) from documents
 
@@ -812,15 +812,15 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content is output as part of the `content` section.
 
-    ```json
-    "analyzeResult": {
-    "apiVersion": "2023-10-31-preview",
-    "modelId": "prebuilt-layout",
-    "contentFormat": "markdown",
-    "content": "# CONTOSO LTD...",
-    }
+```json
+"analyzeResult": {
+"apiVersion": "2023-10-31-preview",
+"modelId": "prebuilt-layout",
+"contentFormat": "markdown",
+"content": "# CONTOSO LTD...",
+}
 
-    ```
+```
 
 :::moniker-end
 

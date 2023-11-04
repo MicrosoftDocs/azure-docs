@@ -34,7 +34,7 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Prebuilt models enable you to add intelligent domain-specific document processing to your apps and flows without having to train and build your own models. The following tables list the available language and locale support by model and feature:
 
-:::moniker range="<=doc-intel-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 
 ## [Business card](#tab/business-card)
 
@@ -42,8 +42,15 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 | Language—Locale code | Default |
 |:----------------------|:---------|
-| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
-|Business card (v2.1 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
+| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP)
+
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+|&bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
 
 :::moniker-end
 
