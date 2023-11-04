@@ -75,7 +75,7 @@ To create an encryption scope that is protected by customer-managed keys stored 
 
 To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
 The following example shows how to configure an encryption scope with a system-assigned managed identity. Remember to replace the placeholder values in the example with your own values:
 
@@ -130,7 +130,7 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in a different tenant than the storage account, first configure customer-managed keys for the storage account. You must configure a user-assigned managed identity for the storage account that has permissions to access the key vault in the other tenant. To learn more about configuring cross-tenant customer-managed keys, see [Configure cross-tenant customer-managed keys for an existing storage account](../common/customer-managed-keys-configure-cross-tenant-existing-account.md).
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
 After you have configured cross-tenant customer-managed keys for the storage account, you can create an encryption scope on the storage account in one tenant that is scoped to a key in a key vault in the other tenant. You will need the key URI to create the cross-tenant encryption scope.
 
@@ -177,7 +177,7 @@ To create an encryption scope that is protected by customer-managed keys stored 
 
 To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
 The following example shows how to configure an encryption scope with a system-assigned managed identity. Remember to replace the placeholder values in the example with your own values:
 
@@ -232,7 +232,7 @@ az storage account encryption-scope create \
 
 To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in a different tenant than the storage account, first configure customer-managed keys for the storage account. You must configure a user-assigned managed identity for the storage account that has permissions to access the key vault in the other tenant. To learn more about configuring cross-tenant customer-managed keys, see [Configure cross-tenant customer-managed keys for an existing storage account](../common/customer-managed-keys-configure-cross-tenant-existing-account.md).
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
 After you have configured cross-tenant customer-managed keys for the storage account, you can create an encryption scope on the storage account in one tenant that is scoped to a key in a key vault in the other tenant. You will need the key URI to create the cross-tenant encryption scope.
 
