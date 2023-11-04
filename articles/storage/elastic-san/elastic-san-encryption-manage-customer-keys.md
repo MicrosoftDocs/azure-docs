@@ -38,7 +38,7 @@ You can change the key that you're using for Azure Elastic SAN encryption at any
 To change the key with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 
 
-If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](elastic-san-encryption-configure-customer-managed-keys-key-vault.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you opt for manual updating of the key version, you'll also need to [update the key vault URI](elastic-san-encryption-configure-customer-managed-keys-key-vault.md#manual-key-version-rotation).
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](elastic-san-configure-customer-managed-keys.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you opt for manual updating of the key version, you'll also need to [update the key vault URI](elastic-san-configure-customer-managed-keys.md#manual-key-version-rotation).
 
 ## Update the key version
 
@@ -59,13 +59,13 @@ To automatically update a customer-managed key when a new version is available, 
 
 Azure Elastic SAN checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
 
-If the Elastic SAN volume group was previously configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For details on how to do this, see [Manual key version rotation](elastic-san-encryption-configure-customer-managed-keys-key-vault.md#manual-key-version-rotation).
+If the Elastic SAN volume group was previously configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For details on how to do this, see [Manual key version rotation](elastic-san-configure-customer-managed-keys.md#manual-key-version-rotation).
 
 ### Manually update the key version
 
 To use a specific version of a key for Azure Elastic SAN encryption, specify that key version when you enable encryption with customer-managed keys for the Elastic SAN volume group. If you specify the key version, then Azure Elastic SAN uses that version for encryption until you manually update the key version.
 
-When the key version is explicitly specified, then you must manually update the Elastic SAN volume group to use the new key version URI when a new version is created. To learn how to update the Elastic SAN volume group to use a new version of the key, see [Configure encryption with customer-managed keys stored in Azure Key Vault](elastic-san-encryption-configure-customer-managed-keys-key-vault.md).
+When the key version is explicitly specified, then you must manually update the Elastic SAN volume group to use the new key version URI when a new version is created. To learn how to update the Elastic SAN volume group to use a new version of the key, see [Configure encryption with customer-managed keys stored in Azure Key Vault](elastic-san-configure-customer-managed-keys.md).
 
 ## Revoke access to a volume group that uses customer-managed keys
 
@@ -105,4 +105,4 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName "ResourceGroupName" -ElasticSa
 
 ## See also
 
-- [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-encryption-configure-customer-managed-keys-key-vault.md)
+- [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-configure-customer-managed-keys.md)
