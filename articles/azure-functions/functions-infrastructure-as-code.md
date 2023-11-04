@@ -1672,16 +1672,15 @@ The following site settings are required on the `siteConfig` property:
 ::: zone-end  
 :::zone pivot="container-apps"  
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 ::: zone-end  
 :::zone pivot="container-apps,azure-arc"  
 + [`alwaysOn`](functions-app-settings.md#alwayson)
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 ::: zone-end  
-<sup>*</sup>Only required for .NET (C#) apps.
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-The following application settings are required for a specific operating system and hosting option:
+These application settings are required for a specific operating system and hosting option:
 ::: zone-end  
 ::: zone pivot="consumption-plan"  
 
@@ -1692,9 +1691,9 @@ The following application settings are required for a specific operating system 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
 
 ### [Linux](#tab/linux)
 
@@ -1703,12 +1702,8 @@ The following application settings are required for a specific operating system 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
-
-<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
-<sup>2</sup>Supported only for Node.js deployments.  
-
-<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.   
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
+ 
 ::: zone-end  
 :::zone pivot="premium-plan"  
 ### [Windows](#tab/windows)
@@ -1718,12 +1713,9 @@ The following application settings are required for a specific operating system 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>2</sup>
-
-<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
-<sup>2</sup>Supported only for Node.js deployments.  
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
 
 ### [Linux](#tab/linux)
 
@@ -1732,9 +1724,9 @@ The following application settings are required for a specific operating system 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
- 
+
 [!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 ::: zone-end 
 :::zone pivot="dedicated-plan"  
@@ -1745,9 +1737,7 @@ The following application settings are required for a specific operating system 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
-
-<sup>1</sup>Supported only for Node.js deployments.  
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
 
 ### [Linux](#tab/linux)
 
@@ -1763,6 +1753,7 @@ The following application settings are required for a specific operating system 
 
 ::: zone-end 
 :::zone pivot="container-app,azure-arc"  
+These application settings are required for container deployments:
  
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
@@ -1771,8 +1762,14 @@ The following application settings are required for a specific operating system 
 [!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 ::: zone-end 
 
-Keep these considerations in mind when working with application settings using Bicep files or ARM templates:
- 
+Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
+ :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
++ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.
+
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version) is only supported for Node.js deployments. 
+
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion) is only supported for .NET deployments.
+::: zone-end
 + You should always define your application settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This makes sure that the settings that your function app needs to run are available on initial startup.
 
 + When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
