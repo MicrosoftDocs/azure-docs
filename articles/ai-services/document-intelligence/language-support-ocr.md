@@ -274,7 +274,7 @@ The following table lists read model language support for extracting and analyzi
   |Lakota|lkt|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Latin|la|
   |Latvian|lv|
@@ -356,7 +356,7 @@ The following table lists read model language support for extracting and analyzi
   |Sango|sg|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Sangu (Gabon)|snq|
   |Sanskrit (Devanagari)|sa|
@@ -438,7 +438,7 @@ The following table lists read model language support for extracting and analyzi
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Afrikaans|af|
   |Angika|anp|
@@ -483,7 +483,7 @@ The following table lists read model language support for extracting and analyzi
   |Finnish|fi|
 :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Filipino|fil|
   |Fijian|fj|
@@ -528,7 +528,7 @@ The following table lists read model language support for extracting and analyzi
   |Kalaallisut|kl|
   :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Khaling|klr|
   |Malto|kmj|
@@ -941,7 +941,7 @@ The following table lists layout model language support for extracting and analy
   |Finnish|fi|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Fon|fon|
   |French|fr|
@@ -1023,7 +1023,7 @@ The following table lists layout model language support for extracting and analy
   |Lakota|lkt|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Latin|la|
   |Latvian|lv|
@@ -1105,7 +1105,7 @@ The following table lists layout model language support for extracting and analy
   |Sango|sg|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Sangu (Gabon)|snq|
   |Sanskrit (Devanagari)|sa|
@@ -1187,7 +1187,7 @@ The following table lists layout model language support for extracting and analy
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Afrikaans|af|
   |Angika|anp|
@@ -1232,7 +1232,7 @@ The following table lists layout model language support for extracting and analy
   |Finnish|fi|
 :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Filipino|fil|
   |Fijian|fj|
@@ -1277,7 +1277,7 @@ The following table lists layout model language support for extracting and analy
   |Kalaallisut|kl|
   :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Khaling|klr|
   |Malto|kmj|

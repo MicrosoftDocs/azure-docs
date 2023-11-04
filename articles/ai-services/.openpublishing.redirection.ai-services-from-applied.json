@@ -598,7 +598,7 @@
     },
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/language-support.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/language-support-ocr.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/language-support-ocr",
       "redirect_document_id": true
     }
   ]
