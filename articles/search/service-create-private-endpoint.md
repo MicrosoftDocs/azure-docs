@@ -21,7 +21,7 @@ In this article, you'll learn how to secure an Azure AI Search service so that i
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
-You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
 > Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.

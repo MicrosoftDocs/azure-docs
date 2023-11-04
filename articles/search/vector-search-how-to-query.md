@@ -177,11 +177,14 @@ api-key: {{admin-api-key}}
 
 ### [**2023-07-01-Preview**](#tab/query-vector-query)
 
+> [!IMPORTANT]
+> The vector query syntax for this version is obsolete in later versions.
+
 REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) first introduced vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version added:
 
 + `vectors` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
 
-In the following example, the vector is a representation of this query string: "c support full text search". The query targets the "contentVector" field. The query returns `k` results. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
+In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The query returns `k` results. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
@@ -237,13 +240,13 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**Python**](#tab/python-vector-query)
 
-+ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents//11.4.0b11/) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-vector-query)
 
-+ Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
++ Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
@@ -297,7 +300,7 @@ Here's a modified example so that you can see the basic structure of a response 
 **Key points:**
 
 + `k` usually determines how many matches are returned. You can assume a `k` of three for this response.
-+ The **`@search.score`** is determined by the HNSW algorithm and a `cosine` similarity metric. 
++ The **`@search.score`** is determined by the [vector search algorithm](vector-search-ranking.md) (HNSW algorithm and a `cosine` similarity metric in this example). 
 + Fields include text and vector values. The content vector field consists of 1536 dimensions for each match, so it's truncated for brevity (normally, you might exclude vector fields from results). The text fields used in the response (`"select": "title, category"`) aren't used during query execution. The match is made on vector data alone. However, a response can include any "retrievable" field in an index. As such, the inclusion of text fields is helpful because its values are easily recognized by users.
 
 ## Vector query with filter
