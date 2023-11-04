@@ -280,6 +280,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: Face quickstart
     href: quickstarts-sdk/identity-client-library.md
+  - name: Samples
+    href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
   - name: Responsible use of AI
     items:
     - name: Transparency notes
