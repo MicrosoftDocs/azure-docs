@@ -70,12 +70,13 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
 
     | Prompt | Value |
     |--|--|
-    | Select subscription | Select the Azure subscription you want to use |
-    | Enter a name for the new container app resource(s) | Enter **my-container-app** |
-    | Select a location | Select an Azure region close to you |
-    | Would you like to save your deployment configuration | Select **Save** |
+    | Select subscription | Select the Azure subscription you want to use. |
+    | Select a container apps environment | Select **Create new container apps environment**. You'll only be asked this question if you have existing container apps environments. |
+    | Enter a name for the new container app resource(s) | Enter **my-container-app**. |
+    | Select a location | Select an Azure region close to you. |
+    | Would you like to save your deployment configuration? | Select **Save**. |
 
-    The activity log panel opens and displays the deployment progress. This process may take a few minutes to complete.
+    The Azure activity log panel opens and displays the deployment progress. This process may take a few minutes to complete.
 
 1. Once this process finishes, Visual Studio Code displays a notification. Select **Browse** to open the deployed app in a browser.
 
