@@ -68,7 +68,7 @@ The following table summarizes each plan and their cloud availability.
 
 ## Integrations (preview)
 
-Microsoft Defender for Cloud now has built-in integration to help you use third-party systems to seamlessly manage and track tickets, events, and customer interactions. You can push recommendations to a third-party ticketing tool, and assign responsibility to a team for remediation. 
+Microsoft Defender for Cloud now has built-in integrations to help you use third-party systems to seamlessly manage and track tickets, events, and customer interactions. You can push recommendations to a third-party ticketing tool, and assign responsibility to a team for remediation. 
 
 Integration streamlines your incident response process, and improves your ability to manage security incidents. You can track, prioritize, and resolve security incidents more effectively.
 
