@@ -300,7 +300,9 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker range=">=doc-intel-3.0.0"
 
- Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
+ Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types. 
+ 
+ Document Intelligence v4.0 and later versions introduces support for currency for all price-related fields for thermal and hotel reciepts. 
 
 ### receipt
 
