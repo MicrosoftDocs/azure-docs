@@ -41,20 +41,20 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a consumption profile, but you can also add any of the following profiles:
 
-| Display name | Name | Cores | MemoryGiB | Category | Allocation |
+| Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation |
 |---|---|---|---|---|---|
-| Consumption | consumption |4 | 8 | Consumption | per replica |
-| Dedicated-D4 | D4 | 4 | 16 | General purpose | per node |
-| Dedicated-D8 | D8 | 8 | 32 | General purpose | per node |
-| Dedicated-D16 | D16 | 16 | 64 | General purpose | per node |
-| Dedicated-D32 | D32 | 32 | 128 | General purpose | per node |
-| Dedicated-E4 | E4 | 4 | 32 | Memory optimized | per node |
-| Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
-| Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
-| Dedicated-E32 | E32 | 32 | 256 | Memory optimized | per node |
-| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | GPU enabled | per node<sup>\*</sup> |
-| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | GPU enabled | per node<sup>\*</sup> |
-| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | GPU enabled | per node<sup>\*</sup> |
+| Consumption | consumption |4 | 8 | - | Consumption | per replica |
+| Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
+| Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
+| Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |
+| Dedicated-D32 | D32 | 32 | 128 | - | General purpose | per node |
+| Dedicated-E4 | E4 | 4 | 32 | - | Memory optimized | per node |
+| Dedicated-E8 | E8 | 8 | 64 | - | Memory optimized | per node |
+| Dedicated-E16 | E16 | 16 | 128 | - | Memory optimized | per node |
+| Dedicated-E32 | E32 | 32 | 256 | - | Memory optimized | per node |
+| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | 1 | GPU enabled | per node<sup>\*</sup> |
+| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> |
+| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> |
 
 <sup>\* Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.</sup>
 
