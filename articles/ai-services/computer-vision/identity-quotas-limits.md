@@ -14,20 +14,25 @@ ms.author: pafarley
 
 # Azure Face service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for Azure Face in Azure AI Vision.
+This article contains a reference and a detailed description of the quotas and limits for Azure Face in Azure AI Vision.
 
 ## Quotas and limits reference
 
-The following table summarizes the default quotas and limits that apply to Azure AI Face Service. 
-
-
+The following tables summarize the different types of quotas and limits that apply to Azure AI Face service.
 
 **Default rate limits**
 | **Pricing tier** | **Limit value** |
 | --- | --- |
-| Free (F0),</br>Standard (S0),</br>Enterprise (E0) | 10</br>See the [how-to guides](tbd) if you want to increase this limit. |
+| Free (F0) | 20 transactions per minute |
+Standard (S0),</br>Enterprise (E0) | 10 transactions per second</br>See the [how-to guides](tbd) if you want to increase this limit. |
 
-In free it's 20 per minute.
+200 TPS across all resources in a region
+
+TBD
+For all Azure regions except in Brazil, UAE, and Qatar, a default limit is set at 10 TPS per resource with an allowable sum of 200 TPS across all resources in a region. Customers can request an increase by demonstrating technical need exceeding 10 TPS per resource and by confirming an approved use case by message. Exceeding 200 TPS in a region requires a customer to have been approved through Limited Access and increases in excess of 200 TPS must receive VP approval.
+
+TBD · For Azure regions in Brazil, UAE, and Qatar, default 10 TPS per resource and allowable sum of 200 TPS across all resources in a region. Only S-500 customers can be approved for an increase above 200 TPS in these regions by demonstrating need exceeding 200 TPS and re-confirming an approved use case. Exceeding 200 TPS in a region requires a customer to have been approved through Limited Access and increases in excess of 200 TPS must receive VP approval.
+This policy is to be revised after the introduction of Dynamic TPS.
 
 
 **Default Face resource quantity limits**
@@ -35,52 +40,12 @@ In free it's 20 per minute.
 | **Pricing tier** | **Limit value** |
 | --- | --- |
 |Free (F0)| 1 resource|
-| Standard (S0),</br>Enterprise (E0) | <ul><li>5 resource limits in UAE North, Brazil South.</li><li>10 resource limits in other regions.</li><li>See the [how-to guides](tbd) if you want to increase this limit.</li></ul> |
+| Standard (S0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>10 resources in other regions.</li></ul> |
+| Enterprise (E0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>15 resources in other regions.</li></ul> |
 
-In enterprise it's 15.
-
-
-**Quota of PersonDirectory**
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0) |<ul><li>1 PersonDirectory</li><li>1,000 persons.</li><li>Each holds up to 248 faces.</li></ul>|
-| Standard (S0),</br>Enterprise (E0) | <ul><li>75,000,000 persons.</li><li>Each holds up to 248 faces.</li></ul> |
-TBD add note on how it can be changed. "reach out to support if you want to increase this limit"
-
-**Quota of FaceList**
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0),</br>Standard (S0),</br>Enterprise (E0) |<ul><li>64 face lists.</li><li>Each holds up to 1,000 faces.</li></ul>|
-
-**Quota of LargeFaceList**
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0) | <ul><li>64 large face lists.</li><li>Each holds up to 1,000 faces.</li></ul>|
-| Standard (S0),</br>Enterprise (E0)  | <ul><li>1,000,000 large face lists.</li><li>Each holds up to 1,000,000 faces.</li></ul> |
-
-**Quota of PersonGroup** 
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0) |<ul><li>1,000 person groups. Each holds up to 1,000 persons.</li><li>Each Person can hold up to 248 faces.</li></ul>|
-| Standard (S0),</br>Enterprise (E0)  |<ul><li>1,000,000 person groups. Each holds up to 10,000 persons.</li><li>Each Person can hold up to 248 faces.</li></ul>|
-
-**Quota of LargePersonGroup** 
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0) | <ul><li>1,000 large person groups. Each holds up to 1,000 persons.</li><li>Each Person can hold up to 248 faces.</li></ul> |
-| Standard (S0),</br>Enterprise (E0) | <ul><li>1,000,000 large person groups. Each can hold up to 1,000,000 persons.</li><li>Each Person can hold up to 248 faces.</li><li>The total persons in all large person groups shouldn't be larger than 1,000,000,000.</li></ul> |
-
-**[Customer-managed keys (CMK)](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest)**
-
-| **Pricing tier** | **Limit value** |
-| --- | --- |
-| Free (F0),</br>Standard (S0)  | Not supported |
-| Enterprise (E0) | Supported |
+tbd
+For all Azure regions except in Brazil, UAE, or Qatar, enforce the Azure Cognitive Services max of 100 resources per region per Azure subscription. Note that customers will need VP approval to exceed a sum of 200 TPS across all resources in a region.
+· For Azure regions in Brazil, UAE, and Qatar, customers are limited to a maximum of 10 resources per region per Azure subscription. S-500 customers are eligible to exceed 10 resources per region on request, up to the Azure Cognitive Services max of 100 resources per region, by receiving approval through Limited Access and re-confirming an approved use case.
 
 ## How to request an increase to the default limits 
 
@@ -101,4 +66,47 @@ Please [submit a support request](/azure/ai-services/cognitive-services-support-
 > [!NOTE]
 > Due to our Responsible AI principles, your request may be denied, or only a partial increase may be approved if this condition is not met. TBD what condition?
 
-TBD what is "resources limit"
+**Quota of PersonDirectory**
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0) |<ul><li>1 PersonDirectory</li><li>1,000 persons</li><li>Each holds up to 248 faces.</li><li>Unlimited DynamicPersonGroups</li></ul>|
+| Standard (S0),</br>Enterprise (E0) | <ul><li>1 PersonDirectory</li><li>75,000,000 persons<ul><li>Contact support if you want to increase this limit.</li></ul></li><li>Each holds up to 248 faces.</li><li>Unlimited DynamicPersonGroups</li></ul> |
+TBD add note on how it can be changed. "reach out to support if you want to increase this limit"
+
+**Quota of FaceList**
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0),</br>Standard (S0),</br>Enterprise (E0) |<ul><li>64 FaceLists.</li><li>Each holds up to 1,000 faces.</li></ul>|
+
+**Quota of LargeFaceList**
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0) | <ul><li>64 LargeFaceLists.</li><li>Each holds up to 1,000 faces.</li></ul>|
+| Standard (S0),</br>Enterprise (E0)  | <ul><li>1,000,000 LargeFaceLists.</li><li>Each holds up to 1,000,000 faces.</li></ul> |
+
+**Quota of PersonGroup** 
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0) |<ul><li>1,000 PersonGroups. </li><li>Each holds up to 1,000 Persons.</li><li>Each Person can hold up to 248 faces.</li></ul>|
+| Standard (S0),</br>Enterprise (E0)  |<ul><li>1,000,000 PersonGroups.</li> <li>Each holds up to 10,000 Persons.</li><li>Each Person can hold up to 248 faces.</li></ul>|
+
+**Quota of LargePersonGroup** 
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0) | <ul><li>1,000 LargePersonGroups</li><li> Each holds up to 1,000 Persons.</li><li>Each Person can hold up to 248 faces.</li></ul> |
+| Standard (S0),</br>Enterprise (E0) | <ul><li>1,000,000 LargePersonGroups</li><li> Each holds up to 1,000,000 Persons.</li><li>Each Person can hold up to 248 faces.</li><li>The total Persons in all LargePersonGroups shouldn't exceed 1,000,000,000.</li></ul> |
+
+**[Customer-managed keys (CMK)](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest)**
+
+| **Pricing tier** | **Limit value** |
+| --- | --- |
+| Free (F0),</br>Standard (S0)  | Not supported |
+| Enterprise (E0) | Supported |
+
+
+
