@@ -21,6 +21,7 @@ Profiles are configured to fit the different needs of your applications.
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
 | Dedicated (General purpose) | Balance of memory and compute resources  |  Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
+| Dedicated (GPU enabled) | GPU enabled with increased memory and compute resources  | Apps that require GPU |
 
 The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
 
@@ -51,7 +52,9 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
 | Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
 | Dedicated-E32 | E32 | 32 | 256 | Memory optimized | per node |
-| Dedicated-A100 (preview) | A100 | ?? | [Based on support request](https://azure.microsoft.com/support/create-ticket/)<sup>\*</sup> | Memory optimized | per node |
+| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | GPU enabled | per node<sup>\*</sup> |
+| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | GPU enabled | per node<sup>\*</sup> |
+| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | GPU enabled | per node<sup>\*</sup> |
 
 <sup>\* Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.</sup>
 
