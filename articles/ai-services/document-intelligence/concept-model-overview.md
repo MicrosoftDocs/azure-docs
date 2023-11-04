@@ -62,6 +62,7 @@ The following table shows the available models for each current preview and stab
 |[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
 |[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
 |[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -71,7 +72,6 @@ The following table shows the available models for each current preview and stab
 |**Document analysis models**||
 | [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
-| [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
 | [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
@@ -95,22 +95,23 @@ For all models, except Business card model, Document Intelligence now supports a
 
 ## Analysis features
 
-|Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
+|Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |prebuilt-read|✓|✓| | | | |O|O| |O|O|O|
-|prebuilt-layout|✓|✓|✓|✓|✓| |O|O| |O|O|O|
-|prebuilt-document|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
-|prebuilt-businessCard|✓| | | | | | | |✓| | | |
-|prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|
-|prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-healthInsuranceCard.us|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-tax.us.w2|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098E|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098T|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-layout|✓|✓|✓|✓|✓|✓| |O|O| |O|O|O|
+|prebuilt-document|✓|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
+|prebuilt-businessCard|✓|✓| | | | | | | |✓| | | |
+|prebuilt-idDocument|✓|✓|| | | | |O|O|✓|O|O|O|
+|prebuilt-invoice|✓|✓| | |✓|✓|O|O|O|✓|O|O|O|
+|prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-healthInsuranceCard.us|✓|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098T|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1099(variations)|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|
-|{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
+|{ customModelName }|✓|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
 
 ✓ - Enabled</br>
 O - Optional</br>
@@ -143,18 +144,6 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 >
 > [Learn more: layout model](concept-layout.md)
 
-### General document
-
-:::image type="icon" source="media/studio/general-document.png":::
-
-The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pretrained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
-
-***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
-
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Document Intelligence Studio.":::
-
-> [!div class="nextstepaction"]
-> [Learn more: general document model](concept-general-document.md)
 
 ### Health insurance card
 
@@ -181,6 +170,8 @@ The US tax document models analyze and extract key fields and line items from a 
   |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
   |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
   |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
+  |US Tax 1099|Extract Information from 1099 forms.|**prebuilt-tax.us.1099(variations)**|
+  
 
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -240,19 +231,6 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
-
-### Business card
-
-:::image type="icon" source="media/studio/business-card.png":::
-
-Use the business card model to scan and extract key information from business card images.
-
-***Sample business card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
-
-:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="Screenshot of a sample business card." lightbox="./media/overview-business-card.jpg":::
-
-> [!div class="nextstepaction"]
-> [Learn more: business card model](concept-business-card.md)
 
 ### Custom models
 
