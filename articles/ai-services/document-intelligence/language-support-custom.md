@@ -31,16 +31,21 @@ ms.date: 11/15/2023
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->
 <!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD036 -->
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Custom models are trained using your labeled datasets to extract distinct data from structured, semi-structured, and unstructured documents specific to your use cases. Standalone custom models can be combined to create composed models. The following tables list the available language and locale support by model and feature:
 
 ## [Custom classifier](#tab/custom-classifier)
 
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**custom-classification**| English (United States)—en-US| English (United States)—en-US|
+***custom classifier model***
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+| English (United States)—en-US| English (United States)—en-US|
 
 ## [Custom neural](#tab/custom-neural)
+
+***custom neural model***
 
 |Language| Code (optional) |
 |:-----|:----:|
@@ -109,6 +114,8 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 ## [Custom template](#tab/custom-template)
 
+***custom template model***
+
 #### Handwritten text
 
 The following table lists the supported languages for extracting handwritten texts.
@@ -121,13 +128,13 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
-#### Print text
+#### Printed text
 
 The following table lists the supported languages for print text by the most recent GA version.
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Abaza|abq|
   |Abkhazian|ab|
@@ -206,7 +213,7 @@ The following table lists the supported languages for print text by the most rec
   |Finnish|fi|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Fon|fon|
   |French|fr|
@@ -288,7 +295,7 @@ The following table lists the supported languages for print text by the most rec
   |Lakota|lkt|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Latin|la|
   |Latvian|lv|
@@ -370,7 +377,7 @@ The following table lists the supported languages for print text by the most rec
   |Sango|sg|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Sangu (Gabon)|snq|
   |Sanskrit (Devanagari)|sa|

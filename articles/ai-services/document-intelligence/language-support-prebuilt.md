@@ -34,22 +34,27 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Prebuilt models enable you to add intelligent domain-specific document processing to your apps and flows without having to train and build your own models. The following tables list the available language and locale support by model and feature:
 
-:::moniker range=">=doc-intel-3.1.0"
+:::moniker range="<=doc-intel-3.0.0"
+
 ## [Business card](#tab/business-card)
 
-| Model ID | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**prebuilt-businessCard** (v3.0 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
+***Model ID: prebuilt-businessCard***
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
 |Business card (v2.1 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
 :::moniker-end
 
-:::moniker range="<=doc-intel-3.1.0"
+:::moniker range=">=doc-intel-3.1.0"
 
 ## [Contract](#tab/contract)
 
-| Model ID | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**prebuilt-contract**| English (United States)—en-US| English (United States)—en-US|
+***Model ID: prebuilt-contract***
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+| English (United States)—en-US| English (United States)—en-US|
 
 :::moniker-end
 
@@ -57,31 +62,34 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ## [Health insurance card](#tab/health-insurance-card)
 
-| Model ID| Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**prebuilt-healthInsuranceCard.us**| English (United States)|English (United States)—en-US|
+***Model ID: prebuilt-healthInsuranceCard.us***
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+| English (United States)|English (United States)—en-US|
 
 :::moniker-end
 
 ## [ID document](#tab/id-document)
 
+***Model ID: prebuilt-idDocument***
+
 #### Supported document types
 
-|Model ID| Region | Document types |
-|-----|--------|----------------|
-|**prebuilt-idDocument**|||
-||Worldwide|Passport Book, Passport Card|
-||United States|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
-||Europe|Driver License, Identification Card, Residency Permit|
-||India|Driver License, PAN Card, Aadhaar Card|
-||Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
-||Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
+| Region | Document types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|United States|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|Europe|Driver License, Identification Card, Residency Permit|
+|India|Driver License, PAN Card, Aadhaar Card|
+|Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
+|Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ## [Invoice](#tab/invoice)
 
-:::moniker range=">=doc-intel-3.1.0"
+***Model ID: prebuilt-invoice***
 
-##### Model ID: **prebuilt-invoice**
+:::moniker range=">=doc-intel-3.1.0"
 
 | Supported languages | Details |
 |:----------------------|:---------|
@@ -173,7 +181,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ## [Receipt](#tab/receipt)
 
-##### Model ID: **prebuilt-receipt**
+***Model ID: prebuilt-receipt***
 
 #### Thermal receipts (retail, meal, parking, etc.)
 
