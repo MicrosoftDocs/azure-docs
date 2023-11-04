@@ -45,8 +45,6 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 >
-> - The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents. You can use this model as an alternative to training a custom model without labels.
->
 > - The [prebuilt-contract](../concept-contract.md) model extracts key information from contractual agreements.
 >
 > - The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
@@ -58,6 +56,8 @@ Choose from the following Document Intelligence models to analyze and extract da
 > - The [prebuilt-tax.us.1098E](../concept-tax-document.md) model extracts information reported on US 1098-E tax forms.
 >
 > - The [prebuilt-tax.us.1098T](../concept-tax-document.md) model extracts information reported on US 1098-T tax forms.
+>
+> - The [prebuilt-tax.us.1099(variations)](../concept-tax-document.md) model extracts information reported on US 1099 tax forms.
 >
 > - The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices in various formats and quality. Fields include phone-captured images, scanned documents, and digital PDFs.
 >
