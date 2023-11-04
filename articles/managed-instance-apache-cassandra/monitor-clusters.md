@@ -170,7 +170,9 @@ Examples:
   ```
 
 ### Cassandra 4 and later
-TODO
+In Cassandra 4 and the later, whitelist could be configured ... 
+
+
 
 ## Next steps
 
