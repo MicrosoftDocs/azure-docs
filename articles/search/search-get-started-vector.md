@@ -81,14 +81,14 @@ You're now ready to send the requests to your search service. For each request, 
 
 ## Create an index
 
-Use the [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) REST API for this request.
+Use the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) REST API for this request.
 
 The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking. 
 
 The following example is a subset of the full index. We trimmed the definition so that you can focus on field definitions, vector configuration, and optional semantic configuration.
 
 ```http
-PUT https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}
+PUT https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -235,7 +235,7 @@ You should get a status HTTP 201 success.
 
 + The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
-+ Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) for property descriptions.
++ Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) for property descriptions.
 
 + The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
 
@@ -243,12 +243,12 @@ You should get a status HTTP 201 success.
 
 ## Upload documents
 
-Use the [Index Documents](/rest/api/searchservice/2023-11-01/documents/) REST API for this request.
+Use the [Index Documents](/rest/api/searchservice/documents) REST API for this request.
 
 For readability, the following excerpt shows just the fields used in queries, minus the vector values associated with `DescriptionVector`. Each vector field contains 1536 embeddings, so those values are omitted for readability.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -385,7 +385,7 @@ api-key: {{admin-api-key}}
 
 ## Run queries
 
-Use the [Search POST](/rest/api/searchservice/2023-11-01/documents/search-post) REST API for query request.
+Use the [Search POST](/rest/api/searchservice/documents/search-post) REST API for query request.
 
 There are several queries to demonstrate various patterns. 
 
