@@ -77,7 +77,7 @@ You can select from pre-existing datasets or upload a new dataset specifically t
 
 + **Choose existing dataset**: You can choose the test dataset from your established dataset collection.  
 
-    :::image type="content" source="../../../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/choose-existing-dataset.png":::
+    :::image type="content" source="../../../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the option to choose test data when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/choose-existing-dataset.png":::
 
 + **Add new dataset**: You can either upload files from your local storage or manually enter the dataset. 
     - For the 'Upload file' option, we only support `.csv` and `.jsonl` file formats. 
