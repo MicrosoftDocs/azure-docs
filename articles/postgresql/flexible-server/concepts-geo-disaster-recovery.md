@@ -17,7 +17,6 @@ In the case of a region-wide disaster, Azure can provide protection from regiona
 
 Flexible server provides features that protect data and mitigates downtime for your mission-critical databases during planned and unplanned downtime events. Built on top of the Azure infrastructure that offers robust resiliency and availability, flexible server offers business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - the recovery time objective (RTO), and data loss exposure - the recovery point objective (RPO). For example, your business-critical database requires stricter uptime than a test database.
 
-
 ## Compare geo-replication with geo-redundant backup storage
 Both geo-replication with read replicas and geo-backup are solutions for geo-disaster recovery. However, they differ in the details of their offerings. To choose the right solution for your system, it's important to understand and compare their features.
 
@@ -32,8 +31,7 @@ Both geo-replication with read replicas and geo-backup are solutions for geo-dis
 | <b> Capacity guaranteed                                | Yes                | No             |    
 
 
-
-### Geo-redundant backup and restore
+## Geo-redundant backup and restore
 
 Geo-redundant backup and restore provide the ability to restore your server in a different region in the event of a disaster. It also provides at least 99.99999999999999 percent (16 nines) durability of backup objects over a year.
 
@@ -41,13 +39,13 @@ Geo-redundant backup can be configured only at the time of server creation. When
 
 For more information on geo-redundant backup and restore, see [geo-redundant backup and restore](/azure/postgresql/flexible-server/concepts-backup-restore#geo-redundant-backup-and-restore).
 
-### Read replicas
+## Read replicas
 
 Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
 
 For more information on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
 
-### Outage detection, notification, and management
+## Outage detection, notification, and management
 
 If your server is configured with geo-redundant backup, you can perform geo-restore in the paired region. A new server is provisioned and recovered to the last available data that was copied to this region.
 
