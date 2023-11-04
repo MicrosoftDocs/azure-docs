@@ -186,6 +186,10 @@ excluded_users: Comma separated list of users to be excluded from audit log, def
 
 List of available categories are: QUERY, DML, DDL, DCL, OTHER, AUTH, ERROR, PREPARE
 
+audit_logging_options:
+    included_keyspaces: keyspace1,keyspace2
+    included_categories: AUTH,ERROR,DCL,DDL
+
 ## Next steps
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
