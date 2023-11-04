@@ -26,26 +26,26 @@ To run an evaluation with AI-assisted metrics, you need to have the following re
 ## Create an evaluation with built-in evaluation metrics
 
 An evaluation run allows you to generate metric outputs for each data row in your test dataset. You can choose one or more evaluation metrics to assess the output from different aspects. You can create an evaluation run from the evaluation and prompt flow pages in AI Studio. Then an evaluation creation wizard appears to guide you through the process of setting up an evaluation run.
-[draft](../../../media/)
+
 ### From Evaluate page
 
-From the Evaluate page, select on the "New evaluation" button located at the top left corner of the page.
+From the collapsible left menu, select **Evaluation** > **+ New evaluation**.
 
-:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png" alt-text="Screenshot of the button to create a new evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png":::
 
 ### From Flow page
 
-From the Flow page, select the "Built-in evaluation" option after clicking the "Evaluate" button located at the top right corner of the page. 
+From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Built-in evaluation**.
 
-:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-flow-page.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/new-evaluation-flow-page.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-flow-page.png" alt-text="Screenshot of how to select builtin evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-flow-page.png":::
 
 #### Basic information
-When you enter the evaluation creation wizard, provide a name for your evaluation run and select the scenario that best aligns with your application's objectives. You need to select a runtime to run the evaluation. A runtime is a compute instance with environment attached. If you do not have any runtime available, navigate to **Build** > **Settings** to create one. We currently offer support for the following scenarios: 
+When you enter the evaluation creation wizard, provide a name for your evaluation run and select the scenario that best aligns with your application's objectives. You need to select a runtime to run the evaluation. A runtime is a compute instance with environment attached. If you don't have any runtime available, navigate to **Build** > **Settings** to create one. We currently offer support for the following scenarios: 
 
 + **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
 + **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
 
-:::image type="content" source="../../../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/basic-information.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the basic information page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/basic-information.png":::
 
 > [!NOTE]
 > For conversation scenario, we currently only support single turn in the Azure AI Studio UI. However, we provide support for multi-turn conversations in the Azure AI SDK and CLI.
@@ -55,35 +55,38 @@ By specifying the appropriate scenario, we can tailor the evaluation to the spec
 + **Evaluate from data**: If you already have your model generated outputs in a test dataset, skip the “Add flow and variants” step and directly go to the next step to select metrics.  
 + **Evaluate from flow**: If you initiate the evaluation from the Flow page, we'll automatically select your flow to evaluate. If you intend to evaluate another flow, you can select a different one. It's important to note that within a flow, you might have multiple nodes, each of which could have its own set of variants. In such cases, you need to specify both the node and the particular variants you wish to assess during the evaluation process. 
 
-:::image type="content" source="../../../media/evaluations/evaluate/add-flow-and-variants.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/add-flow-and-variants.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/add-flow-and-variants.png" alt-text="Screenshot of the flow and variants page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/add-flow-and-variants.png":::
 
 #### Select metrics
 By default, we preselect certain recommended metrics based on the scenario you previously selected. You can refer to the table below for the default metrics, and the complete list of metrics we offer support for in each scenario. For more in-depth information on each metric definition and how it's calculated, learn more [here](../../../concepts/evaluation-metrics-built-in.md).
 
 | Scenario           | Default metrics                          | All metrics                                                                                        |
 |--------------------|------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Question Answering | Groundedness, Relevance, Coherence       | Groundedness, Relevance, Coherence, Fluency, GPT Similarity, F1 Score, Exact Match, ADA Similarity<br/><br/>For question answering scenario, we currently do not support Exact Match and ADA Similarity in the Azure AI Studio. These metrics are available in the Azure AI SDK and Azure AI CLI. |
+| Question Answering | Groundedness, Relevance, Coherence       | Groundedness, Relevance, Coherence, Fluency, GPT Similarity, F1 Score, Exact Match, ADA Similarity<br/><br/>For question answering scenario, we currently don't support Exact Match and ADA Similarity in the Azure AI Studio. These metrics are available in the Azure AI SDK and Azure AI CLI. |
 | Conversation       | Groundedness, Relevance, Retrieval Score | Groundedness, Relevance, Retrieval Score                                                           |
 
 When using AI-assisted metrics for evaluation, you must specify a GPT model for the calculation process. Choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for our calculations.  
 
-:::image type="content" source="../../../media/evaluations/evaluate/select-metrics.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/select-metrics.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/select-metrics.png" alt-text="Screenshot of the select metrics page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/select-metrics.png":::
 
 #### Configure test data
 
 You can select from pre-existing datasets or upload a new dataset specifically to evaluate. The test dataset needs to have the model generated outputs to be used for evaluation if there's no flow selected. 
 
-:::image type="content" source="../../../media/evaluations/evaluate/configure-test-data.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/configure-test-data.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/configure-test-data.png" alt-text="Screenshot of selecting test data when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/configure-test-data.png":::
 
 + **Choose existing dataset**: You can choose the test dataset from your established dataset collection.  
 
-:::image type="content" source="../../../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/choose-existing-dataset.png":::
+    :::image type="content" source="../../../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/choose-existing-dataset.png":::
 
-+ **Add new dataset**: You can either upload files from your local storage or manually enter the dataset. For the 'Upload file' option, we only support `.csv` and `.jsonl` file formats. Manual input is only supported for Question Answering scenario.   
++ **Add new dataset**: You can either upload files from your local storage or manually enter the dataset. 
+    - For the 'Upload file' option, we only support `.csv` and `.jsonl` file formats. 
 
-:::image type="content" source="../../../media/evaluations/evaluate/8-upload-file.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/8-upload-file.png":::
+        :::image type="content" source="../../../media/evaluations/evaluate/upload-file.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/upload-file.png":::
 
-:::image type="content" source="../../../media/evaluations/evaluate/9-input-manually.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/9-input-manually.png":::
+    - Manual input is only supported for Question Answering scenario.   
+    
+        :::image type="content" source="../../../media/evaluations/evaluate/input-manually.png" alt-text="Screenshot of the manual data input option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/input-manually.png":::
 
 + **Data mapping**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations. For guidance on the specific data mapping requirements for each metric, refer to the information provided below:
 
@@ -120,7 +123,7 @@ You can select from pre-existing datasets or upload a new dataset specifically t
 #### Review and finish
 After completing all the necessary configurations, you can review and proceed to select 'Create' to submit the evaluation run.
 
-:::image type="content" source="../../../media/evaluations/evaluate/review-and-finish.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../../../media/evaluations/evaluate/review-and-finish.png":::
+:::image type="content" source="../../../media/evaluations/evaluate/review-and-finish.png" alt-text="Screenshot of the review and finish page to create a new evaluation." lightbox="../../../media/evaluations/evaluate/review-and-finish.png":::
 
 ## Create an evaluation with custom evaluation flow 
 
