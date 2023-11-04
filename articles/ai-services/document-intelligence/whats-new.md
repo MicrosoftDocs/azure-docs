@@ -36,7 +36,7 @@ This preview API introduces new and updated capabilities:
 * [Layout](concept-layout.md)
   *Markdown output support
   *Table extraction improvments.
-* [Reciept Prebuilt](concept-reciept.md)
+* [Reciept Prebuilt](concept-receipt.md)
   *Now extracts currencuy for all price related fields.
 * [Health Insurance Card Prebuilt](concept-health-insurance-card.md)
   *New field support for Medicare and Medicade information.
