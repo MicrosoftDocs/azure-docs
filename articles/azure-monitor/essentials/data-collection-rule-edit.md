@@ -2,17 +2,14 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
-ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
-ms.date: 07/17/2023
+ms.date: 11/03/2023
 ---
 
-# Create and edit data collection rules (DCRs)
-There are multiple methods for creating a [data collection rule (DCR)](./data-collection-rule-overview.md) in Azure Monitor. In some cases, Azure Monitor will create and manage the DCR according to settings that you configure in the Azure portal. In other cases, you might need to create your own DCRs to customize particular scenarios.
-
-This article describes the different methods for creating and editing a DCR. For the contents of the DCR itself, see [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md).
+# Tutorial: Edit a data collection rule (DCR)
+This tutorial describes how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

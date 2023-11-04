@@ -4,32 +4,27 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/08/2023
+ms.date: 11/03/2023
 ms.reviwer: nikeist
 ---
 
 # Structure of a data collection rule in Azure Monitor
-[Data collection rules (DCRs)](data-collection-rule-overview.md) are sets of instructions that determine how to collect and process telemetry sent to Azure Monitor. Some DCRs will be created and managed by Azure Monitor. You might create other DCRs to customize data collection for your particular requirements. This article describes the JSON properties of DCRs for creating and editing them in those cases where you need to work with them directly.
+[Data collection rules (DCRs)](data-collection-rule-overview.md) are sets of instructions that determine how to collect and process telemetry sent to Azure Monitor. Some DCRs will be created and managed by Azure Monitor. You might create other DCRs to customize data collection for your particular requirements. 
 
+This article describes the JSON properties of DCRs for creating and editing them in those cases where you need to work with them directly. 
 
-## Samples
-For sample DCRs for each scenario, see the following:
+- See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for details working with the JSON described here.
+- See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
 
-- [Azure Monitor agent](../essentials/data-collection-rule-samples.md#azure-monitor-agent---events-and-performance-data)
-- [Logs ingestion API](../essentials/data-collection-rule-samples.md#logs-ingestion-api)
-- [Event Hubs](../essentials/data-collection-rule-samples.md#event-hubs)
-- [Workspace transformation DCR](../essentials/data-collection-rule-samples.md#workspace-transformation-dcr)
 
 ## `dataCollectionEndpointId` 
+Specifies the [data collection [endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.
 
 **Scenarios**
 - Azure Monitor agent
 - Logs ingestion API
 - Events Hubs
  
-**Description**
-Resource ID of the data collection endpoint.
-
 
 ## `streamDeclarations`
 Declaration of the different types of data sent into the Log Analytics workspace. Each stream is an object whose key represents the stream name, which must begin with *Custom-*. The stream contains a full list of top-level properties that are contained in the JSON data that will be sent. The shape of the data you send to the endpoint doesn't need to match that of the destination table. Instead, the output of the transform that's applied on top of the input data needs to match the destination shape.
@@ -72,13 +67,14 @@ Unique source of monitoring data that has its own format and method of exposing 
 
 **Scenarios**
 - Azure Monitor agent
+- Event Hubs
 
 
 ## `dataFlows`
 Matches the streams and the destinations and specifies a transformation and target table.
 
 ### `dataFlows/Streams`
-Unique handle describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream can be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams, for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace.
+Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream can be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams, for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace.
 
 ### `dataFlows/destinations`
 Set of destinations that indicate where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. Multiple destinations are allowed for multi-homing scenarios.
