@@ -151,11 +151,11 @@ By default, the Microsoft System Center Operations Manager Run Health Check Rule
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
-5.	Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> 
-<!-- convertborder later -->
-:::image type="content" source="./media/scom-assessment/rule.png" lightbox="./media/scom-assessment/rule.png" alt-text="override parameter" border="false":::
+5.	Ensure that you change override value to **True** for the **Enabled** parameter value. 
+    <!-- convertborder later -->
+    :::image type="content" source="./media/scom-assessment/rule.png" lightbox="./media/scom-assessment/rule.png" alt-text="override parameter" border="false":::
 
-    While still in this window, configure the run frequency using the next procedure.
+   While still in this window, configure the run frequency using the next procedure.
 
 #### Configure the run frequency
 
@@ -164,11 +164,11 @@ The assessment is configured to run every 10,080 minutes (or seven days) by defa
 1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** section.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
-4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).<br><br> 
-<!-- convertborder later -->
-:::image type="content" source="./media/scom-assessment/interval.png" lightbox="./media/scom-assessment/interval.png" alt-text="interval parameter" border="false":::<br>  
+4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).
+   <!-- convertborder later -->
+   :::image type="content" source="./media/scom-assessment/interval.png" lightbox="./media/scom-assessment/interval.png" alt-text="interval parameter" border="false"::: 
 
-    If the value is set to less than 1440 minutes, then the rule runs on a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
+   If the value is set to less than 1440 minutes, then the rule runs on a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
 
 
 ## Understanding how recommendations are prioritized
