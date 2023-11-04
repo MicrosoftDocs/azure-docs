@@ -189,7 +189,7 @@ The `localBrokerConnection` field defines the connection details to bridge to th
 | --- | --- | --- |
 | endpoint | Yes | Remote broker endpoint URL with port. |
 | tls | Yes | Specifies if connection is encrypted with TLS and trusted CA certificate. See [TLS support](#tls-support) |
-| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The only supported methods is Kubernetes service account token (SAT). To use SAT, specify `kubernetes: {}`. |
+| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The only supported methods are Kubernetes service account token (SAT). To use SAT, specify `kubernetes: {}`. |
 | protocol | No | String value defining to use MQTT or MQTT over WebSockets. Can be `mqtt` or `webSocket`. Default is `mqtt`. |
 
 By default, if not configured, the MQTT bridge connector authenticates with Azure IoT MQ broker with Kubernetes SAT via the 1883 port and TLS disabled.
