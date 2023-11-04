@@ -199,13 +199,12 @@
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
         items:
-          - name: Overview
+          - name: Plan options
             displayName: CSPM, cloud security, posture, management
             href: concept-cloud-security-posture-management.md
-          - name: ServiceNow
+          - name: ServiceNow integration
             displayName: CSPM, cloud security, posture, management, ServiceNow
             href: integration-servicenow.md
-        href: concept-cloud-security-posture-management.md
       - name: Microsoft cloud security benchmark (MCSB)
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
