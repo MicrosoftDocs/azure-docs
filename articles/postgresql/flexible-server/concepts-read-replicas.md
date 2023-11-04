@@ -148,11 +148,15 @@ This action elevates a replica to the role of the primary server. In the process
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
 
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server":::
+:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server operation":::
 
 **Promote to independent server and remove from replication** 
 
 By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
+
+The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion to independent server operation has been successfully completed.
+
+:::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Promote to primary server operation":::
 
 > [!IMPORTANT]
 > The **Promote to primary server** action is currently in preview. The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
