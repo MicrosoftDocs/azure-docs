@@ -27,13 +27,13 @@ To run an evaluation with AI-assisted metrics, you need to have the following re
 
 An evaluation run allows you to generate metric outputs for each data row in your test dataset. You can choose one or more evaluation metrics to assess the output from different aspects. You can create an evaluation run from the evaluation and prompt flow pages in AI Studio. Then an evaluation creation wizard appears to guide you through the process of setting up an evaluation run.
 
-### From Evaluate page
+### From the evaluate page
 
 From the collapsible left menu, select **Evaluation** > **+ New evaluation**.
 
 :::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png" alt-text="Screenshot of the button to create a new evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png":::
 
-### From Flow page
+### From the flow page
 
 From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Built-in evaluation**.
 
@@ -42,7 +42,7 @@ From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Built-
 #### Basic information
 When you enter the evaluation creation wizard, provide a name for your evaluation run and select the scenario that best aligns with your application's objectives. You need to select a runtime to run the evaluation. A runtime is a compute instance with environment attached. If you don't have any runtime available, navigate to **Build** > **Settings** to create one. We currently offer support for the following scenarios: 
 
-+ **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
++ **Question answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
 + **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
 
 :::image type="content" source="../../../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the basic information page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/basic-information.png":::
@@ -90,7 +90,7 @@ You can select from pre-existing datasets or upload a new dataset specifically t
 
 + **Data mapping**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations. For guidance on the specific data mapping requirements for each metric, refer to the information provided below:
 
-##### Question Answering metric requirements
+##### Question answering metric requirements
 
 | Metric         | Question      | Response      | Context       | Ground truth  |
 |----------------|---------------|---------------|---------------|---------------|

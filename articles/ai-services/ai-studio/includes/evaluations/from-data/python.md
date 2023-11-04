@@ -35,7 +35,7 @@ For more in-depth information on each metric definition and how it's calculated,
 
 When using AI-assisted metrics for evaluation, you must specify a GPT model for the calculation process. Choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for your calculations. If you select ADA similarity, it requires an embedding model and you must also select a deployment featuring the `text-similarity-ada-001` or `text-similarity-ada-002` model to support ADA similarity calculations. 
 
-### Supported input data format for Question Answering
+### Supported input data format for question answering
 
 We require question and answer pairs in `.jsonl` format with the required fields as follows:
 
@@ -66,7 +66,7 @@ An example of a question and answer pair with context and ground truth provided:
 }
 ```
 
-### Supported input data format for Conversation
+### Supported input data format for conversation
 
 We require a chat payload in the following `.jsonl` format, which is a list of conversation turns (within `"messages"`) in a conversation. 
 
@@ -106,7 +106,7 @@ Each conversation turn contains:
 ```
 
 
-## Evaluate with Azure AI SDK
+## Evaluate with the Azure AI SDK
 
 Built-in evaluation metrics are available with the following installation:
 
@@ -138,7 +138,7 @@ from azure.ai.generative import AIClient
 client = AIClient.from_config(DefaultAzureCredential())
 ```
 
-### Evaluate Question Answering: `qa`
+### Evaluate question answering: `qa`
 
 #### Run a flow and evaluate
 
