@@ -41,7 +41,7 @@ The free plan is capped at 1,000 queries per month. After the first 1,000 querie
 
 ### [**REST**](#tab/enable-rest)
 
-To enable semantic ranking using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+To enable semantic ranking using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/services/create-or-update?view=rest-searchmanagement-2023-11-01&tabs=HTTP#searchsemanticsearch&preserve-view=true).
 
 Management REST API calls are authenticated through Microsoft Entra ID. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for instructions on how to authenticate.
 
@@ -65,7 +65,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ## Disable semantic ranking using the REST API
 
-To reverse feature enablement, or for full protection against accidental usage and charges, you can disable semantic ranking using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
+To reverse feature enablement, or for full protection against accidental usage and charges, you can disable semantic ranking using the [Create or Update Service API](/rest/api/searchmanagement/services/create-or-update?view=rest-searchmanagement-2023-11-01&tabs=HTTP#searchsemanticsearch&preserve-view=true) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
 Management REST API calls are authenticated through Microsoft Entra ID. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for instructions on how to authenticate.
 
