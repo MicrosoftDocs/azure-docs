@@ -14,7 +14,7 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't yet ready production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by visually defining one or more business processes. After you create these processes, you can add tracking for key business data by mapping business process stages to operations and data in Standard logic app workflows.
+After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by modeling the business processes that these resources implement. If your organization wants to capture and track key business data in a business process stage, define the specific business properties to capture so that you can later map these properties to operations and data in Standard logic app workflows.
 
 For example, suppose you're an integration developer at a power company. Your customer service team has the following business process to resolve a customer ticket for a power outage:
 
@@ -30,7 +30,7 @@ Although this example shows a sequential business process, your process can also
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with existing Azure resources
+- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with the Azure resources for your integration solution
 
 ## Create a business process
 

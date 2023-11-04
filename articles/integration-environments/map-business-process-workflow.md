@@ -20,9 +20,13 @@ After you create a business process for an application group in an integration e
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [integration environment](create-integration-environment.md) that contains an [application group](create-application-group.md) with the Azure resources associated with your integration solutions
+- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with the Azure resources for your integration solution
 
-## Map business process stages
+- A [business process with the stages to map](create-business-process.md)
+
+## Map a business process stage
+
+These steps show how to map your business process stage to a Standard logic app, workflow, and operation as the data source for the business properties that you previously defined for collecting data and tracking.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 
