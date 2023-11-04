@@ -93,9 +93,7 @@ See how data is extracted from health insurance cards using the Document Intelli
 
 ## Supported languages and locales
 
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|prebuilt-healthInsuranceCard.us| <ul><li>English (United States)</li></ul>|English (United States)—en-US|
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction
 

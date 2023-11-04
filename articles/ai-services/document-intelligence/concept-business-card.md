@@ -176,13 +176,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ## Supported languages and locales
 
->[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Business card (v3.0 API)| &bullet; English (United States)—en-US<br>&bullet;  English (Australia)—en-AU<br>&bullet; English (Canada)—en-CA<br>&bullet; English (United Kingdom)—en-GB<br>&bullet; English (India)—en-IN<br>&bullet; English (Japan)—en-JP<br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
-|Business card (v2.1 API)| &bullet; English (United States)—en-US<br>&bullet;  English (Australia)—en-AU<br>&bullet; English (Canada)—en-CA<br>&bullet; English (United Kingdom)—en-GB<br>&bullet; English (India)—en-IN</li> | Autodetected |
+*See* our [Language Support](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extractions
 

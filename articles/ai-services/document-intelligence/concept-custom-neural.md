@@ -57,73 +57,7 @@ Neural models support documents that have the same information, but different pa
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-|Language| Code (optional) |
-|:-----|:----:|
-|Afrikaans| `af`|
-|Albanian| `sq`|
-|Arabic|`ar`|
-|Bulgarian|`bg`|
-|Chinese (Han (Simplified variant))| `zh-Hans`|
-|Chinese (Han (Traditional variant))|`zh-Hant`|
-|Croatian|`hr`|
-|Czech|`cs`|
-|Danish|`da`|
-|Dutch|`nl`|
-|Estonian|`et`|
-|Finnish|`fi`|
-|French|`fr`|
-|German|`de`|
-|Hebrew|`he`|
-|Hindi|`hi`|
-|Hungarian|`hu`|
-|Indonesian|`id`|
-|Italian|`it`|
-|Japanese|`ja`|
-|Korean|`ko`|
-|Latvian|`lv`|
-|Lithuanian|`lt`|
-|Macedonian|`mk`|
-|Marathi|`mr`|
-|Modern Greek (1453-)|`el`|
-|Nepali (macrolanguage)|`ne`|
-|Norwegian|`no`|
-|Panjabi|`pa`|
-|Persian|`fa`|
-|Polish|`pl`|
-|Portuguese|`pt`|
-|Romanian|`rm`|
-|Russian|`ru`|
-|Slovak|`sk`|
-|Slovenian|`sl`|
-|Somali (Arabic)|`so`|
-|Somali (Latin)|`so-latn`|
-|Spanish|`es`|
-|Swahili (macrolanguage)|`sw`|
-|Swedish|`sv`|
-|Tamil|`ta`|
-|Thai|`th`|
-|Turkish|`tr`|
-|Ukrainian|`uk`|
-|Urdu|`ur`|
-|Vietnamese|`vi`|
-
-:::moniker range=">=doc-intel-3.1.0"
-
-Neural models support added languages for the `v3.1` and later APIs.
-
-| Languages | API version |
-|:--:|:--:|
-| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
-| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-
-:::moniker-end
+*See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
 ## Tabular fields
 
