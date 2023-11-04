@@ -26,8 +26,6 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
-This section details how the underlying operations use the above data structures to identify and verify a face.
-
 ### PersonGroup creation and training
 
 You need to create a [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) to store the set of people to match against. PersonGroups hold [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) objects, which each represent an individual person and hold a set of face data belonging to that person.
