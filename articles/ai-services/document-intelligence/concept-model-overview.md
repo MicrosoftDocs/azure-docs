@@ -91,7 +91,7 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 * [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
 * [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
 ## Analysis features
 
