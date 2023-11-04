@@ -140,12 +140,12 @@ az search query-key list --resource-group <myresourcegroup> --service-name <myse
 
 ### [**REST API**](#tab/rest-find)
 
-Use [List Admin Keys](/rest/api/searchmanagement/2022-09-01/admin-keys) or [List Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
+Use [List Admin Keys](/rest/api/searchmanagement/admin-keys/get) or [List Query Keys](/rest/api/searchmanagement/query-keys/list-by-search-service) in the Management REST API to return API keys.
 
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2023-11-01
 ```
 
 ---
@@ -176,12 +176,12 @@ A script example showing query key usage can be found at [Create or delete query
 
 ### [**REST API**](#tab/rest-query)
 
-Use [Create Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/create) in the Management REST API.
+Use [Create Query Keys](/rest/api/searchmanagement/query-keys/create) in the Management REST API.
 
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2023-11-01
 ```
 
 ---

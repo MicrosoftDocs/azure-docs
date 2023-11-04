@@ -103,7 +103,7 @@ This section shows you the basic structure of a vector query. You can use the Az
 
 ### [**2023-11-01**](#tab/query-2023-11-01)
 
-REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Search POST](/rest/api/searchservice/2023-11-01/documents/search-post). This API supports:
+REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true). This API supports:
 
 + `vectorQueries` is the construct for vector search.
 + `kind` set to `vector` specifies the query string is a vector.
@@ -139,7 +139,7 @@ api-key: {{admin-api-key}}
 
 ### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
 
-REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports pure vector queries and [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). This section shows the syntax for pure vector queries.
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the preview API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). It supports pure vector queries and [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). This section shows the syntax for pure vector queries.
 
 + `vectorQueries` is the construct for vector search.
 + `kind` set to `vector` specifies the query string is a vector.
@@ -240,7 +240,7 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**Python**](#tab/python-vector-query)
 
-+ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents//11.4.0b11/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents/11.4.0b11/) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
