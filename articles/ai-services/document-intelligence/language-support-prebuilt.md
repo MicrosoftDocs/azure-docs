@@ -191,6 +191,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***Model ID: prebuilt-receipt***
 
+:::moniker range=">=doc-intel-3.0.0"
+
 #### Thermal receipts (retail, meal, parking, etc.)
 
 | Language name | Language code | Language name | Language code |

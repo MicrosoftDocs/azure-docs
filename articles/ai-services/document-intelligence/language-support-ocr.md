@@ -840,6 +840,12 @@ The following table lists layout model language support for extracting and analy
 
 :::moniker-end
 
+:::moniker range="doc-intel-2.1.0"
+   > [!NOTE]
+   > Document Intelligence v2.1 does not support handwritten text extraction.
+
+:::moniker-end
+
 :::moniker range="doc-intel-3.0.0"
 
 The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>

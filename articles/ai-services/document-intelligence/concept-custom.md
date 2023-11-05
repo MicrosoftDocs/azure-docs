@@ -281,8 +281,6 @@ The following table describes the features available with the associated tools a
 
 After your training set is labeled, you can train your custom model and use it to analyze documents. The signature fields specify whether a signature was detected or not.
 
-:::moniker-end
-
 ## Next steps
 
 ::: moniker range="doc-intel-2.1.0"
