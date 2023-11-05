@@ -4,11 +4,11 @@ description: Learn how your workload's performance is handled by Azure Elastic S
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 07/28/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ---
 
-# Elastic SAN Preview and virtual machine performance
+# How performance works when Virtual Machines are connected to Elastic SAN Preview volumes
 
 This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 

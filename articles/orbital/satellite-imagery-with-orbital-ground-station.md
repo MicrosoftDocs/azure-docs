@@ -37,7 +37,7 @@ Execute steps listed in [Tutorial: Downlink data from NASA's Aqua public satelli
 The above tutorial provides a walkthrough for scheduling a contact with Aqua and collecting the direct broadcast data on an Azure VM.
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-public-satellite-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)

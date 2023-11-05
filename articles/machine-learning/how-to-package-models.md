@@ -8,6 +8,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
+ms.custom: devx-track-python
 ms.date: 10/04/2023
 ms.topic: how-to
 ---
@@ -319,7 +320,7 @@ The following code shows how to configure `copy` in a model package:
 
 __package-external.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" highlight="10-11" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" highlight="11-12" :::
 
 # [Python](#tab/sdk)
 

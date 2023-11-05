@@ -16,8 +16,10 @@ ms.date: 9/20/2023
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL
 
-## Release: September 2023
-
+## Release: October 2023
+* Support for [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
+* General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of Server Logs Download for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: August 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>

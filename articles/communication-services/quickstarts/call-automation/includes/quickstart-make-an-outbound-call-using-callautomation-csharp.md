@@ -25,7 +25,7 @@ Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a c
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. DevTunnels creates a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. DevTunnels creates a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -37,16 +37,16 @@ devtunnel host
 
 Next update your `Program.cs` file with the following values:
 
-- `acsConnectionString`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
+- `acsConnectionString`: The connection string for your Azure Communication Services resource. You can find your Azure Communication Services connection string using the instructions [here](../../create-communication-resource.md). 
 - `callbackUriHost`: Once you have your DevTunnel host initialized, update this field with that URI.
-- `acsPhonenumber`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `acsPhonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetPhonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 ```csharp
-// Your ACS resource connection string
+// Your Azure Communication Services resource connection string
 var acsConnectionString = "<ACS_CONNECTION_STRING>";
 
-// Your ACS resource phone number will act as source number to start outbound call
+// Your Azure Communication Services resource phone number will act as source number to start outbound call
 var acsPhonenumber = "<ACS_PHONE_NUMBER>";
 
 // Target phone number you want to receive the call.
@@ -103,7 +103,7 @@ recordingId = recordingResult.Value.RecordingId;
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service plays this message upon the `CallConnected` event. 
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
 Next, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
 
@@ -122,7 +122,7 @@ await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
 
 ## Handle DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. Then the application plays an audio file in response to DTMF tone one.
+When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. Then the application plays an audio file in response to DTMF tone one.
 
 ```csharp
 if (parsedEvent is RecognizeCompleted recognizeCompleted)

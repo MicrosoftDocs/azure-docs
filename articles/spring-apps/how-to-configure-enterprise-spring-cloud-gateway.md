@@ -458,7 +458,47 @@ For other supported environment variables, see the following sources:
 - [AppDynamics environment variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 - [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
-#### Manage APM in VMware Spring Cloud Gateway
+#### Configure APM integration on the service instance level (recommended)
+
+To enable APM monitoring in your VMware Spring Cloud Gateway, you can create APM configuration on the service instance level and bind it to Spring Cloud Gateway. In this way, you can conveniently configure the APM only once and bind the same APM to Spring Cloud Gateway and to your apps.
+
+##### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to set up APM by using the Azure portal:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
+
+1. Select **Spring Cloud Gateway** on the navigation pane, then select **APM**.
+
+1. Choose the APM name in the **APM reference names** list. The list includes all the APM names configured in step 1.
+
+1. Select **Save** to bind APM reference names to Spring Cloud Gateway. Your gateway restarts to enable APM monitoring.
+
+##### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to set up APM in Spring Cloud Gateway by using the Azure CLI:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+1. Use the following command to update gateway with APM reference names:
+
+   ```azurecli
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --apms <APM-reference-name>
+   ```
+
+   The value for `--apms` is a space-separated list of APM reference names, which you created in step 1.
+
+   > [!NOTE]
+   > Spring Cloud Gateway is deprecating APM types. Use APM reference names to configure APM in a gateway.
+
+---
+
+#### Manage APM in VMware Spring Cloud Gateway (deprecated)
 
 You can use the Azure portal or the Azure CLI to set up APM in VMware Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables that they support.
 
