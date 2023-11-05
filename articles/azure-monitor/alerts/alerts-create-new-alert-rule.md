@@ -207,7 +207,7 @@ To edit an existing alert rule:
         |Frequency of evaluation|How often the query is run. Can be set from a minute to a day.|
 
         >  <a name="frequency"></a>[!NOTE]
-        > There are some limitations to using a one-minute alert rule frequency. When you set the alert rule frequency to one-minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported :
+        > There are some limitations to using a one-minute alert rule frequency. When you set the alert rule frequency to one-minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported:
 
         > * The query contains the **search**, **union** or **take** (limit) operations
         > * The query contains the **ingestion_time()** function
