@@ -16,6 +16,8 @@ Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline f
 
 ## Messaging layer
 
+Azure IoT MQ has an IoT-focused and edge-optimized messaging layer. The messaging layer includes the following features:
+
 - Supports publish-subscribe semantics and [event-driven application architecture](/azure/architecture/guide/architecture-styles/event-driven)
 - Seamlessly integrates up to tens of thousands of downstream IoT devices
 - Configurable to work offline for up to months at a time
@@ -27,11 +29,9 @@ Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline f
 
 ## MQTT compliant
 
-Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management.
+Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
 Azure IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
-
-Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
 Azure IoT MQ features a fully standards-compliant MQTT Broker that supports both MQTT 3.1.1 and MQTT 5. 
 
@@ -41,16 +41,13 @@ Kubernetes can horizontally scale workloads to run in multiple instances. This r
 
 In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT-class devices on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
 
-Azure IoT MQ focuses on the unique edge-native, data-plane value it can provide to the K8s ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
+Azure IoT MQ focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
 
 ## Azure Arc integration
 
 Microsoft's hybrid platform is anchored around Kubernetes with Azure Arc as a single control plane. It provides a management plane that projects existing non-Azure, on-premises, or other-cloud resources into Azure Resource Manager. The result is a single control pane to manage virtual machines, Kubernetes clusters, and databases not running in Azure data centers.
 
-<!-- [Azure Arc diagram] -->
-
-Azure Arc supports deploying native Kubernetes resources via an open-source technology called Flux which uses a GitOps deployment paradigm. This mechanism can be used to deploy and manage Azure IoT MQ just like any other Kubernetes workload. Azure IoT MQ invests in deeper Arc integration in the form of an **Azure IoT MQ Arc extension** that allows customers to deploy and manage the Azure IoT MQ runtime using native Azure Resource Manager gestures. Workload modules can continue to be deployed via GitOps.
-
+Azure Arc supports deploying native Kubernetes resources via an open-source technology called Flux that uses a GitOps deployment paradigm. You can use this mechanism to deploy and manage Azure IoT MQ just like any other Kubernetes workload. Azure IoT MQ invests in deeper Arc integration in the form of an Azure IoT MQ Arc extension that allows you to deploy and manage the Azure IoT MQ runtime using native Azure Resource Manager gestures. Workload modules can continue to be deployed via GitOps.
 
 ## Cloud connectors
 
@@ -66,11 +63,9 @@ Azure IoT has extended offline support provides store-and-forward capability to 
 
 ## Dapr programming model
 
-[Dapr](https://dapr.io/) simplifies *plumbing* between distributed applications by exposing common distributed application capabilities, such as state management, service-to-service invocation, and publish-subscribe messaging. Dapr components lie beneath the building blocks and provide the concrete implementation for each capability. Customers can focus on business logic and let Dapr handle distributed application details.
+[Dapr](https://dapr.io/) simplifies *plumbing* between distributed applications by exposing common distributed application capabilities, such as state management, service-to-service invocation, and publish-subscribe messaging. Dapr components lie beneath the building blocks and provide the concrete implementation for each capability. You can focus on business logic and let Dapr handle distributed application details.
 
-<!-- [Dapr publish-subscribe stack] -->
-
-Azure IoT MQ provides a Dapr publish-subscribe building block that you can use the sidecar to swap a different broker directly to Azure IoT MQ's MQTT broker with no code changes. For example, you could switch to the Mosquito broker.
+Azure IoT MQ provides a Dapr publish-subscribe building block that you can use the sidecar to swap a different broker directly to Azure IoT MQ's MQTT broker with no code changes. For example, you could switch to the Mosquitto broker.
 
 ## Custom authentication
 
@@ -90,7 +85,7 @@ The MQTT broker has three layers:
 
 The back-end layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition. For data that's shared by all partitions, it uses a single chain that spans all the partitions.
 
-<!-- [Architecture diagram] -->
+The goals of the architecture are:
 
 - **Fault tolerance and isolation**: Message publishing continues if back-end nodes fail and prevents failures from propagating to the rest of the system
 - **Failure recovery**: Automatic failure recovery without operator intervention
