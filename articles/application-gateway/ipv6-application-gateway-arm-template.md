@@ -65,8 +65,14 @@ Deploy the ARM template to Azure:
 
 Although IIS isn't required to create the application gateway, it's installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+1. Find the public IP address for the application gateway on its **Overview** page.
+
+   ![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) 
+
+   Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
+
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
    ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
