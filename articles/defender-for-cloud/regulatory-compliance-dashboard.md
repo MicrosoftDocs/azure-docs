@@ -62,7 +62,7 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
 ## Investigate regulatory compliance issues
 
-You can use the information in the regulatory compliance dashboard to investigate any issues that may be affecting your compliance posture.
+You can use the information in the regulatory compliance dashboard to investigate any issues that might be affecting your compliance posture.
 
 **To investigate your compliance issues**:
 
@@ -93,7 +93,7 @@ You can use the information in the regulatory compliance dashboard to investigat
 
 ## Remediate an automated assessment
 
-The regulatory compliance has both automated and manual assessments that may need to be remediated. Using the information in the regulatory compliance dashboard, improve your compliance posture by resolving recommendations directly within the dashboard.
+The regulatory compliance has both automated and manual assessments that might need to be remediated. Using the information in the regulatory compliance dashboard, improve your compliance posture by resolving recommendations directly within the dashboard.
 
 **To remediate an automated assessment**:
 
@@ -124,7 +124,7 @@ The regulatory compliance has both automated and manual assessments that may nee
 
 ## Remediate a manual assessment
 
-The regulatory compliance has automated and manual assessments that may need to be remediated. Manual assessments are assessments that require input from the customer to remediate them.
+The regulatory compliance has automated and manual assessments that might need to be remediated. Manual assessments are assessments that require input from the customer to remediate them.
 
 **To remediate a manual assessment**:
 

@@ -1,27 +1,27 @@
 ---
-title:  Using DICOMweb Standard APIs with Python - Azure Health Data Services
-description: This tutorial describes how to use DICOMweb Standard APIs with Python. 
+title:  Use Python and DICOMweb Standard APIs in Azure Health Data Services
+description: Use Python and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
 ms.author: mmitrik
 ---
 
-# Using DICOMWeb&trade; Standard APIs with Python
+# Use DICOMweb Standard APIs with Python
 
-This tutorial uses Python to demonstrate working with the DICOM Service.
+This article shows how to work with the DICOMweb service using Python and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
-In the tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+Use these sample files:
 
-* blue-circle.dcm
-* dicom-metadata.csv
-* green-square.dcm
-* red-triangle.dcm
+- blue-circle.dcm
+- dicom-metadata.csv
+- green-square.dcm
+- red-triangle.dcm
 
- The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -30,30 +30,30 @@ In the tutorial, we'll use the following [sample .dcm DICOM files](https://githu
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 > [!NOTE]
-> Each of these files represent a single instance and are part of the same study. Also,the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+> Each of these files represents a single instance and is part of the same study. Also,the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
-To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
+After you deploy an instance of the DICOM service, retrieve the URL for your App service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. 
-2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
+2. If you don't have a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
+For this code, you access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
-## Working with the DICOM service
+## Work with the DICOM service
 
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb standard awkward. However, after it's up and running, it's easy to use. It just takes a little familiarity to get started.
 
-### Import the appropriate Python libraries
+### Import the Python libraries
 
 First, import the necessary Python libraries.
 
-We've chosen to implement this example using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
+We implement this example by using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
 
 Additionally, we're importing `DefaultAzureCredential` to log into Azure and get a token.
 
@@ -65,9 +65,9 @@ from urllib3.filepost import encode_multipart_formdata, choose_boundary
 from azure.identity import DefaultAzureCredential
 ```
 
-### Configure user-defined variables to be used throughout
+### Configure user-defined variables
 
-Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
+Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service is: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you need to override that value with your own.
 
 ```python
 dicom_service_name = "{server-name}"
@@ -82,7 +82,7 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 
 ### Authenticate to Azure and get a token
 
-`DefaultAzureCredential` allows us to get a variety of ways to get tokens to log into the service. We'll use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. In order to use the AzureCliCredential, you must have logged into Azure from the CLI prior to running this code. (For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).) Alternatively, you can simply copy and paste the token retrieved while logging in from the CLI.
+`DefaultAzureCredential` allows us to use various ways to get tokens to log into the service. In this example, use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. To use the AzureCliCredential, you need to sign in to Azure from the CLI before running this code. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). Alternatively, copy and paste the token retrieved while signing in from the CLI.
 
 > [!NOTE]
 > `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not be consistent. If so, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
@@ -101,7 +101,7 @@ bearer_token = f'Bearer {token.token}'
 
 ### Create supporting methods to support `multipart\related`
 
-The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb&trade;. Because of these libraries, we must add a few methods to support working with DICOM files.
+The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb. Because of these libraries, we must add a few methods to support working with DICOM files.
 
 `encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which it can be used.
 
@@ -118,7 +118,7 @@ def encode_multipart_related(fields, boundary=None):
 
 ### Create a `requests` session
 
-Creates a `requests` session, called `client`, that will be used to communicate with the DICOM service.
+Creates a `requests` session, called `client` that is used to communicate with the DICOM service.
 
 
 ```python
@@ -127,7 +127,7 @@ client = requests.session()
 
 ### Verify authentication is configured correctly
 
-Call the changefeed API endpoint, which will return a 200 if authentication is successful.
+Call the changefeed API endpoint, which returns a 200 if authentication is successful.
 
 ```python
 headers = {"Authorization":bearer_token}
@@ -138,13 +138,13 @@ if (response.status_code != 200):
     print('Error! Likely not authenticated!')
 ```
 
-## Uploading DICOM Instances (STOW)
+## Upload DICOM instances (STOW)
 
 The following examples highlight persisting DICOM files.
 
 ### Store instances using `multipart/related`
 
-This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to pre-load the DICOM file (as bytes) into memory. By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
+This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to preload the DICOM file (as bytes) into memory. When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
 
 _Details:_
 
@@ -158,7 +158,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some of them require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For example, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These languages and tools can be used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -183,9 +183,9 @@ response = client.post(url, body, headers=headers, verify=False)
 
 ### Store instances for a specific study
 
-This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to pre-load the DICOM file (as bytes) into memory.  
+This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to preload the DICOM file (as bytes) into memory.  
 
-By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
+When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
 
 _Details:_
 * Path: ../studies/{study}
@@ -220,9 +220,9 @@ headers = {'Accept':'application/dicom+json', "Content-Type":content_type, "Auth
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
 ```
-### Store single instance (non-standard)
+### Store single instance (nonstandard)
 
-The following code example demonstrates how to upload a single DICOM file. It's a non-standard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
+The following code example demonstrates how to upload a single DICOM file. It's a nonstandard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
 
 _Details:_
 * Path: ../studies
@@ -249,7 +249,7 @@ response = client.post(url, body, headers=headers, verify=False)
 response  # response should be a 409 Conflict if the file was already uploaded in the above request
 ```
 
-## Retrieve DICOM Instances (WADO)
+## Retrieve DICOM instances (WADO)
 
 The following examples highlight retrieving DICOM instances.
 
@@ -275,7 +275,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 ### Use the retrieved instances
 
-The instances are retrieved as binary bytes. You can loop through the returned items and convert the bytes into a file-like that can be read by `pydicom`.
+The instances are retrieved as binary bytes. You can loop through the returned items and convert the bytes into a file that `pydicom` can read.
 
 
 ```python
@@ -553,7 +553,7 @@ response = client.get(url, headers=headers, params=params) #, verify=False)
 > [!NOTE]
 > Delete is not part of the DICOM standard, but it has been added for convenience.
 
-A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) has never existed or it's already been deleted.
+A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) never existed or are already deleted.
 
 ### Delete a specific instance within a study and series
 
@@ -583,7 +583,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer $token
 
-This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code won't delete content.
+This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code doesn't delete content.
 
 ```python
 headers = {"Authorization":bearer_token}
@@ -607,9 +607,4 @@ url = f'{base_url}/studies/{study_uid}'
 response = client.delete(url, headers=headers) 
 ```
 
-### Next Steps
-
-For information about the DICOM service, see 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

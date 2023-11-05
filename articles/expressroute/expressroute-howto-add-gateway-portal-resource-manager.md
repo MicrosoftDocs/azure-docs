@@ -44,6 +44,11 @@ The steps for this tutorial use the values in the following configuration refere
 * Gateway Public IP Name = "MyERGWVIP"
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
+    > [!IMPORTANT]
+    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Please associate a Standard IP to create the Virtual Network Gateway.
+    > 
+    > 
+
 ## Create the gateway subnet
 
 1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.

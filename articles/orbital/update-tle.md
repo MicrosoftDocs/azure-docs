@@ -1,5 +1,5 @@
 ---
-title: Update the spacecraft TLE
+title: Azure Orbital Ground Station - update spacecraft TLE
 description: Update the TLE of an existing spacecraft resource.
 author: apoorvanori
 ms.service: orbital
@@ -43,5 +43,4 @@ Update the TLE of an existing spacecraft resource.
 
 ## Next steps
 
-- [Tutorial: Schedule a contact](schedule-contact.md)
-- [Tutorial: Cancel a scheduled contact](delete-contact.md)
+- [Schedule a contact](schedule-contact.md)

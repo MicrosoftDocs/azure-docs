@@ -12,7 +12,7 @@ ms.date: 08/30/2023
 
 ## Prerequisites
 
-* Kubernetes 1.19 or greater. To check your version, see [Check for available upgrades](./upgrade-cluster.md#check-for-available-aks-cluster-upgrades). To upgrade your version, see [Upgrade AKS cluster](./upgrade-cluster.md#upgrade-an-aks-cluster).
+* Kubernetes 1.19 or greater. To check your version, see [Check for available upgrades](./upgrade-aks-cluster.md#check-for-available-aks-cluster-upgrades). To upgrade your version, see [Upgrade AKS cluster](./upgrade-aks-cluster.md).
 * Azure CLI version 2.35.0 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * [Managed identities][aks-managed-id] enabled on your AKS cluster.
 * Permissions to create or update an Azure Key Vault.
