@@ -12,9 +12,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Preview)
 
-## Overview 
-
-[Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 address are not supported.
+[Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 addresses aren't supported.
 
 To support IPv6 frontend support, you must create a dual stack VNet. This dual stack VNet will have subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
@@ -22,7 +20,9 @@ To support IPv6 frontend support, you must create a dual stack VNet. This dual s
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## In this guide
+## Overview
+
+Azure PowerShell is used to create an IPv6 Azure Application Gateway. Testing is performed to verify it works correctly.
 
 You learn how to:
 * [Register](#register-to-the-preview) and [unregister](#unregister-from-the-preview) from the preview
@@ -50,7 +50,7 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses are not supported
+* Deletion of frontend IP addresses aren't supported
 * Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
 
 > [!NOTE]
@@ -351,4 +351,5 @@ AllowApplicationGatewayIPv6   Microsoft.Network   Unregistered
 
 ## Next steps
 
-[Troubleshoot Bad Gateway](application-gateway-troubleshooting-502.md)
+- [What is Azure Application Gateway v2?](overview-v2.md)
+- [Troubleshoot Bad Gateway](application-gateway-troubleshooting-502.md)
