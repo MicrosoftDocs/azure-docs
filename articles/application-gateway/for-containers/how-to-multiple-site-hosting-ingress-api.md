@@ -233,7 +233,7 @@ Via the response we should see:
 }
 ```
 
-Next, specify server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
+Next, specify server name indicator using the curl command, `fabrikam.com` for the frontend FQDN should return a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
