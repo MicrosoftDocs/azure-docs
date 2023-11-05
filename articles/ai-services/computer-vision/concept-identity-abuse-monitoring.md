@@ -1,20 +1,35 @@
+---
+title: Abuse monitoring in Face liveness detection - Face
+titleSuffix: Azure AI services
+description: Learn about abuse-monitoring methods in Azure Face service.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
 
-# Abuse Monitoring
+ms.service: azure-ai-vision
+ms.topic: conceptual
+ms.date: 11/05/2023
+ms.author: pafarley
+ms.custom: 
+---
 
-Azure AI Face Liveness Detection service detects and mitigates instances of recurring content and/or behaviors that suggest use of the service in a manner that may violate the [Code of Conduct](https://microsoft.sharepoint.com/:fl:/s/b070394c-38fc-4465-afc2-5c2da1fc6d69/EfDfBQ8k1IdGnt40YtKKB8UB7_g-2NnwfclvVFnMnGkRgg?e=lKcdPF&nav=cz0lMkZzaXRlcyUyRmIwNzAzOTRjLTM4ZmMtNDQ2NS1hZmMyLTVjMmRhMWZjNmQ2OSZkPWIhbVJJMUR4cFphRXE0bl9hSmY5d2xORUFHWmwwcFJTRkJ1SDZVY0RQdzgwLUI4T2cwdkUxWVM2dHR4Y1Nvcy1PcCZmPTAxSUM2WlZKWFEzNENRNkpHVVE1REo1WFJVTUxKSVVCNkYmYz0lMkYmZmx1aWQ9MSZhPUxvb3BBcHAmcD0lNDBmbHVpZHglMkZsb29wLXBhZ2UtY29udGFpbmVy) or other applicable product terms. Details on how data is handled can be found on the [Data, Privacy and Security page](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).
+# Abuse monitoring in Face liveness detection
 
-**Components of abuse monitoring**
+Azure AI Face liveness detection lets you you detect and mitigate instances of recurring content and/or behaviors that indicate a violation of the [Code of Conduct](tbd) or other applicable product terms. This guide TBD
 
-There are several components to abuse monitoring:
+Details on how data is handled can be found on the [Data, Privacy and Security](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) page.
 
-- **Session Management** : Customer backend application systems create liveness detection sessions on behalf of the users. Azure AI Face service issue authorization tokens for a particular session, each valid for a limited number of API calls. When an application system user encounters failure during liveness detection within the limits, a new token is needed. This allows the backend application to assess the risk of additional retries. Excessive number of retries may indicate brute force adversarial attempt to bypass the liveness detection system.
-- **Temporary Correlation Identifier** : Session creation prompts customers to assign a 128-bit temporary correlation GUIDs or globally unique identifiers for each application system user. System developers generate the GUIDs and retain a temporary correlation to individual's primary identifier to support session creation for that individual. Classifier models detect presentation attack cues and observe failure patterns across usage of a particular GUID. This GUID must be resettable on demand to support manual overrides of the automated mitigation system.
-- **Abuse Pattern Capture** : Azure AI Face Liveness Detection service's abuse monitoring looks at customer usage patterns and employs algorithms and heuristics to detect indicators of potential abuse. Detected patterns consider, for example, the frequency and severity at which presentation attack content is detected in a customer's image capture.
-- **Human Review and Decision** : When the correlation identifiers are flagged through abuse pattern capture as described above, no more sessions can be created for those identifiers. Customers should allow authorized employees to assess the traffic pattern, and either confirm or override the determination based on predefined guidelines and policies. If human review concludes that an override is needed, generate a new temporary correlation GUID for the individual to generate more sessions.
-- **Notification and Action** : When a threshold of abusive behavior has been confirmed based on the preceding steps, the customer is informed of the determination by email. Except in cases of severe or recurring abuse, customers typically are given an opportunity to explain or remediate—and implement mechanisms to prevent recurrence of—the abusive behavior. Failure to address the behavior—or recurring or severe abuse—may result in suspension or termination of the customer's Limited Access eligibility for Azure AI Face resources and/or capabilities.
+## Components of abuse monitoring
 
-**Next steps**
+There are several components to Face liveness abuse monitoring:
+- **Session management**: Your backend application system creates liveness detection sessions on behalf of your end-users. The Face service issues authorization tokens for a particular session, and each is valid for a limited number of API calls. When the end-user encounters a failure during liveness detection, a new token is requested. This allows the backend application to assess the risk of allowing additional liveness retries. An excessive number of retries may indicate a brute force adversarial attempt to bypass the liveness detection system.
+- **Temporary correlation identifier**: The session creation process prompts you to assign a temporary 128-bit correlation GUID (globally unique identifier) for each end-user of your application system. This lets you associate each session with an individual. Classifier models on the service backend can detect presentation attack cues and observe failure patterns across the usage of a particular GUID. This GUID must be resettable on demand to support the manual override of the automated abuse mitigation system.
+- **Abuse pattern capture**: Azure AI Face liveness detection service looks at customer usage patterns and employs algorithms and heuristics to detect indicators of potential abuse. Detected patterns consider, for example, the frequency and severity at which presentation attack content is detected in a customer's image capture.
+- **Human review and decision**: When the correlation identifiers are flagged through abuse pattern capture as described above, no further sessions can be created for those identifiers. You should allow authorized employees to assess the traffic patterns and either confirm or override the determination based on predefined guidelines and policies. If human review concludes that an override is needed, you should generate a new temporary correlation GUID for the individual in order to generate more sessions.
+- **Notification and action**: When a threshold of abusive behavior has been confirmed based on the preceding steps, the customer should be informed of the determination by email. Except in cases of severe or recurring abuse, customers typically are given an opportunity to explain or remediate&mdash;and implement mechanisms to prevent the recurrence of&mdash;the abusive behavior. Failure to address the behavior, or recurring or severe abuse, may result in the suspension or termination of your Limited Access eligibility for Azure AI Face resources and/or capabilities.
 
-- [Learn more about understanding and mitigating risks associated with identity management for your application in Azure](https://learn.microsoft.com/en-us/azure/security/fundamentals/identity-management-overview)
-- [Learn more about how data is processed in connection with abuse monitoring](https://learn.microsoft.com/en-us/legal/cognitive-services/face/data-privacy-security?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext)
-- [Learn more about supporting human judgement in your application system](https://learn.microsoft.com/en-us/legal/cognitive-services/face/characteristics-and-limitations?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#design-the-system-to-support-human-judgment)
+## Next steps
+
+- [Learn more about understanding and mitigating risks associated with identity management](/azure/security/fundamentals/identity-management-overview)
+- [Learn more about how data is processed in connection with abuse monitoring](/legal/cognitive-services/face/data-privacy-security?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext)
+- [Learn more about supporting human judgement in your application system](/legal/cognitive-services/face/characteristics-and-limitations?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#design-the-system-to-support-human-judgment)
