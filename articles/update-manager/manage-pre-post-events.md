@@ -51,7 +51,7 @@ To view the pre and post events, follow these steps:
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
 1. On the **Maintenance Configuration** page, select the maintenance configuration to which you want to add a pre and post event.
 1. Select **Overview** and check the **Maintenance events**.
-    - If you see **Configure**, it implies that there is no pre and post event is currently setup. Select **Configure** to setup one.
+    - If you see **Configure**, it implies that there is no pre and post event currently setup. Select **Configure** to setup one.
     - If the setup is already done, you can see the count of the pre and post events associated to the configuration.
    
       :::image type="content" source="./media/manage-pre-post-events/view-configure-events-inline.png" alt-text="Screenshot that shows how to view and configure a pre and post event." lightbox="./media/manage-pre-post-events/view-configure-events-expanded.png":::
@@ -83,7 +83,7 @@ The following example shows the timeline for schedules with pre and post events:
 |----------|-------------|
 |2:19 p.m. | You can modify the machines or dynamic scopes within the schedule's scope until this time. After this time, the resources will be included in the subsequent schedule run and not the current run. </br> **Note**</br> If you are creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the maintenance window for the pre-event to run. |
 |2:30 p.m. | The pre event will be initiated.|
-|2:50 p.m. | The pre script would complete all the tasks for a successful schedule run. </br> **Note** </br> - If the Pre-script keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancellation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancellation API from your script or Azure function code. If cancellation API fails to get invoked or has not been set up, the patch installation will proceed to run. |
+|2:50 p.m. | The pre script would complete all the tasks for a successful schedule run. </br> **Note** </br> - If the Pre-script keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancelation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancelation API from your script or Azure function code. If cancelation API fails to get invoked or has not been setup, the patch installation will proceed to run. |
 |3:00 p.m.| The schedule will get triggered. | 
 |6:55 p.m.| The schedule will complete patch installation.|
 |7:15 p.m.| The post event will initiate at 6:55 p.m. and complete by 7:15 p.m. |
@@ -91,31 +91,31 @@ The following example shows the timeline for schedules with pre and post events:
 
 ## Cancel a schedule from a pre event
 
-To cancel the schedule, you must call the cancellation API in your pre event to set up the cancellation process (i.e.) in your Runbook script or Azure function code. Here, you must define the criteria from when the schedule must be cancelled. The system will not monitor and automatically cancels the schedule based on the status of the pre event. 
+To cancel the schedule, you must call the cancelation API in your pre event to setup the cancelation process (i.e.) in your Runbook script or Azure function code. Here, you must define the criteria from when the schedule must be canceled. The system will not monitor and automatically cancels the schedule based on the status of the pre event. 
 
-There are two types of cancellations:
-- **Cancellation by user** - when you invoke the cancellation API from your script or code.
-- **Cancellation by system** - when the system invoke the cancellation API due to an internal error.
+There are two types of cancelations:
+- **Cancelation by user** - when you invoke the cancelation API from your script or code.
+- **Cancelation by system** - when the system invokes the cancelation API due to an internal error.
 
 > [!NOTE]
-> If the cancellation API fails to get invoked or has not been set up, the patch installation will proceed to run.
+> If the cancelation API fails to get invoked or has not been setup, the patch installation will proceed to run.
  
-### View the cancellation status
+### View the cancelation status
 
-To view the cancellation status, follow these steps:
+To view the cancelation status, follow these steps:
 
 1. In **Azure Update Manager** home page, go to **History**
 1. Select by the **Maintenance run ID** and choose the run ID for which you want to view the status.
 
-    :::image type="content" source="./media/manage-pre-post-events/view-cancellation-status-inline.png" alt-text="Screenshot that shows how to view the cancellation status." lightbox="./media/manage-pre-post-events/view-cancellation-status-expanded.png":::
+    :::image type="content" source="./media/manage-pre-post-events/view-cancelation-status-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/view-cancelation-status-expanded.png":::
 
-You can view the cancellation status from the error message in the JSON. The JSON can be obtained from the Azure Resource Graph (ARG). The corresponding maintenance configuration would be cancelled using the Cancellation API.
+You can view the cancelation status from the error message in the JSON. The JSON can be obtained from the Azure Resource Graph (ARG). The corresponding maintenance configuration would be canceled using the Cancelation API.
 
-   :::image type="content" source="./media/manage-pre-post-events/cancellation-api-user-inline.png" alt-text="Screenshot for cancellation done by the user." lightbox="./media/manage-pre-post-events/cancellation-api-user-expanded.png" :::
+   :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot for cancelation done by the user." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png" :::
 
-   If the maintenance job is cancelled by the system due to any reason, the error message in the JSON is obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule cancelled due to internal platform failure**.
+   If the maintenance job is canceled by the system due to any reason, the error message in the JSON is obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule canceled due to internal platform failure**.
 
-#### Invoke the cancellation API
+#### Invoke the Cancelation API
 
 ```rest
 HTTPCopy
@@ -123,7 +123,7 @@ HTTPCopy
 ```
 
 > [!NOTE]
-> You must replace the **Correlation ID** received from the above ARG query and replace it in the Cancellation API.
+> You must replace the **Correlation ID** received from the above ARG query and replace it in the Cancelation API.
 
 **Example**
 ```http
