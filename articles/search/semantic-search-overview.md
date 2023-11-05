@@ -134,4 +134,4 @@ Charges for semantic ranking are levied when query requests include `queryType=s
 
 * [Enable semantic ranking](semantic-how-to-enable-disable.md)
 * [Configure semantic ranking](semantic-how-to-query-request.md)
-* [Blog: Outperforming vector search with hybrid retrieval and ranking capabilities]((https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167))
+* [Blog: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
