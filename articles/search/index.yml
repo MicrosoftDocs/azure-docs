@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 10/25/2023
+  ms.date: 11/05/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -109,6 +109,8 @@ landingContent:
         links:
           - text: Query types and composition
             url: search-query-overview.md
+          - text: Query vector data
+            url: vector-search-how-to-query.md
           - text: Simple syntax (default)
             url: query-simple-syntax.md
           - text: Full Lucene syntax

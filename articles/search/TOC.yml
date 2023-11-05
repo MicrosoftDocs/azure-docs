@@ -210,58 +210,6 @@
       href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
-  - name: Service management
-    items:
-    - name: Manage in the portal
-      href: search-manage.md
-    - name: Manage with PowerShell
-      href: search-manage-powershell.md
-    - name: Manage with Azure CLI
-      href: search-manage-azure-cli.md
-    - name: Manage with REST
-      href: search-manage-rest.md
-    - name: Move service across regions
-      href: search-howto-move-across-regions.md
-  - name: Security
-    items:
-    - name: Inbound connections
-      items:
-      - name: Connect using API keys
-        href: search-security-api-keys.md
-      - name: Connect using Azure roles
-        href: search-security-rbac.md
-      - name: Configure apps for Microsoft Entra ID
-        href: search-howto-aad.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-      - name: Troubleshoot private connections
-        href: troubleshoot-shared-private-link-resources.md
-    - name: Outbound connections
-      items:
-      - name: Connect as a trusted service
-        href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Connect using a managed identity
-        href: search-howto-managed-identities-data-sources.md
-      - name: Connect through a firewall
-        href: search-indexer-howto-access-ip-restricted.md
-      - name: Connect through a shared private link
-        href: search-indexer-howto-access-private.md
-      - name: Connect to a SQL managed instance private endpoint
-        href: search-indexer-how-to-access-private-sql.md
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
-    - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
-        href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
     - name: API versions
@@ -499,7 +447,59 @@
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
-      href: search-traffic-analytics.md 
+      href: search-traffic-analytics.md
+  - name: Service management
+    items:
+    - name: Manage in the portal
+      href: search-manage.md
+    - name: Manage with PowerShell
+      href: search-manage-powershell.md
+    - name: Manage with Azure CLI
+      href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
+  - name: Security
+    items:
+    - name: Inbound connections
+      items:
+      - name: Connect using API keys
+        href: search-security-api-keys.md
+      - name: Connect using Azure roles
+        href: search-security-rbac.md
+      - name: Configure apps for Microsoft Entra ID
+        href: search-howto-aad.md
+      - name: Configure an IP firewall
+        href: service-configure-firewall.md
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
+    - name: Outbound connections
+      items:
+      - name: Connect as a trusted service
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
+      - name: Connect through a firewall
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Connect through a shared private link
+        href: search-indexer-howto-access-private.md
+      - name: Connect to a SQL managed instance private endpoint
+        href: search-indexer-how-to-access-private-sql.md
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Find encrypted objects
+        href: search-security-get-encryption-keys.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Security filters with Microsoft Entra ID
+        href: search-security-trimming-for-azure-search-with-aad.md
 - name: Responsible AI
   items:
   - name: Transparency note
