@@ -159,7 +159,7 @@ The following are the fields extracted from a 1098 tax form in the JSON output r
 
 ## Field extraction 1099-NEC
 
-The following are the fields extracted from a 1099-nec tax form in the JSON output response. The other variations of 1099 are also supported. 
+The following are the fields extracted from a 1099-nec tax form in the JSON output response. The other variations of 1099 are also supported.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
