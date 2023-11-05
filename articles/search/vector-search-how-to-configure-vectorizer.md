@@ -13,13 +13,13 @@ ms.date: 11/04/2023
 # Configure a vectorizer in a search index
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) supports this feature.
+> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
 
 A *vectorizer* is a component of a [search index](search-what-is-an-index.md) that specifies a vectorization agent, such as a deployed embedding model on Azure OpenAI that converts text to vectors. You can define a vectorizer once, and then reference it in the vector profile assigned to a vector field.
 
 A vectorizer is used during indexing and queries. It allows the search service to handle chunking and coding on your behalf.
 
-You can use the [**Import and vectorize data** wizard](search-get-started-portal-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
+You can use the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ You can use the [**Import and vectorize data** wizard](search-get-started-portal
 
 ## Define a vectorizer
 
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add a vectorizer.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add a vectorizer.
 
 1. Add the following JSON to your index definition. Provide valid values and remove any properties you don't need:
 
@@ -66,7 +66,7 @@ You can use the [**Import and vectorize data** wizard](search-get-started-portal
 
 ## Define a profile that includes a vectorizer
 
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add a profile.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add a profile.
 
 1. Add a profiles section that specifies combinations of algorithms and vectorizers.
 
@@ -87,7 +87,7 @@ You can use the [**Import and vectorize data** wizard](search-get-started-portal
 
 ## Assign a vector profile to a field
 
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add field attributes.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add field attributes.
 
 1. For each vector field in the fields collection, assign a profile.
 

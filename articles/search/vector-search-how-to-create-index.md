@@ -34,6 +34,8 @@ This article applies to the generally available, non-preview version of [vector 
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
++ You should be familiar with [creating an index](search-how-to-create-search-index). The schema must include a field for the document key, other fields, and other configurations for behaviors needed during indexing and queries. 
+
 ## Prepare documents for indexing
 
 Prior to indexing, assemble a document payload that includes fields of vector and non-vector data. The document structure must conform to the index schema. 
@@ -54,8 +56,6 @@ A short example of a documents payload that includes vector and non-vector field
 
 ## Add a vector search configuration
 
-The schema must include a field for the document key, a vector configuration, vector fields, and any other fields that you need for hybrid search scenarios.
-
 A vector configuration specifies the [vector search algorithm](vector-search-ranking.md) and parameters used during indexing to create "nearest neighbor" information among the vector nodes:
 
 + Hierarchical Navigable Small World (HNSW)
@@ -65,16 +65,17 @@ If you choose HNSW on a field, you can opt in for exhaustive KNN at query time. 
 
 ### [**2023-11-01**](#tab/config-2023-11-01)
 
-REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Create or Update Index](/rest/api/searchservice/documents/search-post). This API supports:
+REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) supports a vector configuration having:
 
-+ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
-+ `vectorProfiles` for multiple combinations of algorithm configurations
++ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content.
++ Parameters for specifying the similarity metric used for scoring.
++ `vectorProfiles` for multiple combinations of algorithm configurations.
 
-Be sure to have a strategy for [vectorizing your content](vector-search-how-to-generate-embeddings.md). The stable version doesn't provide [vectorizers](vector-search-how-to-configure-vectorizer.md).
+Be sure to have a strategy for [vectorizing your content](vector-search-how-to-generate-embeddings.md). The stable version doesn't provide [vectorizers](vector-search-how-to-configure-vectorizer.md) for built-in embedding.
 
 1. Use the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) API to create the index.
 
-1. Add a `vectorSearch` section in the index that specifies the similarity algorithms used to create the embedding space. 
+1. Add a `vectorSearch` section in the index that specifies the search algorithms used to create the embedding space. 
 
    ```json
     "vectorSearch": {
@@ -131,12 +132,13 @@ Be sure to have a strategy for [vectorizing your content](vector-search-how-to-g
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports external and [internal vectorization](vector-search-how-to-configure-vectorizer.md). This section assumes an external vectorization strategy. This API supports:
 
-+ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
-+ `vectorProfiles` for multiple combinations of algorithm configurations
++ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content.
++ Parameters for specifying the similarity metric used for scoring.
++ `vectorProfiles` for multiple combinations of algorithm configurations.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to create the index.
 
-1. Add a `vectorSearch` section in the index that specifies the similarity algorithms used to create the embedding space. 
+1. Add a `vectorSearch` section in the index that specifies the search algorithms used to create the embedding space. 
 
    ```json
     "vectorSearch": {
@@ -198,7 +200,7 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 1. Use the [Create or Update Index REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 
-1. Add a `vectorSearch` section in the index that specifies the similarity algorithm used to create the embedding space.
+1. Add a `vectorSearch` section in the index that specifies the search algorithm used to create the embedding space.
 
    ```json
     "vectorSearch": {
@@ -326,7 +328,7 @@ Use this version if you want generally available features only.
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
 
-1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
+1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to create the index.
 
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
