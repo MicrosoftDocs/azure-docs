@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Direct web traffic using a Resource Manager template'
+title: Deploy an Azure Application Gateway with an IPv6 frontend (Preview)
 titleSuffix: Azure Application Gateway
-description: In this quickstart, you learn how to use a Resource Manager template to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: This template helps you deploys an Azure Application Gateway with an IPv6 frontend (Preview) in a dual-stack virtual network with two load-balanced VMs.
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
@@ -11,19 +11,19 @@ ms.service: application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Direct web traffic with Azure Application Gateway - ARM template
-
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
-
-:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
+# Deploy an Azure Application Gateway with an IPv6 frontend - ARM template (Preview)
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
+You can also complete this quickstart using the [Azure portal](ipv6-application-gateway-portal.md) or [Azure PowerShell](ipv6-application-gateway-powershell.md).
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
+> [!IMPORTANT]
+> Application Gateway IPv6 frontend is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-For the sake of simplicity, this template creates a simple setup with a public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+This template creates a simple setup with a dual-stack public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
   > [!NOTE]
-  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+  > Application Gateway's dual-stack frontend (Preview) supports up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
+The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/application-gateway-ipv6-create/)
 
-:::code language="json" source="~/quickstart-templates/demos/ag-docs-qs/azuredeploy.json":::
+:::code language="json" source="~/azure-quickstart-templates/quickstarts/microsoft.network/application-gateway-ipv6-create/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -56,7 +56,7 @@ Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an application gateway, the network infrastructure, and two virtual machines in the backend pool running IIS.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
 
 2. Select or create your resource group, type the virtual machine administrator user name and password.
 3. Select **Review + Create** and then select **Create**.
