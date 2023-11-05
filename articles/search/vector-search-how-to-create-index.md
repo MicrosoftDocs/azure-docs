@@ -19,9 +19,9 @@ Follow these steps to index vector data:
 > [!div class="checklist"]
 > + Add one or more vector configurations to an index schema. 
 > + Add one or more vector fields.
-> + Load the index with vector data afterwards [as a separate step](#load-vector-data-for-indexing), or use the new [integrated vectorization (preview)](vector-search-integrated-vectorization.md) feature for data chunking and embedding during indexing.
+> + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing.
 
-This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and embedding. 
+This article applies to the generally available, non-preview version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and encoding. 
 
 > [!NOTE]
 > Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
@@ -30,7 +30,7 @@ This article applies to the generally available version of [vector search](vecto
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of vector search. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
++ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of vector search. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md).
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
@@ -70,7 +70,7 @@ REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-ver
 + `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
 + `vectorProfiles` for multiple combinations of algorithm configurations
 
-The stable version doesn't support integrated data chunking or vectorization. For those features, use API version **2023-10-01-Preview**.
+Be sure to have a strategy for [vectorizing your content](vector-search-how-to-generate-embeddings.md). The stable version doesn't provide [vectorizers](vector-search-how-to-configure-vectorizer.md).
 
 1. Use the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) API to create the index.
 
@@ -129,12 +129,12 @@ The stable version doesn't support integrated data chunking or vectorization. Fo
 
 ### [**2023-10-01-Preview**](#tab/config-2023-10-01-Preview)
 
-REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports external and [internal data chunking and vectorization](vector-search-how-to-configure-vectorizer.md). This section shows the syntax for a vector search configuration for external vectorization. This API supports:
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports external and [internal vectorization](vector-search-how-to-configure-vectorizer.md). This section assumes an external vectorization strategy. This API supports:
 
 + `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
 + `vectorProfiles` for multiple combinations of algorithm configurations
 
-1. Use the [Create or Update Index Preview REST API](//rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to create the index.
+1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to create the index.
 
 1. Add a `vectorSearch` section in the index that specifies the similarity algorithms used to create the embedding space. 
 
@@ -252,18 +252,13 @@ The fields collection must include a field for the document key, vector fields, 
 
 Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and specifies a vector configuration.
 
-You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors. To evaluate the very latest vector search behaviors, use the **2023-10-01-Preview** REST API version. 
-
 ### [**2023-11-01**](#tab/rest-2023-11-01)
 
 Use this version if you want generally available features only.
 
-> [!TIP]
-> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
+1. Use the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) to create the index.
 
-1. Use the [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) to create the index.
-
-1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
+1. Add vector fields to the fields collection. You can store one generated embedding per field. For each vector field:
 
    + Assign the `Collection(Edm.Single)` data type.
    + Provide the name of the vector search profile.
@@ -330,9 +325,6 @@ Use this version if you want generally available features only.
 ### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
-
-> [!TIP]
-> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
 
@@ -409,9 +401,6 @@ In the following REST API example, "title" and "content" contain textual content
 REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) was the first REST API version to support vector scenarios. 
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
-
-> [!TIP]
-> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 
@@ -557,13 +546,13 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 ## Load vector data for indexing
 
-Content that you provide for indexing must conform to the index schema and include a unique string value for the document key. Vector data is loaded into one or more vector fields, which can coexist with other fields containing alphanumeric content.
+Content that you provide for indexing must conform to the index schema and include a unique string value for the document key. Pre-vectorized data is loaded into one or more vector fields, which can coexist with other fields containing alphanumeric content.
 
-You can use either [push or pull methodologies](search-what-is-data-import.md) for data ingestion. You can't use the portal (Import data wizard) for this step.
+You can use either [push or pull methodologies](search-what-is-data-import.md) for data ingestion. 
 
 ### [**Push APIs**](#tab/push)
 
-Use [Index Documents (2023-11-01)](/rest/api/searchservice/2023-11-01/documents/), [Index Documents (2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview/documents/), or the [Add, Update, or Delete Documents (2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
+Use [Index Documents (2023-11-01)](/rest/api/searchservice/documents/index), [Index Documents (2023-10-01-Preview)](/rest/api/searchservice/documents/?view=rest-searchservice-2023-10-01-preview&preserve-view=true), or the [Add, Update, or Delete Documents (2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version=2023-11-01

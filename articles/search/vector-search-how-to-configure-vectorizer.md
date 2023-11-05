@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/04/2023
 ---
 
 # Configure a vectorizer in a search index
@@ -17,9 +17,9 @@ ms.date: 10/31/2023
 
 A *vectorizer* is a component of a [search index](search-what-is-an-index.md) that specifies a vectorization agent, such as a deployed embedding model on Azure OpenAI that converts text to vectors. You can define a vectorizer once, and then reference it in the vector profile assigned to a vector field.
 
-A vectorizer is used during indexing and queries.
+A vectorizer is used during indexing and queries. It allows the search service to handle chunking and coding on your behalf.
 
-You can use the Azure portal (**Import and vectorize data** wizard), the [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
+You can use the [**Import and vectorize data** wizard](search-get-started-portal-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
 
 ## Prerequisites
 
