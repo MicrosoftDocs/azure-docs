@@ -23,54 +23,55 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
-TBD review all this:
-## Data structure work with Identify API 
+## Data structures used with Identify 
 
-Face Identify API need a container data structure which holds face recognition data to work with. Face API involved three versions of such data structure. This document explains the details of them. Overall, we recommend user always use the latest one. 
+The Face Identify API uses container data structures to the hold face recognition data in the form of **Person** objects. There are three types of containers for this, listed from oldest to newest. We recommend you always use the newest one. 
 
-### Person Group 
+### PersonGroup 
 
-**PersonGroup** is the first container data structure to support identify operation. Several features to call out: 
-- A recognition model needs to be specified at person group creation time. All faces added to the person group will use the model to process. This model must match the model version with Face Id from detect API. 
-- Train API need to be called to make any data update reflect to identify API result. Which includes add/remove faces, add/remove persons. Train API optimize the data underneath to improve identify accuracy. 
-- For free tier subscription, it can have up to 1000 entities. For S0 paid subscription, it can have up to 10,000 entities.  
+**PersonGroup** is the smallest container data structure.
+- You need to specify a recognition model when you create a **PersonGroup**. When any faces are added to that **PersonGroup**, it uses that model to process them. This model must match the model version with Face Id from detect API.
+- You must call the Train API to make any new face data reflect in the Identify API results. This includes adding/removing faces and adding/removing persons.
+- For the free tier subscription, it can hold up to 1000 Persons. For S0 paid subscription, it can have up to 10,000 Persons.  
 
-**PersonGroupPerson**: represents a person to be identified.  It can hold up to 248 faces.    
+ **PersonGroupPerson** represents a person to be identified. It can hold up to 248 faces.
 
 ### Large Person Group 
 
-**LargePersonGroup** is the second data structure introduced to support up to 1 million entities for S0 tier subscription. It has been optimized to support large scale data. It shares most of person group features: Train API need to be called before use, recognition model needed at creation time.  
+**LargePersonGroup** is a later data structure introduced to support up to 1 million entities (for S0 tier subscription). It is optimized to support large-scale data. It shares most of **PersonGroup** features: A recognition model needs to be specified at creation time, and the Train API must be called before use.
+
+
 
 ### Person Directory 
 
-**PersonDirectory** is a newer data structure to support identify operation with large scale, and higher accuracy. Person directory Each face API resource has a default Person directory data structure. It is a flat list of Person Directory Person object. A person directory can hold up to 75 million entities. 
+**PersonDirectory** is the newest data structure of this kind. It supports a larger scale and higher accuracy. Each Azure Face resource has a single default **PersonDirectory** data structure. It's a flat list of **PersonDirectoryPerson** objects - it can hold up to 75 million.
 
-**PersonDirectoryPerson**: it represents a person to be identified. An update from Large Person Group and Person Group is that Person Directory Person allowing persistent face from different recognition model added to same person. However, Identify API will only match persistent face with same recognition model as the Face Id from detect API. 
+**PersonDirectoryPerson** represents a person to be identified. Updated from the **PersonGroupPerson** model, it allows you to add faces from different recognition models to the same person. However, the Identify operation can only match faces obtained with the same recognition model. 
 
-**DynamicPersonGroup**: works directly with identify API to match detected face. It is a lightweight data structure allowing dynamically reference of person group person. Compared to large person group, it doesn’t require explicitly call Train operation, once the update operation is finished, it is available to be used in identify call.   
+**DynamicPersonGroup** is a lightweight data structure that allows you to dynamically reference a **PersonGroupPerson**. It doesn't require the Train operation: once the data is updated, it's ready to be used with the Identify API.
 
-**In-place person ID list**: Moreover, Identify API supports an in-place person Id list up to 30 IDs, which make it easier to specify a dynamic group. 
+You can also use an **in-place person ID list** for the Identify operation. This lets you specify a more narrow group to identify from. You can do this manually to improve identification performance in large groups. 
 
-Examples: identify against large amount candidates will yield lower accuracy and performance. Applications could use other information to scope down the candidate list to improve accuracy, here are several examples: 
-- In an access control system, person directory represents all employees of a company, dynamic person group represents employees having access to a single floor. 
-- In a flight on-boarding system, person directory represents all passengers of the airline company, dynamic person group represents passengers for a flight. In-place person Id list could represent the passengers who made last minute change.  
+The above data structures can be used together. For example: 
+- In an access control system, The **PersonDirectory** might represent all employees of a company, but a smaller **DynamicPersonGroup** could represent just the employees that have access to a single floor of the building.
+- In a flight onboarding system, the **PersonDirectory** could represent all customers of the airline company, but the **DynamicPersonGroup** represents just the passengers on a particular flight. An **in-place person ID list** could represent the passengers who made a last-minute change.
 
-For more details, please refer to “how to use person directory.” TBD
+For more details, please refer to the [PersonDirectory how-to guide](./how-to/use-persondirectory.md).
 
-## Data structure work with Find Similar API 
+## Data structures used with Find Similar 
 
-Compare to Identify API, Find Similar API is designed to use in applications where the enrollment step for a “person” concept is hard to setup. For example, face images captured from video analysis, or photo album analysis. 
+Unlike the Identify API, the Find Similar API is designed to be used in applications where the enrollment of **Person** is hard to set up (for example, face images captured from video analysis, or from a photo album analysis).
 
 ### FaceList 
 
-FaceList represent a flat list of persisted faces, each can hold up 1,000 faces.  
+**FaceList** represent a flat list of persisted faces. It can hold up 1,000 faces.
 
 ### LargeFaceList 
 
-Very similar to FaceList, LargeFaceList can hold up to 1,000,000 faces. 
+**LargeFaceList** is a later version which can hold up to 1,000,000 faces.
 
 ## Next steps
 
-Now that you're familiar with face recognition concepts, Write a script that identifies faces against a trained PersonGroup.
+Now that you're familiar with the face data structures, write a script that uses them in the Identify operation.
 
 * [Face quickstart](./quickstarts-sdk/identity-client-library.md)
