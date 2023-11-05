@@ -13,26 +13,60 @@ title: Azure AI frequently asked questions
 summary: |
   If you can't find answers to your questions in this document, and still need help check the [Azure AI services support options guide](../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context). Azure OpenAI is part of Azure AI services.
 sections:
-  - name: Data and Privacy
+  - name: General questions
     questions:
       - question: |
-          Do you use my company data to train any of the models? 
+          Who is Azure AI Studio intended for? 
         answer: |
-          Azure OpenAI doesn't use customer data to retrain models. For more information, see the [Azure OpenAI data, privacy, and security guide](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).    
-  - name: General
-    questions:
+          Azure AI Studio is intended for AI software developers - including cloud architects and technical decision-makers who want to create generative AI applications and custom copilot experiences.
       - question: |
-          Where can you use Azure AI services?
+          How can customers access Azure AI Studio? 
         answer: |
-          The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
-      - question: |
-          How do Azure AI services and Azure Machine Learning (AML) compare?
-        answer: |
-          Azure AI services are for developers without machine-learning experience. Azure Machine Learning is tailored for data scientists.
+          Customers can explore Azure AI Studio unauthenticated - including its cutting-edge AI capabilities. When they are ready to begin using templates, tools, and the robust model catalog to stitch together their own AI solutions, they will be prompted to register or login to their Azure account. During preview, there’s no additional charge for using Azure AI Studio. When deploying solutions, Azure AI services, Azure Machine Learning, and other Azure resources used inside of Azure AI Studio will be billed at their existing rates. Pricing is subject to change when Azure AI Studio is generally available.
       - question: |
           What regions is Azure AI Studio available in?
         answer: | 
           Azure AI Studio is available in all regions where Azure OpenAI is available. For more information, see the [Azure OpenAI region availability guide](../openai/concepts/models.md#model-summary-table-and-region-availability). 
+      - question: |
+          Can I integrate Microsoft Fabric data into Azure AI Studio? 
+        answer: |
+          Yes. Azure AI Studio supports seamless access to data in the Microsoft Fabric datastore Lakehouse without having to move or copy data. Data from Amazon S3 bucket can be accessed via Fabric shortcuts in Azure AI Studio directly from Amazon S3 location without having to create a copy of the data in Azure.
+      - question: |
+          Can I use models other than ChatGPT in Azure AI Studio? 
+        answer: |
+          Yes. Azure AI Studio includes a robust and growing catalog of frontier and open-source models from OpenAI, Hugging Face, Meta and more that can be applied over your data. You can even compare models by task using open-source datasets and evaluate the model with your own test data to see how the pre-trained model would perform to fit your own use case.
+      - question: |
+          How is the playground in Azure AI Studio different from the Azure OpenAI Studio playground? 
+        answer: |
+          The playground experience in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
+      - question: |
+          What is the plan for plugin support? 
+        answer: |
+          Plugins are available today in preview. For more information, see [Plugins for Azure OpenAI Service - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-azure-netherlands/how-to-leverage-plugins-for-azure-openai-service/m-p/3863986).
+      - question: |
+          Will there be multiple varying model benchmarks in Azure AI Studio based on individual projects and data sources? 
+        answer: |
+          In the model benchmarks view, customers can view varying model benchmarks published by Azure AI. 
+      - question: |
+          Is prompt flow Microsoft's equivalent to LangChain? 
+        answer: |
+          Prompt flow is complementary to LangChain and Semantic Kernel - and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
+      - question: |
+          How is prompt injection handled, and how do we ensure no malicious code is running from prompt injection? 
+        answer: |
+          Prompt templates in prompt flow provide robust examples and instructions for avoiding prompt injection attacks in the application. Azure AI Content Safety helps detect offensive or inappropriate content in text and images. Content moderation also checks for jailbreaks.
+      - question: |
+          What is the billing model for Model-as-a-Service (MaaS)? 
+        answer: |
+          Azure AI Studio offers paygo inference APIs and hosted finetuning for Llama2. During preview, there is no extra charge for Azure AI Studio outside of typical AI services and other Azure resource charges.
+      - question: |
+          Can all models be secured with content filtering? 
+        answer: |
+          Azure AI Content Safety can be used for AI-generated content from Azure OpenAI Service, open-source, and frontier models. For more information, see [How Azure AI Content Safety helps protect users from the classroom to the chatroom](https://aka.ms/contentsafety_GA_blog).
+      - question: |
+          Do you use my company data to train any of the models? 
+        answer: |
+          Azure OpenAI Service doesn't use customer data to retrain models. For more information, see the [Azure OpenAI data, privacy, and security guide](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).    
   - name: Learning more and where to ask questions
     questions:
       - question: |

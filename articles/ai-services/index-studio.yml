@@ -24,107 +24,91 @@ landingContent:
         links:
           - text: What is Azure AI Studio?
             url: ./ai-studio/what-is-ai-studio.md
-          - text: What is vector search?
-            url: ../search/vector-search-overview.md
+          - text: What is prompt flow?
+            url: ./ai-studio/how-to/prompt-flow.md.md
           - text: Retrieval Augmented Generation (RAG)
-            url: ../search/retrieval-augmented-generation-overview.md
-          - text: What is semantic search?
-            url: ../search/semantic-search-overview.md
+            url: ./ai-studio/concepts/retrieval-augmented-generation.md
+          - text: Responsible use of AI
+            url: responsible-use-of-ai-overview.md
       - linkListType: learn
         links:
-          - text: Training module
-            url: /training/modules/intro-to-azure-search/
+          - text: Azure AI Training
+            url: https://aka.ms/LearnAzureAIStudio
+          - text: Vector search in Azure AI Search
+            url: /training/modules/improve-search-results-vector-search/
 
   # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a search service
-            url: ../search/search-create-service-portal.md
-          - text: Create a search index
-            url: ../search/search-get-started-portal.md
-          - text: Create a demo app
-            url: ../search/search-create-app-portal.md
-          - text: Create a skillset
-            url: ../search/cognitive-search-quickstart-blob.md
+          - text: Generate product name ideas
+            url: ./ai-studio/quickstarts/playground-completions.md
+          - text: Moderate text and images
+            url: ./ai-studio/quickstarts/content-safety.md
 
   # Card
   - title: Develop apps
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Add search to web apps
-            url: ../search/tutorial-csharp-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Develop in .NET
-            url: ../search/search-howto-dotnet-sdk.md
-          - text: Develop in REST
-            url: ../search/search-get-started-rest.md
+          - text: Get started with the Azure AI SDK
+            url: ./ai-studio/how-to/sdk-install.md
+          - text: Get started with the Azure AI CLI
+            url: ./ai-studio/how-to/cli-install.md
       - linkListType: reference
         links:
-          - text: Azure REST API Reference
-            url: /rest/api/searchservice/
-          - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
-            url: /python/api/overview/azure/search-documents-readme
-
+            url: /python/api/overview/azure/
+          - text: Azure OpenAI Service Reference
+            url: ./openai/reference.md
+         
   # Card
-  - title: Index data
+  - title: Azure AI services
     linkLists:
       - linkListType: overview
         links:
-          - text: What's a search index?
-            url: ../search/search-what-is-an-index.md
-          - text: Importing data
-            url: ../search/search-what-is-data-import.md
-          - text: Indexer overview
-            url: ../search/search-indexer-overview.md
-      - linkListType: how-to-guide
+          - text: What are AI services?
+            url: ./what-are-ai-services.md
+          - text: Azure AI services documentation
+            url: ./index.yml
+      - linkListType: quickstart
         links:
-          - text: Index from Azure Blob Storage
-            url: ../search/search-blob-storage-integration.md
-          - text: Index from Azure SQL Database
-            url: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Azure Cosmos DB
-            url: ../search/search-howto-index-cosmosdb.md
-          - text: Index any data
-            url: ../search/tutorial-optimize-indexing-push-api.md
-         
-  # Card
-  - title: Query data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Query types and composition
-            url: ../search/search-query-overview.md
-          - text: Simple syntax (default)
-            url: ../search/query-simple-syntax.md
-          - text: Full Lucene syntax
-            url: ../search/query-lucene-syntax.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create a simple query
+          - text: Speech to speech chat
             url: ../search/search-query-create.md
-          - text: Create advanced queries
-            url: ../search/search-query-lucene-examples.md
-      - linkListType: reference
-        links:
-          - text: OData language reference
-            url: ../search/query-odata-filter-orderby-syntax.md
-          - text: Search Documents (REST)
-            url: /rest/api/searchservice/search-documents
+          - text: Conversational language understanding
+            url: ./language-service/conversational-language-understanding/quickstart
+          - text: Document intelligence
+            url: ./document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-python
 
   # Card
-  - title: Enrich with AI
+  - title: Explore more AI resources
     linkLists:
       - linkListType: concept
         links:
-          - text: What is AI enrichment?
-            url: ../search/cognitive-search-concept-intro.md
-          - text: Skillsets
-            url: ../search/cognitive-search-working-with-skillsets.md
-          - text: Knowledge stores
-            url: ../search/knowledge-store-concept-intro.md
+          - text: Azure Machine Learning
+            url: ../machine-learning/index.yml
+          - text: Semantic Kernel
+            url: /semantic-kernel/
+          - text: AI Builder
+            url: /ai-builder/
+          - text: Power Virtual Agents with Azure AI Language
+            url: /power-virtual-agents/advanced-clu-integration
+          - text: Windows AI
+            url: /windows/ai/
+          - text: GitHub Copilot
+            url: https://docs.github.com/copilot/getting-started-with-github-copilot
+
+  # Card
+  - title: Explore more AI resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: AI learning and community hub
+            url: /ai/
+          - text: Identify principles and practices for responsible AI
+            url: /training/paths/responsible-ai-business-principles/
+          - text: AI Learning paths and modules
+            url: /training/browse/?resource_type=learning%20path&expanded=data-ai&subjects=artificial-intelligence
+          - text: AI Engineer career path
+            url: /training/career-paths/ai-engineer
