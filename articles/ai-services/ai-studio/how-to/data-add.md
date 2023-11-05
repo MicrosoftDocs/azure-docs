@@ -72,22 +72,6 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 > [!NOTE]
 > When you create a data from a local path, it will automatically upload to the default Blob Connection.
 
-
-# [Azure CLI](#tab/cli)
-
-
-If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
-
-|Location  | Examples  |
-|---------|---------|
-|Local: A path on your local computer    | `./home/username/data/my_data`         |
-|Connection: A path on a Data Connection  |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|Direct URL: a path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|Direct URL: a path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(OneLake Lakehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<LakehouseName>.Lakehouse/Files/<path>` <br>(OneLake Warehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<warehouseName>.warehouse/Files/<path>` |
-
-> [!NOTE]
-> When you create a data from a local path, it will automatically upload to the default Blob Connection.
-
 ---
 
 ### Create data: File type
@@ -105,7 +89,7 @@ These steps explain how to create a File typed data in the Azure AI studio:
 1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
 
-1. Choose your **Data source**. You have 3 options of choosing data source. (a) You can select data from **Existing Connections**. (b) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (c) You can choose **Upload files/folders** to upload a folder from your local drive.
+1. Choose your **Data source**. You have three options of choosing data source. (a) You can select data from **Existing Connections**. (b) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (c) You can choose **Upload files/folders** to upload a folder from your local drive.
     
     :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
     
@@ -148,25 +132,6 @@ myfile = Data(
 client.data.create_or_update(myfile)
 ```
 
-
-# [Azure CLI](#tab/cli)
-
-Create a YAML file and copy-and-paste the following code. You must update the `<>` placeholders with the name of your data, the version, and path to a single file on a supported location.
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
-
-type: file
-name: <NAME OF DATA>
-version: <VERSION>
-path: <SUPPORTED PATH>
-```
-
-Next, execute the following command in the CLI (update the `<filename>` placeholder to the YAML filename):
-
-```cli
-ai data create -f <filename>.yml
-```
 
 ---
 
@@ -232,27 +197,6 @@ myfolder = Data(
 client.data.create_or_update(myfolder)
 ```
 
-# [Azure CLI](#tab/cli)
-
-Create a YAML file and copy-and-paste the following code. You need to update the `<>` placeholders with the name of your data, the version, and path to a folder on a supported location.
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
-
-type: uri_folder
-name: <NAME OF DATA>
-version: <VERSION>
-description: <DESCRIPTION>
-path: <SUPPORTED PATH>
-```
-
-Next, execute the following command in the CLI (update the `<filename>` placeholder to the filename to the YAML filename):
-
-```cli
-aai data create -f <filename>.yml
-```
-
-
 ---
 
 
@@ -293,14 +237,6 @@ Archiving a data hides it by default from both list queries (for example, in the
 
 To archive *all versions* of the data under a given name, use:
 
-# [Azure CLI](#tab/cli)
-
-Execute the following command (update the `<>` placeholder with the name of your data):
-
-```azurecli
-ai data archive --name <NAME OF DATA>
-```
-
 # [Python SDK](#tab/python)
 
 ```python
@@ -325,14 +261,6 @@ client.data.archive(name="<DATA NAME>")
 #### Archive a specific data version
 
 To archive a specific data version, use:
-
-# [Azure CLI](#tab/cli)
-
-Execute the following command (update the `<>` placeholders with the name of your data and version):
-
-```azurecli
-ai data archive --name <NAME OF DATA> --version <VERSION TO ARCHIVE>
-```
 
 # [Python SDK](#tab/python)
 
@@ -363,14 +291,6 @@ You can restore an archived data. If all of versions of the data are archived, y
 
 To restore *all versions* of the data under a given name, use:
 
-# [Azure CLI](#tab/cli)
-
-Execute the following command (update the `<>` placeholder with the name of your data):
-
-```azurecli
-ai data restore --name <NAME OF DATA>
-```
-
 # [Python SDK](#tab/python)
 
 ```python
@@ -397,14 +317,6 @@ client.data.restore(name="<DATA NAME>")
 > If all data versions were archived, you cannot restore individual versions of the data - you must restore all versions.
 
 To restore a specific data version, use:
-
-# [Azure CLI](#tab/cli)
-
-Execute the following command (update the `<>` placeholders with the name of your data and version):
-
-```azurecli
-ai data restore --name <NAME OF DATA> --version <VERSION TO ARCHIVE>
-```
 
 # [Python SDK](#tab/python)
 
@@ -438,3 +350,5 @@ Data support tagging, which is extra metadata applied to the data in the form of
 You can add tags to existing data.
 
 ## Next steps
+
+- Learn how to [create a project in Azure AI Studio](./create-projects.md).
