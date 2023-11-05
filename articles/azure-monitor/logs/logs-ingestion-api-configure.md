@@ -1,6 +1,6 @@
 ---
-title: Logs Ingestion API in Azure Monitor
-description: Send data to a Log Analytics workspace using REST API or client libraries.
+title: Configure Logs Ingestion API in Azure Monitor
+description: Steps to configure components in Azure Monitor to support the Logs Ingestion API.
 ms.topic: conceptual
 ms.date: 09/14/2023
 
@@ -8,6 +8,9 @@ ms.date: 09/14/2023
 
 # Configure Logs Ingestion API in Azure Monitor
 The [Logs Ingestion API](./logs-ingestion-api-overview.md) in Azure Monitor lets you send data to a Log Analytics workspace from a custom application. Before you send data using the API, you must configure several components in Azure. This article describes the steps you must take to configure the API to receive data.
+
+> [!NOTE]
+> See [Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API](set-up-logs-ingestion-api-prerequisites.md) for a script that automates the steps described in this article.
 
 ## 1. Create an app registration and secret
 The application registration is used to authenticate the API call. It must be granted permission to the DCR. The API call includes the **Application (client) ID**  and **Directory (tenant) ID** of the application and the **Value** of an application secret.
@@ -21,7 +24,7 @@ The DCE provides an endpoint for the application to send to. A single DCE can su
 See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 
 ## 3. Create table in Log Analytics workspace
-The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manully as described in the next section.
+The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manually as described in the next section.
 
 See [Create a custom table](create-custom-table.md#create-a-custom-table). 
 
