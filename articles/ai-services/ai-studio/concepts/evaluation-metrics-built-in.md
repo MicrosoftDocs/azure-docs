@@ -49,15 +49,15 @@ Whether you need quick answers, data-driven responses, or open-ended conversatio
 
 ## Supported metrics
 
-As described in the [methods for evaluating large language models](https://aka.ms/azureaistudioevaluation), there are manual and automated approaches to measurement. Automated measurement is useful for measuring at a large scale with increased coverage to supply more comprehensive results. It's also helpful for ongoing measurement to monitor for any regression as the system, usage, and mitigations evolve. We support two main methods for automated measurement of generative AI applications: Traditional machine learning metrics and AI-assisted metrics. AI-assisted measurements utilize language models like GPT-4 to assess AI-generated content, especially in situations where expected answers are unavailable due to the absence of a defined ground truth. Traditional machine learning metrics, like Exact Match, gauge the similarity between AI-generated responses and the anticipated answers, focusing on determining if the AI's response precisely matches the expected response. We support the following metrics for the above scenarios:
+As described in the [methods for evaluating large language models](./evaluation-approach-gen-ai.md), there are manual and automated approaches to measurement. Automated measurement is useful for measuring at a large scale with increased coverage to supply more comprehensive results. It's also helpful for ongoing measurement to monitor for any regression as the system, usage, and mitigations evolve. We support two main methods for automated measurement of generative AI applications: Traditional machine learning metrics and AI-assisted metrics. AI-assisted measurements utilize language models like GPT-4 to assess AI-generated content, especially in situations where expected answers are unavailable due to the absence of a defined ground truth. Traditional machine learning metrics, like Exact Match, gauge the similarity between AI-generated responses and the anticipated answers, focusing on determining if the AI's response precisely matches the expected response. We support the following metrics for the above scenarios:
 
 | Task type | AI-assisted metrics  | Traditional machine learning metrics  | 
 | --- | --- | --- |
 | Single-turn question answering without retrieval (non-RAG)  | Groundedness, Relevance, Coherence, Fluency, GPT-Similarity  | F1 Score, Exact Match, ADA Similarity  |
 | Multi-turn or single-turn chat with retrieval (RAG)  | Groundedness, Relevance, Retrieval Score  | None |
 
-
-> NOTE: Please note that while we are providing you with a comprehensive set of built-in metrics that facilitate the easy and efficient evaluation of the quality and safety of your generative AI application, you can easily adapt and customize them to your specific scenario. Furthermore, we empower you to introduce entirely new metrics, enabling you to measure your applications from fresh angles and ensuring alignment with your unique objectives. 
+> [!NOTE]
+> Please note that while we are providing you with a comprehensive set of built-in metrics that facilitate the easy and efficient evaluation of the quality and safety of your generative AI application, you can easily adapt and customize them to your specific scenario. Furthermore, we empower you to introduce entirely new metrics, enabling you to measure your applications from fresh angles and ensuring alignment with your unique objectives. 
 
 ## Metrics for single-turn question answering without retrieval (non-RAG)
 
