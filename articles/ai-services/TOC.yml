@@ -16,12 +16,16 @@
     href: ai-studio/faq.yml
 - name: Quickstarts
   items:
-  - name: Deploy a chat web app
-    href: ai-studio/quickstarts/deploy-chat-web-app.md
   - name: Generate product name ideas in the playground
     href: ai-studio/quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: ai-studio/quickstarts/content-safety.md
+- name: Tutorials
+  items:
+  - name: Deploy a chat web app
+    href: ai-studio/quickstarts/deploy-chat-web-app.md
+  - name: Using Azure AI Studio with a screen reader
+    href: ai-studio/tutorials/screen-reader.md
 - name: How-to
   expanded: true
   items:
@@ -206,10 +210,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Tutorials
-  items:
-  - name: Using Azure AI Studio with a screen reader
-    href: ai-studio/tutorials/screen-reader.md
 - name: Concepts
   items:
   - name: Azure AI services and the ecosystem

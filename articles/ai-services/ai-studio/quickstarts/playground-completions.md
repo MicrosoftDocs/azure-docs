@@ -84,10 +84,10 @@ In the playground you can also view python, json, C#, and curl code samples pref
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Azure portal](https://portal.azure.com?azure-portal=true)
+- [Azure CLI](/cli/azure)
 
 ## Next steps
 
