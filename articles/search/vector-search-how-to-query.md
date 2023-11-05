@@ -139,7 +139,7 @@ api-key: {{admin-api-key}}
 
 ### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
 
-REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports pure vector queries and [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). This section shows the syntax for pure vector queries.
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the preview API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). It supports pure vector queries and [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). This section shows the syntax for pure vector queries.
 
 + `vectorQueries` is the construct for vector search.
 + `kind` set to `vector` specifies the query string is a vector.
