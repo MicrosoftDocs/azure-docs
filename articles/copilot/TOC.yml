@@ -14,12 +14,16 @@
   items:
   - name: Get resource information
     href: get-information-resource-graph.md
+  - name: Deploy VMs effectively
+    href: deploy-vms-effectively.md
   - name: Get monitoring information
     href: get-monitoring-information.md
   - name: Optimize your code
     href: optimize-code-application-insights.md
   - name: Work smarter with Azure Stack HCI
     href: work-smarter-edge.md
+  - name: Improve storage accounts
+    href: improve-storage-accounts.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
   - name: Understand service health

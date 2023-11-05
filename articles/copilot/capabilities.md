@@ -17,9 +17,11 @@ Microsoft Copilot for Azure (preview) amplifies your impact with AI-enhanced ope
 Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot for Azure (preview) can be especially helpful:
 
 - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
+- [Deploy virtual machines effectively](deploy-vms-effectively.md)
 - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
 - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
 - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
+- [Improve security and resiliency of storage accounts](improve-storage-accounts.md)
 - [Generate Azure CLI scripts](generate-cli-scripts.md)
 - [Understand service health events and status](understand-service-health.md)
 - [Analyze, estimate, and optimize costs](analyze-cost-management.md)
@@ -32,7 +34,7 @@ Asking questions to understand more can be especially helpful when you're troubl
 
 ## Navigation
 
-Rather than searching for a service to open, simply ask Microsoft Copilot for Azure (preview) to open the service for you. If you can't remember the exact name, you'll see some suggestions and can choose the right one, or ask Microsoft Copilot in Azure (preview) to explain more.
+Rather than searching for a service to open, simply ask Microsoft Copilot for Azure (preview) to open the service for you. If you can't remember the exact name, you'll see some suggestions and can choose the right one, or ask Microsoft Copilot for Azure (preview) to explain more.
 
 ## Manage portal settings
 

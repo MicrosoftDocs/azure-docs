@@ -25,4 +25,4 @@ Microsoft Copilot for Azure (preview) is made available to customers under the t
 
 - [Register to use Microsoft Copilot for Azure (preview)](https://aka.ms/MSCopilotforAzurePreview)
 - [Learn more about Microsoft Copilot for Azure (preview)](overview.md)
-- [Responsible AI FAQ for Microsoft Copilot in Azure (preview)](responsible-ai-faq.md)
+- [Responsible AI FAQ for Microsoft Copilot for Azure (preview)](responsible-ai-faq.md)
