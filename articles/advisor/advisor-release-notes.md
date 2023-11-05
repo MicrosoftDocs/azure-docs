@@ -74,13 +74,13 @@ To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Le
 
 ### Introducing Workload based recommendations management
 
-Avoiding interruptions to applications is critical for business. Azure Advisor recommendations identify risks and improve the quality of workloads. If you manage hundreds of subscriptions, the number of recommendations can be overwhelming, which makes it difficult to plan the work and focus on the most impactful improvements. Azure Advisor workload-based recommendations make it easier for managed customers (as part of CSU-Proactive Resiliency and Mission Critical programs) to get recommendations for their most critical workloads across five pillars of web application firewall (WAF) - cost, reliability, security, performance, and operational excellence.
+Avoiding interruptions to applications is critical for business. Azure Advisor recommendations identify risks and improve the quality of workloads. If you manage hundreds of subscriptions, the number of recommendations can be overwhelming, which makes it difficult to plan the work and focus on the most impactful improvements. Azure Advisor workload-based recommendations make it easier for managed customers to get recommendations for their most critical workloads. Managed customers are as part of CSU-Proactive Resiliency and Mission Critical programs. Workload recommendations cover the five pillars of web application firewall (WAF) - cost, reliability, security, performance, and operational excellence.
 
 To learn more, visit [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
 ### Public preview: Assess cost optimization opportunities using new workbook template in Azure Advisor
 
-The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
 
 To learn more, visit [Understand and optimize your Azure costs using the Cost Optimization workbook](/azure/advisor/advisor-cost-optimization-workbook).
 
@@ -150,8 +150,7 @@ To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/
 ### VM/VMSS right-sizing recommendations with custom lookback period
 
 Customers can now improve the relevance of recommendations to make them more actionable, resulting in extra cost savings.
-The right sizing recommendations help optimize costs by identifying idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days.
-Now, with this latest update, customers can adjust the default look back period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level, which is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications).
+The right sizing recommendations identify idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. Now, with this latest update, customers can adjust the default look back period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level, which is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications).
 
 To learn more, visit [Optimize Virtual Machine (VM) or Virtual Machine Scale Set (VMSS) spend by resizing or shutting down underutilized instances](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
 
@@ -169,7 +168,7 @@ To learn more, visit [Review optimization opportunities by workload, environment
 
 ### New cost recommendations for Virtual Machine Scale Sets
 
-Azure Advisor expanded recommendations to include cost optimization recommendations for Virtual Machine Scale Sets. Recommendations include shutdown recommendations for resources that we detect aren't used at all, and SKU change or instance count reduction recommendations for resources that we detect are under-utilized for what is provisioned. For example, for resources where we think customers are paying for more than what they might need based on the workloads running on the resources.
+Azure Advisor has expanded recommendations to include cost optimization recommendations for Virtual Machine Scale Sets. These include shutdown recommendations for resources that we detect aren't used at all, and SKU change or instance count reduction recommendations for resources that we detect are under-utilized for what you provisioned. For example, for resources where we think customers are paying for more than what they might need based on the workloads running on the resources.
 
 To learn more, visit [
 Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting down underutilized instances](/azure/advisor/advisor-cost-recommendations#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
@@ -188,7 +187,7 @@ To learn more, visit [Optimize Azure workloads by using Advisor score](/azure/ad
 
 ### Advisor support for Azure Database for MySQL - Flexible Server
 
-Azure Advisor provides a personalized list of best practices for optimizing your Azure Database for MySQL - Flexible Server instance. The feature analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources. With Azure Advisor, you can find recommendations based on TLS configuration, CPU, and storage usage to prevent resource exhaustion.
+Azure Advisor provides a personalized list of best practices for optimizing your Azure Database for MySQL - Flexible Server instance. The feature analyzes your resource configuration and usage, and then recommends solutions to help you improve the cost effectiveness, performance, reliability, and security of your resources. With Azure Advisor, you can find recommendations based on TLS configuration, CPU, and storage usage to prevent resource exhaustion.
 
 To learn more, visit [Azure Advisor for MySQL](/azure/mysql/single-server/concepts-azure-advisor-recommendations).
 
@@ -217,9 +216,9 @@ Improvements include:
 
 1. Cross SKU family series resize recommendations are now available.  
 
-1. Cross version resize recommendations are now available. In general, newer versions of SKU families are more optimized, provide more features, and have better performance/cost ratios than older versions. 
+1. Cross version resize recommendations are now available. In general, newer versions of SKU families are more optimized, provide more features, and have better performance/cost ratios than older versions.
 
-1. For better actionability, we updated recommendation criteria to include other SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, etc.
+1. For better actionability, we updated recommendation criteria to include other SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, and more.
 
 ![vm-right-sizing-recommendation](media/advisor-overview/advisor-vm-right-sizing.png)
 
