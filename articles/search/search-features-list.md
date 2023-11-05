@@ -39,8 +39,7 @@ There's feature parity in all Azure public, private, and sovereign clouds, but s
 | Vector filters | [Apply filters before or after query execution](vector-search-filters.md) for greater precision during information retrieval. |
 | Hybrid information retrieval | Search for concepts and keywords in a single [hybrid query request](hybrid-search-how-to-query.md). </p>[**Hybrid search**](hybrid-search-overview.md) consolidates vector and text search, with optional semantic ranking and relevance tuning for best results.|
 | Integrated data chunking and vectorization (preview) | Native data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) and native vectorization through [vectorizers](vector-search-how-to-configure-vectorizer.md)  and the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md). </p>[**Integrated vectorization** (preview)](vector-search-integrated-vectorization.md) provides an end-to-end indexing pipeline from source files to queries.|
-| **Import and vectorize data** (preview)| A wizard in the Azure portal that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. |
-| Hybrid information retrieval | Search for concepts and keywords in a single [hybrid query request](hybrid-search-how-to-query.md). [**Hybrid search**](hybrid-search-overview.md) consolidates vector and text search, with optional semantic ranking and relevance tuning for best results.|
+| **Import and vectorize data** (preview)| A [new wizard](search-get-started-portal-import-vectors.md) in the Azure portal that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. |
 
 ## AI enrichment and knowledge mining
 
