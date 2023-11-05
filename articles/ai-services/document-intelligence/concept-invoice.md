@@ -337,7 +337,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 :::moniker-end
 
-:::moniker range="<=doc-intel-4.0.0"
+:::moniker range="<=doc-intel-3.1.0"
 
 ### Key-value pairs
 
