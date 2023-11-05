@@ -19,7 +19,7 @@ Get started with [integrated vectorization](vector-search-integrated-vectorizati
 
 In this preview version of the wizard:
 
-+ Source data is blob only, using the default parsing mode (one search document per blob),
++ Source data is blob only, using the default parsing mode (one search document per blob).
 + Index schema is non-configurable. Fields include `content` and a metadata field for the document key.
 + Vectorization is Azure OpenAI only.
 + Chunking is non-configurable. The effective settings are:
