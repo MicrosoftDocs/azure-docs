@@ -130,7 +130,8 @@ The [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/s
 
 Charges for semantic ranking are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
 
-## Next steps
+## See also
 
-* [Enable semantic ranking](semantic-how-to-enable-disable.md) for your search service.
-* [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic ranking on your content.
+* [Enable semantic ranking](semantic-how-to-enable-disable.md)
+* [Configure semantic ranking](semantic-how-to-query-request.md)
+* [Blog: Outperforming vector search with hybrid retrieval and ranking capabilities]((https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167))

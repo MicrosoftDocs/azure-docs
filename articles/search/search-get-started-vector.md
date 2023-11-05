@@ -17,7 +17,7 @@ Get started with vector search in Azure AI Search using the **2023-11-01** REST 
 Search indexes can have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 > [!NOTE]
-> Looking for [built-in data chunking and vectorization](vector-search-integrated-vectorization.md)? Try the [*Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) instead.
+> Looking for [built-in data chunking and vectorization](vector-search-integrated-vectorization.md)? Try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) instead.
 
 ## Prerequisites
 
