@@ -311,9 +311,10 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 | CurrencyCode | String | The currency code associated with the extracted amount | |
-| PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
+| KVKNumber | String | The currency code associated with the extracted amount | A unique identifier for businesses registered in the Netherlands: 12345678|
+| PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPay(AU)` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
-| TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale  |  |
+| TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale|  | 
 
 ### Line items
 
@@ -333,6 +334,10 @@ Following are the line items extracted from an invoice in the JSON output respon
 | TaxRate | Number | Tax Rate associated with each line item. | 10% | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
+
+:::moniker-end
+
+:::moniker range="<=doc-intel-3.1.0"
 
 ### Key-value pairs
 
