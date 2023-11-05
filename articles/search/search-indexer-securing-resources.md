@@ -124,7 +124,7 @@ This section summarizes the main steps for setting up a private endpoint for out
 
 #### Step 1: Create a private endpoint to the secure resource
 
-You'll create a shared private link using either the portal pages of your search service or through the [Management API](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/create-or-update).
+You'll create a shared private link using either the portal pages of your search service or through the [Management API](/rest/api/searchmanagement/shared-private-link-resources/create-or-update).
 
 In Azure AI Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
 

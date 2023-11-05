@@ -177,7 +177,7 @@ Conditions that will prevent you from adopting this approach include:
 > [!IMPORTANT] 
 > User-managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+> 2021-04-01-Preview of the [Management REST API](/rest/api/searchmanagement/) provides this feature.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -221,7 +221,7 @@ Conditions that will prevent you from adopting this approach include:
     } 
     ```
 
-1. Use a simplified construction of the "encryptionKey" that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-30-preview REST API version.
+1. Use a simplified construction of the "encryptionKey" that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-01-preview REST API version.
 
     ```json
     {
@@ -301,7 +301,7 @@ Encryption keys are added when you create an object. To add a customer-managed k
    + [Create Data Source](/rest/api/searchservice/create-data-source)
    + [Create Skillset](/rest/api/searchservice/create-skillset).
 
-1. Insert the encryptionKey construct into the object definition. This property is a first-level property, on the same level as name and description. The following [REST examples(#rest-examples) show property placement. If you're using the same vault, key, and version, you can paste in the same "encryptionKey" construct into each object definition.
+1. Insert the encryptionKey construct into the object definition. This property is a first-level property, on the same level as name and description. The following [REST examples](#rest-examples) show property placement. If you're using the same vault, key, and version, you can paste in the same "encryptionKey" construct into each object definition.
 
    The first example shows an "encryptionKey" for a search service that connects using a managed identity:
 
@@ -344,9 +344,6 @@ Azure policies help to enforce organizational standards and to assess compliance
 
 In this section, you'll set the policy that defines a CMK standard for your search service. Then, you'll set up your search service to enforce this policy.
 
-> [!NOTE]
-> Policy set up requires the preview [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
-
 1. Navigate to the [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) in your web browser. Select **Assign**
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
@@ -359,10 +356,10 @@ In this section, you'll set the policy that defines a CMK standard for your sear
 
 1. Finish creating the policy.
 
-1. Call the [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to enable CMK policy enforcement at the service level.
+1. Call the [Services - Update API](/rest/api/searchmanagement/services/update) to enable CMK policy enforcement at the service level.
 
 ```http
-PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2022-11-01
 
 {
     "properties": {

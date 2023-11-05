@@ -151,7 +151,7 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
    az account get-access-token
    ```
 
-1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
     ```http
     GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
@@ -163,7 +163,7 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
 
 1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and sub-resource combination.
 
-1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
 
     ```http
     PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
@@ -277,7 +277,7 @@ On the Azure AI Search side, you can confirm request approval by revisiting the 
 Alternatively, you can also obtain connection state by using the [GET Shared Private Link API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get).
 
 ```dotnetcli
-az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2022-09-01
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2023-11-01
 ```
 
 This would return a JSON, where the connection state shows up as "status" under the "properties" section. Following is an example for a storage account.

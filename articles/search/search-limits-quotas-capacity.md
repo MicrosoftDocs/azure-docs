@@ -141,7 +141,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 ## Shared private link resource limits
 
-Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources). This section describes the limits associated with this capability.
+Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/shared-private-link-resources). This section describes the limits associated with this capability.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
