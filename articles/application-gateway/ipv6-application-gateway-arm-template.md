@@ -36,9 +36,9 @@ This template creates a simple setup with a dual-stack public frontend IP, a bas
   > [!NOTE]
   > Application Gateway's dual-stack frontend (Preview) supports up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/application-gateway-ipv6-create/)
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/application-gateway-ipv6-create/)
 
-:::code language="json" source="~/azure-quickstart-templates/quickstarts/microsoft.network/application-gateway-ipv6-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/application-gateway-ipv6-create/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
