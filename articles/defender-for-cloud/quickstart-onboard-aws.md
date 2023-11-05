@@ -124,7 +124,10 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
-    Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts. Choose the **AWS regions** you want Defender for Cloud to scan from the dropdown menu. All regions are selected by default.
+    ```suggestion
+    (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
+    
+    (Optional) Use the AWS regions dropdown menu to select specific AWS regions to be scanned. All regions are selected by default.
 
 ## Select Defender plans
 
