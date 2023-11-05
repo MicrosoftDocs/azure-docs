@@ -25,7 +25,7 @@ landingContent:
           - text: What is Azure AI Studio?
             url: ./ai-studio/what-is-ai-studio.md
           - text: What is prompt flow?
-            url: ./ai-studio/how-to/prompt-flow.md.md
+            url: ./ai-studio/how-to/prompt-flow.md
           - text: Retrieval Augmented Generation (RAG)
             url: ./ai-studio/concepts/retrieval-augmented-generation.md
           - text: Responsible use of AI
@@ -77,14 +77,14 @@ landingContent:
           - text: Speech to speech chat
             url: ../search/search-query-create.md
           - text: Conversational language understanding
-            url: ./language-service/conversational-language-understanding/quickstart
+            url: ./language-service/conversational-language-understanding/quickstart.md
           - text: Document intelligence
-            url: ./document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-python
+            url: ./document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
 
   # Card
   - title: Explore more AI resources
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Azure Machine Learning
             url: ../machine-learning/index.yml
@@ -102,7 +102,7 @@ landingContent:
   # Card
   - title: Explore more AI resources
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: AI learning and community hub
             url: /ai/
