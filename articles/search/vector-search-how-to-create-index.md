@@ -34,7 +34,7 @@ This article applies to the generally available, non-preview version of [vector 
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
-+ You should be familiar with [creating an index](search-how-to-create-search-index). The schema must include a field for the document key, other fields, and other configurations for behaviors needed during indexing and queries. 
++ You should be familiar with [creating an index](search-how-to-create-search-index.md). The schema must include a field for the document key, other fields you want to search or filter, and other configurations for behaviors needed during indexing and queries. 
 
 ## Prepare documents for indexing
 
