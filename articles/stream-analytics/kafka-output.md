@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 11/02/2023
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
@@ -20,7 +20,7 @@ The following table lists the property names and their description for creating 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Output Alias            | A friendly name used in queries to reference your output                                                      |
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
-| Kafka topic                  | A unit of your Kafka cluster you want to write events to.                                                               |
+| Kafka topic                  | A named, ordered, and partitioned stream of data that allows for the publish-subscribe and event-driven processing of messages. |
 | Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro) of the outgoing data stream.                                        |
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning.                                                     |
@@ -47,6 +47,9 @@ You can use four types of security protocols to connect to your Kafka clusters:
 The ASA Kafka output is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server auth.
 Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA) You can download the ISRG Root X1 certificate in PEM format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
+> [!IMPORTANT]
+>  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
+
 To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
 
 | Setting | Value |
@@ -54,8 +57,11 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
  | Username | Key/ Username from API Key |
  | Password | Secret/ Password from API key |
  | KeyVault | Name of Azure Key vault with Uploaded certificate from Let’s Encrypt |
- | Certificate | Certificate uploaded to KeyVault downloaded from Let’s Encrypt (Download the ISRG Root X1 certificate in PEM format) |
+ | Certificate | name of the certificate uploaded to KeyVault downloaded from Let’s Encrypt (Download the ISRG Root X1 certificate in PEM format). Note: you must upload the certificate as a secret using Azure CLI. Refer to the **Key vault integration** guide below |
 
+> [!NOTE]
+> Depending on how your confluent cloud kafka cluster is configured, you may need a certificate different from the standard certificate confluent cloud uses for server authentication. Confirm with the admin of the confluent cloud kafka cluster to verify what certificate to use.
+>
 
 ## Key vault integration
 
@@ -92,25 +98,31 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 > [!IMPORTANT]
 > You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
-> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
+> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
+Below are some steps you can follow to upload your certificate as a secret to Azure CLI using your PowerShell:
+
+Make sure you have Azure CLI configured locally with PowerShell.
 You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 
-Below are some steps you can follow to upload the your certificate to Azure CLI using your powershell
+Below are some steps you can follow to upload your certificate as a secret to Azure CLI using your PowerShell
 
 **Login to Azure CLI:**
-```azurecli-interactive
+```PowerShell
 az login
 ```
 
 **Connect to your subscription containing your key vault:**
-```azurecli-interactive
+```PowerShell
 az account set --subscription <subscription name>
 ```
 
 **The following command can upload the certificate as a secret to your key vault:**
-```azurecli-interactive
-az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
+
+The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the keyvault. Note the name, you will use it to configure your kafka output in your ASA job. `<file path to certificate>` is the path to where you have downloaded your certificate. 
+
+```PowerShell
+az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to certificate>
 ```
 
 ### Configure Managed identity
