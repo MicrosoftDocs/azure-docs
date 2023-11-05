@@ -31,7 +31,7 @@ Learn about the latest updates to Azure AI Search functionality, docs, and sampl
 | [**2023-11-01 Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2023-11-01&preserve-view=true) | API | New stable version of the Management REST APIs for control plane operations. This version adds APIs that [enable or disable semantic ranking](/rest/api/searchmanagement/services/create-or-update#searchsemanticsearch). |
 | [**Azure OpenAI Embedding skill**](cognitive-search-skill-azure-openai-embedding.md) (preview) | Skill | Connects to a deployed embedding model on your Azure OpenAI resource to generate embeddings during skillset execution. This skill is available through the [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) REST API, the Azure portal, and any Azure SDK beta packages that are updated to use this feature.|
 | [**Text Split skill**](cognitive-search-skill-textsplit.md) (preview) | Skill | Updated in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) to support native data chunking. |
-| [**How vector search and semantic ranking improve your GPT prompts**](https://www.youtube.com/watch?v=Xwx1DJ0OqCk)| Video | Hybrid retrieval gives you optimal grounding data for generating useful AI responses and enables search over both concepts and keywords. |
+| [**How vector search and semantic ranking improve your GPT prompts**](https://www.youtube.com/watch?v=Xwx1DJ0OqCk)| Video | Watch this short video to learn how hybrid retrieval gives you optimal grounding data for generating useful AI responses and enables search over both concepts and keywords. |
 
 ## October 2023
 
