@@ -58,9 +58,9 @@ docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3
 
 ## Download the Named Entity Recognition container models
 
-A pre-requisite for running the Named Entity Recognition container is to download the models first. This can be done by running one of the following command using a CPU container image as an example.
+A pre-requisite for running the Named Entity Recognition container is to download the models first. This can be done by running one of the following commands using a CPU container image as an example.
 
-It's not recommended to download models for all skills inside the same HOST_MODELS_Path, as the container loads all models inside the HOST_MODELS_PATH. Doing so would use a large amount of memory. It's recommended to only download the model for the skill you need in a partocular HOST_MODELS_PATH.
+It's not recommended to download models for all skills inside the same HOST_MODELS_Path, as the container loads all models inside the HOST_MODELS_PATH. Doing so would use a large amount of memory. It's recommended to only download the model for the skill you need in a particular HOST_MODELS_PATH.
 
 In order to ensure compatibility between models and the container, re-download the utilized models whenever you create a container using a new image version. When using a disconnected container, the license should be downloaded again after downloading the models.
 
