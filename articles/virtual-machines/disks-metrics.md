@@ -42,7 +42,7 @@ The following metrics are available to get insight on VM and disk IO, throughput
 - **Temp Disk Latency (Preview)**: The average time to complete IOs during the monitoring for the temporary disk. Values are in miliseconds.
 - **Temp Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the temporary disk.
 - **Temp Disk Read Bytes/Sec**: The number of bytes that are read in a second from the temporary disk.
-- **Temo Disk Read Operations/Sec**: The number of input operations that are read in a second from the temporary disk.
+- **Temp Disk Read Operations/Sec**: The number of input operations that are read in a second from the temporary disk.
 - **Temp Disk Write Bytes/Sec**: The number of bytes that are written in a second from the temporary disk.
 - **Temp Disk Write Operations/Sec**: The number of output operations that are written in a second from the temporary disk.
 
