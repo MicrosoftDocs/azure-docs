@@ -305,13 +305,9 @@ Here's a modified example so that you can see the basic structure of a response 
 
 ## Vector query with filter
 
-A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
+A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can specify filters on other fields in the same index.
 
-In **2023-11-01** or **2023-10-01-Preview**, you can apply a filter before or after query execution. The default is pre-query. If you want post-query filtering instead, set the `vectorFiltermode` parameter.
-
-In **2023-07-01-Preview**, a filter in a pure vector query is processed as a post-query operation.
-
-For a comparison of each mode and the expected performance based on index size, see [Filters in vector queries](vector-search-filters.md).
+In newer API versions, you can set a filter mode to apply filters before or after vector query execution. For a comparison of each mode and the expected performance based on index size, see [Filters in vector queries](vector-search-filters.md).
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
@@ -320,7 +316,7 @@ For a comparison of each mode and the expected performance based on index size, 
 
 REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable version for this API. It has:
 
-+ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution. Valid values are `preFilter` (default), `postFilter`, and null.
++ `vectorFilterMode` for prefilter (default) or postfilter.
 + `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
@@ -358,7 +354,7 @@ api-key: {{admin-api-key}}
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
 
-+ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution. Valid values are `preFilter` (default), `postFilter`, and null.
++ `vectorFilterMode` for prefilter (default) or postfilter.
 + `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
@@ -460,9 +456,10 @@ Multi-query vector search sends multiple queries across multiple vector fields i
 
 The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over different embedding spaces. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
-+ `vectors.value` property contains the vector query generated from the embedding model used to create image and text vectors in the search index. 
-+ `vectors.fields` contains the image vectors and text vectors in the search index. This is the searchable data.
-+ `vectors.k` is the number of nearest neighbor matches to include in results.
++ `vectorQueries` provides an array of vector queries.
++ `vector` contains the image vectors and text vectors in the search index. Each instance is a separate query.
++ `fields` specifies which vector field to target.
++ `k` is the number of nearest neighbor matches to include in results.
 
 ```json
 {
@@ -500,13 +497,17 @@ Search results would include a combination of text and images, assuming your sea
 
 ## Query with integrated vectorization (preview)
 
-Using [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or beta Azure SDK packages that have been updated to use the feature, your text queries can be vectorized internally, where Azure AI Search makes the call to Azure OpenAI or another vectorization agent, and uses the embedding that comes back in the query.
+This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or an updated beta Azure SDK package.
 
-+ Queries that use [integrated vectorization](vector-search-integrated-vectorization.md) provide `text` strings instead of vectors, and specify `text` as the kind of vector query.
+A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time.
 
-+ A vectorizer that's [configured and assigned to a vector field](vector-search-how-to-configure-vectorizer.md) in the search index determines the embedding model used at query time.
+Queries provide text strings instead of vectors:
 
-Here's a simple example of a query that's vectorized at query time. The vectorized string is used to query the descriptionVector field.
++ `kind` must be set to `text` .
++ `text` must have a text string. It's passed to the vectorizer assigned to the vector field.
++ `fields` is the vector field to search.
+
+Here's a simple example of a query that's vectorized at query time. The text string is vectorized and then used to query the descriptionVector field.
 
 ```http
 POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
