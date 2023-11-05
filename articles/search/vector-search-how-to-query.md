@@ -103,7 +103,7 @@ This section shows you the basic structure of a vector query. You can use the Az
 
 ### [**2023-11-01**](#tab/query-2023-11-01)
 
-REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Search POST](/rest/api/searchservice/2023-11-01/documents/search-post). This API supports:
+REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Search POST](/rest/api/searchservice/documents/search-post). This API supports:
 
 + `vectorQueries` is the construct for vector search.
 + `kind` set to `vector` specifies the query string is a vector.
@@ -240,7 +240,7 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**Python**](#tab/python-vector-query)
 
-+ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents//11.4.0b11/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents/11.4.0b11/) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
@@ -316,7 +316,7 @@ In newer API versions, you can set a filter mode to apply filters before or afte
 
 REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable version for this API. It has:
 
-+ `vectorFilterMode` for prefilter (default) or postfilter.
++ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
 + `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
@@ -354,7 +354,7 @@ api-key: {{admin-api-key}}
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
 
-+ `vectorFilterMode` for prefilter (default) or postfilter.
++ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
 + `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
