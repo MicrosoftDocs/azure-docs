@@ -35,14 +35,6 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
-  - name: Setup your development environment
-    items:
-    - name: Get started with the Azure AI SDK
-      href: ai-studio/how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: ai-studio/how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: ai-studio/how-to/vscode-web.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
@@ -119,6 +111,30 @@
           href: ai-studio/how-to/flow-develop-evaluation.md
     - name: Deploy a flow as a managed online endpoint
       href: ai-studio/how-to/flow-deploy.md
+  - name: Evaluate apps
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: ai-studio/concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: ai-studio/concepts/evaluation-metrics-built-in.md
+      - name: Harms mitigation strategies with Azure AI
+        href: ai-studio/concepts/evaluation-improvement-strategies.md
+    - name: Evaluate with Azure AI Studio and SDK
+      href: ai-studio/how-to/evaluate-generative-ai-app.md
+    - name: Evaluate from the Azure AI Studio playground 
+      href: ai-studio/how-to/evaluate-prompts-playground.md
+    - name: View evaluation results in Azure AI Studio
+      href: ai-studio/how-to/evaluate-flow-results.md
+  - name: Setup your development environment
+    items:
+    - name: Get started with the Azure AI SDK
+      href: ai-studio/how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: ai-studio/how-to/cli-install.md
+    - name: Get started with projects in VS Code (Web)
+      href: ai-studio/how-to/vscode-web.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
