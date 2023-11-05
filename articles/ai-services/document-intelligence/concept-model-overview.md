@@ -313,8 +313,8 @@ A composed model is created by taking a collection of custom models and assignin
 | [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098E](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098T](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  || ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
