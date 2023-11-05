@@ -11,7 +11,7 @@ ms.reviewer: shijain
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
 
-:::image type="content" source="./media/scom-assessment/scom-assessment-symbol.png" alt-text="System Center Operations Manager Health Check symbol":::
+:::image type="content" source="./media/scom-assessment/scom-assessment-symbol.png" alt-text="System Center Operations Manager Health Check symbol.":::
 
 You can use the System Center Operations Manager Health Check solution to assess the risk and health of your System Center Operations Manager management group on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 
@@ -23,9 +23,9 @@ You can choose focus areas that are most important to your organization and trac
 
 After you've added the solution and an assessment is performed, summary information for focus areas is shown on the **System Center Operations Manager Health Check** dashboard for your infrastructure. The following sections describe how to use the information on the **System Center Operations Manager Health Check** dashboard, where you can view and then take recommended actions for your Operations Manager environment.
 <!-- convertborder later -->
-:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" alt-text="System Center Operations Manager solution tile" border="false":::
+:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" alt-text="System Center Operations Manager solution tile." border="false":::
 <!-- convertborder later -->
-:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" alt-text="System Center Operations Manager Health Check dashboard" border="false":::
+:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" alt-text="System Center Operations Manager Health Check dashboard." border="false":::
 
 ## Installing and configuring the solution
 
@@ -37,7 +37,7 @@ Use the following information to install and configure the solution.
 
 - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
   <!-- convertborder later -->
-  :::image type="content" source="./media/scom-assessment/scom-configrequired-tile.png" lightbox="./media/scom-assessment/scom-configrequired-tile.png" alt-text="System Center Operations Manager dashboard tile" border="false":::
+  :::image type="content" source="./media/scom-assessment/scom-configrequired-tile.png" lightbox="./media/scom-assessment/scom-configrequired-tile.png" alt-text="System Center Operations Manager dashboard tile." border="false":::
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
