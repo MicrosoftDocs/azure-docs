@@ -125,7 +125,7 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Search
+  - name: Retrieval (Search)
     items:
     - name: Full-text search
       href: search-lucene-query-architecture.md
