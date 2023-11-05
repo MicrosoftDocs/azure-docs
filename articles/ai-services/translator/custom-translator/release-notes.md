@@ -74,7 +74,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Shona (`sn-latn-zw`)|English (`en-us`)|
 |Slovak (`sk-sk`)|English (`en-us`)|
 |Slovenian (`sl-si`)|English (`en-us`)|
-|Ukranian (`uk-ua`)|English (`en-us`)|
+|Ukrainian (`uk-ua`)|English (`en-us`)|
 
 
 ## 2023-June release
