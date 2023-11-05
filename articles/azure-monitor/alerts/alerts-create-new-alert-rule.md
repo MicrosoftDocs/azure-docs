@@ -204,10 +204,10 @@ To edit an existing alert rule:
         |---------|---------|
         |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
         |Threshold value| A number value for the threshold. |
-        |Frequency of evaluation|How often the query is run. Can be set from a minute to a day.|
+        |Frequency of evaluation|How often the query is run. Can be set anywhere from one minute to one day (24 hours).|
 
-        >  [!NOTE]<a name="frequency"></a>
-        > There are some limitations to using a one-minute alert rule frequency. When you set the alert rule frequency to one-minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported:
+        > [!NOTE]
+        > There are some limitations to using a <a name="frequency">one minute</a> alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported:
 
         > * The query contains the **search**, **union** or **take** (limit) operations
         > * The query contains the **ingestion_time()** function
