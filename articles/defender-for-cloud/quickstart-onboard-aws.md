@@ -83,7 +83,7 @@ AWS Systems Manager manages auto-provisioning by using the SSM Agent. Some Amazo
 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service. 
 
-**You must have SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM is not exists, or removed from the EC2, the Arc provisioning won’t be able to procced.**
+**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won’t be able to procced.**
 
 > [!NOTE]
 > As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
