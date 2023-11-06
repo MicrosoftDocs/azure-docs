@@ -31,7 +31,7 @@ sections:
         answer: |
           No. NAT gateway can't be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
       
-       - question: Can NAT gateway be used to connect inbound?
+      - question: Can NAT gateway be used to connect inbound?
         answer: |
           NAT gateway provides outbound connectivity from a virtual network. Return traffic in direct response to an outbound flow can also pass through NAT gateway. No inbound traffic directly from the internet can pass through NAT gateway.
 
