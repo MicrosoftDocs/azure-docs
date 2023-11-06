@@ -102,7 +102,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 >
 
 >[!IMPORTANT]
->Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characterstics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice.
+>Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice.
 >
 
 ### Standard tier
