@@ -1611,6 +1611,93 @@ The following table lists layout model language support for extracting and analy
 
 :::moniker-end
 
+:::moniker range="doc-intel-2.1.0"
+:::row:::
+:::column:::
+
+|Language| Language code |
+|:-----|:----:|
+|Afrikaans|`af`|
+|Albanian |`sq`|
+|Asturian |`ast`|
+|Basque  |`eu`|
+|Bislama   |`bi`|
+|Breton    |`br`|
+|Catalan    |`ca`|
+|Cebuano    |`ceb`|
+|Chamorro  |`ch`|
+|Chinese (Simplified) | `zh-Hans`|
+|Chinese (Traditional) | `zh-Hant`|
+|Cornish     |`kw`|
+|Corsican      |`co`|
+|Crimean Tatar (Latin)  |`crh`|
+|Czech | `cs` |
+|Danish | `da` |
+|Dutch | `nl` |
+|English (printed and handwritten) | `en` |
+|Estonian  |`et`|
+|Fijian |`fj`|
+|Filipino  |`fil`|
+|Finnish | `fi` |
+|French | `fr` |
+|Friulian  | `fur` |
+|Galician   | `gl` |
+|German | `de` |
+|Gilbertese    | `gil` |
+|Greenlandic   | `kl` |
+|Haitian Creole  | `ht` |
+|Hani  | `hni` |
+|Hmong Daw (Latin) | `mww` |
+|Hungarian | `hu` |
+|Indonesian   | `id` |
+|Interlingua  | `ia` |
+|Inuktitut (Latin)  | `iu`  |
+|Irish    | `ga` |
+:::column-end:::
+:::column:::
+|Language| Language code |
+|:-----|:----:|
+|Italian | `it` |
+|Japanese | `ja` |
+|Javanese | `jv` |
+|K'iche'  | `quc` |
+|Kabuverdianu | `kea` |
+|Kachin (Latin) | `kac` |
+|Kara-Kalpak | `kaa` |
+|Kashubian | `csb` |
+|Khasi  | `kha` |
+|Korean | `ko` |
+|Kurdish (latin) | `kur` |
+|Luxembourgish  | `lb` |
+|Malay (Latin)  | `ms` |
+|Manx  | `gv` |
+|Neapolitan   | `nap` |
+|Norwegian | `no` |
+|Occitan | `oc` |
+|Polish | `pl` |
+|Portuguese | `pt` |
+|Romansh  | `rm` |
+|Scots  | `sco` |
+|Scottish Gaelic  | `gd` |
+|Slovenian  | `slv` |
+|Spanish | `es` |
+|Swahili (Latin)  | `sw` |
+|Swedish | `sv` |
+|Tatar (Latin)  | `tat` |
+|Tetum    | `tet` |
+|Turkish | `tr` |
+|Upper Sorbian  | `hsb` |
+|Uzbek (Latin)     | `uz` |
+|Volapük   | `vo` |
+|Walser    | `wae` |
+|Western Frisian | `fy` |
+|Yucatec Maya | `yua` |
+|Zhuang | `za` |
+|Zulu  | `zu` |
+:::column-end:::
+:::row-end:::
+:::moniker-end
+
 ---
 
 ## General document

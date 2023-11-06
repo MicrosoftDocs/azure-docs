@@ -249,10 +249,6 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ::: moniker range="doc-intel-2.1.0"
 
-## Supported locales
-
-**Prebuilt invoice v2.1** supports invoices in the **en-us** locale.
-
 ## Fields extracted
 
 The Invoice service extracts the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg)).

@@ -54,7 +54,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-:::moniker range=">=doc-intel-3.1.0"
+:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
 
 ## [Contract](#tab/contract)
 
