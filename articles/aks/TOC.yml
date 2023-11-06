@@ -633,7 +633,6 @@
             href: upgrade-cluster.md
           - name: Stop cluster upgrades automatically on API breaking changes
             href: stop-cluster-upgrade-api-breaking-changes.md
-          items:
           - name: Perform manual upgrades
             items:
             - name: Upgrade an AKS cluster
