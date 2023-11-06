@@ -894,7 +894,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
          >
          > 1. In the Azure portal, go to your Application Insights resource.
          >
-         > 2. On the resource resource menu, under **Investigate**, select **Application map**.
+         > 2. On the resource menu, under **Investigate**, select **Application map**.
          >
          > 3. Review the operation names that appear in the map.
          >
