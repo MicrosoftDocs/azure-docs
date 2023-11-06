@@ -85,27 +85,29 @@ sections:
       - question: |
           What are the known limitations of GPT-4 with Vision?
         answer: |
-          1. If multiple images are uploaded in one message, augmentation won't be available.
-          2. Image type `image_hr` is no longer allowed in request payload.
-          3. Accessing an image by URL isn't supported. Images must be provided as base64 encoded string in the request payload.
-          4. The Chat API endpoint treats an input image as a high resolution image by default.
-          5. Max allowed size of input images is 4 MB.
-          6. Max token support is 16k (context+generated = 16,384).
-          7. Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported).
-          8. We recommend you use PNG format with RGB color space.
-          9. Although images provided as input to chat API are treated as high resolution images, GPT-4V will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
-          tbd
-          Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
-          Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
-          Big text: Enlarge text within the image to improve readability, but avoid cropping important details.
-          Rotation: The model may misinterpret rotated / upside-down text or images.
-          Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
-          Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
-          Accuracy: The model may generate incorrect descriptions or captions in certain scenarios.
-          Image shape: The model struggles with panoramic and fisheye images.
+          While GPT-4 with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
+
+          Scenario limitations:
+          - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
+          - Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
+          - Big text: Enlarge text within the image to improve readability, but avoid cropping important details.
+          - Rotation: The model may misinterpret rotated / upside-down text or images.
+          - Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
+          - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
+          - Accuracy: The model may generate incorrect descriptions or captions in certain scenarios.
+          - Image shape: The model struggles with panoramic and fisheye images.
           Metadata and resizing: The model doesn't process original file names or metadata, and images are resized before analysis, affecting their original dimensions.
-          Counting: May give approximate counts for objects in images.
-          CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
+          - Counting: May give approximate counts for objects in images.
+          - CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
+
+          Technical limitations:
+          - If multiple images are uploaded in one message, augmentation won't be available.
+          - Image type `image_hr` is no longer allowed in request payload.
+          - Accessing an image by URL isn't supported. Images must be provided as base64 encoded strings in the request payload.
+          - Max allowed size of input images is 4 MB.
+          - Max token support is 16k (context+generated = 16,384).
+          - Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported). We recommend you use PNG format with RGB color space.
+          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
