@@ -7,7 +7,7 @@ ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 09/04/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions warmup trigger
@@ -80,7 +80,23 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 ```
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript"
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a warmup trigger [JavaScript function](functions-reference-node.md) that runs on each new instance when it's added to your app.
+
+```javascript
+import { app } from "@azure/functions";
+
+app.warmup('warmupTrigger1', {
+    handler: (warmupContext, context) => {
+        context.log('Function App instance is warm.');
+    },
+});
+```
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md) that runs on each new instance when it's added to your app.
 
@@ -102,13 +118,34 @@ The [configuration](#configuration) section explains these properties.
 
 Here's the JavaScript code:
 
-```javascript
-module.exports = async function (context, warmupContext) {
+```JavaScript
+module.exports = async function (warmupContext, context) {
     context.log('Function App instance is warm.');
 };
 ```
 
-::: zone-end  
+::: zone-end
+::: zone pivot="programming-language-typescript"
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a warmup trigger [JavaScript function](functions-reference-node.md) that runs on each new instance when it's added to your app.
+
+```TypeScript
+import { app, InvocationContext, WarmupContextOptions } from "@azure/functions";
+
+export async function warmupFunction(warmupContext: WarmupContextOptions, context: InvocationContext): Promise<void> {
+    context.log('Function App instance is warm.');
+}
+
+app.warmup('warmup', {
+    handler: warmupFunction,
+});
+```
+
+# [Model v3](#tab/nodejs-v3)
+TypeScript samples are not documented for model v3.
+
+::: zone-end
 ::: zone pivot="programming-language-powershell"  
 Here's the *function.json* file:
 
@@ -184,7 +221,25 @@ Use the `WarmupTrigger` attribute to define the function. This attribute has no 
 Annotations aren't required by a warmup trigger. Just use a name of `warmup` (case-insensitive) for the `FunctionName` annotation.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+## Configuration
+
+# [Model v4](#tab/nodejs-v4)
+
+There are no additional properties that need to be set on the `options` object passed to the `app.warmup()` method.
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file. 
+
+|function.json property |Description|
+|---------|----------------------|
+| **type** | Required - must be set to `warmupTrigger`. |
+| **direction** | Required - must be set to `in`. |
+| **name** | Required - the variable name used in function code. A `name` of `warmupContext` is recommended for the binding parameter.|
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
@@ -195,7 +250,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code. A `name` of `warmupContext` is recommended for the binding parameter.|
 
-::: zone-end  
+::: zone-end   
 
 See the [Example section](#example) for complete examples.
 
@@ -223,8 +278,14 @@ The following considerations apply to using a warmup function in C#:
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 Your function must be named `warmup` (case-insensitive) using the `FunctionName` annotation. 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+# [Model v4](#tab/nodejs-v4)
+Please see the list of considerations at the top of the page for general usage advice.
+# [Model v3](#tab/nodejs-v3)
+The function type in _function.json_ must be set to `warmupTrigger`.
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"
 The function type in function.json must be set to `warmupTrigger`.
 ::: zone-end  
 
