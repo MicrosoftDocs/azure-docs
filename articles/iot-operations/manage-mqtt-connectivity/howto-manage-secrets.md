@@ -112,7 +112,7 @@ metadata:
 spec:
   image:
     repository: e4kpreview.azurecr.io/mqttbridge
-    tag: 0.1.0
+    tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
