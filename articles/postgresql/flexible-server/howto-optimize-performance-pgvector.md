@@ -22,7 +22,7 @@ For more on the extension itself, see [basics of `pgvector`](how-to-use-pgvector
 
 [!INCLUDE [Performance](../../cosmos-db/postgresql/includes/pgvector-performance.md)]
 
-## Next Steps
+## Next steps
 
 Congratulations, you just learned the tradeoffs, limitations and best practices to achieve the best performance with `pgvector`.
 

@@ -21,7 +21,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 > [!NOTE]
 > You will need the key and endpoint from the resource you create to connect the extension to the API.
 
-## Configure Azure Cognitive Services endpoint and Key 
+## Configure Azure Cognitive Services endpoint and key 
 
 In the Azure AI services under **Resource Management** > **Keys and Endpoints** you can find the **Endpoint and Keys** for your Azure AI resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment.
 
