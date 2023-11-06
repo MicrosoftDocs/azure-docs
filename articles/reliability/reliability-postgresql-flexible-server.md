@@ -100,7 +100,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - Planned events such as scale computing and scale storage happens on the standby first and then on the primary server. Currently, the server doesn't failover for these planned operations.
 
-- If logical decoding or logical replication is configured with an availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots aren't copied over to the standby server.
+- If logical decoding or logical replication is configured with an availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots aren't copied over to the standby server. To maintain logical replication slots and ensure data consistency after a failover, it is recommended to use the PG Failover Slots extension. For more information on how to enable this extension, please refer to the [documentation](concepts-extensions.md#pg_failover_slots).
 
 - Configuring availability zones between private (VNET) and public access isn't supported. You must configure availability zones within a VNET (spanned across availability zones within a region) or public access.
 
