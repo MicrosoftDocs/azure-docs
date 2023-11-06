@@ -36,8 +36,8 @@ With workbooks, you can query logs from the following sources:
 * Resource-centric data (activity logs)
 
 You can use Kusto query language (KQL) queries that transform the underlying resource data to select a result set that can be visualized as text, charts, or grids.
-
-:::image type="content" source="./media/workbooks-data-sources/logs.png" lightbox="./media/workbooks-data-sources/logs.png" alt-text="Screenshot that shows a workbook logs report interface.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/logs.png" lightbox="./media/workbooks-data-sources/logs.png" alt-text="Screenshot that shows a workbook logs report interface." border="false":::
 
 You can easily query across multiple resources to create a unified rich reporting experience.
 
@@ -50,18 +50,18 @@ Tutorial: [Making resource centric log queries in workbooks](workbooks-create-wo
 ## Metrics
 
 Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. You can then plot this data in charts or grids.
-
-:::image type="content" source="./media/workbooks-data-sources/metrics-graph.png" lightbox="./media/workbooks-data-sources/metrics-graph.png" alt-text="Screenshot that shows workbook metrics charts of CPU utilization.":::
-
-:::image type="content" source="./media/workbooks-data-sources/metrics.png" lightbox="./media/workbooks-data-sources/metrics.png" alt-text="Screenshot that shows a workbook metrics interface.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/metrics-graph.png" lightbox="./media/workbooks-data-sources/metrics-graph.png" alt-text="Screenshot that shows workbook metrics charts of CPU utilization." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/metrics.png" lightbox="./media/workbooks-data-sources/metrics.png" alt-text="Screenshot that shows a workbook metrics interface." border="false":::
 
 ## Azure Resource Graph
 
 Workbooks support querying for resources and their metadata by using Azure Resource Graph. This functionality is primarily used to build custom query scopes for reports. The resource scope is expressed via a KQL subset that Resource Graph supports, which is often sufficient for common use cases.
 
 To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
-
-:::image type="content" source="./media/workbooks-data-sources/azure-resource-graph.png" lightbox="./media/workbooks-data-sources/azure-resource-graph.png" alt-text="Screenshot that shows an Azure Resource Graph KQL query.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/azure-resource-graph.png" lightbox="./media/workbooks-data-sources/azure-resource-graph.png" alt-text="Screenshot that shows an Azure Resource Graph KQL query." border="false":::
 
 ## Azure Resource Manager
 
@@ -76,8 +76,8 @@ To make a query control that uses this data source, use the **Data source** drop
 
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
 For the **Cluster Name** field, add the region name following the cluster name. An example is *mycluster.westeurope*.
-
-:::image type="content" source="./media/workbooks-data-sources/data-explorer.png" lightbox="./media/workbooks-data-sources/data-explorer.png" alt-text="Screenshot that shows Kusto query window.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/data-explorer.png" lightbox="./media/workbooks-data-sources/data-explorer.png" alt-text="Screenshot that shows Kusto query window." border="false":::
 
 See also: [Azure Data Explorer query best practices](/azure/data-explorer/kusto/query/best-practices)
 
@@ -99,8 +99,8 @@ With workbooks, you can query different data sources. Workbooks also provide sim
 ### Combine alerting data with Log Analytics VM performance data
 
 The following example combines alerting data with Log Analytics VM performance data to get a rich insights grid.
-
-:::image type="content" source="./media/workbooks-data-sources/merge-control.png" lightbox="./media/workbooks-data-sources/merge-control.png" alt-text="Screenshot that shows a workbook with a merge control that combines alert and Log Analytics data.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/merge-control.png" lightbox="./media/workbooks-data-sources/merge-control.png" alt-text="Screenshot that shows a workbook with a merge control that combines alert and Log Analytics data." border="false":::
 
 ### Use merge control to combine Resource Graph and Log Analytics data
 

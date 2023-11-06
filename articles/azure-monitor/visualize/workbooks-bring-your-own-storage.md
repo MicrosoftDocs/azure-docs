@@ -15,22 +15,22 @@ There are times when you might have a query or some business logic that you want
 ## Save a workbook with managed identities
 
 1. Before you can save the workbook to your storage, you'll need to create a managed identity by selecting **All Services** > **Managed Identities**. Then give it **Storage Blob Data Contributor** access to your storage account. For more information, see [Azure documentation on managed identities](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-
-    :::image type="content" source="./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png" lightbox="./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png" alt-text="Screenshot that shows adding a role assignment.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png" lightbox="./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png" alt-text="Screenshot that shows adding a role assignment." border="false":::
 
 1. Create a new workbook.
 1. Select **Save** to save the workbook.
 1. Select the **Save content to an Azure Storage Account** checkbox to save to an Azure Storage account.
-
-    :::image type="content" source="./media/workbooks-bring-your-own-storage/saved-dialog-default.png" lightbox="./media/workbooks-bring-your-own-storage/saved-dialog-default.png" alt-text="Screenshot that shows the Save dialog.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-bring-your-own-storage/saved-dialog-default.png" lightbox="./media/workbooks-bring-your-own-storage/saved-dialog-default.png" alt-text="Screenshot that shows the Save dialog." border="false":::
 
 1. Select the storage account and container you want. The **Storage account** list is from the subscription selected previously.
-
-    :::image type="content" source="./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png" lightbox="./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png" alt-text="Screenshot that shows the Save dialog with a storage option.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png" lightbox="./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png" alt-text="Screenshot that shows the Save dialog with a storage option." border="false":::
 
 1. Select **(change)** to select a managed identity previously created.
-
-    :::image type="content" source="./media/workbooks-bring-your-own-storage/change-managed-identity.png" lightbox="./media/workbooks-bring-your-own-storage/change-managed-identity.png" alt-text="Screenshot that shows the Change identity dialog.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-bring-your-own-storage/change-managed-identity.png" lightbox="./media/workbooks-bring-your-own-storage/change-managed-identity.png" alt-text="Screenshot that shows the Change identity dialog." border="false":::
 
 1. After you've selected your storage options, select **Save** to save your workbook.
 
@@ -39,8 +39,8 @@ There are times when you might have a query or some business logic that you want
 - When you save to custom storage, you can't pin individual parts of the workbook to a dashboard because the individual pins would contain protected information in the dashboard itself. When you use custom storage, you can only pin links to the workbook itself to dashboards.
 - After a workbook has been saved to custom storage, it will always be saved to custom storage, and this feature can't be turned off. To save elsewhere, you can use **Save As** and elect to not save the copy to custom storage.
 - Workbooks in an Application Insights resource are "legacy" workbooks and don't support custom storage. The latest feature for workbooks in an Application Insights resource is the **More** selection. Legacy workbooks don't have **Subscription** options when you save them.
-
-   :::image type="content" source="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" lightbox="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" alt-text="Screenshot that shows a legacy workbook.":::
+   <!-- convertborder later -->
+   :::image type="content" source="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" lightbox="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" alt-text="Screenshot that shows a legacy workbook." border="false":::
 
 ## Next steps
 
