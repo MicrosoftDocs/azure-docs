@@ -9,7 +9,7 @@ ms.date: 11/03/2023
 # Best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS)
 
 > [!NOTE]
-> This article focuses on best practices for **small to medium workloads**. For best practices for **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale-large.md).
+> This article focuses on general best practices for **small to medium workloads**. For best practices specific to **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale-large.md).
 
 As you deploy and maintain clusters in AKS, you can use the following best practices to help you optimize performance and scaling.
 
@@ -151,7 +151,7 @@ The Ubuntu 2204 image is fully supported by Microsoft, Canonical, and the Ubuntu
 
 Application performance is closely tied to the VM SKUs you use in your workloads. Larger and more powerful VMs, generally provide better performance. For *mission critical or product workloads*, we recommend using VMs with at least an 8-core CPU. VMs with newer hardware generations, like v4 and v5, can also help improve performance. Keep in mind that create and scale latency might vary depending on the VM SKUs you use.
 
-### Node pools
+### Use dedicated system node pools
 
 For scaling performance and reliability, we recommend using a dedicated system node pool. With this configuration, the dedicated system node pool reserves space for critical system resources such as system OS daemons. Your application workload can then run in a user node pool to increase the availability of allocatable resources for your application. This configuration also helps mitigate the risk of resource competition between the system and application.
 

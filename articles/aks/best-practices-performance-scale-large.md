@@ -9,41 +9,45 @@ ms.date: 11/03/2023
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
 
 > [!NOTE]
-> This article focuses on best practices for **large workloads**. For best practices for **small to medium workloads**, see [Performance and scaling best practices for small to medium workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale.md).
+> This article focuses on general best practices for **large workloads**. For best practices specific to **small to medium workloads**, see [Performance and scaling best practices for small to medium workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale.md).
 
 As you deploy and maintain clusters in AKS, you can use the following best practices to help you optimize performance and scaling.
 
-Keep in mind that *large* is a relative term. Kubernetes is a multi-dimensional scale envelope, and the scale envelope for your workload depends on the resources you use. For example, a cluster with 100 nodes and thousands of pods or CRDs might be considered large. A 1,000 node cluster with 1,000 pods and various other resources might be considered small from the control plane perspective. The best signal for scale of a Kubernetes control plane is API server HTTP request success rate and latency, as that's a proxy for the amount of load on the control plane.
+Keep in mind that *large* is a relative term. Kubernetes has a multi-dimensional scale envelope, and the scale envelope for your workload depends on the resources you use. For example, a cluster with 100 nodes and thousands of pods or CRDs might be considered large. A 1,000 node cluster with 1,000 pods and various other resources might be considered small from the control plane perspective. The best signal for scale of a Kubernetes control plane is API server HTTP request success rate and latency, as that's a proxy for the amount of load on the control plane.
 
 In this article, you learn about:
 
 > [!div class="checklist"]
 >
 > * AKS and Kubernetes control plane scalability.
-> * Kube Client best practices, including backoff, watches, and pagination.
+> * Kubernetes Client best practices, including backoff, watches, and pagination.
 > * Azure API and platform throttling limits.
 > * Feature limitations.
 > * Networking and node pool scaling best practices.
 
-## AKS control plane
+## AKS and Kubernetes control plane scalability
 
-In AKS, a *cluster* consists of a set of nodes (physical or virtual machines (VMs)) that run Kubernetes agents and are managed by the control plane. Kubernetes has a multi-dimensional scale envelope with each resource type representing a dimension. Not all resources are alike. For example, *watches* are commonly set on secrets, which result in list calls to the kube-apiserver that add cost and a disproportionately higher load on the control plane compared to resources without watches.
+In AKS, a *cluster* consists of a set of nodes (physical or virtual machines (VMs)) that run Kubernetes agents and are managed by the Kubernetes control plane hosted by AKS. While AKS optimizes the Kubernetes control plane and its components for scalability and performance, it's still bound by the upstream project limits.
 
-The control plane manages all resource scaling, so the more you scale the cluster within a given dimension, the less you can scale within other dimensions. For example, running hundreds of thousands of pods in an AKS cluster impacts how much pod churn rate (pod mutations per second) the control plane can support.
+Kubernetes has a multi-dimensional scale envelope with each resource type representing a dimension. Not all resources are alike. For example, *watches* are commonly set on secrets, which result in list calls to the kube-apiserver that add cost and a disproportionately higher load on the control plane compared to resources without watches.
+
+The control plane manages all the resource scaling in the cluster, so the more you scale the cluster within a given dimension, the less you can scale within other dimensions. For example, running hundreds of thousands of pods in an AKS cluster impacts how much pod churn rate (pod mutations per second) the control plane can support.
 
 The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports two control plane tiers as part of the Base SKU: the Free tier and the Standard tier. For more information, see [Free and Standard pricing tiers for AKS cluster management][free-standard-tier].
 
 > [!IMPORTANT]
 > We highly recommend using the Standard tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
 >
-> * 5,000 nodes per AKS cluster
+> * Up to 5,000 nodes per AKS cluster
 > * 200,000 pods per AKS cluster (with Azure CNI Overlay)
 
 In most cases, crossing the scale limit threshold results in degraded performance, but doesn't cause the cluster to immediately fail over. To manage load on the Kubernetes control plane, consider scaling in batches of up to 10-20% of the current scale. For example, for a 5,000 node cluster, scale in increments of 500-1,000 nodes. While AKS does autoscale your control plane, it doesn't happen instantaneously.
 
 You can leverage API Priority and Fairness (APF) to throttle specific clients and request types to protect the control plane during high churn and load.
 
-## Kube Client
+## Kubernetes clients
+
+Kubernetes clients are the applications clients, such as operators or monitoring agents, deployed in the Kubernetes cluster that need to communicate with the kube-api server to perform read or mutate operations. It's important to optimize the behavior of these clients to minimize the load they add to the kube-api server and Kubernetes control plane.
 
 AKS doesn't expose control plane and API server metrics via Prometheus or through platform metrics. However, you can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes-troubleshoot-apiserver-etcd#troubleshooting-checklist).
 
@@ -78,9 +82,11 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 ## Feature limitations
 
-As you scale your AKS clusters to larger scale points, keep the following feature limitation in mind:
+As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
 * AKS supports up to a 1,000 node scale in an AKS cluster by default. While AKS doesn't prevent you from scaling further, doing so might result in degraded performance. If you want to scale beyond 1,000 nodes, you can request a limit increase. For more information, see [Best practices for creating and running AKS clusters at scale][run-aks-at-scale].
+* [Azure Network Policy Manager (Azure NPM)][azure-npm] only supports up to 250 nodes.
+* You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
 ## Networking
 
@@ -90,6 +96,7 @@ As you scale your AKS clusters to larger scale points, keep the following networ
 * Use Azure CNI Overlay to scale up to 200,000 pods and 5,000 nodes per cluster. For more information, see [Configure Azure CNI Overlay networking in AKS][azure-cni-overlay].
 * If your application needs direct pod-to-pod communication across clusters, use Azure CNI with dynamic IP allocation and scale up to 50,000 application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking for dynamic IP allocation in AKS][azure-cni-dynamic-ip].
 * When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or service below a 750 node scale for optimal scaling performance and load balancer elasticity.
+* Azure NPM only supports up to 250 nodes. If you want to enforce network policies for larger clusters, consider using [Azure CNI powered by Cilium](./azure-cni-powered-by-cilium.md), which combines the robust control plane of Azure CNI with the Cilium data plane to provide high performance networking and security.
 
 ## Node pool scaling
 
