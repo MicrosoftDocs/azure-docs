@@ -1,7 +1,7 @@
 ---
 title: Planning red teaming for large language models (LLMs) and their applications 
 titleSuffix: Azure OpenAI Service
-description: Learn about how red teaming and adversarial testing is an essential practice in the responsible development of systems and features using large language models (LLMs)
+description: Learn about how red teaming and adversarial testing are an essential practice in the responsible development of systems and features using large language models (LLMs)
 ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 11/03/2023
@@ -43,28 +43,27 @@ Here is how you can get started and plan your process of red teaming LLMs. Advan
 
 **Assemble a diverse group of red teamers**
 
-Determine the ideal composition of red teamers in terms of people’s experience, demographics, and expertise across disciplines (e.g., experts in AI, social sciences, security) for your product’s domain. For example, if you’re designing a chatbot to help health care providers, medical experts can help identify risks in that domain.
+Determine the ideal composition of red teamers in terms of people’s experience, demographics, and expertise across disciplines (for example, experts in AI, social sciences, security) for your product’s domain. For example, if you’re designing a chatbot to help health care providers, medical experts can help identify risks in that domain.
 
 **Recruit red teamers with both benign and adversarial mindsets**
 
 Having red teamers with an adversarial mindset and security-testing experience is essential for understanding security risks, but red teamers who are ordinary users of your application system and haven’t been involved in its development can bring valuable perspectives on harms that regular users might encounter.
 
-[**Assign red teamers to harms and/or product features**](https://hits.microsoft.com/Recommendation/4220579)
+**Assign red teamers to harms and/or product features**
 
-- Assign RAI red teamers with specific expertise to probe for specific types of harms (e.g., security subject matter experts can probe for jailbreaks, meta prompt extraction, and content related to cyberattacks).
+- Assign RAI red teamers with specific expertise to probe for specific types of harms (for example, security subject matter experts can probe for jailbreaks, meta prompt extraction, and content related to cyberattacks).
 
-- For multiple rounds of testing, decide whether to switch red teamer assignments in each round to get diverse perspectives on each harm and maintain creativity. If switching assignments, allow time for red teamers to get up to speed on the instructions for their newly assigned harm. 
+- For multiple rounds of testing, decide whether to switch red teamer assignments in each round to get diverse perspectives on each harm and maintain creativity. If switching assignments, allow time for red teamers to get up to speed on the instructions for their newly assigned harm.
 
 - In later stages, when the application and its UI are developed, you might want to assign red teamers to specific parts of the application (i.e., features) to ensure coverage of the entire application.
 
-- Consider how much time and effort each red teamer should dedicate (e.g., those testing for benign scenarios might need less time than those testing for adversarial scenarios).
+- Consider how much time and effort each red teamer should dedicate (for example, those testing for benign scenarios might need less time than those testing for adversarial scenarios).
 
-> [!NOTE]
-> It can be helpful to provide red teamers with:
-> - Clear instructions that could include:
->     - An introduction describing the purpose and goal of the given round of red teaming; the product and features that will be tested and how to access them; what kinds of issues to test for; red teamers’ focus areas, if the testing is more targeted; how much time and effort each red teamer should spend on testing; how to record results; and who to contact with questions.  
-> - A file or location for recording their examples and findings, including information such as:
->     - The date an example was surfaced; a unique identifier for the input/output pair if available, for reproducibility purposes; the input prompt; a description or screenshot of the output.
+It can be helpful to provide red teamers with:
+ - Clear instructions that could include:
+     - An introduction describing the purpose and goal of the given round of red teaming; the product and features that will be tested and how to access them; what kinds of issues to test for; red teamers’ focus areas, if the testing is more targeted; how much time and effort each red teamer should spend on testing; how to record results; and who to contact with questions.  
+ - A file or location for recording their examples and findings, including information such as:
+     - The date an example was surfaced; a unique identifier for the input/output pair if available, for reproducibility purposes; the input prompt; a description or screenshot of the output.
 
 ### Plan: What to test
 
@@ -88,16 +87,16 @@ When reporting results, make clear which endpoints were used for testing. When t
 
 ### Plan: How to test
 
-1. **[Conduct open-ended testing to uncover a wide range of harms.](https://hits.microsoft.com/Recommendation/4220586)**
+**Conduct open-ended testing to uncover a wide range of harms.**
 
     The benefit of RAI red teamers exploring and documenting any problematic content (rather than asking them to find examples of specific harms) enables them to creatively explore a wide range of issues, uncovering blind spots in your understanding of the risk surface.
 
-2. **Create a list of harms from the open-ended testing.**.
+**Create a list of harms from the open-ended testing.**.
 
     - Consider creating a list of harms, with definitions and examples of the harms.  
     - Provide this list as a guideline to red teamers in later rounds of testing.
 
-3. **Conduct guided red teaming and iterate: Continue probing for harms in the list; identify new harms that surface.**
+**Conduct guided red teaming and iterate: Continue probing for harms in the list; identify new harms that surface.**
 
     Use a list of harms if available and continue testing for known harms and the effectiveness of their mitigations. In the process, you will likely identify new harms. Integrate these into the list and be open to shifting measurement and mitigation priorities to address the newly identified harms.
 
@@ -105,19 +104,19 @@ When reporting results, make clear which endpoints were used for testing. When t
 
 ### Plan: How to record data
 
-**[Decide what data you need to collect and what data is optional.](https://hits.microsoft.com/Recommendation/4220591)**
+**Decide what data you need to collect and what data is optional.**
 
-- Decide what data the red teamers will need to record (e.g., the input they used; the output of the system; a unique ID, if available, to reproduce the example in the future; and other notes.)
+- Decide what data the red teamers will need to record (for example, the input they used; the output of the system; a unique ID, if available, to reproduce the example in the future; and other notes.)
 
 - Be strategic with what data you are collecting to avoid overwhelming red teamers, while not missing out on critical information.
 
-**[Create a structure for data collection](https://hits.microsoft.com/Recommendation/4220592)**
+**Create a structure for data collection**
 
 A shared Excel spreadsheet is often the simplest method for collecting red teaming data. A benefit of this shared file is that red teamers can review each other’s examples to gain creative ideas for their own testing and avoid duplication of data.
 
 ## During testing
 
-**[Plan to be on active standby while red teaming is ongoing](https://hits.microsoft.com/Recommendation/4220593)**
+**Plan to be on active standby while red teaming is ongoing**
 
 - Be prepared to assist red teamers with instructions and access issues.
 - Monitor progress on the spreadsheet and send timely reminders to red teamers.
@@ -144,5 +143,4 @@ In the report, be sure to clarify that the role of RAI red teaming is to expose 
 
 Additionally, if the report contains problematic content and examples, consider including a content warning.
 
-The guidance in this document is not intended to be, and should not be construed as providing, legal advice. The jurisdiction in which you're operating may have various regulatory or legal requirements that apply to your AI system. Be aware that not all of these recommendations are appropriate for every scenario and, conversely, these recommendations may be insufficient for some scenarios. 
-
+The guidance in this document is not intended to be, and should not be construed as providing, legal advice. The jurisdiction in which you're operating may have various regulatory or legal requirements that apply to your AI system. Be aware that not all of these recommendations are appropriate for every scenario and, conversely, these recommendations may be insufficient for some scenarios.
