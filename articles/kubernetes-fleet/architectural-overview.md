@@ -1,11 +1,11 @@
 ---
 title: "Azure Kubernetes Fleet Manager architectural overview"
 description: This article provides an architectural overview of Azure Kubernetes Fleet Manager
-ms.date: 10/03/2022
+ms.date: 11/06/2023
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022, build-2023
+ms.custom: ignite-2023
 ms.topic: conceptual
 ---
 
@@ -62,7 +62,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 * **Update run**: An update being applied to a collection of AKS clusters in a sequential or stage-by-stage manner. An update run can be stopped and started. An update run can either upgrade clusters one-by-one or in a stage-by-stage fashion using update stages and update groups.
 * **Update strategy**: Update strategy allows you to store templates for your update runs instead of creating them individually for each update run.
 
-Currently the only supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image or you can choose to upgrade only the node image. Node image upgrades currently only allow upgrading to either the latest available node image for each cluster, or applying the same consistent node image across all clusters of the update run. As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+Currently, the only supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image or you can choose to upgrade only the node image. Node image upgrades currently only allow upgrading to either the latest available node image for each cluster, or applying the same consistent node image across all clusters of the update run. As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 ## Kubernetes resource propagation
 

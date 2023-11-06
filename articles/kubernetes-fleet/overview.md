@@ -23,6 +23,8 @@ Fleet supports the following scenarios:
 
 * Load balance incoming L4 traffic across service endpoints on multiple clusters
 
+* Export a service from one member cluster to the Fleet resource. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any Fleet resource-scoped load balancer) can consume.
+
 * Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
 
 ## Next steps

@@ -5,7 +5,7 @@ ms.date: 11/06/2023
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: template-quickstart, mode-other, devx-track-azurecli, ignite-2022
+ms.custom: template-quickstart, mode-other, devx-track-azurecli, ignite-2023
 ms.devlang: azurecli
 ms.topic: quickstart
 ---
