@@ -91,7 +91,7 @@ When reporting results, make clear which endpoints were used for testing. When t
 
 The benefit of RAI red teamers exploring and documenting any problematic content (rather than asking them to find examples of specific harms) enables them to creatively explore a wide range of issues, uncovering blind spots in your understanding of the risk surface.
 
-**Create a list of harms from the open-ended testing.**.
+**Create a list of harms from the open-ended testing.**
 
 - Consider creating a list of harms, with definitions and examples of the harms.  
 - Provide this list as a guideline to red teamers in later rounds of testing.
