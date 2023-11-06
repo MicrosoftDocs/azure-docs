@@ -117,7 +117,7 @@ Use the below steps to scale up the performance tier on your flexible server.
 
 3. A page with current settings is displayed.
  
-    :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-1.png" alt-text="Screenshot that shows performance tier 1":::
+    :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-1.png" alt-text="Screenshot that shows performance tier 1.":::
 
 4. You see the new “Performance Tier” drop-down option. The option selected will be the pre-provisioned IOPS, which is also the minimum amount of IOPS available for the selected storage size.
 
