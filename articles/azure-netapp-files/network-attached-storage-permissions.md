@@ -70,7 +70,7 @@ These values can be changed at volume creation or after the volume has been crea
 
 ### Export policy rules with NFS Kerberos enabled in Azure NetApp Files
 
-NFS Kerberos can be enabled only on volumes using NFSv4.1 in Azure NetApp Files. Kerberos provides added security by offering different modes of encryption for NFS mounts, depending on the Kerberos type in use.
+[NFS Kerberos](configure-kerberos-encryption.md) can be enabled only on volumes using NFSv4.1 in Azure NetApp Files. Kerberos provides added security by offering different modes of encryption for NFS mounts, depending on the Kerberos type in use.
 
 When Kerberos is enabled, the values for the export policy rules change to allow specification of which Kerberos mode should be allowed. Multiple Kerberos security modes can be enabled in the same rule if you need access to more than one. 
 
@@ -89,6 +89,23 @@ There are some scenarios where you want to restrict root access to an Azure NetA
 In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions generally falls under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
 
 To learn more about managing export policies, see [Configure export policies for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
+
+
+#### Understand export policy rule order
+
+Export policy rules are evaluated in order. The first rule in the list that applies to an NFS client is the rule used for that client. When using CIDR ranges/subnets for export policy rules, an NFS client in that range may receive unwanted access due to the range in which it's included. 
+
+:::image type="content" source="../media/azure-netapp-files/export-policy-rule-sequence.png" alt-text="Screenshot of two export policy rules." lightbox="../media/azure-netapp-files/export-policy-rule-sequence.png":::
+
+- The first rule in the index includes *all clients* in *all subnets* by way of the default policy rule using 0.0.0.0/0 as the **Allowed clients** entry. That rule allows “Read & Write” access to all clients for that Azure NetApp Files NFSv3 volume.
+- The second rule in the index explicitly lists NFS client 10.10.10.10 and is configured to limit access to “Read only,” with no root access (root is squashed).
+
+As it stands, the client 10.10.10.10 receives access as per the first rule in the list. The next rule is never be evaluated for access restrictions, thus 10.10.10.10 get Read & Write access even though “Read only” is desired. Root is also root, rather than [being squashed](#root-squashing).
+
+To fix this and set access to the desired level, the rules can be re-ordered to place the desired client access rule above any subnet/CIDR rules. You can modify the order of export policy rules in the Azure portal by dragging the rules or using the **Move** commands in the `...` menu in the row for each export policy rule. 
+
+>[!NOTE]
+>You can use the [Azure NetApp Files CLI or REST API](azure-netapp-files-sdk-cli.md) only to add or remove export policy rules. 
 
 ## SMB shares 
 
@@ -934,7 +951,7 @@ Removing system ACEs is a way to further secure files and folders, as only the u
 
 #### Root user behavior with NFSv4.x ACLs
 
-Root access with NFSv4.x ACLs can't be limited unless root is squashed. Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
+Root access with NFSv4.x ACLs can't be limited unless [root is squashed](#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
 
 To configure this, navigate to the “Export policy” menu on the volume and change “Root access” to “off” for the policy rule.
 

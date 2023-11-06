@@ -15,6 +15,16 @@ You can configure export policy to control access to an Azure NetApp Files volum
 
 You can create up to five export policy rules.
 
+Once created, you can modify details of the export policy rule. The modifiable fields are: 
+
+-	IP address (For example, x.x.x.x)
+-	CIDR range (A subnet range; for example, 0.0.0.0/0)
+-	IP address comma separated list (For example, x.x.x.x, y.y.y.y)
+- Access level 
+- [Export policy rule order](network-attached-storage-permissions.md#understand-export-policy-rule-order)
+
+Before modifying policy rules with NFS Kerberos enabled, see [Export policy rules with NFS Kerberos enabled](network-attached-storage-permissions.md#exportpolicy-rules-with-NFS-Kerberos-enabled-in-Azure-NetApp-Files).
+
 ## Configure the policy 
 
 1.	On the **Volumes** page, select the volume for which you want to configure the export policy, and then select **Export policy**. You can also configure the export policy during the creation of the volume.
