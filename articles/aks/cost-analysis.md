@@ -111,7 +111,7 @@ az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-c
 
 ## View cost information
 
-You can view cost allocation data in Azure Portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/).
+You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/).
 
 > [!NOTE]
 > It might take up to one day for data to finalize
