@@ -164,45 +164,34 @@ After a restore from either **latest restore point** or **custom restore point**
 
 - **How do I backup my server?**
 By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7-day retention period. You can also trigger a manual backup using On-Demand backup feature. The other way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
-
 - **Can I configure automatic backups to be retained for long term?**
 No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
-
 - **What are the backup windows for my server? Can I customize it?**
 The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes. Backup windows are inherently managed by Azure and cannot be customized.
-
 - **Are my backups encrypted?**
 All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled.
-
 - **Can I restore a single/few database(s)?**
 Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then extract the table(s) or database(s) needed.
-
 - **Is my server available during the backup window?**
 Yes. Backups are online operations and are snapshot-based. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server.
-
 - **When setting up the maintenance window for the server do we need to account for backup window?**
 No, backups are triggered internally as part of the managed service and have no bearing to the Managed Maintenance Window.
-
 - **Where are my automated backups stored and how do I manage their retention?**
 Azure Database for MySQL automatically creates server backups and stores them in user-configured, locally redundant storage or in geo-redundant storage. These backup files can't be exported. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
-
 - **How can I validate my backups?**
 The best way to validate availability of successfully completed backups is to view the full-automated backups taken within the retention period in the Backup and Restore blade. If a backup fails it will not be listed in the available backups list and our backup service will try every 20 mins to take a backup until a successful backup is taken. These backup failures are due to heavy transactional production loads on the server.
-
 - **Where can I see the backup usage?**
 In the Azure portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](./concepts-monitoring.md) metric which can help you monitor the total backup usage.
-
 - **What happens to my backups if I delete my server?**
 If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
-
 - **How will I be charged and billed for my use of backups?**
 Azure Database for MySQL - Flexible Server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/server/). Backup storage billing is also governed by the backup retention period selected and backup redundancy option chosen apart from the transactional activity on the server which impacts the total backup storage used directly.
-
 - **How are backups retained for stopped servers?**
 No new backups are performed for stopped servers. All older backups (within the retention window) at the time of stopping the server are retained until the server is restarted post which backup retention for the active server is governed by it’s backup retention window.
-
 - **How will I be billed for backups for a stopped server?**
 While your server instance is stopped, you are charged for provisioned storage (including Provisioned IOPS) and backup storage (backups stored within your specified retention window). Free backup storage is limited to the size of your provisioned database and only applies to active servers.
+- **How is my backup data protected?**
+Azure database for MySQL Flexible server protects your backup data by blocking any operations that could lead to loss of recovery points for the duration of configured   retention period. Backup's taken during the retention period can only be read for the purpose of restoration and is deleted post retention period. Additionally, all backups in Azure Database for MySQL Flexible server is encrypted using AES 256-bit encryption for the data stored at rest.
 
 ### Restore related questions
 
@@ -225,6 +214,7 @@ The estimated time for the recovery of the server depends on several factors:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
 
 
 
