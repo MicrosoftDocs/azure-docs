@@ -78,14 +78,14 @@ Trigger a MySQL Import operation with the `az mysql flexible-server import creat
 ```azurecli
 az mysql flexible-server import create --data-source-type
                                 --data-source
-                    					  --data-source-sas-token
+                           --data-source-sas-token
                                 --resource-group
                                 --name
                                 --sku-name
                                 --tier
                                 --version
                                 --location
-                     					  [--data-source-backup-dir]
+                            [--data-source-backup-dir]
                                 [--storage-size]
                                 [--mode]
                                 [--admin-password]
