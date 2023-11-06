@@ -32,7 +32,7 @@ landingContent:
             url: auto-upgrade-node-image.md
           - text: Azure Linux Container Host for AKS
             url: use-azure-linux.md
-          - text: Vertical Pod Autoscaler (Preview)
+          - text: Vertical Pod Autoscaler
             url: vertical-pod-autoscaler.md
           - text: Workload identity
             url: workload-identity-overview.md
