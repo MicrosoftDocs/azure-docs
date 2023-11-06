@@ -44,7 +44,7 @@ az account set --subscription <subscription id>
 
 ## Pre-requisites
 
-* Source server should have below parameters:
+* Source server should have the following parameters:
   * Lower_case_table_names = 1
   * Innodb_file_per_table = ON
   * System tablespace name should be ibdata1.
@@ -55,8 +55,8 @@ az account set --subscription <subscription id>
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premise or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html).
-  * [Create an Azure Blob container](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](https://learn.microsoft.com/azure/ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They are only displayed once and can't be retrieved once the window is closed.
-* Upload the full backup file to your Azure Blob storage. Follow steps [here]( https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload#upload-a-file).
+  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They are only displayed once and can't be retrieved once the window is closed.
+* Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
 ## Limitations
@@ -151,11 +151,11 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Migrate to Flexible Server with minimal downtime
 
-In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here]( Configure Data-in replication - Azure Database for MySQL - Flexible Server | Microsoft Learn). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
+In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
 
 ## How long does MySQL Import take to migrate my Single Server instance?
 
-Below is the benchmarked performance based on storage size.
+Benchmarked performance based on storage size.
 
   | Backup file Storage Size | MySQL Import time |
   | ------------- |:-------------:|
@@ -166,7 +166,7 @@ Below is the benchmarked performance based on storage size.
   | 1 TB | 22 min 56 secs |
   | 10 TB | 2 hrs 5 min 30 secs |
   
-From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
+As the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
 ## Next steps
 
