@@ -48,7 +48,7 @@ embeddings = response['data'][0]['embedding']
 print(embeddings)
 ```
 
-# [OpenAI Python 1.0.1](#tab/python-new)
+# [OpenAI Python  >=1.0.0](#tab/python-new)
 
 ```python
 import os
