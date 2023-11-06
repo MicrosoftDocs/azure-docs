@@ -145,7 +145,7 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 You should see 84 documents, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
 
-The index definition isn't configurable so you can't filter by "title". To workaround this limitation, you could define an index manually, making "title" filterable to get all of the chunks for a single document.
+The index definition isn't configurable so you can't filter by "title". To work around this limitation, you could define an index manually, making "title" filterable to get all of the chunks for a single document.
 
 ## Clean up
 
