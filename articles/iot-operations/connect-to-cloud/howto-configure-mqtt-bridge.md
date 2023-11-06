@@ -48,7 +48,7 @@ The MqttBridgeConnector resource defines the MQTT bridge connector that can comm
 The following example shows a minimal configuration for bridging to an Azure Event Grid MQTT broker. It uses system-assigned managed identity for authentication and TLS encryption.
 
 ```yaml
-apiVersion: e4kpreview.com/v1alpha4
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: MqttBridgeConnector
 metadata:
   name: "my-mqtt-bridge"
@@ -56,7 +56,7 @@ metadata:
 spec:
   image: 
     repository: e4kpreview.azurecr.io/mqttbridge 
-    tag: 0.1.0
+    tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
@@ -509,7 +509,7 @@ On your Kubernetes cluster:
      protocol: v5
      image:
        repository: e4kpreview.azurecr.io/mqttbridge
-       tag: 0.1.0
+       tag: 0.1.0-preview
        pullPolicy: IfNotPresent
      bridgeInstances: 1
      remoteBrokerConnection:

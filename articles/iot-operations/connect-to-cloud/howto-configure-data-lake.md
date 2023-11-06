@@ -88,7 +88,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
         protocol: v5
         image:
         repository: e4kpreview.azurecr.io/datalake
-        tag: 0.1.0
+        tag: 0.1.0-preview
         pullPolicy: IfNotPresent
         instances: 2
         logLevel: info
@@ -165,7 +165,7 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
         protocol: v5
         image:
         repository: e4kpreview.azurecr.io/datalake
-        tag: 0.1.0
+        tag: 0.1.0-preview
         pullPolicy: IfNotPresent
         instances: 2
         logLevel: "debug"
