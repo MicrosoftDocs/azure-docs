@@ -106,7 +106,7 @@ ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference
 | [GatewayClass](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GatewayClass)          | Yes   |  |
 | [Gateway](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
 | [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRoute)                | Yes   | |
-| [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
+| [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this API |
 
 ### Implementation of Ingress API
 

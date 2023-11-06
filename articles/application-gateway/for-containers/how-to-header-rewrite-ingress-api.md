@@ -6,14 +6,13 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/6/2023
+ms.date: 1107/2023
 ms.author: greglin
 ---
 
 # Header Rewrite for Azure Application Gateway for Containers - Ingress API (preview)
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
-
 
 ## Usage details
 
@@ -22,10 +21,9 @@ Header rewrites take advantage of Application Gateway for Container's IngressExt
 ## Background
 Header rewrites enable you to modify the request and response headers to and from your backend targets.
 
-See the following figure, which illustrates an example of a request with a specific user agent being rewritten to a simplified value called `rewritten-user-agent` when the request is initiated to the backend target by Application Gateway for Containers:
+The following figure illustrates an example of a request with a specific user agent being rewritten to a simplified value called `rewritten-user-agent` when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-ingress-api/header-rewrite.png) ](./media/how-to-header-rewrite-ingress-api/header-rewrite.png#lightbox)
-
 
 ## Prerequisites
 
@@ -120,7 +118,7 @@ EOF
 
 ---
 
-Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+Once the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
 
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
@@ -167,11 +165,11 @@ status:
 ```
 
 
-Once the Ingress has been created, next we need to define an IngressExtension with the header rewrite rules.
+Once the Ingress is created, next we need to define an IngressExtension with the header rewrite rules.
 
-In this example, we will set a static user-agent with a value of `rewritten-user-agent`. 
+In this example, we set a static user-agent with a value of `rewritten-user-agent`. 
 
-This eample also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
+This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
 > For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
@@ -201,7 +199,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
 kubectl get IngressExtension header-modifiers -n test-infra -o yaml
 ```
@@ -221,7 +219,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, a response from the backend-v1 service is returned.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
