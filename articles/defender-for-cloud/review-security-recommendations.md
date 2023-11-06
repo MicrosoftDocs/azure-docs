@@ -121,6 +121,11 @@ You can review recommendations in ARG both on the Recommendations page or on an 
 
 The toolbar on the Recommendations page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that gives you the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
 
+You can open the query in one of two ways:
+
+   - **Query returning affected resource** - Returns a list of all of the resources affected by this recommendation.
+   - **Query returning security findings** - Returns a list of all security issues found by the recommendation.
+
 ARG is designed to provide efficient resource exploration with the ability to query at scale across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
 
 Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference Defender for Cloud data with other resource properties.
