@@ -6,7 +6,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 11/06/2023
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
