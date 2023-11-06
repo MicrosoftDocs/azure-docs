@@ -85,7 +85,6 @@ Our liveness detection solution meets iBeta Level 1 and 2 ISO/IEC 30107-3 compli
 Tutorial
 - [Face liveness Tutorial](Tutorials/liveness.md)
 Concepts
-- [Face liveness concepts](concept-liveness.md)
 - [Abuse monitoring](concept-identity-abuse-monitoring.md)
 
 Face liveness SDK reference docs:

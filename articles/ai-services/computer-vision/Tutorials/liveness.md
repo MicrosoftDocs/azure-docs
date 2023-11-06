@@ -262,18 +262,15 @@ This is accomplished by:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
+* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 
-See the liveness detection how-to guide to learn about other options in the liveness APIs.
+See the liveness SDK reference to learn about other options in the liveness APIs.
 
-> [!div class="nextstepaction"]
-> [Face liveness how-to guide](../how-to/detect-liveness.md)
-
+- (Java (Android))[https://aka.ms/liveness-sdk-java]
+- (Swift (iOS))[https://aka.ms/liveness-sdk-ios]
 
