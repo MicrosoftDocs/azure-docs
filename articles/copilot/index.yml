@@ -59,7 +59,7 @@ conceptualContent:
             - url: ./improve-storage-accounts.md
               itemType: get-started
               text: Improve storage accounts
-            - url: ./work-smarter-edge
+            - url: ./work-smarter-edge.md
               itemType: get-started
               text: Work smarter with hybrid infrastructure
             - url: ./get-monitoring-information.md
