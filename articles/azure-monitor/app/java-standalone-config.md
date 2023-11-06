@@ -342,7 +342,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 ## Browser SDK Loader (preview)
 
-This feature automatically injects the [Browser SDK Loader](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+This feature automatically injects the [Browser SDK Loader](javascript-sdk.md#add-the-javascript-code) into your application's HTML pages, including configuring the appropriate Connection String.
 
 For example, when your java application returns a response like:
 
