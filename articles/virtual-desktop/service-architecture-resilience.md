@@ -30,7 +30,7 @@ You're responsible for creating and managing session hosts, including any operat
 
 This high-level diagram shows the components and responsibilities:
 
-:::image type="content" source="media/service-architecture/service-components-management.svg" border="false" alt-text="A diagram showing who manages the components of Azure Virtual Desktop.":::
+:::image type="content" source="media/service-architecture-resilience/service-components-management.svg" border="false" alt-text="A diagram showing who manages the components of Azure Virtual Desktop.":::
 
 ## User connections
 
@@ -53,13 +53,13 @@ The feed discovery process is as follows:
 
    Here's a high-level diagram showing the feed discovery process in a single Azure region:
 
-   :::image type="content" source="media/service-architecture/feed-discovery-single.svg" border="false" alt-text="A diagram showing the feed discovery process in a single Azure region." lightbox="media/service-architecture/feed-discovery-single.svg":::
+   :::image type="content" source="media/service-architecture-resilience/feed-discovery-single.svg" border="false" alt-text="A diagram showing the feed discovery process in a single Azure region." lightbox="media/service-architecture-resilience/feed-discovery-single.svg":::
 
    The geographical database only contains the information required for desktops and apps from host pools in the same Azure regions covered by the geography. If the user is assigned to desktops or apps from a host pool that is covered by a different geography, the resource directory tells the web service to connect to the broker service and geographical database in the correct Azure region.
 
    Here's a high-level diagram showing the feed discovery process for a host pool in an Azure region that's covered by a different geography:
 
-   :::image type="content" source="media/service-architecture/feed-discovery-multi.svg" border="false" alt-text="A diagram showing the feed discovery process for a host pool in an Azure region that's covered by a different geography." lightbox="media/service-architecture/feed-discovery-multi.svg":::
+   :::image type="content" source="media/service-architecture-resilience/feed-discovery-multi.svg" border="false" alt-text="A diagram showing the feed discovery process for a host pool in an Azure region that's covered by a different geography." lightbox="media/service-architecture-resilience/feed-discovery-multi.svg":::
 
 
 ### RDP connection
@@ -80,7 +80,7 @@ When a user connects to a desktop or app from their feed, the RDP connection is 
 
 Here's a high-level diagram showing the RDP connection process:
 
-:::image type="content" source="media/service-architecture/rdp-connection.svg" border="false" alt-text="A diagram showing the RDP connection process." lightbox="media/service-architecture/rdp-connection.svg":::
+:::image type="content" source="media/service-architecture-resilience/rdp-connection.svg" border="false" alt-text="A diagram showing the RDP connection process." lightbox="media/service-architecture-resilience/rdp-connection.svg":::
 
 > [!TIP]
 > You can find more detailed technical information about network connectivity at [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md) and [RDP Shortpath for Azure Virtual Desktop](rdp-shortpath.md).
@@ -101,7 +101,7 @@ The Microsoft-managed components of Azure Virtual Desktop are currently located 
 
 Here's a high-level diagram showing how the Microsoft-managed components are interconnected:
 
-:::image type="content" source="media/service-architecture/service-architecture-resilience.svg" border="false" alt-text="A diagram showing how the Microsoft-managed components are interconnected." lightbox="media/service-architecture/service-architecture-resilience.svg":::
+:::image type="content" source="media/service-architecture-resilience/service-architecture-resilience.svg" border="false" alt-text="A diagram showing how the Microsoft-managed components are interconnected." lightbox="media/service-architecture-resilience/service-architecture-resilience.svg":::
 
 The other Azure services on which Azure Virtual Desktop relies are themselves designed to be resilient and reliable. For more information, see [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) and [Azure Front Door](../frontdoor/front-door-overview.md).
 
@@ -111,7 +111,7 @@ Azure Virtual Desktop is a service that can help organizations adapt to the dema
 
 Here's a map demonstrating the global reach of Azure Virtual Desktop:
 
-:::image type="content" source="media/service-architecture/locations.svg" border="false" alt-text="A map demonstrating the global reach of Azure Virtual Desktop." lightbox="media/service-architecture/locations.svg":::
+:::image type="content" source="media/service-architecture-resilience/locations.svg" border="false" alt-text="A map demonstrating the global reach of Azure Virtual Desktop." lightbox="media/service-architecture-resilience/locations.svg":::
 
 ## Related content
 

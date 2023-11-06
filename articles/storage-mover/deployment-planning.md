@@ -90,6 +90,7 @@ If you want to learn more about how the agent gets access to migrate the data, r
 ## Next steps
 <!-- Add a context sentence for the following links -->
 These articles can help you become more familiar with the Storage Mover service.
+
 - [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md)
 - [Deploying a Storage Mover resource](storage-mover-create.md)
 - [Deploying a Storage Mover agent](agent-deploy.md)
