@@ -29,14 +29,14 @@ The enrich stage JSON configuration defines the details of the stage. To author 
 | Field | Description | Required | Options | Example |
 |---|---|---|---|---|
 | Name | A name to show in the Data Processor UI.  | Yes | - | `ERP Context` |
-| Description | A user-friendly description of what the enrich stage does. | No | - |  `Enrich with vendor data set` |
-| Dataset | Select the dataset with the reference data for the enrichment. | Yes | - |  `Vendor data set` |
+| Description | A user-friendly description of what the enrich stage does. | No | - |  `Enrich with vendor dataset` |
+| Dataset | Select the dataset with the reference data for the enrichment. | Yes | - |  `Vendor dataset` |
 | Output path | [Path](concept-configuration-patterns.md#path) to the location in the outgoing message to place the reference data. | Yes | - |  `.payload.erp` |
 | Enrich as array | If true, the enriched entry is always an array. | No | `No`/`Yes` |  `Yes` |
 | Limit | Limit the number entries returned from the reference dataset. This setting controls the number of records that get enriched in the message. | No | - |  `100` |
-| Conditions&nbsp;>&nbsp;Operator | The join [condition operator](#condition-operators) for data enrichment.| No | `Key match`/ `Past nearest`/`Future nearest` | `Key match` |
+| Conditions&nbsp;>&nbsp;Operator | The join [condition operator](#condition-operators) for data enrichment.| No | `Key match`/`Past nearest`/`Future nearest` | `Key match` |
 | Conditions&nbsp;>&nbsp;Input path | [Path](concept-configuration-patterns.md#path) to the key to use to match against each condition. | No | - | `.payload.asset` |
-| Conditions&nbsp;>&nbsp;Property | Property name or timestamp for the join condition operation provided at data set configuration | No | Selecting`Property name` or `Timestamp` from the drop down | `equipmentName` |
+| Conditions&nbsp;>&nbsp;Property | Property name or timestamp for the join condition operation provided at dataset configuration | No | Select a property name or timestamp from the drop-down. | `equipmentName` |
 
 ### Condition operators
 
@@ -48,7 +48,7 @@ The enrich stage JSON configuration defines the details of the stage. To author 
 
 Notes:
 
-- If you don't provide a condition, all the reference data from the data set is enriched.
+- If you don't provide a condition, all the reference data from the dataset is enriched.
 - If the input path references a timestamp, the timestamps must be in RFC3339 format.
 - `Key match` is case sensitive.
 - Each enrich stage can have up to 10 conditions.
@@ -58,11 +58,29 @@ Notes:
 
 If the pod for the pipeline unexpectedly goes down, there's a possibility that the join with the backlogged event data pipeline is using invalid or future values from the reference data store dataset. This situation can lead to undesired data enrichment. To address this issue and filter out such data, use the `Past nearest` condition.
 
-By using the `Past nearest` condition in the enrich stage, only past values from the reference data are considered for enrichment. This approach ensures that the data being joined doesn't include any future values from the reference data store data set. The `Past nearest` condition filters out future values, enabling more accurate and reliable data enrichment.
+By using the `Past nearest` condition in the enrich stage, only past values from the reference data are considered for enrichment. This approach ensures that the data being joined doesn't include any future values from the reference data store dataset. The `Past nearest` condition filters out future values, enabling more accurate and reliable data enrichment.
+
+## Sample configuration
+
+In the configuration for the enrich stage, you define the following properties:
+
+| Field | Example |
+|---|---|
+| Name | enrichment |
+| Description | enrich with equipment data |
+| Dataset | `equipment` |
+| Output path | `.payload` |
+| Enrich as array | Yes |
+| Condition&nbsp;>&nbsp;Operator | `Key match` |
+| Condition&nbsp;>&nbsp;Input path | `.payload.assetid` |
+| Condition&nbsp;>&nbsp;Property | `equipment name` |
+
+The join uses a condition that matches the `assetid` value in the incoming message with the `equipment name` field in the reference dataset. This configuration enriches the message with the relevant data from the dataset.
+When the enrich stage applies the join condition, it adds the contextual data from the reference dataset to the message as it flows through the pipeline.
 
 ### Example
 
-This example builds on the [reference data sets](howto-configure-reference.md) example. You want to enrich the time-series data that a pipeline receives data from a manufacturing facility with reference data by using the enrich stage. This example uses an incoming payload that looks like the following JSON:
+This example builds on the [reference datasets](howto-configure-reference.md) example. You want to enrich the time-series data that a pipeline receives data from a manufacturing facility with reference data by using the enrich stage. This example uses an incoming payload that looks like the following JSON:
 
 ```json
 payload: {
@@ -92,24 +110,6 @@ payload: {
     } 
 } 
 ```
-
-## Sample configuration
-
-In the configuration for the enrich stage, you define the following properties:
-
-| Field | Example |
-|---|---|
-| Name | enrichment |
-| Description | enrich with equipment data |
-| Dataset | `equipment` |
-| Output path | `.payload` |
-| Enrich as array | Yes |
-| Condition&nbsp;>&nbsp;Operator | `Key match` |
-| Condition&nbsp;>&nbsp;Input path | `.payload.assetid` |
-| Condition&nbsp;>&nbsp;Property | `equipment name` |
-
-The join uses a condition that matches the `assetid` value in the incoming message with the `equipment name` field in the reference data set. This configuration enriches the message with the relevant data from the data set.
-When the enrich stage applies the join condition, it adds the contextual data from the reference dataset to the message as it flows through the pipeline.
 
 The following JSON shows an example of an enriched output message based on the previous configuration:
 

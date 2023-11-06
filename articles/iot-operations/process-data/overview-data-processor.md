@@ -65,7 +65,7 @@ Data Processor pipelines can use the following stages:
 | [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
 | [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
 | [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |
-| [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations data set. |
+| [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations dataset. |
 | [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
 | [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
 | [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to an MQTT topic. |
