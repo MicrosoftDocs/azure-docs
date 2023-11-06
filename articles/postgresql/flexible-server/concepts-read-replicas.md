@@ -91,7 +91,6 @@ When a read replica is created, it inherits certain server configurations from t
 
 **Configurations during replica creation**
 
-* **Firewall rules**: Can be added, deleted, or modified.
 * **Tier, storage size**: For the "promote to primary server" operation, it must be the same as the primary. For the "promote to independent server and remove from replication" operation, it can be the same or higher than the primary.
 * **Performance tier (IOPS)**: Adjustable.
 * **Data encryption**: Adjustable, include moving from service-managed keys to customer-managed keys.
@@ -173,7 +172,7 @@ For both promotion methods, there are more options to consider:
 > [!IMPORTANT]
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
 
-In the Planned promotion scenario, if the replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the replica server's current status, to quickly address potential regional disasters. It's essential to note that if the server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
+In the Planned promotion scenario, if the primary or replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the primary server's current status, to quickly address potential regional disasters. It's essential to note that if the former primary server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
 
 
 ### Configuration management
@@ -214,7 +213,7 @@ The sections below delve into the specifics of how these endpoints react to both
 * **Writer Endpoint**: This endpoint will be updated to point to the new primary server, reflecting the role switch.
 * **Read-Only endpoint**
   * **If Read-Only Endpoint Points to Replica**: After the promote action, the read-only endpoint will point to the new replica (which was the former primary).
-  * **If Read-Only Endpoint Points to Primary**: Post-promotion, this endpoint will still be pointing to the same server. However, the server's role will have changed to replica, so now it will be pointing to a replica.
+  * **If Read-Only Endpoint Points to Primary**: this is not supported.
 
 #### Behavior when "Promote to independent server and remove from replication" is triggered
 * **Writer Endpoint**: This endpoint remains unchanged. It continues to direct traffic to the server holding the primary role.
