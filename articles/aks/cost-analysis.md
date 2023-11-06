@@ -80,8 +80,6 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Limitations
-
 ## Enable cost analysis on your AKS cluster
 
 Cost analysis can be enabled during one of the following operations:
@@ -99,7 +97,7 @@ Cost analysis can be enabled during one of the following operations:
 To enable the feature, use the flag `--enable-cost-analysis` in combination with one of these operations. For example, the following command will create a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --tier Standard –-enable-cost-analysis
+az aks create --resource-group <resource_group> --name <name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
 ```
 
 ## Disable cost analysis
@@ -115,33 +113,10 @@ az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-c
 
 ## View cost information
 
-You can view cost information from the Azure portal.
+You can view cost allocation data in Azure Portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/).
 
-1. In the Azure portal, search for *Cost* and select *Cost analysis*.
-
-    :::image type="content" source="./media/cost-analysis/cost-analysis-entry-inline.png" alt-text="A screenshot of the default Azure portal page is shown, with 'Cost' entered into the search field and 'Cost analysis' highlighted in the results." lightbox="./media/cost-analysis/cost-analysis-entry.png":::
-
-1. Several views are shown. Expand the section for *Kubernetes views* to see cost across your clusters or namespaces.
-
-    :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="A screenshot of the Azure portal cost analysis overview page is shown with the 'Kubernetes views' section highlighted." lightbox="./media/cost-analysis/cost-analysis-overview.png":::
-
-    1. After selecting *Kubernetes namespaces*, you'll see costs associated with your various Kubernetes namespaces.
-
-        :::image type="content" source="./media/cost-analysis/cost-analysis-namespaces-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the `Kubernetes namespaces`` view expanded." lightbox="./media/cost-analysis/cost-analysis-namespaces.png":::
-
-    1. After selecting *Kubernetes clusters*, you'll see costs associated with each cluster.
-
-        :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded." lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
-
-1. From the clusters page, hover over a cluster and select *...*, then select *Kubernetes assets* to get a granular breakdown of compute, storage, networking, and more associated with that cluster.
-
-    :::image type="content" source="./media/cost-analysis/cost-analysis-cluster-select-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded. A cluster has been selected and options for 'Kubernetes assets' and 'Namespaces' are highlighted." lightbox="./media/cost-analysis/cost-analysis-cluster-select.png":::
-
-    :::image type="content" source="./media/cost-analysis/cost-analysis-assets-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded." lightbox="./media/cost-analysis/cost-analysis-assets.png":::
-
-1. Expand each section for a more detailed view of each asset group.
-
-    :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded and individual sections for each Kubernetes asset expanded." lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
+> [!NOTE]
+> It might take up to one day for data to finalize
 
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
