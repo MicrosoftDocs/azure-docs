@@ -131,7 +131,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 >
 > For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
 
-## Accessing the MedTech service might Azure Log Analytics queries
+## Accessing the MedTech service pre-defined Azure Log Analytics queries
 
 The MedTech service comes with might queries that can be used anytime in your Log Analytics workspace to filter and summarize your logs for more precise investigation. The queries can also be customized and saved/shared.
 
