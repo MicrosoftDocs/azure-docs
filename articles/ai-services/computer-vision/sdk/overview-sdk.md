@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Vision SDK overview
 
-The Vision SDK (PreviewTBD) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
+The Vision SDK (preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
 
 [!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
