@@ -163,7 +163,7 @@ Unlike most layers in the Azure Maps Web control that use WebGL for rendering, H
 
 The [Reusing Popup with Multiple Pins] code sample shows how to create a single popup and reuse it by updating its content and position. For the source code, see [Reusing Popup with Multiple Pins sample code].
 
-:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
+:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" lightbox="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
 
 <!------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
