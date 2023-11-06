@@ -125,17 +125,6 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 
 
-
-## Output
-
-The output from a tbd
-
-```json
-{
-    tbd
-}
-```
-
 ## Clean up resources
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
