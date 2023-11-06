@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 11/6/2023
 ms.author: greglin
 ---
 
@@ -138,7 +138,7 @@ Once the ingress resource has been created, ensure the status shows the hostname
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful Ingress creation.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

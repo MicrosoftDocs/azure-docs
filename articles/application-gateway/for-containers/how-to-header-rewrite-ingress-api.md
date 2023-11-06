@@ -1,6 +1,6 @@
 ---
-title: Header Rewrite for Azure Application Gateway for Containers - Gateway API
-description: Learn how to rewrite headers in Gateway API for Application Gateway for Containers.
+title: Header Rewrite for Azure Application Gateway for Containers - Ingress API
+description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -10,21 +10,21 @@ ms.date: 11/6/2023
 ms.author: greglin
 ---
 
-# Header Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
+# Header Rewrite for Azure Application Gateway for Containers - Ingress API (preview)
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
 
 
 ## Usage details
 
-Header rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+Header rewrites take advantage of Application Gateway for Container's IngressExtension custom resource.
 
 ## Background
 Header rewrites enable you to modify the request and response headers to and from your backend targets.
 
-See the following figure, which illustrates an example of a request with a specific user agent being rewritten to a simplified value called SearchEngine-BingBot when the request is initiated to the backend target by Application Gateway for Containers:
+See the following figure, which illustrates an example of a request with a specific user agent being rewritten to a simplified value called `rewritten-user-agent` when the request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-gateway-api/header-rewrite.png) ](./media/how-to-header-rewrite-gateway-api/header-rewrite.png#lightbox)
+[ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-ingress-api/header-rewrite.png) ](./media/how-to-header-rewrite-ingress-api/header-rewrite.png#lightbox)
 
 
 ## Prerequisites
@@ -50,27 +50,31 @@ See the following figure, which illustrates an example of a request with a speci
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway:
+Create an Ingress resource to listen for requests to `contoso.com`:
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: gateway-01
+  name: ingress-01
   namespace: test-infra
   annotations:
-    alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
+    alb.networking.azure.io/alb-namespace: alb-test-infra
 spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
+  ingressClassName: azure-alb-external
+  rules:
+    - host: contoso.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-v1
+                port:
+                  number: 8080
 EOF
 ```
 
@@ -87,87 +91,85 @@ RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOU
 FRONTEND_NAME='frontend'
 ```
 
-2. Create a Gateway
+2. Create an Ingress resource to listen for requests to `contoso.com`
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: gateway-01
+  name: ingress-01
   namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-id: $RESOURCE_ID
+    alb.networking.azure.io/alb-frontend: $FRONTEND_NAME
 spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
+  ingressClassName: azure-alb-external
+  rules:
+    - host: contoso.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-v1
+                port:
+                  number: 8080
 EOF
 ```
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+
 ```bash
-kubectl get gateway gateway-01 -n test-infra -o yaml
+kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful Ingress creation.
+
 ```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.networking.azure.io/alb-frontend: FRONTEND_NAME
+    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
+:"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"example.com","http":{"paths":[{"backend":{"service":{"name":"echo","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["example.com"],"secretName":"listener-tls-secret"}]}}
+  creationTimestamp: "2023-07-22T18:02:13Z"
+  generation: 2
+  name: ingress-01
+  namespace: test-infra
+  resourceVersion: "278238"
+  uid: 17c34774-1d92-413e-85ec-c5a8da45989d
+spec:
+  ingressClassName: azure-alb-external
+  rules:
+    - host: contoso.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-v1
+                port:
+                  number: 8080
 status:
-  addresses:
-  - type: IPAddress
-    value: xxxx.yyyy.alb.azure.com
-  conditions:
-  - lastTransitionTime: "2023-06-19T21:04:55Z"
-    message: Valid Gateway
-    observedGeneration: 1
-    reason: Accepted
-    status: "True"
-    type: Accepted
-  - lastTransitionTime: "2023-06-19T21:04:55Z"
-    message: Application Gateway For Containers resource has been successfully updated.
-    observedGeneration: 1
-    reason: Programmed
-    status: "True"
-    type: Programmed
-  listeners:
-  - attachedRoutes: 0
-    conditions:
-    - lastTransitionTime: "2023-06-19T21:04:55Z"
-      message: ""
-      observedGeneration: 1
-      reason: ResolvedRefs
-      status: "True"
-      type: ResolvedRefs
-    - lastTransitionTime: "2023-06-19T21:04:55Z"
-      message: Listener is accepted
-      observedGeneration: 1
-      reason: Accepted
-      status: "True"
-      type: Accepted
-    - lastTransitionTime: "2023-06-19T21:04:55Z"
-      message: Application Gateway For Containers resource has been successfully updated.
-      observedGeneration: 1
-      reason: Programmed
-      status: "True"
-      type: Programmed
-    name: https-listener
-    supportedKinds:
-    - group: gateway.networking.k8s.io
-      kind: HTTPRoute
+  loadBalancer:
+    ingress:
+    - hostname: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzyy.alb.azure.com
+      ports:
+      - port: 80
+        protocol: TCP
 ```
 
-Once the gateway has been created, create an HTTPRoute that listens for hostname contoso.com and overrides the user-agent value to SearchEngine-BingBot.
 
-In this example, we will look for the user agent used by the Bing search engine and simplify the header to SearchEngine-BingBot for easier backend parsing. 
+Once the Ingress has been created, next we need to define an IngressExtension with the header rewrite rules.
+
+In this example, we will set a static user-agent with a value of `rewritten-user-agent`. 
 
 This eample also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
 
@@ -176,78 +178,40 @@ This eample also demonstrates addition of a new header called `AGC-Header-Add` w
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: HTTPRoute
+apiVersion: alb.networking.azure.io/v1
+kind: IngressExtension
 metadata:
-  name: header-rewrite-route
+  name: header-modifiers
   namespace: test-infra
 spec:
-  parentRefs:
-    - name: gateway-01
-      namespace: test-infra
-  hostnames:
-    - "contoso.com"
   rules:
-    - matches:
-        - headers:
-          - name: user-agent
-            value: Mozilla/5\.0 AppleWebKit/537\.36 \(KHTML, like Gecko; compatible; bingbot/2\.0; \+http://www\.bing\.com/bingbot\.htm\) Chrome/
-            type: RegularExpression
-      filters:
+    - host: contoso.com
+      httpPort: 80
+      rewrites:
         - type: RequestHeaderModifier
           requestHeaderModifier:
             set:
-              - name: user-agent
-                value: SearchEngine-BingBot
+              - name: "user-agent"
+                value: "rewritten-user-agent"
             add:
-              - name: AGC-Header-Add
-                value: agc-value
-            remove: ["client-custom-header"]
-      backendRefs:
-        - name: backend-v2
-          port: 8080
-    - backendRefs:
-        - name: backend-v1
-          port: 8080
+              - name: "AGC-Header-Add"
+                value: "agc-value"
+            remove:
+              - "client-custom-header"
 EOF
 ```
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
-kubectl get httproute http-route -n test-infra -o yaml
+kubectl get IngressExtension header-modifiers -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
 
 ```yaml
-status:
-  parents:
-  - conditions:
-    - lastTransitionTime: "2023-06-19T22:18:23Z"
-      message: ""
-      observedGeneration: 1
-      reason: ResolvedRefs
-      status: "True"
-      type: ResolvedRefs
-    - lastTransitionTime: "2023-06-19T22:18:23Z"
-      message: Route is Accepted
-      observedGeneration: 1
-      reason: Accepted
-      status: "True"
-      type: Accepted
-    - lastTransitionTime: "2023-06-19T22:18:23Z"
-      message: Application Gateway For Containers resource has been successfully updated.
-      observedGeneration: 1
-      reason: Programmed
-      status: "True"
-      type: Programmed
-    controllerName: alb.networking.azure.io/alb-controller
-    parentRef:
-      group: gateway.networking.k8s.io
-      kind: Gateway
-      name: gateway-01
-      namespace: test-infra
-  ```
+
+
+```
 
 ## Test access to the application
 
@@ -295,11 +259,11 @@ Via the response we should see:
 }
 ```
 
-Specifying a user-agent header with the value `` should return a response from the backend service of SearchEngine-BingBot:
+Specifying a user-agent header with the value `my-user-agent` should return a response from the backend service of `rewritten-user-agent`:
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
-curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com -H "user-agent: Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/"
+curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com -H "user-agent: my-user-agent"
 ```
 
 Via the response we should see:
