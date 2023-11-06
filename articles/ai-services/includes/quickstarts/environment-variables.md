@@ -1,6 +1,6 @@
 ---
 author: aahill
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi

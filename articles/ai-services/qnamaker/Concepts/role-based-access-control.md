@@ -21,7 +21,7 @@ Collaborate with other authors and editors using Azure role-based access control
 All permissions are controlled by the permissions placed on the QnA Maker resource. These permissions align to read, write, publish, and full access. You can allow collaboration among multiple users by [updating RBAC access](../how-to/manage-qna-maker-app.md) for QnA Maker resource.
 
 This Azure RBAC feature includes:
-* Azure Active Directory (AAD) is 100% backward compatible with key-based authentication for owners and contributors. Customers can use either key-based authentication or Azure RBAC-based authentication in their requests.
+* Microsoft Entra ID is 100% backward compatible with key-based authentication for owners and contributors. Customers can use either key-based authentication or Azure RBAC-based authentication in their requests.
 * Quickly add authors and editors to all knowledge bases in the resource because control is at the resource level, not at the knowledge base level.
 
 > [!NOTE]

@@ -39,10 +39,14 @@ items:
       href: ./concepts/content-filter.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
+    - name: Fine-tuning
+      href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
@@ -74,11 +78,13 @@ items:
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
-      - name: Prepare dataset
-        href: ./how-to/prepare-dataset.md
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
-  - name: Networking & security
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
     items:
       - name: Use virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
@@ -94,8 +100,6 @@ items:
         href: ./how-to/switching-endpoints.md
       - name: Manage quota
         href: ./how-to/quota.md
-      - name: Manage models
-        href: ./how-to/working-with-models.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
@@ -108,6 +112,8 @@ items:
   items:
     - name: Embeddings
       href: ./tutorials/embeddings.md
+    - name: Fine-tuning GPT-3.5-Turbo
+      href: ./tutorials/fine-tune.md
     - name: Speech to speech chat
       href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI

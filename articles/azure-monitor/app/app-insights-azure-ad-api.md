@@ -1,19 +1,19 @@
 ---
-title: Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication
-description: Learn how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD
+title: Application Insights API Access with Microsoft Entra authentication
+description: Learn how to authenticate and access the Azure Monitor Application Insights APIs using Microsoft Entra ID
 ms.date: 04/11/2023
 author: CourtGoodson
 ms.topic: article
 ---
-# Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication
+# Application Insights API Access with Microsoft Entra authentication
 
-You can submit a query request by using the Azure Monitor Application Insights endpoint `https://api.applicationinsights.io`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD).
+You can submit a query request by using the Azure Monitor Application Insights endpoint `https://api.applicationinsights.io`. To access the endpoint, you must authenticate through Microsoft Entra ID.
 
 ## Set up authentication
 
-To access the API, you register a client app with Azure AD and request a token.
+To access the API, you register a client app with Microsoft Entra ID and request a token.
 
-1. [Register an app in Azure AD](../logs/api/register-app-for-token.md).
+1. [Register an app in Microsoft Entra ID](../logs/api/register-app-for-token.md).
 
 1. On the app's overview page, select **API permissions**.
 1. Select **Add a permission**.
@@ -43,19 +43,19 @@ Now that your app is registered and has permissions to use the API, grant your a
 ## Request an authorization token
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
-- Your Azure AD tenant ID.
+- Your Microsoft Entra tenant ID.
 - Your App Insights App ID - If you are currently using API Keys, this is the same app ID.
-- Your Azure AD client ID for the app.
-- An Azure AD client secret for the app.
+- Your Microsoft Entra client ID for the app.
+- A Microsoft Entra client secret for the app.
 
-The Application Insights API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+The Application Insights API supports Microsoft Entra authentication with three different [Microsoft Entra ID OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
 - Client credentials
 - Authorization code
 - Implicit
 
 ### Client credentials flow
 
-In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](../logs/api/register-app-for-token.md).
+In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Microsoft Entra ID](../logs/api/register-app-for-token.md).
 
 Use the `https://api.applicationinsights.io` endpoint.
 
@@ -352,7 +352,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
     &resource=https://api.applicationinsights.io
 ```
 
-When a request is made to the authorize URL, the client\_id is the application ID from your Azure AD app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Azure AD app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
+When a request is made to the authorize URL, the client\_id is the application ID from your Microsoft Entra app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Microsoft Entra app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```http
     http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
@@ -375,7 +375,7 @@ At this point, you've obtained an authorization code, which you need now to requ
     &client_secret=<app-client-secret>
 ```
 
-All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Azure AD app. If you didn't save the key, you can delete it and create a new one from the keys tab of the Azure AD app menu. The response is a JSON string that contains the token with the following schema. Types are indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Microsoft Entra app. If you didn't save the key, you can delete it and create a new one from the keys tab of the Microsoft Entra app menu. The response is a JSON string that contains the token with the following schema. Types are indicated for the token values.
 
 Response example:
 

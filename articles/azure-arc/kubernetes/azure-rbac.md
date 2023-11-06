@@ -8,7 +8,7 @@ description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kuber
 
 # Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Microsoft Entra ID and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
 
 For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md).
 
@@ -37,13 +37,15 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
 > [!NOTE]
 > You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
 
-## Set up Azure AD applications
+<a name='set-up-azure-ad-applications'></a>
+
+## Set up Microsoft Entra applications
 
 ### [Azure CLI >= v2.3.7](#tab/AzureCLI)
 
 #### Create a server application
 
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
+1. Create a new Microsoft Entra application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
     CLUSTER_NAME="<name-of-arc-connected-cluster>"
@@ -103,7 +105,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
 
 #### Create a client application
 
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
+1. Create a new Microsoft Entra application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
    ```azurecli
    CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
@@ -138,7 +140,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
 
 #### Create a server application
 
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
+1. Create a new Microsoft Entra application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
     CLUSTER_NAME="<name-of-arc-connected-cluster>"
@@ -175,7 +177,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
 
 #### Create a client application
 
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
+1. Create a new Microsoft Entra application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
    ```azurecli
    CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
@@ -535,7 +537,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
@@ -600,17 +602,19 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
 
     An administrator needs to create a new role assignment that authorizes this user to have access on the resource.
 
-## Use Conditional Access with Azure AD
+<a name='use-conditional-access-with-azure-ad'></a>
 
-When you're integrating Azure AD with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
+## Use Conditional Access with Microsoft Entra ID
+
+When you're integrating Microsoft Entra ID with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
 
 > [!NOTE]
-> [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) is an Azure AD Premium capability.
+> [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) is a Microsoft Entra ID P2 capability.
 
 To create an example Conditional Access policy to use with the cluster:
 
-1. At the top of the Azure portal, search for and select **Azure Active Directory**.
-1. On the menu for Azure Active Directory on the left side, select **Enterprise applications**.
+1. At the top of the Azure portal, search for and select **Microsoft Entra ID**.
+1. On the menu for Microsoft Entra ID on the left side, select **Enterprise applications**.
 1. On the menu for enterprise applications on the left side, select **Conditional Access**.
 1. On the menu for Conditional Access on the left side, select **Policies** > **New policy**.
 
@@ -618,7 +622,7 @@ To create an example Conditional Access policy to use with the cluster:
 
 1. Enter a name for the policy, such as **arc-k8s-policy**.
 
-1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administrative access to your cluster.
+1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Microsoft Entra group that has administrative access to your cluster.
 
     :::image type="content" source="media/azure-rbac/conditional-access-users-groups.png" alt-text="Screenshot that shows selecting users or groups to apply the Conditional Access policy." lightbox="media/azure-rbac/conditional-access-users-groups.png":::
 
@@ -641,31 +645,33 @@ Access the cluster again. For example, run the `kubectl get nodes` command to vi
 kubectl get nodes
 ```
 
-Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Azure AD in order to access the resource. Follow these steps:
+Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Microsoft Entra ID in order to access the resource. Follow these steps:
 
-1. In the Azure portal, go to **Azure Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 1. Select **Enterprise applications**. Then under **Activity**, select **Sign-ins**.
 1. An entry at the top shows **Failed** for **Status** and **Success** for **Conditional Access**. Select the entry, and then select **Conditional Access** in **Details**. Notice that your Conditional Access policy is listed.
 
     :::image type="content" source="media/azure-rbac/conditional-access-sign-in-activity.png" alt-text="Screenshot showing a failed sign-in entry in the Azure portal." lightbox="media/azure-rbac/conditional-access-sign-in-activity.png":::
 
-## Configure just-in-time cluster access with Azure AD
+<a name='configure-just-in-time-cluster-access-with-azure-ad'></a>
+
+## Configure just-in-time cluster access with Microsoft Entra ID
 
 Another option for cluster access control is to use [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) for just-in-time requests.
 
 >[!NOTE]
-> [Azure AD PIM](../../active-directory/privileged-identity-management/pim-configure.md) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+> [Microsoft Entra PIM](../../active-directory/privileged-identity-management/pim-configure.md) is a Microsoft Entra ID P2 capability. For more on Microsoft Entra ID SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To configure just-in-time access requests for your cluster, complete the following steps:
 
-1. At the top of the Azure portal, search for and select **Azure Active Directory**.
+1. At the top of the Azure portal, search for and select **Microsoft Entra ID**.
 1. Take note of the tenant ID. For the rest of these instructions, we'll refer to that ID as `<tenant-id>`.
 
-    :::image type="content" source="media/azure-rbac/jit-get-tenant-id.png" alt-text="Screenshot showing Azure Active Directory details in the Azure portal." lightbox="media/azure-rbac/jit-get-tenant-id.png":::
+    :::image type="content" source="media/azure-rbac/jit-get-tenant-id.png" alt-text="Screenshot showing Microsoft Entra ID details in the Azure portal." lightbox="media/azure-rbac/jit-get-tenant-id.png":::
 
-1. On the menu for Azure Active Directory on the left side, under **Manage**, select **Groups** > **New group**.
+1. On the menu for Microsoft Entra ID on the left side, under **Manage**, select **Groups** > **New group**.
 
-1. Make sure that **Security** is selected for **Group type**.  Enter a group name, such as **myJITGroup**. Under **Azure AD Roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
+1. Make sure that **Security** is selected for **Group type**.  Enter a group name, such as **myJITGroup**. Under **Microsoft Entra roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
 
     :::image type="content" source="media/azure-rbac/jit-new-group-created.png" alt-text="Screenshot showing details for the new group in the Azure portal." lightbox="media/azure-rbac/jit-new-group-created.png":::
 

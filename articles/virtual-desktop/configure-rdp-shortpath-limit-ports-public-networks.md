@@ -22,7 +22,7 @@ When choosing the base and pool size, consider the number of ports you choose. T
 
 ## Enable a limited port range
 
-To enable a limited port range when using RDP Shortpath for public networks, you can use Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Azure Active Directory (Azure AD).
+To enable a limited port range when using RDP Shortpath for public networks, you can use Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Microsoft Entra ID.
 
 1. Download the [Azure Virtual Desktop administrative template](https://aka.ms/avdgpo) and extract the contents of the .cab file and .zip archive.
 

@@ -3,17 +3,15 @@ title:  DICOM extended query tags overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of Extended Query Tags.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 10/9/2023
 ms.author: mmitrik
 ---
 
 # Extended query tags
 
-## Overview
-
-By default, the DICOM service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement-v2.md#searchable-attributes). By enabling extended query tags, the list of tags can easily be expanded based on the application's needs. 
+By default, the DICOM&reg; service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement-v2.md#searchable-attributes). By enabling extended query tags, the list of tags can easily be expanded based on the application's needs. 
 
 Using the APIs listed below, users can index their DICOM studies, series, and instances on both standard and private DICOM tags such that they can be specified in QIDO-RS queries.
 
@@ -481,10 +479,8 @@ This conceptual article provided you with an overview of the Extended Query Tag 
  
 ## Next steps
 
-For more information about deploying the DICOM service, see
+[Deploy the DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+[Use DICOMweb APIs with the DICOM service](dicomweb-standard-apis-with-dicom-services.md)
 
->[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

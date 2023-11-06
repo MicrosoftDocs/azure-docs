@@ -57,7 +57,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication uses a database connection that includes a database identifier, user ID, and password, plus other optional parameters. This method of authentication is functionally equivalent to Oracle [database authentication](#oracle-authorization-options).
 
-- **Azure AD authentication**: with Azure AD authentication, you can centrally manage the identities of database users and Microsoft services in one location. Centralized management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD authentication supports connections to LDAP and Kerberos services. For example, you can use Azure AD authentication to connect to existing LDAP directories if they're to remain in place after migration of the database.
+- **Microsoft Entra authentication**: with Microsoft Entra authentication, you can centrally manage the identities of database users and Microsoft services in one location. Centralized management provides a single place to manage Azure Synapse users and simplifies permission management. Microsoft Entra authentication supports connections to LDAP and Kerberos services. For example, you can use Microsoft Entra authentication to connect to existing LDAP directories if they're to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 

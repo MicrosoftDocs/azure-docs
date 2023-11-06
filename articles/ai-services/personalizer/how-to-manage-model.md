@@ -11,6 +11,8 @@ ms.date: 02/20/2020
 
 # How to manage model and learning settings
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 The machine-learned model and learning settings can be exported for backup in your own source control system.
 
 ## Export the Personalizer model

@@ -1,10 +1,17 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/28/2023
 ms.author: eur
 ---
+
+### October 2023 release
+
+#### Custom neural voice
+
+- Added support for the 12 new locales with Custom Neural Voice Pro. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
 ### September 2023 release
 
 #### Prebuilt neural voice

@@ -48,8 +48,9 @@ For details on Incremental Import, visit [Import Documentation](./../healthcare-
 **Batch-Bundle parallelization capability available in Public Preview**
 
 Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
-> [!IMPORTANT]
-> Bundle parallel processing is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review Supplemental Terms of Use for Microsoft Azure Previews 
+
+Batch-bundle parallelization capability is in public preview. Review disclaimer for more details. 
+[!INCLUDE [public preview disclaimer](./../healthcare-apis/includes/common-publicpreview-disclaimer.md)]
 
 **Decimal value precision in FHIR service is updated per FHIR specification**
 
@@ -262,7 +263,7 @@ The DICOM service supports `ModalitiesInStudy` as a [searchable attribute](dicom
 
 **Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes**
 
-Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#additional-series-tags). 
+Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#other-series-tags). 
 
 
 

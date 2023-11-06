@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 10/03/2023
+ms.date: 10/09/2023
 ms.author: radeltch
 ---
 
@@ -558,7 +558,7 @@ To create a managed identity (MSI), [create a system-assigned](../../active-dire
 
 To create a service principal, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
 2. Select **App registrations**.
 3. Select **New registration**.
 4. Enter a name for the registration, and then select **Accounts in this organization directory only**.
@@ -897,6 +897,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     ```
 
 ### Create a fencing device on the Pacemaker cluster
+
+> [!TIP]
+>
+> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For additional details, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+> - The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
 
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 

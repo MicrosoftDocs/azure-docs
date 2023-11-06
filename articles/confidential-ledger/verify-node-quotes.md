@@ -24,7 +24,7 @@ An Azure confidential ledger node executes on top of a Trusted Execution Environ
 
 ### Download the service identity
 
-The service identity can be downloaded from https://identity.confidential-ledger.core.azure.com/ledgerIdentity. It is used to verify the identity of the node that the client is connected to and establish a secure communication channel with it. The following command downloads the service identity, formats it and saves it to service_cert.pem.
+It is used to verify the identity of the node that the client is connected to and establish a secure communication channel with it. The following command downloads the service identity, formats it and saves it to service_cert.pem.
 
 ```bash
 curl https://identity.confidential-ledger.core.azure.com/ledgerIdentity/<ledgername> --silent | jq '.ledgerTlsCertificate' | xargs echo -e > service_cert.pem

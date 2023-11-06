@@ -4,11 +4,11 @@ description: Learn how your workload's performance is handled by Azure Elastic S
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 07/28/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ---
 
-# Elastic SAN Preview and virtual machine performance
+# How performance works when Virtual Machines are connected to Elastic SAN Preview volumes
 
 This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
@@ -20,7 +20,7 @@ Your application's performance gets throttled when it requests more IOPS or thro
 
 ### Elastic SAN performance
 
-An Elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput.
+An Elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput. For the best possible performance, your SAN should be in the same zone as the VM you're provisioning.
 
 ### Capacity
 
@@ -64,7 +64,7 @@ Each of the example scenarios in this article uses the following configuration f
 
 ## Example scenarios
 
-The following example scenarios depict how your Elastic SAN handles performance allocation.
+The following example scenarios depict how your Elastic SAN handles performance allocation. For best performance, both the VMs and the SAN need to be in the same zone.
 
 ### Typical workload
 

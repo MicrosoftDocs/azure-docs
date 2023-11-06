@@ -19,7 +19,7 @@ This article will guide you through how to configure the permissions required fo
 
 ## Prerequisites
 
-Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 A list of all available defined Azure roles is available in [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
