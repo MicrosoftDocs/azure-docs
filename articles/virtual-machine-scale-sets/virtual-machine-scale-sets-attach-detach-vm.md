@@ -9,7 +9,9 @@ ms.date: 05/05/2023
 ms.reviewer: jushiman
 ---
 
-# Attaching a VM to a Virtual Machine Scale Set
+# Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set
+
+## Attaching a VM to a Virtual Machine Scale Set
 
 > [!IMPORTANT]
 > You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
@@ -22,14 +24,14 @@ You can attach an existing VM to an existing Virtual Machine Scale set by specif
 
 In the next sections, we'll go over the different ways to attach a VM to a scale set.
 
-## Attach a new VM to a Virtual Machine Scale Set
+### Attach a new VM to a Virtual Machine Scale Set
 
 Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creation by specifying the `virtualMachineScaleSet` property. 
 
 > [!NOTE]
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 
-### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
 1. Select **Create**
@@ -38,7 +40,7 @@ Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creati
 4. In the **Virtual Machine Scale Set** dropdown, select the scale set to which you want to add this virtual machine.
 5. Optionally, specify the Availability zone or Fault domain to place the VM.
 
-### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az vm create 
@@ -49,7 +51,7 @@ az vm create
   --platform-fault-domain 1
 ```
 
-### [Azure PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -74,7 +76,7 @@ New-AzVm `
 - If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
 - The scale set must be in Flexible orchestration mode, and the singlePlacementGroup property must be false.
 
-## Attach an existing VM to a Virtual Machine Scale Set (Preview)
+### Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
 > Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 will incur no downtime. 
 
@@ -82,7 +84,7 @@ New-AzVm `
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 >
 
-### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
 2. Select the Name of the virtual machine you'd like to attach to your scale set.
@@ -91,7 +93,7 @@ New-AzVm `
 5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the scale set you'd like to attach the VM to in the **Select a VMSS dropdown**. 
 6. Select the **Attach** button at the bottom to attach the VM.
 
-### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az vm update 
@@ -100,7 +102,7 @@ az vm update
   --set virtualMachineScaleSet.id='/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}'
 ```
 
-### [Azure PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 #Get VM information
@@ -128,7 +130,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm `
 - The VM must have a managed disk. 
 - The VM can't be attached to a scale set with `SinglePlacementGroup` set to true. 
 
-# Detaching a VM from a Virtual Machine Scale Set (Preview)
+## Detaching a VM from a Virtual Machine Scale Set (Preview)
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
 
 > [!NOTE]
@@ -172,9 +174,9 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
 
-# Troubleshooting
+## Troubleshooting
 
-## Attach an existing VM to an existing scale set troubleshooting (Preview)
+### Attach an existing VM to an existing scale set troubleshooting (Preview)
 | Error Message                                                                                                                                                         | Description                                                                                                                                       | Troubleshooting options                                                                                                                                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | VmssDoesNotSupportattachingExistingAvsetVM                                                                                                                            | The VM that an attach to a scale set was attempted on is part of an Availability Set and can't be attached to a scale set.                       | VMs in an Availability Set can't be attached to a scale set.                                                                                                                                                                                               |
@@ -184,7 +186,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm
 | OperationNotAllowed, Message: This operation is  not allowed because referenced Virtual Machine Scale Set '{armId}' doesn't have orchestration mode set to 'Flexible' | The target scale set is a scale set with Uniform Orchestration Mode.                                                                              | Only scale sets with Flexible Orchestration Mode can have VMs attached to them. Try attaching to a scale set with Flexible Orchestration Mode.                                                                                                       |
 | PropertyChangeNotAllowed Changing property virtualMachineScaleSet.id isn't allowed.                                                                                  | The Virtual Machine Scale Set ID can't be changed to a different Virtual Machine Scale Set ID without detaching the VM from the scale set first. | Detach the VM from the Virtual Machine Scale Set, and then attach to the new scale set.                                                                                                                                                              |  |
 
-## Detach a VM from a scale set troubleshooting (Preview)
+### Detach a VM from a scale set troubleshooting (Preview)
 | Error Message                                                                        | Description                                                                                                                                       | Troubleshooting options                                                                                                |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | VmssDoesNotSupportDetachNonDeallocatedVM                                             | VMs that are created by the scale set with Flexible Orchestration Mode must be deallocated before being detached from the scale set               | Deallocate the VM and ensure that the resource is in a `deallocated` power state before retrying the detach operation. |
