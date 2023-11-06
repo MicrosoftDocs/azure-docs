@@ -23,6 +23,12 @@ Restarting a Nexus Kubernetes Node can take up to 5 mins to complete. However, i
 * Make sure you have the latest version of [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 * The action requires 1.1.0 or later version of `networkcloud` az CLI extension. 
 
+## Get Node name
+In order to restart the cluster VM, we need the node name. There are two ways you can obtain it. 
+1. If connected to the cluster, run 
+    1. `kubectl get node` command to get the node name
+2. If not connected, obtain it through API.
+    1. Run `az networkcloud kubernetescluster show --name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName`. This endpoint will give you the details of the cluster along with the node. The node section contains the name of the Kubernetes cluster node.
 
 ## Run the CLI command to restart the Kubernetes cluster node
 
