@@ -24,8 +24,12 @@ Here are a few examples of the kinds of prompts you can use to generate Kusto qu
 
 - "Show me all resources that are noncompliant"
 - "Write a query that finds all VMs that do NOT have Replication enabledResources"
-- "Write a query that finds all changes for last 7 days in my resource Group = Prod"
+- "Write a query that finds all changes for last 7 days."
 - "Help me write an ARG query that looks up all virtual machines scales sets, sorted by creation date descending"
+- "What are the public IPs of my VMs?"
+- "Show me all my storage accounts in East US?"
+- "List all my Resource Groups and its subscription."
+- "Write a query that finds all resources that were created yesterday."
 
 ## Examples
 
