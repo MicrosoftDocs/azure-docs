@@ -14,6 +14,9 @@ This article includes sample [Azure Policy](../governance/policy/overview.md) de
 
 In these samples, we add service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) by using [targets and capabilities](chaos-studio-targets-capabilities.md).
 
+> [!NOTE]
+> Each of these policies differs slightly, and you should consult the documentation of the Resource (e.g. Compute, Storage, etc.) you are using in addition to these below sample definitions to ensure you are setting everything ocrrectly for your specific scenario
+
 ## Azure Cache for Redis policy definition
 
 ```json
