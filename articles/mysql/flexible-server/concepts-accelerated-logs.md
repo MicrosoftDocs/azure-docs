@@ -16,7 +16,7 @@ ms.date: 11/06/2023
 This article provides an overview of the accelerated logs feature during its preview phase and guides you on how to enable or disable this feature for Azure Database for MySQL flexible servers based on the Business Critical service tier.
 
 > [!IMPORTANT]
-> The accelerated logs feature is currently in preview and subject to [limitations](#Limitations) and ongoing development. Please note that this feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
+> The accelerated logs feature is currently in preview and subject to [limitations](#limitations-preview) and ongoing development. Please note that this feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
 
 ## Introduction
 The accelerated logs feature is designed to provide a significant performance boost for users of the Business Critical service tier in Azure Database for MySQL - Flexible Server. It substantially enhances performance by optimizing transactional log-related operations. Enabling this feature allows a server to automatically store transactional logs on faster storage to enhance server throughput, without incurring any extra cost.
@@ -37,7 +37,7 @@ Database servers with mission-critical workloads demand robust performance, requ
     - Servers enabled with [Azure Active Directory](./concepts-azure-ad-authentication.md) authentication.
     - [Read-replicas](concepts-read-replicas.md) servers.
     
-- Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server with the accelerated logs feature enabled is **not supported**. If you wish to proceed with a major version upgrade, you should temporarily [disable](#disabling-accelerated-logs-preview) the accelerated logs feature, carry out the upgrade, and then re-enable the accelerated logs feature once the upgrade is complete.
+- Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server with the accelerated logs feature enabled is **not supported**. If you wish to proceed with a major version upgrade, you should temporarily [disable](#disabling-accelerated-logs-feature-preview) the accelerated logs feature, carry out the upgrade, and then re-enable the accelerated logs feature once the upgrade is complete.
 -	Accelerated logs feature in preview is currently available only in specific regions. [Learn more about supported regions](#the-accelerated-logs-feature-is-available-in-following-regions-preview)
 - After the accelerated logs feature is activated, any previously configured value for the ["binlog_expire_seconds"](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) server parameter will be disregarded and not considered.
 
@@ -74,7 +74,7 @@ This section provides details specifically for enabling accelerated logs feature
 
     > :::image type="content" source="./media/concepts-accelerated-logs/al-mysql-portal-create.png" alt-text="Screenshot shows Accelerated Logs during server create.":::
 
-4. Enable checkbox for **Accelerated logs** to enable the feature. If high availability option is checked, the accelerated logs feature won't be available to choose. Learn more about [limitations](#Limitations) during preview.
+4. Enable checkbox for **Accelerated logs** to enable the feature. If high availability option is checked, the accelerated logs feature won't be available to choose. Learn more about [limitations](#limitations-preview) during preview.
 
 5. Select the **Compute size** for your choice from the dropdown.  Select on Save and proceed to deploy your Azure MySQL Flexible Server following instructions from [how-to create a server.](./quickstart-create-server-portal.md)
 
