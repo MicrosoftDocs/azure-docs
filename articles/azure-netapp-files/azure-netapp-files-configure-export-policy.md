@@ -23,7 +23,7 @@ Once created, you can modify details of the export policy rule. The modifiable f
 - Access level 
 - [Export policy rule order](network-attached-storage-permissions.md#understand-export-policy-rule-order)
 
-Before modifying policy rules with NFS Kerberos enabled, see [Export policy rules with NFS Kerberos enabled](network-attached-storage-permissions.md#export-policy-rules-with-nfs-Kerberos-enabled-in-azure-netapp-files).
+Before modifying policy rules with NFS Kerberos enabled, see [Export policy rules with NFS Kerberos enabled](network-attached-storage-permissions.md#export-policy-rules-with-nfs-kerberos-enabled-in-azure-netapp-files).
 
 ## Configure the policy 
 

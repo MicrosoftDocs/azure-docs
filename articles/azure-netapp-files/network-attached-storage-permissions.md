@@ -154,7 +154,7 @@ With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same
 
 In the next image, the share “SMBVolume” has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
-:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-with-no-smb-volume.png":::
+:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-no-smb-volume.png":::
 
 Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
 
