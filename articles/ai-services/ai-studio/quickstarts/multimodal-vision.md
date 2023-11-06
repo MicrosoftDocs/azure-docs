@@ -22,7 +22,7 @@ GPT-4V and Azure AI Vision offer advanced functionality including:
 - Object visualization: Complements the GPT-4V text response with object grounding and outlines salient objects in the input images.
 - Video chat: GPT-4V can answer questions by retrieving the video frames most relevant to the user's prompt.
 
-Additional usage fees may apply for using GPT-4V with Azure AI Vision functionality.
+Additional usage fees might apply for using GPT-4V with Azure AI Vision functionality.
 
 ## Prerequisites
 
