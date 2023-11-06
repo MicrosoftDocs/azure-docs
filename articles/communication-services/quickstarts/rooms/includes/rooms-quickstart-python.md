@@ -133,10 +133,11 @@ try:
 except HttpResponseError as ex:
     print(ex)
 ```
+*pstn_dial_out_enabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `room.id` in the storage medium of choice. You can reference the `id` to view or update the properties of a `room` object.
 
-### Enable PSTN Dial Out Capability for a Room
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
 Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstn_dial_out_enabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstn_dial_out_enabled` parameter.
 
 ```python
