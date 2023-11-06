@@ -1,7 +1,6 @@
 {
     "redirections": [
     {
-<<<<<<< HEAD
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7",
       "redirect_document_id": false
@@ -784,7 +783,6 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
-=======
       "source_path": "articles/api-management/api-management-api-templates.md",
       "redirect_url": "/previous-versions/azure/api-management/api-management-api-templates",
       "redirect_document_id": false
@@ -852,7 +850,6 @@
     {
       "source_path": "articles/api-management/developer-portal-deprecated-migration.md",
       "redirect_url": "/previous-versions/azure/api-management/developer-portal-deprecated-migration",
->>>>>>> fa6c8ef8c753358af7166933c6bcb6c756adda35
       "redirect_document_id": false
     },
     {
