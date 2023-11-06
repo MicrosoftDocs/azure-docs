@@ -23,9 +23,12 @@ While a high level of accuracy is typical, we strongly advise you to review the 
 Here are a few examples of the kinds of prompts you can use to generate Kusto queries with Azure Resource Graph. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
 
 - "Show me all resources that are noncompliant"
-- "Write a query that finds all VMs that do NOT have Replication enabledResources"
+- "List all virtual machines lacking enabled replication resources"
+- "List all the updates applied to my Linux virtual machines"
+- "List all storage accounts that are accessible from the internet"
+- "List all virtual machines that are not running now"
 - "Write a query that finds all changes for last 7 days."
-- "Help me write an ARG query that looks up all virtual machines scales sets, sorted by creation date descending"
+- "Help me write an ARG query that looks up all virtual machines scale sets, sorted by creation date descending"
 - "What are the public IPs of my VMs?"
 - "Show me all my storage accounts in East US?"
 - "List all my Resource Groups and its subscription."

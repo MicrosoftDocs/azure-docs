@@ -19,7 +19,9 @@ You can access Microsoft Copilot for Azure in the Azure portal. Throughout a con
 
 ## Join the preview
 
-To access Microsoft Copilot for Azure (preview), [complete the registration form](https://aka.ms/MSCopilotforAzurePreview). For more information about the preview, see [Limited access](limited-access.md).
+To enable access to Microsoft Copilot for Azure (preview) for your organization, [complete the registration form](https://aka.ms/MSCopilotforAzurePreview). The application process only needs to be completed once per tenant. Check with your administrator if you have questions about joining the preview.
+
+For more information about the preview, see [Limited access](limited-access.md).
 
 > [!IMPORTANT]
 > In order to use Microsoft Copilot for Azure (preview), your organization must allow websocket connections to `https://directline.botframework.com`.
