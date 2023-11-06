@@ -54,8 +54,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 1. For **upgrade scope**, you can choose to either update both the **Kubernetes version and the node image version** or you can update only your **Node image version only**.
 
-    :::image type="content" source="./media/update-orchestration/update-scope-inline.png" alt-text="{alt-text}" lightbox="./media/update-orchestration/update-scope-lightbox.png":::
-
+    :::image type="content" source="./media/update-orchestration/update-scope-inline.png" alt-text="Screenshot of the Azure portal pane for creating update runs. The upgrade scope section is shown." lightbox="./media/update-orchestration/update-scope-lightbox.png":::
 
     For the node image, the following options are available:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
