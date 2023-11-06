@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
 1. Install the required Python packages:
 
    ```python
-   pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
+   pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
    ```
 
 ## Download the dataset

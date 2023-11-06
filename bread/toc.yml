@@ -722,7 +722,7 @@
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
-  - name: Logic Apps
+  - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
   - name: Machine Learning
@@ -1157,3 +1157,9 @@
   - name: Operator Nexus
     tocHref: /azure/operator-nexus/
     topicHref: /azure/operator-nexus/index
+  - name: Operator Service Manager
+    tocHref: /azure/operator-service-manager/
+    topicHref: /azure/operator-service-manager/index
+  - name: Operator Insights
+    tocHref: /azure/operator-insights/
+    topicHref: /azure/operator-insights/index

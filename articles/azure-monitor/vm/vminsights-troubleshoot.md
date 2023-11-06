@@ -16,7 +16,7 @@ This article provides troubleshooting information to help you with problems you 
 When you onboard an Azure virtual machine from the Azure portal, the following steps occur:
 
 - A default Log Analytics workspace is created if that option was selected.
-- The Log Analytics agent is installed on Azure virtual machines by using a VM extension if the agent is already installed.
+- Azure Monitor Agent is installed on Azure virtual machines by using a VM extension if the agent is already installed.
 - The Dependency agent is installed on Azure virtual machines by using an extension if it's required.
 
 During the onboarding process, each of these steps is verified and a notification status appears in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. It takes another 5 to 10 minutes for data to become available to view in the portal.
@@ -44,8 +44,8 @@ If you don't see both the extensions for your operating system in the list of in
 
 ### Do you have connectivity issues?
 For Windows machines, you can use the TestCloudConnectivity tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemDrive%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It returns results and highlights where the test fails.
-
-![Screenshot that shows the TestCloudConnectivity tool.](media/vminsights-troubleshoot/test-cloud-connectivity.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-troubleshoot/test-cloud-connectivity.png" lightbox="media/vminsights-troubleshoot/test-cloud-connectivity.png" alt-text="Screenshot that shows the TestCloudConnectivity tool." border="false":::
 
 ### More agent troubleshooting
 
