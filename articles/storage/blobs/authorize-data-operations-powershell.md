@@ -2,12 +2,12 @@
 title: Run PowerShell commands with Microsoft Entra credentials to access blob data
 titleSuffix: Azure Storage
 description: PowerShell supports signing in with Microsoft Entra credentials to run commands on blob data in Azure Storage. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Microsoft Entra security principal.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/12/2022
-ms.author: akashdubey
+
 ms.reviewer: nachakra
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
@@ -26,7 +26,7 @@ The Azure Storage extensions are supported for operations on blob data. Which op
 For details about the permissions required for each Azure Storage operation on a container, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 > [!IMPORTANT]
-> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users users who do not already possess the account keys must use Microsoft Entra credentials to access blob data. In PowerShell, include the `-UseConnectedAccount` parameter to create an **AzureStorageContext** object with your Microsoft Entra credentials.
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users who do not already possess the account keys must use Microsoft Entra credentials to access blob data. In PowerShell, include the `-UseConnectedAccount` parameter to create an **AzureStorageContext** object with your Microsoft Entra credentials.
 
 <a name='call-powershell-commands-using-azure-ad-credentials'></a>
 

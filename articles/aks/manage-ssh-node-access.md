@@ -3,12 +3,12 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 10/18/2023
+ms.date: 11/06/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
 
-This article describes how to update and disable the SSH key on your AKS clusters or node pools.
+This article describes how to update and disable (preview) the SSH key on your AKS clusters or node pools.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -56,7 +56,7 @@ This article describes how to update and disable the SSH key on your AKS cluster
 
 ## Update SSH public key on an existing AKS cluster
 
-Use the [az aks update][az-aks-update] command to update the SSH public key on your cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
+Use the [az aks update][az-aks-update] command to update the SSH public key (preview) on your cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
@@ -81,13 +81,13 @@ The following are examples of this command:
     ```
 
 > [!IMPORTANT]
-> After you update the SSH key, AKS doesn't automatically reimage your node pool. At anytime you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
+> After you update the SSH key, AKS doesn't automatically update your node pool. At anytime you can choose to perform a [nodepool update operation][node-image-upgrade]. Only after a node image update is complete does the update SSH key operation take effect.
 
-## Disable SSH overview (preview)
+## Disable SSH overview
 
-To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH (preview) both on the cluster and at the node pool level. Disabling SSH (preview) introduces a better approach compared to the only supported solution, configuring [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC). Network security group rules restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
+To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH (preview) both on the cluster and at the node pool level. Disable SSH introduces a better approach compared to the only supported solution, which requires configuring [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC). Network security group rules restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, reimage is needed to make the change take effect. After you disable or enable SSH, AKS doesn't automatically reimage your node pool, you can choose anytime to perform the reimage operation. Only after reimage is complete, does the disable/enable operation take effect.
+When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, AKS doesn't automatically update your node pool. At anytime you can choose to perform a nodepool update operation. Only after a node image update is complete does the disable/enable SSH key operation take effect.
 
 |SSH parameter |Description |
 |-----|-----|

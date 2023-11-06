@@ -6,6 +6,7 @@ ms.author: dacurwin
 author: dcurwin
 ms.date: 11/06/2022
 ---
+
 # Select a Defender for Servers plan
 
 This article helps you select the Microsoft Defender for Servers plan that's right for your organization.
@@ -56,6 +57,7 @@ You can choose from two Defender for Servers paid plans:
 | **[Qualys vulnerability assessment](deploy-vulnerability-assessment-vm.md)** | As an alternative to Defender Vulnerability Management, Defender for Cloud can deploy a Qualys scanner and display the findings. You don't need a Qualys license or account. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 |**[Adaptive application controls](adaptive-application-controls.md)** | Adaptive application controls define allowlists of known safe applications for machines. To use this feature, Defender for Cloud must be enabled on the subscription. | Not supported in Plan 1 |:::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Free data ingestion (500 MB) to Log Analytics workspaces** | Free data ingestion is available for [specific data types](faq-defender-for-servers.yml#what-data-types-are-included-in-the-daily-allowance-) to Log Analytics workspaces. Data ingestion is calculated per node, per reported workspace, and per day. It's available for every workspace that has a *Security* or *AntiMalware* solution installed. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Free Azure Update Manager Remediation for Arc machines** | [Azure Update Manager remediation of unhealthy resources and recommendations](../update-center/update-manager-faq.md#im-a-defender-for-server-customer-and-use-update-recommendations-powered-by-azure-update-manager-namely-periodic-assessment-should-be-enabled-on-your-machines-and-system-updates-should-be-installed-on-your-machines-would-i-be-charged-for-azure-update-manager) is available at no additional cost for Arc enabled machines. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **[Just-in-time virtual machine access](just-in-time-access-overview.md)** | Just-in-time virtual machine access locks down machine ports to reduce the attack surface. To use this feature, Defender for Cloud must be enabled on the subscription. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **[Adaptive network hardening](adaptive-network-hardening.md)** | Network hardening filters traffic to and from resources by using network security groups (NSGs) to improve your network security posture. Further improve security by hardening the NSG rules based on actual traffic patterns. To use this feature, Defender for Cloud must be enabled on the subscription. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **[File integrity monitoring](file-integrity-monitoring-overview.md)** | File integrity monitoring examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -92,3 +94,4 @@ A couple of vulnerability assessment options are available in Defender for Serve
 ## Next steps
 
 After you work through these planning steps, [review Azure Arc and agent and extension requirements](plan-defender-for-servers-agents.md).
+

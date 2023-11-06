@@ -13,9 +13,6 @@ ms.date: 07/13/2023
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-azure-table-connector.md)
-> * [Current version](connector-azure-table-storage.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -72,7 +69,7 @@ The following sections provide details about properties that are used to define 
 
 ### Use an account key
 
-You can create an Azure Storage linked service by using the account key. It provides the the service with global access to Storage. The following properties are supported.
+You can create an Azure Storage linked service by using the account key. It provides the service with global access to Storage. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

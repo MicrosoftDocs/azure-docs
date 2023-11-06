@@ -1,18 +1,18 @@
 ---
-title: Use managed identity to access Azure key vault
+title: Use managed identities for Azure Load Testing
 titleSuffix: Azure Load Testing
-description: Learn how to enable managed identity for Azure Load Testing and use it to read secrets from your Azure key vault.
+description: Learn how to enable a managed identity for Azure Load Testing. You can use managed identities for reading secrets or certificates from Azure Key Vault in your JMeter test script.
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 10/20/2022
+ms.date: 10/19/2023
 ms.topic: how-to
 ---
 
 # Use managed identities for Azure Load Testing
 
-This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to authenticate with and read secrets from Azure Key Vault.
+This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to securely access other Azure resources. For example, you use a managed identity to read secrets or certificates from Azure Key Vault in your load test.
 
 A managed identity from Microsoft Entra ID allows your load testing resource to easily access other Microsoft Entra protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -39,19 +39,23 @@ To set up a managed identity in the portal, you first create an Azure load testi
 
 1. On the left pane, select **Identity**.
 
-1. Select the **System assigned** tab.
-
-1. Switch the **Status** to **On**, and then select **Save**.
+1. In the **System assigned** tab, switch **Status** to **On**, and then select **Save**.
 
     :::image type="content" source="media/how-to-use-a-managed-identity/system-assigned-managed-identity.png" alt-text="Screenshot that shows how to assign a system-assigned managed identity for Azure Load Testing in the Azure portal.":::
 
 1. On the confirmation window, select **Yes** to confirm the assignment of the managed identity.
 
-1. After assigning the managed identity finishes, the page will show the **Object ID** of the managed identity, and let you assign permissions to it.
+1. After this operation completes, the page shows the **Object ID** of the managed identity, and lets you assign permissions to it.
 
     :::image type="content" source="media/how-to-use-a-managed-identity/system-assigned-managed-identity-completed.png" alt-text="Screenshot that shows the system-assigned managed identity information for a load testing resource in the Azure portal.":::
 
-You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
+# [Azure CLI](#tab/cli)
+
+Run the `az load update` command with `--identity-type SystemAssigned` to add a system-assigned identity to your load testing resource:
+
+```azurecli-interactive
+az load update --name <load-testing-resource-name> --resource-group <group-name> --identity-type SystemAssigned
+```
 
 # [ARM template](#tab/arm)
 
@@ -92,8 +96,6 @@ After the resource creation finishes, the following properties are configured fo
 
 The `tenantId` property identifies which Microsoft Entra tenant the managed identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Microsoft Entra ID, the service principal has the same name as the Azure load testing resource.
 
-You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
-
 ---
 
 ## Assign a user-assigned identity to a load testing resource
@@ -118,7 +120,19 @@ You can add multiple user-assigned managed identities to your resource. For exam
 
     :::image type="content" source="media/how-to-use-a-managed-identity/user-assigned-managed-identity.png" alt-text="Screenshot that shows how to turn on user-assigned managed identity for Azure Load Testing.":::
 
-You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
+# [Azure CLI](#tab/cli)
+
+1. Create a user-assigned identity.
+
+    ```azurecli-interactive
+    az identity create --resource-group <group-name> --name <identity-name>
+    ```
+
+1. Run the `az load update` command with `--identity-type UserAssigned` to add a user-assigned identity to your load testing resource:
+
+    ```azurecli-interactive
+    az load update --name <load-testing-resource-name> --resource-group <group-name> --identity-type UserAssigned --user-assigned <identity-id>
+    ```
 
 # [ARM template](#tab/arm)
 
@@ -173,37 +187,14 @@ You can create an Azure load testing resource by using an ARM template and the r
 
     The `principalId` is a unique identifier for the identity that's used for Microsoft Entra administration. The `clientId` is a unique identifier for the resource's new identity that's used for specifying which identity to use during runtime calls.
 
-You can now [grant your load testing resource access to your Azure key vault](#grant-access-to-your-azure-key-vault).
-
 ---
 
-## Grant access to your Azure key vault
+## Configure target resource
 
-Using managed identities for Azure resources, your Azure load testing resource can access tokens that enable authentication to your Azure key vault. Grant the managed identity access by assigning the [appropriate role](/azure/role-based-access-control/built-in-roles) to the managed identity.
+You might need to configure the target resource to allow access from your load testing resource. For example, if you [read a secret or certificate from Azure Key Vault](./how-to-parameterize-load-tests.md), or if you [use customer-managed keys for encryption](./how-to-configure-customer-managed-keys.md), you must also add an access policy that includes the managed identity of your resource. Otherwise, your calls to Azure Key Vault are rejected, even if you use a valid token.
 
-To grant your Azure load testing resource permissions to read secrets from your Azure key vault:
+## Related content
 
-
-1. In the [Azure portal](https://portal.azure.com/), go to your Azure key vault resource.
-
-    If you don't have a key vault, follow the instructions in [Azure Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli) to create one.
-
-1. On the left pane, under **Settings**, select **Access Policies**, and then **Add Access Policy**.
-
-1. In the **Secret permissions** dropdown list, select **Get**.
-
-    :::image type="content" source="media/how-to-use-a-managed-identity/key-vault-add-policy.png" alt-text="Screenshot that shows how to add an access policy to your Azure key vault.":::
-
-1. Select **Select principal**, and then select the system-assigned or user-assigned principal for your Azure load testing resource.
-
-    If you're using a system-assigned managed identity, the name matches that of your Azure load testing resource.
-
-1. Select **Add**.
-
-You've now granted access to your Azure load testing resource to read the secret values from your Azure key vault.
-
-## Next steps
-
-* Learn how to [Parameterize a load test with secrets](./how-to-parameterize-load-tests.md).
-* Learn how to [Manage users and roles in Azure Load Testing](./how-to-assign-roles.md).
+* [Use secrets or certificates in your load test](./how-to-parameterize-load-tests.md)
+* [Configure customer-managed keys for encryption](how-to-configure-customer-managed-keys.md)
 * [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)

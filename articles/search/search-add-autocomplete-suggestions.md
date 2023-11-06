@@ -7,12 +7,12 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/03/2023
-ms.custom: devx-track-csharp
+
 ---
 
-# How to add autocomplete and search suggestions in client apps
+# Add autocomplete and search suggestions in client apps
 
 Search-as-you-type is a common technique for improving query productivity. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 

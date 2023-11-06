@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 10/18/2023
 ms.author: alkohli
 ---
 
@@ -32,7 +32,8 @@ A quorum is always maintained on your Azure Stack Edge cluster to remain online 
 For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with two out of three votes - a majority). A cluster witness is required on your Azure Stack Edge cluster. You can set up the witness in the cloud or in a local fileshare using the local UI of your device. 
 
  - For more information about the cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
- - For more information about witness in the cloud, see [Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness). 
+ - For more information about witness in the cloud, see [Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness).
+ - For detailed steps to deploy a cloud witness, see [Deploy cloud witness for a failover cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness?tabs=windows#to-create-an-azure-storage-account).
 
 ## Infrastructure cluster
 

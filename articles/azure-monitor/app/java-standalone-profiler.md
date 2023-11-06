@@ -60,7 +60,7 @@ The ApplicationInsights Java Agent monitors CPU, memory, and request duration su
 
 #### Profile now
 
-Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button immediately requests a profile in all agents that are attached to the Application Insights instance.
+Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button immediately requests a profile in all agents that are attached to the Application Insights instance. The default profiling duration is two minutes. You can change it by overriding `periodicRecordingDurationSeconds` (see [Configuration file](#configuration-file)).
 
 > [!WARNING]
 > Invoking Profile now will enable the profiler feature, and Application Insights will apply default CPU and memory SLA triggers. When your application breaches those SLAs, Application Insights will gather Java profiles. If you wish to disable profiling later on, you can do so within the trigger menu shown in [Installation](#installation).

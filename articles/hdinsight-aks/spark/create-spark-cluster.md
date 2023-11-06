@@ -3,7 +3,7 @@ title: How to create Spark cluster in HDInsight on AKS
 description: Learn how to create Spark cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/30/2023
 ---
 
 # Create Spark cluster in HDInsight on AKS (Preview)
@@ -85,13 +85,13 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
    
     |Property| Description |
     |-|-|
-    |Name 	|Optional. Enter a name such as HDInsight on AKSPrivatePreview to easily identify all resources associated with your resources|
+    |Name 	|Optional. Enter a name such as HDInsight on AKS Private Preview to easily identify all resources associated with your resources|
     |Value 	|Leave this blank|
     |Resource |Select All resources selected|
    
 1. Click **Next: Review + create**.
 1. On the **Review + create page**, look for the Validation succeeded message at the top of the page and then click **Create**.
-1. The **Deployment is in process** page is displayed which the cluster is created. It takes 5-10 minutes to create the cluster. Once the cluster is created, **Your deployment is complete" message is displayed**. If you navigate away from the page, you can check your Notifications for the status.
+1. The **Deployment is in process** page is displayed which the cluster is created. It takes 5-10 minutes to create the cluster. Once the cluster is created, **Your deployment is complete** message is displayed. If you navigate away from the page, you can check your Notifications for the status.
 1. Go to the **cluster overview page**, you can see endpoint links there.
 
     :::image type="content" source="./media/create-spark-cluster/cluster-overview.png" alt-text="Screenshot showing cluster overview page."border="true" lightbox="./media/create-spark-cluster/cluster-overview.png":::

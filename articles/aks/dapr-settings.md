@@ -189,16 +189,33 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
+## Updating your Dapr installation version
+
+If you are on a specific Dapr version and you don't have `--auto-upgrade-minor-version` available, you can use the following command to upgrade or downgrade Dapr:
+
+```azurecli
+az k8s-extension update --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--version 1.12.0 # Version to upgrade or downgrade to
+```
+
+The preceding command updates the Dapr control plane *only.* To update the Dapr sidecars, restart your application deployments:
+
+```bash
+kubectl rollout restart deploy/<DEPLOYMENT-NAME>
+```
+
 ## Using Azure Linux-based images
 
 From Dapr version 1.8.0, you can use Azure Linux images with the Dapr extension. To use them, set the`global.tag` flag:
 
 ```azurecli
-az k8s-extension upgrade --cluster-type managedClusters \
+az k8s-extension update --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr \
 --set global.tag=1.10.0-mariner
 ```
 
@@ -211,16 +228,10 @@ az k8s-extension upgrade --cluster-type managedClusters \
 With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
 
 ```azurecli
-az k8s-extension upgrade --cluster-type managedClusters \
+az k8s-extension update --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \
---configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.daprControlPlaneOs=linux” \
---configuration-settings "global.daprControlPlaneArch=amd64” \
 --configuration-settings "hooks.applyCrds=false"
 ```
 
