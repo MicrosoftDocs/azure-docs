@@ -2,7 +2,7 @@
 title: Review security recommendations
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 ---
 
 # Review security recommendations
@@ -132,19 +132,6 @@ For example, this recommendation details page shows several affected resource:
 When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources and their for this recommendation:
 
 :::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot." lightbox="media/review-security-recommendations/run-query.png":::
-
-## Recommendation insights
-
-The Insights column of the page gives you more details for each recommendation. The options available in this section include:
-
-| Icon | Name | Description |
-|--|--|--|
-| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | **Preview recommendation** | This recommendation won't affect your secure score until it's GA. |
-| :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: | **Fix** | From within the recommendation details page, you can use 'Fix' to resolve this issue. |
-| :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: | **Enforce** | From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource. |
-| :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: | **Deny** | From within the recommendation details page, you can prevent new resources from being created with this issue. |
-
-Recommendations that aren't included in the calculations of your secure score, should still be remediated wherever possible, so that when the period ends they'll contribute towards your score instead of against it.
 
 ## Download recommendations to a CSV report
 
