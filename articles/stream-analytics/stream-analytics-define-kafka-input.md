@@ -55,8 +55,11 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 ### Connect to Confluent Cloud using API key
 
-The ASA Kafka input is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server auth.
-Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). You can download the ISRG Root X1 certificate in PEM format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
+Azure stream analytics is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server authentication. Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). 
+
+Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
+
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of lets encrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 > [!IMPORTANT]
 >  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
@@ -67,14 +70,20 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
 
 | Setting | Value |
  | --- | --- |
- | Username | Key/ Username from API Key |
- | Password | Secret/ Password from API key |
- | KeyVault | Name of Azure Key vault with Uploaded certificate from Let’s Encrypt |
- | Certificate | name of the certificate uploaded to KeyVault downloaded from Let’s Encrypt (Download the ISRG Root X1 certificate in PEM format). Note: you must upload the certificate as a secret using Azure CLI. Refer to the **Key vault integration** guide below |
+ | Username | confluent cloud API key |
+ | Password | confluent cloud API secret |
+ | Key vault name | name of Azure Key vault with uploaded certificate |
+ | Truststore certificates | name of the Key Vault Secret that holds the ISRG Root X1 certificate |
+
+ :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
 
 > [!NOTE]
 > Depending on how your confluent cloud kafka cluster is configured, you may need a certificate different from the standard certificate confluent cloud uses for server authentication. Confirm with the admin of the confluent cloud kafka cluster to verify what certificate to use.
->
+
+For step-by-step tutorial on connecting to confluent cloud kakfa, visit the documentation: 
+
+Confluent cloud kafka input: [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+Confluent cloud kafka output: [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
 
 ## Key vault integration
 
@@ -129,18 +138,22 @@ az account set --subscription <subscription name>
 
 **The following command can upload the certificate as a secret to your key vault:**
 
-The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the key vault. Note the name; you will use it to configure your kafka output in your ASA job. `<file path to certificate>` is the path to where you have downloaded your certificate. 
+The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it shows up in the key vault. `<file path to certificate>` is the path to where the certificate your certificate is located. You can right-click and copy the path to the certificate.
 
 ```PowerShell
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to certificate>
 ```
+For example:
 
+```PowerShell
+az keyvault secret set --vault-name mykeyvault --name kafkasecret --file C:\Users\Downloads\certificatefile.pem
+```
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
 You can configure your ASA job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
-   ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity-new.png)
+:::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job." lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
 
 1.	Click on the **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
@@ -185,6 +198,9 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 ## Next steps
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+> [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+> [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
+
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
