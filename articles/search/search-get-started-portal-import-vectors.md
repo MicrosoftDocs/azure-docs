@@ -113,7 +113,7 @@ In this step, specify the embedding model used to vectorize chunked data.
 
 1. Specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/enrichment-page.png" alt-text="Screenshot of the enrichment page.:::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/enrichment-page.png" alt-text="Screenshot of the enrichment page.":::
 
 1. Select **Next: Create and Review** to continue.
 
