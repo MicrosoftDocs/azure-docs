@@ -60,7 +60,7 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
 
 1. Select the **Azure** icon in the Activity Bar to open the Azure view.
 
-    You can also select <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> on Windows or <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>A</kbd> on macOS to open the Azure view.
+    You can also select <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> on Windows or <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>A</kbd> on macOS to open the Azure view.
 
 1. Hover over the Workspace section and select the **Azure Container Apps** icon. In the context menu, select **Deploy Project from Workspace**.
 
@@ -71,7 +71,7 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
     | Prompt | Value |
     |--|--|
     | Select subscription | Select the Azure subscription you want to use. |
-    | Select a container apps environment | Select **Create new container apps environment**. You'll only be asked this question if you have existing container apps environments. |
+    | Select a container apps environment | Select **Create new container apps environment**. You'll only be asked this question if you have existing Container Apps environments. |
     | Enter a name for the new container app resource(s) | Enter **my-container-app**. |
     | Select a location | Select an Azure region close to you. |
     | Would you like to save your deployment configuration? | Select **Save**. |
