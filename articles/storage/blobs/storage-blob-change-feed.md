@@ -655,6 +655,7 @@ This section describes known issues and conditions in the current release of the
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
 - You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
+- BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
 
 ## Frequently asked questions (FAQ)
 
