@@ -35,7 +35,7 @@ Install the OpenAI Python client library with:
 pip install openai==0.28.1
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
@@ -95,7 +95,7 @@ text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip
 print(start_phrase+text)
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```python
 import os
