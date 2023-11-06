@@ -161,7 +161,7 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
+      > Don't use SAS URIs, URL tokens, or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See

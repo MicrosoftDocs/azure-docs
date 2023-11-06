@@ -187,7 +187,7 @@ This table shows the previous and new object names for real-time diarization and
 #### Bug fixes
 
 * Speech Synthesis: fix a bug where the emoji isn't correct in word boundary events.
-* [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md):
+* [Intent Recognition with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md):
   * Intents from the CLU Orchestrator Workflow now appear correctly.
   * The JSON result is now available via the property ID `LanguageUnderstandingServiceResponse_JsonResult`.
 * Speech recognition with keyword activation: Fix for missing ~150 ms audio after a keyword recognition.
