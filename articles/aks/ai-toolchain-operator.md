@@ -52,8 +52,6 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ## Enable the AI toolchain operator add-on on an AKS cluster
 
-### Create an AKS cluster with the AI toolchain operator add-on enabled
-
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
