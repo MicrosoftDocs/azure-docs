@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/07/2021
+ms.date: 11/06/2023
 ms.author: alkohli
 #Customer intent: As an IT pro or network administrator, I need to give users secure wireless access to their Azure Stack Edge Mini R devices.    
 ---
@@ -15,6 +15,9 @@ ms.author: alkohli
 # Use Wi-Fi profiles with Azure Stack Edge Mini R devices
 
 This article describes how to use wireless network (Wi-Fi) profiles with your Azure Stack Edge Mini R devices.
+
+> [!NOTE]
+> On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.
 
 How you prepare the Wi-Fi profile depends on the type of wireless network:
 
