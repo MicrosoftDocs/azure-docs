@@ -49,7 +49,7 @@ You can now subscribe to Email User Engagement operational logs - provides infor
 
 - Access logs for [Email Communication Service](../../concepts/analytics/logs/email-logs.md).
 
-The following documents may be interesting to you:
+The following documents might be interesting to you:
 
 - Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
 - [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
