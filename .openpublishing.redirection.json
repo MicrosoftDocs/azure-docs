@@ -791,6 +791,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
       "redirect_document_id": false
