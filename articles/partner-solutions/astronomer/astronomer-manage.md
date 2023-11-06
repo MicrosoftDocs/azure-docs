@@ -7,11 +7,11 @@ ms.date: 11/13/2023
 
 ---
 
-# Manage your Astro integration through the portal
+# Manage your Astro (preview) integration through the portal
 
 ## Single sign-on
 
-Single sign-on (SSO) is already enabled when you created your Astro resource. To access Astro through SSO, follow these steps:
+Single sign-on (SSO) is already enabled when you created your Astro (preview) resource. To access Astro through SSO, follow these steps:
 
 1. Navigate to the Overview for your instance of the Astro resource. Select on the SSO Url.
 
