@@ -136,7 +136,7 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 
 1. Go to **Virtual Machines**.
 2. If your VM was created by the scale set, ensure the VM is `Stopped`. If the VM was created as a standalone VM, you can continue regardless of if the VM is `Running` or `Stopped`.
-3. Select the Name of the virtual machine you'd like to attach to your scale set.
+3. Select the name of the virtual machine you'd like to attach to your scale set.
 4. Under **Settings** select **Availability + scaling**.
 5. Select the **Detach from the VMSS** button at the top of the page.
 6. When prompted to confirm, press the blue **Detach** button.
