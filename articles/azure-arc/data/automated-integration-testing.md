@@ -105,7 +105,7 @@ There are two files that need to be generated to localize the launcher to run in
 * `patch.json`: fill out from `patch.json.tmpl`
 
 > [!TIP]
-> The `.test.env` is a single set of of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
+> The `.test.env` is a single set of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
 
 ### Config 1: `.test.env`
 
