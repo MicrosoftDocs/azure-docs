@@ -4,16 +4,13 @@ description: Learn about the MedTech service, its features, functions, integrati
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: overview
 ms.date: 10/19/2023
 ms.author: jasteppe
 ---
 
 # What is the MedTech service?
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
 
@@ -89,21 +86,10 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 
 ## Next steps
 
-In this article, you learned about the MedTech service and its capabilities.
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-To learn about how the MedTech service processes device data, see
+[Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the different deployment methods for the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
-
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
