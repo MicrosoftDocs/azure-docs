@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 
