@@ -5,7 +5,7 @@ description: Quick reference, detailed description, and best practices on the qu
 author: PatrickFarley
 manager: nitinme
 
-ms.service: ai-vision
+ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: conceptual
 ms.date: 10/24/2023

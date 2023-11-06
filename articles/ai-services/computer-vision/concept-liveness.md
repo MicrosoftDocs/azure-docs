@@ -15,7 +15,7 @@ ms.custom:
 
 # Face liveness detection
 
-[!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
+[!INCLUDE [liveness-sdk-gate](./includes/liveness-sdk-gate.md)]
 
 Azure AI Vision supports liveness detection in Switch/Obj-C for iOS development and Java/Kotlin for Android development. It combines edge computation with the Face cloud service enabling:
 

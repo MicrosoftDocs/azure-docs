@@ -72,7 +72,7 @@ You can try out Face detection quickly and easily in your browser using Vision S
 
 ## Liveness detection
 
-[!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
+[!INCLUDE [liveness-sdk-gate](./includes/liveness-sdk-gate.md)]
 
 The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
 
