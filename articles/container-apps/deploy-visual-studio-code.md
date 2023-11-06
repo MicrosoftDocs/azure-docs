@@ -65,7 +65,7 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
     | Prompt | Value |
     |--|--|
     | Select subscription | Select the Azure subscription you want to use. |
-    | Select a container apps environment | Select **Create new container apps environment**. You'll only be asked this question if you have existing Container Apps environments. |
+    | Select a container apps environment | Select **Create new container apps environment**. You're only asked this question if you have existing Container Apps environments. |
     | Enter a name for the new container app resource(s) | Enter **my-container-app**. |
     | Select a location | Select an Azure region close to you. |
     | Would you like to save your deployment configuration? | Select **Save**. |
