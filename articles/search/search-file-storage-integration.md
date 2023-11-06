@@ -51,7 +51,7 @@ Textual content of a document is extracted into a string field named "content". 
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview for "type": `"azurefile"`.
+1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or later for "type": `"azurefile"`.
 
     ```json
     {

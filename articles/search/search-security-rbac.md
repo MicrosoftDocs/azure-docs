@@ -77,24 +77,24 @@ When you enable role-based access control in the portal, the failure mode is "ht
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
+Use the Management REST API [Create or Update Service](/rest/api/searchmanagement/services/create-or-update) to configure your service for role-based access control.
 
 All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure AI Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -567,13 +567,13 @@ To disable key-based authentication, set "disableLocalAuth" to true.
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
 1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
         "properties": {
             "disableLocalAuth": true

@@ -92,7 +92,7 @@ Scoring is done over the caption, and any other content from the summary string 
 
 1. Captions are evaluated for conceptual and semantic relevance, relative to the query provided.
 
-1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
+1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the document for the given query. Scores range from 4 to 0 (high to low), where a higher score indicates higher relevance.
 
 1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
 
@@ -130,7 +130,8 @@ The [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/s
 
 Charges for semantic ranking are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
 
-## Next steps
+## See also
 
-* [Enable semantic ranking](semantic-how-to-enable-disable.md) for your search service.
-* [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic ranking on your content.
+* [Enable semantic ranking](semantic-how-to-enable-disable.md)
+* [Configure semantic ranking](semantic-how-to-query-request.md)
+* [Blog: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)

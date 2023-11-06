@@ -45,7 +45,7 @@ To enable semantic ranking using the REST API, you can use the [Create or Update
 
 Management REST API calls are authenticated through Microsoft Entra ID. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for instructions on how to authenticate.
 
-* Management REST API version 2021-04-01-Preview provides the configuration property.
+* Management REST API version 2023-11-01 provides the configuration property.
 
 * Owner or Contributor permissions are required to enable or disable features. 
 
@@ -53,7 +53,7 @@ Management REST API calls are authenticated through Microsoft Entra ID. See [Man
 > Create or Update supports two HTTP methods: PUT and PATCH. Both PUT and PATCH can be used to update existing services, but only PUT can be used to create a new service. If PUT is used to update an existing service, it replaces all properties in the service with their defaults if they are not specified in the request. When PATCH is used to update an existing service, it only replaces properties that are specified in the request. When using PUT to update an existing service, it's possible to accidentally introduce an unexpected scaling or configuration change. When enabling semantic ranking on an existing service, it's recommended to use PATCH instead of PUT.
 
 ```http
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
       "properties": {
         "semanticSearch": "standard"
@@ -65,12 +65,12 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ## Disable semantic ranking using the REST API
 
-To reverse feature enablement, or for full protection against accidental usage and charges, you can disable semantic ranking using the [Create or Update Service API](/rest/api/searchmanagement/services/create-or-update?view=rest-searchmanagement-2023-11-01&tabs=HTTP#searchsemanticsearch&preserve-view=true) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
+To reverse feature enablement, or for full protection against accidental usage and charges, you can disable semantic ranking using the [Create or Update Service API](/rest/api/searchmanagement/services/create-or-update#searchsemanticsearch) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
 Management REST API calls are authenticated through Microsoft Entra ID. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for instructions on how to authenticate.
 
 ```http
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
       "properties": {
         "semanticSearch": "disabled"
