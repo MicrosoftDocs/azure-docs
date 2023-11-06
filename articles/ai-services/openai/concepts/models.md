@@ -80,7 +80,7 @@ GPT-4, GPT-4-32k, and GPT-4 with Vision are now available to all Azure OpenAI Se
 
 These models can only be used with the Chat Completion API.
 
-GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version 1106tbd is the third version and adds support for visual recognition.
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version `gpt-4-vision-preview` is the third version and adds support for visual recognition.
 
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
@@ -89,7 +89,7 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 | `gpt-4-32k` (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 | `gpt-4` (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 32,768               | September 2021         |
-| `gpt-4-v` (1106tbd)  | Switzerland North |  N/A                | 16384               | September 2021         |
+| `gpt-4-v` (gpt-4-vision-preview)  | Switzerland North |  N/A                | 16384               | September 2021         |
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
