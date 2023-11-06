@@ -111,11 +111,8 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName `
 #Get scale set information
 $vmss = Get-AzVmss -ResourceGroupName $resourceGroupName -Name $vmssName `
 
-#Create scale set reference
-$vm.VirtualMachineScaleSetId = $vmss.Id
-
 #Update the VM with the scale set ID
-Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm `
+Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleSetId $vmss.Id
 ```
 --- 
 
@@ -161,12 +158,8 @@ az vm update
 #Get VM information
 $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName 
 
-#Get scale set reference
-$vmssReference = New-Object Microsoft.Azure.Management.Compute.Models.SubResource 
-$vm.VirtualMachineScaleSet = $vmssReference 
-
-#Update the VM with the new scale set refence of null
-Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm 
+#Update the VM with the new scale set refence of $null
+Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachineScaleSetId $null
 ```
 --- 
 
