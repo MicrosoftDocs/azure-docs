@@ -80,7 +80,7 @@ Although IIS isn't required to create the application gateway, it's installed to
 
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+   ![A screenshot showing a successful test of application gateway.](./media/application-gateway-create-gateway-arm-template/connection-test.png)
 
    Refresh the browser multiple times and you should see connections to both myVM1 and myVM2.
 
