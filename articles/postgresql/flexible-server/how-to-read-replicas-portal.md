@@ -77,16 +77,16 @@ To create a read replica, follow these steps:
    > [!NOTE]
    > If you select a compute size smaller than the primary, the deployment will fail. Also be aware that the compute size may not be available in a different region.
     
-    :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Chose the compute size":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Chose the compute size.":::
 
 6. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
-    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules.":::
 7. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
-8. Review the information in the final confirmation window. When you're ready, select **Create**.
-    :::image type="content" source="./media/how-to-read-replicas-portal/review.png" alt-text="Review the information in the final confirmation window":::
-
+8. Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Review the information in the final confirmation window.":::
+9. During the deployment, you will see the primary in `Updating` state.
+   :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Primary enters into updating status."::: 
 After the read replica is created, it can be viewed from the **Replication** window.
-
 :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
 
 > [!IMPORTANT]
