@@ -19,7 +19,7 @@ For regional disaster recovery, we recommend the following two approaches:
 ## High available architecture for Web PubSub service
 
 There are two typical patterns using Web PubSub service:
-* One is client-server pattern that [clients send events the the server](./quickstarts-event-notifications-from-clients.md) and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md).
+* One is client-server pattern that [clients send events to the server](./quickstarts-event-notifications-from-clients.md) and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md).
 * Another is client-client pattern that [clients pub/sub messages through the Web PubSub service to other clients](./quickstarts-pubsub-among-clients.md).
 
 Below sections describe different ways for these two patterns to do disaster recovery
