@@ -19,7 +19,7 @@ This article describes how to create, monitor, and manage intra-account containe
 
 ## Prerequisites
 
-* You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
+* You may use the portal [Cloud Shell](/azure/cloud-shell/get-started?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 

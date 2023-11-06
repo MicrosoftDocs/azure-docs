@@ -14,7 +14,9 @@ ms.reviewer: mmcc
 
 To receive, store, and explore your monitoring data, include the SDK in your code. Then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
-The Node.js client library can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the client library also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+The Node.js client library can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the client library also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis.
+
+All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
@@ -452,32 +454,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation. (Default is `30000`.)     |
 | correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection. (Default. See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts).)|
 
-## How do I customize logs collection?
-
-By default, Application Insights Node.js SDK logs at warning level to console.
-
-To spot and diagnose issues with Application Insights, "Self-diagnostics" can be enabled. This means collection of internal logging from the Application Insights Node.js SDK.
-
-The following code demonstrates how to enable debug logging as well as generate telemetry for internal logs.
-
-```
-let appInsights = require("applicationinsights");
-appInsights.setup("<YOUR_CONNECTION_STRING>")
-    .setInternalLogging(true, true) // Enable both debug and warning logging
-    .setAutoCollectConsole(true, true) // Generate Trace telemetry for winston/bunyan and console logs
-    .start();
-    
-Logs could be put into local file using APPLICATIONINSIGHTS_LOG_DESTINATION environment variable, supported values are file and file+console, a file named applicationinsights.log will be generated on tmp folder by default, including all logs, /tmp for *nix and USERDIR\\AppData\\Local\\Temp for Windows. Log directory could be configured using APPLICATIONINSIGHTS_LOGDIR environment variable.
-
-process.env.APPLICATIONINSIGHTS_LOG_DESTINATION = "file+console";
-process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
-
-// Application Insights SDK setup....
-```
-
 ## Troubleshooting
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+For troubleshooting information, including "no data" scenarios and customizing logs, see [Troubleshoot Application Insights monitoring of Node.js apps and services](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-app-insights-nodejs).
 
 ## Next steps
 

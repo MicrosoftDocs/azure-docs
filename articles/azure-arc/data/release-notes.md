@@ -920,7 +920,7 @@ As a preview feature, the technology presented in this article is subject to [Su
 
 ### Breaking change
 
-- Kubernetes native deployment templates have been modified. Update update your .yml templates.
+- Kubernetes native deployment templates have been modified. Update your .yml templates.
     - Updated templates for data controller, bootstrapper, & SQL Managed instance: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
     - Updated templates for PostgreSQL server: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
 

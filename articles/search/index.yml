@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Azure AI Search documentation # < 60 chars
+title: Azure Cognitive Search documentation # < 60 chars
 summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
-  title: Azure AI Search documentation
+  title: Azure Cognitive Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service
@@ -19,19 +19,17 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About AI Search
+  - title: About Cognitive Search
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AI Search?
+          - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
-          - text: Vector search
+          - text: What is vector search?
             url: vector-search-overview.md
-          - text: Integrated vectorization (preview)
-            url: vector-search-integrated-vectorization.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
-          - text: Semantic ranking
+          - text: What is semantic ranking?
             url: semantic-search-overview.md
       - linkListType: learn
         links:
@@ -45,8 +43,6 @@ landingContent:
         links:
           - text: Create a search service
             url: search-create-service-portal.md
-          - text: Create a vector index
-            url: search-get-started-vector.md
           - text: Create a search index
             url: search-get-started-portal.md
           - text: Create a demo app
@@ -79,7 +75,7 @@ landingContent:
             url: /java/api/overview/azure/search-documents-readme
           - text: Azure SDK for JavaScript
             url: /javascript/api/overview/azure/search-documents-readme
-            
+
   # Card
   - title: Index data
     linkLists:
