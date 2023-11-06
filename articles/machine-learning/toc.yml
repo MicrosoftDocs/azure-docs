@@ -662,6 +662,8 @@
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Transparency note
+          href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
           items:
             - name: LLM tool
