@@ -186,8 +186,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |prebuilt-read|✓|✓| | | | |O|O| |O|O|O|
 |prebuilt-layout|✓|✓|✓|✓|✓| |O|O| |O|O|O|
-|prebuilt-document|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
-|prebuilt-businessCard|✓| | | | | | | |✓| | | |
+|prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
+|prebuilt-businessCard (deprecated 2023-10-31-preview)|✓| | | | | | | |✓| | | |
 |prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|
 |prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|
 |prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|
