@@ -428,4 +428,4 @@ To access the Fleet cluster's Kubernetes API, run the following commands:
 
 ## Next steps
 
-* Learn how to use [Kubernetes resource objects propagation](./configuration-propagation.md)
+* Learn how to use [Kubernetes resource objects propagation](./resource-propagation.md)
