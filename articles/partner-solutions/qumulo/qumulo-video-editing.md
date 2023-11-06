@@ -9,13 +9,13 @@ ms.date: 11/13/2003
 
 # What is Azure Native Qumulo Scalable File Service for video editing?
 
-Azure Native Qumulo (ANQ) allows content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency. This article describes a solution that provides a cloud-based remote video editing environment for 2 K, 4K, or 8K content.
+Azure Native Qumulo (ANQ) allows content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency. This article describes a solution that provides a cloud-based remote video editing environment for 2K, 4K, or 8K content.
 
 Using Azure Native Qumulo Scalable File Service for video editing uses Azure-based Adobe Premiere Pro VMs with storage services provided by Azure Native Qumulo (ANQ).
 
 ## Architecture
 
-As shown in the following diagram, Azure Native Qumulo for video editing is deployed on Azure with selectable performance options and combines Qumulo’s file data platform and HP Anyware PCoIP services. Deploying ANQ in this way lets creative teams store, manage, and create projects with Adobe Premiere Pro. Data services are hosted on the ANQ service and accessed through SMB.
+Azure Native Qumulo for video editing is deployed on Azure with selectable performance options and combines Qumulo’s file data platform and HP Anyware PCoIP services. Deploying ANQ in this way lets creative teams store, manage, and create projects with Adobe Premiere Pro. Data services are hosted on the ANQ service and accessed through SMB.
 
 > [!NOTE]
 > Qumulo has no access to any of your data on any ANQ deployment.
@@ -30,9 +30,9 @@ The ANQ service instance used in the solution is deployed in Qumulo’s Azure te
 
 Access to the ANQ service instance is enabled through VNet injection from a dedicated subnet in your Azure tenant. All data on the ANQ service instance is accessible only through the network interfaces in your delegated subnet. Note: Qumulo has no access to any data on any ANQ instance.
 
-:::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo." lightbox="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png":::
+:::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo." lightbox="media/qumulo-video-editing/solution-architecture-qumulo-video-editing-2.png":::
 
-### Solution Workflow
+### Solution workflow
 
 1. The user connects with ANQ solution through HP Anyware PCoIP client, which comes in multiple versions: thin clients, mobile clients, and Windows / Mac / Linux clients.
 1. Access between the HP Anyware client software and the Azure-based environment can be through Azure VPN Gateway or through an ExpressRoute connection.
@@ -56,7 +56,7 @@ The solution architecture comprises the following components:
 
 ## Considerations
 
-Enterprises planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients should include the following considerations in their planning and design processes.
+When you're planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients, consider the following factors in your planning and design processes.
 
 ### Potential use cases
 
@@ -73,12 +73,16 @@ Here are some possible use cases:
 
 ### Scalability and Performance
 
-When planning a video editing solution using Qumulo and Adobe Premiere Pro, consider the following list:
+When planning a video editing solution using Qumulo and Adobe Premiere Pro, consider the following factors:
 
-- Capacity and growth: ANQ scales on demand, allowing you to add as much capacity as needed simply by creating or migrating data.
-- Performance: Azure provides scalable compute and storage as needed, allowing you to easily adjust the computing resources allocated to your Adobe Premiere Pro workstation VMs.
-- Throughput: ANQ allows you to adjust throughput on demand, in 1-GB increments, to ensure the availability of throughput you always need. Use and pay only for the throughput required by the number of Adobe Premiere editors using ANQ.
-- Latency: Latency between the Adobe Premiere Pro workstation VMs and the ANQ storage is minimal for editing purposes. Latency between the user’s local client and the Azure environment can be optimized through the HP Anyware client.
+- Capacity and growth
+  - ANQ scales on demand, allowing you to add as much capacity as needed simply by creating or migrating data.
+- Performance
+  - Azure provides scalable compute and storage as needed, allowing you to easily adjust the computing resources allocated to your Adobe Premiere Pro workstation VMs.
+- Throughput
+  - ANQ allows you to adjust throughput on demand, in 1-GB increments, to ensure the availability of throughput you always need. Use and pay only for the throughput required by the number of Adobe Premiere editors using ANQ.
+- Latency
+  - Latency between the Adobe Premiere Pro workstation VMs and the ANQ storage is minimal for editing purposes. Latency between the user’s local client and the Azure environment can be optimized through the HP Anyware client.
 
 ### Security
 
@@ -88,7 +92,7 @@ HP Anyware offers secure end-to-end encryption for remote access to VMs. This he
 
 You should take care during design and implementation to ensure that the security of the solution complies with industry best practices, internal enterprise policies, and any applicable legal/regulatory requirements.
 
-For all other aspects of the solution, you are responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
+For all other aspects of the solution, you're responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
 
 ### Cost optimization
 
