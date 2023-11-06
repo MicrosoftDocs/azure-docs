@@ -19,7 +19,7 @@ This article provides guidance to move from Change Tracking and Inventory using 
 
 ### [Using Azure portal - for single VM](#tab/ct-single-vm)
 
-1.    Sign in to the [Azure portal](https://portal.azure.com) and select your virtual machine
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your virtual machine
 1. Under **Operations** ,  select **Change tracking**.
 1. Select **Configure with AMA** and in the **Configure with Azure monitor agent**,  provide the **Log analytics workspace** and select **Migrate** to initiate the deployment.
 
