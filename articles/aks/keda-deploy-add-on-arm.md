@@ -24,9 +24,7 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 
 [!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
 
-## Install the KEDA add-on with Azure Resource Manager (ARM) templates
-
-### Create an SSH key pair
+## Create an SSH key pair
 
 1. Navigate to the [Azure Cloud Shell](https://shell.azure.com/).
 2. Create an SSH key pair using the [`az sshkey create`][az-sshkey-create] command.
@@ -166,3 +164,4 @@ To learn more, view the [upstream KEDA docs][keda].
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
+[keda]: https://keda.sh/docs/2.12/
