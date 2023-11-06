@@ -69,7 +69,7 @@ JSON formatting added artificially for ease of reading.
 
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python  >=1.0.0](#tab/python-new)
 
 ```python
 import os
@@ -330,7 +330,7 @@ while True:
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python  >=1.0.0](#tab/python-new)
 
 ```python
 import os
@@ -452,7 +452,7 @@ while True:
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python  >=1.0.0](#tab/python-new)
 
 ```python
 import tiktoken
