@@ -27,7 +27,7 @@ Elastic SAN simplifies deploying and managing storage at scale through grouping 
 
 ### Performance
 
-With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes. As long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 64,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes. As long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 80,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 

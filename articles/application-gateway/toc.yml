@@ -221,6 +221,10 @@
       href: tutorial-multiple-sites-cli.md
   - name: IPv6 Application Gateway
     items:
+    - name: Azure portal
+      href: ipv6-application-gateway-portal.md
+    - name: Azure PowerShell
+      href: ipv6-application-gateway-powershell.md
     - name: ARM template
       href: ipv6-application-gateway-arm-template.md
   - name: Redirect traffic

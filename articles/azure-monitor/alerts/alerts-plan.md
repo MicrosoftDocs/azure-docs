@@ -101,7 +101,7 @@ You want to create alerts for any important information in your environment. But
 
 Typically, you'll want to alert on issues for all your critical Azure applications and resources. Use the following methods for creating alert rules at scale:
 
-- Azure Monitor supports monitoring multiple resources of the same type with one metric alert rule for resources that exist in the same Azure region. For a list of Azure services that are currently supported for this feature, see [Monitoring at scale using metric alerts in Azure Monitor](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+- Azure Monitor supports monitoring multiple resources of the same type with one metric alert rule for resources that exist in the same Azure region. For a list of Azure services that are currently supported for this feature, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
 - For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell with Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
 - To return data for multiple resources, write queries in log query alert rules. Use the **Split by dimensions** setting in the rule to create separate alerts for each resource.
 
