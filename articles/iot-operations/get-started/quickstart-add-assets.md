@@ -33,7 +33,7 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 
 ## Select your cluster
 
-When you sign in, select **Get started**. The portal displays the list of Kubernetes clusters that you have access to. Use the cluster that you deployed Azure IoT Operations to in the previous quickstart. Select the cluster that you want to use:
+When you sign in, select **Get started**. The portal displays the list of Kubernetes clusters that you have access to. Select the cluster that you deployed Azure IoT Operations to in the previous quickstart:
 
 :::image type="content" source="media/quickstart-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations cluster list.":::
 
@@ -201,11 +201,11 @@ spec:
   capacity: 1
 ```
 
-1. Run the following command to apply the configuration:
+Run the following command to apply the configuration:
 
-    ```bash
-    kubectl apply -f opcua-configuration.yaml
-    ```
+```bash
+kubectl apply -f opcua-configuration.yaml
+```
 
 To verify the configuration, run the following command:
 
