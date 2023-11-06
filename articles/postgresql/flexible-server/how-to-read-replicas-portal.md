@@ -22,6 +22,35 @@ An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) 
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
 
+## Review primary settings
+Before you begin the read replica setup for Azure Database for PostgreSQL, it’s essential to verify that your primary server’s configuration adheres to the prerequisites for creating replicas. Certain features enabled on the primary server can obstruct the replica creation process.
+
+**Storage auto-grow**: Check and ensure that the storage auto-grow feature is deactivated on the primary server. The creation of a read replica cannot proceed if this feature is turned on.
+
+**Private Link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration. Private Link configurations that do not meet these conditions will prevent the creation of a read replica.
+
+* In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server that you want to setup a replica for.
+* On the **Overview** dialog, note the PostgreSQL version (ex `15.4`).  Also note the region your primary is deployed too (ex. `East US`).
+
+:::image type="content" source="./media/how-to-read-replicas-portal/primary-settings.png" alt-text="Review primary settings":::
+
+* On the server sidebar, under **Settings**, select **Compute + storage**.
+* Review and note the following settings:
+  * Compute: Tier, Processor, Size (ex `Standard_D4ads_v5`).
+  * Storage 
+    * Storage size (ex `128GB`)
+    * Auto-growth
+  * High Availability
+    * Enabled / Disabled
+    * Availability zone settings
+  * Backup settings
+    * Retention period
+    * Redundancy Options
+* Under **Settings**, select **Networking**
+  * Review the network settings
+
+:::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Review features enabled":::
+
 ## Create a read replica
 
 To create a read replica, follow these steps:
