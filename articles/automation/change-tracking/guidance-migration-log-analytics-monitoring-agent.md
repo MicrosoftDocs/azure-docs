@@ -97,7 +97,7 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 
 ---
 
-### Compare data across Log analytics and Azure Monitoring Agent version
+### Compare data across Log analytics Agent and Azure Monitoring Agent version
 
 After you complete the onboarding to Change tracking with AMA version, select **Switch to CT with AMA** on the landing page to switch across the two versions and compare the following events.
 
