@@ -155,7 +155,7 @@ After checking the [built-in metrics](#understand-the-built-in-evaluation-metric
   - Modify parameters of the flow
   - Modify the flow logic
 
-To learn more about how to construct a prompt that can achieve your goal, see [Introduction to prompt engineering](../../openai/concepts/prompt-engineering.md), [Prompt engineering techniques](../../openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions), and [System message framework and template recommendations for Large Language Models(LLMs)](../../openai/concepts/system-message.md).
+To learn more about how to construct a prompt that can achieve your goal, see [Introduction to prompt engineering](../../ai-services/openai/concepts/prompt-engineering.md), [Prompt engineering techniques](../../ai-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions), and [System message framework and template recommendations for Large Language Models(LLMs)](../../ai-services/openai/concepts/system-message.md).
 
 In this document, you learned how to submit a batch run and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with Prompt flow.
 

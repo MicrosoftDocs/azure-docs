@@ -36,7 +36,7 @@ Please select an option from the menu below:
 4. Contact customer support
 ```
 
-For more information and best practices, see [prompt engineering techniques](../../../openai/concepts/advanced-prompt-engineering.md).
+For more information and best practices, see [prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
 
 ## Build with the Prompt tool
 

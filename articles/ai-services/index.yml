@@ -22,10 +22,10 @@ highlightedContent:
       url: ./what-are-ai-services.md
     - title: What is Azure AI Studio?
       itemType: overview
-      url: ./ai-studio/what-is-ai-studio.md
+      url: ../ai-studio/what-is-ai-studio.md
     - title: Azure AI Studio quickstart
       itemType: quickstart
-      url: ./ai-studio/quickstarts/playground-completions.md
+      url: ../ai-studio/quickstarts/playground-completions.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md
@@ -166,4 +166,3 @@ additionalContent:
               url: ./anomaly-detector/index.yml
             - text: Personalizer
               url: ./personalizer/index.yml
-
