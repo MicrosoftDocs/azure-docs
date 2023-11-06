@@ -215,7 +215,7 @@ You can use the Download Advanced Report to get reports that cover specific date
 1.	Select **Download**.
 1.	You can also download files from the **Report History**. It shows the latest reports that you downloaded.
 
-:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" alt-text="ALTTEXT" lightbox="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" :::
+:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" alt-text="Screenshot showing the Download Advanced Report page." lightbox="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" :::
 
 ### Download your Azure invoices (.pdf)
 
