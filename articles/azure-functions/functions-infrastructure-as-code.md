@@ -1672,12 +1672,10 @@ The following site settings are required on the `siteConfig` property:
 ::: zone-end  
 :::zone pivot="container-apps"  
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 ::: zone-end  
 :::zone pivot="azure-arc"  
 + [`alwaysOn`](functions-app-settings.md#alwayson)
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 ::: zone-end  
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 These application settings are required for a specific operating system and hosting option:
@@ -1770,6 +1768,9 @@ Keep these considerations in mind when working with site and application setting
 
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion) is only supported for .NET deployments.
 ::: zone-end
+:::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
++ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../articles/app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
+::: zone-end  
 + You should always define your application settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This makes sure that the settings that your function app needs to run are available on initial startup.
 
 + When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
