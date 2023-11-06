@@ -55,21 +55,21 @@ az account set --subscription <subscription id>
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premise or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html).
-  * [Create an Azure Blob container](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](https://learn.microsoft.com/azure/ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.
+  * [Create an Azure Blob container](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](https://learn.microsoft.com/azure/ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They are only displayed once and can't be retrieved once the window is closed.
 * Upload the full backup file to your Azure Blob storage. Follow steps [here]( https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
 ## Limitations
 
 * Source server configuration is not migrated. You must configure the target Flexible server appropriately.
-* Users and privileges are not migrated as part of MySQL Import. You must take a manual dump of users and privileges before initiating MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
+* Users and privileges aren't migrated as part of MySQL Import. You must take a manual dump of users and privileges before initiating MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
 * High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
 
 ## Recommendations for an optimal migration experience
 
 * Consider keeping the Azure Blob storage account and the target Flexible Server to be deployed in the same region for better import performance.
 * Recommended SKU configuration for target Azure Database for MySQL Flexible Server –
-  * Setting Burstable SKU for target is not recommended in order to optimize migration time when running the MySQL Import operation. We recommend scaling to General Purpose/ Business Critical for the course of the import operation, post which you can scale down to Burstable SKU.
+  * Setting Burstable SKU for target isn't recommended in order to optimize migration time when running the MySQL Import operation. We recommend scaling to General Purpose/ Business Critical for the course of the import operation, post, which you can scale down to Burstable SKU.
 
 ## Trigger a MySQL Import operation to migrate from Azure Database for MySQL -Flexible Server
 
@@ -124,7 +124,7 @@ Here are the details for the arguments above:
 ---|---|---
 data-source-type | azure_blob | The type of data source that serves as the source destination for triggering MySQL Import. Accepted values: [azure_blob]. Description of accepted values- azure_blob: Azure Blob storage.
 data-source | https://onprembackup.blob.core.windows.net/onprembackup | The resource ID of the Azure Blob container.
-data-source-backup-dir | mysql_percona_backup | The directory of the Azure Blob storage container in which the backup file was uploaded. This value is required only when the backup file is not stored in the root folder of Azure Blob container.
+data-source-backup-dir | mysql_percona_backup | The directory of the Azure Blob storage container in which the backup file was uploaded. This value is required only when the backup file isn't stored in the root folder of Azure Blob container.
 data-source-sas-token | {sas-token} | The Shared Access Signature (SAS) token generated for granting access to import from the Azure Blob storage container.
 resource-group | test-rg | The name of the Azure resource group of the target Azure Database for MySQL Flexible Server.
 mode | Offline | The mode of MySQL import. Accepted values: [Offline]; Default value: Offline.
@@ -135,9 +135,9 @@ admin-password | *password* | The administrator user's password for your target 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}*{compute generation}*{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage.md#service-tiers-size-and-server-types) for more information.
 tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible Server. Accepted values: Burstable, GeneralPurpose, MemoryOptimized; Default value: Burstable.
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
-vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, please provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
-subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, please provide resource ID instead of name. Please note that the subnet will be delegated to flexibleServers. After delegation, this subnet cannot be used for any other type of Azure resources.
-private-dns-zone | myserver.private.contoso.com | The name or id of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
+vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
+subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, provide resource ID instead of name. Note that the subnet is delegated to flexibleServers. After delegation, this subnet can't be used for any other type of Azure resources.
+private-dns-zone | myserver.private.contoso.com | The name or id of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
 storage-size | 32 | The storage capacity of the target Azure Database for MySQL Flexible Server. The minimum is 20 GiB, and max is 16 TiB.
