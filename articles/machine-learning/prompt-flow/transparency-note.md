@@ -53,7 +53,7 @@ Auto-Generate Prompt Variants can be used in the following scenarios. The system
 
 #### Considerations when choosing a use case 
 
-**Do not use Auto-Generate Prompt Variants for decisions that may have serious adverse impacts.**
+**Do not use Auto-Generate Prompt Variants for decisions that might have serious adverse impacts.**
 
 Auto-Generate Prompt Variants was not designed or tested to recommend items that require additional considerations related to accuracy, governance, policy, legal, or expert knowledge as these often exist outside the scope of the usage patterns carried out by regular (non-expert) users. Examples of such use cases include medical diagnostics, banking, or financial recommendations, hiring or job placement recommendations, or recommendations related to housing. 
 
@@ -75,7 +75,7 @@ Auto-Generate Prompt Variants only supports Azure OpenAI models at this time. In
 
 Performance for the Auto-Generate Prompt Variants feature is determined by the user's use case in each individual scenario – in this way the feature does not evaluate each prompt or generate metrics. 
 
-Operating in the Prompt Flow ecosystem, which focuses on Prompt Engineering, provides a strong story for error handling. Often retrying the operation will resolve an error. One error which may arise specific to this feature is response filtering from the Azure OpenAI resource for content or harm detection, this would happen in the case that content in the base prompt is determined to be against Azure OpenAI's content management policy. To resolve these errors please update the base prompt in accordance with the guidance at [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter). 
+Operating in the Prompt Flow ecosystem, which focuses on Prompt Engineering, provides a strong story for error handling. Often retrying the operation will resolve an error. One error which might arise specific to this feature is response filtering from the Azure OpenAI resource for content or harm detection, this would happen in the case that content in the base prompt is determined to be against Azure OpenAI's content management policy. To resolve these errors please update the base prompt in accordance with the guidance at [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter). 
 
 ### Best practices for improving system performance  
 
