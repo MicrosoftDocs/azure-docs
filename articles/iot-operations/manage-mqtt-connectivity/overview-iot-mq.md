@@ -42,11 +42,11 @@ Microsoft's hybrid platform is anchored around Kubernetes with Azure Arc as a si
 
 IoT MQ is deployed as an Azure Arc for Kubernetes extension and can be managed via a full featured Azure resource provider (RP) - **microsoft/IoTOperationsMQ**. This means you can manage it just like native Azure cloud resources such as Virtual Machines, Storage, etc.
 
-Azure Arc technology enables the changes to take effect on IoT MQ services running on the on-prem Kubernetes cluster. Optionally, if you prefer a fully Kubernetes-native approach, you can manage IoT MQ with Kubernetes custom resource definitions (CRDs) locally or using GitOps technologies like Flux.
+Azure Arc technology enables the changes to take effect on IoT MQ services running on the on-premises Kubernetes cluster. Optionally, if you prefer a fully Kubernetes-native approach, you can manage IoT MQ with Kubernetes custom resource definitions (CRDs) locally or using GitOps technologies like Flux.
 
 ## Cloud connectors
 
-You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge "fast" path for high priority data or to power near real-time cloud dasboards and a lower-cost "slow" path for less time-critical data which can be updated in batches. 
+You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge *fast* path for high priority data or to power near real-time cloud dashboards and a lower-cost *slow* path for less time-critical data that can be updated in batches. 
 
 To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), Event Grid cloud MQTT Broker, Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
@@ -56,7 +56,7 @@ Building on top of Azure Arc allows the connectors to be configured to use Azure
 
 [Dapr](https://dapr.io/) simplifies *plumbing* between distributed applications by exposing common distributed application capabilities, such as state management, service-to-service invocation, and publish-subscribe messaging. Dapr components lie beneath the building blocks and provide the concrete implementation for each capability. You can focus on business logic and let Dapr handle distributed application details.
 
-IoT MQ provides pluggable Dapr publish-subscribe and statestore building blocks making development and deployment of event-driven applications on the edge easy and technology agnostic. 
+IoT MQ provides pluggable Dapr publish-subscribe and state store building blocks making development and deployment of event-driven applications on the edge easy and technology agnostic. 
 
 ## Architecture
 
