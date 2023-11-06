@@ -163,7 +163,7 @@ spec:
     spec:
       containers:
       - name: oe-helloworld
-        image: mcr.microsoft.com/acc/samples/oe-helloworld:1.1
+        image: mcr.microsoft.com/acc/samples/oe-helloworld:latest
         resources:
           limits:
             sgx.intel.com/epc: "10Mi"
@@ -206,7 +206,7 @@ spec:
                 - acc_second # this is the name of your confidential computing nodel pool
       containers:
       - name: oe-helloworld
-        image: mcr.microsoft.com/acc/samples/oe-helloworld:1.1
+        image: mcr.microsoft.com/acc/samples/oe-helloworld:latest
         resources:
           limits:
             sgx.intel.com/epc: "10Mi"
