@@ -32,4 +32,4 @@ PostgreSQL Flexible Server backup data can be recovered in user specified storag
 
 ## Next steps
 
-- [Back up Azure Database for PostgreSQL server](backup-azure-database-postgresql-flex.md)
+- [Back up Azure Database for PostgreSQL -flex server](backup-azure-database-postgresql-flex.md)

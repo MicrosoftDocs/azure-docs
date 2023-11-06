@@ -12,32 +12,30 @@ ms.author: v-abhmallick
 
 This article explains how to restore a database to an Azure PostgreSQL -flex server backed up by Azure Backup.
 
-You can restore a database to any Azure PostgreSQL server of a different/same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
+You can restore a database to any Azure PostgreSQL server of a different or same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-flex-overview.md) on the target server.
 
 ## Restore Azure PostgreSQL-Flexible database
 
 1. Go to **Backup vault** -> **Backup Instances**. Select the PostgreSQL-Flex server to be restored and select **Restore**.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-database-for-restore-inline.png" alt-text="Screenshot showing the process to select and restore a database." lightbox="./media/restore-azure-database-postgresql/select-database-for-restore-expanded.png":::
+   :::image type="content" source="./media/restore-azure-database-postgresql-flex/restore.png" alt-text="Screenshot showing how to restore a database.":::
 
    Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md).	  
   
-1. Select the point in time your would like to restore by using **Select restore point**. You can change the date range by selecting **Time period**.
+1. Select the point in time you would like to restore by using **Select restore point**. You can change the date range by selecting **Time period**.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point." lightbox="./media/restore-azure-database-postgresql/select-restore-point-expanded.png":::
-
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point." lightbox="./media/restore-azure-database-postgresql/select-restore-point-expanded.png":::
+   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point.":::
 
 1. Choose the target storage account and container in **Restore parameters** tab. Select **Validate** to check the restore parameters permissions before the final review and restore.
 
 1. Once the validation is successful, select **Review + restore**.
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point." lightbox="./media/restore-azure-database-postgresql/select-restore-point-expanded.png":::
+   :::image type="content" source="./media/restore-azure-database-postgresql-flex/review-restore.png" alt-text="Screenshot showing the restore parameter process.":::
 
-1. After final review of parameters select **Restore** to restore the selected PostgreSQL-Flex server backup in target storage account.
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point." lightbox="./media/restore-azure-database-postgresql/select-restore-point-expanded.png"::: 
+1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL-Flex server backup in target storage account.
+   :::image type="content" source="./media/restore-azure-database-postgresql-flex/review.png" alt-text="Screenshot showing the review process page."::: 
    
 1. Submit the Restore operation and track the triggered job under **Backup jobs**.
-
+   :::image type="content" source="./media/restore-azure-database-postgresql-flex/validate.png" alt-text="Screenshot showing the validate process page.":::
  
 ## Next steps
 

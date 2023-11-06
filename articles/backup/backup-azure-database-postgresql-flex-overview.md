@@ -25,9 +25,9 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 1. The Backup RP invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
 1. Backup runs independently preventing disruptions during long-running tasks. 
 1. The retention and RP lifecycles align with user policies for effective management. 
-1. During restores, the Backup RP invokes restore on the ARM API of PostgresFlex server using the SAS for asynchronous, non-disruptive recovery. 
+1. During the restore, the Backup RP invokes restore on the ARM API of PostgresFlex server using the SAS for asynchronous, nondisruptive recovery. 
 
- :::image type="content" source="./media/backup-azure-database-postgresql-overview/backup-process.png" alt-text="Diagram showing the backup process.":::
+ :::image type="content" source="./media/backup-azure-database-postgresql-flex-overview/backup-process.png" alt-text="Diagram showing the backup process.":::
 
 ## Azure Backup authentication with the PostgreSQL server
 
@@ -44,4 +44,4 @@ For successful backup operations, the vault MSI needs the following permissions:
 
 ## Next steps
 
-[Azure Database for PostgreSQL backup](backup-azure-database-postgresql-flex.md).
+[Azure Database for PostgreSQL -Flex backup](backup-azure-database-postgresql-flex.md).

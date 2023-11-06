@@ -18,31 +18,26 @@ To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, f
 
 1. Go to **Backup vault** > **+Backup**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-inline.png" alt-text="Screenshot showing the option to add a backup." lightbox="./media/backup-azure-database-postgresql/adding-backup-expanded.png":::
-
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/adding-backup-inline.png" alt-text="Screenshot showing the option to add a backup.":::
 
    Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
 
-1. Select or [create](#create-backup-policy) a Backup Policy that defines the backup schedule and the retention duration.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
-
 1. Select the data source type as **Azure Database for PostgreSQL flexible servers (Preview)**
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy.":::
+
+1. Select or [create](#create-backup-policy) a Backup Policy that defines the backup schedule and the retention duration.
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/backup-policy.png" alt-text="Screenshot showing the option to edit a backup policy.":::
 
 1. Select **Next** to choose the Azure PostgreSQL-Flex server to back up. Then select **Add** to select the PostgreSQL-Flex server to be backed up.
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-server.png" alt-text="Screenshot showing the select server option.":::
 
 1. Choose one of the Azure PostgreSQL-Flex servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-resources.png" alt-text="Screenshot showing the select resources option.":::
 
 1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by selecting **Assign missing roles** action button in the top action menu to grant permissions.
-   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/assign-missing-roles.png" alt-text="Screenshot showing the **Assign missing roles** option.":::
 
 1. Submit the configure backup operation and track the progress under **Backup instances**.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot showing the backup configuration submission and tracking progress." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png"::: 
      
 
 ## Create Backup policy
@@ -51,15 +46,13 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
 1. Enter a name for the new policy.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Screenshot showing the process to enter a name for the new policy." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
-
 1. Select the data source type as **Azure Database for PostgreSQL flexible servers (Preview)** 
-   :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Screenshot showing the process to enter a name for the new policy." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-datasource.png" alt-text="Screenshot showing the select datasource process.":::
 
 1. Define the Backup schedule.
 
    Currently, only Weekly backup option is available. However, you can schedule the backups on multiple days of the week.
-   :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Screenshot showing the process to enter a name for the new policy." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/schedule.png" alt-text="Screenshot showing the schedule process for the new policy.":::
 
 1. Define **Retention** settings.
 
