@@ -48,7 +48,7 @@ An export policy is a container for a set of access rules that are listed in ord
 
 When creating an Azure NetApp Files volume, there are several options configurable for control of access to NFS volumes.
 
-* **Index**: The order in which an export policy rule is evaluated. If a client falls under multiple rules in the policy, then the first applicable rule applies to the client and subsequent rules are ignored.
+* **Index**: Specifies the order in which an export policy rule is evaluated. If a client falls under multiple rules in the policy, then the first applicable rule applies to the client and subsequent rules are ignored.
 * **Allowed clients**: Specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values aren't supported in Azure NetApp Files.
 * **Access**: Specifies the level of access allowed to non-root users. For NFS volumes without Kerberos enabled, the options are: Read only, Read & write, or No access. For volumes with Kerberos enabled, the options are: Kerberos 5, Kerberos 5i, or Kerberos 5p.
 * **Root access**: Specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](#root-squashing) to the anonymous user ID 65534. 
@@ -162,7 +162,7 @@ Even though the volume in the listing cannot be seen, it remains accessible if t
 
 #### SMB3 Encryption
 
-SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information, such as file names and file handles is visible.
+SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information--such as file names and file handles--is visible.
 
 :::image type="content" source="../media/azure-netapp-files/packet-capture-encryption.png" alt-text="Screenshot of packet capture with SMB encryption disabled." lightbox="../media/azure-netapp-files/packet-capture-encryption.png":::
 
@@ -331,9 +331,9 @@ To modify the behavior to limit which users can run the `mkdir` command, change 
 # ls -la /bin/mkdir
 -rwxr-s--- 1 root group1 88408 Sep  5  2019 /bin/mkdir
 ```
-As a result, the application runs with permissions for group1. If the user isn't a member of group1, they don't get access to run `mkdir`.
+As a result, the application runs with permissions for `group1`. If the user isn't a member of `group1`, the user doesn't get access to run `mkdir`.
 
-`User1` is a member of group1, but `user2` isn't:
+`User1` is a member of `group1`, but `user2` isn't:
 
 ```bash
 # id user1
@@ -598,7 +598,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-User3 has only a file inherit flag. As a result, only files below the directory with that ACE entry inherit the ACL, but they don't inherit the flag since it can only be applied to directory ACEs.
+`User3` only has a file inherit flag. As a result, only files below the directory with that ACE entry inherit the ACL, but they don't inherit the flag since it can only be applied to directory ACEs.
 
 ```bash
 # nfs4_getfacl acl-dir/inherit-dir
@@ -723,7 +723,6 @@ August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.c
 ```
 
 The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.
-
 
 Azure NetApp Files also allows you to [change the NFSv4.1 ID domain](azure-netapp-files-configure-nfsv41-domain.md). For additional details, see the video [How-to: NFSv4.1 ID Domain Configuration for Azure NetApp Files](https://www.youtube.com/watch?v=UfaJTYWSVAY).
 
