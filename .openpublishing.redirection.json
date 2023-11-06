@@ -556,6 +556,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/index.yml",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/language-support.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/language-support",
       "redirect_document_id": false
@@ -789,6 +794,11 @@
       "source_path": "articles/active-directory/azuread-dev/active-directory-acs-migration.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-acs-migration",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
