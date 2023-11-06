@@ -24,15 +24,25 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date |Update  |
 |----------|----------|
-| November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) |
-| November 20 | [Enhanced security recommendations prioritization in Defender for Cloud](#enhanced-security-recommendations-prioritization-in-defender-for-cloud) |
+|November 20 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) | 
+| November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) ||
 | November 20 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
 | November 20 | [General Availability release of GCP support in Defender CSPM](#general-availability-release-of-gcp-support-in-defender-cspm) |
 | November 20 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 
+### Risk prioritization is now available for recommendations
+
+November 20, 2023
+
+You can now prioritize your security recommendations according to the risk level they pose, taking in to consideration both the exploitability and potential business impact of each underlying security issue.
+
+By organizing your recommendations based on their risk level (Critical, high, medium, low), you are able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
+
+Learn more about risk prioritization.
+
 ### Attack path analysis new engine and extensive enhancements
 
-Announcement date: November 20, 2023
+November 20, 2023
 
 We are releasing extensive enhancements to the attack path analysis capabilities in Defender for Cloud.  
 
@@ -48,17 +58,11 @@ We are releasing extensive enhancements to the attack path analysis capabilities
   - **Export capabilities** – export capabilities of attack paths to CSV, LA workspace and Event Hubs.
   - **Email notifications** – you can receive email notifications of new attack paths.
 
-### Enhanced security recommendations prioritization in Defender for Cloud
-
-Announcement date: November 20, 2023
-
-Enhanced security recommendation prioritization is released, prioritizing security recommendations according to the risk level they pose, considering both the exploitability and potential business impact of each underlying security issue.
-
- The advanced risk assessment engine takes into account essential contextual factors, such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations. This comprehensive approach ensures that you can focus on tackling the most pressing security concerns first, making your security efforts more efficient and effective.
+Learn more about attack path analysis.
 
 ### Changes to Attack Path's Azure Resource Graph table scheme
 
-Announcement date: November 20, 2023
+November 20, 2023
 
 The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and additional properties are added. Read more about the [updated Azure Resource Graph table scheme]().
 
