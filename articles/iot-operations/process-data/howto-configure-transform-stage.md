@@ -44,7 +44,7 @@ The transform stage JSON configuration defines the details of the stage. To auth
 | Description | A user-friendly description of what the transform stage does.  | No | `Rename Tags` |
 | Query | The transformation [jq expression](concept-jq-expression.md).  | Yes | `.payload.values |= (map({(.tag): (.numVal // .boolVal)}) | add)` |
 
-### Sample configuration
+## Sample configuration
 
 The following transformation example converts the array of tags in the input message into an object that contains all the tags and their values:
 
