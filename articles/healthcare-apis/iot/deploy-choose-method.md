@@ -24,7 +24,7 @@ In this quickstart, learn about these deployment methods:
 
 ## Deployment overview
 
-The following diagram outlines the basic steps of the MedTech service deployment. These steps may help you analyze the deployment options and determine which deployment method is best for you.
+The following diagram outlines the basic steps of the MedTech service deployment. These steps might help you analyze the deployment options and determine which deployment method is best for you.
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
@@ -58,7 +58,7 @@ To learn more about deploying the MedTech service using a Bicep file and Azure P
 
 ## Azure portal
 
-Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
+Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that might be useful for customizing and troubleshooting your MedTech service.
 
 To learn more about deploying the MedTech service using the Azure portal, see [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md).
 
