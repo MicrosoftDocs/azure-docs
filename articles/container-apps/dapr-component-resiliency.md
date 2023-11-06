@@ -35,7 +35,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 - [Timeouts](#timeouts)
 - [Retries (HTTP)](#retries)
 
-## Configuring resiliency policies
+## Configure resiliency policies
 
 You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
@@ -89,7 +89,7 @@ az login
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
+az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which may look similar to the following example:
@@ -197,7 +197,7 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the Dapr component). | `15` |
+| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the Dapr component. | `15` |
 
 ### Retries
 

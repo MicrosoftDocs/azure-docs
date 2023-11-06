@@ -36,7 +36,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 - [Circuit breakers](#circuit-breakers)
 - [Connection pools (HTTP and TCP)](#connection-pools)
 
-## Configuring resiliency policies
+## Configure resiliency policies
 
 Whether you configure resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
 
@@ -323,8 +323,8 @@ matches: {
 | `retriable-status-codes` | HTTP status codes that should trigger retries. Required if you'd like to retry on any matching status codes. |
 | `5xx` | Retry if server responds with any 5xx response codes. |
 | `reset` | Retry if the server doesn't respond. |
-| `connect-failure` | Retry if request failed due to a connection failure with the container app. |
-| `retriable-4xx` | Retry if container app responds with a retriable 4xx response code, like `409`. |
+| `connect-failure` | Retry if a request failed due to a faulty connection with the container app. |
+| `retriable-4xx` | Retry if the container app responds with a 400-series response code, like `409`. |
 
 #### tcpRetryPolicy
 
@@ -343,7 +343,7 @@ properties: {
 
 ### Circuit breakers
 
-Circuit breaker policies determine whether some number of container app hosts (replicas) are unhealthy and removing them from load balancing.  
+Circuit breaker policies specify whether a container app replica is temporarily removed from the load balancing pool, based on triggers like the number of consecutive errors.  
 
 ```bicep
 properties: {
@@ -357,15 +357,15 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `consecutiveErrors` | Yes | Consecutive number of errors before an container app replica is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Yes | Interval between evaluation to eject or restore an container app replica. | `10` |
+| `consecutiveErrors` | Yes | Consecutive number of errors before a container app replica is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Yes | The amount of time given to determine if a replica is removed or restored from the load balance pool. | `10` |
 | `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Will eject at least one host regardless of the value. | `50` |
 
 ### Connection pools
 
-Azure Container App's connection pooling enhances the efficiency and performance of service communication. It maintains a pool of reusable, established connections to container apps, reducing the overhead of creating and tearing down connections for each request.
+Azure Container App's connection pooling maintains a pool of established and reusable connections to container apps. This connection pool reduces the overhead of creating and tearing down individual connections for each request.
 
-Connection pools allow you to specify the maximum number of requests or connections that can be established and maintained to an service. This setting limits the total number of concurrent connections that can be maintained for that specific service. When this limit is reached, new connections won't be established to that service until existing connections are released or closed, preventing resource exhaustion and ensuring that connections are managed efficiently.
+Connection pools allow you to specify the maximum number of requests or connections allowed for a service. These limits control the total number of concurrent connections for each service. When this limit is reached, new connections aren't established to that service until existing connections are released or closed. This process of managing connections prevents resources from being overwhelmed by requests and maintains efficient connection management.
 
 #### httpConnectionPool
 
@@ -380,8 +380,8 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `http1MaxPendingRequests` | Yes | Used for http1 requests. Maximum number of open connections to an container app. | `1024` |
-| `http2MaxRequests` | Yes | Used for http2 requests. Maximum number of concurrent requests to an container app. | `1024` |
+| `http1MaxPendingRequests` | Yes | Used for `http1` requests. Maximum number of open connections to a container app. | `1024` |
+| `http2MaxRequests` | Yes | Used for `http2` requests. Maximum number of concurrent requests to a container app. | `1024` |
 
 #### tcpConnectionPool
 
@@ -401,36 +401,41 @@ properties: {
 
 You can perform resiliency observability via your container app's metrics and system logs. 
 
-### Resiliency creation via system logs
+### Resiliency logs
 
-From the left side menu of your container app, select **Monitoring** > **Logs**.
+From the *Monitoring* section of your container app, select **Logs**.
 
-Run a query like the following to verify resiliency.
+In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to query for all actions logged within the past hour, write a query like the following:
 
-   ```
-   ContainerAppsSystemLogs
-   | where RevisionName_s == $revision_name
-   | where Log_s contains " "
-   | project Log_s
-   ```
+```
+ContainerAppsSystemLogs_CL
+| where TimeGenerated > ago(1h)
+```
 
-Need image
+Click **Run** to run the query and view results.
+
+:::image type="content" source="media/service-discovery-resiliency/resiliency-logs-pane.png" alt-text="Screenshot demonstrating how to query for resiliency in your container app system logs.":::
+
+The corresponding message:
+
+Container App 'testapp-2' has applied resiliency '{"target":"testapp-2","httpRetryPolicy":{"maxRetries":3,"retryBackOff":{"initialDelayInMilliseconds":100,"maxIntervalInMilliseconds":1000},"matches":{"errors":["5xx"]}}}'
 
 ### Resiliency metrics
 
-From the left side menu of your container app, select **Monitoring** > **Metrics**. 
+From the *Monitoring* menu of your container app, select **Metrics**. 
 
-Need image
+:::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
-In the metrics pane:
+In the Metrics pane:
 
-- Set the scope filter (for example, the container app named `test-app`).
+- Set the scope filter to the name of your container app.
 - Select the **Standard metrics** metrics namespace.
 - Select the metrics you'd like to filter from the drop-down menu.
+- Select how you'd like the data aggregated in the results (by average, by maximum, etc).
 
 Need image
+:::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
-Review your container app resiliency metrics.
 
 ## Related content
 
