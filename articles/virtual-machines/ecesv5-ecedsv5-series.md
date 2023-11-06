@@ -23,12 +23,6 @@ Featuring [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/
 
 These VMs have native support for [confidential disk encryption](disk-encryption-overview.md) meaning organizations can encrypt their VM disks at boot with either a customer-managed key (CMK), or platform-managed key (PMK). This feature is fully integrated with [Azure KeyVault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md) with validation for FIPS 140-2 Level 3. For organizations wanting further separation of duties for flexibility over key management, attestation, and disk encryption, these VMs also provide this experience.
 
-## ECesv5-series
-
-The ECesv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM. If you require a local disk, please consider ECedsv5-series. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
-
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
@@ -47,6 +41,12 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
 - [Ephemeral OS Disks](ephemeral-os-disks.md) - ECedsv5 only
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
+
+## ECesv5-series
+
+The ECesv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM. If you require a local disk, please consider ECedsv5-series. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
+
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### ECesv5-series specifications
 
@@ -69,9 +69,6 @@ The ECedsv5 VMs offer even higher memory to vCPU ratio and an all new VM size wi
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator]
 
-> [!NOTE]
-> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
-
 ### ECedsv5-series specifications
 
 | Size | vCPU | RAM (GiB) | Temp storage (SSD) GiB | Max data disks | Max temp disk throughput IOPS/MBps | Max uncached disk throughput IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max Network Bandwidth (Mbps) |
@@ -92,4 +89,5 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
+> [Create a confidential VM in Azure Portal](../confidential-computing/quick-create-confidential-vm-portal-amd.md)
+> [Create a confidential VM in Azure CLI](../confidential-computing/quick-create-confidential-vm-azure-cli-amd.md)
