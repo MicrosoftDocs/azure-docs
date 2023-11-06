@@ -51,7 +51,7 @@ The following chart identifies the scoring property returned on each match, algo
 | full-text search | `@search.score` | BM25 algorithm | No upper limit. |
 | vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct. | 
 | hybrid search | `@search.score` | RRF algorithm | Upper limit is bounded by the number of queries being fused, with each query contributing a maximum of approximately 1 to the RRF score. For example, merging three queries would produce higher RRF scores than if only two search results are merged. |
-| semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
+| semantic ranking | `@search.rerankerScore` | Semantic ranking | 0.00 - 4.00 |
 
 Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
 

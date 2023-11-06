@@ -8,19 +8,18 @@ author: shmed
 ms.author: ramero
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 11/06/2023
 ---
 
 # Add scoring profiles to boost search scores
 
-In this article, you'll learn how to define a scoring profile. A scoring profile is critera for boosting a search score based on parameters that you provide. For example, you might want matches found in a "tags" field to be more relevant than the same match found in "descriptions". Criteria can be a weighted field (such as the "tags" example) or a function. Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
+In this article, you'll learn how to define a scoring profile. A scoring profile is critera for boosting a search score based on parameters that you provide. For example, you might want matches found in a "tags" field to be more relevant than the same match found in "descriptions". Criteria can be a weighted field (such as the "tags" example) or a function. 
+
+Scoring profiles are defined in a search index and invoked on non-vector fields in query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
 > [!NOTE]
 > Unfamiliar with relevance concepts? The following [video segment on YouTube](https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970) fast-forwards to how scoring profiles work in Azure AI Search. You can also visit [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md) for more background.
 >
-
-<!-- > > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
-> -->
 
 ## Scoring profile definition
 
