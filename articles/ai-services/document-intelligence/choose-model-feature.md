@@ -42,7 +42,7 @@ The following decision charts highlight the features of each **Document Intellig
 | -----------------|-----------|--------|-------------------|
 |**A generic document**. | A contract or letter. |You want to primarily extract written or printed text lines, words, locations, and detected languages.|[**Read OCR model**](concept-read.md)|
 |**A document that includes structural information**. |A report or study.| In addition to written or printed text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.| [**Layout analysis model**](concept-layout.md)
-|**A structured or semi-structured document that includes content formatted as fields and values**.|A form or document that is a standardized format commonly used in your business or industry like a credit application or survey. | You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without having to train a custom model**.| [**General document  model**](concept-general-document.md)|
+|**A structured or semi-structured document that includes content formatted as fields (keys) and values**.|A form or document that is a standardized format commonly used in your business or industry like a credit application or survey. | You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without having to train a custom model**.| [**Layout analysis model with the optional query string parameter `features=keyValuePairs` enabled **](concept-layout.md)|
 
 ## Pretrained scenario-specific models
 
@@ -57,7 +57,6 @@ The following decision charts highlight the features of each **Document Intellig
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
  |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
 |**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, last name, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|
-|**Business card** or calling card.|You want to extract key information such as first name, last name, company name, email address, and phone number.|[**Business card model**](concept-business-card.md)|
 |**Mixed-type document(s)** with structured, semi-structured, and/or unstructured elements. | You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| [**Custom model**](concept-custom.md)|
 
 >[!Tip]
