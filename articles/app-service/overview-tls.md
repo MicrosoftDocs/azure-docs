@@ -16,7 +16,7 @@ Transport Layer Security (TLS) is a widely adopted security protocol designed to
 
 ## What TLS options are available in App Service?
 
-For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, and 1.2. In the next few months, App Service will begin supporting TLS version 1.3.  
+For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, and 1.2. [In the next few months, App Service will begin supporting TLS version 1.3](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/upcoming-tls-1-3-on-azure-app-service-for-web-apps-functions-and/ba-p/3974138).  
 
 ### Minimum TLS Version and SCM Minimum TLS Version 
 
@@ -26,10 +26,10 @@ App Service also allows you to set minimum TLS version for incoming requests to 
 
 TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 as the minimum TLS version, which is also the default limit.  
 
-To ensure backward compatibility for customers who still support legacy protocol versions and requires TLS 1.0 or 1.1 for compliance requirements, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so that these requests will not be rejected. 
+To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so the requests won't be rejected. 
 
 > [!IMPORTANT]
-> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to Azure, for example through ARM or API calls, TLS 1.0 and 1.1 will no longer be supported after September 2024. 
+> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to Azure, for example through ARM or API, it's not recommended to use TLS 1.0 or 1.1.
 >
 
 ## Next steps
