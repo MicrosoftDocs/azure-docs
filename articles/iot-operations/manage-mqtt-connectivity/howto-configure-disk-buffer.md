@@ -30,13 +30,51 @@ Understanding and configuring the **diskBackedMessageBufferSettings** feature ma
 
 Tailor the broker message buffer options by adjusting the following settings:
 
+- **Disabled**: If you don't want to use the disk-backed message buffer, don't specify the `diskBackedMessageBufferSettings` property in your Broker CRD.
+
+- **emptyDir volume**
+
+For example, to use an emptyDir volume with a capacity of one megabytes, specify the following in your Broker CRD:
+
+    ```yaml
+          diskBackedMessageBufferSettings:
+            maxSize: '1M'
+    ```
+
+2. Persistent volume (   https://kubernetes.io/docs/concepts/storage/persistent-volumes/   )
+
+       diskBackedMessageBufferSettings:
+         maxSize: '1M'
+
+         persistentVolumeClaimSpec:
+           storageClassName: 'foo'
+           accessModes:
+           - 'ReadWriteOnce'
+
+3. Ephemeral volume (   https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes   )
+
+       diskBackedMessageBufferSettings:
+         maxSize: '1M'
+
+         ephemeralVolumeClaimSpec:
+           storageClassName: 'foo'
+           accessModes:
+           - 'ReadWriteOnce'
+
+
+
+
+
+
+
+
 - **Configure the volume**: Specify a persistent volume claim template to mount a dedicated storage volume for your message buffer.
 
-  - **Select a storage class**: Define the desired StorageClass using the `storageClassName` property.
+- **Select a storage class**: Define the desired StorageClass using the `storageClassName` property.
 
-  - **Define access modes**: Determine the access modes you need for your volume. For more information, see the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
+- **Define access modes**: Determine the access modes you need for your volume. For more information, see the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
 
-  - **Manage resources**: Fine-tune your resource allocation with the `requests` and `limits` properties. Learn more about resource management [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
+- **Manage resources**: Fine-tune your resource allocation with the `requests` and `limits` properties. Learn more about resource management [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
 
 By default, the container filesystem is used when no storage class is provided. Currently, there's no way to set a limit on the amount of data that's written. Use a storage class with size limits to reduce the chance of exhausting the disk space available on the node.
 
