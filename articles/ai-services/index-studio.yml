@@ -77,7 +77,7 @@ landingContent:
           - text: Speech to speech chat
             url: ./speech-service/openai-speech.md?pivots=programming-language-python
           - text: Conversational language understanding
-            url: ./language-service/conversational-language-understanding/quickstart.md&pivots=rest-api
+            url: ./language-service/conversational-language-understanding/quickstart.md?pivots=rest-api
           - text: Document intelligence
             url: ./document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
 
