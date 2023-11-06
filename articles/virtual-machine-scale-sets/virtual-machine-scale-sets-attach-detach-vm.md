@@ -139,7 +139,7 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 3. Select the name of the virtual machine you'd like to attach to your scale set.
 4. Under **Settings** select **Availability + scaling**.
 5. Select the **Detach from the VMSS** button at the top of the page.
-6. When prompted to confirm, press the blue **Detach** button.
+6. When prompted to confirm, select the **Detach** button.
 7. Portal sends a notification when the VM has successfully detached.
 
 ### [Azure CLI](#tab/cli)
