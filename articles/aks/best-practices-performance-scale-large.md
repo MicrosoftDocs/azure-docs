@@ -49,7 +49,7 @@ You can leverage API Priority and Fairness (APF) to throttle specific clients an
 
 Kubernetes clients are the applications clients, such as operators or monitoring agents, deployed in the Kubernetes cluster that need to communicate with the kube-api server to perform read or mutate operations. It's important to optimize the behavior of these clients to minimize the load they add to the kube-api server and Kubernetes control plane.
 
-AKS doesn't expose control plane and API server metrics via Prometheus or through platform metrics. However, you can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes-troubleshoot-apiserver-etcd#troubleshooting-checklist).
+AKS doesn't expose control plane and API server metrics via Prometheus or through platform metrics. However, you can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd).
 
 LIST requests can be expensive. When working with lists that might have more than a few thousand small objects or more than a few hundred large objects, you should consider the following guidelines:
 
