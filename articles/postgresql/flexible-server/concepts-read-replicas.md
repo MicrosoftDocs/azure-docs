@@ -156,7 +156,7 @@ By opting for this, the replica becomes an independent server and is removed fro
 
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion to independent server operation has been successfully completed.
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Promote to primary server operation":::
+:::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Promote to independent server and remove from replication operation":::
 
 > [!IMPORTANT]
 > The **Promote to primary server** action is currently in preview. The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
@@ -261,14 +261,14 @@ To keep an eye on the progress and status of the replication and promote operati
 
 Here are the possible values:
 
-| **Replication state**        | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
-| <b> Waiting for reconfigure	 |   Awaiting start of the replica-primary link. It may remain longer if the replica or its region is unavailable, e.g., due to a disaster.  | 1                 | N/A                             |
-| <b> Provisioning             | The read replica is being provisioned and replication between the two servers hasn't started. Until provisioning completes, you can't connect to the read replica. | N/A               | 1                               |
-| <b> Updating		               | Server configuration is under preparation following a triggered action like promotion or read replica creation.| 2 | 2                               |
-| <b> Catchup	                 |    WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced.	 | 3 | 3                               |
-| <b> Active	                  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
-| <b> Broken	                  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
+| **Replication state** | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
+| <b> Reconfiguring	            |   Awaiting start of the replica-primary link. It may remain longer if the replica or its region is unavailable, e.g., due to a disaster.  | 1                 | N/A                             |
+| <b> Provisioning      | The read replica is being provisioned and replication between the two servers hasn't started. Until provisioning completes, you can't connect to the read replica. | N/A               | 1                               |
+| <b> Updating		        | Server configuration is under preparation following a triggered action like promotion or read replica creation.| 2 | 2                               |
+| <b> Catchup	          |    WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced.	 | 3 | 3                               |
+| <b> Active	           | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
+| <b> Broken	           | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
 
 
 ## Regional Failures and Recovery
@@ -294,7 +294,7 @@ In the event of a prolonged outage with Azure Database for PostgreSQL - Flexible
 
 **Promote to primary server (preview)**
 
-Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
+Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](#monitor-replication) column in the Azure portal will display "Reconfiguring". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
 
 **Promote to independent server and remove from replication**
 
