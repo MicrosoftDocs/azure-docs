@@ -22,7 +22,7 @@ sections:
       - question: |
           How can customers access Azure AI Studio? 
         answer: |
-          Customers can explore Azure AI Studio unauthenticated - including its cutting-edge AI capabilities. When they are ready to begin using templates, tools, and the robust model catalog to stitch together their own AI solutions, they will be prompted to register or login to their Azure account. During preview, there’s no additional charge for using Azure AI Studio. When deploying solutions, Azure AI services, Azure Machine Learning, and other Azure resources used inside of Azure AI Studio will be billed at their existing rates. Pricing is subject to change when Azure AI Studio is generally available.
+          Customers can explore Azure AI Studio unauthenticated - including its cutting-edge AI capabilities. When they're ready to begin using templates, tools, and the robust model catalog to stitch together their own AI solutions, they'll be prompted to register or sign in to their Azure account. During preview, there's no extra charge for using Azure AI Studio. When deploying solutions, Azure AI services, Azure Machine Learning, and other Azure resources used inside of Azure AI Studio will be billed at their existing rates. Pricing is subject to change when Azure AI Studio is generally available.
       - question: |
           What regions is Azure AI Studio available in?
         answer: | 
@@ -38,7 +38,7 @@ sections:
       - question: |
           How is the playground in Azure AI Studio different from the Azure OpenAI Studio playground? 
         answer: |
-          The playground experience in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
+          The playground experiences in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
       - question: |
           What is the plan for plugin support? 
         answer: |
@@ -58,7 +58,7 @@ sections:
       - question: |
           What is the billing model for Model-as-a-Service (MaaS)? 
         answer: |
-          Azure AI Studio offers paygo inference APIs and hosted finetuning for Llama2. During preview, there is no extra charge for Azure AI Studio outside of typical AI services and other Azure resource charges.
+          Azure AI Studio offers paygo inference APIs and hosted fine-tuning for Llama2. During preview, there's no extra charge for Azure AI Studio outside of typical AI services and other Azure resource charges.
       - question: |
           Can all models be secured with content filtering? 
         answer: |
