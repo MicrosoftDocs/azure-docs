@@ -58,7 +58,7 @@ conceptualContent:
               text: Deploy VMs effectively
             - url: ./improve-storage-accounts.md
               itemType: get-started
-              text: Improve storage acocunts
+              text: Improve storage accounts
             - url: ./work-smarter-edge
               itemType: get-started
               text: Work smarter with hybrid infrastructure
