@@ -8,17 +8,17 @@ ms.author: eur
 
 ### Upcoming plans for Linux and Android users:
 
-* With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This will streamline usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
+* With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
 
 ### Speech SDK 1.33.0: October 2023 release
 
 #### Breaking change notice
-* New NuGet package added for Microsoft Audio Stack (MAS) is required to include in the applications which are using MAS in their package configuration files.
+* The new NuGet package added for Microsoft Audio Stack (MAS) is now required to be included by applications that are using MAS in their package configuration files.
 
 #### New features
-* Added new NuGet package Microsoft.CognitiveServices.Speech.Extension.MAS.nupkg which provides improved echo cancellation performance when using Microsoft Audio Stack
-* Pronunciation Assessment: supported prosody and content evaluation, which could assess the spoken speech in terms of prosody, vocabulary, grammar as well as topic.
+* Added the new NuGet package Microsoft.CognitiveServices.Speech.Extension.MAS.nupkg, which provides improved echo cancellation performance when using Microsoft Audio Stack
+* Pronunciation Assessment: added support for prosody and content evaluation, which can assess the spoken speech in terms of prosody, vocabulary, grammar as well as topic.
 
 #### Bug fixes
 * Fixed keyword recognition result offsets so that they correctly match the input audio stream since the beginning. The fix applies to both stand-alone keyword recognition and keyword-triggered speech recognition.
@@ -64,7 +64,7 @@ ms.author: eur
 
 #### Breaking changes
 
-* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, there are no changes to the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
+* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, this does not change the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
 
 - For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to differentiate multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.
 
