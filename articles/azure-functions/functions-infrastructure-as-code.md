@@ -1646,13 +1646,13 @@ The following site settings are required on the `siteConfig` property:
 ### [Windows](#tab/windows)
 
 + [`alwaysOn`](functions-app-settings.md#alwayson)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 
 ### [Linux](#tab/linux)
 
 + [`alwaysOn`](functions-app-settings.md#alwayson)
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 
 ---  
 
@@ -1660,12 +1660,12 @@ The following site settings are required on the `siteConfig` property:
 :::zone pivot="consumption-plan,premium-plan"  
 ### [Windows](#tab/windows)
 
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 
 ### [Linux](#tab/linux)
 
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 
 ---  
 
@@ -1674,7 +1674,7 @@ The following site settings are required on the `siteConfig` property:
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
 ::: zone-end  
-:::zone pivot="container-apps,azure-arc"  
+:::zone pivot="azure-arc"  
 + [`alwaysOn`](functions-app-settings.md#alwayson)
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
