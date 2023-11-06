@@ -45,8 +45,8 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
   * Backup settings
     * Retention period
     * Redundancy Options
-5. Under **Settings**, select **Networking**
-  * Review the network settings
+5. Under **Settings**, select **Networking**.
+6. Review the network settings.
 :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Review features enabled":::
 
 ## Create a read replica
@@ -191,7 +191,9 @@ You can also delete the read replica from the **Replication** window by followin
 2. On the server menu, under **Settings**, select **Replication**.
 3. Select the read replica to delete and then select the ellipses. Select **Delete**.
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Select the replica to delete.":::
+
 4. Acknowledge **Delete** operation.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica-confirm.png" alt-text="Confirm to delete the replica.":::
 
 ## Delete a primary server
