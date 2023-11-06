@@ -4,16 +4,14 @@ description: Learn about integrating ServiceNow with Microsoft Defender for Clou
 author: dcurwin
 ms.author: justinha
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/06/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
 
-ServiceNow is a cloud-based workflow automation platform. It helps enterprises streamline and automate routine work tasks to operate more efficiently. 
+ServiceNow is a cloud-based workflow automation and enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. ServiceNow helps to improve operational efficiencies by streamlining and automating routine work tasks and delivers resilient services that help increase your productivity.  
 
-ServiceNow IT Service Management (ITSM) is a cloud-based, enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. It delivers resilient services that help increase your productivity.  
-
-ServiceNow is now integrated with Microsoft Defender for Cloud so organizations can easily create and view ServiceNow tickets and linked recommendations.   
+ServiceNow is now integrated with Microsoft Defender for Cloud that will enable customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that impact your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.   
 
 ## Common use cases and scenarios
 
@@ -28,9 +26,8 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 | Prerequisite | Details |
 |--------------|---------|
 | Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the SCOM ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
-| Roles  | To create an integration:<br>- Security Admin<br>- Contributor<br>- Owner<br>To create an assignment:<br> |
+| Roles  | To create an integration:<br>- Security Admin<br>- Contributor<br>- Owner<br><br>To create an assignment:<br>- The user should have admin permissions to ServiceNow |
 | Cloud  | &#x2705; Azure <br> &#10060; Azure Government, Azure China 21Vianet, air-gapped clouds |
-
 
 ## Create an application registry in ServiceNOW
 
