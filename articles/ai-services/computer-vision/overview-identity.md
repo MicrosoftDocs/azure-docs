@@ -46,7 +46,7 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details, see the [tutorial](tbd). TBD add link to the quickstart too. It's the same thing kind of.
+**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details on verification with liveness, see the [liveness tutorial](./Tutorials/liveness.md). For identity verification without liveness, follow the [quickstart](./quickstarts-sdk/identity-client-library.md).
 
 **Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Verify with liveness](use-case-verify-with-liveness.md)
 
@@ -74,19 +74,19 @@ You can try out Face detection quickly and easily in your browser using Vision S
 
 [!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
 
+The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
 
-should have links to all the liveness docs TBD:
+Our liveness detection service meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
 
-concept
-- [Face liveness concepts](concept-liveness.md)
 Tutorial
 - [Face liveness Tutorial](Tutorials/liveness.md)
-how-to
-- [Detect liveness](how-to/detect-liveness.md)
+Concepts
+- [Face liveness concepts](concept-liveness.md)
+- [Abuse monitoring](concept-identity-abuse-monitoring.md)
 
-[Face liveness SDK reference docs](tbd)
-
-
+Face liveness SDK reference docs:
+- (Java (Android))[https://aka.ms/liveness-sdk-java]
+- (Swift (iOS))[https://aka.ms/liveness-sdk-ios]
 
 ## Face recognition
 

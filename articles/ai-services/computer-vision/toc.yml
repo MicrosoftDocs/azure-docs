@@ -363,9 +363,9 @@ items:
     - name: Client-side
       items:
       - name: Java (Android)
-        href: TBD
+        href: https://aka.ms/liveness-sdk-java
       - name: Swift (iOS)
-        href: TBD
+        href: https://aka.ms/liveness-sdk-ios
 - name: Spatial Analysis
   items:
   - name: Spatial Analysis overview

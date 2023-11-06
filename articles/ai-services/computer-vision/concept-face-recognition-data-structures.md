@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Face recognition data structures
 
-This article explains tbd
+This article explains the data structures used in the Face service for face recognition operations. These data structures hold data on faces and persons.
 
 You can try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]

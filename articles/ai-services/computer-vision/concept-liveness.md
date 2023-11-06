@@ -1,7 +1,7 @@
 ---
 title: Face liveness detection - Azure AI Vision
 titleSuffix: Azure AI services
-description: Learn concepts related to the tbd
+description: Learn concepts related to the Face liveness detection feature in Azure AI Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -24,16 +24,11 @@ Azure AI Vision supports liveness detection in Switch/Obj-C for iOS development 
 - **Security with liveness anti-spoofing**: Biometric data is in secure Azure storage, so the developer does not have to worry about building secure storage or preventing data breaches. No images are saved. We're also introducing passive liveness detection in the Vision SDK to help developers distinguish between real people and spoofs, to prevent counterfeiters who use masks, photos, and videos from getting around the verification process. A liveness score is returned as an attribute of a face that is identified, so the developer can easily write logic to both check for face liveness and verify the user.
 - **Responsible AI**: To prevent face matching without the user's awareness, the SDK has a technical control to make sure the person is looking at the camera before any image is sent to the service for recognition.
 
-
 ## Passive liveness detection
 
-Passive mode is the default option and is suitable for most scenarios with no additional action needed from the user. There are two methods used in passive liveness detection:
-TBD don't expose the submodes
-- **Static image model**: The model analyzes the background/periphery of the input image to check that it is not fixed. This is to prevent spoofing attacks using a printed photo.
-- **Passive flashing light model**: The SDK changes the color of the user's device and analyzes how the lighting changes are reflected on their face.
+Passive liveness detection is suitable for most scenarios with no additional action needed from the user. The model analyzes the background/periphery of the input image to check that it is not fixed. Also, the SDK can change the color of the user's device screen and analyze how the lighting changes are reflected on their face.
 
-Requires normal indoor lighting and high screen brightness for optimal performance.​
-
+Passive liveness detection requires normal indoor lighting and high screen brightness for optimal performance.​
 
 ## Accessibility
 
@@ -41,23 +36,8 @@ tbd
 
 ## Abuse monitoring
 
+See the [Abuse monitoring guide](./concept-identity-abuse-monitoring.md) for information on how the Face service detects and responds to liveness spoofing.
 
-
-## Examples
-
-The following example demonstrates the JSON response returned by tbd
-
-
-```json
-tbd
-```
-
-
-## Use the API
-
-The face detection feature is part of the [Analyze Image 3.2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Faces` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"faces"` section.
-
-* [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
 
 ## Next steps
 

@@ -22,7 +22,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
 
-TBD We have iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
+Our liveness detection service meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
 
 ## September 2023
 

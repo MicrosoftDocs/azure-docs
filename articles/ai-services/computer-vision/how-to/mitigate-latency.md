@@ -60,7 +60,7 @@ The quality of the input images affects both the accuracy and the latency of the
 
 To achieve the optimal balance between accuracy and speed, follow these tips to optimize your input data. 
 - For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
-- For liveness detection, see <tbd>. 
+- For liveness detection, see tbd. 
 
 #### Other file size tips
 
@@ -92,7 +92,7 @@ The errors `429` and `503` may occur on your Face API calls for various reasons.
  
 |HTTP error code  | Description |Recommendation  |
 |---------|---------|---------|
-|  `429`   |   Throttling    |    You may encounter a rate limit with concurrent calls. You should decrease the frequency of calls and retry with exponential backoff. Avoid immediate retries and avoid re-sending numerous requests simultaneously. </br></br>If you want to increase the limit, please follow <tbd link to quota doc section> to request a higher rate limit.  |
+|  `429`   |   Throttling    |    You may encounter a rate limit with concurrent calls. You should decrease the frequency of calls and retry with exponential backoff. Avoid immediate retries and avoid re-sending numerous requests simultaneously. </br></br>If you want to increase the limit, see the [Request an increase](../identity-quotas-limits.md#how-to-request-an-increase-to-the-default-limits) section of the quotas guide.  |
 | `503` |   Service unavailable    |   The service may be busy and unable to respond to your request immediately. You should adopt a back-off strategy similar to the one for error `429`.   |
 
 ## Ensure reliability and support 
