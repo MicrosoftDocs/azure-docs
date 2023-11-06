@@ -128,13 +128,13 @@ Your application can authenticate to MQ using any of the [supported authenticati
 1. Create a Kubernetes service account:
 
     ```bash
-    kubectl create serviceaccount mqtt-client-token
+    kubectl create serviceaccount mqtt-client
     ```
 
-1. Ensure that the service account `mqtt-client-token` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `mqtt-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```bash
-    kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
+    kubectl annotate serviceaccount mqtt-client aio-mq-broker-auth/group=dapr-workload
     ```
 
 1. Create a ConfigMap containing the CA certificate chain used to valid the MQTT broker:
@@ -264,7 +264,7 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-port: "6001"      # Required for
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
-      serviceAccountName: mqtt-client-token
+      serviceAccountName: mqtt-client
 
       volumes:
         - name: dapr-unix-domain-socket
