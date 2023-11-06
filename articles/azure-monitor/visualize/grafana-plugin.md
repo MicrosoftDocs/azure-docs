@@ -91,11 +91,11 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
 
 Azure Monitor contains out-of-the-box dashboards to use with Azure Managed Grafana and the Azure Monitor plugin.
 
-:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards.":::
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" lightbox="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards.":::
  
 Azure Monitor also supports out-of-the-box dashboards for seamless integration with Azure Monitor managed service for Prometheus. These dashboards are automatically deployed to Azure Managed Grafana when linked to Azure Monitor managed service for Prometheus.
 
-:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards for Azure Monitor managed service for Prometheus.":::
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" lightbox="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards for Azure Monitor managed service for Prometheus.":::
 ## Build a Grafana dashboard
 
 1. Go to the Grafana home page and select **New Dashboard**.
