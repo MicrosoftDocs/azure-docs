@@ -10,7 +10,7 @@ items:
     - name: What's new?
       href: whats-new.md
     - name: FAQ
-      href: faq.yml
+      href: overview.md#frequently-asked-questions
 - name: Getting started
   items:
   - name: Get started with Azure Monitor
@@ -524,7 +524,7 @@ items:
       - name: Overview
         href: containers/container-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#container-insights
+        href: containers/container-insights-overview.md#frequently-asked-questions
       - name: Enable
         displayName: container insights
         items:
@@ -716,7 +716,7 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect text logs
+      - name: Collect logs from text or JSON files 
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
@@ -915,7 +915,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#prometheus
+        href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
       - name: Azure Monitor workspace
         items: 
         - name: Overview
