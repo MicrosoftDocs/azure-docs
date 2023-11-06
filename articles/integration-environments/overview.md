@@ -80,6 +80,20 @@ When you're done, your stage and specified properties are mapped to the selected
 
 When your workflows run, they populate the properties that you specified.
 
+## Limitations and known issues
+
+- Business process tracking and deployment is current available only in the Azure portal. No capability currently exists to export and import tracking profiles.
+
+- Stateless workflows in a Standard logic app resource currently aren't supported for business process tracking.
+
+  If you have business scenarios or use cases that require stateless workflows, use the product feedback link to share these scenarios and use cases. 
+
+- This preview release is currently optimized for speed.
+
+  If you have feedback about workload performance, use the product feedback link to share your input and results from representative loads to help improve this aspect.
+
+- This preview release currently doesn't include application monitoring.
+
 ## Next steps
 
 [Create an integration environment](create-integration-environment.md)

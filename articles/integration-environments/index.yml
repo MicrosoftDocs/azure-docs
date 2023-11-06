@@ -22,18 +22,6 @@ landingContent:
         links:
           - text: What is Azure Integration Environments?
             url: overview.md
-      - linkListType: concept
-        links:
-          - text: About business process tracking
-            url: business-process-tracking.md
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create integration environments with resources
-            url: quickstart-create-integration-environment.md
-          - text: Create and map business processes to workflows
-            url: quickstart-create-map-business-process-workflow.md
   - title: How-to
     linkLists:
       - linkListType: how-to-guide

@@ -78,7 +78,7 @@ After you create your business process, add stages and define key business data 
    | **Description** | No | <*stage-description*> | Purpose for this stage |
    | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br><br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br><br>= **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, the designer didn't find any Standard logic apps in your application group. |
    | **Add property** | No | None | Add the properties and values for the key business data that your organization wants to track: <br><br>- **Property**: Name for the property, for example, **CustomerName**, **CustomerPhone**, and **CustomerEmail** and **SiteID**. <br><br>**Note**: The platform automatically captures the transaction timestamp, so you don't have to add this value for tracking. <br><br>- **Type**: Property value's data type, which is either a **String** or **Integer** |
-   | **Business identifier** | Yes | <*business-ID*>, read-only | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. In this example, the **TicketNumber** identifier is prepopulated from when you defined the parent business process. |
+   | **Business identifier** | Yes | <*business-ID*>, read-only | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier that exists across all your business stages. In this example, the **TicketNumber** identifier is populated from when you defined the parent business process. |
 
 1. When you're done, select **Add**.
 
@@ -90,7 +90,7 @@ After you create your business process, add stages and define key business data 
 
 1. Repeat the steps to add a stage as necessary.
 
-1. When you're done, on the toolbar, select **Save**.
+1. When you're done, on the process designer toolbar, select **Save**.
 
 ## Next steps
 
