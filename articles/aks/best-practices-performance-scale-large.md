@@ -85,7 +85,7 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
 * AKS supports up to a 1,000 node scale in an AKS cluster by default. While AKS doesn't prevent you from scaling further, doing so might result in degraded performance. If you want to scale beyond 1,000 nodes, you can request a limit increase. For more information, see [Best practices for creating and running AKS clusters at scale][run-aks-at-scale].
-* [Azure Network Policy Manager (Azure NPM)][azure-npm] only supports up to 250 nodes.
+* [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
 ## Networking
@@ -96,7 +96,7 @@ As you scale your AKS clusters to larger scale points, keep the following networ
 * Use Azure CNI Overlay to scale up to 200,000 pods and 5,000 nodes per cluster. For more information, see [Configure Azure CNI Overlay networking in AKS][azure-cni-overlay].
 * If your application needs direct pod-to-pod communication across clusters, use Azure CNI with dynamic IP allocation and scale up to 50,000 application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking for dynamic IP allocation in AKS][azure-cni-dynamic-ip].
 * When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or service below a 750 node scale for optimal scaling performance and load balancer elasticity.
-* Azure NPM only supports up to 250 nodes. If you want to enforce network policies for larger clusters, consider using [Azure CNI powered by Cilium](./azure-cni-powered-by-cilium.md), which combines the robust control plane of Azure CNI with the Cilium data plane to provide high performance networking and security.
+* Azure npm only supports up to 250 nodes. If you want to enforce network policies for larger clusters, consider using [Azure CNI powered by Cilium](./azure-cni-powered-by-cilium.md), which combines the robust control plane of Azure CNI with the Cilium data plane to provide high performance networking and security.
 
 ## Node pool scaling
 

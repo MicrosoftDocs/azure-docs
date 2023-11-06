@@ -177,22 +177,22 @@ Be mindful of the fact that watching too many mutable resources or making too ma
 
 To avoid potential issues and ensure the stability of the Kubernetes control plane, you can use the following strategies:
 
-**1. Resource quotas**
+**Resource quotas**
 
 Implement resource quotas to limit the number of resources that can be listed or watched by a particular user or namespace to prevent excessive calls.
 
-**2. API Priority and Fairness**
+**API Priority and Fairness**
 
 Kubernetes introduced the concept of API Priority and Fairness (APF) to prioritize and manage API requests. You can use APF in Kubernetes to protect the cluster's API server and reduce the number of `HTTP 429 Too Many Requests` responses seen by client applications.
 
 | Custom resource | Key features |
 | -------------------- | ------------ |
 | PriorityLevelConfigurations | • Define different priority levels for API requests.<br/> • Specifies a unique name and assigns an integer value representing the priority level. Higher priority levels have lower integer values, indicating they're more critical.<br/> • Can use multiple to categorize requests into different priority levels based on their importance.<br/> • Allow you to specify whether requests at a particular priority level should be subject to rate limits. |
-| FlowSchemas | • Define how API requests should be routed to different priority levels based on request attributes.<br/> • Specify rules that match requests based on criteria like API groups, versions, and resources.<br/> • When a requests matches a given rule, the request is directed to the priority level specified in the associated PriorityLevelConfiguration.<br/> • Can use to set the order of evaluation when multiple FlowSchemas match a request to ensure that certain rules take precedence. |
+| FlowSchemas | • Define how API requests should be routed to different priority levels based on request attributes.<br/> • Specify rules that match requests based on criteria like API groups, versions, and resources.<br/> • When a request matches a given rule, the request is directed to the priority level specified in the associated PriorityLevelConfiguration.<br/> • Can use to set the order of evaluation when multiple FlowSchemas match a request to ensure that certain rules take precedence. |
 
 Configuring API with PriorityLevelConfigurations and FlowSchemas enables the prioritization of critical API requests over less important requests. This ensures that essential operations don't starve or experience delays because of lower priority requests.
 
-**3. Optimize labeling and selectors**
+**Optimize labeling and selectors**
 
 When using LIST operations, optimize label selectors to narrow down the scope of the resources you want to query to reduce the amount of data returned and the load on the API server.
 
