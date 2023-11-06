@@ -956,6 +956,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: azure-ai-studio-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
