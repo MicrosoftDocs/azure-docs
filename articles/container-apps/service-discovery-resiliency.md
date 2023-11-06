@@ -418,7 +418,9 @@ Click **Run** to run the query and view results.
 
 The corresponding message:
 
+```
 Container App 'testapp-2' has applied resiliency '{"target":"testapp-2","httpRetryPolicy":{"maxRetries":3,"retryBackOff":{"initialDelayInMilliseconds":100,"maxIntervalInMilliseconds":1000},"matches":{"errors":["5xx"]}}}'
+```
 
 ### Resiliency metrics
 
