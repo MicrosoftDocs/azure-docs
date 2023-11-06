@@ -24,7 +24,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
 
-Install the [mqttui tool](https://github.com/EdJoPaTo/mqttui) on the Ubuntu machine where you're running Kubernetes:
+Install the [mqttui](https://github.com/EdJoPaTo/mqttui) tool on the Ubuntu machine where you're running Kubernetes:
 
 ```bash
 wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
@@ -116,7 +116,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In `k9s` type `:` to open the command bar.
 
-1. In the command bar, type `secretproviderclass` and the press _Enter_. Then select the `aio-default-spc` resource.
+1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
 1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
 
@@ -182,6 +182,9 @@ To verify data is flowing from your assets by using the **mqttui** tool:
 1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
 
     :::image type="content" source="media/quickstart-process-telemetry/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
+
+    > [!TIP]
+    > If you see a topic name that starts with `boiler`, this is the asset that Akri discovered in the previous quickstart. You can ignore this topic for now.
 
 The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
 
@@ -362,7 +365,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Because you don't provide any conditions, the message is enriched with all the reference data. You can use ID-based joins (`KeyMatch`) and timestamp-based joins (`PastNearest` and `FutureNearest`) to filter the enriched reference data based on the provided conditions.
 
-1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**
+1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**:
 
     | Parameter     | Value       |
     | ------------- | ----------- |
@@ -406,14 +409,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Name | Type | Path |
     | ---- | ---- | ---- |
-    | Timestamp | timestamp | `.Timestamp` |
-    | AssetName | string | `.assetName` |
-    | Customer | string | `.Customer` |
-    | Batch | integer | `.Batch` |
-    | CurrentTemperature | float | `.CurrentTemperature` |
-    | LastKnownTemperature | float | `.LastKnownTemperature` |
-    | Pressure | float | `.Pressure` |
-    | IsSpare | boolean | `.IsSpare` |
+    | Timestamp | Timestamp | `.Timestamp` |
+    | AssetName | String | `.assetName` |
+    | Customer | String | `.Customer` |
+    | Batch | Integer | `.Batch` |
+    | CurrentTemperature | Float | `.CurrentTemperature` |
+    | LastKnownTemperature | Float | `.LastKnownTemperature` |
+    | Pressure | Float | `.Pressure` |
+    | IsSpare | Boolean | `.IsSpare` |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _contextualized-data-pipeline_. Select **Apply**.
 

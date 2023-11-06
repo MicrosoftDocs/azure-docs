@@ -48,8 +48,8 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 1. Create the Layered Network Management custom resource by creating a file named *level4.yaml* with the following contents:
 
     ```yaml
-    apiVersion: az-edge.com/v1
-    kind: E4in
+    apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
+    kind: Lmn
     metadata:
       name: level4
       namespace: default
@@ -109,7 +109,7 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 
 ## Provision the cluster in the adjacent isolated layer to Arc
 
-You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in the ISA-95 layer one level below. Then you Arc enable it using the Layered Network Management instance previously deployed at top level.
+You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in the ISA-95 layer one level below. Then you Arc-enable it using the Layered Network Management instance previously deployed at top level.
 
 1. On the Linux VM, install and configure K3S using the following commands:
 
@@ -118,7 +118,7 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
     ```
     For more information, see the [K3S documentation](https://docs.k3s.io/quick-start).
 
-1. Arc enable the K3S cluster using the level 4 Layered Network Management as a reverse proxy. For the reverse proxy, the following domains must point to the IP address of the level4 Layered Network Management service. For this rudimentary example setup, you achieve this through a simple localhost override. Add the following to your **/etc/hosts** file. For example, use a command like `sudo vi /etc/hosts`. Replace the example IP address (20.81.111.118) with the **EXTERNAL-IP** that you discovered in the earlier step.
+1. Arc-enable the K3S cluster using the level 4 Layered Network Management as a reverse proxy. For the reverse proxy, the following domains must point to the IP address of the level4 Layered Network Management service. For this rudimentary example setup, you achieve this through a simple localhost override. Add the following to your **/etc/hosts** file. For example, use a command like `sudo vi /etc/hosts`. Replace the example IP address (20.81.111.118) with the **EXTERNAL-IP** that you discovered in the earlier step.
 
     ```hosts
     20.81.111.118	management.azure.com
@@ -198,6 +198,8 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
       ....
     ```
 1. Your Kubernetes cluster is now Arc enabled and is listed in the resource group you provided in the `az connectedk8s connect` command. You can also validate the provisioning of this cluster through the Azure portal.
+
+This article demonstrates the capability of Layered Network Management to enable an Azure Arc connection. As a next step, try the built-in Azure Arc experiences on this cluster within the isolated network.
 
 ## Related content
 

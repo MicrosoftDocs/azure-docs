@@ -62,7 +62,7 @@ The following features are supported in Azure Device Registry:
 |---------|---------| :---------: |
 |Asset resource management via Azure API | Supported | ``✅`` |
 |Asset resource management via Azure IoT Operations Experience| Supported | ``✅`` |
-|Asset synchronization to Kubernetes cluster running Alice Springs| Supported | ``✅`` |
+|Asset synchronization to Kubernetes cluster running Azure IoT Operations| Supported | ``✅`` |
 |Asset as Azure resource (supports ARG, resource groups, tags, etc.)| Supported | ``✅`` |
 
 
@@ -76,11 +76,11 @@ When you install Azure IoT Operations, Azure IoT Akri is installed and configure
 ## Use a common data exchange standard for your edge solution
 A critical need in industrial environments is to have a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. By using a widely supported data exchange protocol, you can simplify the process to enable diverse industrial assets to exchange data with each other, with workloads running in your Kubernetes cluster, and with the cloud. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform independent service-oriented architecture that enables data exchange in industrial environments. 
 
-An industrial environment that uses the OPC UA protocol, includes the following basic OPC UA elements:
+An industrial environment that uses the OPC UA standard, includes the following basic OPC UA elements:
 - An **OPC UA server** is software based on the OPC UA specification that communicates with assets and provides core OPC UA services to those assets. 
 - An **OPC UA client**. An OPC UA client is software that interacts with an OPC UA server in a request and response network pattern. An OPC UA client connects to OPC UA servers, and submits requests for actions on data items like reads and writes.
 
-Azure IoT OPC UA Broker is a service in Azure IoT Operations that enables OPC UA servers, your edge solution, and the cloud, to exchange data based on the OPC UA protocol. When you install Azure IoT Operations, OPC UA Broker is installed with a simulated thermostat asset, so you can start to test and use the service. 
+Azure IoT OPC UA Broker is a service in Azure IoT Operations that enables OPC UA servers, your edge solution, and the cloud, to exchange data based on the OPC UA standard. When you install Azure IoT Operations, OPC UA Broker is installed with a simulated thermostat asset, so you can start to test and use the service. 
 
 ## Next step
 In this overview, you learned what assets are, what Azure IoT Operations services you use to manage them, and some common use cases for managing assets.  Here's the suggested next step to start adding assets and tags in your edge solution:

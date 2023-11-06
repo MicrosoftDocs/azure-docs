@@ -44,8 +44,6 @@ With Azure IoT Akri, you can dynamically provision devices like the following ex
 - IP cameras that you don't want to look up IP addresses for
 - OPC UA servers simulated on your host machine to test Kubernetes workloads
 
-> [!NOTE]
-> In addition to connecting proximal devices, you can also use Azure IoT Akri with Azure Programmable Connectivity MEC clusters to provision devices across multiple locations and networks.
 
 ### Compatibility with Kubernetes
 Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes primitives lets users apply their expertise creating applications or managing infrastructure. Small devices connected in an Akri-configured site can appear as Kubernetes resources, just like memory or CPUs. The Azure IoT Akri controller enables the cluster operator to start brokers, jobs or other workloads for individual connected devices or groups of devices. These Azure IoT Akri device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
@@ -73,20 +71,27 @@ This section highlights the key capabilities and supported features in Azure IoT
 ### Features supported
 The following features are supported in Azure IoT Akri (preview):
 
-| [CNCF Akri Features](https://docs.akri.sh/)                                                  | Supported |
-| -------------------------------------------------------- | :-------: |
-| Dynamic discovery of devices at the edge (supported protocols: OPC UA, ONVIF, udev)                      |     ✅     |
-| Schedule devices with minimal latency using Akri's information on node affinity on the cluster |     ✅     |
-| View Akri metrics/logs locally through Prometheus and Grafana |     ✅     |
-| Secrets/credentials management                   |     ✅     |
-| M:N device to broker ratio through configuration-level resource support |     ✅     |
-| Observability on Akri deployments through Prometheus and Grafana dashboards |     ✅     |
+| [CNCF Akri Features](https://docs.akri.sh/)                                                    | Meaning   | Symbol   |
+| ---------------------------------------------------------------------------------------------- | --------- | -------: |
+| Dynamic discovery of devices at the edge (supported protocols: OPC UA, ONVIF, udev)            | Supported |   ✅    |
+| Schedule devices with minimal latency using Akri's information on node affinity on the cluster | Supported |   ✅    |
+| View Akri metrics/logs locally through Prometheus and Grafana                                  | Supported |   ✅    |
+| Secrets/credentials management                                                                 | Supported |   ✅    |
+| M:N device to broker ratio through configuration-level resource support                        | Supported |   ✅    |
+| Observability on Akri deployments through Prometheus and Grafana dashboards                    | Supported |   ✅    |
 
 
-| Microsoft-managed Akri Features                                                  | Supported |
-| -------------------------------------------------------- | :-------: |
-| Installation through Akri Arc cluster extension     |     ✅     |
-| Deployment through the Orchestrator                        |     ✅     |
+| Azure IoT Akri features  | Meaning | Symbol | 
+|---------|---------|---------:|
+| Installation through Azure IoT Akri Arc cluster extension                                         | Supported   |   ✅     |
+| Deployment through the orchestration service                                                      | Supported   |   ✅     |
+| Onboard devices as custom resources to an edge cluster                                            | Supported   |   ✅     |
+| View Azure IoT Akri metrics and logs through Azure Monitor	                                      | Unsupported |   ❌     |
+| Azure IoT Akri configuration via cloud OT Operator Experience                                     | Unsupported |   ❌     |
+| Azure IoT Akri detects and creates assets that can be ingested into the Azure Device Registry     | Unsupported |   ❌     |
+| ISVs can build and sell custom protocol handlers for Azure IoT Operations solutions               | Unsupported |   ❌     |
+
+
 
 ## Open-Source Akri Resources
 

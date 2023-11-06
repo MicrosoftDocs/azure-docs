@@ -21,7 +21,7 @@ Azure IoT Operations:
 * Lets you manage all edge services from the cloud by using Azure Arc.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
-* Natively integrates with [Azure Event Hubs](/azure/event-hubs/azure-event-hubs-kafka-overview) and [Microsoft Fabric](/fabric/) in the cloud.
+* Natively integrates with [Azure Event Hubs](/azure/event-hubs/azure-event-hubs-kafka-overview), [Azure Event Grid's MQTT broker](/azure/event-grid/mqtt-overview), and [Microsoft Fabric](/fabric/) in the cloud.
 
 ## Architecture overview
 

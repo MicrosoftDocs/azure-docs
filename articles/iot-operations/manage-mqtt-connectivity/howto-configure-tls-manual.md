@@ -160,7 +160,7 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 [INFO] - Operator listening on [::]:1883
 [INFO] - starting operator
 [INFO] - press ctrl+c to shut down gracefully
-[INFO] - reconciling object; object.ref=AzEdgeBroker.v1.az-edge.com/e4k.default object.reason=object updated
+[INFO] - reconciling object; object.ref=AzEdgeBroker.v1.mq.iotoperations.azure.com/e4k.default object.reason=object updated
 [INFO] - Server certificate my-secret not found. Awaiting creation of secret.
 ```
 

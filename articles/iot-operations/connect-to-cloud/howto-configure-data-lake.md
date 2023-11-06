@@ -217,13 +217,13 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
 - `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
     - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
-        - `endpoint`: The URL of the Data Lake Storage account endpoint.
+        - `endpoint`: The URL of the Data Lake Storage account endpoint. Don't include any trailing slash `/`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Data Lake Storage account. It can be one of the following.
         - `accessTokenSecretName`: The name of the Kubernetes secret for using shared access token authentication for the Data Lake Storage account. This field is required if the type is `accessToken`.
         - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
             - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
     - `fabriceOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
-        - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
+        - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. Don't include any trailing slash `/`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
         - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`, don't use both. It has the following subfields:
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse.

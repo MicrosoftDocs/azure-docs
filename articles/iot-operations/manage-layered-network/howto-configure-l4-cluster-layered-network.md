@@ -1,22 +1,28 @@
 ---
-title: Configure IoT Layered Network Management Level 4 cluster
+title: Configure IoT Layered Network Management level 4 cluster
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure IoT Layered Network Management Level 4 cluster.
+description: Configure IoT Layered Network Management level 4 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 11/03/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure IoT Layered Network Management Level 4 cluster
+# Configure IoT Layered Network Management level 4 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management.
 
-Since Level 4 is internet facing, the configuration and installation can be completed using online commands.
+In the top level of your network layers usually level 4 of the ISA-95 network architecture, the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forward it to Azure Arc.
+
+Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) cluster.
+
+## Set up Kubernetes cluster in Level 4
+
+The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md) with additional steps. You need to follow both documents to complete all the steps.
 
 ## Prepare Windows 11
 
@@ -29,7 +35,10 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
     ```bash
     az extension add --name connectedk8s
+    az extension add --name k8s-extension
     ```
+
+1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
 
 ## Create the AKS Edge Essentials cluster
 
@@ -72,23 +81,25 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
     For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
 
-1. Create the AKS Edge Essentials cluster.
+1. Create the AKS Edge Essentials cluster using the steps for AKS Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md).
 
-    ```bash
-    New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
+1. Create `aks-ee-config.json` file with the `New-AksEdgeDeployment` command then make the following modifications:
+
+    In the **Network** section, make sure the following properties are added or set. Replace text in placeholder values in braces with your values. Confirm that **A.B.C** doesn't overlap with the IP range that would be assigned within network layers.
+
+    ```json
+    "Network": {
+        "NetworkPlugin": "flannel",
+        "Ip4AddressPrefix": "<A.B.C.0/24>",
+        "Ip4PrefixLength": 24,
+        "InternetDisabled": false,
+        "SkipDnsCheck": false,
     ```
+    For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json).
 
 ## Arc enable the cluster
 
-1. Make sure that **helm 3.8.0 (or later)** is installed before Arc-enable the cluster.
-
-1. Run the following command in an elevated PowerShell prompt:
-
-    ```powershell
-    Connect-AksEdgeArc -JsonConfigFilePath .\aks-ee-config.json
-    ```
-
-    For more information, see [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+Follow the steps to Arc-enable the AKE Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md).
 
 ## Deploy Layered Network Management Service to the cluster
 
@@ -96,10 +107,12 @@ The following sections describe how to deploy the Layered Network Management ser
 
 ### Install the Layered Network Management operator
 
-1. Run the following command using helm 3.8.0 or later:
+1. Run the following command. Replace the placeholders `<RESOURCE GROUP>` and `<CLUSTER NAME>` with your Arc onboarding information from an earlier step.
 
     ```bash
-    helm install lnm-level-4 oci://alicesprings.azurecr.io/az-e4in --version 0.1.2
+    az login
+
+    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-e4in-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-alpha.5 --release-train private-preview
     ```
 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.
@@ -120,8 +133,8 @@ Create the Layered Network Management custom resource.
 1. Create a `lnm-cr.yaml` file as specified:
 
     ```yaml
-    apiVersion: az-edge.com/v1
-    kind: E4in
+    apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
+    kind: Lmn
     metadata:
       name: level-4
       namespace: default
@@ -189,7 +202,7 @@ netsh interface portproxy add v4tov4 listenport=443 listenaddress=0.0.0.0 connec
 netsh interface portproxy add v4tov4 listenport=10000 listenaddress=0.0.0.0 connectport=10000 connectaddress=192.168.0.4
 ```
 
-After these commands are run successfully, traffic received on ports 443 and 10000 on the windows host is routed through to the Kubernetes service.
+After these commands are run successfully, traffic received on ports 443 and 10000 on the Windows host is routed through to the Kubernetes service. When configuring customized DNS for the child level network layer, you direct the network traffic to the IP of this Windows host and then to the Layered Network Management service running on it.
 
 ## Related content
 
