@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 
 # Azure Synapse Analytics known issues
 
-This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), as well as their resolution date or possible workaround. 
+This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), and their resolution date or possible workaround. 
 Before submitting a Support request, please review this list to see if the issue that you're experiencing is already known and being addressed.
 
 To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md). 
@@ -67,7 +67,7 @@ Sometimes you may not be able to execute the ALTER DATABASE SCOPED CREDENTIAL qu
 
 ### Queries failing with Data Exfiltration Error
 
-Synapse workspaces created from an existing dedicated SQL Pool report query failures related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
+Synapse workspaces created from an existing dedicated SQL Pool report query failure related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
 
 `Data exfiltration to '{****}' is blocked. Add destination to allowed list for data exfiltration and try again.`
 
@@ -111,7 +111,7 @@ The following are known issues with the Synapse Spark.
 
 Starting at 00:00 UTC on October 3, 2023, few Azure Synapse Analytics Apache Spark pools might experience spark job/task failures due to storage API limit threshold being exceeded.
 
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the following spark config at [pool level](spark/apache-spark-azure-create-spark-configuration#create-an-apache-spark-configuration)
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the following spark config at [pool level](spark/apache-spark-azure-create-spark-configuration.md#create-an-apache-spark-configuration)
 
 `spark.hadoop.fs.azure.io.retry.max.retries      19`
 
