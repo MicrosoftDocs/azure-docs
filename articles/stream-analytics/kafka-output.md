@@ -33,13 +33,13 @@ You can use four types of security protocols to connect to your Kafka clusters:
 |Property name   |Description   |
 |----------|-----------|
 |mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol does not support SCRAM. |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None |The serialization format (JSON, CSV, Avro, Parquet) of the incoming data stream. |
 
 
 > [!IMPORTANT]
-> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
+> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics doesn't support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
 
 ### Connect to Confluent Cloud using API key
@@ -112,12 +112,8 @@ To upload certificates, you must have "**Key Vault Administrator**"  access to y
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
-Below are some steps you can follow to upload your certificate as a secret to Azure CLI using your PowerShell:
-
 Make sure you have Azure CLI configured locally with PowerShell.
 You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
-
-Below are some steps you can follow to upload your certificate as a secret to Azure CLI using your PowerShell
 
 **Login to Azure CLI:**
 ```PowerShell
@@ -131,7 +127,7 @@ az account set --subscription <subscription name>
 
 **The following command can upload the certificate as a secret to your key vault:**
 
-The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the keyvault. Note the name, you will use it to configure your kafka output in your ASA job. `<file path to certificate>` is the path to where you have downloaded your certificate. 
+The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it shows up in the key vault. `<file path to certificate>` is the path to where the certificate your certificate is located. You can right-click and copy the path to the certificate.
 
 ```PowerShell
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to certificate>
@@ -155,7 +151,9 @@ You can configure your ASA job to use managed identity by navigating to the **Ma
 4.	Review and **save**.
 
 ### Grant the Stream Analytics job permissions to access the certificate in the key vault
-For your Azure Stream Analytics job to access the certificate in your key vault and read the secret for authentication using managed identity, the service principal you created when you configured managed identity for your Azure Stream Analytics job must have special permissions to the key vault. 
+
+For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
+Use the following steps to grant special permissions to your stream analytics job: 
 
 1. Select **Access control (IAM)**.
 
