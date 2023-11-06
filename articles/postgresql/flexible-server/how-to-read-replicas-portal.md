@@ -154,7 +154,66 @@ If no application is available to test directly, connectivity during a promotion
 select 1; \watch
 ```
 
+## Add secondary read replica
 
+Create a secondary read replica in a seperate region to modify the reader virtual endpoint and to allow for creating an independent server from the first replica.
+
+1. In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
+2. On the server sidebar, under **Settings**, select **Replication**.
+3. Select **Create replica**.
+4. Enter the Basics form with information in a third region (ex `westus` and `corp-pg-westus-001`)
+5. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
+6. Verify the firewall settings. Notice how the primary settings have been copied automatically.
+7. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to configure security or add tags.
+8. Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
+9. During the deployment, you will see the primary in `Updating` status:
+
+## Modify virtual endpoint
+
+1. In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
+2. On the server sidebar, under **Settings**, select **Replication**.
+3. Select the elipses and then select **Edit**.
+   :::image type="content" source="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png" alt-text="Edit the virtual endpoint.":::
+4. In the dialog, select the new secondary replica.
+   :::image type="content" source="./media/how-to-read-replicas-portal/select-secondary-endpoint.png" alt-text="Select the secondary replica.":::
+5. Select **Save**. The reader endpoint will now be pointed at the secondary replica and the promote operation will now be tied to this replica.
+
+## Promote replica to independent server
+
+Rather than switchover to a replica, it is also possible to break the replication of a replica such that it becomes its own standalone server.
+
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server primary server.
+2. On the server sidebar, on the server menu, under **Settings**, select **Replication**.
+3. Under **Servers**, select the **Promote** icon for the replica you would like to promote to independent.
+:::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Select promote for a replica.":::
+4. In the dialog, ensure the action is **Promote to independent server and remove from replication. This won't impact the primary server**.
+   > [!NOTE]
+   > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
+5. For **Data sync**, ensure **Planned - sync data before promoting** is selected.
+   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Promote the replica to independent server.":::
+6. Select **Promote**, the process will begin. Once completed, the server will no longer be a replica of the primary.
+
+## Delete a replica
+
+You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL - Flexible Server.
+
+- In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
+
+   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica.png" alt-text="On the replica Overview page, select to delete the replica.":::
+
+You can also delete the read replica from the **Replication** window by following these steps:
+
+1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
+
+2. On the server menu, under **Settings**, select **Replication**.
+
+3. Select the read replica to delete and then select the ellipses. Select **Delete**.
+
+   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Select the replica to delete.":::
+
+4. Acknowledge **Delete** operation.
+
+   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica-confirm.png" alt-text="Confirm to delete the replica.":::
 
 ## Delete a primary server
 You can only delete primary server once all read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
@@ -165,33 +224,11 @@ To delete a server from the Azure portal, follow these steps:
 
 2. Open the **Overview** page for the server and select **Delete**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-server.png" alt-text="On the server Overview page, select to delete the primary server":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary.png" alt-text="On the server Overview page, select to delete the primary server.":::
 
 3. Enter the name of the primary server to delete. Select **Delete** to confirm deletion of the primary server.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-delete.png" alt-text="Confirm to delete the primary server":::
-
-## Delete a replica
-
-You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL server.
-
-- In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica.png" alt-text="On the replica Overview page, select to delete the replica":::
-
-You can also delete the read replica from the **Replication** window by following these steps:
-
-1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
-
-2. On the server menu, under **Settings**, select **Replication**.
-
-3. Select the read replica to delete and hit the **Delete** button.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Select the replica to delete":::
-
-4. Acknowledge **Delete** operation.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Confirm to delete the primary server.":::
 
 ## Monitor a replica
 
