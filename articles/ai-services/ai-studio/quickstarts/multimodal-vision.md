@@ -39,7 +39,7 @@ You need:
 
 You need an image to complete the image quickstarts. You can use the following image or any other image you have available. 
 
-:::image type="content" source="../media/quickstarts/playground/car-accident.png" alt-text="Image of a car accident that can be used to complete the quickstart." lightbox="../media/quickstarts/playground/car-accident.png":::
+:::image type="content" source="../media/quickstarts/playground/car-accident.png" alt-text="Photo of a car accident that can be used to complete the quickstart." lightbox="../media/quickstarts/playground/car-accident.png":::
 
 You need a video up to three minutes in length to complete the video quickstart. 
 
