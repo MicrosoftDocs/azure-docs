@@ -118,9 +118,9 @@ This section describes how to validate your application.
 
 After the deployment finishes, find the application URL from the deployment outputs. Use the following steps to validate:
 
-:::image type="content" source="media/quickstart/hello-app-url-consumption.png" alt-text="Diagram that shows the consumption app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-consumption.png":::
+1. Access the application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
 
-1. Access the application URL. When you open the app, you get the response `Hello World`.
+   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
@@ -128,7 +128,9 @@ After the deployment finishes, find the application URL from the deployment outp
 
 After the deployment finishes, access the application with the output application URL. Use the following steps to check the app's logs to investigate any deployment issue:
 
-1. Access the output application URL. When you open the app, you get the response `Hello World`.
+1. Access the output application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
+
+   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
 
 1. From the navigation pane of the Azure Spring Apps instance **Overview** page, select **Logs** to check the app's logs.
 
@@ -148,9 +150,9 @@ After the deployment finishes, access the application with the output endpoint. 
 
 After the deployment finishes, use the following steps to find the application URL from the deployment outputs:
 
-:::image type="content" source="media/quickstart/hello-app-url-standard.png" alt-text="Diagram that shows the standard app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-standard.png":::
+1. Access the application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
 
-1. Access the application URL. When you open the app, you get the response `Hello World`.
+   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
@@ -158,7 +160,9 @@ After the deployment finishes, use the following steps to find the application U
 
 After the deployment finishes, use the following steps to check the app's logs to investigate any deployment issue:
 
-1. Access the application with the output application URL. When you open the app, you get the response `Hello World`.
+1. Access the application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
+
+   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
 
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
@@ -178,9 +182,9 @@ After the deployment finishes, access the application with the output endpoint. 
 
 After the deployment finishes, use the following steps to find the application URL from the deployment outputs:
 
-:::image type="content" source="media/quickstart/hello-app-url-standard.png" alt-text="Diagram that shows the enterprise app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart/hello-app-url-standard.png":::
+1. Access the application URL from the **Outputs** page of the **Deployment**. When you open the app, you get the response `Hello World`.
 
-1. Access the application URL. When you open the app, you get the response `Hello World`.
+   :::image type="content" source="media/quickstart/hello-app-url.png" alt-text="Screenshot of the Azure portal that shows the Outputs page of the Deployment." border="false" lightbox="media/quickstart/hello-app-url.png":::
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 

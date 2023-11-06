@@ -44,7 +44,7 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [hello-prepare-cloud-environment-enterprise-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-enterprise-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
@@ -54,7 +54,7 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-enterprise-spring-apps](provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -146,7 +146,7 @@ Use the following steps to create the service instance:
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
+:::image type="content" source="media/quickstart/app-deployment-diagram.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to create the app on Azure Spring Apps:
 
@@ -165,7 +165,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -177,11 +177,11 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+[!INCLUDE [deploy-hello-app-azure-portal](deploy-hello-app-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin](hello-spring-apps-maven-plugin.md)]
+[!INCLUDE [deploy-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
 1. Use the following command to deploy the app:
 
@@ -191,7 +191,7 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
    The following list describes the command interaction:
 
-    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see from the following log messages that the deployment was successful:
 

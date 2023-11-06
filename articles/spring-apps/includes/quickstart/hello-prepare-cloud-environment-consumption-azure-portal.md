@@ -9,7 +9,7 @@ ms.date: 08/11/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (consumption plan) using Azure Portal.
 
-[!INCLUDE [hello-prepare-cloud-environment-standard-on-azure-portal](../../includes/quickstart/hello-prepare-cloud-env-consumption-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-consumption-azure-portal](includes/quickstart/hello-prepare-cloud-environment-consumption-azure-portal.md)]
 
 -->
 
@@ -34,8 +34,6 @@ Use the following steps to create all the Azure resources that the app depends o
    | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
    | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
-
-   :::image type="content" source="../../media/quickstart/web-custom-deployment.png" alt-text="Screenshot of the Azure portal that shows the custom deployment for the web app." lightbox="../../media/quickstart/web-custom-deployment.png":::
 
 1. Select **Review and Create** to review your selections. Then, select **Create** to deploy the app to Azure Spring Apps.
 

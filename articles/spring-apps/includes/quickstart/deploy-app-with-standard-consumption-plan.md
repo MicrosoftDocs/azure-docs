@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with standard consumption plan.
 
-[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-standard-consumption-plan.md)]
 
 -->
 
@@ -62,7 +62,7 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-consumption-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-consumption-azure-portal](hello-prepare-cloud-environment-consumption-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -72,7 +72,7 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](provision-consumption-azure-spring-apps.md)]
+[!INCLUDE [provision-consumption-azure-spring-apps](provision-consumption-azure-spring-apps.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -118,11 +118,11 @@ Use the following steps to create the required resources:
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+[!INCLUDE [deploy-hello-app-azure-portal](deploy-hello-app-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin](hello-spring-apps-maven-plugin.md)]
+[!INCLUDE [deploy-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
 1. Use the following command to deploy the app:
 

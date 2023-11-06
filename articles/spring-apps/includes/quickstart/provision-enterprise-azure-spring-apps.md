@@ -10,7 +10,7 @@ ms.date: 08/09/2023
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision Spring Apps instance.
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 -->
 
@@ -19,8 +19,6 @@ Use the following steps to create the service instance:
 1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
-
-   :::image type="content" source="../../media/quickstart/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal that shows Azure Spring Apps in the list of compute resources." lightbox="../../media/quickstart/create-azure-spring-apps.png":::
 
 1. Fill out the **Basics** form with the following information:
 
