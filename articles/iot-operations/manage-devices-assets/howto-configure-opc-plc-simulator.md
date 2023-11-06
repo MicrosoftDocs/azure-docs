@@ -15,9 +15,7 @@ ms.date: 11/6/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to autodetect OPC UA assets. You deploy a sample OPC PLC server, and configure it to autodetect OPC UA assets by using Azure IoT Akri. The capability to autodetect assets simplifies the process of manually configuring assets from the cloud and onboarding them to your cluster.  
-
-Azure IoT Akri enables you to detect and create `Assets` in the address space of an OPC UA Server. The OPC UA asset detection generates `AssetType` and `Asset` Kubernetes custom resources (CRs) for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant `Assets`.  
+In this article, you learn how to implement an OPC UA server simulator with different nodes that generate random data, anomalies and configuration of user defined nodes. For developers, an OPC UA simulator enables you to test the process of managing OPC UA assets that are connected to the simulator. 
 
 ## Prerequisites
 
