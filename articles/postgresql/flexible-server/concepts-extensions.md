@@ -94,7 +94,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
   ```
 
-Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
+`shared_preload_libraries` is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -497,6 +497,33 @@ To update or change the database name for the existing schedule
 select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 ```
 
+## pg_failover_slots
+The PG Failover Slots extension enhances Azure Database for PostgreSQL when operating with both logical replication and high-availability-enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that does not preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
+
+The extension streamlines the failover process by managing the necessary transfer, cleanup, and synchronization of replication slots, thus providing a seamless transition during server role changes.
+The extension is supported for PostgreSQL versions 11 to 15.
+
+You can find more information and how to use the PG Failover Slots extension on its [GitHub page](https://github.com/EnterpriseDB/pg_failover_slots). 
+
+### Enable pg_failover_slots
+To enable the PG Failover Slots extension for your Azure Database for PostgreSQL server, you will need to modify the server's configuration by including the extension in the server's shared preload libraries and adjusting a specific server parameter. Here is the process:
+
+1. Add `pg_failover_slots` to the server's shared preload libraries by updating the `shared_preload_libraries` parameter.
+2. Change the server parameter `hot_standby_feedback` to `on`. 
+
+Please note that any changes to the `shared_preload_libraries parameter` require a server restart to take effect.
+
+Follow these steps in the Azure portal:
+
+1. Log in to the [Azure portal](https://portal.azure.com/) and go to your Azure Database for PostgreSQL server's page.
+2. In the menu on the left, click on **Server parameters**.
+3. Find the `shared_preload_libraries` parameter in the list and edit its value to include `pg_failover_slots`.
+4. Search for the `hot_standby_feedback` parameter and set its value to `on`.
+5. Click on **Save** to preserve your changes. At this point, you will have the option to **Save and restart**. Choose this to ensure that the changes take effect since modifying `shared_preload_libraries` requires a server restart.
+
+By selecting **Save and restart**, your server will automatically reboot, applying the changes you've made. Once the server is back online, the PG Failover Slots extension will be enabled and operational on your primary PostgreSQL server, ready to handle logical replication slots during failovers.
+
+
 ## pg_stat_statements
 
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) gives you a view of all the queries that have run on your database. That is very useful to get an understanding of what your query workload performance looks like on a production system.
@@ -512,7 +539,7 @@ There is a tradeoff between the query execution information pg_stat_statements p
 
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 [Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
-## Installing TimescaleDB
+### Installing TimescaleDB
 To install TimescaleDB, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
