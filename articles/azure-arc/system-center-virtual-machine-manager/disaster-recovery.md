@@ -48,8 +48,8 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 5. [Provide the inputs](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#script-runtime) as prompted.
 
 6. In the same machine, run the following scripts, as applicable:
-     - Run this [script](https://download.microsoft.com/download/6/b/4/6b4a5009-fed8-46c2-b22b-b24a4d0a06e3/arcvmm-appliance-dr.ps1) from a Windows machine.
-     - Run this [script](https://download.microsoft.com/download/0/5/c/05c2bcb8-87f8-4ead-9757-a87a0759071c/arcvmm-appliance-dr.sh) from a Linux machine. 
+     - [Download the script](https://download.microsoft.com/download/6/b/4/6b4a5009-fed8-46c2-b22b-b24a4d0a06e3/arcvmm-appliance-dr.ps1) if you are running the script from a Windows machine
+     - [Download the script](https://download.microsoft.com/download/0/5/c/05c2bcb8-87f8-4ead-9757-a87a0759071c/arcvmm-appliance-dr.sh) if you are running the script from a Linux machine
 
 7. Once the script is run successfully, the old Resource Bridge will be recovered and the connection is re-established to the existing Azure-enabled SCVMM resources.
 
