@@ -8,6 +8,11 @@ ms.custom:
 
 # Create an Azure Batch pool with Auto OS Upgrade
 
+> [!IMPORTANT]
+> - Support for pools with Auto OS Upgrade in Azure Batch is currently in public preview, and is currently controlled by an account-level feature flag. If you want to use this feature, please start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
+> - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 When you create an Azure Batch pool, you can provision the pool with nodes that have Auto OS Upgrade enabled. This article explains how to set up a Batch pool with Auto OS Upgrade.
 
 ## Why use Auto OS Upgrade?
@@ -23,23 +28,9 @@ In summary, the use of Auto OS Upgrade helps you achieve automatic operating sys
 
 ## How does Auto OS Upgrade work?
 
-When upgrading images, VMs in Azure Batch Pool will follow the same work flow as VirtualMachineScaleSets. An upgrade works by **replacing the OS disk of a VM with a new disk created using the latest image version**. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. 
+When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work).
 
-By default, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time. The upgrades take place during off-peak hours of a region by default, generally between 10 PM to 6 AM local time.
-
-The eligibility for image upgrades in a region with a scale set can occur either through the availablity-first process for platform images or custom images:
-
-* For platform images, the upgrade process follows a monthly schedule to roll out supported OS platform image upgrades.
-* For custom images, the upgrade takes place when a new image is published and replicated to the specific region of that scale set.
-
-The image upgrade is then applied to an individual scale set in a batched manner as follows:
-
-1. Before commencing the upgrade, the orchestrator ensures that no more than 20% of instances in the entire scale set are in an unhealthy state, regardless of the reason for their health status.
-2. The upgrade orchestrator identifies a batch of VM instances to be upgraded. Each batch contains a maximum of 20% of the total instance count, with a minimum batch size of one virtual machine. There is no minimum scale set size requirement, and scale sets with 5 or fewer instances will have 1 VM per upgrade batch as the minimum batch size.
-3. The OS disk of each VM within the selected upgrade batch is replaced with a new OS disk created from the latest image version. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
-4. The upgrade process includes a waiting period of up to 5 minutes for an instance to regain a healthy state before proceeding to upgrade the next batch. If an instance fails to recover its health within this 5-minute window after an upgrade, the previous OS disk for that instance is automatically restored by default.
-5. The upgrade orchestrator also monitors the percentage of instances that become unhealthy after an upgrade. If more than 20% of the upgraded instances become unhealthy during the upgrade process, the upgrade will be halted.
-6. This entire process continues until all instances within the scale set have undergone the upgrade, ensuring that all instances are running the latest OS image while minimizing disruptions and ensuring overall system health.
+However, there will be a difference for Batch to handle upgrades if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process. Thus, We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* feature.
 
 ## Supported OS images
 Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
@@ -64,8 +55,6 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 > **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the provisioned scale set by Azure Batch. The Upgrade Policy mode will determine what happens to existing instances in scale set. However, Automatic OS Upgrade Policy enableAutomaticOSUpgrade is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
 
 > [!Note]
-> We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* property by setting it to 'true.' When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process.
-> 
 > If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use *osRollingUpgradeDeferral* unless this feature is registered. To enable this feature, kindly initiate a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and request its activation.
 
 ### REST API
