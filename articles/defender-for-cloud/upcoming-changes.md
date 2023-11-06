@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) | October 30, 2023 | November 15, 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
@@ -36,6 +37,60 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Consolidation of Defender for Cloud's Service Level 2 names
+
+**Announcement date: November 1, 2023**
+
+**Estimated date for change: December 2023**
+
+We're consolidating the legacy Service Level 2 names for all Defender for Cloud plans into a single new Service Level 2 name, **Microsoft Defender for Cloud**.
+
+Today, there are four Service Level 2 names: Azure Defender, Advanced Threat Protection, Advanced Data Security, and Security Center. The various meters for Microsoft Defender for Cloud are grouped across these separate Service Level 2 names, creating complexities when using Cost Management + Billing, invoicing, and other Azure billing-related tools.
+
+The change will simplify the process of reviewing Defender for Cloud charges and provide better clarity in cost analysis. 
+
+To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. 
+
+Organizations that retrieve cost data by calling our APIs, will need to update the values in their calls to accomodate the change. For example, in this filter function, the values will return no information: 
+
+```json
+"filter": {
+          "dimensions": {
+              "name": "MeterCategory",
+              "operator": "In",
+              "values": [
+                  "Advanced Threat Protection",
+                  "Advanced Data Security",
+                  "Azure Defender",
+                  "Security Center"
+                ]
+          }
+      }
+```
+
+The change is planned to go into effect on December 1, 2023.
+
+| OLD Service Level 2 name | NEW Service Level 2 name | Service Tier - Service Level 4 (No change) |
+|--|--|--|
+|Advanced Data Security    |Microsoft Defender for Cloud|Defender for SQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Container Registries |
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for DNS |
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Key Vault|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Kubernetes|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for MySQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for PostgreSQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Resource Manager|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Storage|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for External Attack Surface Management|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for Azure Cosmos DB|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for Containers|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for MariaDB|
+|Security Center           |Microsoft Defender for Cloud|Defender for App Service|
+|Security Center           |Microsoft Defender for Cloud|Defender for Servers|
+|Security Center           |Microsoft Defender for Cloud|Defender CSPM |
+
+
 
 ## General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
 

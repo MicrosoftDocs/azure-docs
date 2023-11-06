@@ -214,7 +214,7 @@ Storage auto-grow can help ensure that your server always has enough storage cap
 
 For servers with more than 1 TiB of provisioned storage, the storage autogrow activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values is smaller. Conversely, for servers with storage under 1 TB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
-As an illustration, take a server with a storage capacity of 2 TiB ( greater than 1 TIB). In this case, the autogrow limit is set at 64 GiB. This choice is made because 64 GiB is the smaller value when compared to 10% of 2 TiB, which is roughly 204.8 GiB. In contrast, for a server with a storage size of 128 GiB (less than 1 TiB), the autogrow feature activates when there's only 25.8 GiB of space left. This activation is based on the 20% threshold of the total allocated storage (128 GiB), which is smaller than 64 GiB.
+As an illustration, take a server with a storage capacity of 2 TiB (greater than 1 TiB). In this case, the autogrow limit is set at 64 GiB. This choice is made because 64 GiB is the smaller value when compared to 10% of 2 TiB, which is roughly 204.8 GiB. In contrast, for a server with a storage size of 128 GiB (less than 1 TiB), the autogrow feature activates when there's only 25.8 GiB of space left. This activation is based on the 20% threshold of the total allocated storage (128 GiB), which is smaller than 64 GiB.
 
 
 
@@ -240,7 +240,6 @@ Remember that storage can only be scaled up, not down.
 > Storage auto-grow never triggers an offline increase.
 
 ## Premium SSD v2 (Preview)
-
 
 Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
 
@@ -285,7 +284,6 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - You can enable Premium SSD V2 only for newly created servers. Support for existing servers is coming soon.
 
-
 ## Scaling resources
 
 After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. You can scale the number of vCores up or down. You can scale the backup retention period up or down from 7 to 35 days. The storage size can only be increased. You can scale the resources through the Azure portal or the Azure CLI.
@@ -296,7 +294,6 @@ After you create your server, you can independently change the vCores, the compu
 When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back.
 
 The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restart typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage does not require a server restart in most cases.
-
 To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
 Changing the backup retention period is an online operation.
