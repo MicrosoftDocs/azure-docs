@@ -26,7 +26,7 @@ Isolated Image Builds enable defense-in-depth by limiting network access of your
 3. **Transparency:** AIB is built on HashiCorp [Packer](https://www.packer.io/). Isolated Image Builds executes Packer in the ACI in your subscription, which allows you to inspect the ACI resource and its containers. Similarly, having the entire network communication pipeline in your subscription allows you to inspect all the network resources, their settings, and their allowances.
 4. **Better viewing of live logs:** AIB writes customization logs to a storage account in the staging resource group in your subscription. Isolated Image Builds provides with another way to follow the same logs directly in the Azure portal which can be done by navigating to Image Builder's container in the ACI resource.
 
-## Backward Compatibility
+## Backward compatibility
 
 This is a platform level change and doesn't affect AIB's interfaces. So, your existing Image Template and Trigger resources continue to function and there's no change in the way you'll deploy new resources of these types. Similarly, customization logs continue to be available in the storage account.
 
