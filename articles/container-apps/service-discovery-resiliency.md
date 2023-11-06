@@ -424,20 +424,18 @@ Container App 'testapp-2' has applied resiliency '{"target":"testapp-2","httpRet
 
 ### Resiliency metrics
 
-From the *Monitoring* menu of your container app, select **Metrics**. 
-
-:::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
-
-In the Metrics pane:
+From the *Monitoring* menu of your container app, select **Metrics**. In the Metrics pane:
 
 - Set the scope filter to the name of your container app.
 - Select the **Standard metrics** metrics namespace.
 - Select the metrics you'd like to filter from the drop-down menu.
 - Select how you'd like the data aggregated in the results (by average, by maximum, etc).
 
-Need image
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
+For example, for xxx metrics within the `test-app` scope with xxx aggregation, the results look like the following:
+
+Need image
 
 ## Related content
 
