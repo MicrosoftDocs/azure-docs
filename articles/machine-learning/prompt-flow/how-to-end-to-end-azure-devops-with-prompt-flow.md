@@ -1,5 +1,5 @@
 ---
-title: Set up LLMOps with Azure DevOps
+title: Set up LLMOps with Prompt flow and Azure DevOps
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample LLMOps environment and pipeline on Azure DevOps for prompt flow project
 services: machine-learning
@@ -8,7 +8,7 @@ ms.author: chenlujiao
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ms.date: 10/24/2023
 ms.custom: cli-v2, sdk-v2
 ---
@@ -106,7 +106,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 
 # [Create from Azure portal](#tab/azure-portal)
 
-1. Navigate to [Azure App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM)
+1. Navigate to [Azure App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM).
 
 1. Select **New Registration**.
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-ownership-tab.png" alt-text="Screenshot of service principal setup." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-ownership-tab.png":::
@@ -130,12 +130,12 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 1. Navigate to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014676&githubsi=true&clcid=0x409&WebUserId=2ecdcbf9a1ae497d934540f4edce2b7d). 
 
 1. Select **create a new project** (Name the project mlopsv2 for this tutorial).
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png" alt-text="Screenshot of ADO Project" lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png" alt-text="Screenshot of Azure DevOps project" lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png":::
 
 1. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
 
 1. Select **Create Service Connection**.
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/create_first_service_connection.png" alt-text="Screenshot of ADO New Service connection button." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/create_first_service_connection.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/create_first_service_connection.png" alt-text="Screenshot of Azure DevOps New Service connection button." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/create_first_service_connection.png":::
 
 1. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next** and select the **Scope Level Subscription**.
     - Subscription Name - Use the name of the subscription where your service principal is stored.
@@ -263,7 +263,7 @@ LLMOps with prompt flow provides capabilities for both simple as well as complex
     python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins]
 
     ```
-4. Bring or write **your flows** into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
+4. Bring or write **your flows** into the template. To learn how, see [How to setup](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
 
 5. Write lpython scripts in notebooks folder similar to provided examples there.
 
@@ -271,9 +271,9 @@ More details on how to use the template can be found in the [Github repository](
 
 
 ## Next steps
-* [LLMOps wit prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on Github
-* [prompt flow open source repository](https://github.com/microsoft/promptflow)
-* [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
+* [LLMOps wit Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on Github
+* [Prompt flow open source repository](https://github.com/microsoft/promptflow)
+* [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
 * [Install and set up Python CLI v2](../how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
 
