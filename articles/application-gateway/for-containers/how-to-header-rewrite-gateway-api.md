@@ -6,14 +6,13 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/6/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
 # Header Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
-
 
 ## Usage details
 
@@ -22,10 +21,9 @@ Header rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/refe
 ## Background
 Header rewrites enable you to modify the request and response headers to and from your backend targets.
 
-See the following figure, which illustrates an example of a request with a specific user agent being rewritten to a simplified value called SearchEngine-BingBot when the request is initiated to the backend target by Application Gateway for Containers:
+The following figure illustrates a request with a specific user agent being rewritten to a simplified value called SearchEngine-BingBot when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-gateway-api/header-rewrite.png) ](./media/how-to-header-rewrite-gateway-api/header-rewrite.png#lightbox)
-
 
 ## Prerequisites
 
@@ -34,7 +32,7 @@ See the following figure, which illustrates an example of a request with a speci
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+2. If you're following the ALB managed deployment strategy, ensure that you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.  
   ```bash
@@ -167,9 +165,9 @@ status:
 
 Once the gateway has been created, create an HTTPRoute that listens for hostname contoso.com and overrides the user-agent value to SearchEngine-BingBot.
 
-In this example, we will look for the user agent used by the Bing search engine and simplify the header to SearchEngine-BingBot for easier backend parsing. 
+In this example, we look for the user agent used by the Bing search engine and simplify the header to SearchEngine-BingBot for easier backend parsing. 
 
-This eample also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
+This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
 > For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
@@ -251,13 +249,13 @@ status:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, the output should return a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
