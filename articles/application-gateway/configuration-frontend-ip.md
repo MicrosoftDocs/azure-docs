@@ -39,7 +39,7 @@ Only one public IP address and one private IP address is supported. You choose t
 A frontend IP address is associated to a *listener*, which checks for incoming requests on the frontend IP.
 
 >[!NOTE] 
-> You can create private and public listeners with the same port number (Preview feature). However, be aware of any Network Security Group (NSG) associated with the application gateway subnet. Depending on your NSG's configuration, you may need an allow-inbound rule with **Destination IP addresses** as your application gateway's Public and Private frontend IPs. When using the same port, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway.
+> You can create private and public listeners with the same port number. However, be aware of any Network Security Group (NSG) associated with the application gateway subnet. Depending on your NSG's configuration, you may need an allow-inbound rule with **Destination IP addresses** as your application gateway's Public and Private frontend IPs. When using the same port, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway.
 > 
 > **Inbound Rule**:
 > - Source: (as per your requirement)
