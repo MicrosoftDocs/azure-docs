@@ -27,6 +27,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
+|Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -101,6 +102,19 @@ Deleting a Synapse workspace fails with the error message:
 When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure Portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
+
+## Azure Synapse Analytics Apache Spark pool active known issues summary
+
+The following are known issues with the Synapse Spark.
+
+### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
+
+Starting at 00:00 UTC on 03 Oct 2023, few Azure Synapse Analytics Apache Spark pools may experience spark job/task failures due to storage API limit threshold being exceeded.
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the below spark config at [pool level](spark/apache-spark-azure-create-spark-configuration#create-an-apache-spark-configuration)
+
+`spark.hadoop.fs.azure.io.retry.max.retries      19`
+
 
 ## Recently Closed Known issues
 
