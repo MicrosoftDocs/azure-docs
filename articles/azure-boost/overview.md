@@ -26,7 +26,7 @@ Azure Boost contains several features that can improve the performance and secur
 
 - **Storage:** Storage operations are offloaded to the Azure Boost FPGA. This offload provides leading efficiency and performance while improving security, reducing jitter, and improving latency for workloads. Local storage now runs at up to 17.3-GBps and 3.8 million IOPS with remote storage up to 12.5-GBps throughput and 650 K IOPS. Learn more about [Azure Boost Storage](../../articles/azure-boost/overview.md#storage).
 
-- **Security:** Azure Boost uses [Project Cerberus](../security/fundamentals/project-cerberus.md) as an independent HW Root of Trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system is trusted. Learn more about [Azure Boost Security](../../articles/azure-boost/overview.md#security).
+- **Security:** Azure Boost uses [Cerberus](../security/fundamentals/project-cerberus.md) as an independent HW Root of Trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system is trusted. Learn more about [Azure Boost Security](../../articles/azure-boost/overview.md#security).
 
 - **Performance:** With Azure Boost offloading storage and networking, CPU resources are freed up for increased virtualization performance. Resources that would normally be used for these essential background tasks are now available to the guest VM. Learn more about [Azure Boost Performance](../../articles/azure-boost/overview.md#performance).
 
@@ -47,6 +47,8 @@ Assuring a one-time transition that won't be disrupted during future hardware ch
 - **Integration with future Azure features:**
 Consistent updates and performance enhancements ensures you're always a step ahead.
 
+:::image type="content" source="./media/boost-networking-mana-diagram.png" alt-text="Diagram showing the networking layout of an Azure Boost host with a connected MANA NIC.":::
+
 ## Storage
 Azure Boost architecture offloads storage covering local, remote and cached disks that provide leading efficiency and performance while improving security, reducing jitter & improving latency for workloads. Azure Boost already provides acceleration for workloads in the fleet using remote storage including specialized workloads such as the Ebsv5 VM types. Also, these improvements provide potential cost saving for customers by consolidating existing workload into fewer or smaller sized VMs. 
 
@@ -62,7 +64,7 @@ By fully applying Azure Boost architecture, we deliver remote, local, and cached
 Azure Boost's security contains several components that work together to provide a secure environment for your virtual machines. Microsoft's in-house developed hardware and software systems provide a secure foundation for your cloud workloads. 
 
 - **Security chip:**
-Boost employs the [Project Cerberus](../security/fundamentals/project-cerberus.md) chip as an independent HW Root of Trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system garners trust.
+Boost employs the [Cerberus](../security/fundamentals/project-cerberus.md) chip as an independent hardware root of trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system garners trust.
 
 - **Attestation:**
 HW RoT identity, Secure Boot, and Attestation through Azure’s Attestation Service ensures that Boost and its powered hosts always operate in a healthy and trusted state. Any machine that can't be securely attested is prevented from hosting workloads and it's restored to a trusted state offline.

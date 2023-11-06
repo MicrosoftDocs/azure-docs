@@ -9,27 +9,28 @@
  ms.custom: include file
 ---
 
-### [Type/Status](#tab/sizetypestat)
+### [Basics](#tab/sizebasics)
 
-Size Series, CPU Architecture, Series Type, and Deployment Status of each Boost-enabled VM series
+Size Series, Series Type, Network Interface, and Deployment Status of each Boost-enabled VM series
 
-| Size Series | Series Type | Deployment Status |
-|:-:|:-:|:-:|
-| [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose                | Production |
-| [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | General Purpose                | Production |
-| [Esv5](../../virtual-machines/ev5-esv5-series.md)              | Memory Optimized               | Production |
-| [Ebsv5](../../virtual-machines/ebdsv5-ebsv5-series.md)         | Managed disks optimized        | Production |
-| [Lsv3](../../virtual-machines/lsv3-series.md)                  | Local storage optimized        | Production |
-| [Lasv3](../../virtual-machines/lasv3-series.md)                | Local storage optimized        | Production |
-| [Dplsv5](../../virtual-machines/dplsv5-dpldsv5-series.md)      | General Purpose                | Production |
-| [Dpsv5](../../virtual-machines/dpsv5-dpdsv5-series.md)         | General Purpose                | Production |
-| [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | General Purpose                | Production |
-| [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | GPU/AI workload optimized      | Production |
-| [HBv4](../../virtual-machines/hbv4-series.md)                  | High Performance Compute (HPC) | Production |
-| Dalsv6                                                      | General Purpose                | Preview    |
-| Easv6                                                       | Memory Optimized               | Preview    |
-| Falsv6/Famsv6                                               | Compute Optimized              | Preview    |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized   | Preview    |
+| Size Series | Series Type | Network Interface | Deployment Status |
+|:-:|:-:|:-:|:-:|
+| Dalsv6                                                         | General Purpose                | MANA | Preview         |
+| Easv6                                                          | Memory Optimized               | MANA | Preview         |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized   | MANA | Preview |
+| Falsv6/Famsv6                                                  | Compute Optimized              | Mellanox | Preview    |
+| [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose                | Mellanox | Production |
+| [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | General Purpose                | Mellanox | Production |
+| [Esv5](../../virtual-machines/ev5-esv5-series.md)              | Memory Optimized               | Mellanox | Production |
+| [Ebsv5](../../virtual-machines/ebdsv5-ebsv5-series.md)         | Managed disks optimized        | Mellanox | Production |
+| [Lsv3](../../virtual-machines/lsv3-series.md)                  | Local storage optimized        | Mellanox | Production |
+| [Lasv3](../../virtual-machines/lasv3-series.md)                | Local storage optimized        | Mellanox | Production |
+| [Dplsv5](../../virtual-machines/dplsv5-dpldsv5-series.md)      | General Purpose                | Mellanox | Production |
+| [Dpsv5](../../virtual-machines/dpsv5-dpdsv5-series.md)         | General Purpose                | Mellanox | Production |
+| [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | General Purpose                | Mellanox | Production |
+| [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | GPU/AI workload optimized      | Mellanox | Production |
+| [HBv4](../../virtual-machines/hbv4-series.md)                  | High Performance Compute (HPC) | Mellanox | Production |
+
 
 #### VM type and status resources
 - [Azure Virtual Machine Sizes Naming](../../virtual-machines/vm-naming-conventions.md).
@@ -40,6 +41,10 @@ CPU and Memory specs for each size series. All vCPU count and memory values are 
 
 | Size Series | CPU Architecture | CPU Vendor | Max vCPUs | Max Memory: GiB |
 |:-:|:-:|:-:|:-:|:-:|
+| Dalsv6                                                      | x86 | AMD    | -   | - |
+| Easv6                                                       | x86 | AMD    | -   | - |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| x86 | Intel | 176 | 2794 |
+| Falsv6/Famsv6                                               | x86 | AMD    | -   | - |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | x86 | Intel  | 96  | 192 |
 | [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | x86 | Intel  | 96  | 384 |
 | [Esv5](../../virtual-machines/ev5-esv5-series.md)              | x86 | Intel  | 104 | 672 |
@@ -51,10 +56,6 @@ CPU and Memory specs for each size series. All vCPU count and memory values are 
 | [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | ARM | Ampere | 32  | 208 |
 | [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | x86 | AMD    | 72  | 880 |
 | [HBv4](../../virtual-machines/hbv4-series.md)                  | x86 | AMD    | 176 | 768 |
-| Dalsv6                                                      | x86 | AMD    | -   | - |
-| Easv6                                                       | x86 | AMD    | -   | - |
-| Falsv6/Famsv6                                               | x86 | AMD    | -   | - |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| x86 | Intel | 176 | 2794 |
 
 
 #### VM CPU resources
@@ -67,6 +68,10 @@ Data disks and Temp storage info for each size
 
 | Size Series                                | Temp storage (SSD): GiB | Max Data Disks | NVMe Support |
 |:-:|:-:|:-:|:-:|
+| Dalsv6                                                      | -                   | -   | -   |
+| Easv6                                                       | -                   | -   | -   |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| 400         | 64  | No  |
+| Falsv6/Famsv6                                               | -                   | -   | -   |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | Remote Storage Only | 32  | No  |
 | [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | Remote Storage Only | 32  | No  |
 | [Esv5](../../virtual-machines/ev5-esv5-series.md)              | Remote Storage Only | 64  | No  |
@@ -78,10 +83,7 @@ Data disks and Temp storage info for each size
 | [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | Remote Storage Only | 32  | No  |
 | [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | 2880                | 32  | No  |
 | [HBv4](../../virtual-machines/hbv4-series.md)                  | [Special Case](../../virtual-machines/hbv4-series-overview.md#hardware-specifications) | 32 | Yes |
-| Dalsv6                                                      | -                   | -   | -   |
-| Easv6                                                       | -                   | -   | -   |
-| Falsv6/Famsv6                                               | -                   | -   | -   |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| 400         | 64  | No  |
+
 
 #### VM Storage resources
 - [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md)
@@ -100,6 +102,10 @@ Network interface info for each size
 
 | Size Series                             | Max Network Interfaces | Network Bandwidth (expected): Mbps |
 |:-:|:-:|:-:|
+| Dalsv6                                                         | - | -    |
+| Easv6                                                          | - | -    |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| 8 | 40000 |
+| Falsv6/Famsv6                                                  | - | -    |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | 8 | 35000  |
 | [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | 8 | 35000  |
 | [Esv5](../../virtual-machines/ev5-esv5-series.md)              | 8 | 100000 |
@@ -111,10 +117,7 @@ Network interface info for each size
 | [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | 8 | 16000  |
 | [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | 8 | 80000  |
 | [HBv4](../../virtual-machines/hbv4-series.md)                  | 8 | -      |
-| Dalsv6                                                      | - | -    |
-| Easv6                                                       | - | -    |
-| Falsv6/Famsv6                                               | - | -    |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| 8 | 40000 |
+
 
 #### VM Networking resources
 - [Virtual networks and virtual machines in Azure](../../virtual-network/network-overview.md)
@@ -125,7 +128,11 @@ Network interface info for each size
 Accelerator (GPUs, FPGAs, etc.) info for each size
 
 | Size | Max GPUs | GPU Name | Max GPU memory: GiB |
-|:-:|:-:|:-:|:-:
+|:-:|:-:|:-:|:-:|
+| Dalsv6                                                      | - | - | - |
+| Easv6                                                       | - | - | - |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| - | - | - |
+| Falsv6/Famsv6                                               | - | - | - |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | - | - | - |
 | [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | - | - | - |
 | [Esv5](../../virtual-machines/ev5-esv5-series.md)              | - | - | - |
@@ -137,9 +144,5 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 | [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | - | - | - |
 | [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | 1 | Nvidia A10 | 24 |
 | [HBv4](../../virtual-machines/hbv4-series.md)                  | - | - | - |
-| Dalsv6                                                      | - | - | - |
-| Easv6                                                       | - | - | - |
-| Falsv6/Famsv6                                               | - | - | - |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| - | - | - |
 
 ---
