@@ -175,6 +175,10 @@ At any point in the chat session, you can select the **Show raw JSON** option to
 
 This has been a walkthrough of GPT-4V in the Azure AI Studio chat playground experience.  
 
+## Clean up resources
+
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
+
 ## Next steps
 
 - [Create an Azure AI project](../how-to/create-projects.md)

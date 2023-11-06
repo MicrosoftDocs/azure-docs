@@ -161,7 +161,7 @@ To deploy the web app:
 1. Complete the steps in the previous section to [add your data](#add-your-data) to the playground. 
 
     > [!NOTE]
-    > You can deploy web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#deploy-and-test-a-chat-model-without-your-data).
+    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#deploy-and-test-a-chat-model-without-your-data).
 
 1. Select **Deploy** > **A new web app**.
 

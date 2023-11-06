@@ -78,10 +78,7 @@ You can use the **View Code** feature in both *moderate text content* or *modera
 
 ## Clean up resources
 
-To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
-
-- [Azure portal](https://portal.azure.com?azure-portal=true)
-- [Azure CLI](/cli/azure)
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
 
 ## Next steps
 
