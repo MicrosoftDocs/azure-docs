@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 # ms.subservice: akri
 ms.topic: how-to 
-ms.date: 10/26/2023
+ms.date: 11/6/2023
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create assets in my  
 # industrial edge environment so that I can reduce manual configuration overhead. 
@@ -22,23 +22,27 @@ Azure IoT Akri enables you to detect and create `Assets` in the address space of
 ## Prerequisites
 
 - Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
-- Ensure that Azure IoT Akri agent pod is properly by running: 
-```bash
-kubectl get pods -n azure-iot-operations
-```
-You should see the agent and discovery handler pod runnning:
-```
-NAME                                             READY   STATUS    RESTARTS   AGE
-aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17m
-aio-akri-opcua-asset-discovery-daemonset-dwn2q   1/1     Running   0          8m28s
-```
+- Ensure that Azure IoT Akri agent pod is properly configured by running the following code:
+  ```bash
+  kubectl get pods -n azure-iot-operations
+  ```
 
-1. To deploy the custom OPC UA discovery handler with asset detection, in this step you create a YAML configuration file using the values described in this step. Before you create the file, note the following configuration details:
+You should see the agent and discovery handler pod running:
 
-    - The specified server contains a sample address model that uses the Robotics companion specification, which is based on the DI specification.  A model that uses these specifications is required for asset detection. The Robot contains five assets with observable variables and a `DeviceHealth` node that is automatically detected for monitoring.
-    - You can specify other servers by providing the `endpointUrl` and ensuring that a security `None` profile is enabled.
-    - To enable Azure IoT Akri to discover the servers, confirm that you specified the correct discovery endpoint URL during installation.
-    - Discovery URLs appear as `opc.tcp://<FQDN>:50000/`. To find the FQDNs of your OPC PLC servers, navigate to your deployments in the Azure portal. For each server, copy and paste the **FQDN** value into your discovery URLs. The following example demonstrates discovery of two OPC PLC servers. You can add the asset parameters for each OPC PLC server.  If you only have one OPC PLC server, delete one of the assets.
+  ```output
+  NAME                                             READY   STATUS    RESTARTS   AGE
+  aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17m
+  aio-akri-opcua-asset-discovery-daemonset-dwn2q   1/1     Running   0          8m28s
+  ```
+
+## Deploy the UPC UA discovery handler
+
+To deploy the custom OPC UA discovery handler with asset detection, first you create a YAML configuration file using the values described in this section. Before you create the file, note the following configuration details:
+
+- The specified server contains a sample address model that uses the Robotics companion specification, which is based on the DI specification.  A model that uses these specifications is required for asset detection. The Robot contains five assets with observable variables and a `DeviceHealth` node that is automatically detected for monitoring.
+- You can specify other servers by providing the `endpointUrl` and ensuring that a security `None` profile is enabled.
+- To enable Azure IoT Akri to discover the servers, confirm that you specified the correct discovery endpoint URL during installation.
+- Discovery URLs appear as `opc.tcp://<FQDN>:50000/`. To find the FQDNs of your OPC PLC servers, navigate to your deployments in the Azure portal. For each server, copy and paste the **FQDN** value into your discovery URLs. The following example demonstrates discovery of two OPC PLC servers. You can add the asset parameters for each OPC PLC server.  If you only have one OPC PLC server, delete one of the assets.
     
 
     > [!div class="mx-tdBreakAll"]
@@ -54,9 +58,9 @@ aio-akri-opcua-asset-discovery-daemonset-dwn2q   1/1     Running   0          8m
     ² Temporary implementation until Azure IoT Akri can pass K8S secrets.
 
 
-    To create the YAML configuration file, copy and paste the following content into a new file, and save it as `opcua-configuration.yaml`. 
+1. To create the YAML configuration file, copy and paste the following content into a new file, and save it as `opcua-configuration.yaml`. 
     
-    If you are using the simulated PLC server that was deployed with the Azure IoT Operations Quickstart, you do not need to change the `endpointUrl`. If you have your own OPC UA servers running or are using the simulated PLC servers deployed on Azure, add in your endpoint URL accordingly.
+    If you're using the simulated PLC server that was deployed with the Azure IoT Operations Quickstart, you don't need to change the `endpointUrl`. If you have your own OPC UA servers running or are using the simulated PLC servers deployed on Azure, add in your endpoint URL accordingly.
 
 ```yaml
 apiVersion: akri.sh/v0
