@@ -3,16 +3,13 @@ title: How to use custom functions with the MedTech service device mapping - Azu
 description: Learn how to use custom functions with MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
 # How to use custom functions with the MedTech service device mapping
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions may also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
 
@@ -216,21 +213,10 @@ Examples:
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service custom functions within the device mapping.
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-For an overview of the MedTech service device mapping, see
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
