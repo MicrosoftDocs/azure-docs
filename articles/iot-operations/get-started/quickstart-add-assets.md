@@ -75,12 +75,12 @@ To enable the asset endpoint to use an untrusted certificate:
     apiVersion: deviceregistry.microsoft.com/v1beta1
     kind: AssetEndpointProfile
     metadata:
-      name: doe-opc-ua-connector-0
+      name: opc-ua-connector-0
       namespace: azure-iot-operations
     spec:
       additionalConfiguration: |-
         {
-          "applicationName": "opcua-connector-0",
+          "applicationName": "opc-ua-connector-0",
           "defaults": {
             "publishingIntervalMilliseconds": 1000,
             "samplingIntervalMilliseconds": 500,
