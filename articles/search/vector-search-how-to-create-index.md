@@ -320,8 +320,30 @@ Use this version if you want generally available features only.
                 "dimensions": 1536,
                 "vectorSearchProfile": "my-default-vector-profile"
             }
-        ]
+        ],
+        "vectorSearch": {
+            "algorithms": [
+                {
+                    "name": "my-hnsw-config-1",
+                    "kind": "hnsw",
+                    "hnswParameters": {
+                        "m": 4,
+                        "efConstruction": 400,
+                        "efSearch": 500,
+                        "metric": "cosine"
+                    }
+                }
+
+            ],
+            "profiles": [
+              {
+                "name": "my-default-vector-profile",
+                "algorithm": "my-hnsw-config-1"
+              }
+            ]
+        }
     }
+    ```
 
 ### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
@@ -389,7 +411,28 @@ In the following REST API example, "title" and "content" contain textual content
                 "dimensions": 1536,
                 "vectorSearchProfile": "my-default-vector-profile"
             }
-        ]
+        ],
+        "vectorSearch": {
+            "algorithms": [
+                {
+                    "name": "my-hnsw-config-1",
+                    "kind": "hnsw",
+                    "hnswParameters": {
+                        "m": 4,
+                        "efConstruction": 400,
+                        "efSearch": 500,
+                        "metric": "cosine"
+                    }
+                }
+
+            ],
+            "profiles": [
+              {
+                "name": "my-default-vector-profile",
+                "algorithm": "my-hnsw-config-1"
+              }
+            ]
+        }
     }
     ```
 
