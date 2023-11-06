@@ -264,7 +264,7 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-port: "6001"      # Required for
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
-      serviceAccountName: aio-mq-client
+      serviceAccountName: mqtt-client-token
 
       volumes:
         - name: dapr-unix-domain-socket
@@ -343,6 +343,14 @@ In the example used for this article, the application subscribes to the `orders`
 
     ```bash
     mosquitto_pub -h localhost -t "orders" -m '{"data": "{\"orderId\": 9, \"item\": \"item9\"}"}' -i "publisher1" -u client1 -P password
+    ```
+
+    This will publish the following json to the `orders` topic:
+
+    ```json
+    {
+      "data": "{\"orderId\": 9, \"item\": \"item9\"}"
+    }
     ```
 
 1. Back in the subscriber window, the message appears alongside Dapr tracing info:
