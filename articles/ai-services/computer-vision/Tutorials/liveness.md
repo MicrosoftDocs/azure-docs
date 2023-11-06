@@ -40,8 +40,8 @@ The liveness solution integration involves two different components: a mobile ap
 ### Integrate liveness into mobile application 
 
 Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports both Java/Kotlin for Android and Swift for iOS mobile applications:
-- For Swift iOS, follow the instructions at [azure-ai-vision-sdk-ios](https://github.com/Azure-Samples/azure-ai-vision-sdk-private-preview/blob/main/samples/swift/MobileFaceRecognitionUIKit/README.md) (tbd link will be updated after new release) 
-- For Kotlin/Java Android, follow the instructions at [azure-ai-vision-sdk-android](https://github.com/Azure-Samples/azure-ai-vision-sdk-private-preview/blob/main/samples/kotlin/identity/README.md) (tbd link will be updated after new release) 
+- For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/liveness-sample-ios) 
+- For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
 
 Once you've added the code into your application, the SDK will handle starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
