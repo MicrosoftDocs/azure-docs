@@ -79,7 +79,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `containerapp service <service_type> create` command with the service type and name to create a new service.
+Use the `containerapp service <SERVICE_TYPE> create` command with the service type and name to create a new service.
 
 ``` CLI
 az containerapp service redis create \
