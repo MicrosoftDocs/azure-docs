@@ -5,7 +5,7 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 11/06/2023
 ms.custom: engagement-fy24
 ---
 
@@ -41,8 +41,8 @@ You can upgrade to up to two versions from the current version.  
 
 **Source** | **Supported target versions**
 --- | ---
-Windows Server 2008 | Windows Server 2012
-Windows Server 2008 R2 | Windows Server 2012
+Windows Server 2008 SP2 | Windows Server 2012
+Windows Server 2008 R2 SP1| Windows Server 2012
 Windows Server 2012 | Windows Server 2016 
 Windows Server 2012 R2 | Windows Server 2016, Windows Server 2019 
 Windows Server 2016  | Windows Server 2019, Windows Server 2022 
