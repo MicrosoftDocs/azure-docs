@@ -212,7 +212,7 @@ public class CassandraUtils {
 
 
     /**
-     * This method creates a Cassandra Session based on the the end-point details given in config.properties.
+     * This method creates a Cassandra Session based on the end-point details given in config.properties.
      * This method validates the SSL certificate based on ssl_keystore_file_path & ssl_keystore_password properties.
      * If ssl_keystore_file_path & ssl_keystore_password are not given then it uses 'cacerts' from JDK.
      * @return Session Cassandra Session
