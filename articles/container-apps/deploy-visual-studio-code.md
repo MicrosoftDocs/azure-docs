@@ -58,13 +58,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario, you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code.
 
-1. Select the **Azure** icon in the Activity Bar to open the Azure view.
-
-    You can also select <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> on Windows or <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>A</kbd> on macOS to open the Azure view.
-
-1. Hover over the Workspace section and select the **Azure Container Apps** icon. In the context menu, select **Deploy Project from Workspace**.
-
-    You can also select <kbd>F1</kbd> to open the command palette and run the **Azure Container Apps: Deploy Project from Workspace** command.
+1. Select <kbd>F1</kbd> to open the command palette and run the **Azure Container Apps: Deploy Project from Workspace** command.
 
 1. Enter the following values as prompted by the extension.
 
