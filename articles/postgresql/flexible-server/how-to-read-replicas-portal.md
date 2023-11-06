@@ -67,8 +67,17 @@ To create a read replica, follow these steps:
 
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Enter the Basics information":::
 
-   > [!NOTE]
+* Set the replica server name.
+   > [!TIP]
+   > It is a Cloud Adoption Framework (CAF) best practice to [use a resource naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming) that will allow you to easily determine what instance you are connecting too or managing and where it resides.
+* Select a location that is different from your primary but note that you can select the same region.
+   > [!TIP]
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
+* Set the compute and storage to what you recorded from your primary. If the displayed compute does not match, select **Configure server** and select the appropriate one.
+   > [!NOTE]
+   > If you select a compute size smaller than the primary, the deployment will fail. Also be aware that the compute size may not be available in a different region.
+    
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Chose the compute size":::
 
 6. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
     :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules":::
