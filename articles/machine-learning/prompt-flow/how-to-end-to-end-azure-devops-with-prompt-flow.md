@@ -1,5 +1,5 @@
 ---
-title: Set up LLMOps with Prompt flow and Azure DevOps
+title: Set up LLMOps with prompt flow and Azure DevOps
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample LLMOps environment and pipeline on Azure DevOps for prompt flow project
 services: machine-learning
@@ -71,9 +71,9 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
     > The first time you've launched the Cloud Shell, you'll be prompted to create a storage account for the Cloud Shell.
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png" alt-text="Screenshot of the cloud shell environment dropdown. "lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png" alt-text="Screenshot of the cloud shell environment dropdown. "lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png":::
 
-1. Copy the following bash commands to your computer and update the** projectName**,** subscriptionId**, and **environment variables** with the values for your project. If you're creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription.
+1. Copy the following bash commands to your computer and update the** projectName**,** subscriptionID**, and **environment variables** with the values for your project. If you're creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription.
      ``` bash
         projectName="<your project name>"
         roleName="Contributor"
@@ -119,7 +119,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-iam-tab.png" alt-text="Screenshot of the add role assignment page." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-iam-tab.png":::
 
 1. Select Contributor and add members selecting + Select Members. Add the member **Azure-ARM-Dev-ProjectName** as create before.
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-role-assignment.png" alt-text="Screenshot of the add role assignment selection" lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-role-assignment.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-role-assignment.png" alt-text="Screenshot of the add role assignment selection." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/SP-setup-role-assignment.png":::
 
 1. Repeat step here, if you deploy Dev and Prod into the same subscription, otherwise change to the prod subscription and repeat with **Azure-ARM-Prod-ProjectName**. The basic SP setup is successfully finished.
 
@@ -130,7 +130,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 1. Navigate to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014676&githubsi=true&clcid=0x409&WebUserId=2ecdcbf9a1ae497d934540f4edce2b7d). 
 
 1. Select **create a new project** (Name the project mlopsv2 for this tutorial).
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png" alt-text="Screenshot of Azure DevOps project" lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png" alt-text="Screenshot of Azure DevOps project." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-create-project.png":::
 
 1. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
 
@@ -139,8 +139,8 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 
 1. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next** and select the **Scope Level Subscription**.
     - Subscription Name - Use the name of the subscription where your service principal is stored.
-    - Subscription Id - Use the `subscriptionId` you used in **Step 1** input as the Subscription ID
-    - Service Principal Id - Use the `appId` from **Step 1** output as the Service Principal ID
+    - Subscription ID - Use the `subscriptionId` you used in **Step 1** input as the Subscription ID
+    - Service Principal ID - Use the `appId` from **Step 1** output as the Service Principal ID
     - Service principal key - Use the `password` from **Step 1** output as the Service Principal Key
     - Tenant ID - Use the `tenant` from **Step 1** output as the Tenant ID
 
@@ -155,34 +155,34 @@ The Azure DevOps setup is successfully finished.
 1. Open the project you created in [Azure DevOps](https://dev.azure.com/)
 
 1. Open the Repos section and select **Import Repository**
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_first_time.png" alt-text="Screenshot of Azure DevOps import repo first time." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_first_time.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_first_time.png" alt-text="Screenshot of Azure DevOps import repo first time." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_first_time.png":::
 
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Select import at the bottom of the page
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_Git_template.png" alt-text="Screenshot of Azure DevOps import MLOps demo repo." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_Git_template.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_Git_template.png" alt-text="Screenshot of Azure DevOps import MLOps demo repo." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/import_repo_Git_template.png":::
 
 1. Open the **Project settings** at the bottom of the left hand navigation pane
 
 1. Under the Repos section, select **Repositories**. Select the repository you created in previous step Select the **Security** tab
 
 1. Under the User permissions section, select the **mlopsv2 Build Service** user. Change the permission **Contribute** permission to **Allow** and the Create branch permission to **Allow**.
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-permissions-repo.png" alt-text="Screenshot of Azure DevOps permissions." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-permissions-repo.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-permissions-repo.png" alt-text="Screenshot of Azure DevOps permissions." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-permissions-repo.png":::
 
 1. Open the **Pipelines** section in the left hand navigation pane and select on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**.
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-open-pipelinesSecurity.png" alt-text="Screenshot of Pipeline security." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-open-pipelinesSecurity.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-open-pipelinesSecurity.png" alt-text="Screenshot of Pipeline security." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-open-pipelinesSecurity.png":::
 
 1. Select the **mlopsv2 Build Service** account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-add-pipelinesSecurity.png" alt-text="Screenshot of Add security." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-add-pipelinesSecurity.png":::
+   :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ado-add-pipelinesSecurity.png" alt-text="Screenshot of Add security." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ado-add-pipelinesSecurity.png":::
 
 > [!NOTE]
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
 
-### Setup connections for prompt flow
+### Set up connections for prompt flow
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM and other external tools, for example, Azure Content Safety.
 
 Go to workspace portal, select `Prompt flow` -> `Connections` -> `Create` -> `Azure OpenAI`, then follow the instruction to create your own connections. To learn more, see [connections](../prompt-flow/concept-connections.md).
 
-### Setup runtime for prompt flow
+### Set up runtime for prompt flow
 
 Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages.
 
@@ -209,7 +209,7 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 - **Multiple Deployment Targets**: The repo supports deployment of flows to Kubernetes, Azure Managed computes driven through configuration ensuring that your flows can scale as needed.
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/endpoints.png" alt-text="Screenshot of endpoints." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/endpoints.png":::
 
-- **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow flows. This means you can effortlessly compare different versions of a flows in a real-world setting to determine which performs best.
+- **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/a-b-deployments.png" alt-text="Screenshot of deployments." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/a-b-deployments.png":::
 
 - **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
@@ -231,19 +231,19 @@ Other features for customization:
 
 - Provides optional Human-in-loop to validate prompt metrics before deployment.
 
-LLMOps with prompt flow provides capabilities for both simple as well as complex LLM-infused apps. It is completely customizable to the needs of the application.
+LLMOps with prompt flow provides capabilities for both simple as well as complex LLM-infused apps. It's completely customizable to the needs of the application.
 
 ### Local practice
 
-1. **Clone the Repository**: To harness the capabilities of the practice and execution, you can get started by cloning the [example Github repository](https://github.com/microsoft/llmops-promptflow-template).
+1. **Clone the Repository**: To harness the capabilities of the practice and execution, you can get started by cloning the [example GitHub repository](https://github.com/microsoft/llmops-promptflow-template).
 
     ```bash
     git clone https://github.com/microsoft/llmops-promptflow-template.git
     ```
 
-2. **Setup env file**: Create .env file at top folder level and provide information for items mentioned. 
+2. **Set up env file**: Create .env file at top folder level and provide information for items mentioned. 
     1. Add **runtime** name created in [Setup runtime for prompt flow](#setup-runtime-for-prompt-flow) step.
-    1. Add as many **connection** names as needed, whish you have created in [Setup connections for prompt flow](#setup-connections-for-prompt-flow) step:
+    1. Add as many **connection** names as needed, which you have created in [Setup connections for prompt flow](#setup-connections-for-prompt-flow) step:
     ```bash
     subscription_id=
     resource_group_name=
@@ -265,13 +265,13 @@ LLMOps with prompt flow provides capabilities for both simple as well as complex
     ```
 4. Bring or write **your flows** into the template. To learn how, see [How to setup](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
 
-5. Write lpython scripts in notebooks folder similar to provided examples there.
+5. Write Ipython scripts in notebooks folder similar to provided examples there.
 
-More details on how to use the template can be found in the [Github repository](https://github.com/microsoft/llmops-promptflow-template).
+More details on how to use the template can be found in the [GitHub repository](https://github.com/microsoft/llmops-promptflow-template).
 
 
 ## Next steps
-* [LLMOps wit Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on Github
+* [LLMOps wit Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on GitHub
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
 * [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
 * [Install and set up Python CLI v2](../how-to-configure-cli.md)
