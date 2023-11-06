@@ -21,6 +21,8 @@ You can test the following scenarios through the Azure portal and REST API
 > [!NOTE]
 > Ensure that you are using a non-production Automation accounts to test this feature.
 
+## Runtime environment scenarios
+
 ### Create runtime environment
 
 #### [Azure portal](#tab/create-runtime-portal)
@@ -308,7 +310,6 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 > Create/View calls for job remains same and can be referenced from [Job-REST API (Azure Automation) | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/job?view=rest-automation-2019-06-01)
 
 ---
-
 
 
 ### Map existing runbooks to System-created Runtime environments

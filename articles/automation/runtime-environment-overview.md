@@ -28,9 +28,11 @@ The Runtime environment captures the following details about the job execution e
 1. **Language** - the scripting language targeted for runbook execution. For example, PowerShell, Python.
 1. **Runtime version** - the version of the language selected for runbook execution. For example, PowerShell 7.2, Python 3.8
 1. **Packages** - the packages are the assemblies and the *.dll* files that you import and required by runbooks for execution. There are two types of packages supported for Runtime environment.
-   |**Default packages**  |**Customer-provided packages** |
+    
+   |**Package Types** | **Description** |
    |---------|---------|
-   |These packages enable you to manage Azure resources. For example, - Az PowerShell 8.0.0| These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery:- PSgallery, pypi </br> - Self-authored. |
+   |**Default packages**  | These packages enable you to manage Azure resources. For example, - Az PowerShell 8.0.0 |
+   |**Customer-provided packages** | These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery:- PSgallery, pypi </br> - Self-authored. |
 
 ### Scope of Runtime environment
 You can test the following scenarios through Azure portal and REST API:
