@@ -22,6 +22,30 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## October 2023
+### Packet core 2310
+
+**Type:** New release
+
+**Date available:** October XX, 2023
+
+The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
+
+### Optional N2/N3/S1/N6 gateway
+This feature makes the N2, N3 and N6 gateways as optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to the customers to use AP5GC without gateways if there's direct connectivity available with RAN and/or DN.
+
+### Improved Software Download Time
+This feature improves overall AP5GC Software download time by reducing the size of underlying software packages, with overall size of the software image reduced by around 40%.
+
+### Per-UE information in Azure portal + API
+This feature enables the customer to view UE level information in the Azure portal, which includes UE list with high level information and a detailed view for each UE. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min.
+
+### Per gNB metrics in Azure portal
+This feature categorizes a few metrics based on RAN identifier, for example UL/DL bandwidth etc. and are exposed to customer via Azure monitor under PCCP and PCDP resources. These metrics shall be used to correlate the RAN & Packet Core metrics and troubleshoot.
+
+### Combined 4G/5G on a single packet core
+This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network Site. Customers can deploy a RAN network with both 4G and 5G radios and to connect to a single packet core.
+
 ## September 2023
 ### Packet core 2308
 
