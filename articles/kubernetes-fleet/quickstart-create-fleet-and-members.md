@@ -50,7 +50,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
     export FLEET=<your_fleet_name>
     ```
 
-* Install `kubectl` and `kubelogin` using the az aks install-cli command:
+* Install `kubectl` and `kubelogin` using the `az aks install-cli` command:
 
   ```azurecli
   az aks install-cli
@@ -97,7 +97,7 @@ You can create a fleet resource to later group your AKS clusters as member clust
 
 ### Update orchestration only (default)
 
-If you want to use Fleet only for update orchestration scenario, you can create a fleet resource without the hub cluster using the [az fleet create](/cli/azure/fleet#az-fleet-create) command. This the default experience when creating a new fleet resource.
+If you want to use Fleet only for update orchestration scenario, you can create a fleet resource without the hub cluster using the [az fleet create](/cli/azure/fleet#az-fleet-create) command. This is the default experience when creating a new fleet resource.
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus

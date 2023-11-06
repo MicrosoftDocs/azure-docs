@@ -96,7 +96,7 @@ Placement affinities function similarly to Kubernetes pod placement affinities, 
 - `requiredDuringSchedulingIgnoredDuringExecution` - if the cluster placement policy is `PickAll` or `PickN`, all requirements indicated here must be met for a cluster to be a valid placement target.
 - `preferredDuringSchedulingIgnoredDuringExecution` - if the cluster placement policy is `PickN`, each member cluster is assigned a total score based on the preferences indicated here. If a cluster matches a given filter, that filter's `weight` is added to the score for the cluster. Once all clusters have been evaluated, the clusters will be sorted from highest to lowest score and the top `N` clusters will be selected.
 
-A placement policy that selected all clusters with the `env` label having a value of `prod` would include the following, and would only deploy onto clusters labelled with prod:
+A placement policy that selected all clusters with the `env` label having a value of `prod` would include the following, and would only deploy onto clusters labeled with prod:
 
 ```yaml
 spec:
@@ -111,7 +111,7 @@ spec:
                     env: prod
 ```
 
-The placement policy below would always select exactly one cluster, but would give a preference to a cluster labelled with `env: canary`. However, if no canary clusters were available, any other cluster would be selected.
+The placement policy below would always select exactly one cluster, but would give a preference to a cluster labeled with `env: canary`. However, if no canary clusters were available, any other cluster would be selected.
 
 ```yaml
 spec:
@@ -167,7 +167,7 @@ When used together, affinities and topology spread constraints allow for the `Pi
 Strategy determines how changes to the `ClusterWorkloadPlacement` will be rolled out across member clusters. The only supported strategy is `RollingUpdate`, which has three configuration options:
 
 - `maxSurge` - the maximum number of extra clusters that can be scheduled if an in-place upgrade is not performed due to a change in constraints or placement decision. This can be specified as an absolute number or a percentage and defaults to 25%.
-- `maxUnavailable` - the maximum number of clusters that can be unavailable compared to the number of placements.This can be specified as an absolute number or a percentage and defaults to 25%.
+- `maxUnavailable` - the maximum number of clusters that can be unavailable compared to the number of placements. This can be specified as an absolute number or a percentage and defaults to 25%.
 - `unavailablePeriodSeconds` - the number of seconds to wait after resources are successfully applied before a cluster is considered available.
 
 `maxSurge` and `maxUnavailable` cannot both be 0.
