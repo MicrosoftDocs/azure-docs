@@ -18,10 +18,10 @@ keywords:
 
 ### GPT-4 with Vision now available
 
-GPT-4 with Vision lets you use images and videos in your AI chat conversations. The AI model can analyze and reference the media you share. With augmented mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
+GPT-4 with Vision lets you use images and videos in your AI chat conversations. The AI model can analyze and reference the media you share. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
 
 - Explore the capabilities of GPT-4 with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./quickstart-gpt-v.md).
-- Video augmentation using GPT-4 with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data," and support for Video Q&A. 
+- Vision enhancement using GPT-4 with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data," and support for Video Q&A. 
 - Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
 - Region availability is currently limited to `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
 - Learn more about the [known limitations of GPT-4 with Vision](/azure/ai-services/openai/faq#what-are-the-known-limitations-of-the-gpt-4v-model-).

@@ -41,9 +41,9 @@ In this chat session, you're instructing the assistant to aid in understanding i
 1. Analyze the output provided. Consider asking follow-up questions related to the analysis of your image to learn more.
 
 
-## Try an augmented Vision chat session
+## Try an enhanced Vision chat session
 
-In this chat session, you try out the capabilities of the augmented Vision model. 
+In this chat session, you try out the capabilities of the enhanced Vision model. 
 
  
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
