@@ -86,7 +86,7 @@ New-AzVm `
 #### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
-2. Select the Name of the virtual machine you'd like to attach to your scale set.
+2. Select the name of the virtual machine you'd like to attach to your scale set.
 3. Under **Settings** select **Availability + scaling**.
 4. In the **Scaling** section, select the **Get started** button. If the button is grayed out, your VM currently doesn't meet the requirements to be attached to a scale set.
 5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the scale set you'd like to attach the VM to in the **Select a VMSS dropdown**. 
