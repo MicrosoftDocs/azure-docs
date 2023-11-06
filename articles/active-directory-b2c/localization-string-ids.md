@@ -519,7 +519,7 @@ The following IDs are used for [Restful service technical profile](restful-techn
 
 ## Microsoft Entra multifactor authentication error messages
 
-The following IDs are used for an [Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
+The following IDs are used for an [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | --- | ------------- |
@@ -551,7 +551,7 @@ The following IDs are used for an [Microsoft Entra multifactor authentication te
 
 ## Microsoft Entra SSPR
 
-The following IDs are used for [Microsoft Entra SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+The following IDs are used for [Microsoft Entra ID SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |

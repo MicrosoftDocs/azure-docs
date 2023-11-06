@@ -1,7 +1,7 @@
 ---
-title: Microsoft Entra SSPR technical profiles in custom policies
+title: Microsoft Entra ID SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
-description: Custom policy reference for Microsoft Entra SSPR technical profiles in Azure AD B2C.
+description: Custom policy reference for Microsoft Entra ID SSPR technical profiles in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -15,11 +15,11 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Define a Microsoft Entra SSPR technical profile in an Azure AD B2C custom policy
+# Define a Microsoft Entra ID SSPR technical profile in an Azure AD B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Microsoft Entra SSPR technical profile to generate and send a code to an email address, and then verify the code. The Microsoft Entra SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Microsoft Entra ID SSPR technical profile to generate and send a code to an email address, and then verify the code. The Microsoft Entra ID SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
 
 This technical profile:
 
@@ -35,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-The following example shows a Microsoft Entra SSPR technical profile:
+The following example shows a Microsoft Entra ID SSPR technical profile:
 
 ```xml
 <TechnicalProfile Id="AadSspr-SendCode">
@@ -81,7 +81,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 ### Example: send an email
 
-The following example shows a Microsoft Entra SSPR technical profile that is used to send a code via email.
+The following example shows a Microsoft Entra ID SSPR technical profile that is used to send a code via email.
 
 ```xml
 <TechnicalProfile Id="AadSspr-SendCode">
@@ -137,7 +137,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 ### Example: verify a code
 
-The following example shows a Microsoft Entra SSPR technical profile used to verify the code.
+The following example shows a Microsoft Entra ID SSPR technical profile used to verify the code.
 
 ```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">

@@ -306,7 +306,7 @@ In the following technical profile:
 
 ## Persisted claims
 
-The **PersistedClaims** element contains all of the values that should be persisted by an [Microsoft Entra technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
+The **PersistedClaims** element contains all of the values that should be persisted by an [Microsoft Entra ID technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
 
 The name of the claim is the name of the [Microsoft Entra attribute](user-profile-attributes.md) unless the **PartnerClaimType** attribute is specified, which contains the Microsoft Entra attribute name.
 

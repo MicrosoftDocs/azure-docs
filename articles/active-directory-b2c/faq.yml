@@ -260,7 +260,7 @@ sections:
       - question: |
           Can I purchase Microsoft Entra ID P1 and Microsoft Entra ID P2 licensing for my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra features](supported-azure-ad-features.md).
+          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra ID features](supported-azure-ad-features.md).
          
       - question: |
           Can I use a group-based assignment for Microsoft Entra Enterprise Applications in my Azure AD B2C tenant?

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit

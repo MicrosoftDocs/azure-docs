@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -18,9 +18,9 @@ ms.subservice: B2C
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
 
-Azure Active Directory B2C (Azure AD B2C) custom policy custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
+Azure Active Directory B2C (Azure AD B2C) custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
 
-In this article, you'll learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
+In this article, you learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
 
 - Declare claims. A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems. You can learn more about claims in the [Azure AD B2C custom policy overview](custom-policy-overview.md#claims). 
 
