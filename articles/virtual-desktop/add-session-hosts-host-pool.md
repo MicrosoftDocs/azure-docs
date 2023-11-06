@@ -4,7 +4,7 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/27/2023
+ms.date: 11/06/2023
 ---
 
 # Add session hosts to a host pool
@@ -24,7 +24,7 @@ This article shows you how to generate a registration key using the Azure portal
 
 Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required, such as operating systems, virtual networks, and identity providers. In addition, you'll need:
 
-- An existing host pool.
+- An existing host pool. Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that was used. All session hosts in a host pool should be the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 
@@ -34,7 +34,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
    |--|--|
    | Generate a host pool registration key | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
    | Create and add session hosts using the Azure portal (Azure) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Create and add session hosts using the Azure portal (Azure Stack HCI) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />Azure Stack HCI VM Contributor |
+   | Create and add session hosts using the Azure portal (Azure Stack HCI) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
 
@@ -42,9 +42,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
 - To add session hosts on Azure Stack HCI, you'll also need:
 
-   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription. Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI release information](/azure-stack/hci/release-information) and [Updates and upgrades](/azure-stack/hci/concepts/updates).
-
-   - Azure Arc virtual machine (VM) management should be set up on the Azure Stack HCI cluster. For more information, see [What is Azure Arc VM management?](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc virtual machine (VM) management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
    - A stable connection to Azure from your on-premises network.
 

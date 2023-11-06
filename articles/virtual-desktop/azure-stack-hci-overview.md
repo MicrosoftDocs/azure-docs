@@ -4,7 +4,7 @@ description: Learn about using Azure Virtual Desktop for Azure Stack HCI (previe
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/31/2023
+ms.date: 11/06/2023
 ---
 
 # Azure Virtual Desktop for Azure Stack HCI (preview)
@@ -36,6 +36,8 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 ## Supported platforms
 
+Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI release information](/azure-stack/hci/release-information) and [Updates and upgrades](/azure-stack/hci/concepts/updates).
+
 Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](user-documentation/index.yml) as Azure Virtual Desktop, and you can use the following 64-bit operating system images that are in support:
 
 - Windows 11 Enterprise multi-session
@@ -44,6 +46,8 @@ Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clie
 - Windows 10 Enterprise
 - Windows Server 2022
 - Windows Server 2019
+
+You must license and activate the virtual machines you use for your session hosts on Azure Stack HCI before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, you need to enable [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits). Once Azure Benefits is enabled on Azure Stack HCI 23H2, Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition are activated automatically. For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
 ## Licensing and pricing
 
@@ -78,9 +82,8 @@ Azure Virtual Desktop for Azure Stack HCI has the following limitations:
 
 - Azure Stack HCI supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
 
-- You must license and activate session hosts before you use them on Azure Stack HCI. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition you need to enable [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
-
 - Templates may show failures in certain cases at the domain-joining step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+
 ## Next steps
 
 To learn how to deploy Azure Virtual Desktop for Azure Stack HCI, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).

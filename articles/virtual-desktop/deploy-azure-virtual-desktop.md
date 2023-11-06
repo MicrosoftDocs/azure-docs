@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/01/2023
+ms.date: 11/06/2023
 ---
 
 # Deploy Azure Virtual Desktop
@@ -35,7 +35,7 @@ In addition, you need:
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Session hosts (Azure Stack HCI) | Azure Stack HCI VM Contributor |
+   | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
@@ -45,10 +45,8 @@ In addition, you need:
 
 - To add session hosts on Azure Stack HCI, you'll also need:
 
-   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription. Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI release information](/azure-stack/hci/release-information) and [Updates and upgrades](/azure-stack/hci/concepts/updates).
-
-   - Azure Arc virtual machine (VM) management should be set up on the Azure Stack HCI cluster. For more information, see [What is Azure Arc VM management?](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
-
+   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc virtual machine (VM) management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+   
    - A stable connection to Azure from your on-premises network.
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
@@ -130,7 +128,7 @@ Here's how to create a host pool using the Azure portal.
 
       | Parameter | Value/Description |
       |--|--|
-      | Add Azure virtual machines | Select **Yes**. This shows several new options. |
+      | Add virtual machines | Select **Yes**. This shows several new options. |
       | Resource group | This automatically defaults to the same resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | Virtual machine type | Select **Azure virtual machine**. |
@@ -161,7 +159,7 @@ Here's how to create a host pool using the Azure portal.
 
       | Parameter | Value/Description |
       |--|--|
-      | Add Azure virtual machines | Select **Yes**. This shows several new options. |
+      | Add virtual machines | Select **Yes**. This shows several new options. |
       | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | Virtual machine type | Select **Azure Stack HCI virtual machine (Preview)**. |
@@ -171,6 +169,8 @@ Here's how to create a host pool using the Azure portal.
       | Virtual processor count | Enter the number of virtual processors you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
       | Memory type | Select **Static** for a fixed memory allocation, or **Dynamic** for a dynamic memory allocation. |
       | Memory (GB) | Enter a number for the amount of memory in GB you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | Maximum memory | If you selected dynamic memory allocation, enter a number for the maximum amount of memory in GB you want your session host to be able to use. |
+      | Minimum memory | If you selected dynamic memory allocation, enter a number for the minimum amount of memory in GB you want your session host to be able to use. |
       | **Network and security** |  |
       | Network dropdown | Select an existing network to connect each session to. |
       | **Domain to join** |  |
@@ -747,5 +747,3 @@ Here are some extra tasks you might want to do:
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
-
-For session hosts on Azure Stack HCI, you must license and activate the Windows operating system. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition you need to enable [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
