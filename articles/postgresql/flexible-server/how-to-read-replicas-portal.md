@@ -169,8 +169,8 @@ Rather than switchover to a replica, it is also possible to break the replicatio
 
 1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server primary server.
 2. On the server sidebar, on the server menu, under **Settings**, select **Replication**.
-3. Under **Servers**, select the **Promote** icon for the replica you would like to promote to independent.
-:::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Select promote for a replica.":::
+3. Under **Servers**, select the **Promote** icon for the replica you would like to promote to independent server.
+:::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-servers.png" alt-text="Select promote for a replica.":::
 4. In the dialog, ensure the action is **Promote to independent server and remove from replication. This won't impact the primary server**.
    > [!NOTE]
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
