@@ -55,7 +55,20 @@ Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-serv
 ## Document analysis models
 
 Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress.
+:::moniker range="doc-intel-4.0.0"
+:::row:::
+   :::column:::
+      :::image type="icon" source="media/overview/icon-read.png" link="#read":::</br>
+   [**Read**](#read) | Extract printed </br>and handwritten text.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-layout.png" link="#layout":::</br>
+    [**Layout**](#layout) | Extract text </br>and document structure.
+   :::column-end:::
+:::row-end:::
+:::moniker-end
 
+:::moniker range="<=doc-intel-3.1.0"
 :::row:::
    :::column:::
       :::image type="icon" source="media/overview/icon-read.png" link="#read":::</br>
@@ -71,10 +84,62 @@ Document analysis models enable text extraction from forms and documents and ret
    :::column-end:::
 :::row-end:::
 
+:::moniker-end
 ## Prebuilt models
 
 Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models.
 
+:::moniker range="doc-intel-4.0.0"
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
+    [**Invoice**](#invoice) | Extract customer </br>and vendor details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
+    [**Receipt**](#receipt) | Extract sales </br>transaction details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
+    [**Identity**](#identity-id) | Extract identification </br>and verification details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
+    [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
+    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1099 form**](#us-tax-1099-form) | Extract information from variaitions of the 1099 form.
+   :::column-end:::
+:::row-end:::
+:::moniker-end
+
+
+:::moniker range="<=doc-intel-3.1.0"
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
@@ -120,9 +185,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
     [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
    :::column-end:::
-:::column span="":::
-   :::column-end:::
 :::row-end:::
+:::moniker-end
 
 ## Custom models
 
