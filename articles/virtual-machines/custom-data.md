@@ -93,5 +93,8 @@ For single VMs, you can't update custom data in the VM model. But for Virtual Ma
 ### Can I place sensitive values in custom data?
 We advise *not* to store sensitive data in custom data. For more information, see [Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md).
 
+### Can I pass script file content to VM via custom data field?
+How this is done depends on the median of deployment: PS, CLI or etc. But the string content of the file must be passed to the template. Now to note that the the custom data for VM is limited to size of 64KB. If the content is larger preprocessing is required to compress the size to fit the available space. Another option is to pass URL where the content can be downloaded on VM side as they need to do post processing regardless. Last option is to use Custom script extension.
+
 ### Is custom data made available in IMDS?
 Custom data isn't available in Azure Instance Metadata Service (IMDS). We suggest using user data in IMDS instead. For more information, see [User data through Azure Instance Metadata Service](./linux/instance-metadata-service.md?tabs=linux#get-user-data).
