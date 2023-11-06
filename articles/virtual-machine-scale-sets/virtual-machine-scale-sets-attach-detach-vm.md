@@ -22,7 +22,6 @@ You can attach a new standalone VM to a scale set when you need a different conf
 
 You can attach an existing VM to an existing Virtual Machine Scale Set by specifying which scale set you would like to attach to. The VM doesn't have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
 
-In the next sections, we'll go over the different ways to attach a VM to a scale set.
 
 ### Attach a new VM to a Virtual Machine Scale Set
 
