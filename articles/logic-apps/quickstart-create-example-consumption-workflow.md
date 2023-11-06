@@ -204,7 +204,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
    > other services might support or use different authentication types. Based on your scenario, 
    > you can handle connection authentication in various ways.
    > 
-   > For example, if you use use Azure Resource Manager templates for deployment, you can increase 
+   > For example, if you use Azure Resource Manager templates for deployment, you can increase 
    > security on inputs that change often by parameterizing values such as connection details. 
    > For more information, review the following documentation:
    >
