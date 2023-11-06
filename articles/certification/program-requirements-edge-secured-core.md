@@ -414,7 +414,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
 |Validation|OSConfig is present on the device and reporting to what extent it implements the Azure Security Baseline.|
-|Resources| <ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines </li><li> https://www.cisecurity.org/cis-benchmarks/ </li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux|</li></ul>
+|Resources|<ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines</li><li>https://www.cisecurity.org/cis-benchmarks/</li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux</li></ul>|
 
 ---
 </br>
