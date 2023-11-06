@@ -8,9 +8,9 @@ ms.date: 10/19/2023
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
 
-The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
+The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
+Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
 > [!IMPORTANT]
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -24,11 +24,11 @@ Connectors created using the CCP are fully SaaS, without any requirements for se
 > * Deploy the solution
 > * Connect Microsoft Sentinel to your data source and start ingesting data
 
-This article will show you how to complete each step and provide an example codeless connector to build along the way.
+This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
 
 ## How is this CCP different from the previous version?
 
-The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform to the point where the [previous release](create-codeless-connector-1.md) is now deprecated. Reference this new article for the most recent version of the CCP which has these key improvements:
+The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [previous release](create-codeless-connector-1.md) is now deprecated. Reference this new article for the most recent version of the CCP which has these key improvements:
 
 1. Better support for various authentication and pagination types.
 1. The user interface and connection configuration portions of the codeless connector are separate now. This allows the creation of connectors with multiple connections which wasn't possible previously.
@@ -37,10 +37,15 @@ The initial version of the CCP was [announced](https://techcommunity.microsoft.c
 
 Before building a connector, understand your data source and how Microsoft Sentinel needs to connect.
 
-1. A Data Collection Endpoint (DCE) for the Data Collection Rule (DCR) you create for your connector. Every log analytics workspace with a DCR requires a DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
-1. Schema of the output table(s).  It's important to understand the shape of your data stream and the fields you want to include in the output table. Reference your data source documentation or analyze sufficient output examples.
+1. Data Collection Endpoint (DCE)
+   
+   The Data Collection Rule (DCR) you create for your connector needs a DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
 
-Research the following components and verify support for them in the [Data Connector API reference]:
+1. Schema of the output table(s).  
+
+   It's important to understand the shape of your data stream and the fields you want to include in the output table. Reference your data source documentation or analyze sufficient output examples.
+
+Research the following components and verify support for them in the [Data Connector API reference](restapipoller-data-connector-reference.md):
 
 1. HTTP request and response structure to the data source
 1. Authentication required by the data source.
@@ -50,7 +55,7 @@ We also recommend a tool like Postman to validate the data connector components.
 
 ## Build the data connector
 
-There are 4 components to the data connector. Each of these are built using JSON.
+There are 4 components to the data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
@@ -69,6 +74,8 @@ If your data source doesn't conform to the schema of a standard table, you have 
 
 Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
 
+For more information on splitting your data to more than one table, see the [example section](#example).
+
 ### Data Collection Rule 
 
 Reference the latest information on DCRs in these articles:
@@ -83,7 +90,7 @@ To understand how to create a complex DCR with multiple data flows, see the [exa
 
 The data connector definition is a resource created to configure the UI of the RestApiPoller data connector. Use the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API with kind `Customizable` and the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
 
-Use Postman to call the data connector definitions API to create the data connector. Validate the UI 
+Use Postman to call the data connector definitions API to create the data connector. Validate the UI in the data connectors gallery.
 
 ### Data connection rules
 
@@ -114,7 +121,7 @@ View your codeless connector in the data connector gallery. Open the data connec
 
 ## Example
 
-Each step in building the RestApiPoller codeless connector is represented in the following example. To demonstrate a complex data source with ingestion to more than one table, the example features the  output table schema and multiple output streams for the DCR along with its transforms. Then it proceeds with the data connector definition and connection rules.
+Each step in building the codeless connector is represented in the following example. To demonstrate a complex data source with ingestion to more than one table, the example features the  output table schema and multiple output streams for the DCR along with its transforms. Then it proceeds with the data connector UI definition and connection rules.
 
 ### Example data
 
