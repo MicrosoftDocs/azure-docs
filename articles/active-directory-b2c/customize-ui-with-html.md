@@ -53,7 +53,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the samples
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|
