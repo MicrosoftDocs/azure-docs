@@ -62,7 +62,7 @@ Runtime serves as the computing resources required for the application to run, i
 
 First, check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-compute-instance.md) to create one. A memory optimized compute is recommended.
 
-Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**. Then in the runtime creation right panel, specify a name, select your running compute instance, (if you see the warning message as shown below, select **Authenticate** ), and use the default environment, then **Create**.
+Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**. Then in the runtime creation right panel, specify a name, select your running compute instance, (if you see the warning message as shown below, select **Authenticate**), and use the default environment, then **Create**.
 
 :::image type="content" source="./media/get-started-prompt-flow/create-runtime.png" alt-text="Screenshot of add compute instance runtime tab. " lightbox = "./media/get-started-prompt-flow/create-runtime.png":::
 
@@ -158,7 +158,7 @@ When you clone the sample, the flow outputs (category and evidence) are already 
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
-You can see that the flow predicts the input URL with a category and an evidence.
+You can see that the flow predicts the input URL with a category and evidence.
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
 
@@ -182,9 +182,9 @@ In addition, the **input mapping** supports mapping your flow input to a specifi
 
 :::image type="content" source="./media/get-started-prompt-flow/upload-new-data-batch-run.png" alt-text="Screenshot of Batch run and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-batch-run.png":::
 
-Next, select a or multiple evaluation methods. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the page. Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
+Next, select one or multiple evaluation methods. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the page. Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing showing the batch run and evaluate on evaluation methods." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
+:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on evaluation methods." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
 
 If you're interested in how the metrics are defined for built-in evaluation methods, you can preview the evaluation flows by selecting **More details**.
 
