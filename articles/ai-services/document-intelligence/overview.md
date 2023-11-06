@@ -46,8 +46,6 @@ monikerRange: '<=doc-intel-4.0.0'
 > * There are no breaking changes to application programming interfaces (APIs) or SDKs.
 > * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
-::: moniker range=">=doc-intel-3.0.0"
-
 Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation. </br></br>
 
 | ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
@@ -65,7 +63,7 @@ Document analysis models enable text extraction from forms and documents and ret
       :::image type="icon" source="media/overview/icon-layout.png" link="#layout":::</br>
     [**Layout**](#layout) | Extract text </br>and document structure.
    :::column-end:::
-:::row-end:::
+  :::row-end:::
 :::moniker-end
 
 :::moniker range="<=doc-intel-3.1.0"
@@ -83,8 +81,8 @@ Document analysis models enable text extraction from forms and documents and ret
     [**General document**](#general-document) | Extract text, </br>structure, and key-value pairs.
    :::column-end:::
 :::row-end:::
-
 :::moniker-end
+
 ## Prebuilt models
 
 Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models.
@@ -133,7 +131,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1099 form**](#us-tax-1099-form) | Extract information from variaitions of the 1099 form.
+    [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variaitions of the 1099 form.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -250,8 +248,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |prebuilt-read|✓|✓| | | | |O|O| |O|O|O|
 |prebuilt-layout|✓|✓|✓|✓|✓| |O|O| |O|O|O|
-|prebuilt-document|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
-|prebuilt-businessCard|✓| | | | | | | |✓| | | |
+|prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
+|prebuilt-businessCard (deprecated 2023-10-31-preview)|✓| | | | | | | |✓| | | |
 |prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|
 |prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|
 |prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|
@@ -296,6 +294,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 ### General document
 
 :::image type="content" source="media/overview/analyze-general-document.png" alt-text="Screenshot of General Document model analysis using Document Intelligence Studio.":::
@@ -307,6 +306,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
+:::moniker-end
 ### Invoice
 
 :::image type="content" source="media/overview/analyze-invoice.png" alt-text="Screenshot of Invoice model analysis using Document Intelligence Studio.":::
@@ -406,6 +406,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
+::: moniker range="<=doc-intel-3.1.0"
 ### Business card
 
 :::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
@@ -416,6 +417,7 @@ You can use Document Intelligence to automate document processing in application
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
+::: moniker-end
 
 ### Custom model overview
 
