@@ -26,7 +26,6 @@ The MQ state store currently supports the following actions:
 - `DEL` \<keyName\>
 - `VDEL` \<keyName\> \<keyValue\> ## Deletes a given \<keyName\> if and only if its value is \<keyValue\>
 
-
 Conceptually the protocol is simple.  Clients use the required properties and payload described in the following sections, to publish a request to a well-defined state store system topic.  The state store asynchronously processes the request and responds on the response topic that the client initially provided.
 
 The following diagram shows the basic view of the request and response:
@@ -124,7 +123,7 @@ If a client sends an invalid payload, the state store sends a payload like the f
 -ERR syntax error
 ```
 
-#### Set Responses
+#### `SET` Response
 
 When a `SET` request succeeds, the state store returns the following payload:
 
@@ -132,7 +131,7 @@ When a `SET` request succeeds, the state store returns the following payload:
 +OK<CR><LF>
 ```
 
-#### Get Responses
+#### `GET` Response
 
 When a `GET` request is made on a nonexistent key, the state store returns the following payload: 
 
@@ -153,7 +152,7 @@ The output of the state store returning the value `1234` looks like the followin
 $4<CR><LF>1234<CR><LF>
 ```
 
-#### Responses to `DEL` and `VDEL`
+#### `DEL` and `VDEL` Response
 
 The state store returns the number of values it deletes on a delete request.  Currently, the state store can only delete one value at a time.  
 
@@ -168,9 +167,11 @@ The following output is an example of a successful `DEL` command:
 ```
 
 ## Versioning and hybrid logical clocks
+
 This section describes how the state store handles versioning.
 
 ### Versions as Hybrid Logical Clocks
+
 The state store maintains a version for each value it stores.  The state store could use a monotonically increasing counter to maintain versions. Instead, the state store uses a Hybrid Logical Clock (HLC) to represent versions.  For more information, see the articles on the [original design of HLCs](https://cse.buffalo.edu/tech-reports/2014-04.pdf) and the [intent behind HLCs](https://martinfowler.com/articles/patterns-of-distributed-systems/hybrid-clock.html). 
 
 The state store uses the following format to define HLCs: 
@@ -184,19 +185,21 @@ The `wallClock` is the number of milliseconds since the Unix epoch.  `counter` a
 When clients do a `SET`, they must set the MQTT5 user property `Timestamp` as an HLC, based on the client's current clock.  The state store returns the version of the value in its response message. The response is also specified as an HLC and also uses the `Timestamp` MQTT5 user property.  The returned HLC is always greater than the HLC of the initial request.
 
 ### Example of setting and retrieving a value's version
+
 This section shows an example of setting and getting the version for a value.
 
 A client sets `keyName=value`.  The client clock is October 3, 11:07:05PM GMT.  The clock value is `1696374425000` milliseconds since Unix epoch.  Assume that the state store's system clock is identical to the client system clock.  The client does the `SET` action as described previously.
 
 The following diagram illustrates the `SET` action:
+
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.png" alt-text="Diagram of state store action to set the version for a value." border="false":::
 
 The `Timestamp` property on the initial set contains `1696374425000` as the client wall clock, the counter as `0`, and its node-Id as `CLIENT`.  On the response, the `Timestamp` property that the state store returns contains the `wallClock`, the counter incremented by one, and the node-Id as `StateStore`.  The state store could return a higher `wallClock` value if its clock were ahead, based on the way HLC updates work. 
 
 This version is also returned on successful `GET`, `DEL`, and `VDEL` requests.  On these requests, the client doesn't specify a `Timestamp`. 
 
-
 The following diagram illustrates the `GET` action:
+
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-get-version.png" alt-text="Diagram of state store getting the version of a value." border="false":::
 
 > [!NOTE]
@@ -205,15 +208,17 @@ The following diagram illustrates the `GET` action:
 If a given key is later updated with a new `SET`, the process is similar.  The client should set its request `Timestamp` based on its current clock. The state store updates the value's version and returns the `Timestamp`, following the HLC update rules.
 
 ### Clock skew
+
 The state store rejects a `Timestamp` (and also a `FencingToken`) that is more than a minute ahead of the state store's local clock.
 
 The state store accepts a `Timestamp` that is behind the state store local clock.  As specified in the HLC algorithm, the state store sets the version of the key to its local clock because it's greater.
 
-
 ## Locking and fencing tokens
+
 This section describes the purpose and usage of locking and fencing tokens.
 
 ### Background
+
 Suppose there are two or more MQTT clients using the state store.  Both clients want to write to a given key.  The state store clients need a mechanism to lock the key such that only one client at a time can modify a given key.  
 
 An example of this scenario occurs in active and stand-by systems.  There could be two clients that both perform the same operation, and the operation could include the same set of state store keys.  At a given time, one of the clients is active and the other is standing by to immediately take over if the active system hangs or crashes.  Ideally, only one client should write to the state store at a given time.  However, in distributed systems it's possible that both clients might behave as if they're active, and they might simultaneously try to write to the same keys. This scenario creates a race condition.
@@ -221,12 +226,15 @@ An example of this scenario occurs in active and stand-by systems.  There could 
 The state store provides mechanisms to prevent this race condition by using fencing tokens.  For more information about fencing tokens, and the class of race conditions they're designed to guard against, see this [article](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html).
 
 ### Obtain a fencing token
+
 This example assumes that we have the following elements:
+
 * `Client1` and `Client2`.  These clients are state store clients that act as an active and stand-by pair.
 * `LockName`. The name of a key in the state store that acts as the lock.
 * `ProtectedKey`. The key that needs to be protected from multiple writers.
 
 The clients attempt to get a lock as the first step.  They get a lock by doing a `SET LockName {CLIENT-NAME} NEX PX {TIMEOUT-IN-MILLISECONDS}`.  Recall from [Set Options](#set-options) that the `NEX` flag means that the `SET` succeeds only if one of the following conditions is met:
+
 - The key was empty
 - The key's value is already set to \<value\> and `PX` specifies the timeout in milliseconds.
 
@@ -236,26 +244,29 @@ Assume that `Client1` goes first with a request of `SET LockName Client1 NEX PX 
 > A `SET NX` is conceptually equivalent to `AcquireLock()`.
 
 ### Use the fencing tokens on SET requests
+
 When `Client1` successfully does a `SET` ("AquireLock") on `LockName`, the state store returns the version of `LockName` as a Hybrid Logical Clock (HLC) in the MQTT5 user property `Timestamp`.
 
 When a client performs a `SET` request, it can optionally include the MQTT5 user property `FencingToken`.  The `FencingToken` is represented as an HLC.  The fencing token associated with a given key/value pair provides lock ownership checking.  The fencing token can come from anywhere.  For this scenario, it should come from the version of `LockName`.
 
-
 The following diagram shows the process of `Client1` doing a `SET` request on `LockName`:
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-lockname.png" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
 
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-lockname.png" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
 
 Next, `Client1` uses the `Timestamp` property (`Property=1696374425000:1:StateStore`) unmodified as the basis of the `FencingToken` property in the request to modify `ProtectedKey`.  Like all `SET` requests, the client must set the `Timestamp` property of `ProtectedKey`.
 
 The following diagram shows the process of `Client1` doing a `SET` request on `ProtectedKey`:
+
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-protectedkey.png" alt-text="Diagram of client doing a set request on the protected key property." border="false":::
 
 If the request succeeds, from this point on `ProtectedKey` requires a fencing token equal to or greater than the one specified in the `SET` request.
 
 ### Fencing Token Algorithm
+
 The state store accepts any HLC for the `Timestamp` of a key/value pair, if the value is within the max clock skew. However, the same isn't true for fencing tokens.  
 
 The state store algorithm for fencing tokens is as follows:
+
 * If a key/value pair doesn't have a fencing token associated with it and a `SET` request sets `FencingToken`, the state store stores the associated `FencingToken` with the key/value pair.
 * If a key/value pair has a fencing token associated with it:
   * If a `SET` request didn't specify `FencingToken`, reject the request.
@@ -264,9 +275,9 @@ The state store algorithm for fencing tokens is as follows:
 
 After a key is marked with a fencing token, for a request to succeed, `DEL` and `VDEL` requests also require the `FencingToken` property to be included.  The algorithm is identical to the previous one, except that the fencing token isn't stored because the key is being deleted.
 
-
 ### Client behavior
-These locking mechanisms rely on clients being well-behaved.  In the previous example, a misbehaving `Client2` couldn't own the `LockName` and still successfully perform a `SET ProtectedKey` by choosing a fencing token that is newer than the `ProtectedKey` token.  The state store isn't aware that `LockName` and `ProtectedKey` have any relationship. As a result, state store doesn't perform validation that `Client2` actually owns the value.  
+
+These locking mechanisms rely on clients being well-behaved. In the previous example, a misbehaving `Client2` couldn't own the `LockName` and still successfully perform a `SET ProtectedKey` by choosing a fencing token that is newer than the `ProtectedKey` token.  The state store isn't aware that `LockName` and `ProtectedKey` have any relationship. As a result, state store doesn't perform validation that `Client2` actually owns the value.  
 
 Clients being able to write keys for which they don't actually own the lock, is undesirable behavior.  You can protect against such client misbehavior by correctly implementing clients and using authentication to limit access to keys to trusted clients only.
 
