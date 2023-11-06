@@ -48,11 +48,11 @@ spec:
   mode: auto
   image:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-pod
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
     tag: 0.1.0-preview
   authImage:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-authentication
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
     tag: 0.1.0-preview
 ```
 
@@ -67,11 +67,11 @@ metadata:
 spec:
   authImage:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-authentication
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
     tag: 0.1.0-preview
   image:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-pod
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
     tag: 0.1.0-preview
   mode: distributed
   cardinality:

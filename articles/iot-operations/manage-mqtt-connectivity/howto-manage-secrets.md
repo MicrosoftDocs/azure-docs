@@ -111,7 +111,7 @@ metadata:
   namespace: default
 spec:
   image:
-    repository: e4kpreview.azurecr.io/mqttbridge
+    repository: mcr.microsoft.com/azureiotoperations/mqttbridge
     tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5

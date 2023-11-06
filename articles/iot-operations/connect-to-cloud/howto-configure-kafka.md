@@ -71,7 +71,7 @@ metadata:
 spec:
   image:
     pullPolicy: IfNotPresent
-    repository: e4kpreview.azurecr.io/kafka
+    repository: mcr.microsoft.com/azureiotoperations/kafka
     tag: 0.1.0-preview
   instances: 2
   clientIdPrefix: my-prefix
