@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Export DICOM files
 
-The DICOM&reg; service provides the ability to easily export DICOM data in a file format. The service simplifies the process of using medical imaging in external workflows, such as AI and machine learning. You can use the export API to export DICOM studies, series, and instances in bulk to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md). DICOM data that's exported to a storage account is exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.
+The DICOM&reg; service allows you to export DICOM data in a file format. The service simplifies the process of using medical imaging in external workflows, such as AI and machine learning. You can use the export API to export DICOM studies, series, and instances in bulk to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md). DICOM data exported to a storage account is exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.
 
 There are three steps to exporting data from the DICOM service:
 
@@ -63,7 +63,7 @@ The export API exposes one `POST` endpoint for exporting data.
 POST <dicom-service-url>/<version>/export
 ```
 
-Given a *source*, the set of data to be exported, and a *destination*, the location to which data will be exported, the endpoint returns a reference to a new, long-running export operation. The duration of this operation depends on the volume of data to be exported. For more information about monitoring progress of export operations, see the [Operation status](#operation-status) section.
+Given a *source*, the set of data to be exported, and a *destination*, the location to which data is exported, the endpoint returns a reference to a new, long-running export operation. The duration of this operation depends on the volume of data to be exported. For more information about monitoring progress of export operations, see the [Operation status](#operation-status) section.
 
 Any errors encountered while you attempt to export are recorded in an error log. For more information, see the [Errors](#errors) section.
 
@@ -157,7 +157,7 @@ Content-Type: application/json
 
 #### Operation status
 
-Poll the preceding `href` URL for the current status of the export operation until completion. After the job has reached a terminal state, the API returns a 200 status code instead of 202. The value of its status property is updated accordingly.
+Poll the preceding `href` URL for the current status of the export operation until completion. After the job reaches a terminal state, the API returns a 200 status code instead of 202. The value of its status property is updated accordingly.
 
 ```http
 HTTP/1.1 200 OK
