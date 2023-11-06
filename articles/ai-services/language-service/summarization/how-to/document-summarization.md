@@ -84,7 +84,7 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 
 ### Try document abstractive summarization
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
+<!-- [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684) -->
 
 The following example will get you started with document abstractive summarization:
 
@@ -202,7 +202,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ## Query based extractive summarization
 
-The query-based extractive summarization API is an extension to the existing [document summarization API](https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/how-to/document-summarization).
+The query-based extractive summarization API is an extension to the existing document summarization API.
 
 The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there is a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long which we recommend using instead of `sentenceCount`. Below is an example request:
 
@@ -239,7 +239,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 
 ## Query based abstractive summarization
 
-The query-based abstractive summarization API is an extension to the existing [document summarization API](https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/how-to/document-summarization).
+The query-based abstractive summarization API is an extension to the existing document summarization API.
 
 The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there is a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long which we recommend using instead of `sentenceCount`. Below is an example request:
 
