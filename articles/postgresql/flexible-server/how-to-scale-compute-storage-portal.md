@@ -147,7 +147,7 @@ Use the below steps to scale down the performance tier on your flexible server.
 
 5.	Select your new performance tier and select save.
 
-    :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-3.png" alt-text="Screenshot that shows performance tier and save 6":::
+    :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-3.png" alt-text="Screenshot that shows performance tier and save 6.":::
 
 6.	Your server deploys and once the deployment is completed, your server is updated and will show the new performance tier.
 
