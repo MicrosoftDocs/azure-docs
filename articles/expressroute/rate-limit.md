@@ -1,11 +1,12 @@
 ---
-title: Rate limiting for ExpressRoute Direct circuits (Preview) - Azure ExpressRoute | Microsoft Docs
-description: This document provides guidance on how to enable rate limiting for an ExpressRoute Direct circuit.
+title: Rate limiting for ExpressRoute Direct circuits (Preview)
+titleSuffix: Azure ExpressRoute
+description: This document provides guidance on how to enable or disable rate limiting for an ExpressRoute Direct circuit.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/15/2023
 ms.author: duau
 ---
 
@@ -41,7 +42,7 @@ To enable rate limiting while creating an ExpressRoute Direct circuit, follow th
 
 1. In the **Configuration** tab, enter the required information and select the **Enable Rate Limiting** check box. The following diagram shows a screenshot of the **Configuration** tab.
 
-    :::image type="content" source="./media/rate-limiting/create-circuit.png" alt-text="Screenshot of the configuration tab for a new ExpressRoute Direct circuit.":::
+    :::image type="content" source="./media/rate-limit/create-circuit.png" alt-text="Screenshot of the configuration tab for a new ExpressRoute Direct circuit.":::
 
 1. Select **Next: Tags** and provide tagging for the circuit, if necessary.
 
@@ -57,7 +58,21 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
 1. Select **Yes** for *Enable Rate Limiting*. The following diagram illustrates the configuration page for enabling rate limiting for an ExpressRoute Direct circuit.
 
-    :::image type="content" source="./media/rate-limiting/existing-circuit.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing the rate limiting setting.":::
+    :::image type="content" source="./media/rate-limit/existing-circuit.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing the rate limiting setting.":::
+
+1. Then select the **Save** button at the top of the page to apply the changes.
+
+## Disable rate limiting
+
+To disable rate limiting for an existing ExpressRoute Direct circuit, follow these steps:
+
+1. Sign-in to the Azure portal and go to the ExpressRoute Direct circuit that you want to configure rate limiting for.
+
+1. Select **Configuration** under *Settings* on the left side pane.
+
+1. Select **No** for *Enable Rate Limiting*. The following diagram illustrates the configuration page for disabling rate limiting for an ExpressRoute Direct circuit.
+
+    :::image type="content" source="./media/rate-limit/disable-rate-limiting.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing how to disable rate limiting.":::
 
 1. Then select the **Save** button at the top of the page to apply the changes.
 
@@ -79,7 +94,7 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
     In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See the following screenshot:
 
-    :::image type="content" source="./media/rate-limiting/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
+    :::image type="content" source="./media/rate-limit/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
 
 * How can I monitor if my traffic gets affected by the rate limiting feature?
 
@@ -91,7 +106,7 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
     
     1. From the drop-down, under **Circuit QoS**, select **DroppedInBitsPerSecond**. Then select **Add metrics** and select **DroppedOutBitsPerSecond**. You now see the chart metric for traffic that is dropped for ingress and egress.
 
-    :::image type="content" source="./media/rate-limiting/drop-bits-metric.png" alt-text="Screenshot of the drop bits per seconds metrics for an ExpressRoute Direct circuit.":::
+    :::image type="content" source="./media/rate-limit/drop-bits-metric.png" alt-text="Screenshot of the drop bits per seconds metrics for an ExpressRoute Direct circuit.":::
 
 * How can I change my circuit bandwidth? 
 
