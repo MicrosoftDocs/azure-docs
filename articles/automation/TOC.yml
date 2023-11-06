@@ -153,6 +153,12 @@
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
+        - name: Runtime Environment
+          items:
+            - name: Overview of Runtime environment
+              href: runtime-environment-overview.md
+            - name: Runtime environment scenarios 
+              href: manage-runtime-environment.md    
         - name: Manage runbooks
           href: manage-runbooks.md
         - name: Author and run runbooks
