@@ -274,7 +274,7 @@ Visit the PostgreSQL documentation to understand more about [logical decoding](h
 ## Monitoring
 You must monitor logical decoding. Any unused replication slot must be dropped. Slots hold on to Postgres WAL logs and relevant system catalogs until changes have been read. If your subscriber or consumer fails or if it's improperly configured, the unconsumed logs pile up and fill your storage. Also, unconsumed logs increase the risk of transaction ID wraparound. Both situations can cause the server to become unavailable. Therefore, it's critical that logical replication slots are consumed continuously. If a logical replication slot is no longer used, drop it immediately.
 
-The 'active' column in the pg_replication_slots view indicates whether there's a consumer connected to a slot.
+The 'active' column in the `pg_replication_slots` view indicates whether there's a consumer connected to a slot.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
@@ -282,7 +282,7 @@ SELECT * FROM pg_replication_slots;
 
 ## Limitations
 * **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
-* **Slots and HA failover** - Logical replication slots on the primary server aren't available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots won't be available on the standby.
+* **Slots and HA failover** - When using [high-availability (HA)](concepts-high-availability.md) enabled servers with Azure Database for PostgreSQL - Flexible Server, be aware that logical replication slots are not preserved during failover events. To maintain logical replication slots and ensure data consistency after a failover, it is recommended to use the PG Failover Slots extension. For more information on how to enable this extension, please refer to the [documentation](concepts-extensions.md##pg_failover_slots).
 
 >[!IMPORTANT]
 > You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists.  Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.

@@ -498,7 +498,7 @@ select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 ```
 
 ## pg_failover_slots
-The PG Failover Slots extension enhances Azure Database for PostgreSQL when operating with both logical replication and high-availability-enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that does not preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
+The PG Failover Slots extension enhances Azure Database for PostgreSQL when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that does not preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
 
 The extension streamlines the failover process by managing the necessary transfer, cleanup, and synchronization of replication slots, thus providing a seamless transition during server role changes.
 The extension is supported for PostgreSQL versions 11 to 15.
@@ -511,7 +511,7 @@ To enable the PG Failover Slots extension for your Azure Database for PostgreSQL
 1. Add `pg_failover_slots` to the server's shared preload libraries by updating the `shared_preload_libraries` parameter.
 2. Change the server parameter `hot_standby_feedback` to `on`. 
 
-Please note that any changes to the `shared_preload_libraries parameter` require a server restart to take effect.
+Please note that any changes to the `shared_preload_libraries` parameter require a server restart to take effect.
 
 Follow these steps in the Azure portal:
 
