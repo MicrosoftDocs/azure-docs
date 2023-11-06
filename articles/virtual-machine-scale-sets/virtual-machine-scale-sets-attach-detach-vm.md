@@ -20,7 +20,7 @@ There are times where you need to attach a virtual machine to a Virtual Machine 
 
 You can attach a new standalone VM to a scale set when you need a different configuration on a specific VM than what is defined in the scaling profile, or when the scale set doesn't have a virtual machine scaling profile. Manually attaching VMs gives you full control over instance naming and placement into a specific availability zone or fault domain. The VM doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
 
-You can attach an existing VM to an existing Virtual Machine Scale set by specifying which scale set you would like to attach to. The VM doesn't have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
+You can attach an existing VM to an existing Virtual Machine Scale Set by specifying which scale set you would like to attach to. The VM doesn't have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
 
 In the next sections, we'll go over the different ways to attach a VM to a scale set.
 
