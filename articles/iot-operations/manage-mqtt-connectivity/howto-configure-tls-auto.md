@@ -128,6 +128,8 @@ kubectl get secret test-ca -o json | jq -r '.data["tls.crt"]' | base64 -d
 
 This certificate must be distributed and trusted by all clients. For example, use `--cafile` switch for a mosquitto client.
 
+You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+
 ### Create Issuer based on CA certificate
 
 Cert-manager needs an issuer based on the CA certificate generated or imported in the earlier step. Create the following file as `issuer-ca.yaml`:
