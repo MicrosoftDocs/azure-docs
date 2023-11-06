@@ -76,13 +76,12 @@ You can use the **View Code** feature in both *moderate text content* or *modera
 
 :::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of viewing the code in the moderate text content page." lightbox="../media/quickstarts/content-safety-image.png":::
 
-
 ## Clean up resources
 
-If you want to clean up and remove an Azure AI services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Azure portal](https://portal.azure.com?azure-portal=true)
+- [Azure CLI](/cli/azure)
 
 ## Next steps
 

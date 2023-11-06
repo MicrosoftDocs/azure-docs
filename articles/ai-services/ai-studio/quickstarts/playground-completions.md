@@ -31,7 +31,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
-1. Select your deployment from the **Deployments** dropdown. If you don't make any changes, the **gpt-35-turbo** model is selected by default. 
+1. Select your deployment from the **Deployments** dropdown. 
 1. Select **Completions** from the **Mode** dropdown menu.
 1. Select **Generate product name ideas** from the **Examples** dropdown menu. The system prompt is prepopulated with something resembling the following text:
 
@@ -84,10 +84,10 @@ In the playground you can also view python, json, C#, and curl code samples pref
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Azure portal](https://portal.azure.com?azure-portal=true)
+- [Azure CLI](/cli/azure)
 
 ## Next steps
 

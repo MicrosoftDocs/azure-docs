@@ -5,7 +5,7 @@
   items:
   - name: What is Azure AI Studio?
     href: ai-studio/what-is-ai-studio.md
-  - name: What are Azure AI services?
+  - name: Azure AI services
     href: what-are-ai-services.md
     displayName: applied, cognitive, form recognizer
   - name: Language support
@@ -20,6 +20,12 @@
     href: ai-studio/quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: ai-studio/quickstarts/content-safety.md
+- name: Tutorials
+  items:
+  - name: Deploy a chat web app
+    href: ai-studio/tutorials/deploy-chat-web-app.md
+  - name: Using Azure AI Studio with a screen reader
+    href: ai-studio/tutorials/screen-reader.md
   - name: Analyze images and video with GPT-4V in the playground
     href: ai-studio/quickstarts/multimodal-vision.md
 - name: How-to
@@ -31,18 +37,12 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
-  - name: Setup your development environment
-    items:
-    - name: Get started with the Azure AI SDK
-      href: ai-studio/how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: ai-studio/how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: ai-studio/how-to/vscode-web.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
       href: ai-studio/concepts/ai-resources.md
+    - name: Create and manage an Azure AI resource
+      href: ai-studio/how-to/create-azure-ai-resource.md
     - name: Create an Azure AI project
       href: ai-studio/how-to/create-projects.md
   - name: Data and connections
@@ -113,6 +113,30 @@
           href: ai-studio/how-to/flow-develop-evaluation.md
     - name: Deploy a flow as a managed online endpoint
       href: ai-studio/how-to/flow-deploy.md
+  - name: Evaluate apps
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: ai-studio/concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: ai-studio/concepts/evaluation-metrics-built-in.md
+      - name: Harms mitigation strategies with Azure AI
+        href: ai-studio/concepts/evaluation-improvement-strategies.md
+    - name: Evaluate with Azure AI Studio and SDK
+      href: ai-studio/how-to/evaluate-generative-ai-app.md
+    - name: Evaluate from the Azure AI Studio playground 
+      href: ai-studio/how-to/evaluate-prompts-playground.md
+    - name: View evaluation results in Azure AI Studio
+      href: ai-studio/how-to/evaluate-flow-results.md
+  - name: Setup your development environment
+    items:
+    - name: Get started with the Azure AI SDK
+      href: ai-studio/how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: ai-studio/how-to/cli-install.md
+    - name: Get started with projects in VS Code (Web)
+      href: ai-studio/how-to/vscode-web.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -127,6 +151,12 @@
       items:
       - name: Role-based access control in Azure AI Studio
         href: ai-studio/concepts/rbac-ai-studio.md
+    - name: Network security
+      items:
+      - name: Configure managed network
+        href: ai-studio/how-to/configure-managed-network.md
+      - name: Configure private link
+        href: ai-studio/how-to/configure-private-link.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys
@@ -135,6 +165,8 @@
         href: ./encryption/cognitive-services-encryption-keys-portal.md
   - name: Azure AI services infrastructure
     items:
+    - name: Azure AI services and the ecosystem
+      href: ai-studio/concepts/ai-services-and-ecosystem.md
     - name: Security features
       href: security-features.md
     - name: Authenticate requests
@@ -170,54 +202,46 @@
         href: create-account-resource-manager-template.md  
       - name: Create a new resource using Terraform
         href: create-account-terraform.md
-  - name: Deploy containers
-    items:
-    - name: Azure AI containers overview
-      href: cognitive-services-container-support.md
-    - name: General container FAQ
-      href: ./containers/container-faq.yml
-    - name: Use containers in disconnected environments
-      href: ./containers/disconnected-containers.md
-    - name: Disconnected containers FAQ
-      href: ./containers/disconnected-container-faq.yml
-    - name: Container recipes
+    - name: AI services containers
       items:
-      - name: Container Reuse
-        href: ./containers/container-reuse-recipe.md
-      - name: Deploy to Azure Container Instance
-        href: ./containers/azure-container-instance-recipe.md
-      - name: Deploy to Azure Kubernetes
-        href: ./containers/azure-kubernetes-recipe.md
-      - name: Deploy with Docker Compose
-        href: ./containers/docker-compose-recipe.md
-    - name: Other Container Services
-      items:
-      - name: Azure Container Instances
-        href: ../container-instances/container-instances-tutorial-prepare-app.md
-      - name: Azure Container Registry
-        href: ../container-registry/container-registry-get-started-azure-cli.md
-      - name: Azure Kubernetes Service (AKS)
-        href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Tutorials
-  items:
-  - name: Using Azure AI Studio with a screen reader
-    href: ai-studio/tutorials/screen-reader.md
-- name: Concepts
-  items:
-  - name: Azure AI services and the ecosystem
-    href: ai-studio/concepts/ai-services-and-ecosystem.md
-  - name: Content safety
-    items:
-    - name: Content filtering
-      href: ai-studio/concepts/content-filtering.md
-    - name: System message templates
-      href: ./openai/concepts/system-message.md?context=/azure/ai-services/context/context
+      - name: Azure AI containers overview
+        href: cognitive-services-container-support.md
+      - name: General container FAQ
+        href: ./containers/container-faq.yml
+      - name: Use containers in disconnected environments
+        href: ./containers/disconnected-containers.md
+      - name: Disconnected containers FAQ
+        href: ./containers/disconnected-container-faq.yml
+      - name: Container recipes
+        items:
+        - name: Container Reuse
+          href: ./containers/container-reuse-recipe.md
+        - name: Deploy to Azure Container Instance
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Deploy to Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Deploy with Docker Compose
+          href: ./containers/docker-compose-recipe.md
+      - name: Other Container Services
+        items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Responsible AI
   items:
   - name: Overview
     href: responsible-use-of-ai-overview.md
   - name: Limited Access features
     href: cognitive-services-limited-access.md
+  - name: Content safety
+    items:
+    - name: Content filtering
+      href: ai-studio/concepts/content-filtering.md
+    - name: System message templates
+      href: ./openai/concepts/system-message.md?context=/azure/ai-services/context/context
 - name: Reference
   items:
   - name: Azure CLI
