@@ -58,6 +58,8 @@ items:
           href: manage-devices-assets/howto-manage-assets-remotely.md
         - name: Autodetect assets
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+        - name: Configure an OPC PLC simulator
+          href: manage-devices-assets/howto-configure-opc-plc-simulator.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview
