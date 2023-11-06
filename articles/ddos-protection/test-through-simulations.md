@@ -48,12 +48,12 @@ You'll then configure diagnostic logs and alerts to monitor for attacks and traf
 
 - An Azure account with an active subscription.
 - In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md).
-- For this tutorial you will need to deploy a Load Balancer, a public IP address, Bastion, and two virtual machines. For more information, see [Deploy Load Balancer with DDoS Protection](../load-balancer/tutorial-protect-load-balancer-ddos.md). Please note, you can skip the NAT Gateway step in this tutorial.
+- For this tutorial you'll need to deploy a Load Balancer, a public IP address, Bastion, and two virtual machines. For more information, see [Deploy Load Balancer with DDoS Protection](../load-balancer/tutorial-protect-load-balancer-ddos.md). You can skip the NAT Gateway step in the Deploy Load Balancer with DDoS Protection tutorial.
 
 
 ## Configure DDoS Protection metrics and alerts
 
-In this tutorial we'll configure DDoS Protection metrics and alerts to monitor for attacks and traffic patterns.
+In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor for attacks and traffic patterns.
 
 ### Configure diagnostic logs
 
@@ -178,7 +178,7 @@ BreakingPoint Cloud offers:
 - Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
 
 > [!NOTE]
-> For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud). 
+> For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud).  
 
 Example attack values:
 
