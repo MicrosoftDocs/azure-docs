@@ -164,6 +164,22 @@ Custom models are trained using your labeled datasets to extract distinct data f
    :::column-end:::
 :::row-end:::
 
+## Add-on capabilities
+
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
+
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
+
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
+
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
+
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-10-31-preview` and later releases:
+
+* [`queryFields`](concept-add-on-capabilities.md#query-fields)
+
 ## Analysis features
 
 |Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
@@ -399,22 +415,6 @@ You can use Document Intelligence to automate document processing in application
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
-
-## Add-on capabilities
-
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
-
-* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
-
-* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
-
-* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
-
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-10-31-preview` and later releases:
-
-* [`queryFields`](concept-add-on-capabilities.md#query-fields)
 
 :::moniker-end
 
