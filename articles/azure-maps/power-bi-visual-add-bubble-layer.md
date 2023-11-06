@@ -34,7 +34,7 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 >
 > **Bubble size scaling retirement**
 >
-> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
 >
 > :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
 >

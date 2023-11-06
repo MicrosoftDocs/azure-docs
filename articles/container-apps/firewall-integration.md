@@ -26,56 +26,56 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 ### Inbound
 
-# [Workload profiles environment](#tab/workload-profiles-env)
+# [Workload profiles environment](#tab/workload-profiles)
 
 >[!Note]
-> When using workload profiles, inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
+> When using workload profiles, inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic goes through the public endpoint instead of the virtual network.
 
-| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your Client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `30,000-32,676`<sup>2</sup> | Allow your Client IPs to access Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
-# [Consumption only environment](#tab/consumption-only-env)
+# [Consumption only environment](#tab/consumption-only)
 
-| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your Client IPs | \* | Your container app's subnet<sup>1</sup> | `443` | Allow your Client IPs to access Azure Container Apps.  |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 
 ---
 
 <sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.   
-<sup>2</sup> The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated. Once created, the required ports are 2 immutable, static values, and you can update your NSG rules.
+<sup>2</sup> The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated. Once created, the required ports are two immutable, static values, and you can update your NSG rules.
 
 
 ### Outbound 
 
-# [Workload profiles environment](#tab/workload-profiles-env)
+# [Workload profiles environment](#tab/workload-profiles)
 
-| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
-| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
 | TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for Microsoft container registry for system containers. |
 | TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-| UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet.  |
 | TCP | Your container app's subnet | \* | `AzureActiveDirectory` | `443` | If you're using managed identity, this is required. | 
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
-# [Consumption only environment](#tab/consumption-only-env)
+# [Consumption only environment](#tab/consumption-only)
 
-| Protocol | Source | Source Ports | Destination | Destination Ports | Description |
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
 | UDP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
 | TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
 | UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
-| TCP | Your container app's subnet | \* | \* | `5671` | Container Apps control plane. |
-| TCP | Your container app's subnet | \* | \* | `5672` | Container Apps control plane. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. |
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
 ---
 

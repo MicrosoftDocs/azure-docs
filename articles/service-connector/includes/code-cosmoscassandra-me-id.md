@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 10/31/2023
 ms.author: wchi
 ---
 
@@ -10,94 +10,94 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies
-```bash
-dotnet add package CassandraCSharpDriver --version 3.19.3
-dotnet add package Azure.Identity
-```
+    ```bash
+    dotnet add package CassandraCSharpDriver --version 3.19.3
+    dotnet add package Azure.Identity
+    ```
 
 2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
-```csharp
-using System;
-using System.Security.Authentication;
-using System.Net.Security;
-using System.Net.Http;
-using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Cassandra;
-using Azure.Identity;
-
-public class Program
-{
-	public static async Task Main()
-	{
-        var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
-        var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
-        var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
-        var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
-        var listKeyUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTKEYURL");
-        var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
-
-        // Uncomment the following lines according to the authentication type.
-        // For system-assigned identity.
-        // var tokenProvider = new DefaultAzureCredential();
-        
-        // For user-assigned identity.
-        // var tokenProvider = new DefaultAzureCredential(
-        //     new DefaultAzureCredentialOptions
-        //     {
-        //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
-        //     }
-        // );
-        
-        // For service principal.
-        // var tenantId = Environment.GetEnvironmentVariable("AZURE_COSMOS_TENANTID");
-        // var clientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
-        // var clientSecret = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTSECRET");
-        // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
-        
-        // Acquire the access token. 
-        AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
-            new TokenRequestContext(scopes: new string[]{ scope }));
-
-        // Get the password.
-        var httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
-        var response = await httpClient.POSTAsync(listKeyUrl);
-        var responseBody = await response.Content.ReadAsStringAsync();
-        var keys = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-        var password = keys["primaryMasterKey"];
-        
-        // Connect to Azure Cosmos DB for Cassandra
-        var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-        options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
-        Cluster cluster = Cluster
-            .Builder()
-            .WithCredentials(userName, password)
-            .WithPort(cassandraPort)
-            .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
-        ISession session = await cluster.ConnectAsync();
-    }
-
-    public static bool ValidateServerCertificate
-	(
-        object sender,
-        X509Certificate certificate,
-        X509Chain chain,
-        SslPolicyErrors sslPolicyErrors
-    )
+    ```csharp
+    using System;
+    using System.Security.Authentication;
+    using System.Net.Security;
+    using System.Net.Http;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Threading.Tasks;
+    using Cassandra;
+    using Azure.Identity;
+    
+    public class Program
     {
-        if (sslPolicyErrors == SslPolicyErrors.None)
-            return true;
-
-        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
-        // Do not allow this client to communicate with unauthenticated servers.
-        return false;
+    	public static async Task Main()
+    	{
+            var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
+            var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
+            var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
+            var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
+            var listKeyUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTKEYURL");
+            var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
+    
+            // Uncomment the following lines according to the authentication type.
+            // For system-assigned identity.
+            // var tokenProvider = new DefaultAzureCredential();
+            
+            // For user-assigned identity.
+            // var tokenProvider = new DefaultAzureCredential(
+            //     new DefaultAzureCredentialOptions
+            //     {
+            //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
+            //     }
+            // );
+            
+            // For service principal.
+            // var tenantId = Environment.GetEnvironmentVariable("AZURE_COSMOS_TENANTID");
+            // var clientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
+            // var clientSecret = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTSECRET");
+            // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
+            
+            // Acquire the access token. 
+            AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
+                new TokenRequestContext(scopes: new string[]{ scope }));
+    
+            // Get the password.
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
+            var response = await httpClient.POSTAsync(listKeyUrl);
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var keys = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
+            var password = keys["primaryMasterKey"];
+            
+            // Connect to Azure Cosmos DB for Cassandra
+            var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+            options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
+            Cluster cluster = Cluster
+                .Builder()
+                .WithCredentials(userName, password)
+                .WithPort(cassandraPort)
+                .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
+            ISession session = await cluster.ConnectAsync();
+        }
+    
+        public static bool ValidateServerCertificate
+    	(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
+            SslPolicyErrors sslPolicyErrors
+        )
+        {
+            if (sslPolicyErrors == SslPolicyErrors.None)
+                return true;
+    
+            Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+            // Do not allow this client to communicate with unauthenticated servers.
+            return false;
+        }
     }
-}
-
-```
+    
+    ```
 
 ### [Java](#tab/java)
 
@@ -388,4 +388,4 @@ Authentication type is not supported for Spring Boot.
 
 
 ### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

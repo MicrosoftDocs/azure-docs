@@ -2,7 +2,7 @@
 title: Enable your VMware vCenter resources in Azure
 description: Learn how to browse your vCenter inventory and represent a subset of your VMware vCenter resources in Azure to enable self-service.
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 10/31/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
@@ -52,6 +52,9 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 
 For information on the capabilities enabled by a guest agent, see [Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
 
+>[!NOTE]
+>Moving VMware vCenter resources between Resource Groups and Subscriptions is currently not supported.
+ 
 ## Next steps
 
-- [Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
+[Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
