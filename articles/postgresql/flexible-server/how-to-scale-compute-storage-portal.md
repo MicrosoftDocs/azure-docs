@@ -58,7 +58,7 @@ Follow these steps to choose the compute tier.
 9.  A notification about the scaling operation in progress.
 
 
-## Manual Storage Scaling
+## Manual storage scaling
 
 Follow these steps to increase your storage size.
 
@@ -82,7 +82,7 @@ Follow these steps to increase your storage size.
 10.  A receive a notification that scaling operation is in progress.
 
 
-## Storage Autogrow 
+## Storage autogrow 
 
 Use below steps to enable storage autogrow for your flexible server and automatically scale your storage in most cases.
 
@@ -105,9 +105,9 @@ Use below steps to enable storage autogrow for your flexible server and automati
 > [!IMPORTANT]
 > Storage autogrow initiates disk scaling operations online, but there are specific situations where online scaling is not possible. In such cases, like when approaching or surpassing the 4,096-GiB limit, storage autogrow does not activate, and you must manually increase the storage. A portal informational message is displayed when this happens.
 
-## Performance Tier
+## Performance tier
 
-### Scaling Up
+### Scaling up
 
 Use the below steps to scale up the performance tier on your flexible server.
 
@@ -129,7 +129,7 @@ Use the below steps to scale up the performance tier on your flexible server.
 
 6. Your server deploys and once the deployment is completed, your server is updated and will show the new performance tier.
 
-### Scaling Down 
+### Scaling down 
 
 Use the below steps to scale down the performance tier on your flexible server.
 
