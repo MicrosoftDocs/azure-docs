@@ -20,14 +20,16 @@ The Azure Native Qumulo Scalable File Service offering on Azure Marketplace allo
 > [!NOTE]
 > Azure Native Qumulo Scalable File Service stores and processes data only in the region where the service was deployed. No data is stored outside that region.
 
-## Versions and capabilities
+## Versions 
 
-You can choose from two versions of _Azure Native Qumulo_ (ANQ) Scalable File Service.
+ Azure Native Qumulo(ANQ) Scalable File Service is available in 2 versions.
 
-- ANQ V2
-- ANQ V1
+- ANQ V2 : This is the Qumulo's latest offering which provides highly performant, highly scalable and highly durable cost effective cloud filesystem with pay as you go pricing capabilities. 
+- ANQ V1 : This is Qumulo's initial storage architecture offering that features 2 distinct tiers - standard and performance and it is billed on deployed capacity. 
 
-Azure Native Qumulo Scalable File Service provides:
+## Capabilities
+
+Azure Native Qumulo Scalable File Service provides the following capabilites:
 
 - Seamless onboarding
   - Easily include Qumulo as a natively integrated service on Azure. The service can be deployed quickly.
