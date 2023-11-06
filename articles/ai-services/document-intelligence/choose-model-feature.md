@@ -62,9 +62,8 @@ The following decision charts highlight the features of each **Document Intellig
 
 >[!Tip]
 >
-> * If you're still unsure which pretrained model to use, try the **General Document model** to extract key-value pairs.
-> * The General Document model is powered by the Read OCR engine to detect text lines, words, locations, and languages.
-> * General document also extracts the same data as the Layout model (pages, tables, styles).
+> * If you're still unsure which pretrained model to use, try the **layout model** with the optional query string parameter **`features=keyValuePairs`** enabled.
+> * The layout model is powered by the Read OCR engine to detect pages, tables, styles, text, lines, words, locations, and languages.
 
 ## Custom extraction models
 
