@@ -55,7 +55,7 @@ metadata:
   namespace: <SAME NAMESPACE AS BROKER> 
 spec:
   image: 
-    repository: e4kpreview.azurecr.io/mqttbridge 
+    repository: mcr.microsoft.com/azureiotoperations/mqttbridge 
     tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
@@ -508,7 +508,7 @@ On your Kubernetes cluster:
    spec:
      protocol: v5
      image:
-       repository: e4kpreview.azurecr.io/mqttbridge
+       repository: mcr.microsoft.com/azureiotoperations/mqttbridge
        tag: 0.1.0-preview
        pullPolicy: IfNotPresent
      bridgeInstances: 1
