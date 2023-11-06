@@ -23,7 +23,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: September 2023
 * General availability of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Cross Subscription and Cross Resource Group Restorer](how-to-restore-to-different-subscription-or-resource-group.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Cross Subscription and Cross Resource Group Restore](how-to-restore-to-different-subscription-or-resource-group.md) for Azure Database for PostgreSQL – Flexible Server.
   
 ## Release: August 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
