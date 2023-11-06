@@ -141,16 +141,16 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 Azure Monitor has functionality that proactively monitors the availability and performance of Windows or Linux guest operating systems. Azure Monitor models key components and their relationships, criteria for how to measure the health of those components, and which components alert you when an unhealthy condition is detected. With workbooks, you can use this information to create rich interactive reports.
 
 To make a query control that uses this data source, use the **Query type** dropdown to select **Workload Health**. Then select subscription, resource group, or VM resources to target. Use the health filter dropdowns to select an interesting subset of health incidents for your analytic needs.
-
-:::image type="content" source="./media/workbooks-data-sources/workload-health.png" lightbox="./media/workbooks-data-sources/workload-health.png" alt-text="Screenshot that shows an alerts query.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/workload-health.png" lightbox="./media/workbooks-data-sources/workload-health.png" alt-text="Screenshot that shows an alerts query." border="false":::
 
 ## Azure resource health
 
 Workbooks support getting Azure resource health and combining it with other data sources to create rich, interactive health reports.
 
 To make a query control that uses this data source, use the **Query type** dropdown and select **Azure health**. Then select the resources to target. Use the health filter dropdowns to select an interesting subset of resource issues for your analytic needs.
-
-:::image type="content" source="./media/workbooks-data-sources/resource-health.png" lightbox="./media/workbooks-data-sources/resource-health.png" alt-text="Screenshot that shows an alerts query that shows the health filter lists.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/resource-health.png" lightbox="./media/workbooks-data-sources/resource-health.png" alt-text="Screenshot that shows an alerts query that shows the health filter lists." border="false":::
 
 ## Azure RBAC
 
@@ -171,15 +171,17 @@ Simple JSON arrays or objects will automatically be converted into grid rows and
 ## Change Analysis (preview)
 
 To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
-
+<!-- convertborder later -->
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/workbooks-data-sources/change-analysis-data-source.png" lightbox="./media/workbooks-data-sources/change-analysis-data-source.png" alt-text="A screenshot that shows a workbook with Change Analysis.":::
+> :::image type="content" source="./media/workbooks-data-sources/change-analysis-data-source.png" lightbox="./media/workbooks-data-sources/change-analysis-data-source.png" alt-text="A screenshot that shows a workbook with Change Analysis." border="false":::
 
 
 ## Prometheus (preview)
 
 With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
-:::image type="content" source="./media/workbooks-data-sources/prometheus-query.png" lightbox="./media/workbooks-data-sources/prometheus-query.png" alt-text="Screenshot that shows sample PromQL query.":::
+
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-data-sources/prometheus-query.png" lightbox="./media/workbooks-data-sources/prometheus-query.png" alt-text="Screenshot that shows sample PromQL query." border="false":::
 
 > [!NOTE]
 > Querying from an Azure Monitor workspace is a data plane action and requires an explicit role assignment of Monitoring Data Reader, which is not assigned by default
