@@ -20,18 +20,20 @@ To manually configure Azure IoT MQ to use a specific TLS certificate, specify it
 
 ## Create certificate authority with Step CLI
 
-[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. [Install Step CLI](https://smallstep.com/docs/step-cli/installation/) and create a root certificate authority (CA) certificate and key.
+[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. 
 
-```bash
-step certificate create --profile root-ca "Example Root CA" root_ca.crt root_ca.key
-```
+1. [Install Step CLI](https://smallstep.com/docs/step-cli/installation/) and create a root certificate authority (CA) certificate and key.
 
-Then, create an intermediate CA certificate and key signed by the root CA.
+    ```bash
+    step certificate create --profile root-ca "Example Root CA" root_ca.crt root_ca.key
+    ```
 
-```bash
-step certificate create --profile intermediate-ca "Example Intermediate CA" intermediate_ca.crt intermediate_ca.key \
---ca root_ca.crt --ca-key root_ca.key
-```
+1. Create an intermediate CA certificate and key signed by the root CA.
+
+    ```bash
+    step certificate create --profile intermediate-ca "Example Intermediate CA" intermediate_ca.crt intermediate_ca.key \
+    --ca root_ca.crt --ca-key root_ca.key
+    ```
 
 ## Create server certificate
 
@@ -47,7 +49,7 @@ step certificate create mqtts-endpoint mqtts-endpoint.crt mqtts-endpoint.key \
 --no-password --insecure
 ```
 
-Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because the it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
+Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
 
 ### Certificate key algorithm requirements
 
@@ -89,21 +91,21 @@ Once the BrokerListener resource is created, the operator automatically creates 
 
 ## Connect to the broker with TLS
 
-To test the TLS connection with mosquitto, first create a full certificate chain file with Step CLI.
+1. To test the TLS connection with mosquitto, first create a full certificate chain file with Step CLI.
 
-```bash
-cat root_ca.crt intermediate_ca.crt > chain.pem
-```
+    ```bash
+    cat root_ca.crt intermediate_ca.crt > chain.pem
+    ```
 
-Then, use mosquitto to publish a message.
+1. Use mosquitto to publish a message.
 
-```console
-$ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile chain.pem
-Client my-client sending CONNECT
-Client my-client received CONNACK (0)
-Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
-Client my-client sending DISCONNECT
-```
+    ```console
+    $ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile chain.pem
+    Client my-client sending CONNECT
+    Client my-client received CONNACK (0)
+    Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
+    Client my-client sending DISCONNECT
+    ```
 
 > [!TIP]
 > To use localhost, the port must be available on the host machine. For example, `kubectl port-forward svc/mqtts-endpoint 8885:8885 -n azure-iot-operations`. With some Kubernetes distributions like K3d, you can add a forwarded port with `k3d cluster edit $CLUSTER_NAME --port-add 8885:8885@loadbalancer`.

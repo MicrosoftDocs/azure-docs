@@ -22,13 +22,13 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
-```console
-$ kubectl get pods --namespace azure-iot-operations -l 'app in (cert-manager,cainjector,webhook)'
-NAME                                           READY   STATUS    RESTARTS       AGE
-aio-cert-manager-64f9548744-5fwdd              1/1     Running   4 (145m ago)   4d20h
-aio-cert-manager-cainjector-6c7c546578-p6vgv   1/1     Running   4 (145m ago)   4d20h
-aio-cert-manager-webhook-7f676965dd-8xs28      1/1     Running   4 (145m ago)   4d20h
-```
+    ```console
+    $ kubectl get pods --namespace azure-iot-operations -l 'app in (cert-manager,cainjector,webhook)'
+    NAME                                           READY   STATUS    RESTARTS       AGE
+    aio-cert-manager-64f9548744-5fwdd              1/1     Running   4 (145m ago)   4d20h
+    aio-cert-manager-cainjector-6c7c546578-p6vgv   1/1     Running   4 (145m ago)   4d20h
+    aio-cert-manager-webhook-7f676965dd-8xs28      1/1     Running   4 (145m ago)   4d20h
+    ```
 
 1. If you see the pods shown as ready and running, cert-manager is installed and ready to use. 
 
@@ -111,7 +111,7 @@ This certificate must be distributed and trusted by all clients. For example, us
 
 You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
-### Create Issuer based on CA certificate
+### Create issuer based on CA certificate
 
 Cert-manager needs an issuer based on the CA certificate generated or imported in the earlier step. Create the following file as `issuer-ca.yaml`:
 
@@ -127,7 +127,7 @@ spec:
     secretName: test-ca
 ```
 
-1. Create the issuer with the following command:
+Create the issuer with the following command:
 
     ```bash
     kubectl apply -f issuer-ca.yaml
