@@ -4,20 +4,21 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/26/2023
+ms.date: 10/27/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
 
 # Install Azure Container Storage Preview for use with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage Preview on the cluster.
+
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, label the node pool, and install Azure Container Storage Preview on the cluster. Alternatively, you can install Azure Container Storage Preview [using a QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this article.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 > [!NOTE]
-> If you already have an AKS cluster deployed, you can proceed to [Connect to the cluster](#connect-to-the-cluster). Alternatively, you can install Azure Container Storage Preview [using an automated installation script](container-storage-aks-quickstart.md) instead of following the manual steps outlined in this article.
+> If you already have an AKS cluster deployed, proceed to [Connect to the cluster](#connect-to-the-cluster).
 
 ## Getting started
 
@@ -59,7 +60,7 @@ az group create --name <resource-group-name> --location <location>
 
 If the resource group was created successfully, you'll see output similar to this:
 
-```json
+```output
 {
   "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
   "location": "eastus",
@@ -112,7 +113,7 @@ The deployment will take a few minutes to complete.
 
 ## Connect to the cluster
 
-To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
+To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
 1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
