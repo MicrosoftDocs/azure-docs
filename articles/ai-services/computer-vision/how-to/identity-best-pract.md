@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/05/2023
 ms.author: pafarley
 ms.custom: 
@@ -15,8 +15,7 @@ ms.custom:
 
 # Best Practices for using the Face service tbd
 
-tbd
-
+tbd latency
 ## Choose the appropriate region for your Azure AI Face resource
 
 The network latency, the time it takes for information to travel from source (your application) to destination (your Azure resource), is strongly influenced by the geographical distance between the application making requests and the Azure server responding to those requests. For example, if your Face resource is located in `EastUS`, it will have a faster response time for users in New York, and users in Asia will experience a longer delay. 
