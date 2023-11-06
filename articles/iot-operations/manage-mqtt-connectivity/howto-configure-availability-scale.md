@@ -14,9 +14,9 @@ ms.date: 10/27/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The **Broker** resource is the main resource that defines the overall settings for Azure IoT MQ's MQTT Broker. It also determines the number and type of pods that run the Broker configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanims are built-in to the broker and it can automatically recover from component failures in many cases. For example, a node fails in a Kubernetes cluster configured for high availability. 
+The **Broker** resource is the main resource that defines the overall settings for Azure IoT MQ's MQTT Broker. It also determines the number and type of pods that run the Broker configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
-You can horizontally scale the Broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic accross the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
+You can horizontally scale the Broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
 
 
 ## Configure Azure IoT MQ scaling settings with the Broker custom resource
