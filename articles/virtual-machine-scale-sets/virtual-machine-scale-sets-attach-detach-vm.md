@@ -110,9 +110,7 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName `
 $vmss = Get-AzVmss -ResourceGroupName $resourceGroupName -Name $vmssName `
 
 #Create scale set reference
-$vmssReference – New-Object Microsoft.Azure.Management.Compute.Models.SubResource `
-$vmsReference.Id = $vmss.Id `
-$vm.VirtualMachineScaleSet = $vmssReference `
+$vm.VirtualMachineScaleSetId = $vmss.Id
 
 #Update the VM with the scale set ID
 Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm `
