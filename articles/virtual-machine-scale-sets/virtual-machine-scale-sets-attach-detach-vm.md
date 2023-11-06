@@ -16,7 +16,7 @@ ms.reviewer: jushiman
 > [!IMPORTANT]
 > You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
 
-There are times where you need to attach a virtual machine to a Virtual Machine Scale Set to benefit from the scale, availability, and flexibility that comes with scale sets. There are two ways to attach VMs to scale sets: manually create a new standalone VM into the scale set, or attach an existing VM to the scale set.
+There are times where you need to attach a virtual machine to a Virtual Machine Scale Set to benefit from the scale, availability, and flexibility that comes with scale sets. There are two ways to attach VMs to scale sets: manually create a new standalone VM in the scale set or attach an existing VM to the scale set.
 
 You can attach a new standalone virtual machine to a Virtual Machine Scale Set when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set doesn't have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
 
