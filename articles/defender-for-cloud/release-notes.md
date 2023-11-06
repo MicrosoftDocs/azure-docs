@@ -22,10 +22,10 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## November 2023
 
-|Date |Update  |
-|----------|----------|
-|November 20 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) | 
-| November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) ||
+| Date | Update |
+|--|--|
+| November 20 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) |
+| November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) |
 | November 20 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
 | November 20 | [General Availability release of GCP support in Defender CSPM](#general-availability-release-of-gcp-support-in-defender-cspm) |
 | November 20 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
@@ -38,13 +38,13 @@ You can now prioritize your security recommendations according to the risk level
 
 By organizing your recommendations based on their risk level (Critical, high, medium, low), you are able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
-Learn more about risk prioritization.
+Learn more about [risk prioritization](security-policy-concept.md#what-is-a-security-recommendation).
 
 ### Attack path analysis new engine and extensive enhancements
 
 November 20, 2023
 
-We are releasing extensive enhancements to the attack path analysis capabilities in Defender for Cloud.  
+We are releasing enhancements to the attack path analysis capabilities in Defender for Cloud.  
 
 - **New engine** - attack path analysis has a new engine which uses path-finding algorithm to detect every possible attack path that exists in your cloud environment (based on the data we have in our graph). We can find many more attack paths in your environment and detect more complex and sophisticated attack patterns that attackers can use to breach your organization.
 
@@ -58,7 +58,7 @@ We are releasing extensive enhancements to the attack path analysis capabilities
   - **Export capabilities** – export capabilities of attack paths to CSV, LA workspace and Event Hubs.
   - **Email notifications** – you can receive email notifications of new attack paths.
 
-Learn more about attack path analysis.
+Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md).
 
 ### Changes to Attack Path's Azure Resource Graph table scheme
 
