@@ -64,7 +64,7 @@ To connect your cluster to Azure Arc:
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
     export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
     # Azure region where the created resource group will be located
-    # Currently supported regions: "westus3" or "eastus2"
+    # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
     export LOCATION="WestUS3"
     # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
     export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
