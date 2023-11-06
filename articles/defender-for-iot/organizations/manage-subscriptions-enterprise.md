@@ -48,6 +48,10 @@ Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Dev
 
     :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
 
+    > [!IMPORTANT]
+    > The prices shown in this image are for example purposes only and are not intended to reflect actual prices.
+    >
+
 1. Under **Microsoft Defender for IoT - EIoT Device License - add-on**, select **Details**.
 
 1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, select **Start free trial**. On the **Check out** page, select **Try now**.
@@ -101,6 +105,10 @@ Purchase standalone, per-device licenses if you're an ME5/E5 Security customer w
 1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
 
     :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
+
+    > [!IMPORTANT]
+    > The prices shown in this image are for example purposes only and are not intended to reflect actual prices.
+    >
 
 1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, enter your selected license quantity, select a billing frequency, and then select **Buy**.
 

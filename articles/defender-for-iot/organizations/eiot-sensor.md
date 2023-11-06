@@ -154,7 +154,7 @@ This procedure describes how to install Enterprise IoT monitoring software on [y
 
 1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor. For example:
 
-    :::image type="content" source="media/tutorial-get-started-eiot/proxy.png" alt-text="Screenshot of the Set up a proxy server? screen.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/proxy.png" alt-text="Screenshot of the Set up a proxy server screen.":::
 
     If you're setting up a proxy server, select **Yes**, and then define the proxy server host, port, username, and password, selecting **Ok** after each option.
 
