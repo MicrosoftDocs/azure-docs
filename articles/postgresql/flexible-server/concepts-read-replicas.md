@@ -172,8 +172,6 @@ For both promotion methods, there are more options to consider:
 > [!IMPORTANT]
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
 
-In the Planned promotion scenario, if the primary or replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the primary server's current status, to quickly address potential regional disasters. It's essential to note that if the former primary server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
-
 
 ### Configuration management
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
@@ -213,7 +211,7 @@ The sections below delve into the specifics of how these endpoints react to both
 * **Writer Endpoint**: This endpoint will be updated to point to the new primary server, reflecting the role switch.
 * **Read-Only endpoint**
   * **If Read-Only Endpoint Points to Replica**: After the promote action, the read-only endpoint will point to the new replica (which was the former primary).
-  * **If Read-Only Endpoint Points to Primary**: this is not supported.
+  * **If Read-Only Endpoint Points to Primary**: For the promotion to function correctly, the read-only endpoint must be directed at the server intended to be promoted. Pointing to the primary, in this case, is not supported and must be reconfigured to point to the replica prior to promotion.
 
 #### Behavior when "Promote to independent server and remove from replication" is triggered
 * **Writer Endpoint**: This endpoint remains unchanged. It continues to direct traffic to the server holding the primary role.
@@ -316,6 +314,14 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 ### Resource move
 Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, as well as moving the primary that has read replica(s) to another resource group or subscription, isn't supported.
 
+### Promote
+#### Unavailable Server States During Promotion
+In the Planned promotion scenario, if the primary or replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the primary server's current status, to quickly address potential regional disasters. It's essential to note that if the former primary server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
+
+#### Multiple replicas visibility during promotion in non-paired regions
+When dealing with multiple replicas, if the primary and any replica are not located in [paired regions](#geo-replication), or if the primary’s region lacks a paired region, a special consideration must be taken into account. In the event of a regional outage affecting the primary, any additional replicas will not be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas will remain disconnected during the outage. These additional replicas will only reassociate and resume their roles once the original primary region has been restored.
+
+
 ### Backup and Restore
 When managing backups and restores for your Azure Database for PostgreSQL - Flexible Server, it's important to keep in mind the current and previous role of the server in different [promotion scenarios](#promote-replicas). Here are the key points to remember:
 
@@ -340,9 +346,12 @@ While the server is a read replica, no backups are taken. However, once it's pro
 
 
 ### Networking
-Read replicas support both private access, via VNet integration, and public access, through allowed IP addresses. However, please note that private endpoint is not currently supported. 
+Read replicas support all networking options available for Azure Database for PostgreSQL - Flexible Server including private access via VNet integration, public access through allowed IP addresses and private link. However, please note that with private endpoint configurations promote to primary server (preview) operation supports only setup with one read replica, if you have two or more replicas promote to primary server operation will fail. 
 
-Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL - Flexible Server setup. There must be a provision for both to send and receive traffic on destination port 5432 within the Azure virtual network subnet. This requirement not only facilitates the synchronization process but also ensures proper functioning of the failover mechanism where replicas may need to communicate in reverse order — from replica to primary — especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
+> [!IMPORTANT]
+> Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL - Flexible Server setup. There must be a provision for both to send and receive traffic on destination port 5432 within the Azure virtual network subnet. 
+
+The above requirement not only facilitates the synchronization process but also ensures proper functioning of the failover mechanism where replicas may need to communicate in reverse order — from replica to primary — especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
 
 For more information about how to configure private access (VNet integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, refer to the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
 
