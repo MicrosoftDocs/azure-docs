@@ -44,4 +44,4 @@ For successful backup operations, the vault MSI needs the following permissions:
 
 ## Next steps
 
-[Azure Database for PostgreSQL backup](backup-azure-database-postgresql.md).
+[Azure Database for PostgreSQL backup](backup-azure-database-postgresql-flex.md).
