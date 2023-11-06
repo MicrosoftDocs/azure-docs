@@ -234,7 +234,7 @@ Azure Database for PostgreSQL – Flexible Server supports the provisioning of a
 The minimum and maximum IOPS is determined by the selected compute size. To learn more about the minimum and maximum IOPS per compute size refer to the [table](#maximum-iops-for-your-configuration).
 
 > [!Important]
-> **Minimum and maximum IOPS are determined by the selected compute size.<br>
+> Minimum and maximum IOPS are determined by the selected compute size.<br>
 
 ## Backup
 
