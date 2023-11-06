@@ -54,6 +54,7 @@ If a subscription, account, or project has *any* Defender plan enabled, more sta
 | FedRAMP M                               |||
 | HIPAA/HITRUST                           |||
 | SWIFT CSP CSCF v2020                    |||
+| SWIFT CSP CSCF v2022                    |||
 | UK OFFICIAL and UK NHS                  |||
 | Canada Federal PBMM                     |||
 | New Zealand ISM Restricted              |||
