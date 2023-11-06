@@ -75,9 +75,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Speech to speech chat
-            url: ../search/search-query-create.md
+            url: ./speech-service/openai-speech.md?pivots=programming-language-python
           - text: Conversational language understanding
-            url: ./language-service/conversational-language-understanding/quickstart.md
+            url: ./language-service/conversational-language-understanding/quickstart.md&pivots=rest-api
           - text: Document intelligence
             url: ./document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
 
