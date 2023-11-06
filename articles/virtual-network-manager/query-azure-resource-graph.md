@@ -10,8 +10,6 @@ ms.date: 11/02/2023
 
 # Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
 
-## Overview
-
 This article covers the usage of [Azure Resource Graph](../governance/resource-graph/overview.md) with Azure Virtual Network Manager. Azure Resource Graph (ARG) extends Azure Resource Management allowing you to query a given set of subscriptions for better governance of your environment. With ARG integration, you can query ARG to get insights into their Azure Virtual Network Manager (AVNM) configurations. Insights are provided through customized [Kusto queries](/azure/data-explorer/kusto/query/) offering resource level or at the regional level status data.
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
@@ -25,7 +23,7 @@ The following are some of the scenarios where Azure Resource Graph can be used f
 - Retrieve effective configurations that are applied to a virtual network and its provisioning state.
 - Identify the number of virtual networks that succeeded, failed, or are in progress during a deployment process.
 
-## Available Resources
+## Available resources
 
 The following resources are available for querying [security admin configurations](concept-security-admins.md) in ARG:
 
@@ -35,13 +33,13 @@ The following resources are available for querying [security admin configuration
 - microsoft.network/networkmanagers/securityadminconfigurations/snapshots
 - microsoft.network/networkmanagers/securityadminregionalgoalstates
 
-## Get Started
+## Get started
 
 To get started with querying your virtual network manager data in ARG, follow these steps:
 
 1. Search for *Resource Graph Explorer* in the Azure portal and select the same to get redirected to the ARG query editor.
 
-    :::image type="content" source="media/query-azure-resource-graph/azure-resource-graph-editor.png" alt-text="Screenshot of Azure Resource Graph editor with virtual network manager query in kusto.":::
+    :::image type="content" source="media/query-azure-resource-graph/azure-resource-graph-editor.png" alt-text="Screenshot of Azure Resource Graph editor with virtual network manager query example in Kusto.":::
 
 1. Enter your Kusto queries in the query editor and select **Run Query**.
 
@@ -50,7 +48,7 @@ You can download the output of these queries as CSV from the **Resource Graph Ex
 > [!NOTE]
 > ARG allows you to query the resources for which you have the appropriate RBAC rights.
 
-## Sample Queries
+## Sample queries
 
 The following are sample queries you can run on your virtual network manager data.  You can use in them in custom dashboards and automations. Listed with each query is the input involved and the output returned.
 
