@@ -42,7 +42,7 @@ output stringOutput string = user['user-name']
 
 ## Conditional output
 
-When the value to return depends on a condition in the deployment, use the the `?` operator.
+When the value to return depends on a condition in the deployment, use the `?` operator.
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>
