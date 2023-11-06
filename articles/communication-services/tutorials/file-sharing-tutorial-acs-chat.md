@@ -53,7 +53,7 @@ The UI Library Chat Composite supports file sharing by enabling developers to pa
 
 The diagram shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks where developers need to have them implemented.
 
-![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the the file sharing typical flow.")
+![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the file sharing typical flow.")
 
 ## Set up file storage using Azure Blob
 
