@@ -41,9 +41,7 @@ To get started with querying your virtual network manager data in ARG, follow th
 
 1. Search for *Resource Graph Explorer* in the Azure portal and select the same to get redirected to the ARG query editor.
 
-:::image type="content" source="media/query-azure-resource-graph/azure-resource-graph-editor.png" alt-text="Screenshot of Azure Resource Graph editor with virtual network manager query in kusto.":::
-
-The left pane displays all tables (and their associated schemas) that are available for query.
+    :::image type="content" source="media/query-azure-resource-graph/azure-resource-graph-editor.png" alt-text="Screenshot of Azure Resource Graph editor with virtual network manager query in kusto.":::
 
 1. Enter your Kusto queries in the query editor and select **Run Query**.
 
@@ -58,15 +56,15 @@ The following are sample queries you can run on your virtual network manager dat
 
 #### List all virtual network managers impacting a given virtual network
 
-Input: `{VnetId}`.
-Output: List of network manager IDs.
+Input: Enter the **vnetId** of the virtual network. It uses the following syntax: *00000000-0000-0000-0000-000000000000*
+Output: List of virtual network manager IDs.
 
 ```kusto
 
 networkresources
 | where type == "microsoft.network/effectivesecurityadminrules"
-| extend vnetId = "{*VnetId*}"
-| where id == strcat(vnetId, "/providers/Microsoft.Network/effectiveSecurityAdminRules/default")
+| extend vnetId = "00000000-0000-0000-0000-000000000000"
+| where id == strcat(vnetId,"/providers/Microsoft.Network/effectiveSecurityAdminRules/default")
 | mv-expand properties.EffectiveSecurityAdminConfigurations
 | mv-expand properties.effectiveSecurityAdminConfigurations
 | extend configId = tolower(iff(properties_EffectiveSecurityAdminConfigurations.Id == "", properties_effectiveSecurityAdminConfigurations.id, properties_EffectiveSecurityAdminConfigurations.Id))
@@ -77,13 +75,14 @@ networkresources
 
 #### List commit details of latest security admin commit for a given network manager
 
-Input: `{NetworkManagerId}`
-Output: `{CommitId, CommitTimestamp, location, SecurityAdminConfigurationId, SecurityAdminRuleIds, SecurityAdminRuleCollectionIds, status, errorMessage}`
+Input: Enter **id** of the virtual network manager. It uses the following syntax: */subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/demoVirtualNetworkManager*
+
+Output: List of commit details for security admin configurations including *CommitId, CommitTimestamp, location, SecurityAdminConfigurationId, SecurityAdminRuleIds, SecurityAdminRuleCollectionIds, status, and errorMessage*.
 
 ```kusto
 networkresources
 | where type == "microsoft.network/networkmanagers/securityadminregionalgoalstates"
-| where id contains tolower("{*NetworkManagerId*}")
+| where id contains tolower("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/demoVirtualNetworkManager")
 | extend adminConfigurationId = tolower(iff(properties.securityAdminConfigurations[0].id == "", properties.SecurityAdminConfigurations[0].Id, properties.securityAdminConfigurations[0].id))
 | extend adminRuleCollectionIds = todynamic(iff(properties.securityAdminRuleCollections == "", properties.SecurityAdminRuleCollections, properties.securityAdminRuleCollections))
 | extend adminRuleIds = todynamic(iff(properties.securityAdminRules == "", properties.SecurityAdminRules, properties.securityAdminRules))
@@ -95,81 +94,27 @@ networkresources
 | project commitId, timeStamp, location, adminConfigurationId, adminRuleCollectionIds, adminRuleIds, status, errorMessage
 ```
 
-
 #### Count of virtual networks impacted by a given security admin configuration
 
-Input: `{SecurityAdminConfigurationSnapshotId}`
-Example `{SecurityAdminConfigurationSnapshotId}`ID: `"/subscriptions/2c505610-a5dd-473e-aa33-b31aac398e29/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/NRMS-ZeroTrust-CorpProdNonprod/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0"`
-Output: {Region, successCount, failedcount}
+Input: Enter the **adminConfigurationID** of the security admin configuration snapshot. It uses the following syntax:
+`"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/demoVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0"`
+
+Output: List the virtual networks impacted including *Region, successCount, and failedcount*.
 
 > [!NOTE]
-> The `{SecurityAdminConfigurationSnapshotId}` is the id of the security admin configuration snapshot. You can get this id from the output of [List commit details](#list-commit-details-of-latest-security-admin-commit-for-a-given-network-manager) query.
+> The adminConfigurationId of the security admin configuration snapshot. You can get this id from the output of [List commit details](#list-commit-details-of-latest-security-admin-commit-for-a-given-network-manager) query.
 
 ```kusto
-
 networkresources
 | where type == "microsoft.network/effectivesecurityadminrules"
-| extend snapshotConfigIdToCheck =  tolower("*{SecurityAdminConfigurationSnapshotId}*")
+| extend snapshotConfigIdToCheck =  tolower("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/demoVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0")
 | mv-expand properties.effectiveSecurityAdminConfigurations
 | mv-expand properties.EffectiveSecurityAdminConfigurations
 | extend configurationId = tolower(iff(properties_effectiveSecurityAdminConfigurations.id == "", properties_EffectiveSecurityAdminConfigurations.Id, properties_effectiveSecurityAdminConfigurations.id))
 | extend provisioningState = tolower(iff(properties.ProvisioningState == "", properties.provisioningState, properties.ProvisioningState))
 | where configurationId == snapshotConfigIdToCheck
 | summarize count() by location, provisioningState
-
 ```
-
-#### List status of virtual networks impacted by a given security admin configuration
-
-Input: `{SecurityAdminConfigurationSnapshotId}`
-Example `{SecurityAdminConfigurationSnapshotId}`: `"/subscriptions/2c505610-a5dd-473e-aa33-b31aac398e29/resourceGroups/CnAISecurityAzureNetworkManager/providers/Microsoft.Network/networkManagers/NRMS-ZeroTrust-CorpProdNonprod/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0"`
-Output: `{Region, Status, Count}`
-
-> [!NOTE]
-> The `{SecurityAdminConfigurationSnapshotId}` is the id of the security admin configuration snapshot. You can get this id from the output of [List commit details](#list-commit-details-of-latest-security-admin-commit-for-a-given-network-manager) query.
-
-```kusto
-
-
-networkresources
-| where type == "microsoft.network/effectivesecurityadminrules"
-| extend resourceId = tolower(iff(properties.ResourceId == "", properties.resourceId, properties.ResourceId))
-| extend provisioningState = iff(properties.ProvisioningState == "", properties.provisioningState, properties.ProvisioningState)
-| extend errorMessage = iff(properties.ErrorMessage == "", properties.errorMessage, properties.ErrorMessage) 
-| extend configIds = tolower(iff(properties.effectiveSecurityAdminConfigurations == "", properties.EffectiveSecurityAdminConfigurations, properties.effectiveSecurityAdminConfigurations))
-| project resourceId, provisioningState, errorMessage, configIds, location
-| join kind=inner (networkresources
-| where type == "microsoft.network/networkmanagers/networkgroups/members"
-| extend id_lower = tolower(id)
-| extend networkGroupId = strcat(substring(id_lower, 0, indexof(id_lower, "/members/")), location)
-| extend resourceId = tolower(iff(properties.memberId == "", properties.MemberId, properties.memberId))
-| project networkGroupId, resourceId
-| join kind=inner (networkresources
-| where type == "microsoft.network/networkmanagers/securityadminconfigurations/rulecollections/snapshots"
-| extend id = tolower(id)
-| join kind=inner (networkresources
-| where type == "microsoft.network/networkmanagers/securityadminregionalgoalstates"
-| extend inputAdminConfigId1 = tolower("{SecurityAdminConfigurationSnapshotId}")
-| extend configId = tolower(properties.securityAdminConfigurations[0].id)
-| where configId == inputAdminConfigId1
-| extend ruleCollections = todynamic(properties.securityAdminRuleCollections)
-| mv-expand ruleCollections
-| extend id = tolower(ruleCollections.id)
-| extend region = tostring(location)
-| distinct id, region) on id
-| mv-expand properties.appliesToGroups
-| extend networkGroupId = strcat(tolower(properties_appliesToGroups.networkGroupId), region)
-| distinct networkGroupId) on networkGroupId
-| distinct resourceId) on resourceId
-| extend inputAdminConfigId = tolower("{SecurityAdminConfigurationSnapshotId}")
-| extend status = iff(configIds contains inputAdminConfigId and provisioningState == "Succeeded", "Succeeded", iff(configIds !contains inputAdminConfigId, "InProgress", "Failed"))
-| project resourceId, errorMessage, configIds, location, status
-| summarize count() by location, status
-| order by location
-
-```
-> [!NOTE]
->  Remove the `order by location` statement in the query to get the failure message for each failed virtual network.
 
 ## Next steps
 
