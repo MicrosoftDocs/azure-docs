@@ -14,10 +14,10 @@ items:
     href: studio-overview.md
   - name: Document Intelligence SDKs
     items:
-      - name: "v3.1 targets: REST API 2023-07-31 (GA)"
+      - name: "v3.1 targets: REST API 2023—7—31 latest (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-1.md
-      - name:  "v3.0 targets: REST API 2022-08-31 (GA)"
+      - name:  "v3.0 targets: REST API 2022—08—31 (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-0.md
       - name: Changelog and release history
@@ -171,14 +171,14 @@ items:
     href: concept-read.md
   - name: General document model
     displayName: key value pairs, selection marks, structured
-    href: concept-general-document.md
+    href: concept-general-document.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
-  - name: Tax document models
+  - name: U.S.Tax document models
     displayName: tax, forms, 1098, 1098-E, 1098-T, W-2, wages, taxes, salary, employees, tuition, loan, interest, mortgage
     href: concept-tax-document.md
   - name: Health insurance card model
@@ -195,7 +195,7 @@ items:
     href: concept-id-document.md
   - name: Business card model
     displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
-    href: concept-business-card.md
+    href: concept-business-card.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md

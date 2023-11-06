@@ -1,7 +1,7 @@
 ---
-title: Tax document data extraction – Document Intelligence (formerly Form Recognizer)
+title: US Tax document data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate tax document data extraction with Document Intelligence's tax document models
+description: Automate US tax document data extraction with Document Intelligence's US tax document models
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -13,7 +13,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence tax document models
+# Document Intelligence US tax document models
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
@@ -33,6 +33,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 * 1098
 * 1098-E
 * 1098-T
+* 1099 and variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
 
 ## Automated tax document processing
 
@@ -130,7 +131,7 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 
 ## Field extraction 1098
 
-The following are the fields extracted from a1098 tax form in the JSON output response.
+The following are the fields extracted from a 1098 tax form in the JSON output response. The 1098-T and 1098-E forms are also supported. 
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
@@ -151,34 +152,19 @@ The following are the fields extracted from a1098 tax form in the JSON output re
 | AdditionalAssessment |String| Added assessments made on the property  (box 10)| 1,234,567.89|
 | MortgageAcquisitionDate |date | Mortgage acquisition date (box 11)| 2022-01-01|
 
-### Field extraction 1098-T
+## Field extraction 1099-NEC
 
-The following are the fields extracted from a1098-E tax form in the JSON output response.
-
-|Name| Type | Description | Example output |
-|:-----|:----|:----|:---:|
-| Student | Object | An object that contains the borrower's TIN, Name, Address, and AccountNumber | |
-| Filer | Object | An object that contains the lender's TIN, Name, Address, and Telephone| |
-| PaymentReceived | Number | Payment received for qualified tuition and related expenses (box 1)| 1234567.89 |
-| Scholarships | Number |Scholarships or grants (box 5)| 1234567.89 |
-| ScholarshipsAdjustments | Number | Adjustments of scholarships or grants for a prior year (box 6) 1234567.89 |
-| AdjustmentsForPriorYear | Number | Adjustments of payments for a prior year (box 4)| 1234567.89 |
-| IncludesAmountForNextPeriod |String| Does payment received relate to an academic period beginning in the next tax year (box 7)| true |
-| IsAtLeastHalfTimeStudent |String| Was the student at least a half-time student during any academic period in this tax year (box 8)| true |
-| IsGraduateStudent |String| Was the student a graduate student (box 9)| true |
-| InsuranceContractReimbursements | Number | Total number and amounts of reimbursements or refunds of qualified tuition and related expanses (box 10)| 1234567.89 |
-
-## Field extraction 1098-E
-
-The following are the fields extracted from a1098-T tax form in the JSON output response.
+The following are the fields extracted from a 1099-nec tax form in the JSON output response. The other variations of 1099 are also supported.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
-| TaxYear | Number | Form tax year| 2021 |
-| Borrower | Object | An object that contains the borrower's TIN, Name, Address, and AccountNumber | |
-| Lender | Object | An object that contains the lender's TIN, Name, Address, and Telephone| |
-| StudentLoanInterest |number| Student loan interest received by lender (box 1)| 1234567.89 |
-| ExcludesFeesOrInterest |string| Does box 1 exclude loan origination fees and/or capitalized interest (box 2)| true |
+| TaxYear | String | Tax Year extracted from Form 1099-NEC.| 2021 |
+| Payer | Object | An object that contains the payers's TIN, Name, Address, and PhoneNumber | |
+| Recipient | Object | An object that contains the recipient's TIN, Name, Address, and AccountNumber| |
+| Box1 |number|Box 1 extracted from Form 1099-NEC.| 123456 |
+| Box2 |boolean|Box 2 extracted from Form 1099-NEC.| true |
+| Box4 |number|Box 4 extracted from Form 1099-NEC.| 123456 |
+| StateTaxesWithheld |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5,6, and 7)| |
 
 The tax documents key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
