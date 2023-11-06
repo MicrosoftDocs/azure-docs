@@ -33,10 +33,13 @@ To install Grafana plugins, follow the process below.
    > [!NOTE]
    > This page only shows optional plugins. Core Grafana plugins that are included in your pricing plan by default aren't listed here.
 
-1. Select a plugin to add to your Grafana instance by checking its checkbox and select **Save**. Azure displays a message stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that a change is in progress. The update might take a while. Select **Refresh** above the table to get an updated list of installed plugins.
+1. Select a plugin to add to your Grafana instance by checking its checkbox. A refresh icon appears in the table next to the plugin you selected, indicating that a change is pending.
 
    :::image type="content" source="media/plugin-management/add-plugin.png" alt-text="Screenshot of the Plugin management feature data source page.":::
+
+1. Select **Save**. Azure displays a message stating which plugins will be added or removed. Select **Yes** to confirm.
+1. An **Updating** status bar apeears indicating that the update is in progress. The update might take a while.
+1. Select **Refresh** above the table to get an updated list of installed plugins.
 
 ## Remove a plugin
 
@@ -44,10 +47,13 @@ To remove a plugin that isn't part of the Grafana built-in core plugins, follow 
 
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
-1. Select a datasource plugin to remove from your Grafana instance by unchecking its checkbox and select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update might take a while. Select **Refresh** at the top to get an updated list of installed plugins.
+1. Select a plugin to remove from your Grafana instance by unchecking its checkbox. A refresh icon appears in the table next to the plugin you selected, indicating that a change is pending.
 
    :::image type="content" source="media/plugin-management/remove-plugin.png" alt-text="Screenshot of the Plugin management feature data source page. Remove plugin.":::
+
+1. Select **Save**. Azure displays a messaging stating which plugins will be added or removed. Select **Yes** to confirm.
+1. An **Updating** status bar apeears indicating that the update is in progress. The update might take a while.
+1. Select **Refresh** above the table to get an updated list of installed plugins.
 
 > [!IMPORTANT]
 > Plugin management is currently in PREVIEW.
