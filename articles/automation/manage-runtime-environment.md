@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 
-# Manage runbooks in Azure Automation
+# Manage runbooks in Runtime environment
 
 You can test the following scenarios through the Azure portal and REST API
 
@@ -180,7 +180,6 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 ---
 
-
 ### Create Runbook
 
 You can create a new PowerShell runbook configured with Runtime environment.
@@ -232,6 +231,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 > [!NOTE]
 > Similar APIs also work for Python runbook type.
+
 ---
 
 ### Update Runbook
@@ -265,6 +265,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 > [!NOTE]
 > The View/Delete calls for runbook remains same and can be referenced [Runbook - REST API (Azure Automation) | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/runbook?view=rest-automation-2019-06-01).
+
 ---
 
 ### Test Runbook update
@@ -281,8 +282,6 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
   } 
 } 
 ```
-
-
 
 ### Create Cloud Job
 
@@ -307,6 +306,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 > [!NOTE]
 > Create/View calls for job remains same and can be referenced from [Job-REST API (Azure Automation) | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/job?view=rest-automation-2019-06-01)
+
 ---
 
 
