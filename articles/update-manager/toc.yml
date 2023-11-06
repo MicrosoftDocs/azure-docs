@@ -24,8 +24,6 @@
     href: tutorial-assessment-deployment-using-policy.md
 - name: Concepts
   items:
-  - name: Use pre-scripts and post-scripts
-    href: pre-post-scripts-overview.md
   - name: Update options and orchestration
     href: updates-maintenance-schedules.md
   - name: Schedule patching configuration on Azure VMs for business continuity
@@ -58,6 +56,12 @@
         href: guidance-patching-sql-server-azure-vm.md
       - name: Guidance on patching for SQL Server on Azure VMs
         href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-center/toc.json
+    - name: Pre and Post Events
+      items:
+      - name: Overview
+        href: pre-post-scripts-overview.md
+      - name: Manage pre and post events
+        href: manage-pre-post-events.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
@@ -78,8 +82,6 @@
       href: manage-workbooks.md
     - name: Manage updates for customized images
       href: manage-updates-customized-images.md
-    - name: Manage pre-scripts and post-scripts
-      href: manage-pre-post-events.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues

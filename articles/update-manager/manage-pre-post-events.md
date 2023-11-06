@@ -118,7 +118,6 @@ You can view the cancelation status from the error message in the JSON. The JSON
 #### Invoke the Cancelation API
 
 ```rest
-HTTPCopy
  C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/<your-c-id-obtained-from-above>?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose 
 ```
 
@@ -126,8 +125,7 @@ HTTPCopy
 > You must replace the **Correlation ID** received from the above ARG query and replace it in the Cancelation API.
 
 **Example**
-```http
-HTTPCopy  
+```http 
   C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/subscriptions/eee2cef4-bc47-4278-b4f8-cfc65f25dfd8/resourcegroups/fp02centraluseuap/providers/microsoft.maintenance/maintenanceconfigurations/prepostdemo7/providers/microsoft.maintenance/applyupdates/20230810085400?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose
 ```
 
