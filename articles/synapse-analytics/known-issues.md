@@ -109,9 +109,9 @@ The following are known issues with the Synapse Spark.
 
 ### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
 
-Starting at 00:00 UTC on 03 Oct 2023, few Azure Synapse Analytics Apache Spark pools may experience spark job/task failures due to storage API limit threshold being exceeded.
+Starting at 00:00 UTC on October 3, 2023, few Azure Synapse Analytics Apache Spark pools might experience spark job/task failures due to storage API limit threshold being exceeded.
 
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the below spark config at [pool level](spark/apache-spark-azure-create-spark-configuration#create-an-apache-spark-configuration)
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the following spark config at [pool level](spark/apache-spark-azure-create-spark-configuration#create-an-apache-spark-configuration)
 
 `spark.hadoop.fs.azure.io.retry.max.retries      19`
 
@@ -130,7 +130,7 @@ Starting at 00:00 UTC on 03 Oct 2023, few Azure Synapse Analytics Apache Spark p
 
 ### Queries using Microsoft Entra authentication fails after 1 hour
 
-SQL connections using Microsoft Entra authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 
