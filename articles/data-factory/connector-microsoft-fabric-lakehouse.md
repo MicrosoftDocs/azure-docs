@@ -15,7 +15,9 @@ ms.date: 11/03/2023
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Microsoft Fabric Lakehouse serves as a data architecture platform designed to store, manage, and analyze both structured and unstructured data within a single location. This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more.
+
+This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
