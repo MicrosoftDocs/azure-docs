@@ -26,6 +26,8 @@
     href: improve-storage-accounts.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
+  - name: Author API Management policies
+    href: author-api-management-policies.md
   - name: Understand service health
     href: understand-service-health.md
   - name: Analyze costs
