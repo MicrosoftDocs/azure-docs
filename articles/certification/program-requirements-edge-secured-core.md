@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ## Edge Secured-Core certification requirements ##
 
 ### Program purpose ###
-Edge Secured-core is a security certification for devices running a full operating system. Edge secured-core currently supports Windows IoT and Azure Sphere OS. Linux support is coming in the future. This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
+Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports Windows IoT and Azure Sphere OS. Linux support is coming in the future. This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
 
 1. Hardware-based device identity 
 2. Capable of enforcing system integrity 
