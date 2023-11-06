@@ -25,7 +25,7 @@ Here are some solutions:
 
 | | Description |
 | --- | --- |
-| **[Azure Cosmos DB for NoSQL with Azure Cognitive Search](#implement-vector-database-functionalities-using-nosql-API-and-azure-cognitive-search)**. | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure Cognitive Search. |
+| **[Azure Cosmos DB for NoSQL with Azure Cognitive Search](#implement-vector-database-functionalities-using-nosql-api-and-azure-cognitive-search)**. | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure Cognitive Search. |
 | **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-cosmos-db-for-mongodb-vcore)**. | Featuring native support for vector search, store your application data and vector embeddings together in a single MongoDB-compatible service. |
 | **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-cosmos-db-for-postgresql)**. | Offering native support vector search, you can store your data and vectors together in a scalable PostgreSQL offering. |
 
