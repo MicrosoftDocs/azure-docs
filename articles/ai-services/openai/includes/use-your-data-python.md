@@ -22,7 +22,7 @@ ms.date: 08/29/2023
 1. Install the following Python Libraries:
 
    ```cmd
-   pip install "openai>=0.27.6"
+   pip install openai==0.28.1
    pip install python-dotenv
    ```
 

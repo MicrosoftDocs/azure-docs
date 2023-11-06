@@ -1,7 +1,7 @@
 ---
 title: Connect machines from Azure Automation Update Management
 description: In this article, you learn how to connect hybrid machines to Azure Arc managed by Automation Update Management.
-ms.date: 09/14/2021
+ms.date: 11/01/2023
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When the onboarding process is launched, an Active Directory [service principal](../../active-directory/fundamentals/service-accounts-principal.md) is created in the tenant.
 
-To install and configure the Connected Machine agent on the target machine, a master runbook named **Add-AzureConnectedMachines** runs in the Azure sandbox. Based on the operating system detected on the machine, the master runbook calls a child runbook named **Add-AzureConnectedMachineWindows** or **Add-AzureConnectedMachineLinux** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. Runbook job output is written to the job history, and you can view their [status summary](../../automation/automation-runbook-execution.md#job-statuses) or drill into details of a specific runbook job in the [Azure portal](../../automation/manage-runbooks.md#view-statuses-in-the-azure-portal) or using [Azure PowerShell](../../automation/manage-runbooks.md#retrieve-job-statuses-using-powershell). Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](../../automation/manage-runbooks.md#retrieve-details-from-activity-log).
+To install and configure the Connected Machine agent on the target machine, a master runbook named **Add-UMMachinesToArc** runs in the Azure sandbox. Based on the operating system detected on the machine, the master runbook calls a child runbook named **Add-UMMachinesToArcWindowsChild** or **Add-UMMachinesToArcLinuxChild** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. Runbook job output is written to the job history, and you can view their [status summary](../../automation/automation-runbook-execution.md#job-statuses) or drill into details of a specific runbook job in the [Azure portal](../../automation/manage-runbooks.md#view-statuses-in-the-azure-portal) or using [Azure PowerShell](../../automation/manage-runbooks.md#retrieve-job-statuses-using-powershell). Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](../../automation/manage-runbooks.md#retrieve-details-from-activity-log).
 
 The final step establishes the connection to Azure Arc using the `azcmagent` command using the service principal to register the machine as a resource in Azure.
 
