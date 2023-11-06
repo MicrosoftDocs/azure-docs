@@ -23,7 +23,7 @@ Simulations help you:
 
 ## Azure DDoS simulation testing policy
 
-You may only simulate attacks using our approved testing partners:
+You can only simulate attacks using our approved testing partners:
 - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 - [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos) a self-service or guided DDoS testing provider with real-time control.
