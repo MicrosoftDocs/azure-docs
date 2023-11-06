@@ -1,6 +1,6 @@
 ---
-title: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
-description: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
+title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for Table
+description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for Table
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: table
