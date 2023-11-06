@@ -43,7 +43,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - A jump box virtual machine (VM) or a [management VM](https://learn.microsoft.com/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter.
 	- From the jump box VM, verify you  have access to [vCenter Server and NSX-T manager portals](https://learn.microsoft.com/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
-- There should be an unused isolated [NSX Data Center network segment](https://learn.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment with static IP assignment of size /28 CIDR for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
+- An unused, isolated [NSX Data Center network segment](https://learn.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment with static IP assignment of size /28 CIDR for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
 - Verify your Azure subscription is enabled and has connectivity to Azure end points.
 - The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](https://learn.microsoft.com/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 6.7 or higher.
@@ -187,7 +187,7 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 
 ## Enable guest management and extension installation
 
-Once the VMs are enabled to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension.
+Before you install an extension, you need to enable guest management on the VMware VM.
 
 ### Prerequisite
 
