@@ -333,7 +333,6 @@ Use this version if you want generally available features only.
                         "metric": "cosine"
                     }
                 }
-
             ],
             "profiles": [
                 {
@@ -424,7 +423,6 @@ In the following REST API example, "title" and "content" contain textual content
                         "metric": "cosine"
                     }
                 }
-
             ],
             "profiles": [
                 {
