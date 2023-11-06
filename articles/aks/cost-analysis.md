@@ -18,8 +18,6 @@ Previously, [Microsoft Cost Management (MCM)](../cost-management-billing/cost-ma
 
 * Costs were reported per cluster. There was no breakdown into discrete categories such as compute (including CPU cores and memory), storage, and networking.
 
-* There was no Azure-native functionality to distinguish between types of costs. MCM aggregated the cost of resources used by applications, costs of resources shared across applications, such as system costs, and costs of resources that are associated with the cluster but are idle.
-
 * There was no Azure-native functionality to distinguish between types of costs. For example, individual application versus shared costs. MCM reported the cost of resources, but there was no insight into how much of the resource cost was used to run individual applications, reserved for system processes required by the cluster, or idle cost associated with the cluster.
 
 * There was no Azure-native capability to display cluster resource usage at a level more granular than a cluster.
