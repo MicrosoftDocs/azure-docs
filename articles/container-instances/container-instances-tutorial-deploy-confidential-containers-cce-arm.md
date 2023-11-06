@@ -157,7 +157,9 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
 
 ## Create a custom CCE Policy 
 
-With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
+With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. For remote attestation scenarios, the CCE policy can be used by the relying party to validate the code and configuration running within the ACI confidential container. 
+
+The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
 
 
 1. To generate the CCE policy, you'll run the following command using the ARM template as input: 
