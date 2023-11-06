@@ -21,7 +21,7 @@ ms.author: lajanuar
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|
-|Layout model with **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|Layout model with optional query string parameter **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
 |General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
 :::moniker-end
 

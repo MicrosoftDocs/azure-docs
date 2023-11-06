@@ -25,7 +25,7 @@ items:
         href: changelog-release-history.md
   - name: Language support
     items:
-      - name: Document analysis models
+      - name: Read and Layout models
         displayName: language, locale, handwritten, handwriting, text, detect, detection
         href: language-support-ocr.md
       - name: Prebuilt models

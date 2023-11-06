@@ -8,6 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -24,13 +25,14 @@ ms.author: lajanuar
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
 :::moniker-end
 
+:::moniker range="doc-intel-3.1.0"
 > [!NOTE]
->
-> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models starting with the `2023-07-31 (GA)` and later releases.
->
 > Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
+:::moniker-end
 
-Document Intelligence supports more sophisticated analysis capabilities. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
+:::moniker range=">=doc-intel-3.1.0"
+
+Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 
@@ -39,10 +41,23 @@ Document Intelligence supports more sophisticated analysis capabilities. These o
 * [`ocr.font`](#font-property-extraction)
 
 * [`ocr.barcode`](#barcode-property-extraction)
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
+
+> [!NOTE]
+>
+> Add-on capabilities are available within all models except for the [Read model](concept-read.md).
 
 The following add-on capability is available for `2023-10-31-preview` and later releases:
 
 * [`queryFields`](#query-fields)
+
+> [!NOTE]
+>
+> The query fields implementation in the 2023-10-30-preview API is different from the last preview release. The new implementation is less expensive and works well with structured documents.
+
+::: moniker-end
 
 ## High resolution extraction
 
@@ -142,9 +157,19 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 | `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
 | `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
 
+:::moniker range="doc-intel-4.0.0"
+
 ## Query Fields
 
-**Document Intelligence now supports query field extractions. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
+* Document Intelligence now supports query field extractions. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
+
+* Use query fields when you need to extend the schema of a prebuilt or custom model or need to extract a few fields with the output of layout.
+
+* Query fields are a premium add-on capability. For best results, define the fields you want to extract using camel case or Pascal case field names for multi-work field names.
+
+* Query fields support a maximum of 20 fields per request. If the document contains a value for the field, the field and value are returned.
+
+* This release has a new implementation of the query fields capability that is priced lower than the earlier implementation and should be validated.
 
 > [!NOTE]
 >
@@ -165,6 +190,8 @@ For query field extraction, specify the fields you want to extract and Document 
 * Document Intelligence is able to analyze and extract the field data and return the values in a structured JSON output.
 
 * In addition to the query fields, the response includes text, tables, selection marks, and other relevant data.
+
+:::moniker-end
 
 ## Next steps
 

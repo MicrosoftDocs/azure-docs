@@ -27,6 +27,14 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
+:::moniker range="doc-intel-4.0.0"
+|Document types supported|Read|Layout|Prebuilt models|Custom models|
+|--|--|--|--|--|
+| PDF | ✔️ | ✔️ | ✔️ | ✔️ |
+| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
+| Office file types DOCX, PPT, XLS | ✔️ | ✔️ | ✖️ | ✖️ |
+:::moniker-end
+
 ::: moniker range=">=doc-intel-3.0.0"
 
 > [!div class="checklist"]
@@ -133,7 +141,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
-If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
+If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but has yet to reach the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
 
 ### General best practices to mitigate throttling during autoscaling
 
@@ -150,7 +158,7 @@ Jump to [Document Intelligence: increasing concurrent request limit](#create-and
 
 By default the number of transactions per second is limited to 15 transactions per second for a Document Intelligence resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Document Intelligence service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+Increasing the Concurrent Request limit does **not** directly affect your costs. Document Intelligence service uses "Pay only for what you use" model. The limit defines how high the Service can scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
@@ -193,11 +201,11 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 
 This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It isn't an *exact recipe*, but merely a template we invite to follow and adjust as necessary.
 
- Let us suppose that a Document Intelligence resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, it's recommended to not call the get analyze response more than once every 2 seconds for a corresponding POST request.
+ Let us suppose that a Document Intelligence resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, we recommended not calling the get analyze response more than once every 2 seconds for a corresponding POST request.
 
 If you find that you're being throttled on the number of POST requests for documents being submitted, consider adding a delay between the requests. If your workload requires a higher degree of concurrent processing, you then need to create a support request to increase your service limits on transactions per second.
 
-Generally, it's highly recommended to test the workload and the workload patterns before going to production.
+Generally, we recommended testing the workload and the workload patterns before going to production.
 
 ## Next steps
 
