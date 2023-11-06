@@ -36,7 +36,7 @@ Install the OpenAI Python client library with:
 pip install openai==0.28.1
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.0.1](#tab/python-new)
 
 ```console
 pip install openai
@@ -86,7 +86,7 @@ print(response)
 print(response['choices'][0]['message']['content'])
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.0.1](#tab/python-new)
 
 You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
