@@ -7,8 +7,8 @@ items:
     href: qumulo-overview.md
   - name: What is ANQ for disaster recovery?
     href: qumulo-disaster-recovery.md
-  - name: What is ANQ for video editing?
-    href: qumulo-video-editing.md
+  # - name: What is ANQ for video editing?
+  #   href: qumulo-video-editing.md
 - name: Quickstart
   expanded: true
   items:
