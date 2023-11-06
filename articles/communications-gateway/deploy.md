@@ -154,7 +154,7 @@ Once your resource has been provisioned, a message appears saying **Your deploym
 
 ## Wait for provisioning to complete
 
-Wait for your resource to be provisioned and connected. When your resource is ready, your onboarding team contacts you and the Provisioning Status field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field has changed. This step might take up to two weeks.
+Wait for your resource to be provisioned. When your resource is ready, the **Provisioning Status** field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field is "Complete." This step might take up to two weeks.
 
 ## Connect Azure Communications Gateway to your networks
 
