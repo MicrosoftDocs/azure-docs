@@ -169,7 +169,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -505,7 +505,7 @@ The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgsta
 However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions)  [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
-There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
+There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 
 ## TimescaleDB
@@ -563,7 +563,7 @@ For more details on restore method with Timescale enabled database see [Timescal
 
 ### Restoring a Timescale database using timescaledb-backup
 
- While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
+ While running `SELECT timescaledb_post_restore()` procedure listed above you might get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
  To do so you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    2. Create target Azure Database for PostgreSQL server and database
@@ -581,7 +581,7 @@ For more details on restore method with Timescale enabled database see [Timescal
 ```sql
 /*+ SeqScan(a) */
 ```
-`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrase can be delimited by new lines for readability.
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases consist of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrase can be delimited by new lines for readability.
 Example:
 ```sql
   /*+
@@ -629,7 +629,7 @@ CREATE EXTENSION pg_buffercache;
 
 ## Extensions and Major Version Upgrade
 
-Azure Database for PostgreSQL Flexible Server Postgres has  introduced [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Postgres server with just a click. In-place major version upgrade simplifies Postgres upgrade process minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce** and **postgres_fdw** are unsupported for all PostgreSQL versions when using [in-place majpr version update feature](./concepts-major-version-upgrade.md#overview).
+Azure Database for PostgreSQL Flexible Server Postgres has  introduced [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Postgres server with just a click. In-place major version upgrade simplifies Postgres upgrade process minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce** and **postgres_fdw** are unsupported for all PostgreSQL versions when using [in-place major version update feature](./concepts-major-version-upgrade.md#overview).
 
 
 ## Next steps
