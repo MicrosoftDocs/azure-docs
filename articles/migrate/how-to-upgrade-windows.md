@@ -37,6 +37,8 @@ You can upgrade to up to two versions from the current version.  
 
 **Source** | **Supported target versions**
 --- | ---
+Windows Server 2008 | Windows Server 2012
+Windows Server 2008 R2 | Windows Server 2012
 Windows Server 2012 | Windows Server 2016 
 Windows Server 2012 R2 | Windows Server 2016, Windows Server 2019 
 Windows Server 2016  | Windows Server 2019, Windows Server 2022 
