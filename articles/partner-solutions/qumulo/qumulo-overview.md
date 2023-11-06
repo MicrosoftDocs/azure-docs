@@ -24,7 +24,7 @@ The Azure Native Qumulo Scalable File Service offering on Azure Marketplace allo
 
  Azure Native Qumulo(ANQ) Scalable File Service is available in 2 versions.
 
-- ANQ V2 : This is the Qumulo's latest offering which provides highly performant, highly scalable and highly durable cost effective cloud filesystem with pay as you go pricing capabilities. 
+- ANQ V2 : This is Qumulo's latest offering which provides highly performant, highly scalable and highly durable cost effective cloud filesystem with pay as you go pricing capabilities. 
 - ANQ V1 : This is Qumulo's initial storage architecture offering that features 2 distinct tiers - standard and performance and it is billed on deployed capacity. 
 
 ## Capabilities
