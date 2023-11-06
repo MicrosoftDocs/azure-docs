@@ -42,7 +42,7 @@ Follow these steps to choose the compute tier.
 
 5.  If you're good with the default vCores and memory sizes, you can skip the next step.
 
-6.  If you want to change the number of vCores, you can click the drop-down of **Compute size** and click the desired number of vCores/Memory from the list.
+6.  If you want to change the number of vCores, you can select the drop-down of **Compute size** and select the desired number of vCores/Memory from the list.
     
     - Burstable compute tier:
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="burstable compute":::
@@ -73,9 +73,9 @@ Follow these steps to increase your storage size.
 
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Screenshot that shows storage scale up.":::
 
-6.  If you're good with the storage size, click **Save**.
+6.  If you're good with the storage size, select **Save**.
    
-8.  Most of the disk scaling operations are **online** and as soon as you click **Save** scaling process starts without any downtime but some scaling operations are **offline** and you see below server restart message. Select **continue** if you want to proceed.
+8.  Most of the disk scaling operations are **online** and as soon as you select **Save** scaling process starts without any downtime but some scaling operations are **offline** and you see below server restart message. Select **continue** if you want to proceed.
 
      :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="Screenshot that shows  offline scaling.":::
    
@@ -123,7 +123,7 @@ Use the below steps to scale up the performance tier on your flexible server.
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-2.png" alt-text="Screenshot that shows performance tier drop down 2":::
 
-5. Select your new performance tier and click save.
+5. Select your new performance tier and select save.
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-3.png" alt-text="Screenshot that shows performance tier and save 3":::
 
@@ -145,7 +145,7 @@ Use the below steps to scale down the performance tier on your flexible server.
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-2.png" alt-text="Screenshot that shows performance tier drop down 5":::
 
-5.	Select your new performance tier and click save.
+5.	Select your new performance tier and select save.
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-3.png" alt-text="Screenshot that shows performance tier and save 6":::
 
