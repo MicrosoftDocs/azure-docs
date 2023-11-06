@@ -484,8 +484,16 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: function-worker-process
+  title: .NET Azure Functions worker process 
+  prompt: Choose how to run .NET Azure Functions  
+  pivots: 
+  - id: in-proc
+    title: In-process
+  - id: isolated
+    title: Isolated worker process
 ### end azure-functions
-#Owner: shinardi
+#Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
   prompt: Choose a programming language
