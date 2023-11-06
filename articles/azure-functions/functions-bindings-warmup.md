@@ -22,7 +22,7 @@ The following considerations apply when using a warmup trigger:
 * There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
 * The warmup trigger is only called during scale-out operations, not during restarts or other nonscaling startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#static-clients).
-* If the [built-in authentication](../app-service/overview-authentication-authorization.md) (aka Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
+* If the [built-in authentication](../app-service/overview-authentication-authorization.md) (also known as Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
 
 ## Example
 
@@ -143,7 +143,7 @@ app.warmup('warmup', {
 ```
 
 # [Model v3](#tab/nodejs-v3)
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -169,7 +169,7 @@ PowerShell example code pending.
 
 The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that runs on each new instance when it'is added to your app.
 
-Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
+Your function must be named `warmup` (case-insensitive) and there can only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -218,7 +218,7 @@ Use the `WarmupTrigger` attribute to define the function. This attribute has no 
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-Warmup triggers do not require annotations. Just use a name of `warmup` (case-insensitive) for the `FunctionName` annotation.
+Warmup triggers don't require annotations. Just use a name of `warmup` (case-insensitive) for the `FunctionName` annotation.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
