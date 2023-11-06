@@ -360,24 +360,22 @@
         - name: Enable CORS for custom connector
           href: enable-cors-power-platform.md
           displayName: Power Platform
-        - name: Customize the developer portal
-          items:
-            - name: Understand the developer portal
-              href: api-management-howto-developer-portal.md
-            - name: Frequently asked questions - developer portal
-              href: developer-portal-faq.md
-            - name: Automate portal deployments
-              href: automate-portal-deployments.md
-            - name: Migrate from deprecated to new developer portal
-              href: developer-portal-deprecated-migration.md
-            - name: Extend portal with custom functionality
-              href: developer-portal-extend-custom-functionality.md
-            - name: Enable console OAuth support
-              href: api-management-howto-oauth2.md
-            - name: Integrate Application Insights
-              href: developer-portal-integrate-application-insights.md
-            - name: Integrate Google Tag Manager
-              href: developer-portal-integrate-google-tag-manager.md
+      - name: Customize the developer portal
+        items:
+          - name: Understand the developer portal
+            href: api-management-howto-developer-portal.md
+          - name: Frequently asked questions - developer portal
+            href: developer-portal-faq.md
+          - name: Automate portal deployments
+            href: automate-portal-deployments.md
+          - name: Extend portal with custom functionality
+            href: developer-portal-extend-custom-functionality.md
+          - name: Enable console OAuth support
+            href: api-management-howto-oauth2.md
+          - name: Integrate Application Insights
+            href: developer-portal-integrate-application-insights.md
+          - name: Integrate Google Tag Manager
+            href: developer-portal-integrate-google-tag-manager.md
       - name: Self-host the developer portal
         items:
           - name: Create self-hosted portal
@@ -623,6 +621,8 @@
               href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
             - name: Deprecated (legacy) developer portal (October 2023)
               items:
+                - name: Migrate from deprecated to new developer portal
+                  href: developer-portal-deprecated-migration.md                
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts

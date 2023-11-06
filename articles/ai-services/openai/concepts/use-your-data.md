@@ -117,12 +117,12 @@ Resolution:
 This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
 ## Custom parameters
 
-In the **Data parameters** section in Azure OpenAI Studio, you can modify following additional settings. 
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions).
 
 
 |Parameter name  | Description  |
 |---------|---------|
-|**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 3.       |
+|**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 3. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
 ## Virtual network support & private endpoint support
@@ -315,7 +315,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
 * [Semantic search](/azure/search/semantic-search-overview)
-* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models-1). 
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models). 
 
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 

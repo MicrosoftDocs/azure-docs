@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 10/31/2023
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
@@ -74,10 +74,17 @@ When blobs or directories are soft-deleted, they are invisible in the Azure port
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing how to list soft-deleted blobs in Azure portal (hierarchical namespace enabled accounts).](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
 
-> [!NOTE]
-> If you rename a directory that contains soft-deleted items (subdirectories and blobs), those soft-deleted items become disconnected from the directory, so they won't appear in the Azure portal when you toggle the **Show deleted blobs** setting. If you want to view them in the Azure portal, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name.
+There are two reasons why soft-deleted blobs and directories might not appear in the Azure portal when you toggle the **Show deleted blobs** setting.
 
-Next, select the deleted directory or blob from the list display its properties. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
+- Soft-deleted blobs and directories won't appear if your security principal relies only on access control list (ACL) entries for authorization. 
+  
+  For these items to appear, you must either be the owner of the account or your security principal must be assigned the role of [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) or [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+
+- If you rename a directory that contains soft-deleted items (subdirectories and blobs), those soft-deleted items become disconnected from the directory, so they won't appear. 
+
+  If you want to view them in the Azure portal, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name.
+
+You can display the properties of a soft-deleted blob or directory by selecting it from the list. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing properties of soft-deleted blob in Azure portal (hierarchical namespace enabled accounts).](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)

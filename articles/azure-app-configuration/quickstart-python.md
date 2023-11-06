@@ -140,8 +140,6 @@ Add the following key-value to the App Configuration store and leave **Label** a
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
-
 ## Code samples
 
 The sample code snippets in this section show you how to perform common operations with the App Configuration client library for Python. Add these code snippets to the `try` block in *app-configuration-example.py* file you created earlier.

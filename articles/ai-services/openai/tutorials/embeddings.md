@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken
+pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
 ```
 
 <!--Alternatively, you can use our [requirements.txt file](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/requirements.txt).-->
