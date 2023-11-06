@@ -80,12 +80,6 @@ Links to the current and previous releases of the Windows agents are available b
    sudo zypper install -f azcmagent-1.28.02260-755
    ```
 
-
-
-
-
-
-
 ---
 
 ## Upgrade the agent
@@ -515,5 +509,3 @@ If you're already using environment variables to configure the proxy server for 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
 * Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
-
-
