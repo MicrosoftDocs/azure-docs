@@ -47,16 +47,16 @@ The Map feature visualizes the VM dependencies by discovering running processes 
 Expand a VM to show process details and only those processes that communicate with the VM. The client group shows the count of front-end clients that connect into the VM. The server-port groups show the count of back-end servers the VM connects to. Expand a server-port group to see the detailed list of servers that connect over that port.
 
 When you select the VM, the **Properties** pane shows the VM's properties. Properties include system information reported by the operating system, properties of the Azure VM, and a doughnut chart that summarizes the discovered connections.
-
-![Screenshot that shows the Properties pane.](./media/vminsights-maps/properties-pane-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/properties-pane-01.png" lightbox="./media/vminsights-maps/properties-pane-01.png" alt-text="Screenshot that shows the Properties pane." border="false":::
 
 On the right side of the pane, select **Log Events** to show a list of data that the VM has sent to Azure Monitor. This data is available for querying. Select any record type to open the **Logs** page, where you see the results for that record type. You also see a preconfigured query that's filtered against the VM.
-
-![Screenshot that shows the Log Events pane.](./media/vminsights-maps/properties-pane-logs-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/properties-pane-logs-01.png" lightbox="./media/vminsights-maps/properties-pane-logs-01.png" alt-text="Screenshot that shows the Log Events pane." border="false":::
 
 Close the **Logs** page and return to the **Properties** pane. There, select **Alerts** to view VM health-criteria alerts. The Map feature integrates with Azure alerts to show alerts for the selected server in the selected time range. The server displays an icon for current alerts, and the **Machine Alerts** pane lists the alerts.
-
-![Screenshot that shows the Alerts pane.](./media/vminsights-maps/properties-pane-alerts-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/properties-pane-alerts-01.png" lightbox="./media/vminsights-maps/properties-pane-alerts-01.png" alt-text="Screenshot that shows the Alerts pane.":::
 
 To make the Map feature display relevant alerts, create an alert rule that applies to a specific computer:
 
@@ -69,31 +69,31 @@ In the upper-right corner, the **Legend** option describes the symbols and roles
 
 ## Connection metrics
 The **Connections** pane displays standard metrics for the selected connection from the VM over the TCP port. The metrics include response time, requests per minute, traffic throughput, and links.
-
-![Screenshot that shows the Network connectivity charts on the Connections pane.](./media/vminsights-maps/map-group-network-conn-pane-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/map-group-network-conn-pane-01.png" lightbox="./media/vminsights-maps/map-group-network-conn-pane-01.png" alt-text="Screenshot that shows the Network connectivity charts on the Connections pane." border="false":::
 
 ### Failed connections
 The map shows failed connections for processes and computers. A dashed red line indicates a client system is failing to reach a process or port. For systems that use the Dependency agent, the agent reports on failed connection attempts. The Map feature monitors a process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or an unavailable remote service.
 
-![Screenshot that shows a failed connection on the map.](./media/vminsights-maps/map-group-failed-connection-01.png)
+:::image type="content" source="./media/vminsights-maps/map-group-failed-connection-01.png" lightbox="./media/vminsights-maps/map-group-failed-connection-01.png" alt-text="Screenshot that shows a failed connection on the map.":::
 
 Understanding failed connections can help you troubleshoot, validate migration, analyze security, and understand the overall architecture of the service. Failed connections are sometimes harmless, but they often point to a problem. Connections might fail, for example, when a failover environment suddenly becomes unreachable or when two application tiers can't communicate with each other after a cloud migration.
 
 ### Client groups
 On the map, client groups represent client machines that connect to the mapped machine. A single client group represents the clients for an individual process or machine.
 
-![Screenshot that shows a client group on the map.](./media/vminsights-maps/map-group-client-groups-01.png)
+:::image type="content" source="./media/vminsights-maps/map-group-client-groups-01.png" lightbox="./media/vminsights-maps/map-group-client-groups-01.png" alt-text="Screenshot that shows a client group on the map.":::
 
 To see the monitored clients and IP addresses of the systems in a client group, select the group. The contents of the group appear in the following image.
 
-![Screenshot that shows a client group's list of IP addresses on the map.](./media/vminsights-maps/map-group-client-group-iplist-01.png)
+:::image type="content" source="./media/vminsights-maps/map-group-client-group-iplist-01.png" lightbox="./media/vminsights-maps/map-group-client-group-iplist-01.png" alt-text="Screenshot that shows a client group's list of IP addresses on the map.":::
 
 If the group includes monitored and unmonitored clients, you can select the appropriate section of the group's doughnut chart to filter the clients.
 
 ### Server-port groups
 Server-port groups represent ports on servers that have inbound connections from the mapped machine. The group contains the server port and a count of the number of servers that have connections to that port. Select the group to see the individual servers and connections.
 
-![Screenshot that shows a server-port group on the map.](./media/vminsights-maps/map-group-server-port-groups-01.png)
+:::image type="content" source="./media/vminsights-maps/map-group-server-port-groups-01.png" lightbox="./media/vminsights-maps/map-group-server-port-groups-01.png" alt-text="Screenshot that shows a server-port group on the map.":::
 
 If the group includes monitored and unmonitored servers, you can select the appropriate section of the group's doughnut chart to filter the servers.
 
@@ -108,8 +108,8 @@ To access VM insights directly from a VM:
 The map visualizes the VM's dependencies by discovering running process groups and processes that have active network connections over a specified time range.
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector in the upper-left corner. You might run a query, for example, during an incident or to see the status before a change.
-
-![Screenshot that shows the Map tab in the Monitoring Insights section of the Azure portal showing a diagram of the dependencies between virtual machines.](./media/vminsights-maps/map-direct-vm-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/map-direct-vm-01.png" lightbox="./media/vminsights-maps/map-direct-vm-01.png" alt-text="Screenshot that shows the Map tab in the Monitoring Insights section of the Azure portal showing a diagram of the dependencies between virtual machines." border="false":::
 
 ## View a map from a virtual machine scale set
 
@@ -124,8 +124,8 @@ The map visualizes all instances in the scale set as a group node along with the
 To load a map for a specific instance, first select that instance on the map. Then select the **ellipsis** button **(...**) and select **Load Server Map**. In the map that appears, you see process groups and processes that have active network connections over a specified time range.
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.
-
-![Screenshot that shows the Map tab in the Monitoring Insights section of the Azure portal showing a diagram of dependencies between virtual machine scale sets.](./media/vminsights-maps/map-direct-vmss-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-maps/map-direct-vmss-01.png" lightbox="./media/vminsights-maps/map-direct-vmss-01.png" alt-text="Screenshot that shows the Map tab in the Monitoring Insights section of the Azure portal showing a diagram of dependencies between virtual machine scale sets." border="false":::
 
 >[!NOTE]
 >You can also access a map for a specific instance from the **Instances** view for your virtual machine scale set. In the **Settings** section, go to **Instances** > **Insights**.
@@ -137,8 +137,8 @@ In Azure Monitor, the Map feature provides a global view of your VMs and their d
 1. In the Azure portal, select **Monitor**.
 1. In the **Insights** section, select **Virtual Machines**.
 1. Select the **Map** tab.
-
-   ![Screenshot that shows an Azure Monitor overview map of multiple VMs.](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/vminsights-maps/map-multivm-azure-monitor-01.png" lightbox="./media/vminsights-maps/map-multivm-azure-monitor-01.png" alt-text="Screenshot that shows an Azure Monitor overview map of multiple VMs." border="false":::
 
 Choose a workspace by using the **Workspace** selector at the top of the page. If you have more than one Log Analytics workspace, choose the workspace that's enabled with the solution and that has VMs reporting to it.
 
