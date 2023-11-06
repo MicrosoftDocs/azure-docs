@@ -387,4 +387,4 @@ kubectl logs dapr-workload daprd
 
 ## Related content
 
-- [What is the Azure IoT MQ state store](concept-about-state-store.md)
+- [Develop highly available applications](concept-about-distributed-apps.md)
