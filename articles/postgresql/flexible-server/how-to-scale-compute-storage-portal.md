@@ -106,6 +106,55 @@ Please use below steps to enable storage autogrow for your flexible server and a
 > [!IMPORTANT]
 > Storage autogrow initiates disk scaling operations online, but there are specific situations where online scaling is not possible. In such cases, like when approaching or surpassing the 4,096-GiB limit, storage autogrow does not activate, and you must manually increase the storage. A portal informational message is displayed when this happens.
 
+## Performance Tier
+
+### Scaling Up
+
+Please use the below steps to scale up the performance tier on your flexible server.
+
+1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to scale up.
+
+2. Click **Compute + storage**.
+
+3. A page with current settings is displayed.
+ 
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-1.png" alt-text="Screenshot that shows performance tier":::
+
+4. You will see the new “Performance Tier” drop-down option. The option selected will be the pre-provisioned IOPS, which is also the minimum amount of IOPS available for the selected storage size.
+
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-2.png" alt-text="Screenshot that shows performance tier drop down":::
+
+5. Select your new performance tier and click save.
+
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-up-3.png" alt-text="Screenshot that shows performance tier ":::
+
+6. Your server will deploy and once the deployment is completed, your server is updated and will show the new performance tier.
+
+### Scaling Down 
+
+Please use the below steps to scale down the performance tier on your flexible server.
+
+1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to scale down.
+
+2. Click **Compute + storage**.
+
+3. A page with current settings is displayed.
+
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-1.png" alt-text="Screenshot that shows performance tier":::
+
+4.	You will see the new “Performance Tier (preview)” drop-down option. The option selected will be your last selected IOPS when you scaled up.
+
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-2.png" alt-text="Screenshot that shows performance tier drop down":::
+
+5.	Select your new performance tier and click save.
+
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-3.png" alt-text="Screenshot that shows performance tier ":::
+
+6.	Your server will deploy and once the deployment is completed, your server is updated and will show the new performance tier.
+
+> [!IMPORTANT]
+> You can only scale down the Performance Tier of your server 12 hours after scaling up. This restriction is in place to ensure stability and performance after any changes to your server's configuration.
+
 ### Next steps
 
 -   Learn about [business continuity](./concepts-business-continuity.md)
