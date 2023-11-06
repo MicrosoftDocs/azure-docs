@@ -46,7 +46,7 @@ If you continue to have trouble upgrading an extension, you can [disable automat
 
 ### Timing of automatic extension upgrades
 
-When a new version of a VM extension is published, it becomes available for installation and manual upgrade on Arc-enabled servers. For servers that already have the extension installed and automatic extension upgrade enabled, it may take 5 - 8 weeks for every server with that extension to get the automatic upgrade. Upgrades are issued in batches across Azure regions and subscriptions, so you may see the extension get upgraded on some of your servers before others. If you need to upgrade an extension immediately, follow the guidance to manually upgrade extensions using the [Azure portal](manage-vm-extensions-portal.md#upgrade-extensions), [Azure PowerShell](manage-vm-extensions-powershell.md#upgrade-extension) or [Azure CLI](manage-vm-extensions-cli.md#upgrade-extensions).
+When a new version of a VM extension is published, it becomes available for installation and manual upgrade on Arc-enabled servers. For servers that already have the extension installed and automatic extension upgrade enabled, it might take 5 - 8 weeks for every server with that extension to get the automatic upgrade. Upgrades are issued in batches across Azure regions and subscriptions, so you might see the extension get upgraded on some of your servers before others. If you need to upgrade an extension immediately, follow the guidance to manually upgrade extensions using the [Azure portal](manage-vm-extensions-portal.md#upgrade-extensions), [Azure PowerShell](manage-vm-extensions-powershell.md#upgrade-extension) or [Azure CLI](manage-vm-extensions-cli.md#upgrade-extensions).
 
 Extension versions fixing critical security vulnerabilities are rolled out much faster. These automatic upgrades happen using a specialized roll out process which can take 1 - 3 weeks to automatically upgrade every server with that extension. Azure handles identifying which extension version should be rollout quickly to ensure all servers are protected. If you need to upgrade the extension immediately, follow the guidance to manually upgrade extensions using the [Azure portal](manage-vm-extensions-portal.md#upgrade-extensions), [Azure PowerShell](manage-vm-extensions-powershell.md#upgrade-extension) or [Azure CLI](manage-vm-extensions-cli.md#upgrade-extensions).
 
@@ -136,7 +136,7 @@ Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName
 
 A machine managed by Arc-enabled servers can have multiple extensions with automatic extension upgrade enabled. The same machine can also have other extensions without automatic extension upgrade enabled.
 
-If multiple extension upgrades are available for a machine, the upgrades may be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension doesn't impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
+If multiple extension upgrades are available for a machine, the upgrades might be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension doesn't impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
 
 ## Check automatic extension upgrade history
 
