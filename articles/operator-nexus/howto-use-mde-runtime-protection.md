@@ -65,7 +65,7 @@ Running this command will make the cluster aware of the MDE runtime protection s
 to a value other than `Disabled` in the next section
 
 > [!NOTE]
-> As you have noted, the argument --runtime-protection-configuration enforcement-level="<enforcement level>" serves two purposes: enabling/disabling MDE service and updating the enforcement level.
+>As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
 If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
