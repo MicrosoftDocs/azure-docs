@@ -19,7 +19,7 @@ This article provides guidance to move from Change Tracking and Inventory using 
 
 ### [Using Azure portal - for single VM](#tab/ct-single-vm)
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) and select your virtual machine
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your virtual machine
 1. Under **Operations** ,  select **Change tracking**.
 1. Select **Configure with AMA** and in the **Configure with Azure monitor agent**,  provide the **Log analytics workspace** and select **Migrate** to initiate the deployment.
 
@@ -39,9 +39,9 @@ This article provides guidance to move from Change Tracking and Inventory using 
 1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
 1. On the **Assess virtual machines** tab, select the machines and then select **Next**.
 1. On **Assign workspace** tab, assign a new [Log Analytics workspace resource ID](#obtain-log-analytics-workspace-resource-id) to which the settings of AMA based solution should be stored and select **Next**.
-   
+
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-inline.png" alt-text="Screenshot of assigning new Log Analytics resource ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/assign-workspace-expanded.png":::
-   
+
 1. On **Review** tab, you can review the machines that are being onboarded and the new workspace.
 1. Select  **Migrate** to initiate the deployment.
 
@@ -49,13 +49,11 @@ This article provides guidance to move from Change Tracking and Inventory using 
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
-
 ### [Using PowerShell script](#tab/ps-policy)
 
 #### Prerequisites
 
-- Ensure to have the Windows PowerShell console installed. Follow the steps to [install Windows PowerShell](https://learn.microsoft.com/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.3).
-- We recommend that you use PowerShell version 7.1.3 or higher.
+- Ensure to have the Windows PowerShell console installed. We recommend that you use PowerShell version 7.2 or higher. Follow the steps to [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 - Obtain Read access for the specified workspace resources.
 - Ensure that you have `Az.Accounts` and `Az.OperationalInsights` modules installed. The `Az.PowerShell` module is used to pull workspace agent configuration information.
 - Ensure to have the Azure credentials to run `Connect-AzAccount` and `Select Az-Context` that set the context for the script to run.
@@ -76,16 +74,16 @@ Follow these steps to migrate using scripts.
 #### Onboard at scale
 
 Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) to migrate Change tracking workspace settings to data collection rule.
- 
+
 #### Parameters
 
 **Parameter** | **Required** | **Description** |
---- | --- | --- | 
+--- | --- | --- |
 `InputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Log Analytics. |
 `OutputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Azure Monitoring Agent. |
 `OutputDCRName`| Yes | Custom name of the new DCR created. |
 `OutputDCRLocation`| Yes | Azure location of the output workspace ID. |
-`OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. | 
+`OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. |
 
 ---
 
@@ -105,7 +103,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 **For single VM and Automation Account**
 
 1. 100 VMs per Automation Account can be migrated in one instance.
-1. Any VM with > 100 file/registry settings for migration via portal isn't supported now. 
+1. Any VM with > 100 file/registry settings for migration via portal isn't supported now.
 1. Arc VM migration isn't supported with portal, we recommend that you use PowerShell script migration.
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
@@ -113,7 +111,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 ### [Using PowerShell script](#tab/limit-policy)
 
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
-1. Any VM with > 100 file/registry settings for migration via portal isn't supported now. 
+1. Any VM with > 100 file/registry settings for migration via portal isn't supported now.
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ---
@@ -125,7 +123,7 @@ After you enable management of your virtual machines using Change Tracking and I
 The disable method incorporates the following:
 - [Removes change tracking with LA agent for selected few VMs within Log Analytics Workspace](remove-vms-from-change-tracking.md).
 - [Removes change tracking with LA agent from the entire Log Analytics Workspace](remove-feature.md).
- 
+
 ## Next steps
 -  To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
 
