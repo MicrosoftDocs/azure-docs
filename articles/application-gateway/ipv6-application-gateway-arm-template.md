@@ -74,13 +74,13 @@ Although IIS isn't required to create the application gateway, it's installed to
 
 1. Find the public IP address and DNS name for the application gateway on its **Overview** page. In the following example, the DNS name is **dualipv611061903310.eastus.cloudapp.azure.com**.
 
-   ![A screenshot showing the application gateway's public IP address and DNS name.](./media/application-gateway-create-gateway-arm-template/ipv6-address.png) 
+   [ ![A screenshot showing the application gateway's public IP address and DNS name.](./media/ipv6-application-gateway-arm-template/ipv6-address.png) ](./media/ipv6-application-gateway-arm-template/ipv6-address.png#lightbox)
 
 2. Copy the public IP address or DNS name, and then paste it into the address bar of your browser to browse that IP address.
 
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![A screenshot showing a successful test of application gateway.](./media/application-gateway-create-gateway-arm-template/connection-test.png)
+   ![A screenshot showing a successful test of application gateway.](./media/ipv6-application-gateway-arm-template/connection-test.png)
 
    Refresh the browser multiple times and you should see connections to both myVM1 and myVM2.
 
