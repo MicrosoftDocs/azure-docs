@@ -55,11 +55,11 @@ Registration is always initiated from the agent. In the interest of security, on
 
 ## Step 1: Connect to the agent VM
 
-The agent VM is an appliance. It offers an administrative shell that limits the operations you can perform on this machine. When you connect to the agent, the shell loads and provides you with options that allow you to interact with it directly. However, the agent VM is a Linux based appliance, and copy and paste functionality often doesn't work within the default Hyper-V window.
+The agent VM is an appliance. It offers an administrative shell that limits the operations you can perform on this machine. When you connect to the agent, the shell loads and provides you with options that allow you to interact with it directly. However, the agent VM is a Linux based appliance, and copy and paste functionality often doesn't work within the default host window.
 
-Rather than use the Hyper-V window, use an SSH connection instead. This approach provides the following advantages:
+Rather than use the host window, consider using an SSH connection instead. This approach provides the following advantages:
 
-- You can connect to the agent VM's shell from any management machine and don't need to be logged into the Hyper-V host.
+- You can connect to the agent VM's shell from any management machine and don't need to be logged into the host.
 - Copy / paste is fully supported.
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
