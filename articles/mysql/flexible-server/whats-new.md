@@ -191,7 +191,7 @@ Azure Database for MySQL Flexible Server now supports [generated invisible prima
 
 ## October 2022
 
-- **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**
+- **AMD compute SKUs for General Purpose and Business Critical tiers in Azure Database for MySQL - Flexible Server**
 
   You can now choose between Intel and AMD hardware for Azure Database for MySQL - Flexible Servers based on the General Purpose (Dadsv5-series) and Business Critical (Eadsv5-series) tiers. AMD SKU offers competitive price-performance options to all Azure Database for MySQL - Flexible server users. To ensure transparency in the portal, you can select the compute hardware vendor for both primary and secondary server. After determining the best compute processor for your workload, deploy flexible servers in more available regions and zones. [Learn more](./concepts-service-tiers-storage.md)
 
