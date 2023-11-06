@@ -83,7 +83,7 @@ import openai
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = 'azure'
-openai.api_version = '2023-05-15' # this may change in the future
+openai.api_version = '2023-05-15' # this might change in the future
 
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
@@ -145,7 +145,7 @@ Run the code a few more times to see what other types of responses you get as th
 
 Since our example of `Write a tagline for an ice cream shop.` provides little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
 
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
+Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses might be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
