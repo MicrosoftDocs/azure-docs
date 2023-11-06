@@ -70,7 +70,7 @@ Deploy the ARM template to Azure:
 
 ## Validate the deployment
 
-Although IIS isn't required to create the application gateway, it's used to verify that Azure successfully created the application gateway. 
+Although IIS isn't required to create the application gateway, it can be used to verify that Azure successfully created the application gateway. 
 
 To use IIS to test the application gateway:
 
