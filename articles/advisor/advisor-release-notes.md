@@ -8,6 +8,14 @@ ms.date: 11/02/2023
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## November 2023
+
+### ZRS recommendation for Azure Disks
+
+Azure Advisor has introduced ZRS (Zone Redundant Storage) recommendations for Azure Disks, aimed at enhancing resiliency and availability of customer deployments. Disks with ZRS provide synchronous replication of data across three Availability Zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, customers can now design their solutions to utilize ZRS Disks, which are resilient to zonal failures. This recommendation is accessible through the Advisor portal and APIs.
+
+To learn more, visit [Use Azure Disks with Zone Redundant Storage for higher resiliency and availability](/azure/advisor/advisor-reference-reliability-recommendations#use-azure-disks-with-zone-redundant-storage-for-higher-resiliency-and-availability).
+
 ## October 2023
 
 ### New version of Service Retirement Workbook
