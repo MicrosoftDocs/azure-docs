@@ -1752,7 +1752,7 @@ These application settings are required for a specific operating system and host
 --- 
 
 ::: zone-end 
-:::zone pivot="container-app,azure-arc"  
+:::zone pivot="container-apps,azure-arc"  
 These application settings are required for container deployments:
  
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
