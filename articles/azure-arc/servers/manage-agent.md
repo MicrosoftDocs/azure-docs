@@ -80,7 +80,6 @@ Links to the current and previous releases of the Windows agents are available b
    sudo zypper install -f azcmagent-1.28.02260-755
    ```
 
-
 ---
 
 ## Upgrade the agent
@@ -415,6 +414,8 @@ You do not need to restart any services when reconfiguring the proxy settings wi
 Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Microsoft Entra ID and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
 
 The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server. The location parameter refers to the Azure region of the Arc Server(s).
+
+Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure extension for SQL Server and not the Arc agent.
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
