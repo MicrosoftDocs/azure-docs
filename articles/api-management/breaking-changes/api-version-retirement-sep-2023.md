@@ -30,7 +30,7 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 ## Required action
 
-Update your tools, scripts, and programs using the details in the following section. We recommend also configuring the **Minimum API version** setting to limit control plane calls to your API Management instance.
+Update your tools, scripts, and programs using the details in the following section. We recommend also setting the **Minimum API version** in your API Management instance.
 
 ### Update your tools, scripts, and programs
 
