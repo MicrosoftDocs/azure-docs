@@ -121,7 +121,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
 
-** Currently in [public preview](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Event handling
 
