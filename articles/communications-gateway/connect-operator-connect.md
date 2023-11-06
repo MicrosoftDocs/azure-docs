@@ -15,7 +15,7 @@ ms.custom:
 
 After you deploy Azure Communications Gateway and connect it to your core network, you need to connect it to Microsoft Phone System. You also need to onboard to the Operator Connect or Teams Phone Mobile environments.
 
-This article describes how to set up Azure Communications Gateway for Operator Connect and Teams Phone Mobile. When you have finished the steps in this article, you'll be ready to [prepare for live traffic](prepare-for-live-traffic-operator-connect.md) with Operator Connect, Teams Phone Mobile and Azure Communications Gateway.
+This article describes how to set up Azure Communications Gateway for Operator Connect and Teams Phone Mobile. After you finish the steps in this article, you can [prepare for live traffic](prepare-for-live-traffic-operator-connect.md) with Operator Connect, Teams Phone Mobile and Azure Communications Gateway.
 
 > [!TIP]
 > This article assumes that your Azure Communications Gateway onboarding team from Microsoft is also onboarding you to Operator Connect and/or Teams Phone Mobile. If you've chosen a different onboarding partner for Operator Connect or Teams Phone Mobile, you need to ask them to arrange changes to the Operator Connect and/or Teams Phone Mobile environments.
@@ -26,18 +26,18 @@ You must [deploy Azure Communications Gateway](deploy.md).
 
 You must have access to a user account with the Microsoft Entra Global Administrator role.
 
-You must know six "service verification" test numbers for each of Operator Connect and Teams Phone Mobile. These numbers are used by the Operator Connect and Teams Phone Mobile programs for continuous call testing.
-- If you selected the service you're setting up as part of deploying Azure Communications Gateway, you've chosen these numbers already.
-- Otherwise, choose the phone numbers now (in E.164 format and including the country code) and names to identify them.
+You must allocate six "service verification" test numbers for each of Operator Connect and Teams Phone Mobile. These numbers are used by the Operator Connect and Teams Phone Mobile programs for continuous call testing.
+- If you selected the service you're setting up as part of deploying Azure Communications Gateway, you've allocated numbers for the service already.
+- Otherwise, choose the phone numbers now (in E.164 format and including the country code) and names to identify them. We recommend names of the form OC1 and OC2 (for Operator Connect) and TPM1 and TPM2 (for Teams Phone Mobile).
 
-You must also choose at least one test number for each service for integration testing.
+You must also allocate at least one test number for each service for integration testing.
 
 If you want to set up Teams Phone Mobile and you didn't select it when you deployed Azure Communications Gateway, choose:
 - The number used in Teams Phone Mobile to access the Voicemail Interactive Voice Response (IVR) from native dialers.
 - How you plan to route Teams Phone Mobile calls to Microsoft Phone System. Choose from:
-    - Integrated MCP (MCP in Azure Communications Gateway)
-    - On-premises MCP
-    - Another method to route calls
+    - Integrated MCP (MCP in Azure Communications Gateway).
+    - On-premises MCP.
+    - Another method to route calls.
 
 ## Enable Operator Connect or Teams Phone Mobile support
 
@@ -51,6 +51,8 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 1. Fill in the fields, selecting **Review + create** and **Create**.
 1. Select the **Overview** page for your resource.
 1. Select **Add test lines** and add the service verification lines you chose in [Prerequisites](#prerequisites). Set the **Testing purpose** to **Automated**.
+    > [!IMPORTANT]
+    > Do not add the numbers for integration testing. You will configure numbers for integration testing when you [carry out integration testing and prepare for live traffic](prepare-for-live-traffic-operator-connect.md).
 1. Wait for your resource to be updated. When your resource is ready, the **Provisioning Status** field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field is "Complete." This step might take up to two weeks.
 
 ## Add the Project Synergy application to your Azure tenancy

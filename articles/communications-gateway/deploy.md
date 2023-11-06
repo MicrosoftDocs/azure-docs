@@ -95,7 +95,7 @@ For Operator Connect and Teams Phone Mobile:
 
 |**Value**|**Field name(s) in Azure portal**|
 |---------|---------|
-|A name for the test line. |**Name**|
+|A name for the test line.  We recommend names of the form OC1 and OC2 (for Operator Connect) and TPM1 and TPM2 (for Teams Phone Mobile). |**Name**|
 |The phone number for the test line, in E.164 format and including the country code. |**Phone Number**|
 |The purpose of the test line (always **Automated**).|**Testing purpose**|
 
