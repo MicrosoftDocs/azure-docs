@@ -186,7 +186,7 @@ After the deployment finishes, use the following steps to find the application U
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-Now you can access the deployed app to see whether it works. Use the following steps to validate:
+After the deployment finishes, use the following steps to validate the app:
 
 1. Access the application URL. When you open the app, you get the response `Hello World`.
 
