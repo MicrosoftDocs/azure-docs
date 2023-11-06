@@ -42,7 +42,7 @@ Azure Native Qumulo Scalable File Service provides:
 - Private access
   - The service is directly connected to your own virtual network (sometimes called _VNet injection_).
 - Global Namespaces
-  - This capability enables all workloads to be pointed to a single namespace regardless of where the data resides Azure Native Qumulo V2 Scalable File Service or on-premises Qumulo instance.
+  - This capability enables all workloads on Azure Native Qumulo V2 Scalable File Service or on-premises Qumulo instance to be pointed to a single namespace.
 
 ## Next steps
 
