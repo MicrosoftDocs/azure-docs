@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use GPT-4V on your images and videos with the Azure Open AI REST API'
+title: 'Quickstart: Use GPT-4 with Vision on your images and videos with the Azure Open AI REST API'
 titleSuffix: Azure OpenAI
-description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4V (Visual) model.
+description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 with Vision model.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 11/02/2023
 ---
 
-Use this article to get started using the Azure OpenAI REST APIs to deploy and use the GPT-4V (Visual) model. 
+Use this article to get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 with Vision model. 
 
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
+- Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `os`, `requests`, `json`.
-- An Azure OpenAI Service resource with the GPT-4V models deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource with a GPT-4 Vision model deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
 
 ## Retrieve key and endpoint
 

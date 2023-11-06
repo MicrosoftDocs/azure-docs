@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use GPT-4V on your images and videos with the Azure Open AI Service'
+title: 'Quickstart: Use GPT-4 with Vision on your images and videos with the Azure Open AI Service'
 titleSuffix: Azure OpenAI
-description: Use this article to get started using Azure OpenAI to deploy and use the GPT-4V (Visual) model.  
+description: Use this article to get started using Azure OpenAI to deploy and use the GPT-4 with Vision model.  
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 11/02/2023
 ---
 
-Use this article to get started using Azure OpenAI to deploy and use the GPT-4V (Visual) model. 
+Use this article to get started using Azure OpenAI to deploy and use the GPT-4 with Vision model. 
 
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- An Azure OpenAI Service resource with the GPT-4V models deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource with a GPT-4 Vision model deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
 
 ## Go to Azure OpenAI Studio
 
 Browse to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-Under **Management** select **Deployments** and create a gpt-4v deployment. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).  
+Under **Management** select **Deployments** and create a `gpt-4v` deployment. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).  
 
 From the Azure OpenAI Studio landing page, select **Chat playground**.
 
 ## Playground
 
-Start exploring GPT-4V capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities. 
+Start exploring GPT-4 Vision capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities. 
 
 tbd Screenshot
 
@@ -49,7 +49,7 @@ In this chat session, you try out the capabilities of the augmented Vision model
 
  
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
-1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4V supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
+1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Chat session** pane, enter the following question: "Describe this image," and upload an image. Then select **Send**.  
