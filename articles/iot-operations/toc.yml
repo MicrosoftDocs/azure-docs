@@ -64,8 +64,10 @@ items:
       items:
       - name: Overview
         href: manage-mqtt-connectivity/overview-iot-mq.md
+      - name: Configure availability and scale
+        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Secure communication using BrokerListener
-        href: manage-mqtt-connectivity/concept-brokerlistener.md
+        href: manage-mqtt-connectivity/howto-brokerlistener.md
       - name: Configure automatic TLS
         href: manage-mqtt-connectivity/howto-configure-tls-auto.md
       - name: Configure manual TLS
@@ -76,8 +78,6 @@ items:
         href: manage-mqtt-connectivity/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-connectivity/howto-test-connection.md  
-      - name: Configure availability and scale
-        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
         href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
       - name: Configure diagnostic settings
