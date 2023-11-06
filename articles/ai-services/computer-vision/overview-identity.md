@@ -74,9 +74,13 @@ You can try out Face detection quickly and easily in your browser using Vision S
 
 [!INCLUDE [liveness-sdk-gate](./includes/liveness-sdk-gate.md)]
 
-The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
+Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoof). This is a crucial building block in a biometric authentication system to prevent spoofing attacks from imposters trying to gain access to the system using a photograph, video, mask, or other means to impersonate another person.
 
-Our liveness detection service meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
+The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
+
+The liveness detection solution successfully defends against a variety of spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
+
+Our liveness detection solution meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
 
 Tutorial
 - [Face liveness Tutorial](Tutorials/liveness.md)
