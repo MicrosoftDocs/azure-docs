@@ -19,8 +19,6 @@ ms.author: lajanuar
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
 
-    &#x2731; Microsoft Office files are currently not supported for other models or versions.
-
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
 * The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.

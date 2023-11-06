@@ -43,7 +43,7 @@ The Document Intelligence invoice model uses powerful Optical Character Recognit
 
 ## Automated invoice processing
 
-Automated invoice processing is the process of extracting key accounts payable fields from billing account documents. Extracted data includes line items from invoices integrated with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been done manually and, hence, very time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
+Automated invoice processing is the process of extracting key accounts payable fields from billing account documents. Extracted data includes line items from invoices integrated with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process is performed manually and, hence, very time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -182,100 +182,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-:::moniker range="doc-intel-3.1.0"
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
-| &bullet; Spanish (`es`) |Spain (`es`)|
-| &bullet; German (`de`) | Germany (`de`)|
-| &bullet; French (`fr`) | France (`fr`) |
-| &bullet; Italian (`it`) | Italy (`it`)|
-| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
-| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
-| &bullet; Czech (`cs`) | Czech Republic (`cz`)|
-| &bullet; Danish (`da`) | Denmark (`dk`)|
-| &bullet; Estonian (`et`) | Estonia (`ee`)|
-| &bullet; Finnish (`fi`) | Finland (`fl`)|
-| &bullet; Croatian (`hr`) | Bosnia and Herzegovina (`ba`), Croatia (`hr`), Serbia (`rs`)|
-| &bullet; Hungarian (`hu`) | Hungary (`hu`)|
-| &bullet; Icelandic (`is`) | Iceland (`is`)|
-| &bullet; Japanese (`ja`) | Japan (`ja`)|
-| &bullet; Korean (`ko`) | Korea (`kr`)|
-| &bullet; Lithuanian (`lt`) | Lithuania (`lt`)|
-| &bullet; Latvian (`lv`) | Latvia (`lv`)|
-| &bullet; Malay (`ms`) | Malaysia (`ms`)|
-| &bullet; Norwegian (`nb`) | Norway (`no`)|
-| &bullet; Polish (`pl`) | Poland (`pl`)|
-| &bullet; Romanian (`ro`) | Romania (`ro`)|
-| &bullet; Slovak (`sk`) | Slovakia (`sv`)|
-| &bullet; Slovenian (`sl`) | Slovenia (`sl`)|
-| &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
-| &bullet; Albanian (`sq`) | Albania (`al`)|
-| &bullet; Swedish (`sv`) | Sweden (`se`)|
-| &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
-
-| Supported Currency Codes | Details |
-|:----------------------|:---------|
-| &bullet; ARS | Argentine Peso (`ar`) |
-| &bullet; AUD | Australian Dollar (`au`) |
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; CAD | Canadian Dollar (`ca`) |
-| &bullet; CLP | Chilean Peso (`cl`) |
-| &bullet; CNY | Chinese Yuan (`cn`) |
-| &bullet; COP | Colombian Peso (`co`) |
-| &bullet; CRC | Costa Rican Coldón (`us`) |
-| &bullet; CZK | Czech Koruna (`cz`) |
-| &bullet; DKK | Danish Krone (`dk`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; HUF | Hungarian Forint (`hu`) |
-| &bullet; IDR | Indonesian Rupiah (`id`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; ISK | Icelandic Króna (`us`) |
-| &bullet; JPY | Japanese Yen (`jp`) |
-| &bullet; KRW | South Korean Won (`kr`) |
-| &bullet; NOK | Norwegian Krone (`no`) |
-| &bullet; PAB | Panamanian Balboa (`pa`) |
-| &bullet; PEN | Peruvian Sol (`pe`) |
-| &bullet; PLN | Polish Zloty (`pl`) |
-| &bullet; RON | Romanian Leu (`ro`) |
-| &bullet; RSD | Serbian Dinar (`rs`) |
-| &bullet; SEK | Swedish Krona (`se`) |
-| &bullet; TWD | New Taiwan Dollar (`tw`) |
-| &bullet; USD | United States Dollar (`us`) |
-
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
-| &bullet; Spanish (`es`) |Spain (`es`)|
-| &bullet; German (`de`) | Germany (`de`)|
-| &bullet; French (`fr`) | France (`fr`) |
-| &bullet; Italian (`it`) | Italy (`it`)|
-| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
-| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
-
-| Supported Currency Codes | Details |
-|:----------------------|:---------|
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; CAD | Canada (`ca`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; USD | United States (`us`) |
-:::moniker-end
-
-:::moniker range=">=doc-intel-3.0.0"
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction
 
@@ -343,15 +250,10 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By default, the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
-
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-
-## Supported locales
-
-**Prebuilt invoice v2.1** supports invoices in the **en-us** locale.
 
 ## Fields extracted
 
@@ -365,7 +267,7 @@ The Invoice service extracts the text, tables, and 26 invoice fields. Following 
 | InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |
 | InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
-| VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
+| VendorName | string | Vendor that created the invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
 | CustomerAddress | string | Mailing address for the Customer | 123 Other Street, Redmond WA, 98052 | |

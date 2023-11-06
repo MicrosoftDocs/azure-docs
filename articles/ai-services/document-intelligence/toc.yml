@@ -13,7 +13,6 @@ items:
     displayName: get started
     href: studio-overview.md
   - name: Document Intelligence SDKs
-    expanded: true
     items:
       - name: "v3.1 targets: REST API 2023—7—31 latest (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
@@ -25,8 +24,16 @@ items:
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
   - name: Language support
-    displayName: locale, handwritten, handwriting, text, detect, detection
-    href: language-support.md
+    items:
+      - name: Document analysis models
+        displayName: language, locale, handwritten, handwriting, text, detect, detection
+        href: language-support-ocr.md
+      - name: Prebuilt models
+        displayName: locale, handwritten, handwriting, text, detect, detection
+        href: language-support-prebuilt.md
+      - name: Custom models
+        displayName: locale, handwritten, handwriting, text, detect, detection
+        href: language-support-custom.md
   - name: Pricing
     displayName: cost, free, F0, tiers, standard, S0
     href: https://azure.microsoft.com/pricing/details/form-recognizer/

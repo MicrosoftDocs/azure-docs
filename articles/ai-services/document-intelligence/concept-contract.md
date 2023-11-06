@@ -89,12 +89,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| English (en) | United States (us)|
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction
 

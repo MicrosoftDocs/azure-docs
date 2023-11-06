@@ -37,7 +37,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 
 ## Automated tax document processing
 
-Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents have been done manually this model allows for the easy automation of tax scenarios
+Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents were processed manually. This model allows for the easy automation of tax scenarios.
 
 ## Development options
 
@@ -97,12 +97,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| English (en) | United States (us)|
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction W-2
 

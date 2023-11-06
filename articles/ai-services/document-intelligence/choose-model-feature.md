@@ -8,7 +8,6 @@ ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
