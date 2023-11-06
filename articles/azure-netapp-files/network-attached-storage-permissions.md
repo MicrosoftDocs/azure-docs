@@ -32,7 +32,7 @@ Azure NetApp Files permissions rely on NAS standards, simplifying the process of
 
 The initial entry point to be secured in a NAS environment is access to the share itself. In most cases, access should be restricted to shares to only the users and groups that need access to the share. With share access permissions, you can lock down who can even mount the share in the first place.  
 
-Since the most restrictive permissions override other permissions, and a share is the main entry point to the volume (with the fewest amount of access controls), share permissions should use a "funnel" format where the share allows more access than the underlying files and folders. The funnel format enacts more granular, restrictive controls. 
+Since the most restrictive permissions override other permissions, and a share is the main entry point to the volume (with the fewest access controls), share permissions should use a "funnel" format where the share allows more access than the underlying files and folders. The funnel format enacts more granular, restrictive controls. 
 
 :::image type="content" source="../media/azure-netapp-files/shares-pyramid.png" alt-text="Diagram of inverted pyramid of file access hierarchy." lightbox="../media/azure-netapp-files/shares-pyramid.png":::
 
@@ -40,7 +40,7 @@ Since the most restrictive permissions override other permissions, and a share i
 
 Volumes in Azure NetApp Files are shared out to NFS clients by exporting a path that is accessible to a client or set of clients. Both NFSv3 and NFSv4.x use the same method to limit access to an NFS share in Azure NetApp Files: export policies. 
 
-An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule--either allowing or explicitly denying access--then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rules is applied to a client (for example, by way of a subnet), then it is read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
+An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule--either allowing or explicitly denying access--then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rule is applied to a client (for example, by way of a subnet), then it's read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-diagram.png" alt-text="Diagram modeling export policy rule hierarchy." lightbox="../media/azure-netapp-files/export-policy-diagram.png":::
 
@@ -56,7 +56,7 @@ When creating an Azure NetApp Files volume, there are several options configurab
 
 ### Default policy rule in Azure NetApp Files
 
-When creating a new volume, a default policy rule is created. The default policy prevents a scenario where a volume is created without policy rules, which would restrict access for any client attempting access to the export. (No rules means no access).
+When creating a new volume, a default policy rule is created. The default policy prevents a scenario where a volume is created without policy rules, which would restrict access for any client attempting access to the export. If there are no rules, there is no access. 
 
 The default rule has the following values:
 
@@ -86,7 +86,7 @@ Only Kerberos-enabled clients are able to access volumes with export rules speci
 
 There are some scenarios where you want to restrict root access to an Azure NetApp Files volume. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
 
-In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions generally falls under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
+In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions generally fall under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
 
 To learn more about managing export policies, see [Configure export policies for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
@@ -109,7 +109,7 @@ To fix this and set access to the desired level, the rules can be re-ordered to 
 
 ## SMB shares 
 
-SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as Access Based Enumeration and Non-Browsable Share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
+SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as Access Based Enumeration and non-browsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
 
 :::image type="content" source="../media/azure-netapp-files/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/share-level-permissions.png":::
 
@@ -121,17 +121,17 @@ Azure NetApp Files offers multiple share properties to enhance security for admi
 
 #### Access-based enumeration 
 
-[Access-based enumeration](azure-netapp-files-create-volumes-smb#access-based-enumeration.md) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user does not have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) does not have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
+[Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration.md) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) doesn't have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
 
-:::image type="content" source="../media/azure-netapp-files/access-based-enumeration-properties.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/access-based-enumeration-properties.png":::
+:::image type="content" source="../media/azure-netapp-files/access-based-enumeration-properties.png" alt-text="Screenshot of access-based enumeration properties." lightbox="../media/azure-netapp-files/access-based-enumeration-properties.png":::
 
 In the below example, access-based enumeration is disabled, so the user has access to the `ABE` directory of `SMBVolume`.
 
 :::image type="content" source="../media/azure-netapp-files/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-access.png":::
 
-In the below example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` does not display for the user.
+In the below example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` doesn't display for the user.
 
-:::image type="content" source="../media/azure-netapp-files/directory-listing-no-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-no-access.png":::
+:::image type="content" source="../media/azure-netapp-files/directory-listing-no-access.png" alt-text="Screenshot of directory without access-bassed enumeration." lightbox="../media/azure-netapp-files/directory-listing-no-access.png":::
 
 The permissions also extend to individual files. In the below example, access-based enumeration is disabled and `ABE-file` displays to the user. 
 
@@ -143,7 +143,7 @@ With access-based enumeration enabled, `ABE-file` doesn't display to the user.
 
 #### Non-browsable shares
 
-Non-browsable shares is an Azure NetApp Files SMB volume feature that limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
+The non-browsable shares feature in Azure NetApp Files limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
 
 In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so it displays in the listing of the file server (using `\\servername`).
 
@@ -154,7 +154,7 @@ With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same
 
 In the next image, the share “SMBVolume” has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
-:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory that excludes folder SMBVolume from display." lightbox="../media/azure-netapp-files/directory-with-no-volume.png":::
+:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-with-no-volume.png":::
 
 Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
 
@@ -241,21 +241,21 @@ The following table compares the permission granularity between NFSv3 mode bits 
 | <ul><li>Set user ID on execution (setuid)</li><li>Set group ID on execution (setgid)</li><li>Save swapped text (sticky bit)</li><li>Read permission for owner</li><li>Write permission for owner</li><li>Execute permission for owner on a file; or look up (search) permission for owner in directory</li><li>Read permission for group</li><li>Write permission for group</li><li>Execute permission for group on a file; or look up (search) permission for group in directory</li><li>Read permission for others</li><li>Write permission for others</li><li>Execute permission for others on a file; or look up (search) permission for others in directory</li></ul>
 | <ul><li>ACE types (Allow/Deny/Audit)</li><li>Inheritance flags:</li><li>directory-inherit</li><li>file-inherit</li><li>no-propagate-inherit</li><li>inherit-only</li><li>Permissions:</li><li>read-data (files) / list-directory (directories)</li><li>write-data (files) / create-file (directories)</li><li>append-data (files) / create-subdirectory (directories)</li><li>execute (files) / change-directory (directories)</li><li>delete </li><li>delete-child</li><li>read-attributes</li><li>write-attributes</li><li>read-named-attributes</li><li>write-named-attributes</li><li>read-ACL</li><li>write-ACL</li><li>write-owner</li><li>Synchronize</li></ul> |
 
-For more information on NFSv4.1 ACLs, see .
+See [NFSv4.1 ACLs](#NFSv4x-ACLs) for more information.
 
 #### Sticky bits, setuid, and setgid 
 
-When using mode bits with NFS mounts, the ownership of files and folders is based on the uid and gid of the user that created the files and folders. Additionally, when a process runs, it runs as the user that kicked it off, and thus, would have the corresponding permissions. With special permissions (such as setuid, setgid, sticky bit), this behavior can be controlled.
+When using mode bits with NFS mounts, the ownership of files and folders is based on the `uid` and `gid` of the user that created the files and folders. Additionally, when a process runs, it runs as the user that kicked it off, and thus, would have the corresponding permissions. With special permissions (such as `setuid`, `setgid`, sticky bit), this behavior can be controlled.
 
 ##### Setuid 
 
-The setuid bit (designated by an “s” in the execute portion of the owner bit of a permission) allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the /bin/passwd application has the setuid bit enabled by default. This means the application run as root when a user tries to change their password.
+The `setuid` bit (designated by an “s” in the execute portion of the owner bit of a permission) allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the /bin/passwd application has the `setuid` bit enabled by default. This means the application run as root when a user tries to change their password.
 
 ```bash
 # ls -la /bin/passwd 
 -rwsr-xr-x 1 root root 68208 Nov 29  2022 /bin/passwd
 ```
-If the setuid bit is removed, the passwd change functionality won’t work properly.
+If the `setuid` bit is removed, the passwd change functionality won’t work properly.
 
 ```bash
 # ls -la /bin/passwd
@@ -269,7 +269,7 @@ passwd: Authentication token manipulation error
 passwd: password unchanged
 ```
 
-When the setuid bit is restored, the passwd application runs as the owner (root) and works properly, but only for the user running the passwd command.
+When the `setuid` bit is restored, the passwd application runs as the owner (root) and works properly, but only for the user running the passwd command.
 
 ```bash
 # chmod u+s /bin/passwd
@@ -290,9 +290,9 @@ Setuid has no effect on directories.
 
 ##### Setgid 
 
-The setgid bit can be used on both files and directories.
+The `setgid` bit can be used on both files and directories.
 
-With directories, setgid can be used as a way to inherit the owner group for files and folders created below the parent directory with the bit set. Like setuid, the executable bit is changed to an “s” or an “S.” 
+With directories, setgid can be used as a way to inherit the owner group for files and folders created below the parent directory with the bit set. Like `setuid`, the executable bit is changed to an “s” or an “S.” 
 
 >[!NOTE]
 >Capital “S” means that the executable bit hasn't been set, such as if the permissions on the directory are “6” or “rw.”
@@ -313,7 +313,7 @@ drwxrwxrwx 5 root  root   4096 Oct 11 16:37 ..
 -rw-r--r-- 1 root  group1    0 Oct 11 17:09 file
 ```
 
-For files, setgid behaves similarly to setuid--executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they aren't in the group, they don't get access. For instance, if an administrator wants to limit which users could run the `mkdir` command on a client, they can use setgid.
+For files, setgid behaves similarly to `setuid`--executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they aren't in the group, they don't get access. For instance, if an administrator wants to limit which users could run the `mkdir` command on a client, they can use setgid.
 
 Normally, `/bin/mkdir` has 755 permissions with root ownership. This means anyone can run `mkdir` on a client. 
 
@@ -333,7 +333,7 @@ To modify the behavior to limit which users can run the `mkdir` command, change 
 ```
 As a result, the application runs with permissions for group1. If the user isn't a member of group1, they don't get access to run `mkdir`.
 
-`User1` is a member of group1, but user2 isn't:
+`User1` is a member of group1, but `user2` isn't:
 
 ```bash
 # id user1
@@ -341,7 +341,7 @@ uid=1001(user1) gid=1001(group1) groups=1001(group1)
 # id user2
 uid=1002(user2) gid=2002(group2) groups=2002(group2)
 ```
-After this change, user1 can run `mkdir`, but user2 can't since user2 isn't in group1.
+After this change, `user1` can run `mkdir`, but `user2` can't since `user2` isn't in `group1`.
 
 ```bash
 # su user1
@@ -396,7 +396,7 @@ $ rm user2-file
 rm: can't remove 'user2-file': Operation not permitted
 ```
 
-Conversely, user2 can't modify nor delete user1-file since they aren't the file’s owner and the sticky bit is set on the parent directory.
+Conversely, `user2` can't modify nor delete `user1-file` since they aren't the file’s owner, and the sticky bit is set on the parent directory.
 
 ```bash
 # su user2
@@ -490,13 +490,13 @@ When a user attempts to access an Azure NetApp Files volume via NFS, the request
 
 Due to that behavior, if that numeric ID can't be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
 
-The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It does not provide “local user creation/management” within Azure NetApp Files.
+The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It doesn't provide “local user creation/management” within Azure NetApp Files.
 
 For more information about the option, including how it behaves with different volume security styles in Azure NetApp files, see [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md).
 
 ### NFSv4.x ACLs
 
-The NFSv4.x protocol can provide access control in the form of [Access Control Lists (ACLs)](/windows/win32/secauthz/access-control-lists), which are similar in concept to those found in SMB via Windows NTFS permissions. An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
+The NFSv4.x protocol can provide access control in the form of [ACLs](/windows/win32/secauthz/access-control-lists), which are similar in concept to those found in SMB via Windows NTFS permissions. An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
 :::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
 
@@ -511,7 +511,7 @@ A valid NFSv4.x ACL takes the form of, for example, `A:g:group1@contoso.com:rwat
 
 #### NFSv4.x ACE flags
 
-An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. This is because it is possible in Linux environments to have a user and a group name that are identical, so to ensure an ACE is properly honored, then the NFS server needs to know what type of principal is being defined.
+An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. This is because it's possible in Linux environments to have a user and a group name that are identical, so to ensure an ACE is properly honored, then the NFS server needs to know what type of principal is being defined.
 
 Other flags can be used to control ACEs, such as inheritance and administrative flags.
 
@@ -526,7 +526,7 @@ Inheritance flags control how ACLs behave on files created below a parent direct
 The following table describes available inheritance flags and their behaviors.
 
 | Inheritance flag | Behavior | 
-| = | === |
+| - | --- |
 | d | - Directories below the parent directory inherit the ACL <br> - Inheritance flag is also inherited |
 | f | - Files below the parent directory inherit the ACL <br> - Files don't set inheritance flag |
 | i | Inherit-only; ACL doesn’t apply to the current directory but must apply inheritance to objects below the directory |
@@ -621,7 +621,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-When a “no-propogate” (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, user2 has the `n` flag set. As a result, the sub-directory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit user2’s ACE.
+When a “no-propogate” (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the sub-directory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
 
 ```bash
 #  nfs4_getfacl /mnt/acl-dir
@@ -661,7 +661,7 @@ Inherit flags are a way to more easily manage your NFSv4.x ACLs, rather than nee
 
 ##### Administrative flags
 
-Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success or failure access attempts for actions to be performed. For instance, if it is desired to audit failed access attempts to a specific file, then an administrative flag of “F” can be used to control that behavior.
+Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success or failure access attempts for actions to be performed. For instance, if it's desired to audit failed access attempts to a specific file, then an administrative flag of “F” can be used to control that behavior.
 
 This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
 
@@ -735,7 +735,7 @@ NFSv4.x permissions are the way to control what level of access a specific user 
 There are 13 permissions that can be set for users, and 14 permissions that can be set for groups.
 
 | Permission letter | Permission granted | 
-| = | ==== | 
+| - | ---- | 
 |r	|	Read data/list files and folders |
 |w	|	Write data/create files and folders |
 |a	|	Append data/create subdirectories |
@@ -814,10 +814,10 @@ rm: can't remove ‘user1-file’: Permission denied
 
 When a chmod is run an an object with NFSv4.x ACLs assigned, a series of system ACLs are updated with new permissions. For instance, if the permissions are set to 755, then the system ACL files get updated. The following table shows what each numeric value in a mode bit translates to in NFSv4 ACL permissions.
 
-See [NFSv4.x permissions](#NFSv4.x-permissions) for a table outlining all the permissions.
+See [NFSv4.x permissions](#NFSv4x-permissions) for a table outlining all the permissions.
 
-| Mode bit numeric | Corresponding NFSv4.x permissions
-| == | ===== | 
+| Mode bit numeric | Corresponding NFSv4.x permissions |
+| -- | ----- | 
 | 1 – execute (x) | Execute, read attributes, read ACLs, sync I/O (xtcy) | 
 |  2 – write (w) | Write, append data, read attributes, write attributes, write named attributes, read ACLs, sync I/O (watTNcy) | 
 | 3 – write/execute (wx)	| Write, append data, execute, read attributes, write attributes, write named attributes, read ACLs, sync I/O (waxtTNcy) | 
@@ -872,7 +872,7 @@ When using NFSv4.x ACLs, the more granular controls applied to files and folder 
 
 When chmod is run in Azure NetApp Files on files and folders with NFSv4.x ACLs applied, mode bits are changed on the object. In addition, a set of system ACEs are modified to reflect those mode bits. If the system ACEs are removed, then mode bits are cleared. Examples and a more complete description can be found in the section on system ACEs below.
 
-When chown is run in Azure NetApp Files, the assigned owner can be modified. File ownership isn't as critical when using NFSv4.x ACLs as when using mode bits, as ACLs can be used to control permissions in ways that basic owner/group/everyone concepts could not. Chown in Azure NetApp Files can only be run as root (either as root or by using sudo), since export controls are configured to only allow root to make ownership changes. Since this is controlled by a default export policy rule in Azure NetApp Files, NFSv4.x ACL entries that allow ownership modifications don't apply.
+When chown is run in Azure NetApp Files, the assigned owner can be modified. File ownership isn't as critical when using NFSv4.x ACLs as when using mode bits, as ACLs can be used to control permissions in ways that basic owner/group/everyone concepts couldn't. Chown in Azure NetApp Files can only be run as root (either as root or by using sudo), since export controls are configured to only allow root to make ownership changes. Since this is controlled by a default export policy rule in Azure NetApp Files, NFSv4.x ACL entries that allow ownership modifications don't apply.
 
 ```bash
 # su user1
@@ -887,7 +887,7 @@ The export policy rule on the volume can be modified to change this behavior. In
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-unrestricted.png" alt-text="Screenshot of export policy menu changing chown mode to unrestricted." lightbox="../media/azure-netapp-files/export-policy-unrestricted.png":::
 
-Once modified, ownership can be changed by users other than root that have appropriate access rights. This requires the “Take Ownership” NFSv4.x ACL permission (designated by the letter “o”). Ownership can also be changed if the user changing ownership currently owns the file or folder.
+Once modified, ownership can be changed by users other than root if they have appropriate access rights. This requires the “Take Ownership” NFSv4.x ACL permission (designated by the letter “o”). Ownership can also be changed if the user changing ownership currently owns the file or folder.
 
 ```bash
 A::user1@contoso.com:rwatTnNcCy  << no ownership flag (o)

@@ -23,7 +23,7 @@ There are two ways to view share settings:
 
 You must have the mount path. You can retrieve this in the Azure portal by navigating to the **Overview** menu of the volume for which you want to configure share ACLs. Identify the **Mount path**.
 
-    :::image type="content" source="../media/azure-netapp-files/volume-mount-path.png" alt-text="Screenshot of the mount path." lightbox="../media/azure-netapp-files/volume-mount-path.png":::
+:::image type="content" source="../media/azure-netapp-files/volume-mount-path.png" alt-text="Screenshot of the mount path." lightbox="../media/azure-netapp-files/volume-mount-path.png":::
 
 
 ## View SMB share ACLs with advanced permissions 
