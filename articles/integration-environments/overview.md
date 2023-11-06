@@ -1,6 +1,6 @@
 ---
 title: What is Azure Integration Environments?
-description: An integration environment helps you organize, manage, and track Azure resources related to your integration solutions. You can provide business context about these resources and track key business data that moves through these resources.
+description: Centrally organize Azure resources for integration solutions. Model and map business processes to Azure resources. Collect business data from deployed solutions.
 ms.service: azure
 ms.topic: overview
 ms.reviewer: estfan, azla

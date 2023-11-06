@@ -5,6 +5,7 @@ ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023
+# CustomerIntent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
 ---
 
 # Map a business process to a Standard logic app workflow (preview)
@@ -20,15 +21,6 @@ After you create a business process for an application group in an integration e
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<<<<<<< HEAD
-- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with the Azure resources for your integration solution
-
-- A [business process with the stages to map](create-business-process.md)
-
-## Map a business process stage
-
-These steps show how to map your business process stage to a Standard logic app, workflow, and operation as the data source for the business properties that you previously defined for collecting data and tracking.
-=======
 - An [integration environment](create-integration-environment.md) that contains an [application group](create-application-group.md), which has at least the [Standard logic app resources, workflows, and operations](../logic-apps/create-single-tenant-workflows-azure-portal.md) for mapping to your business process stages
 
 - A [business process with the stages](create-business-process.md) where you want to define the key business data to capture, and then map to actual operations and property values in a Standard logic app workflow
@@ -41,7 +33,6 @@ These steps show how to map your business process stage to a Standard logic app,
 <a name="define-business-property"></a>
 
 ## Define a key business property to capture
->>>>>>> c50ede996c531f2036446402a82b74f02d7c181f
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 

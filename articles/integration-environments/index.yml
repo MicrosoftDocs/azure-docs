@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Integration Environments documentation # < 60 chars
-summary: Create, manage, and track business process flows that map to integration workflows in Azure Logic Apps. # < 160 chars
+title: Azure Integration Environments documentation (preview) # < 60 chars
+summary: Centrally organize Azure resources for integration solutions. Model business processes that map to Azure resources. Collect and track key business data. # < 160 chars
 
 metadata:
   title: Azure Integration Environments documentation
-  description: Create, manage, and track business process flows that map to integration workflows in Azure Logic Apps.
+  description: Centrally organize Azure resources for integration solutions. Model business processes that map to Azure resources. Collect and track key business data.
   services: azure
   ms.service: azure
   ms.topic: landing-page
@@ -16,14 +16,12 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: About Azure Integration Environments (preview)
+  - title: About Azure Integration Environments
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Integration Environments?
             url: overview.md
-  - title: How-to
-    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create an integration environment

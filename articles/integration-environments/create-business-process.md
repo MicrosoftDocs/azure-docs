@@ -1,10 +1,11 @@
 ---
 title: Create business processes to add business context
-description: Create a business process so you can add business context about transactions in Standard workflows created with Azure Logic Apps.
+description: Model a business process to add business context about transactions in Standard workflows created with Azure Logic Apps.
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023
+# CustomerIntent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
 ---
 
 # Create a business process to add business context to Azure resources (preview)

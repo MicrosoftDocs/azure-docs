@@ -9,13 +9,19 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Create an integration environment
-    href: create-integration-environment.md
-  - name: Create an application group
-    href: create-application-group.md
-  - name: Create a business process
-    href: create-business-process.md
-  - name: Map business process to workflow
-    href: Map-business-process-workflow.md
-  - name: Deploy business process and tracking
-    href: deploy-business-process.md
+  - name: Organize
+    expanded: true
+    items:
+    - name: Create an integration environment
+      href: create-integration-environment.md
+    - name: Create an application group
+      href: create-application-group.md
+  - name: Organize
+    expanded: true
+    items:
+    - name: Create a business process
+      href: create-business-process.md
+    - name: Map business process to workflow
+      href: Map-business-process-workflow.md
+    - name: Deploy business process and tracking
+      href: deploy-business-process.md
