@@ -121,7 +121,7 @@ Azure NetApp Files offers multiple share properties to enhance security for admi
 
 #### Access-based enumeration 
 
-[Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration.md) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) doesn't have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
+[Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) doesn't have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
 
 :::image type="content" source="../media/azure-netapp-files/access-based-enumeration-properties.png" alt-text="Screenshot of access-based enumeration properties." lightbox="../media/azure-netapp-files/access-based-enumeration-properties.png":::
 
@@ -154,7 +154,7 @@ With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same
 
 In the next image, the share “SMBVolume” has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
-:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-with-no-volume.png":::
+:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-with-no-smb-volume.png":::
 
 Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
 
@@ -241,7 +241,7 @@ The following table compares the permission granularity between NFSv3 mode bits 
 | <ul><li>Set user ID on execution (setuid)</li><li>Set group ID on execution (setgid)</li><li>Save swapped text (sticky bit)</li><li>Read permission for owner</li><li>Write permission for owner</li><li>Execute permission for owner on a file; or look up (search) permission for owner in directory</li><li>Read permission for group</li><li>Write permission for group</li><li>Execute permission for group on a file; or look up (search) permission for group in directory</li><li>Read permission for others</li><li>Write permission for others</li><li>Execute permission for others on a file; or look up (search) permission for others in directory</li></ul>
 | <ul><li>ACE types (Allow/Deny/Audit)</li><li>Inheritance flags:</li><li>directory-inherit</li><li>file-inherit</li><li>no-propagate-inherit</li><li>inherit-only</li><li>Permissions:</li><li>read-data (files) / list-directory (directories)</li><li>write-data (files) / create-file (directories)</li><li>append-data (files) / create-subdirectory (directories)</li><li>execute (files) / change-directory (directories)</li><li>delete </li><li>delete-child</li><li>read-attributes</li><li>write-attributes</li><li>read-named-attributes</li><li>write-named-attributes</li><li>read-ACL</li><li>write-ACL</li><li>write-owner</li><li>Synchronize</li></ul> |
 
-See [NFSv4.1 ACLs](#NFSv4x-ACLs) for more information.
+See [NFSv4.1 ACLs](#nfsv4x-acls) for more information.
 
 #### Sticky bits, setuid, and setgid 
 
@@ -813,7 +813,7 @@ rm: can't remove ‘user1-file’: Permission denied
 
 When a chmod is run an an object with NFSv4.x ACLs assigned, a series of system ACLs are updated with new permissions. For instance, if the permissions are set to 755, then the system ACL files get updated. The following table shows what each numeric value in a mode bit translates to in NFSv4 ACL permissions.
 
-See [NFSv4.x permissions](#NFSv4x-permissions) for a table outlining all the permissions.
+See [NFSv4.x permissions](#nfsv4x-permissions) for a table outlining all the permissions.
 
 | Mode bit numeric | Corresponding NFSv4.x permissions |
 | -- | ----- | 
