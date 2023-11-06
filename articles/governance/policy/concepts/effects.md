@@ -50,7 +50,7 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - **Disabled** is checked first to determine whether the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
-  may prevent an audit or deny effect from triggering. These effects are only available with a
+  might prevent an audit or deny effect from triggering. These effects are only available with a
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
@@ -322,7 +322,7 @@ related resources to match.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -626,7 +626,7 @@ related resources to match and the template deployment to execute.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -1020,7 +1020,7 @@ To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-
 
 ## Layering policy definitions
 
-A resource may be affected by several assignments. These assignments may be at the same scope or at
+A resource can be affected by several assignments. These assignments might be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
 condition and effect for each policy is independently evaluated. For example:
 
