@@ -734,6 +734,8 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
+        - name: Deploy an AI model with the AI toolchain operator (Preview)
+          href: ai-toolchain-operator.md 
     - name: DevOps
       items:
         - name: Azure DevOps Project
