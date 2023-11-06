@@ -168,7 +168,7 @@ After you restore the database, you can perform the following tasks to get your 
   
 - If you restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
  
-## Long Term Retention 
+## Long Term Retention (Preview)
 
 Azure Backup and Azure PostgreSQL Services have come together to build an enterprise-class long term backup solution for Azure Database for PostgreSQL Flexible servers that retains backups for up to 10 years.  You can use long term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL that offers retention up to 35 days. The automated backups are physical backups which are suited for operational recoveries, such as when you want to recover from the latest backups. Long term backups helps you with your compliance needs and are more granular in nature and are taken as logical backups using native pg_dump. Besides long-term retention, the solution offers the following capabilities:
 
