@@ -8,7 +8,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/05/2023
+ms.date: 11/06/2023
 ms.author: rolyon
 ms.custom:
 ---
