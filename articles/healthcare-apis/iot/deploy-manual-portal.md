@@ -31,7 +31,7 @@ The first step is to deploy the MedTech service prerequisite resources:
 * Azure resource group
 * Azure Event Hubs namespace and event hub
 * Azure Health Data services workspace
-* Azure Health Data Services FHIR service
+* Azure Health Data Services FHIR&reg; service
 
 Once the prerequisite resources are available, deploy:
  

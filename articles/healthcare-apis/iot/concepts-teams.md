@@ -15,7 +15,7 @@ In this article, learn about using the MedTech service and Microsoft Teams for n
 
 ## The MedTech service and Teams notifications reference architecture
 
-When combining the MedTech service, the FHIR service, and Teams, you can enable multiple care solutions.
+When combining the MedTech service, the FHIR&reg; service, and Teams, you can enable multiple care solutions.
 
 The diagram is a MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
 

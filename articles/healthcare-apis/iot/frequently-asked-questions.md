@@ -20,7 +20,7 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 ## Can I use the MedTech service with a different FHIR service other than the Azure Health Data Services FHIR service?
 
-No. The MedTech service currently only supports the Azure Health Data Services FHIR service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
+No. The MedTech service currently only supports the Azure Health Data Services FHIR&reg; service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
 To learn about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
