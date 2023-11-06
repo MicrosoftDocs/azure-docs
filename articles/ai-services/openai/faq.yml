@@ -82,32 +82,6 @@ sections:
           If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
-      - question: |
-          What are the known limitations of GPT-4 with Vision?
-        answer: |
-          While GPT-4 with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
-
-          Scenario limitations:
-          - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
-          - Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
-          - Big text: Enlarge text within the image to improve readability, but avoid cropping important details.
-          - Rotation: The model may misinterpret rotated / upside-down text or images.
-          - Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
-          - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
-          - Accuracy: The model may generate incorrect descriptions or captions in certain scenarios.
-          - Image shape: The model struggles with panoramic and fisheye images.
-          Metadata and resizing: The model doesn't process original file names or metadata, and images are resized before analysis, affecting their original dimensions.
-          - Counting: May give approximate counts for objects in images.
-          - CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
-
-          Technical limitations:
-          - If multiple images are uploaded in one message, augmentation won't be available.
-          - Image type `image_hr` is no longer allowed in request payload.
-          - Accessing an image by URL isn't supported. Images must be provided as base64 encoded strings in the request payload.
-          - Max allowed size of input images is 4 MB.
-          - Max token support is 16k (context+generated = 16,384).
-          - Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported). We recommend you use PNG format with RGB color space.
-          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
@@ -182,6 +156,73 @@ sections:
           Can I use quota to increase the max token limit of a model?
         answer:
           No, quota Tokens-Per-Minute (TPM) allocation isn't related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and aren't impacted by changes made to TPM. 
+  - name: Models and fine-tuning
+    questions:
+      - question: |
+          Can I fine-tune the image capabilities in gpt-4?
+        answer: |
+          No, we do not support fine-tuning the image capabilities of gpt-4 at this time.
+      - question: |
+          Can I use gpt-4 to generate images?
+        answer: |
+          No, you can use dall-e-3 to generate images and gpt-4-visual-preview to understand images.
+      - question: |
+          What type of files can I upload?
+        answer: |
+          We currently support PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and non-animated GIF (.gif).
+      - question: |
+          Is there a limit to the size of the image I can upload?
+        answer: |
+          Yes, we restrict image uploads to 20MB per image.
+      - question: |
+          Can I delete an image I uploaded?
+        answer: |
+          No, we will delete the image for you automatically after it has been processed by the model.
+      - question: |
+          Where can I learn more about the considerations of GPT-4 with Vision?
+        answer: |
+          You can find details about our evaluations, preparation, and mitigation work in the GPT-4 with Vision system card.
+
+          We have further implemented a system to block the submission of CAPTCHAs.
+      - question: |
+          How do rate limits for GPT-4 with Vision work?
+        answer: |
+          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the calculating costs section for details on the formula used to determine token count per image.
+      - question: |
+          Can GPT-4 with Vision understand image metadata?
+        answer: |
+          No, the model does not receive image metadata.
+      - question: |
+          What happens if my image is unclear?
+        answer: |
+          If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results may be less accurate. A good rule of thumb is that if an average human cannot see the info in an image at the resolutions used in low/high res mode, then the model cannot either.
+      - question: |
+          What are the known limitations of GPT-4 with Vision?
+        answer: |
+          While GPT-4 with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
+
+          Scenario limitations:
+          - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
+          - Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
+          - Big text: Enlarge text within the image to improve readability, but avoid cropping important details.
+          - Rotation: The model may misinterpret rotated / upside-down text or images.
+          - Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
+          - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
+          - Accuracy: The model may generate incorrect descriptions or captions in certain scenarios.
+          - Image shape: The model struggles with panoramic and fisheye images.
+          Metadata and resizing: The model doesn't process original file names or metadata, and images are resized before analysis, affecting their original dimensions.
+          - Counting: May give approximate counts for objects in images.
+          - CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
+
+          Technical limitations:
+          - If multiple images are uploaded in one message, augmentation won't be available.
+          - Image type `image_hr` is no longer allowed in request payload.
+          - Accessing an image by URL isn't supported. Images must be provided as base64 encoded strings in the request payload.
+          - Max allowed size of input images is 4 MB.
+          - Max token support is 16k (context+generated = 16,384).
+          - Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported). We recommend you use PNG format with RGB color space.
+          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+
   - name: Web app
     questions:
       - question: |
