@@ -50,13 +50,13 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 | OS | Version |
 |:--- |:--- |
-| Alma Linux | 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1, 9.2 |
+| Alma Linux | 8.7, 8.8, 9.0 |
 | Azure Linux | 1.0, 2.0 |
 | Debian |11, 12 |
-| Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
-| RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1 LVM |
+| Oracle Linux |8.3, 8.4, 8.5, 8.6, 8.7, 8.8 LVM, 9.0, 9.1 LVM |
+| RedHat Enterprise Linux | 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1 LVM, 9.2 |
 | SUSE Enterprise Linux |15SP3, 15SP4, 15SP5 |
-| Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS |
+| Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS, 23.04, 23.10 |
 | Windows 10 |Pro, Enterprise, Enterprise Multi-Session &#42; |
 | Windows 11 |Pro, Enterprise, Enterprise Multi-Session &#42; |
 | Windows Server |2016, 2019, 2022 &#42; |
