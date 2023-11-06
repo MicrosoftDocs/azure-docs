@@ -69,7 +69,7 @@ To create a read replica, follow these steps:
 
 * Set the replica server name.
    > [!TIP]
-   > It is a Cloud Adoption Framework (CAF) best practice to [use a resource naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming) that will allow you to easily determine what instance you are connecting too or managing and where it resides.
+   > It is a Cloud Adoption Framework (CAF) best practice to [use a resource naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming) that will allow you to easily determine what instance you are connecting too or managing and where it resides.
 * Select a location that is different from your primary but note that you can select the same region.
    > [!TIP]
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
