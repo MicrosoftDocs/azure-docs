@@ -14,17 +14,15 @@ ms.author: pafarley
 
 # Azure Face service quotas and limits
 
-This article contains a reference and a detailed description of the quotas and limits for Azure Face in Azure AI Vision.
+This article contains a reference and a detailed description of the quotas and limits for Azure Face in Azure AI Vision. The following tables summarize the different types of quotas and limits that apply to Azure AI Face service.
 
-## Quotas and limits reference
-
-The following tables summarize the different types of quotas and limits that apply to Azure AI Face service.
+## Extendable limits
 
 **Default rate limits**
 | **Pricing tier** | **Limit value** |
 | --- | --- |
 | Free (F0) | 20 transactions per minute |
-Standard (S0),</br>Enterprise (E0) | 10 transactions per second</br>See the [how-to guides](tbd) if you want to increase this limit. |
+Standard (S0),</br>Enterprise (E0) | 10 transactions per second</br>See the next section if you want to increase this limit. |
 
 200 TPS across all resources in a region
 
@@ -47,7 +45,7 @@ tbd
 For all Azure regions except in Brazil, UAE, or Qatar, enforce the Azure Cognitive Services max of 100 resources per region per Azure subscription. Note that customers will need VP approval to exceed a sum of 200 TPS across all resources in a region.
 · For Azure regions in Brazil, UAE, and Qatar, customers are limited to a maximum of 10 resources per region per Azure subscription. S-500 customers are eligible to exceed 10 resources per region on request, up to the Azure Cognitive Services max of 100 resources per region, by receiving approval through Limited Access and re-confirming an approved use case.
 
-## How to request an increase to the default limits 
+### How to request an increase to the default limits 
 
 To increase rate limits and resource limits, you can submit a support request. However, for other quota limits, you need to switch to a higher pricing tier to increase those quotas. 
 
@@ -65,6 +63,8 @@ Please [submit a support request](/azure/ai-services/cognitive-services-support-
 
 > [!NOTE]
 > Due to our Responsible AI principles, your request may be denied, or only a partial increase may be approved if this condition is not met. TBD what condition?
+
+## Other limits
 
 **Quota of PersonDirectory**
 
