@@ -39,6 +39,8 @@ ms.author: lajanuar
 |Bangla|bn|✔|✔|✔|✔|✔|
 |Bashkir|ba|✔|✔| |✔| |
 |Basque|eu|✔|✔| |✔| |
+|Bhojpuri|bho|✔|✔ | | | |
+|Bodo|brx    |✔|✔ | | | |
 |Bosnian (Latin)|bs|✔|✔|✔|✔|✔|
 |Bulgarian|bg|✔|✔|✔|✔|✔|
 |Cantonese (Traditional)|yue|✔|✔| |✔| |
@@ -52,6 +54,7 @@ ms.author: lajanuar
 |Danish|da|✔|✔|✔|✔|✔|
 |Dari|prs|✔|✔| |✔| |
 |Divehi|dv|✔|✔| |✔| |
+|Dogri|doi|✔| | | | |
 |Dutch|nl|✔|✔|✔|✔|✔|
 |English|en|✔|✔|✔|✔|✔|
 |Estonian|et|✔|✔|✔|✔| |
@@ -82,6 +85,7 @@ ms.author: lajanuar
 |Italian|it|✔|✔|✔|✔|✔|
 |Japanese|ja|✔|✔|✔|✔|✔|
 |Kannada|kn|✔|✔|✔|✔| |
+|Kashmiri|ks|✔|✔ | | | |
 |Kazakh|kk|✔|✔| |✔| |
 |Khmer|km|✔|✔| |✔| |
 |Kinyarwanda|rw|✔|✔| |✔| |
