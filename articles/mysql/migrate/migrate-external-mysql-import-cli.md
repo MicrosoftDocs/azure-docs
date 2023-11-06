@@ -1,6 +1,6 @@
 ---
-title: "Migrate MySQL on-premise or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI"
-description: This tutorial describes how to use the Azure MySQL Import CLI to migrate MySQL on-premise or VM workload to Azure Database for MySQL - Flexible Server.
+title: "Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI"
+description: This tutorial describes how to use the Azure MySQL Import CLI to migrate MySQL on-premises or VM workload to Azure Database for MySQL - Flexible Server.
 author: adig
 ms.author: adig
 ms.reviewer: maghan
@@ -14,13 +14,13 @@ ms.custom:
   - mode-api
 ms.devlang: azurecli
 ---
-# Migrate MySQL on-premise or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI
+# Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI
 
-Azure MySQL Import enables you to migrate your MySQL on-premise or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server offering a simple and fast migration path. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+Azure MySQL Import enables you to migrate your MySQL on-premises or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server offering a simple and fast migration path. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
 Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then restoring the user-provided physical backup of the source server stored in the Azure Blob storage account to the target Flexible Server instance.
 
-This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Migrate MySQL on-premise or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server.
+This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server.
 
 ## Launch Azure Cloud Shell
 
@@ -42,7 +42,7 @@ Select the specific subscription under your account where you want to deploy the
 az account set --subscription <subscription id>
 ```
 
-## Pre-requisites
+## Prerequisites
 
 * Source server should have the following parameters:
   * Lower_case_table_names = 1
@@ -53,9 +53,9 @@ az account set --subscription <subscription id>
   * Only INNODB engine is supported.
 * Take a physical backup of your MySQL workload using Percona XtraBackup
 The following are the steps for using Percona XtraBackup to take a full backup :
-  * Install Percona XtraBackup on the on-premise or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
+  * Install Percona XtraBackup on the on-premises or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html).
-  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
+  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
 * Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
@@ -135,9 +135,9 @@ admin-password | *password* | The administrator user's password for your target 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}*{compute generation}*{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage.md#service-tiers-size-and-server-types) for more information.
 tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible Server. Accepted values: Burstable, GeneralPurpose, MemoryOptimized; Default value: Burstable.
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
-vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
+vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and can contain only letters, numbers, underscores, periods, or hyphens.
 subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, provide resource ID instead of name. Note that the subnet is delegated to flexibleServers. After delegation, this subnet can't be used for any other type of Azure resources.
-private-dns-zone | myserver.private.contoso.com | The name or id of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
+private-dns-zone | myserver.private.contoso.com | The name or ID of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
 storage-size | 32 | The storage capacity of the target Azure Database for MySQL Flexible Server. The minimum is 20 GiB, and max is 16 TiB.
