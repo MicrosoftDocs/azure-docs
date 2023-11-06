@@ -45,7 +45,6 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
    | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
-   | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
 
 1. Select **Next: Configuration**.
 
