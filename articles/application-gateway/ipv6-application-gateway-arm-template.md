@@ -17,15 +17,16 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
+
 > [!IMPORTANT]
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- You must [Register to the preview](ipv6-application-gateway-portal.md#register-to-the-preview) for Application Gateway IPv6 frontend.
 
 ## Review the template
 
@@ -56,7 +57,13 @@ Deploy the ARM template to Azure:
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
 
-2. Select or create your resource group, type the virtual machine administrator user name and password.
+2. Select or create your resource group, type the virtual machine **Admin Username** and **Admin Password**.
+
+   ![A screenshot of create new application gateway: Basics.](./media/ipv6-application-gateway-arm-template/template-basics.png)
+
+   > [!NOTE]
+   > Select a region that is the same as your resource group. If the region does not support the Standard DS1 v2 virtual machine SKU, this SKU will not be displayed and you must choose a different size.
+
 3. Select **Review + Create** and then select **Create**.
 
    The deployment can take 20 minutes or longer to complete.
@@ -65,13 +72,11 @@ Deploy the ARM template to Azure:
 
 Although IIS isn't required to create the application gateway, it's installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.
+1. Find the public IP address and DNS name for the application gateway on its **Overview** page. In the following example, the DNS name is **dualipv611061903310.eastus.cloudapp.azure.com**.
 
-   ![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) 
+   ![A screenshot showing the application gateway's public IP address and DNS name.](./media/application-gateway-create-gateway-arm-template/ipv6-address.png) 
 
-   Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
-
-2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
+2. Copy the public IP address or DNS name, and then paste it into the address bar of your browser to browse that IP address.
 
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
