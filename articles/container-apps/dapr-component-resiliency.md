@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/03/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -90,6 +90,25 @@ To apply the resiliency policies from a YAML file you created for your container
 
 ```azurecli
 az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
+```
+
+This command passes the resiliency policy YAML file, which may look similar to the following example:
+
+```yml
+outboundPolicy:
+  httpRetryPolicy:
+    maxRetries: 5
+    retryBackOff:
+      initialDelayInMilliseconds: 1000
+      maxIntervalInMilliseconds: 10000
+  timeoutPolicy:
+    responseTimeoutInSeconds: 15
+inboundPolicy:
+  httpRetryPolicy:
+    maxRetries: 3
+    retryBackOff:
+      initialDelayInMilliseconds: 500
+      maxIntervalInMilliseconds: 5000
 ```
 
 ### Update specific policies
@@ -178,7 +197,7 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
+| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the Dapr component). | `15` |
 
 ### Retries
 

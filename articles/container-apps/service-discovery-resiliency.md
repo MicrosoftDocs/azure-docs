@@ -226,8 +226,8 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the upstream container app. | `15` |
-| `connectionTimeoutInSeconds` | Yes | Timeout to establish a connection to the upstream container app. | `5` |
+| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the container app. | `15` |
+| `connectionTimeoutInSeconds` | Yes | Timeout to establish a connection to the container app. | `5` |
 
 ### Retries
 
@@ -319,12 +319,12 @@ matches: {
 
 | Metadata | Description |
 | -------- | ----------- |
-| `retriable-headers` | HTTP response headers that trigger a retry. A retry are performed if any of the header matches match the upstream response headers. Required if you'd like to retry on any matching headers. |
+| `retriable-headers` | HTTP response headers that trigger a retry. A retry are performed if any of the header matches match the response headers. Required if you'd like to retry on any matching headers. |
 | `retriable-status-codes` | HTTP status codes that should trigger retries. Required if you'd like to retry on any matching status codes. |
-| `5xx` | Retry if upstream server responds with any 5xx response codes. |
-| `reset` | Retry if the upstream server doesn't respond. |
-| `connect-failure` | Retry if request failed due to a connection failure with the upstream container app. |
-| `retriable-4xx` | Retry if upstream container app responds with a retriable 4xx response code, like `409`. |
+| `5xx` | Retry if server responds with any 5xx response codes. |
+| `reset` | Retry if the server doesn't respond. |
+| `connect-failure` | Retry if request failed due to a connection failure with the container app. |
+| `retriable-4xx` | Retry if container app responds with a retriable 4xx response code, like `409`. |
 
 #### tcpRetryPolicy
 
@@ -343,7 +343,7 @@ properties: {
 
 ### Circuit breakers
 
-Circuit breaker policies determine whether some number of upstream container app hosts (replicas) are unhealthy and removing them from load balancing.  
+Circuit breaker policies determine whether some number of container app hosts (replicas) are unhealthy and removing them from load balancing.  
 
 ```bicep
 properties: {
@@ -357,15 +357,15 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `consecutiveErrors` | Yes | Consecutive number of errors before an upstream container app replica is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Yes | Interval between evaluation to eject or restore an upstream container app replica. | `10` |
+| `consecutiveErrors` | Yes | Consecutive number of errors before an container app replica is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Yes | Interval between evaluation to eject or restore an container app replica. | `10` |
 | `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Will eject at least one host regardless of the value. | `50` |
 
 ### Connection pools
 
-Azure Container App's connection pooling enhances the efficiency and performance of service communication. It maintains a pool of reusable, established connections to upstream container apps, reducing the overhead of creating and tearing down connections for each request.
+Azure Container App's connection pooling enhances the efficiency and performance of service communication. It maintains a pool of reusable, established connections to container apps, reducing the overhead of creating and tearing down connections for each request.
 
-Connection pools allow you to specify the maximum number of requests or connections that can be established and maintained to an upstream service. This setting limits the total number of concurrent connections that can be maintained for that specific service. When this limit is reached, new connections won't be established to that service until existing connections are released or closed, preventing resource exhaustion and ensuring that connections are managed efficiently.
+Connection pools allow you to specify the maximum number of requests or connections that can be established and maintained to an service. This setting limits the total number of concurrent connections that can be maintained for that specific service. When this limit is reached, new connections won't be established to that service until existing connections are released or closed, preventing resource exhaustion and ensuring that connections are managed efficiently.
 
 #### httpConnectionPool
 
@@ -380,8 +380,8 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `http1MaxPendingRequests` | Yes | Used for http1 requests. Maximum number of open connections to an upstream container app. | `1024` |
-| `http2MaxRequests` | Yes | Used for http2 requests. Maximum number of concurrent requests to an upstream container app. | `1024` |
+| `http1MaxPendingRequests` | Yes | Used for http1 requests. Maximum number of open connections to an container app. | `1024` |
+| `http2MaxRequests` | Yes | Used for http2 requests. Maximum number of concurrent requests to an container app. | `1024` |
 
 #### tcpConnectionPool
 
@@ -395,11 +395,42 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxConnections` | Yes | Maximum number of concurrent connections to an upstream container app. | `100` |
+| `maxConnections` | Yes | Maximum number of concurrent connections to an container app. | `100` |
 
 ## Resiliency observability
 
+You can perform resiliency observability via your container app's metrics and system logs. 
 
+### Resiliency creation via system logs
+
+From the left side menu of your container app, select **Monitoring** > **Logs**.
+
+Run a query like the following to verify resiliency.
+
+   ```
+   ContainerAppsSystemLogs
+   | where RevisionName_s == $revision_name
+   | where Log_s contains " "
+   | project Log_s
+   ```
+
+Need image
+
+### Resiliency metrics
+
+From the left side menu of your container app, select **Monitoring** > **Metrics**. 
+
+Need image
+
+In the metrics pane:
+
+- Set the scope filter (for example, the container app named `test-app`).
+- Select the **Standard metrics** metrics namespace.
+- Select the metrics you'd like to filter from the drop-down menu.
+
+Need image
+
+Review your container app resiliency metrics.
 
 ## Related content
 
