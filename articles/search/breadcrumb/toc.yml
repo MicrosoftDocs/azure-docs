@@ -6,7 +6,7 @@
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/index
     items:
-    - name: Cognitive Search
+    - name: Azure AI Search
       tocHref: /azure/search/
       topicHref: /azure/search/index
 
@@ -18,6 +18,6 @@
     tocHref: /legal/cognitive-services/    # Destination doc set route
     topicHref: /azure/ai-services/index    # Original doc set route
     items:
-    - name: Cognitive Search                  # Original doc set name
+    - name: Azure AI Search                  # Original doc set name
       tocHref: /legal/search/    # Destination doc set route
       topicHref: /azure/search/index      # Original doc set route
