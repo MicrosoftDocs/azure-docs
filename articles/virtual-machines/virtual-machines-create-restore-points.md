@@ -6,7 +6,7 @@ ms.author: aarthiv
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 11/01/2023
 ms.custom: conceptual
 ---
 

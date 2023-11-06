@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 10/30/2023
+ms.date: 11/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,12 +24,12 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date |Update  |
 |----------|----------|
-| October 30 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity)
+| October 30 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity) |
 | October 25 | [Offline Azure API Management revisions removed from Defender for APIs](#offline-azure-api-management-revisions-removed-from-defender-for-apis) |
 | October 19 |[DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview)
 | October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard) |
 
-## Changing adaptive application controls security alert's severity
+### Changing adaptive application controls security alert's severity
 
 Announcement date: October 30, 2023
 
@@ -43,13 +43,13 @@ To keep viewing this alert in the “Security alerts” blade in the Microsoft D
 
    :::image type="content" source="media/release-notes/add-informational-severity.png" alt-text="Screenshot that shows you where to add the informational severity for alerts." lightbox="media/release-notes/add-informational-severity.png":::
 
-## Offline Azure API Management revisions removed from Defender for APIs
+### Offline Azure API Management revisions removed from Defender for APIs
 
 October 25, 2023
 
 Defender for APIs has updated its support for Azure API Management API revisions. Offline revisions no longer appear in the onboarded Defender for APIs inventory and no longer appear to be onboarded to Defender for APIs. Offline revisions don't allow any traffic to be sent to them and pose no risk from a security perspective.
 
-## DevOps security posture management recommendations available in public preview
+### DevOps security posture management recommendations available in public preview
 
 October 19, 2023
 
