@@ -33,7 +33,7 @@ To create a new Azure workbook:
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook.":::
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" lightbox="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook.":::
 
 Text is added through a markdown control into which an author can add their content. An author can use the full formatting capabilities of markdown. These include different heading and font styles, hyperlinks, tables, etc. Markdown allows authors to create rich Word- or Portal-like reports or analytic narratives.  Text can contain parameter values in the markdown text, and those parameter references will be updated as the parameters change.
 
