@@ -32,16 +32,17 @@ In order to restart the cluster VM, node-name is required, which can be obtained
 
 ### Run the CLI command to restart the Kubernetes cluster node
 
-To run the restart action via the API, run the command as followed:
+To restart a cluster node, run the command as follows:
 
 ``` azurecli
 az networkcloud kubernetescluster restart-node --node-name "nodeName" --kubernetes-cluster-name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName"
 ```
-Here,
-1. `--node-name` is the name of the node from within Nexus AKS cluster.
-2. `--kubernetes-cluster-name` is the name of the Kubernetes cluster.
-3. `--resource-group` is the name of the resource group cluster is present.
-4. `--subscription` name or ID of the subscription
+To use this command, you need to understand the various options for specifying the node, Kubernetes cluster, and resource group. Here are the available options:
+
+1. `--node-name`:  This argument specifies the name of the node that you want to restart within the Nexus Kubernetes cluster. This is a required argument, and you must provide the exact name of the node that you want to restart.
+2. `--kubernetes-cluster-name`: This argument specifies the name of the Nexus Kubernetes cluster that the node is a part of. This is also a required argument, and you must provide the exact name of the cluster.
+3. `--resource-group`: This argument specifies the name of the resource group that the Nexus Kubernetes cluster is located in. This is a required argument, and you must provide the exact name of the resource group.
+4. `--subscription`: This argument specifies the subscription that the resource group is located in. This is an optional argument, but if you have multiple subscriptions, you may need to specify which one to use.
 
 
 Sample output is as followed:
