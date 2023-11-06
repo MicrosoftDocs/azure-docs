@@ -33,7 +33,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 # [Codespaces](#tab/codespaces)
 
-For *exploration only*, use GitHub Codespaces to try Azure IoT Operations in your browser without installing anything on your local machine. We've prepared a pre-configured codespace with:
+For *exploration only*, use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster without installing anything on your local machine. We've prepared a pre-configured codespace with:
 
 - [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster
 - [Azure CLI](/cli/azure/install-azure-cli)
@@ -47,21 +47,27 @@ For *exploration only*, use GitHub Codespaces to try Azure IoT Operations in you
 
 To get started with your codespace:
 
-1. [Create GitHub codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=672984976&skip_quickstart=true). Wait for the codespace to be created and the post-create script to finish running. It takes about 5 minutes.
+1. Create the codespace, entering your Azure details to store them as environment variables for the terminal.
 
-1. In the integrated terminal, log in to Azure.
+   [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/explore-iot-operations?quickstart=1)
+
+1. Once the codespace is ready, click the menu button at the top left, then select **Open in VS Code Desktop**.
+
+   ![Open VS Code desktop](./media/howto-prepare-cluster/open-in-vs-code-desktop.png)
+
+1. In the integrated terminal, log in to Azure. To prevent permission issues with conditional access policies later, you must use the interactive login method, which is why you're prompted to open VS Code desktop.
 
    ```azurecli
-   az login --use-device-code
+   az login
    ```
 
-1. Set the Azure subscription context for all commands:
+1. Set the Azure subscription context for all commands.
 
     ```azurecli
-    az account set -s <YOUR_SUBSCRIPTION_ID>
+    az account set -s $SUBSCRIPTION_ID
     ```
 
-1. Register the required resource providers in your subscription:
+1. Register the required resource providers in your subscription.
 
     ```azurecli
     az provider register -n "Microsoft.ExtendedLocation"
@@ -73,10 +79,10 @@ To get started with your codespace:
     az provider register -n "Microsoft.DeviceRegistry"
     ```
 
-1. Connect the Kubernetes cluster to Azure Arc. Replace `<NEW_CLUSTER_NAME>` and `<YOUR_RESOURCE_GROUP>` with your own values. Replace `<REGION>` with one of the supported regions: `eastus`, `eastus2`, `westus`, `westus2`, `westus3`, `westeurope`, or `northeurope`.
+1. Connect the Kubernetes cluster to Azure Arc.
 
    ```azurecli
-   az connectedk8s connect --name <NEW_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP>  --subscription <YOUR_SUBSCRIPTION_ID> --location <REGION>
+   az connectedk8s connect --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --location $REGION
    ```
 
 # [Ubuntu](#tab/ubuntu)

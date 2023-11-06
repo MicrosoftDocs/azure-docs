@@ -12,68 +12,51 @@ ms.date: 10/30/2023
 
 # Publish and subscribe MQTT messages using Azure IoT MQ
 
-Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline for Azure IoT Operations. It's a set of Kubernetes services that aggregates data from on-premises assets, provides highly available edge compute, and enables bi-directional data flow with various services in the cloud.
+Azure IoT MQ is an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
-## Messaging layer
-
-Azure IoT MQ has an IoT-focused and edge-optimized messaging layer. The messaging layer includes the following features:
-
-- Supports publish-subscribe semantics and [event-driven application architecture](/azure/architecture/guide/architecture-styles/event-driven)
-- Seamlessly integrates up to tens of thousands of downstream IoT devices
-- Configurable to work offline for up to months at a time
-- Highly efficient and tunable resource consumption
-- Minimal dependencies and operationally simple
-- Fully standards-compliant and using industry standards
-- Secure bi-directional edge and cloud data plane with an optional remote control plane
-- In-depth observability and mature tooling for self-help troubleshooting
 
 ## MQTT compliant
 
+IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1 and MQTT v5. 
+
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-Azure IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
-
-Azure IoT MQ features a fully standards-compliant MQTT Broker that supports both MQTT 3.1.1 and MQTT 5. 
+IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
 
 ## Highly available and scalable
 
 Kubernetes can horizontally scale workloads to run in multiple instances. This redundancy means additional capacity to serve requests and reliability in case any instance goes down. Kubernetes has self-healing built in, and instances are recovered automatically.
 
-In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT-class devices on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
+In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT gateways on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
 
 Azure IoT MQ focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
+
+## Secure by default
+
+IoT MQ builds on top of battle-tested Azure and Kubernetes-native security and identity concepts making it both highly secure and usable. It supports multiple authentication mechanisms for flexibility along with granular access control mechanisms all the way down to individual MQTT topic level. 
+
 
 ## Azure Arc integration
 
 Microsoft's hybrid platform is anchored around Kubernetes with Azure Arc as a single control plane. It provides a management plane that projects existing non-Azure, on-premises, or other-cloud resources into Azure Resource Manager. The result is a single control pane to manage virtual machines, Kubernetes clusters, and databases not running in Azure data centers.
 
-Azure Arc supports deploying native Kubernetes resources via an open-source technology called Flux that uses a GitOps deployment paradigm. You can use this mechanism to deploy and manage Azure IoT MQ just like any other Kubernetes workload. Azure IoT MQ invests in deeper Arc integration in the form of an Azure IoT MQ Arc extension that allows you to deploy and manage the Azure IoT MQ runtime using native Azure Resource Manager gestures. Workload modules can continue to be deployed via GitOps.
+IoT MQ is deployed as an Azure Arc for Kubernetes extension and can be managed via a full featured Azure resource provider (RP) - **microsoft/IoTOperationsMQ**. This means you can manage it just like native Azure cloud resources such as Virtual Machines, Storage, etc.
+
+Azure Arc technology enables the changes to take effect on IoT MQ services running on the on-premises Kubernetes cluster. Optionally, if you prefer a fully Kubernetes-native approach, you can manage IoT MQ with Kubernetes custom resource definitions (CRDs) locally or using GitOps technologies like Flux.
 
 ## Cloud connectors
 
-You might have different messaging requirements for your cloud scenario. For example, IoT Hub supports three different protocols and provides SDKs that work with constrained devices. Alternately, Event Hubs provides a simpler messaging solution at a lower cost. You might use Kafka as a solution because you want portability between cloud providers. There isn't one cloud messaging platform today.
+You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge *fast* path for high priority data or to power near real-time cloud dashboards and a lower-cost *slow* path for less time-critical data that can be updated in batches. 
 
-To provide flexibility, Azure IoT MQ provides Azure Connectors to Event Hubs, IoT Hub, and the Azure IoT MQ component. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
+To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), Event Grid cloud MQTT Broker, Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
-## Offline operation
-
-You might operate edge computing in remote locations. For example, you might operate an ocean-going vessel, offshore oil rigs, and even satellites using Azure Space SDK. Cloud connectivity at these locations is unreliable, intermittent, and expensive. You must rely on your edge computing infrastructure to reliably act on real-time data. For example, recognizing a crack in a pipe from an aerial view or predicting equipment failure before it happens.
-
-Azure IoT has extended offline support provides store-and-forward capability to messages received from clients that are meant for the cloud. Also, it facilitates communication between clients and enforces access control without any cloud connectivity. It offers dashboards and a user interface simplified local operation like the [Kubernetes local UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) and troubleshooting via industry-standard tools like [Prometheus and Grafana](https://www.rabbitmq.com/prometheus.html). Azure IoT MQ doesn't require connection to the internet if you choose.
+Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management required!
 
 ## Dapr programming model
 
 [Dapr](https://dapr.io/) simplifies *plumbing* between distributed applications by exposing common distributed application capabilities, such as state management, service-to-service invocation, and publish-subscribe messaging. Dapr components lie beneath the building blocks and provide the concrete implementation for each capability. You can focus on business logic and let Dapr handle distributed application details.
 
-Azure IoT MQ provides a Dapr publish-subscribe building block that you can use the sidecar to swap a different broker directly to Azure IoT MQ's MQTT broker with no code changes. For example, you could switch to the Mosquitto broker.
-
-## Custom authentication
-
-Azure IoT MQ provides an extensible interface for custom authentication for downstream devices connecting to the cluster. You can use different authentication methods starting from username and password to X.509 authentication. You can choose the authentication method based on your scenario.
-
-## Secure by default
-
-Azure IoT MQ offers a centralized method for authorization using role and attribute-based access control (RBAC/ABAC). You can define policies like *allow all devices on floor 2 to publish to the temperature topic* and avoid extra management since the evaluation is dynamic. You can sync these policies with Azure RBAC/ABAC.
+IoT MQ provides pluggable Dapr publish-subscribe and state store building blocks making development and deployment of event-driven applications on the edge easy and technology agnostic. 
 
 ## Architecture
 
@@ -94,23 +77,6 @@ The goals of the architecture are:
 - **Consistent performance at scale**: Limit message latency overhead due to chain-replication
 - **Operational simplicity**: Minimum dependency on external components to simplify maintenance and complexity
 
-## Configuration using custom resource definitions (CRDs)
-
-IoT MQ distributed MQTT broker is composed of several Kubernetes custom resources that define different aspects of the broker's behavior and functionality.
-
-- The main custom resource is broker, which defines the global settings for the broker, such as the name, namespace, cardinality, and diagnostic settings.
-- A broker resource can expose one or more *BrokerListener* resources associated with it, which define the port and TLS settings for each listener. A listener is a network endpoint that accepts MQTT connections from clients.
-- Each *BrokerListener* can have up to one *BrokerAuthentication* and *BrokerAuthorization*. They determine which clients can connect to the listener and what actions they can perform on the broker. Multiple *BrokerListeners* can have the same *BrokerAuthentication* or *BrokerAuthorization*, but not the inverse.
-
-<!-- ```mermaid
-erDiagram
-    Broker ||--|{ BrokerListener : "exposes (one-to-many)"
-    BrokerListener }|--|| BrokerAuthentication : "uses (many-to-one)" 
-    BrokerListener }|--|| BrokerAuthorization : "uses (many-to-one)"
-```
--->
-
-The association between the custom resources is done by specifying the **name** of the parent resource with `brokerRef` or `listenerRef` fields in the child resource's spec.
 
 ## Next steps
 

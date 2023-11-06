@@ -17,7 +17,7 @@ Use the [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/mai
 Open an elevated PowerShell window, and change directory to a working folder, then run the following commands:
 
 ```powershell
-$url = https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1
+$url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
 Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
 Unblock-File .\AksEdgeQuickStartForAio.ps1
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force

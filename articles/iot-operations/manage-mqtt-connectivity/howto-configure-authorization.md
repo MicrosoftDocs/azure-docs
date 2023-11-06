@@ -167,7 +167,7 @@ To learn more with an example, see [Set up Authorization Policy with Dapr Client
 
 ## Key-value Store
 
-Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
+Azure IoT MQ Broker provides a distributed key-value (KV) store that clients can use as a state store. The KV store can also be configured to be highly available.
 
 To set up authorization for clients that use the key-value store, give it:
 

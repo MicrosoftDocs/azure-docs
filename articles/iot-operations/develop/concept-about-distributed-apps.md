@@ -56,7 +56,7 @@ MQTT subscriptions with QoS-1 ensure eventual consistency across identical appli
 
 ## Use IoT MQ's built-in key-value store (distributed HashMap)
 
-IoT MQ's built-in [key-value store](concept-about-state-store.md) is a simple, replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, IoT MQ prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the broker's distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
+IoT MQ's built-in key-value store is a simple, replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, IoT MQ prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the broker's distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
 
 * Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that's designed for long-term storage of infrequently accessed data.
 
@@ -96,5 +96,4 @@ To ensure high availability, the input stage connects to IoT MQ and sets the *cl
 
 ## Related content
 
-- [Azure IoT MQ state store](concept-about-state-store.md)
 - [Use Dapr to develop distributed application workloads](howto-develop-dapr-apps.md)

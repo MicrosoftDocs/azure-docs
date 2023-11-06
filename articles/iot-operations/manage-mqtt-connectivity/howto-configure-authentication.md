@@ -16,7 +16,7 @@ ms.date: 10/02/2023
 
 Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
-For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials** as the password database.
+For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials**. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -82,7 +82,7 @@ The earlier example specifies custom, SAT, and [username-password authentication
 
 1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then Azure IoT MQ falls back to the remaining specified methods, with SAT being next.
 
-1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid according to the password database.
+1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid.
 
 If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 
@@ -155,7 +155,7 @@ The output shows the PBKDF2 password hash to copy:
 }
 ```
 
-Then, import the TOML file as a Kubernetes secret  called "credentials" using kubectl.
+Then, import the TOML file as a Kubernetes secret called "credentials" using kubectl.
 
 ```bash
 kubectl create secret generic credentials --from-file=passwords.toml=./clients.toml
@@ -178,6 +178,8 @@ spec:
 ```
 
 It might take a few minutes for the changes to take effect.
+
+You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
 # [Certificate](#tab/cert)
 

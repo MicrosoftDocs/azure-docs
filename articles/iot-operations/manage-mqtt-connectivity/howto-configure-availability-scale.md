@@ -48,12 +48,12 @@ spec:
   mode: auto
   image:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-pod
-    tag: 0.1.0-preview-rc2
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
+    tag: 0.1.0-preview
   authImage:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-authentication
-    tag: 0.1.0-preview-rc2
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
+    tag: 0.1.0-preview
 ```
 
 You can manually specify the number of frontend pods and backend chains:
@@ -67,12 +67,12 @@ metadata:
 spec:
   authImage:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-authentication
-    tag: 0.1.0
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
+    tag: 0.1.0-preview
   image:
     pullPolicy: Always
-    repository: e4kpreview.azurecr.io/dmqtt-pod
-    tag: 0.1.0
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
+    tag: 0.1.0-preview
   mode: distributed
   cardinality:
     frontend:

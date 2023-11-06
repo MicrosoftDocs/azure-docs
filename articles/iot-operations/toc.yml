@@ -58,6 +58,8 @@ items:
           href: manage-devices-assets/howto-manage-assets-remotely.md
         - name: Autodetect assets
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+        - name: Configure an OPC PLC simulator
+          href: manage-devices-assets/howto-configure-opc-plc-simulator.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview
@@ -180,8 +182,6 @@ items:
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Developer guide
       items:
-      - name: About the MQ state store
-        href: develop/concept-about-state-store.md
       - name: About the MQ state store protocol 
         href: develop/concept-about-state-store-protocol.md
       - name: About distributed apps
@@ -190,8 +190,6 @@ items:
         href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps
         href: develop/howto-develop-mqttnet-apps.md
-      - name: Develop Node-RED apps
-        href: develop/howto-develop-node-red-apps.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Known issues
