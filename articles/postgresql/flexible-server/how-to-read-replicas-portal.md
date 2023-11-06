@@ -27,7 +27,7 @@ Before you begin the read replica setup for Azure Database for PostgreSQL, it’
 
 **Storage auto-grow**: Check and ensure that the storage auto-grow feature is deactivated on the primary server. The creation of a read replica cannot proceed if this feature is turned on.
 
-**Private Link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration. Private Link configurations that do not meet these conditions will prevent the creation of a read replica.
+**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration. Private Link configurations that do not meet these conditions will prevent the creation of a read replica.
 
 * In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server that you want to setup a replica for.
 * On the **Overview** dialog, note the PostgreSQL version (ex `15.4`).  Also note the region your primary is deployed too (ex. `East US`).
@@ -59,7 +59,7 @@ To create a read replica, follow these steps:
 
 2. On the server sidebar, under **Settings**, select **Replication**.
 
-3. Select **Add Replica**.
+3. Select **Create replica**.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Add a replica":::
 
