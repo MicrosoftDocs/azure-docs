@@ -4,7 +4,7 @@ description: Learn how to monitor your APIs for sensitive data exposure.
 ms.date: 11/05/2023
 author: dcurwin
 ms.author: dacurwin
-ms.topic: concept
+ms.topic: conceptual
 ---
 
 # Classify APIs with sensitive data exposure
