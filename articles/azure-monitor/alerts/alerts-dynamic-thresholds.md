@@ -46,7 +46,7 @@ Alert rules that use dynamic thresholds don't trigger an alert before collecting
 
 The following chart shows a metric, its dynamic thresholds limits, and some alerts that fired when the value was outside the allowed thresholds.
 
-![Screenshot that shows a metric, its dynamic thresholds limits, and some alerts that fired.](media/alerts-dynamic-thresholds/threshold-picture-8bit.png)
+:::image type="content" source="media/alerts-dynamic-thresholds/threshold-picture-8bit.png" lightbox="media/alerts-dynamic-thresholds/threshold-picture-8bit.png" alt-text="Screenshot that shows a metric, its dynamic thresholds limits, and some alerts that fired.":::
 
 Use the following information to interpret the chart:
 

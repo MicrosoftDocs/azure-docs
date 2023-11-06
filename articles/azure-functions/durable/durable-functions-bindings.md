@@ -433,7 +433,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 You can use regular input and output bindings in addition to the activity trigger binding. 
 
 ::: zone pivot="programming-language-javascript" 
-For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
+For example, you can take the input to your activity binding, and send a message to an Event Hub using the Event Hubs output binding:
 
 ```json
 {
@@ -724,7 +724,7 @@ Internally, this trigger binding polls the configured durable store for new enti
 The entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
 
 > [!NOTE]
-> Entity triggers aren't yet supported for isolated worker process apps.
+> Entity triggers are currently in **preview** for isolated worker process apps. [Learn more.](durable-functions-dotnet-entities.md)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
 The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:

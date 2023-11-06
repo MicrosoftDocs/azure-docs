@@ -38,7 +38,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
         <artifactId>azure-storage-blob</artifactId>
     </dependency>
     ```
-1. Get the connection string from the environment variable, and add the plugin name to connect to the blob storage:
+1. Get the connection string from the environment variable to connect to the blob storage:
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGEBLOB_CONNECTIONSTRING");
