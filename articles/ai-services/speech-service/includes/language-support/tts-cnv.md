@@ -48,7 +48,7 @@ ms.author: eur
 | `hu-HU` | Hungarian (Hungary) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `id-ID` | Indonesian (Indonesia) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `it-IT` | Italian (Italy) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
-| `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice (Preview) |
+| `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice|
 | `ko-KR` | Korean (Korea) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice |
 | `ms-MY` | Malay (Malaysia) | Custom Neural Voice Pro |
 | `nb-NO` | Norwegian Bokmål (Norway) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
@@ -67,7 +67,7 @@ ms.author: eur
 | `th-TH` | Thai (Thailand) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `tr-TR` | Turkish (Türkiye) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `vi-VN` | Vietnamese (Vietnam) | Custom Neural Voice Pro |
-| `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice (Preview) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice<br/><br/>Multi-style voice|
 | `zh-HK` | Chinese (Cantonese, Traditional) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
 | `zh-SG` |  Chinese (Simplified, Singapore) | Custom Neural Voice Pro |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice |
