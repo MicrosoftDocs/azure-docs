@@ -90,6 +90,7 @@ To configure the asset endpoint to use these secrets, select **Username & passwo
 | --- | --- |
 | Username reference | `@@sec_k8s_opc-ua-connector-secrets/username` |
 | Password reference | `@@sec_k8s_opc-ua-connector-secrets/password` |
+
 The following example YAML file shows the configuration for an asset endpoint that uses the `UsernamePassword` authentication mode. The configuration references the secret you created previously:
 
 ### Configure an asset endpoint to use a transport authentication certificate
