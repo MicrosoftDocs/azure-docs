@@ -130,7 +130,7 @@ To add a query to an Azure Workbook:
 
 This video shows you how to use resource level logs queries in Azure Workbooks. It also has tips and tricks on how to enable advanced scenarios and improve performance.
 
-[![Making resource centric log queries in workbooks](https://img.youtube.com/vi/8CvjM0VvOA8/0.jpg)](https://youtu.be/8CvjM0VvOA8 "Video showing how to make resource centric log queries in workbooks")
+:::image type="content" source="https://img.youtube.com/vi/8CvjM0VvOA8/0.jpg" lightbox="https://img.youtube.com/vi/8CvjM0VvOA8/0.jpg" alt-text="Making resource centric log queries in workbooks":::
 
 #### Dynamic resource type parameter
 Uses dynamic scopes for more efficient querying. The snippet below uses this heuristc:

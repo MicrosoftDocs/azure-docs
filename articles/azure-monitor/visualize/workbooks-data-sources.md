@@ -37,7 +37,7 @@ With workbooks, you can query logs from the following sources:
 
 You can use Kusto query language (KQL) queries that transform the underlying resource data to select a result set that can be visualized as text, charts, or grids.
 
-![Screenshot that shows a workbook logs report interface.](./media/workbooks-data-sources/logs.png)
+:::image type="content" source="./media/workbooks-data-sources/logs.png" lightbox="./media/workbooks-data-sources/logs.png" alt-text="Screenshot that shows a workbook logs report interface.":::
 
 You can easily query across multiple resources to create a unified rich reporting experience.
 
@@ -51,9 +51,9 @@ Tutorial: [Making resource centric log queries in workbooks](workbooks-create-wo
 
 Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. You can then plot this data in charts or grids.
 
-![Screenshot that shows workbook metrics charts of CPU utilization.](./media/workbooks-data-sources/metrics-graph.png)
+:::image type="content" source="./media/workbooks-data-sources/metrics-graph.png" lightbox="./media/workbooks-data-sources/metrics-graph.png" alt-text="Screenshot that shows workbook metrics charts of CPU utilization.":::
 
-![Screenshot that shows a workbook metrics interface.](./media/workbooks-data-sources/metrics.png)
+:::image type="content" source="./media/workbooks-data-sources/metrics.png" lightbox="./media/workbooks-data-sources/metrics.png" alt-text="Screenshot that shows a workbook metrics interface.":::
 
 ## Azure Resource Graph
 
@@ -61,7 +61,7 @@ Workbooks support querying for resources and their metadata by using Azure Resou
 
 To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
 
-![Screenshot that shows an Azure Resource Graph KQL query.](./media/workbooks-data-sources/azure-resource-graph.png)
+:::image type="content" source="./media/workbooks-data-sources/azure-resource-graph.png" lightbox="./media/workbooks-data-sources/azure-resource-graph.png" alt-text="Screenshot that shows an Azure Resource Graph KQL query.":::
 
 ## Azure Resource Manager
 
@@ -77,7 +77,7 @@ To make a query control that uses this data source, use the **Data source** drop
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
 For the **Cluster Name** field, add the region name following the cluster name. An example is *mycluster.westeurope*.
 
-![Screenshot that shows Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
+:::image type="content" source="./media/workbooks-data-sources/data-explorer.png" lightbox="./media/workbooks-data-sources/data-explorer.png" alt-text="Screenshot that shows Kusto query window.":::
 
 See also: [Azure Data Explorer query best practices](/azure/data-explorer/kusto/query/best-practices)
 
@@ -100,13 +100,13 @@ With workbooks, you can query different data sources. Workbooks also provide sim
 
 The following example combines alerting data with Log Analytics VM performance data to get a rich insights grid.
 
-![Screenshot that shows a workbook with a merge control that combines alert and Log Analytics data.](./media/workbooks-data-sources/merge-control.png)
+:::image type="content" source="./media/workbooks-data-sources/merge-control.png" lightbox="./media/workbooks-data-sources/merge-control.png" alt-text="Screenshot that shows a workbook with a merge control that combines alert and Log Analytics data.":::
 
 ### Use merge control to combine Resource Graph and Log Analytics data
 
 Watch this tutorial on using the merge control to combine Resource Graph and Log Analytics data:
 
-[![Combining data from different sources in workbooks](https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg)](https://www.youtube.com/watch?v=7nWP_YRzxHg "Video showing how to combine data from different sources in workbooks.")
+:::image type="content" source="https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg" lightbox="https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg" alt-text="Combining data from different sources in workbooks":::
 
 Workbooks support these merges:
 
@@ -142,7 +142,7 @@ Azure Monitor has functionality that proactively monitors the availability and p
 
 To make a query control that uses this data source, use the **Query type** dropdown to select **Workload Health**. Then select subscription, resource group, or VM resources to target. Use the health filter dropdowns to select an interesting subset of health incidents for your analytic needs.
 
-![Screenshot that shows an alerts query.](./media/workbooks-data-sources/workload-health.png)
+:::image type="content" source="./media/workbooks-data-sources/workload-health.png" lightbox="./media/workbooks-data-sources/workload-health.png" alt-text="Screenshot that shows an alerts query.":::
 
 ## Azure resource health
 
@@ -150,7 +150,7 @@ Workbooks support getting Azure resource health and combining it with other data
 
 To make a query control that uses this data source, use the **Query type** dropdown and select **Azure health**. Then select the resources to target. Use the health filter dropdowns to select an interesting subset of resource issues for your analytic needs.
 
-![Screenshot that shows an alerts query that shows the health filter lists.](./media/workbooks-data-sources/resource-health.png)
+:::image type="content" source="./media/workbooks-data-sources/resource-health.png" lightbox="./media/workbooks-data-sources/resource-health.png" alt-text="Screenshot that shows an alerts query that shows the health filter lists.":::
 
 ## Azure RBAC
 
@@ -173,13 +173,13 @@ Simple JSON arrays or objects will automatically be converted into grid rows and
 To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot that shows a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
+> :::image type="content" source="./media/workbooks-data-sources/change-analysis-data-source.png" lightbox="./media/workbooks-data-sources/change-analysis-data-source.png" alt-text="A screenshot that shows a workbook with Change Analysis.":::
 
 
 ## Prometheus (preview)
 
 With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
-![Screenshot that shows sample PromQL query.](./media/workbooks-data-sources/prometheus-query.png)
+:::image type="content" source="./media/workbooks-data-sources/prometheus-query.png" lightbox="./media/workbooks-data-sources/prometheus-query.png" alt-text="Screenshot that shows sample PromQL query.":::
 
 > [!NOTE]
 > Querying from an Azure Monitor workspace is a data plane action and requires an explicit role assignment of Monitoring Data Reader, which is not assigned by default

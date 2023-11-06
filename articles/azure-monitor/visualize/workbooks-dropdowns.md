@@ -39,7 +39,7 @@ The easiest way to specify a dropdown parameter is by providing a static list in
 1. Select **Save** to create the parameter.
 1. The **Environment** parameter is a dropdown list with the three values.
 
-    ![Screenshot that shows the creation of a static dropdown parameter.](./media/workbooks-dropdowns/dropdown-create.png)
+    :::image type="content" source="./media/workbooks-dropdowns/dropdown-create.png" lightbox="./media/workbooks-dropdowns/dropdown-create.png" alt-text="Screenshot that shows the creation of a static dropdown parameter.":::
 
 ## Create a static dropdown list with groups of items
 
@@ -56,7 +56,7 @@ If your query result/JSON contains a `group` field, the dropdown list displays g
 ]
 ```
 
-![Screenshot that shows an example of a grouped dropdown list.](./media/workbooks-dropdowns/grouped-dropDown.png)
+:::image type="content" source="./media/workbooks-dropdowns/grouped-dropDown.png" lightbox="./media/workbooks-dropdowns/grouped-dropDown.png" alt-text="Screenshot that shows an example of a grouped dropdown list.":::
 
 ## Create a dynamic dropdown parameter
 
@@ -80,7 +80,7 @@ If your query result/JSON contains a `group` field, the dropdown list displays g
 1. Select **Save** to create the parameter.
 1. The **RequestName** parameter is a dropdown list with the names of all requests in the app.
 
-    ![Screenshot that shows the creation of a dynamic dropdown parameter.](./media/workbooks-dropdowns/dropdown-dynamic.png)
+    :::image type="content" source="./media/workbooks-dropdowns/dropdown-dynamic.png" lightbox="./media/workbooks-dropdowns/dropdown-dynamic.png" alt-text="Screenshot that shows the creation of a dynamic dropdown parameter.":::
 
 ## Reference a dropdown parameter
 
@@ -108,7 +108,7 @@ You can reference dropdown parameters.
 
 1. Run the query to see the results. Optionally, render it as a chart.
 
-    ![Screenshot that shows a dropdown parameter referenced in KQL.](./media/workbooks-dropdowns/dropdown-reference.png)
+    :::image type="content" source="./media/workbooks-dropdowns/dropdown-reference.png" lightbox="./media/workbooks-dropdowns/dropdown-reference.png" alt-text="Screenshot that shows a dropdown parameter referenced in KQL.":::
 
 ## Parameter value, label, selection, and group
 
@@ -125,7 +125,7 @@ dependencies
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
 
-![Screenshot that shows a dropdown parameter using value, label, selection, and group options.](./media/workbooks-dropdowns/dropdown-more-options.png)
+:::image type="content" source="./media/workbooks-dropdowns/dropdown-more-options.png" lightbox="./media/workbooks-dropdowns/dropdown-more-options.png" alt-text="Screenshot that shows a dropdown parameter using value, label, selection, and group options.":::
 
 ## Dropdown parameter options
 
@@ -151,7 +151,7 @@ dependencies
 
 This example shows the multi-select dropdown parameter at work:
 
-![Screenshot that shows a multi-select dropdown parameter.](./media/workbooks-dropdowns/dropdown-multiselect.png)
+:::image type="content" source="./media/workbooks-dropdowns/dropdown-multiselect.png" lightbox="./media/workbooks-dropdowns/dropdown-multiselect.png" alt-text="Screenshot that shows a multi-select dropdown parameter.":::
 
 ## Dropdown special selections
 

@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create a shared dashboard
 Select **Dashboard** to open your default [dashboard](../../azure-portal/azure-portal-dashboards.md). Your dashboard will look different from the following example.
 
-![Screenshot that shows an Azure portal dashboard.](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png" lightbox="media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png" alt-text="Screenshot that shows an Azure portal dashboard.":::
 
 Here you can bring together operational data that's most important to IT across all your Azure resources, including telemetry from Azure Log Analytics. Before we visualize a log query, let's first create a dashboard and share it. We can then focus on our example performance log query, which will render as a line chart, and add it to the dashboard.
 
@@ -41,13 +41,13 @@ Here you can bring together operational data that's most important to IT across 
 
 To create a dashboard, select **New dashboard**.
 
-![Screenshot that shows creating a new dashboard in the Azure portal.](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png" lightbox="media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png" alt-text="Screenshot that shows creating a new dashboard in the Azure portal.":::
 
-This action creates a new, empty, private dashboard. It opens in a customization mode where you can name your dashboard and add or rearrange tiles. Edit the name of the dashboard and specify **Sample Dashboard** for this tutorial. Then select **Done customizing**.<br><br> ![Screenshot that shows saving a customized Azure dashboard.](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+This action creates a new, empty, private dashboard. It opens in a customization mode where you can name your dashboard and add or rearrange tiles. Edit the name of the dashboard and specify **Sample Dashboard** for this tutorial. Then select **Done customizing**.<br><br> :::image type="content" source="media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png" lightbox="media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png" alt-text="Screenshot that shows saving a customized Azure dashboard.":::
 
 When you create a dashboard, it's private by default, so you're the only person who can see it. To make it visible to others, select **Share**.
 
-![Screenshot that shows sharing a new dashboard in the Azure portal.](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-share-dashboard.png" lightbox="media/tutorial-logs-dashboards/log-analytics-share-dashboard.png" alt-text="Screenshot that shows sharing a new dashboard in the Azure portal.":::
 
 Choose a subscription and resource group for your dashboard to be published to. For convenience, you're guided toward a pattern where you place dashboards in a resource group called **dashboards**. Verify the subscription selected and then select **Publish**. Access to the information displayed in the dashboard is controlled with [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md).
 
@@ -58,7 +58,7 @@ In this tutorial, you'll use Log Analytics to create a performance view in graph
 
 Open Log Analytics by selecting **Logs** on the Azure Monitor menu. It starts with a new blank query.
 
-![Screenshot that shows the home page.](media/tutorial-logs-dashboards/homepage.png)
+:::image type="content" source="media/tutorial-logs-dashboards/homepage.png" lightbox="media/tutorial-logs-dashboards/homepage.png" alt-text="Screenshot that shows the home page.":::
 
 Enter the following query to return processor utilization records for both Windows and Linux computers. The records are grouped by `Computer` and `TimeGenerated` and displayed in a visual chart. Select **Run** to run the query and view the resulting chart.
 
