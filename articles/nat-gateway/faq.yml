@@ -21,11 +21,11 @@ sections:
 
       - question: What are the known limits of Azure NAT Gateway?
         answer: |
-          See [Azure NAT Gateway limits](/azure/azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
 
       - question: Can NAT gateway be used across subscriptions?
         answer: |
-          No, a NAT gateway resource can't be used with more than one subscription at a time. For step by step guidance, see [Create and configure NAT gateway after region move](.../nat-gateway/region-move-nat-gateway.md).
+          No, a NAT gateway resource can't be used with more than one subscription at a time. For step by step guidance, see [Create and configure NAT gateway after region move](region-move-nat-gateway.md).
 
       - question: Can NAT gateway be moved from a region/subscription/resource group to another?
         answer: |
@@ -65,7 +65,7 @@ sections:
 
       - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
         answer: |
-          The [SNAT Connection Count](.../nat-gateway/nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](.../nat-gateway/nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
 
       - question: How can I see SNAT port usage on NAT gateway?
         answer: |
@@ -85,11 +85,11 @@ sections:
     questions:  
       - question: Can NAT gateway be deployed without a public IP address or subnet?
         answer: |
-          Yes, NAT gateway can be deployed without a public IP address or prefix and subnet. However, it is not operational until you attach at least one public IP address or prefix and a subnet. 
+          Yes, NAT gateway can be deployed without a public IP address or prefix and subnet. However, it's not operational until you attach at least one public IP address or prefix and a subnet. 
           
       - question: Is the NAT gateway public IP address static?  
         answer: |
-          Yes. Public IP addresses on your NAT gateway are fixed and do not change.
+          Yes. Public IP addresses on your NAT gateway are fixed and don't change.
 
       - question: How many public IP addresses can be attached to NAT gateway?
         answer: |
@@ -101,15 +101,15 @@ sections:
       
       - question: Can an IPv6 public IP address be used with NAT gateway?
         answer: |
-          No, NAT gateway doesn't support IPv6 public IP addresses. You can however have a dual-stack configuration with NAT gateway and Load balancer to provide IPv4 and IPv6 outbound connectivity. See [configure dual stack outbound connectivity with a NAT gateway and a public Load balancer](.../nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer.md?tabs=dual-stack-outbound-portal) for more information. 
+          No, NAT gateway doesn't support IPv6 public IP addresses. You can however have a dual-stack configuration with NAT gateway and Load balancer to provide IPv4 and IPv6 outbound connectivity. See [configure dual stack outbound connectivity with a NAT gateway and a public Load balancer](tutorial-dual-stack-outbound-nat-load-balancer.md) for more information. 
       
       - question: Can public IP addresses with routing preference "internet" be used with NAT gateway?
         answer: |
-          No, NAT gateway does not support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](.../virtual-network/ip-services/routing-preference-overview.md#supported-services). 
+          No, NAT gateway doesn't support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](../virtual-network/ip-services/routing-preference-overview.md#supported-services). 
       
       - question: Can public IP addresses with DDoS protection enabled be used with NAT gateway? 
         answer: |
-          No, NAT gateway doesn't support public IP addresses with DDoS protection enabled. See [DDoS limitations](.../azure/ddos-protection/ddos-protection-sku-comparison.md#limitations) for more information. 
+          No, NAT gateway doesn't support public IP addresses with DDoS protection enabled. See [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations) for more information. 
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
@@ -174,13 +174,13 @@ sections:
     questions:
       - question: What is the idle timeout for NAT gateway?
         answer: |
-          For TCP connections, the idle timeout timer defaults to 4 minutes and is configurable up to 120 minutes. It's recommended to maintain the idle timeout timer at 4 minutes. If you need to maintain long connection flows, use TCP keepalives instead. TCP keepalives maintain active connections for a longer period. 
+          For TCP connections, the idle timeout timer defaults to 4 minutes and is configurable up to 120 minutes. If you need to maintain long connection flows, use TCP keepalives instead of extending the idle timeout timer. TCP keepalives maintain active connections for a longer period. 
 
           The UDP idle timeout timer is set to 4 minutes and isn't configurable.
           
       - question: What is the SNAT port reuse behavior of NAT gateway?
         answer: |
-          When a TCP/UDP connection is closed, the port is placed in a cool down period before it can be reused to connect to the same destination endpoint. For more information, see [SNAT port reuse timers](./nat-gateway/nat-gateway-resource.md#port-reuse-timers). Connections going to a different destination can use a SNAT port right away. For more information, see [SNAT with NAT gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). 
+          When a TCP/UDP connection is closed, the port is placed in a cool down period before it can be reused to connect to the same destination endpoint. For more information, see [SNAT port reuse timers](nat-gateway-resource.md#port-reuse-timers). Connections going to a different destination can use a SNAT port right away. For more information, see [SNAT with NAT gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). 
           
   - name: NAT gateway integration with other Azure services
     questions:  
