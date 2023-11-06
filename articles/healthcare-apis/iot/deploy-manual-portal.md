@@ -31,7 +31,7 @@ The first step is to deploy the MedTech service prerequisite resources:
 * Azure resource group
 * Azure Event Hubs namespace and event hub
 * Azure Health Data services workspace
-* Azure Health Data Services FHIR&reg; service
+* Azure Health Data Services FHIR service
 
 Once the prerequisite resources are available, deploy:
  
@@ -47,11 +47,11 @@ Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces ar
 
 ### Deploy a workspace
 
-Deploy a [workspace](../workspace-overview.md) into the resource group. After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR&reg; service and MedTech service can be deployed from the workspace.
+Deploy a [workspace](../workspace-overview.md) into the resource group. After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed from the workspace.
 
 ### Deploy a FHIR service
 
-Deploy a [FHIR&reg; service](../fhir/fhir-portal-quickstart.md) into your resource group using your workspace. The MedTech service persists transformed device data into the FHIR&reg; service. 
+Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource group using your workspace. The MedTech service persists transformed device data into the FHIR service. 
 
 ## Configure and deploy the MedTech service
 
@@ -127,7 +127,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, select the **Resolution type**.
 
-   **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR&reg; service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR&reg; service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
+   **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
 
   Device and Patient resources can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
 
@@ -139,7 +139,7 @@ Under the **Destination** tab, use these values to enter the destination propert
   
     If **Lookup** was selected, and Device or Patient resources are missing, an error occurs, and the device data isn't processed. A **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
 
- * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR&reg; destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
+ * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
 
 
 The **Destination** tab should now look something like this after you've filled it out:
@@ -183,25 +183,25 @@ Your screen should look something like this:
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR&reg; service.
+There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR service.
 
 These steps are:
 
 * Grant the MedTech service system-managed identity **Azure Event Hubs Data Receiver** access to the [event hub](../../event-hubs/authorize-access-azure-active-directory.md).
-* Grant the MedTech service system-managed identity **FHIR Data Writer** access to the [FHIR&reg; service](../configure-azure-rbac.md).
+* Grant the MedTech service system-managed identity **FHIR Data Writer** access to the [FHIR service](../configure-azure-rbac.md).
 
 These two steps are needed because MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and access control of your Azure resources.
 
 ### Provide device and FHIR destination mappings 
 
-Valid and conforming device and FHIR&reg; destination mappings have to be provided to your MedTech service for it to be fully functional. For an overview and sample device and FHIR&reg; destination mappings, see:
+Valid and conforming device and FHIR destination mappings have to be provided to your MedTech service for it to be fully functional. For an overview and sample device and FHIR destination mappings, see:
 
 * [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
 * [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 > [!TIP]
-> You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR&reg; destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
+> You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 ## Next steps
 

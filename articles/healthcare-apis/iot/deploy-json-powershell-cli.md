@@ -165,16 +165,16 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services workspace.
 
-* Health Data Services FHIR&reg; service.
+* Health Data Services FHIR service.
 
 * Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
   * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  * For the FHIR&reg; service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR&reg; service.
+  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR&reg; service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
 > To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
@@ -184,7 +184,7 @@ After you have successfully deployed an instance of the MedTech service, you'll 
 
  * To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
- * To learn about the FHIR&reg; destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
+ * To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell resources
 

@@ -30,7 +30,7 @@ The following diagram outlines the basic steps of the MedTech service deployment
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
-Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR&reg; destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
+Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
@@ -38,7 +38,7 @@ To learn more about deploying the MedTech service including an Azure IoT Hub usi
 
 ## ARM template using the Deploy to Azure button
 
-Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service requires conforming and valid device and FHIR&reg; destination mappings to be fully functional.
+Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service requires conforming and valid device and FHIR destination mappings to be fully functional.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json).
 
@@ -46,13 +46,13 @@ To learn more about deploying the MedTech service using an ARM template and the 
 
 ## ARM template using Azure PowerShell or the Azure CLI
 
-Using an ARM template with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments. The deployed MedTech service requires conforming and valid device and FHIR&reg; destination mappings to be fully functional.
+Using an ARM template with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments. The deployed MedTech service requires conforming and valid device and FHIR destination mappings to be fully functional.
 
 To learn more about deploying the MedTech service using an ARM template and Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-json-powershell-cli.md).
 
 ## Bicep file using Azure PowerShell or the Azure CLI
 
-Using a Bicep file with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments. The deployed MedTech service requires conforming and valid device and FHIR&reg; destination mappings to be fully functional.
+Using a Bicep file with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments. The deployed MedTech service requires conforming and valid device and FHIR destination mappings to be fully functional.
 
 To learn more about deploying the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI](deploy-bicep-powershell-cli.md).
 

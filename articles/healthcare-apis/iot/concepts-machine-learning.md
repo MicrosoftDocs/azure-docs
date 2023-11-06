@@ -19,7 +19,7 @@ The MedTech service enables IoT devices to seamlessly integrate with FHIR&reg; s
 
 The four line colors show the different parts of the data journey.
 
-- **Blue** = IoT data to FHIR&reg; service.
+- **Blue** = IoT data to FHIR service.
 - **Green** = data path for scoring IoT data
 - **Red** = Hot path for data to inform clinicians of patient risk. The goal of the hot path is to be as close to real-time as possible.
 - **Orange** = Warm path for data. Still supporting clinicians in patient care. Data requests are typically triggered manually or on a refresh schedule.
@@ -33,9 +33,9 @@ The four line colors show the different parts of the data journey.
 3. Copy of raw IoT device data sent to a secure storage environment for device administration.
 4. IoT payload moves from Azure IoT Hub to the MedTech service. The MedTech service icon represents multiple Azure services.
 5. Three parts to number five: 
-   1. The MedTech service requests Patient resource from the FHIR&reg; service. 
-   2. The FHIR&reg; service sends Patient resource back to the MedTech service. 
-   3. IoT Patient Observation is record in the FHIR&reg; service.
+   1. The MedTech service requests Patient resource from the FHIR service. 
+   2. The FHIR service sends Patient resource back to the MedTech service. 
+   3. IoT Patient Observation is record in the FHIR service.
 
 ## Machine Learning and AI Data Route: Steps 6 - 11
 
@@ -52,9 +52,9 @@ The four line colors show the different parts of the data journey.
 **Hot path**
 
 12. Azure Databricks sends a payload to an Azure Function (ML Output).
-13. RiskAssessment and/or Flag resource submitted to FHIR&reg; service. 
-    1. For each observation window, a RiskAssessment resource is submitted to the FHIR&reg; service. 
-    2. For observation windows where the RiskAssessment is outside the acceptable range a Flag Resource should also be submitted to the FHIR&reg; service.
+13. RiskAssessment and/or Flag resource submitted to FHIR service. 
+    1. For each observation window, a RiskAssessment resource is submitted to the FHIR service. 
+    2. For observation windows where the RiskAssessment is outside the acceptable range a Flag Resource should also be submitted to the FHIR service.
 14. Scored data sent to data repository for routing to appropriate care team. Azure SQL Server is the data repository used in this design because of its native interaction with Power BI.
 15. Power BI Dashboard is updated with RiskAssessment output in under 15 minutes.
 
