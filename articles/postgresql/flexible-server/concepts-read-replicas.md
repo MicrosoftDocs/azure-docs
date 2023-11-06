@@ -36,7 +36,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 ### Considerations
 
-The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This delay can be in minutes or even hours depending on the workload and the latency between the primary and the replica. Typically, read replicas in the same region as primary have lesser lag compared to geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, please refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
+The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This delay can be in minutes or even hours depending on the workload and the latency between the primary and the replica. Typically, read replicas in the same region as primary have lesser lag compared to geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
 
 > [!NOTE]
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
@@ -72,7 +72,7 @@ When you start the create replica workflow, a blank Azure Database for PostgreSQ
 
 In Azure Database for PostgreSQL - Flexible Server, the create operation of replicas is considered successful only when the entire backup of the primary instance copies to the replica destination, and the transaction logs synchronize up to the threshold of a maximum 1GB lag.
 
-To achieve a successful create operation, avoid making replicas during times of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you're currently in the process of performing a migration or bulk load operation, it's recommended that you wait until the operation has completed before proceeding with the creation of replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
+To achieve a successful create operation, avoid making replicas during times of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you are migrating data or loading large amounts of data right now, it's best to finish this task first. After completing it, you can then start setting up the replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
 
 > [!IMPORTANT]
 > Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
@@ -132,7 +132,7 @@ At the prompt, enter the password for the user account.
 
 Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** blade. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
 
-2. **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By leveraging virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+2. **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
 
 
 
@@ -164,7 +164,7 @@ The diagram below illustrates the configuration of the servers prior to the prom
 > [!IMPORTANT]
 > **Server Symmetry**: For a successful promotion using the promote to primary server operation, both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
 
-For both promotion methods, there are additional options to consider:
+For both promotion methods, there are more options to consider:
 
 * **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
@@ -173,7 +173,7 @@ For both promotion methods, there are additional options to consider:
 > [!IMPORTANT]
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
 
-In the Planned promotion scenario, if the replica server status is anything other than "Available" (e.g., "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the replica server's current status, to quickly address potential regional disasters. It's essential to note that if the server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
+In the Planned promotion scenario, if the replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the replica server's current status, to quickly address potential regional disasters. It's essential to note that if the server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
 
 
 ### Configuration management
@@ -237,10 +237,10 @@ When you promote a replica, the replica loses all links to its previous primary 
 Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
 
 ## Monitor replication
-Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
+Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary accumulates WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
 Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
 
-We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric will show you if the WAL files accumulation is the main reason of the excessive storage usage. 
+We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric shows you if the WAL files accumulation is the main reason of the excessive storage usage. 
 
 Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
@@ -282,7 +282,7 @@ Being prepared for potential regional disasters is critical to ensure the uninte
   * No need to modify application connection strings if you use [virtual endpoints](#virtual-endpoints-preview).
   * It provides a seamless recovery process where, once the affected region is back online, the original primary server automatically resumes its function, but in a new replica role.
 3. **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region in case of an outage. They eliminate the need for any changes in the connection strings of your application.
-4. **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (e.g., PgBouncer) are appropriately set up on your read replica. For more guidance, consult the [Configuration management](#configuration-management-1) section.
+4. **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more guidance, consult the [Configuration management](#configuration-management-1) section.
 5. **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
 6. **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios. 
 7. **Follow Azure's general guidance**: Azure provides comprehensive guidance on [reliability and disaster preparedness](../../reliability/overview.md). It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
@@ -298,7 +298,7 @@ Use this action if your server fulfills the server symmetry criteria. This optio
 
 **Promote to independent server and remove from replication**
 
-If your server doesn't meet the [server symmetry](#configuration-management) requirement (e.g., the geo-replica has a higher tier or more storage than the primary), this is the only viable option. After promoting the server, you'll need to update your application's connection strings. Once the original region is restored, the old primary might become active again. Ensure to remove it to avoid incurring unnecessary costs. If you wish to maintain the previous topology, recreate the read replica.
+If your server doesn't meet the [server symmetry](#configuration-management) requirement (for example, the geo-replica has a higher tier or more storage than the primary), this is the only viable option. After promoting the server, you'll need to update your application's connection strings. Once the original region is restored, the old primary might become active again. Ensure to remove it to avoid incurring unnecessary costs. If you wish to maintain the previous topology, recreate the read replica.
 
 
 
