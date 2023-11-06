@@ -94,6 +94,17 @@ After the read replica is created, it can be viewed from the **Replication** win
 >
 > To avoid issues during promotion of replicas always change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
+## Add Virtual Endpoints (preview)
+1. In the Azure portal, select the primary server.
+2. On the server sidebar, under **Settings**, select **Replication**.
+3. Select **Create endpoint**.
+4. In the dialog, type a meaningful name for your endpoint.  Notice the DNS endpoint that is being generated.
+    :::image type="content" source="./media/how-to-read-replicas-portal/add-virtual-endpoint.png" alt-text="Add a new virtual endpoint with custom name.":::
+5. Select **Create**.
+    > [!NOTE]
+    >  If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Promotion error when missing virtual endpoint.":::
+
 ## Promote replicas
 
 You can promote replicas to become stand-alone servers serving read-write requests.
