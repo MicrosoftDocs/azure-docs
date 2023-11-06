@@ -15,7 +15,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fapplication-gateway-ipv6-create%2Fazuredeploy.json)
 
@@ -62,7 +62,7 @@ Deploy the ARM template to Azure:
    ![A screenshot of create new application gateway: Basics.](./media/ipv6-application-gateway-arm-template/template-basics.png)
 
    > [!NOTE]
-   > Select a region that is the same as your resource group. If the region does not support the Standard DS1 v2 virtual machine SKU, this SKU will not be displayed and you must choose a different size.
+   > Select a region that is the same as your resource group. If the region does not support the Standard DS1 v2 virtual machine SKU, this SKU is not displayed and you must choose a different size.
 
 3. Select **Review + Create** and then select **Create**.
 
@@ -70,7 +70,9 @@ Deploy the ARM template to Azure:
 
 ## Validate the deployment
 
-Although IIS isn't required to create the application gateway, it's installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
+Although IIS isn't required to create the application gateway, it's used to verify that Azure successfully created the application gateway. 
+
+To use IIS to test the application gateway:
 
 1. Find the public IP address and DNS name for the application gateway on its **Overview** page. In the following example, the DNS name is **dualipv611061903310.eastus.cloudapp.azure.com**.
 
@@ -86,7 +88,7 @@ Although IIS isn't required to create the application gateway, it's installed to
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, delete the resource group. This removes the application gateway and all the related resources.
+When you no longer need the resources that you created with the application gateway, delete the resource group. This process removes the application gateway and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
