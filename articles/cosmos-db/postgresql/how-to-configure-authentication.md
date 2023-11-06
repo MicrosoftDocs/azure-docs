@@ -16,14 +16,14 @@ ms.date: 09/19/2023
 > [!IMPORTANT]
 > Microsoft Entra authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
+> for production workloads. Certain features might not be supported or might have constrained
 > capabilities.
 >
 > You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 In this article, you configure authentication methods for Azure Cosmos DB for PostgreSQL. You manage Microsoft Entra admin users and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL. You also learn how to use a Microsoft Entra token with Azure Cosmos DB for PostgreSQL.
 
-An Azure Cosmos DB for PostgreSQL cluster is created with one built-in native PostgreSQL role named 'citus'. You can add more native PostgreSQL roles after cluster provisioning is completed. 
+An Azure Cosmos DB for PostgreSQL cluster is created with one built-in native PostgreSQL role named 'citus'. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
 You can also configure Microsoft Entra authentication for Azure Cosmos DB for PostgreSQL. You can enable Microsoft Entra authentication in addition or instead of the native PostgreSQL authentication on your cluster. You can change authentication methods enabled on cluster at any point after the cluster is provisioned. When Microsoft Entra authentication is enabled, you can add multiple Microsoft Entra users to an Azure Cosmos DB for PostgreSQL cluster and make any of them administrators. Microsoft Entra user can be a user or a service principal.
 
@@ -43,11 +43,11 @@ Once done proceed with [configuring Microsoft Entra authentication](#configure-a
 
 To add or remove Microsoft Entra roles on cluster, follow these steps on **Authentication** page:
 
-1. In **Microsoft Entra authentication (preview)** section, select **Add Microsoft Entra admins**. 
+1. In **Microsoft Entra authentication (preview)** section, select **Add Microsoft Entra admins**.
 1. In **Select Microsoft Entra Admins** panel, select one or more valid Microsoft Entra user or enterprise application in the current AD tenant to be a Microsoft Entra administrator on your Azure Cosmos DB for PostgreSQL cluster.
 1. Use **Select** to confirm your choice.
 1. In the **Authentication** page, select **Save** in the toolbar to save changes or proceed with adding native PostgreSQL roles.
- 
+
 ## Configure native PostgreSQL authentication
 
 To add Postgres roles on cluster, follow these steps on **Authentication** page:
@@ -70,7 +70,7 @@ We've tested the following clients:
 - **Other libpq-based clients**: Examples include common application frameworks and object-relational mappers (ORMs).
 - **pgAdmin**: Clear **Connect now** at server creation.
 
-Use the following procedures to authenticate with Microsoft Entra ID as an Azure Cosmos DB for PostgreSQL user. You can follow along in [Azure Cloud Shell](./../../cloud-shell/quickstart.md), on an Azure virtual machine, or on your local machine.
+Use the following procedures to authenticate with Microsoft Entra ID as an Azure Cosmos DB for PostgreSQL user. You can follow along in [Azure Cloud Shell](./../../cloud-shell/get-started.md), on an Azure virtual machine, or on your local machine.
 
 ### Sign in to the user's Azure subscription
 
@@ -136,10 +136,10 @@ export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --quer
 
 
 > [!NOTE]
-> Make sure PGPASSWORD variable is set to the Microsoft Entra access token for your 
-> subscription for Microsoft Entra authentication. If you need to do Postgres role authentication 
-> from the same session you can set PGPASSWORD to the Postgres role password 
-> or clear the PGPASSWORD variable value to enter the password interactively. 
+> Make sure PGPASSWORD variable is set to the Microsoft Entra access token for your
+> subscription for Microsoft Entra authentication. If you need to do Postgres role authentication
+> from the same session you can set PGPASSWORD to the Postgres role password
+> or clear the PGPASSWORD variable value to enter the password interactively.
 > Authentication would fail with the wrong value in PGPASSWORD.
 
 Now you can initiate a connection with Azure Cosmos DB for PostgreSQL as you usually would (without 'password' parameter in the command line):
@@ -191,7 +191,7 @@ For example, to allow PostgreSQL `db_user` to read `mytable`, grant the permissi
 GRANT SELECT ON mytable TO db_user;
 ```
 
-To grant the same permissions to Microsoft Entra role `user@tenant.onmicrosoft.com` use the following command: 
+To grant the same permissions to Microsoft Entra role `user@tenant.onmicrosoft.com` use the following command:
 
 ```sql
 GRANT SELECT ON mytable TO "user@tenant.onmicrosoft.com";
