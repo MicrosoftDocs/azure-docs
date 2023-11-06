@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/2/2023
+ms.date: 11/3/2023
 ms.author: wgries
 ---
 
@@ -20,11 +20,11 @@ The following Azure File Sync agent versions are supported:
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
 | V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported |
-| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on August 1, 2023 |
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on August 1, 2023 |
+| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on January 23, 2024 |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on January 23, 2024 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:

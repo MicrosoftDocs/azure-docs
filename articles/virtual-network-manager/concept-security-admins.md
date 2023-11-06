@@ -141,6 +141,8 @@ Similarly, there are some services that don't apply security admin rules at the 
 - Azure Virtual WAN
 - Azure ExpressRoute Gateway
 
+In this case, the resources in the subnet with these services won’t be applied with security admin rules; however, other subnets will still have security admin rules applied to them.
+
 > [!NOTE]
 > If you want to apply security admin rules on subnets containing an Azure Application Gateway, ensure each subnet only contains gateways that have been provisioned with [network isolation](../application-gateway/application-gateway-private-deployment.md) enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet.
 

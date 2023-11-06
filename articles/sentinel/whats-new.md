@@ -22,7 +22,16 @@ The listed features were released in the last three months. For information abou
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 ## October 2023
 
+- [Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel](#microsoft-applied-skill-available-for-microsoft-sentinel)
 - [Changes to the documentation table of contents](#changes-to-the-documentation-table-of-contents)
+
+### Microsoft Applied Skill available for Microsoft Sentinel
+
+This month Microsoft Worldwide Learning announced [Applied Skills](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/announcing-microsoft-applied-skills-the-new-credentials-to/ba-p/3775645) to help you acquire the technical skills you need to reach your full potential. Microsoft Sentinel is included in the initial set of credentials offered! This credential is based on the learning path with the same name.
+- **Learning path** - [Configure SIEM security operations using Microsoft Sentinel](/training/paths/configure-security-information-event-management-operations-using-microsoft-sentinel/)
+  <br>Learn at your own pace, and the modules require you to have your own Azure subscription.
+- **Applied Skill** - [Configure SIEM security operations using Microsoft Sentinel](/credentials/applied-skills/configure-siem-security-operations-using-microsoft-sentinel/)
+  <br>A 2 hour assessment is contained in a sandbox virtual desktop. You are provided an Azure subscription with some features already configured.
 
 ### Changes to the documentation table of contents
 

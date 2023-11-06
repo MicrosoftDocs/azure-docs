@@ -150,7 +150,7 @@ If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft S
 
 # [Free data meters](#tab/free-data-meters/simplified)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -161,7 +161,7 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 # [Free data meters](#tab/free-data-meters/classic)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
  Cost description | Service name | Meter |
 |--|--|--|

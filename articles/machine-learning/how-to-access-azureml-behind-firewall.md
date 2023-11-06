@@ -409,7 +409,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 
 ---
 
-__Docker images maintained by by Azure Machine Learning__
+__Docker images maintained by Azure Machine Learning__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |

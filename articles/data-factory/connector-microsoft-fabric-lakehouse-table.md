@@ -1,21 +1,21 @@
 ---
-title: Copy data in Microsoft Fabric Lakehouse Table (Preview) 
+title: Copy and Transform data in Microsoft Fabric Lakehouse Table (Preview) 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data to and from Microsoft Fabric Lakehouse Table  (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
+description: Learn how to copy and transform data to and from Microsoft Fabric Lakehouse Table (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/28/2023
+ms.date: 11/01/2023
 ---
 
-# Copy data in Microsoft Fabric Lakehouse Table (Preview) using Azure Data Factory or Azure Synapse Analytics
+# Copy and Transform data in Microsoft Fabric Lakehouse Table (Preview) using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity to copy data from and to Microsoft Fabric Lakehouse Table (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+The Microsoft Fabric Lakehouse serves as a data architecture platform designed to store, manage, and analyse both structured and unstructured data within a single location. This article outlines how to use Copy Activity to copy data from and to Microsoft Fabric Lakehouse Table (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse Files (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
@@ -27,6 +27,7 @@ This Microsoft Fabric Lakehouse Table connector is supported for the following c
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 
 <small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
 
@@ -254,6 +255,59 @@ To copy data from Microsoft Fabric Lakehouse Table, set the **type** property in
     }
 ]
 ```
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read and write to tables in Microsoft Fabric Lakehouse. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+### Microsoft Fabric Lakehouse Table as a source type
+
+There are no configurable properties under source options.
+
+### Microsoft Fabric Lakehouse Table as a sink type
+
+The following properties are supported in the Mapping Data Flows **sink** section:
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update method | When you select "Allow insert" alone or when you write to a new delta table, the target receives all incoming rows regardless of the Row policies set. If your data contains rows of other Row policies, they need to be excluded using a preceding Filter transform. <br><br> When all Update methods are selected a Merge is performed, where rows are inserted/deleted/upserted/updated as per the Row Policies set using a preceding Alter Row transform. | yes | `true` or `false` | insertable <br> deletable <br> upsertable <br> updateable  |
+| Optimized Write | Achieve higher throughput for write operation via optimizing internal shuffle in Spark executors. As a result, you may notice fewer partitions and files that are of a larger size | no | `true` or `false` | optimizedWrite: true |
+| Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to re-organize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 
+| Merge Schema | Merge schema option allows schema evolution, i.e. any columns that are present in the current incoming stream but not in the target Delta table is automatically added to its schema. This option is supported across all update methods. | no | `true` or `false` |    mergeSchema: true | 
+
+**Example: Microsoft Fabric Lakehouse Table sink**
+
+```
+sink(allowSchemaDrift: true, 
+    validateSchema: false, 
+    input( 
+        CustomerID as string,
+        NameStyle as string, 
+        Title as string, 
+        FirstName as string, 
+        MiddleName as string,
+        LastName as string, 
+        Suffix as string, 
+        CompanyName as string,
+        SalesPerson as string, 
+        EmailAddress as string, 
+        Phone as string, 
+        PasswordHash as string, 
+        PasswordSalt as string, 
+        rowguid as string, 
+        ModifiedDate as string 
+    ), 
+    deletable:false, 
+    insertable:true, 
+    updateable:false, 
+    upsertable:false, 
+    optimizedWrite: true, 
+    mergeSchema: true, 
+    autoCompact: true, 
+    skipDuplicateMapInputs: true, 
+    skipDuplicateMapOutputs: true) ~> CustomerTable
+
+```
+
 
 ## Next steps
 
