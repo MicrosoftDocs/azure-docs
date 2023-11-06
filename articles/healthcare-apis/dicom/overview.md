@@ -3,14 +3,15 @@ title:  Overview of the DICOM service in Azure Health Data Services
 description: The DICOM service is a cloud-based solution for storing, managing, and exchanging medical imaging data securely and efficiently with any DICOMweb™-enabled systems or applications. Learn more about its benefits and use cases.
 author: mmitrik
 ms.service: healthcare-apis
+ms.subservice: dicom
 ms.topic: overview
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
 # What is the DICOM service?
 
-The DICOM service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
+The DICOM&reg; service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
 
 The DICOM service offers many benefits, including:
 
@@ -26,15 +27,15 @@ The DICOM service offers many benefits, including:
 
 ## Use imaging data to enable healthcare scenarios
 
-To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist securely in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
+To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist  in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
-FHIR supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
+FHIR&reg; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-- **Image back up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
+- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
-- **Create cohorts for research**. To find the right patients for clinical trials, researchers need to query for patients that match data in both clinical and imaging systems. The service allows researchers to use natural language to query across systems. For example, “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has had a diagnosis of osteosarcoma over the last two years.”
+- **Create cohorts for research**. To find the right patients for clinical trials, researchers need to query for patients that match data in both clinical and imaging systems. The service allows researchers to use natural language to query across systems. For example, “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has a diagnosis of osteosarcoma over the last two years.”
 
 - **Plan treatment based on similar patients**. When presented with a patient diagnosis, a physician can identify patient outcomes and treatment plans for past patients with a similar diagnosis even when these include imaging data.
 
@@ -62,7 +63,7 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 ## Prerequisites to deploy the DICOM service
 
-Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra ID account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
+Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
  
 ## Next steps
 
@@ -70,5 +71,4 @@ Your organization needs an Azure subscription to configure and run the component
 
 [Use DICOMweb standard APIs](dicomweb-standard-apis-with-dicom-services.md)
 
-> [!NOTE]
-> FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]

@@ -136,6 +136,8 @@
         href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: NL BIO Cloud Theme
+        href: ./samples/nl-bio-cloud-theme.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
       - name: PCI DSS 4.0

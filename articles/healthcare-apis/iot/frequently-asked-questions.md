@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/15/2023
+ms.date: 10/11/2023
 ms.author: jasteppe
 ---
 
@@ -74,6 +74,15 @@ To learn more about event hub message retention, see [What is the maximum retent
 * (One) FHIR destination* per MedTech service (not adjustable).
 
 \* FHIR destination is a child resource of the MedTech service.
+
+## I'm receiving authentication errors with my MedTech service after moving my Azure subscription to a different Azure tenant. How do I fix this issue?
+
+If the Azure subscription that your MedTech service was provisioned in has since been moved to a different Azure tenant, you could see failing MedTech service HealthChecks for `ExternalEventHub:IsAuthenticated` and `FhirService:IsAuthenticated`. For guidance on how to view these failed HealthChecks, see [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md). There are two methods for fixing this issue based on the type of managed identity you're using with your MedTech service:
+
+1. System-assigned managed identity: If you're using a system-assigned managed identity with your MedTech service, a new identity is created for you through reprovisioning. 
+2. User-assigned managed identity: If you're using a user-assigned managed identity with your MedTech service, you need to first recreate the identity in the new tenant and update your MedTech service with the new identity **before** reprovisioning. 
+
+In either case, you also need to update the Azure RBAC settings on your [FHIR service and event hub](deploy-manual-portal.md#grant-resource-access-to-the-medtech-service-system-managed-identity) with the new managed identity. For more information on transferring subscriptions to different tenants, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 

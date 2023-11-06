@@ -23,7 +23,7 @@ ms.author: mbaldwin
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
+* Your Microsoft Entra user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
 
@@ -79,7 +79,7 @@ Two Azure resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<object-id\>** with the object ID of a user, service principal, or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets.
+    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<object-id\>** with the object ID of a user, service principal, or security group in the Microsoft Entra tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

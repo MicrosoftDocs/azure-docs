@@ -5,7 +5,7 @@ description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 11/07/2021
 ms.author: pafarley

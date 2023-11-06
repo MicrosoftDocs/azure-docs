@@ -124,7 +124,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 - Ensure the Defender for Containers plan is enabled.
 - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 
-**To simulate a a Kubernetes workload security alert**:
+**To simulate a Kubernetes workload security alert**:
 
 1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
 
@@ -187,7 +187,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
     :::image type="content" source="media/alert-validation/storage-atp-navigate-container.png" alt-text="Screenshot showing where to navigate to select a container." lightbox="media/alert-validation/storage-atp-navigate-container.png":::
 
 1. Navigate to an existing container or create a new one.
-1. Upload a file to that container. Avoid uploading any file that may contain sensitive data.
+1. Upload a file to that container. Avoid uploading any file that might contain sensitive data.
 
     :::image type="content" source="media/alert-validation/storage-atp-upload-image.png" alt-text="Screenshot showing where to upload a file to the container." lightbox="media/alert-validation/storage-atp-upload-image.png":::
 

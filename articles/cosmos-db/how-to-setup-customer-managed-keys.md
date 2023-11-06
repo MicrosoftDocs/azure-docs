@@ -352,7 +352,7 @@ az cosmosdb show \
 
 ## Using a managed identity in the Azure Key Vault access policy
 
-This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. The access policy is implemented by granting access to a specific Azure Active Directory (AD) identity. Two types of identities are supported:
+This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. The access policy is implemented by granting access to a specific Microsoft Entra identity. Two types of identities are supported:
 
 - Azure Cosmos DB's first-party identity can be used to grant access to the Azure Cosmos DB service.
 - Your Azure Cosmos DB account's [managed identity](how-to-setup-managed-identity.md) can be used to grant access to your account specifically.
@@ -751,4 +751,3 @@ Steps to assign a new managed-identity:
 ## Next steps
 
 - Learn more about [data encryption in Azure Cosmos DB](database-encryption-at-rest.md).
-

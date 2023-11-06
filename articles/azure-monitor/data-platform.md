@@ -43,7 +43,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 >
 >Azure Monitor Logs is a log data platform that collects Activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
- You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor logs including their sources of data in [Logs in Azure Monitor](logs/data-platform-logs.md).
 
@@ -67,7 +67,7 @@ Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Micr
 Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 
 ## Collect monitoring data
-Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
+Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others might write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
 For a listing of different data sources that populate each type, see [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in Azure Monitor](logs/data-platform-logs.md).
 

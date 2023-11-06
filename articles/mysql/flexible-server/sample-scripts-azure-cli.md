@@ -19,7 +19,7 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 | Sample link | Description  |
 |---|---|
 |**Create and connect to a server**||
-| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Creates a Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
+| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Creates an Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
 | [Create a server and enable private access connectivity (VNet Integration)](scripts/sample-cli-create-connect-private-access.md) | Creates an Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connects to the server through a VM within the VNet. |
 |**Monitor and scale**||
 | [Monitor metrics and scale a server](scripts/sample-cli-monitor-and-scale.md) | Monitors and scales a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. |

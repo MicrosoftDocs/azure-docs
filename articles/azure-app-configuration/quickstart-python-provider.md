@@ -194,7 +194,7 @@ message = app.config.get("message")
 You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
 
 ```python
-CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
 ```
 
 To access individual configuration settings in the Django views, you can reference them from the provider object created in Django settings. For example, in `views.py`:
@@ -203,7 +203,7 @@ To access individual configuration settings in the Django views, you can referen
 from django.conf import settings
 
 # Access a configuration setting from Django settings instance.
-MESSAGE = settings.CONFIG.get("message")
+MESSAGE = settings.AZURE_APPCONFIGURATION.get("message")
 ```
 ---
 

@@ -11,14 +11,14 @@ ms.author: danlep
 
 # Configure multiple authorization connections
 
-You can configure multiple authorizations (also called *authorization connections*) to an authorization provider in your API Management instance. For example, if you configured Azure AD as an authorization provider, you might need to create multiple authorizations for different scenarios and users.
+You can configure multiple authorizations (also called *authorization connections*) to an authorization provider in your API Management instance. For example, if you configured Microsoft Entra ID as an authorization provider, you might need to create multiple authorizations for different scenarios and users.
 
 In this article, you learn how to add an authorization connection to an existing provider, using the portal. For an overview of configuration steps, see [How to configure authorizations?](authorizations-overview.md#how-to-configure-authorizations)
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md).
-* A configured authorization provider. For example, see the steps to create a provider for [GitHub](authorizations-how-to-github.md) or [Azure AD](authorizations-how-to-azure-ad.md).
+* A configured authorization provider. For example, see the steps to create a provider for [GitHub](authorizations-how-to-github.md) or [Microsoft Entra ID](authorizations-how-to-azure-ad.md).
  
 ## Create an authorization connection - portal
 
@@ -33,7 +33,7 @@ In this article, you learn how to add an authorization connection to an existing
 1. Complete the steps for your authorization connection.
     1. On the **Authorization** tab, enter an **Authorization name**. Select **Create**, then select **Next**. 
     1. On the **Login** tab (for authorization code grant type), complete the steps to login to the authorization provider to allow access. Select **Next**.
-    1. On the **Access policy** tab, assign access to the Azure AD identity or identities that can use the authorization. Select **Complete**.
+    1. On the **Access policy** tab, assign access to the Microsoft Entra identity or identities that can use the authorization. Select **Complete**.
 1. The new connection appears in the list of authorizations, and shows a status of **Connected**.
 
     :::image type="content" source="media/configure-authorization-connection/list-authorizations.png" alt-text="Screenshot of list of authorization connections in the portal.":::
@@ -68,7 +68,3 @@ To update an authorization connection:
 
 * Learn more about [configuring identity providers](authorizations-configure-common-providers.md) for authorizations.
 * Review [limits](authorizations-overview.md#limits) for authorization providers and authorizations.
-
-
-
-

@@ -12,9 +12,6 @@ ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-dot-net.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -29,11 +26,13 @@ This quickstart describes how to use .NET SDK to create an Azure Data Factory. T
 
 The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
 
-## Create an application in Azure Active Directory
+<a name='create-an-application-in-azure-active-directory'></a>
 
-From the sections in *How to: Use the portal to create an Azure AD application and service principal that can access resources*, follow the instructions to do these tasks:
+## Create an application in Microsoft Entra ID
 
-1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+From the sections in *How to: Use the portal to create a Microsoft Entra application and service principal that can access resources*, follow the instructions to do these tasks:
+
+1. In [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
 3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
 4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.

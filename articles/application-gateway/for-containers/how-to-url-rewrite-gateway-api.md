@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 10/03/2023
+ms.date: 10/13/2023
 ms.author: greglin
 ---
 
@@ -184,12 +184,12 @@ spec:
         - path:
             type: PathPrefix
             value: /shop
-    - filters:
-      - type: URLRewrite
-        urlRewrite:
-          path:
-            type: ReplacePrefixMatch
-            replacePrefixMatch: /ecommerce
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /ecommerce
       backendRefs:
         - name: backend-v1
           port: 8080

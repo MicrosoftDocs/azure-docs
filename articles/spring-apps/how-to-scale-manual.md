@@ -46,11 +46,11 @@ After you finish, you'll know how to make quick manual changes to each applicati
 
 As you modify the scaling attributes, keep the following notes in mind:
 
-* **vCPU**: The maximum number of CPUs per application instance is four. The total number of CPUs for an application is the value set here multiplied by the number of application instances.
+* **vCPU**: The total number of CPUs for an application is the value set here multiplied by the number of application instances.
 
-* **Memory**: The maximum amount of memory per application instance is 8 GB. The total amount of memory for an application is the value set here multiplied by the number of application instances.
+* **Memory**: The total amount of memory for an application is the value set here multiplied by the number of application instances.
 
-* **instance count**: In the Standard plan, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
+* **instance count**: This value changes the number of separate running instances of the Spring application.
 
 Be sure to select **Save** to apply your scaling settings.
 
@@ -58,9 +58,8 @@ Be sure to select **Save** to apply your scaling settings.
 
 After a few seconds, the scaling changes you make are reflected on the **Overview** page of the app. Select **App instance** in the navigation pane for details about the instance of the app.
 
-## Upgrade to the Standard plan
-
-If you're on the Basic plan and constrained by current limits, you can upgrade to the Standard plan. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](how-to-migrate-standard-tier-to-enterprise-tier.md).
+> [!NOTE]
+> For more information about the maximum number of CPUs, the amount of memory, and the instance count, see [Quotas and service plans for Azure Spring Apps](./quotas.md).
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Azure AI services provides information and guidelines on how to res
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 1/10/2022
 ms.author: pafarley

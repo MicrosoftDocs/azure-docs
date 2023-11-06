@@ -55,11 +55,11 @@ Registration is always initiated from the agent. In the interest of security, on
 
 ## Step 1: Connect to the agent VM
 
-The agent VM is an appliance. It offers an administrative shell that limits the operations you can perform on this machine. When you connect to the agent, the shell loads and provides you with options that allow you to interact with it directly. However, the agent VM is a Linux based appliance, and copy and paste functionality often doesn't work within the default Hyper-V window.
+The agent VM is an appliance. It offers an administrative shell that limits the operations you can perform on this machine. When you connect to the agent, the shell loads and provides you with options that allow you to interact with it directly. However, the agent VM is a Linux based appliance, and copy and paste functionality often doesn't work within the default host window.
 
-Rather than use the Hyper-V window, use an SSH connection instead. This approach provides the following advantages:
+Rather than use the host window, consider using an SSH connection instead. This approach provides the following advantages:
 
-- You can connect to the agent VM's shell from any management machine and don't need to be logged into the Hyper-V host.
+- You can connect to the agent VM's shell from any management machine and don't need to be logged into the host.
 - Copy / paste is fully supported.
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
@@ -128,7 +128,7 @@ After you've supplied these values, the agent will attempt registration. During 
 > [!IMPORTANT]
 > The Azure credentials you use for registration must have owner permissions to the specified resource group and storage mover resource.
 
- For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Azure Active Directory.
+ For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Microsoft Entra ID.
 
 The agent displays the device auth URL: [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a unique sign-in code. Navigate to the displayed URL on an internet connected machine, enter the code, and sign into Azure with your credentials.
 
@@ -149,7 +149,7 @@ You can reference this Azure Resource Manager (ARM) resource when you want to as
 
 ### Azure Arc service
 
-The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Azure AD managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
+The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Microsoft Entra managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
 
 Azure Storage Mover uses a system-assigned managed identity. A managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is also automatically removed.
 

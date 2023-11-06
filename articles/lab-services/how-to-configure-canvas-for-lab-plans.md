@@ -26,7 +26,7 @@ If you've already configured your course to use Azure Lab Services, learn how yo
 
 - Your Canvas account needs [Admin permissions](https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-is-the-Admin-role/ta-p/78) to add the Azure Lab Services app to Canvas.
 
-- To link lab plans, your Azure account needs the following permissions. Learn how to [assign Azure Active Directory roles to users](/azure/active-directory/roles/manage-roles-portal).
+- To link lab plans, your Azure account needs the following permissions. Learn how to [assign Microsoft Entra roles to users](/azure/active-directory/roles/manage-roles-portal).
     - Reader role on the Azure subscription.
     - Contributor role on the resource group that contains your lab plan.
     - Write access to the lab plan.

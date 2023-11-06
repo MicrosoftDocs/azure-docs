@@ -163,7 +163,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 ### Onboarding
 
-To use the [certification portal](https://certify.azure.com), you must use an Azure Active Directory from your work or school tenant.
+To use the [certification portal](https://certify.azure.com), you must use a Microsoft Entra ID from your work or school tenant.
 
 To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 

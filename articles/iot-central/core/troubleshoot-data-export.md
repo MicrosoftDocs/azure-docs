@@ -39,6 +39,9 @@ Before you configure or enable the export destination, make sure that you comple
 
 - Configure any virtual networks, private endpoints, and firewall policies.
 
+> [!NOTE]
+> If you're using a managed identity to authorize the connection to an export destination, IoT Central doesn't export data from simulated devices.
+
 To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
 
 ## Next steps

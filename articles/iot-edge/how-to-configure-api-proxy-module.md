@@ -12,7 +12,7 @@ services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
 
-# Configure the API proxy module for your gateway hierarchy scenario (Preview)
+# Configure the API proxy module for your gateway hierarchy scenario
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 

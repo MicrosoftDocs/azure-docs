@@ -6,12 +6,15 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 10/31/2023
 ms.author: cherylmc
 ---
 # Create a Site-to-Site connection using the Azure portal (classic)
 
-This article shows you how to use the Azure portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](./tutorial-site-to-site-portal.md)**.
+This article shows you how to use the Azure portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the **classic (legacy) deployment model** and don't apply to the current deployment model, Resource Manager. See the [Resource Manager version of this article](./tutorial-site-to-site-portal.md) instead.
+
+> [!IMPORTANT]
+> [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
@@ -47,7 +50,7 @@ The examples in this article use the following values. You can use these values 
 
 When you create a virtual network to use for a S2S connection, you need to make sure that the address spaces that you specify don't overlap with any of the client address spaces for the local sites that you want to connect to. If you have overlapping subnets, your connection won't work properly.
 
-* If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks.
+* If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that might overlap with other networks.
 
 * If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own.
 
@@ -77,8 +80,6 @@ The local site typically refers to your on-premises location. It contains the IP
 1. On the **Gateway** page, select the following values:
 
    * **Size:** This is the gateway SKU that you use to create your virtual network gateway. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md). You can select **Standard** for this exercise.
-
-   * **Routing type:** Select the routing type for your gateway. This is also known as the VPN type. It's important to select the correct type because you can't convert the gateway from one type to another. Your VPN device must be compatible with the routing type you select. For more information about Routing Type, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype). You may see articles referring to 'RouteBased' and 'PolicyBased' VPN types. 'Dynamic' corresponds to 'RouteBased', and 'Static' corresponds to' PolicyBased'. Typically, you want Dynamic routing.
 
    * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it's possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 

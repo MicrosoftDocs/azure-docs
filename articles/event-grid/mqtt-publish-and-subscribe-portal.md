@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Publish and subscribe on an MQTT topic using portal'
-description: 'Quickstart guide to use Azure Event Grid MQTT and Azure portal to publish and subscribe MQTT messages on a topic.'
+description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure portal to publish and subscribe MQTT messages on a topic.'
 ms.topic: quickstart
 ms.custom: build-2023
 ms.date: 05/23/2023
@@ -12,7 +12,7 @@ ms.author: veyaddan
 
 In this article, you use the Azure portal to do the following tasks:
 
-1. Create an Event Grid namespace with MQTT feature 
+1. Create an Event Grid namespace and enable MQTT
 2. Create sub resources such as clients, client groups, and topic spaces
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive messages between clients
@@ -78,7 +78,7 @@ After a successful installation of Step, you should open a command prompt in you
 
     > [!NOTE]
     > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create a Namespace](create-view-manage-namespaces.md).
-1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace. 
+1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.
 1. In the Overview page, you see that the **MQTT** is in **Disabled** state. To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
 1. On **Configuration** page, select the **Enable MQTT** option, and then select **Apply** to apply the settings.
 
@@ -92,7 +92,7 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png":::
 1. On the **Create client** page, enter a **name** for the client. Client names must be unique in a namespace.
-1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
+1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client1-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
 1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
@@ -111,7 +111,7 @@ After a successful installation of Step, you should open a command prompt in you
 2. On the **Topic spaces** page, select **+ Topic space** on the toolbar.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png":::
-1. On the **Create topic space** page, enter a name for the topic space. 
+1. Provide a **name** for the topic space, on the **Create topic space** page.
 1. Select **+ Add topic template**.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-name.png" alt-text="Screenshot of Create topic space with the name.":::
@@ -163,7 +163,7 @@ After a successful installation of Step, you should open a command prompt in you
 1. Rest of the settings can be left with predefined default values.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png" alt-text="Screenshot showing client 1 configuration part 1 on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png":::
-1. Select **Connect** to connect the client to the Event Grid MQTT service.
+1. Select **Connect** to connect the client to the MQTT broker.
 1. Repeat the above steps to connect the second client **client2**, with corresponding authentication information as shown.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png":::

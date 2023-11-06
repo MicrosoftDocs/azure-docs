@@ -53,7 +53,9 @@
       href: tutorial-springboot-azure-kubernetes-service.md
     - name: Jupyter notebooks
       items:
-        - name: Create notebook
+        - name: Create notebook (VSCode)
+          href: tutorial-create-notebook-vscode.md
+        - name: Create notebook (Azure portal)
           href: tutorial-create-notebook.md
         - name: Import notebooks from GitHub
           href: tutorial-import-notebooks.md
@@ -851,8 +853,6 @@
           href: ../visualize-qlik-sense.md
     - name: Migrate data
       items:
-        - name: Options to migrate data into Azure Cosmos DB
-          href: ../migration-choices.md
         - name: Desktop data migration tool
           href: ../how-to-migrate-desktop-tool.md
         - name: Using .NET bulk support

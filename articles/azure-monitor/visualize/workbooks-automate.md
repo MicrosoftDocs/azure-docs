@@ -106,7 +106,7 @@ Two types of workbook resources can be managed programmatically:
 | Usage in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
 | Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
 | Workbooks in resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
-| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| Workbooks in Microsoft Entra ID            | `microsoft.aadiam/tenant`                           | `workbook`    |
 | VM Insights in virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
 | VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 

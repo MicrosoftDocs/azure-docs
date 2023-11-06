@@ -118,7 +118,7 @@ Refer to the test configuration in the `config.yaml` files you downloaded earlie
 If you invoke the load tests in a CI/CD workflow, update the `loadTestResource` parameter in the CI/CD pipeline definition to match the new Azure load testing resource name.
 
 > [!NOTE]
-> If you have configured any of your load test with secrets from Azure Key Vault, make sure to [grant the new resource access to the Key Vault](./how-to-use-a-managed-identity.md?tabs=azure-portal#grant-access-to-your-azure-key-vault).
+> If you have configured any of your load tests with secrets or certificates from Azure Key Vault, make sure to [grant the new resource access to the Key Vault](./how-to-parameterize-load-tests.md#grant-access-to-your-azure-key-vault).
 
 ## Clean up source resources
 
