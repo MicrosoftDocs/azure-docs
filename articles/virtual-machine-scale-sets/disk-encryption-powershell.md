@@ -61,13 +61,11 @@ $vmssName="myScaleSet"
 New-AzVmss `
     -ResourceGroupName $rgName `
     -VMScaleSetName $vmssName `
-    -OrchestrationMode "flexible" `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -PublicIpAddressName "myPublicIPAddress" `
     -LoadBalancerName "myLoadBalancer" `
-    -UpgradePolicy "Automatic" `
     -Credential $cred
 ```
 

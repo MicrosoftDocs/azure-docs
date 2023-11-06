@@ -125,10 +125,10 @@ To apply Azure Hybrid Benefit to Virtual Machine Scale Sets at creation time by 
 
 ```azurecli
 # This will enable Azure Hybrid Benefit while creating a RHEL Virtual Machine Scale Set
-az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type RHEL_BYOS 
+az vmss create --name myVmName --resource-group myResourceGroup --orchestration-mode Uniform --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type RHEL_BYOS 
 
 # This will enable Azure Hybrid Benefit while creating a SLES Virtual Machine Scale Set
-az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type SLES_BYOS
+az vmss create --name myVmName --resource-group myResourceGroup --orchestration-mode Uniform --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type SLES_BYOS
 ```
 
 ## Next steps

@@ -4,7 +4,7 @@ description: This document provides details about the DICOM Conformance Statemen
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik

@@ -79,6 +79,7 @@ az vm create \
    -n myVM \
    -g myPPGGroup \
    --image Ubuntu2204 \
+   --orchestration-mode "Uniform"
    --ppg myPPG  \
    --generate-ssh-keys \
    --size Standard_E64s_v4 \

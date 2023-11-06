@@ -1,12 +1,12 @@
 ---
-title: Use Apache NiFi with HDInsight on AKS Apache Flink to publish into ADLS Gen2
-description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Apache Flink on AKS and publish into ADLS Gen2
+title: Use Apache NiFi with HDInsight on AKS clusters running Apache Flink® to publish into ADLS Gen2
+description: Learn how to use Apache NiFi to consume processed Apache Kafka® topic from Apache Flink® on HDInsight on AKS clusters and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Use Apache NiFi to consume processed Kafka topics from Apache Flink and publish into ADLS Gen2
+# Use Apache NiFi to consume processed Apache Kafka® topics from Apache Flink® and publish into ADLS Gen2
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -20,9 +20,9 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-    *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+* [Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
+* [Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+    *  You're required to ensure the network settings are taken care as described on [Using Kafka on HDInsight](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
 * For this demonstration, we're using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
 
@@ -31,14 +31,14 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 For purposes of this demonstration, we're using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
-> Setup a HDInsight [Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
+> Setup a HDInsight cluster with [Apache Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) and replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
 
-**HDInsight Kafka 2.4.1**
+**Kafka 2.4.1**
 ```
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic click_events --zookeeper zk0-contsk:2181
 ```
 
-**HDInsight Kafka 3.2.0**
+**Kafka 3.2.0**
 ```
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic click_events --bootstrap-server wn0-contsk:9092
 ```
@@ -71,7 +71,7 @@ Here, we configure NiFi properties in order to be accessed outside the localhost
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-2-configuring-nifi.png" alt-text="Screenshot showing how to define NiFi properties." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-2-configuring-nifi.png":::
 
-## Process streaming data from HDInsight Kafka On HDInsight on AKS Flink
+## Process streaming data from Kafka cluster on HDInsight with Flink cluster on HDInsight on AKS
 
 Let us develop the source code on Maven, to build the jar.
 
@@ -182,7 +182,7 @@ public class ClickSource implements SourceFunction<Event> {
 ```
 **Maven pom.xml**
 
-You can replace 2.4.1 with 3.2.0 in case you're using HDInsight Kafka 3.2.0, where applicable on the pom.xml
+You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, where applicable on the pom.xml
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -259,15 +259,15 @@ You can replace 2.4.1 with 3.2.0 in case you're using HDInsight Kafka 3.2.0, whe
 </project>
 ```
 
-## Submit streaming job to HDInsight on AKS - Flink
+## Submit streaming job to Flink cluster on HDInsight on AKS
 
-Now, lets submit streaming job as mentioned in the previous step into HDInsight on AKS - Flink
+Now, lets submit streaming job as mentioned in the previous step into Flink cluster
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png" alt-text="Screenshot showing how to submit the streaming job from FLink UI." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png":::
 
-## Check the topic on HDInsight Kafka
+## Check the topic on Kafka cluster
 
-Check the topic on HDInsight Kafka.
+Check the topic on Kafka.
 
 ```
 root@hn0-contos:/home/sshuser# /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic click_events --bootstrap-server wn0-contos:9092
@@ -340,3 +340,4 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 * [Azure Data Lake Storage](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.processors.azure.storage.PutAzureDataLakeStorage/index.html)
 * [ADLS Credentials Controller Service](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.services.azure.storage.ADLSCredentialsControllerService/index.html)
 * [Download IntelliJ IDEA for development](https://www.jetbrains.com/idea/download/#section=windows)
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink,Apache NiFi, NiFi and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -162,6 +162,30 @@ Examples of using a custom XPath to filter events:
 > For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
 > For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I collect Windows security events by using the new Azure Monitor Agent?
+
+There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
+- You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. If you want Security Events to flow into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead, you can [create the required DCR with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
+- If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
+
+### Will I duplicate events if I use Azure Monitor Agent and the Log Analytics agent on the same machine? 
+
+If you're collecting the same events with both agents, duplication occurs. This duplication could be the legacy agent collecting redundant data from the [workspace configuration](./agent-data-sources.md) data, which is collected by the data collection rule. Or you might be collecting security events with the legacy agent and enable Windows security events with Azure Monitor Agent connectors in Microsoft Sentinel.
+          
+Limit duplication events to only the time when you transition from one agent to the other. After you've fully tested the data collection rule and verified its data collection, disable collection for the workspace and disconnect any Microsoft Monitoring Agent data connectors.
+
+### Besides Xpath queries and specifying performance counters, is other more granular event filtering possible by using the new Azure Monitor Agent?
+
+For Syslog on Linux, you can choose facilities and the log level for each facility to collect.
+
+### If I create data collection rules that contain the same event ID and associate it to the same VM, will the events be duplicated?
+
+Yes. To avoid duplication, make sure the event selection you make in your data collection rules doesn't contain duplicate events.
+
 ## Next steps
 
 - [Collect text logs by using Azure Monitor Agent](data-collection-text-log.md).

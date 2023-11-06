@@ -6,8 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/10/2023
-ms.custom: ignite-fall-2021, engagement-fy23
-
+ms.custom: ignite-fall-2021, engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
@@ -895,7 +894,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
          >
          > 1. In the Azure portal, go to your Application Insights resource.
          >
-         > 2. On the resource resource menu, under **Investigate**, select **Application map**.
+         > 2. On the resource menu, under **Investigate**, select **Application map**.
          >
          > 3. Review the operation names that appear in the map.
          >
