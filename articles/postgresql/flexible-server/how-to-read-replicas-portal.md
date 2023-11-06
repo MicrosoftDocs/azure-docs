@@ -87,7 +87,7 @@ To create a read replica, follow these steps:
 9. During the deployment, you will see the primary in `Updating` state.
    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Primary enters into updating status."::: 
 After the read replica is created, it can be viewed from the **Replication** window.
-:::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
+:::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window.":::
 
 > [!IMPORTANT]
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
