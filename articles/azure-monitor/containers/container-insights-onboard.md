@@ -16,11 +16,9 @@ This article provides an overview of the requirements and options that are avail
 Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
-   - ARM64 nodes supported
 - Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
    - AKS on Azure Stack HCI
    - AKS Edge Essentials
-   - Arm64 nodes version 3.1.11 and above
    - Canonical
    - Cluster API Provider on Azure
    - K8s on Azure Stack Edge
@@ -28,7 +26,6 @@ Container insights supports the following environments:
    - SUSE Rancher (Rancher Kubernetes engine)
    - SUSE Rancher K3s
    - VMware (ie. TKG)
-   - ARM64 nodes supported only with [GitOps (Flux v2)](../../azure-arc/kubernetes/conceptual-gitops-flux2.md).
 
 > [!NOTE]
 > Container insights supports AMD64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support AMD64 nodes.
