@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 ---
 
 # Quickstart: Integrated vectorization (preview)
@@ -20,14 +20,14 @@ Get started with [integrated vectorization](vector-search-integrated-vectorizati
 In this preview version of the wizard:
 
 + Source data is blob only, using the default parsing mode (one search document per blob).
-+ Index schema is non-configurable. Fields include `content` and a metadata field for the document key.
-+ Vectorization is Azure OpenAI only.
++ Index schema is non-configurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key.
++ Vectorization is Azure OpenAI only, using the [HNSW](vector-search-ranking.md) algorithm with defaults.
 + Chunking is non-configurable. The effective settings are:
 
   ```json
   textSplitMode: "pages",
   maximumPageLength: 2000,
-  pageOverlapLength: 50
+  pageOverlapLength: 500
   ```
 
 ## Prerequisites
@@ -83,6 +83,8 @@ To get started, browse to your Azure AI Search service in the Azure portal and o
 
 1. On the **Overview** page, select **Import and vectorize data**.
 
+   :::image type="content" source="media/search-get-started-portal-import-vectors/command-bar.png" alt-text="Screenshot of the wizard command.":::
+
 ## Connect to your data
 
 The next step is to connect to a data source to use for the search index.
@@ -92,6 +94,10 @@ The next step is to connect to a data source to use for the search index.
 1. Specify the Azure subscription, storage account, and container that provides the data.
 
 1. For the connection, either provide a full access connection string that includes a key, or [specify a managed identity](search-howto-managed-identities-storage.md) that has **Storage Blob Data Reader** permissions on the container.
+
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md):
+
+      :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-page.png" alt-text="Screenshot of the data source page.":::
 
 1. Select **Next: Vectorize and Enrich** to continue.
 
@@ -107,6 +113,8 @@ In this step, specify the embedding model used to vectorize chunked data.
 
 1. Specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer.
 
+   :::image type="content" source="media/search-get-started-portal-import-vectors/enrichment-page.png" alt-text="Screenshot of the enrichment page.":::
+
 1. Select **Next: Create and Review** to continue.
 
 ## Run the wizard
@@ -119,7 +127,7 @@ This step creates the following objects:
 
 + Skillset with [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) for vectorization.
 
-+ Indexer with field mappings and output field mappings.
++ Indexer with field mappings and output field mappings (if applicable).
 
 ## Check results
 
@@ -129,9 +137,15 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Make sure the API version is **2023-10-01-preview**.
 
-1. Enter your search string.
+1. Enter your search string. Here's a string that gets a count of the chunked documents and selects just the title and chunk fields: `$count=true&$select=title,chunk`.
 
 1. Select **Search**.
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
+
+You should see 84 documents, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
+
+The index definition isn't configurable so you can't filter by "title". To work around this limitation, you could define an index manually, making "title" filterable to get all of the chunks for a single document.
 
 ## Clean up
 
@@ -139,4 +153,4 @@ Azure AI Search is a billable resource. If it's no longer needed, delete it from
 
 ## Next steps
 
-This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try the integrated vectorization tutorial.
+This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try the [integrated vectorization samples](https://github.com/Azure/cognitive-search-vector).
