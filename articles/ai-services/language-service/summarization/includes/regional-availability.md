@@ -11,6 +11,6 @@ ms.custom: references_regions, ignite-2022
 
 > [!IMPORTANT]
 > Conversation summarization is only available using:
->     * REST API
->     * Python
->     * C#
+>  - REST API
+>  - Python
+>  - C#

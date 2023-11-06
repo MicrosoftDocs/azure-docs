@@ -1,7 +1,7 @@
 ---
 title: Summarize text with the conversation summarization API
 titleSuffix: Azure AI services
-description: This article will show you how to summarize chat logs with the conversation summarization API.
+description: This article shows you how to summarize chat logs with the conversation summarization API.
 services: cognitive-services
 author: jboback
 manager: nitinme
@@ -35,7 +35,7 @@ The AI models used by the API are provided by the service, you just have to send
 The conversation summarization API uses natural language processing techniques to summarize conversations into shorter summaries per request. Conversation summarization can summarize for issues and resolutions discussed in a two-party conversation or summarize a long conversation into chapters and a short narrative for each chapter.
 
 There's another feature in Azure AI Language named [document summarization](../overview.md?tabs=document-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between document summarization and conversation summarization, consider the following points:
-* Input format: Conversation summarization can operate on both chat text and speech transcripts, which have speakers and their utterances. Document summarization operates using simple tex, or Word, PDF, or PowerPoint formats.
+* Input format: Conversation summarization can operate on both chat text and speech transcripts, which have speakers and their utterances. Document summarization operates using simple text, or Word, PDF, or PowerPoint formats.
 * Purpose of summarization: for example, conversation issue and resolution summarization returns a reason and the resolution for a chat between a customer and a customer service agent.
 
 ## Submitting data
@@ -43,7 +43,7 @@ There's another feature in Azure AI Language named [document summarization](../o
 > [!NOTE]
 > See the [Language Studio](../../language-studio.md#valid-text-formats-for-conversation-features) article for information on formatting conversational text to submit using Language Studio. 
 
-You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there might be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When you use this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
@@ -177,7 +177,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 
 4. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
@@ -243,7 +243,7 @@ Example chapter title summarization JSON response:
   }
 }
 ```
-For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There is also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
+For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There's also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
 
  ### Get narrative summarization
 
@@ -335,7 +335,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 
 4. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
@@ -402,7 +402,7 @@ Example narrative summarization JSON response:
 }
 ```
 
-For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There is also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
+For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There's also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
 
  ### Get recap and follow-up task summarization
 
@@ -495,7 +495,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 
 4. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
@@ -562,19 +562,19 @@ Example narrative summarization JSON response:
 }
 ```
 
-For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There is also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
+For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There's also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
 
 ## Getting conversation issue and resolution summarization results
 
-The following text is an example of content you might submit for conversation issue and resolution summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
+The following text is an example of content you might submit for conversation issue and resolution summarization. This is only an example, the API can accept longer input text. See [data limits](../../concepts/data-limits.md) for more information.
  
 **Agent**: "*Hello, how can I help you*?"
 
 **Customer**: "*How can I upgrade my Contoso subscription? I've been trying the entire day.*"
 
-**Agent**: "*Press the upgrade button please. Then sign in and follow the instructions.*"
+**Agent**: "*Press the upgrade button then sign in and follow the instructions.*"
 
-Summarization is performed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
+Summarization is performed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response might contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
 
 In the above example, the API might return the following summarized sentences:
 
