@@ -16,11 +16,11 @@ hideEdit: true
 
 ## What is Microsoft Copilot for Azure (preview)?
 
-Microsoft Copilot for Azure (preview) is an AI assistant that makes it easier to manage your cloud environment. It combines context from Azure resources that you have permissions to with Microsoft’s knowledge on how to best set-up, maintain and optimize your cloud environment. For an overview of how Microsoft Copilot for Azure works and a summary of Copilot capabilities, see [Microsoft Copilot for Azure (preview) overview](overview.md).
+Microsoft Copilot for Azure is an AI companion companion that enables IT teams to operate, optimize, and troubleshoot applications and infrastructure more efficiently. With Microsoft Copilot for Azure, users can gain new insights into their workloads, unlock untapped Azure functionality and orchestrate tasks across both cloud and edge. Copilot leverages Large Language Models (LLMs), the Azure control plane and insights about a user’s Azure and Arc-enabled assets. All of this is carried out within the framework of Azure’s steadfast commitment to safeguarding the customer’s data security and privacy. For an overview of how Microsoft Copilot for Azure works and a summary of Copilot capabilities, see [Microsoft Copilot for Azure (preview) overview](overview.md).
 
 ## Are Microsoft Copilot for Azure (preview) results reliable?
 
-Microsoft Copilot for Azure is designed to generate the best possible responses with the context it has access to. However, like any AI system, Microsoft Copilot for Azure’s responses will not always be perfect. All Microsoft Copilot for Azure (preview)’s responses should be carefully tested, reviewed, and vetted before making changes to your Azure environment.
+Microsoft Copilot for Azure is designed to generate the best possible responses with the context it has access to. However, like any AI system, Microsoft Copilot for Azure’s responses will not always be perfect. All Microsoft Copilot for Azure’s responses should be carefully tested, reviewed, and vetted before making changes to your Azure environment.
 
 ## How does Microsoft Copilot for Azure (preview) use data from my Azure environment?
 
@@ -32,7 +32,7 @@ User provided prompts and Microsoft Copilot for Azure’s responses are not reta
 
 ## What should I do if I see unexpected or offensive content?
 
-The Azure team has built Microsoft Copilot for Azure guided by our AI principles and Responsible AI Standard. We have prioritized mitigating exposing customers to offensive content. However, you might still see unexpected results. We're constantly working to improve our technology in preventing harmful content.
+The Azure team has built Microsoft Copilot for Azure guided by our [AI principles](https://www.microsoft.com/ai/principles-and-approach) and [Responsible AI Standard](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4ZPmV). We have prioritized mitigating exposing customers to offensive content. However, you might still see unexpected results. We're constantly working to improve our technology in preventing harmful content.
 
 If you encounter harmful or inappropriate content in the system, please provide feedback or report a concern by selecting the downvote button on the response.
 
