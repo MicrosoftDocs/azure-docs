@@ -1,8 +1,6 @@
 ---
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: conceptual
 ms.date: 11/06/2023
 ---
@@ -23,16 +21,21 @@ You can select any element on the page to get more detailed information.
 
 | Aspect | Details |
 |---------|---------|
-|Release state: | Public Preview |
+|Release state: | General availability (GA) |
 | Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
 | Required roles and permissions: | No other roles needed aside from what is required for the security explorer. <br><br> To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**. |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
 ## Prerequisites
 
-In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extension button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan for storage related alerts or Defender for Databases for database related alerts.
+- You must enable Defender CSPM or Defender for Storage
+- You must enable the sensitive data discovery extension.  
 
 :::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
+
+- To receive the alerts for data sensitivity, you must:
+    - Enable the Defender for Storage plan for storage related alerts 
+    - Enable theDefender for Databases for database related alerts.
 
 The feature is turned on at the subscription level.
 
