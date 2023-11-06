@@ -109,7 +109,7 @@ SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
 
 #### Load documents
 
-Azure AI Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](/azure/search/search-get-started-text&tabs=dotnet#load-documents) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
+Azure AI Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](/azure/search/search-get-started-text) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
 
 #### Search an index
 
