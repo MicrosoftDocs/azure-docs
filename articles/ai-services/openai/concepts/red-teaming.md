@@ -89,18 +89,18 @@ When reporting results, make clear which endpoints were used for testing. When t
 
 **Conduct open-ended testing to uncover a wide range of harms.**
 
-    The benefit of RAI red teamers exploring and documenting any problematic content (rather than asking them to find examples of specific harms) enables them to creatively explore a wide range of issues, uncovering blind spots in your understanding of the risk surface.
+The benefit of RAI red teamers exploring and documenting any problematic content (rather than asking them to find examples of specific harms) enables them to creatively explore a wide range of issues, uncovering blind spots in your understanding of the risk surface.
 
 **Create a list of harms from the open-ended testing.**.
 
-    - Consider creating a list of harms, with definitions and examples of the harms.  
-    - Provide this list as a guideline to red teamers in later rounds of testing.
+- Consider creating a list of harms, with definitions and examples of the harms.  
+- Provide this list as a guideline to red teamers in later rounds of testing.
 
 **Conduct guided red teaming and iterate: Continue probing for harms in the list; identify new harms that surface.**
 
-    Use a list of harms if available and continue testing for known harms and the effectiveness of their mitigations. In the process, you will likely identify new harms. Integrate these into the list and be open to shifting measurement and mitigation priorities to address the newly identified harms.
+Use a list of harms if available and continue testing for known harms and the effectiveness of their mitigations. In the process, you will likely identify new harms. Integrate these into the list and be open to shifting measurement and mitigation priorities to address the newly identified harms.
 
-    Plan which harms to prioritize for iterative testing. Several factors can inform your prioritization, including, but not limited to, the severity of the harms and the context in which they are more likely to surface.
+Plan which harms to prioritize for iterative testing. Several factors can inform your prioritization, including, but not limited to, the severity of the harms and the context in which they are more likely to surface.
 
 ### Plan: How to record data
 
