@@ -36,7 +36,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 
 ## Automated tax document processing
 
-Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents have been done manually this model allows for the easy automation of tax scenarios
+Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents were processed manually. This model allows for the easy automation of tax scenarios.
 
 ## Development options
 
