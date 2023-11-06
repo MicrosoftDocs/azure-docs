@@ -274,7 +274,8 @@ In this section, you deploy the data connector agent. After you deploy the agent
 Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems.
 
 # [Azure portal](#tab/azure-portal/managed-identity)
-Blah blah blah Managed identity / Azure portal
+
+Create a new agent through the Azure portal, authenticating with a managed identity:
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -314,7 +315,7 @@ Blah blah blah Managed identity / Azure portal
        
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
-    - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**. You set up the managed identity or registered application (application identity) in the [prerequisites](#prerequisites).
+    - To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected. You must have the managed identity set up ahead of time, as mentioned in the  [prerequisites](#prerequisites).
 
     :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
@@ -338,7 +339,8 @@ Blah blah blah Managed identity / Azure portal
 
 
 # [Azure portal](#tab/azure-portal/registered-application)
-Blah blah blah Registered application / Azure portal
+
+Create a new agent through the Azure portal, authenticating with a Microsoft Entra registered application:
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -378,7 +380,7 @@ Blah blah blah Registered application / Azure portal
        
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
-    - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**. You set up the managed identity or registered application (application identity) in the [prerequisites](#prerequisites).
+    - To authenticate to your key vault using a registered application, select **Application Identity**. You must have the registered application (application identity) set up ahead of time, as mentioned in the [prerequisites](#prerequisites).
 
     :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
@@ -401,7 +403,8 @@ Blah blah blah Registered application / Azure portal
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 # [Command line](#tab/command-line/managed-identity)
-Managed identity / Command line
+
+Create a new agent using the command line, authenticating with a managed identity:
 
 1. **Download and run the deployment Kickstart script**:
     For public cloud, the command is:
@@ -438,7 +441,8 @@ Managed identity / Command line
 
 
 # [Command line](#tab/command-line/registered-application)
-Registered application / Command line
+
+Create a new agent using the command line, authenticating with a Microsoft Entra registered application:
 
 1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
 
