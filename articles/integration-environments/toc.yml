@@ -4,15 +4,8 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Integration Environments (preview)
+  - name: About integration environments
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Create integration environments with resources
-    href: quickstart-create-integration-environment.md
-  - name: Create and map business processes to workflows
-    href: quickstart-create-map-business-process-workflow.md
 - name: How-to guides
   expanded: true
   items:
@@ -24,3 +17,5 @@ items:
     href: create-business-process.md
   - name: Map business process to workflow
     href: Map-business-process-workflow.md
+  - name: Deploy business process and tracking
+    href: deploy-business-process.md

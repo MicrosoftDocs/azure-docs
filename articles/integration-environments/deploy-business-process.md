@@ -1,4 +1,85 @@
+---
+title: Deploy business process and tracking profile to Azure
+description: Deploy the business process and tracking profile that you created for an application group in an Azure integration environment.
+ms.service: azure
+ms.topic: how-to
+ms.reviewer: estfan, azla
+ms.date: 11/15/2023
+---
 
+# Deploy a business process and tracking profile to Azure (preview)
 
+> [!IMPORTANT]
+>
+> This capability is in public preview and isn't yet ready production use. For more information, see the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<br><br>**Note**: When you deploy your business process, the platform uses this name to create a table in the Data Explorer database that's associated with your application group. Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. 
+After you define the key business property values to capture for tracking, and you map your business process stages to the operations and data in a Standard logic app workflow, you're ready to deploy your finished business process and tracking profile.
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An [integration environment](create-integration-environment.md) that contains an [application group](create-application-group.md), which has at least the [Standard logic app resources, workflows, and operations](../logic-apps/create-single-tenant-workflows-azure-portal.md) that you mapped to your business process stages
+
+  Before you can deploy your business process, you must have access to the Standard logic app resources and workflows that are used in the mappings. This access is required because deployment creates and adds a tracking profile to each logic app resource that participates in the business process.
+ 
+- A [business process](create-business-process.md) with [stages mapped to actual operations and property values in a Standard logic app workflow](map-business-process-workflow.md)
+
+- The Azure Data Explorer database associated with your application group must be online.
+
+  Deployment creates or uses a table with your business process name in your instance's database to add and store the data captured from the workflow run. Deployment also causes all the participating Standard logic app resources to automatically restart.
+
+<a name="deploy-business-process-tracking"></a>
+
+## Deploy business process and tracking profile
+
+1. In the [Azure portal](https://portal.azure.com), open your integration environment, application group, and business process that you want to deploy, if they're not already open.
+
+1. On the process designer toolbar, select **Deploy**.
+
+   In the **Deploy business process** section, the **Cluster** and **Database** properties already show the values for the Azure Data Explorer instance already populated with your application group.
+
+1. For the **Table** property, choose either of the following options:
+
+   - Keep the pre-populated name, which is the name for your business process and creates a table with this name in your database.
+
+   - Enter the name for an existing table in your database, and select **Use an existing table**.
+   
+   > [!IMPORTANT]
+   >
+   > If you want each business process to have its own table for security reasons, provide a 
+   > unique name to create a new and separate table. This practice helps you avoid mixing 
+   > sensitive data with non-sensitive data and is useful for redeployment scenarios.
+
+1. When you're ready, select **Deploy**.
+
+   Azure shows a notification whether or not the deployment succeeds.
+
+1. Return to the **Business processes** page, which now shows the business process with a checkmark in the **Deployed** column.
+
+<a name="view-transactions"></a>
+
+## View recorded transactions
+
+After the associated Standard logic app workflows run and emit the data that you specified to capture, you can view the recorded transactions.
+
+1. On the **Business processes** page's toolbar, select **View transactions**.
+
+   The **Transactions** page shows any records that your solution tracked. 
+
+1. Filter the records based on **Business identifier**, **Time executed**, or **Business process**. 
+
+1. To review the status for your business process, on a specific transaction row, select the business identifier value.
+
+   The **Transaction details** pane shows the status information for the entire business process.
+
+1. To review the status for a specific stage, on the **Transaction details** pane, select that stage.
+
+   The **Transaction details** pane now shows the tracked properties for the selected stage.
+
+1. To create custom experiences for the data provided here, check out [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
+
+## Next steps
+
+[What is Azure Integration Environments](overview.md)?
