@@ -16,32 +16,38 @@ ms.date: 10/29/2023
 
 You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
-To manually configure Azure IoT MQ to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
+To manually configure Azure IoT MQ to use a specific TLS certificate, specify it in a BrokerListener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
 
 ## Create certificate authority with Step CLI
 
-[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. [Install Step CLI]() and initialize a certificate authority.
+[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. [Install Step CLI](https://smallstep.com/docs/step-cli/installation/) and create a root certificate authority (CA) certificate and key.
 
 ```bash
-step init ca
+step certificate create --profile root-ca "Example Root CA" root_ca.crt root_ca.key
 ```
 
-Follow the prompts to finish setup. Use a memorable password (For example, "mqtt") when prompted, as the password is used many times later.
+Then, create an intermediate CA certificate and key signed by the root CA.
+
+```bash
+step certificate create --profile intermediate-ca "Example Intermediate CA" intermediate_ca.crt intermediate_ca.key \
+--ca root_ca.crt --ca-key root_ca.key
+```
 
 ## Create server certificate
 
-Use Step CLI to create a server certificate from the signed by the private CA.
+Use Step CLI to create a server certificate from the signed by the intermediate CA.
 
 ```bash
-step certificate create aio-mq-dmqtt-frontend aio-mq-dmqtt-frontend.crt aio-mq-dmqtt-frontend.key \
---profile leaf --ca ~/.step/certs/intermediate_ca.crt \
---ca-key ~/.step/secrets/intermediate_ca_key \
---san aio-mq-dmqtt-frontend \
+step certificate create mqtts-endpoint mqtts-endpoint.crt mqtts-endpoint.key \
+--profile leaf \
+--not-after 8760h \
+--san mqtts-endpoint \
 --san localhost \
---not-after 2400h --no-password --insecure
+--ca intermediate_ca.crt --ca-key intermediate_ca.key \
+--no-password --insecure
 ```
 
-Here, `aio-mq-dmqtt-frontend` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate).
+Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because the it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
 
 ### Certificate key algorithm requirements
 
@@ -52,140 +58,90 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 Create a Kubernetes secret with the certificate and key using kubectl.
 
 ```bash
-kubectl create secret tls my-secret \
---cert aio-mq-frontend.crt \
---key aio-mq-frontend.key
+kubectl create secret tls server-cert-secret -n azure-iot-operations \
+--cert mqtts-endpoint.crt \
+--key mqtts-endpoint.key
 ```
 
 ## Enable TLS for a listener
 
-Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`my-secret` in the example previously).
+Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: "tls-listener-manual"
-  namespace: default
+  name: manual-tls-listener
+  namespace: azure-iot-operations
 spec:
-  brokerRef: "my-broker"
-  authenticationEnabled: false
-  port: 8883
+  brokerRef: broker
+  authenticationEnabled: false # If true, BrokerAuthentication must be configured
+  authorizationEnabled: false
+  serviceType: loadBalancer # Optional, defaults to clusterIP
+  serviceName: mqtts-endpoint # Match the SAN in the server certificate
+  port: 8885 # Avoid port conflict with default listener at 8883
   tls:
     manual:
-      secret: "my-secret"
-      secretNamespace: default # optional
+      secretName: server-cert-secret
 ```
 
-To apply the change to an already running broker, the frontends need to be restarted.
-
-```bash
-kubectl delete pods -l tier=frontend
-```
+Once the BrokerListener resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.
 
 ## Connect to the broker with TLS
 
 To test the TLS connection with mosquitto, first create a full certificate chain file with Step CLI.
 
 ```bash
-cat ~/.step/certs/root_ca.crt ~/.step/certs/intermediate_ca.crt > chain.pem
+cat root_ca.crt intermediate_ca.crt > chain.pem
 ```
 
 Then, use mosquitto to publish a message.
 
 ```console
-$ mosquitto_pub -d -h localhost -p 8883 -i "my-client" -t "test-topic" -m "Hello" --cafile chain.pem
+$ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile chain.pem
 Client my-client sending CONNECT
 Client my-client received CONNACK (0)
 Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
 Client my-client sending DISCONNECT
 ```
 
-Remember to specify username, password, etc. if authentication is enabled
+> [!TIP]
+> To use localhost, the port must be available on the host machine. For example, `kubectl port-forward svc/mqtts-endpoint 8885:8885 -n azure-iot-operations`. With some Kubernetes distributions like K3d, you can add a forwarded port with `k3d cluster edit $CLUSTER_NAME --port-add 8885:8885@loadbalancer`.
+
+Remember to specify username, password, etc. if authentication is enabled.
 
 ### Use external IP for the server certificate
 
-To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. Choose one of the following two options to solve.
+To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. To solve this, deploy the listener without the server certificate first, then create the server certificate and secret with the external IP, and finally import the secret to the listener.
 
-### Option 1: Deploy a non-TLS listener first
-
-Deploy Azure IoT MQ with a non-TLS listener first.
-
-```yml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerListener
-metadata:
-  name: "non-tls-listener"
-  namespace: default
-spec:
-  brokerRef: "my-broker"
-  authenticationEnabled: false
-  authorizationEnabled: false
-  port: 1883
-```
-
-After deployment completes, use kubectl to get the `EXTERNAL-IP`.
+If you try to deploy the example TLS listener `manual-tls-listener` but the referenced Kubernetes secret `server-cert-secret` doesn't exist, the associated service gets created, but the pods don't start. The service is created because the operator needs to reserve the external IP for the listener.
 
 ```console
-$ kubectl get svc
-NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)             AGE
-...
-aio-mq-frontend         LoadBalancer   10.43.58.212    172.18.0.2    1883:30520/TCP       17s
-...
+$ kubectl get svc mqtts-endpoint -n azure-iot-operations
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+mqtts-endpoint         LoadBalancer   10.43.93.6      172.18.0.2    8885:30674/TCP      1m15s
 ```
 
-Finally, use this external IP as a SAN when creating the server certificate (for example `--san 172.18.0.2` in Step CLI), and follow the same steps previously to deploy a listener with TLS.
-
-### Option 2: Deploy TLS listener without a Kubernetes secret
-
-If you try to deploy Azure IoT MQ broker with only a TLS listener, but the Kubernetes secret doesn't exist, the frontend and backend pods won't deploy.
+However, this behavior is expected and it's okay to leave it like this while we import the server certificate. The health manager logs mention Azure IoT MQ is waiting for the server certificate.
 
 ```console
-$ kubectl get pods
-NAME                                   READY   STATUS    RESTARTS   AGE
-azedge-e4k-operator-655cdfc47d-2wmsl   1/1     Running   0          28s
-azedge-dmqtt-health-manager-0          1/1     Running   0          11s
+$ kubectl logs -l app=health-manager -n azure-iot-operations
+...
+<6>2023-11-06T21:36:13.634Z [INFO] [1] - Server certificate server-cert-secret not found. Awaiting creation of secret.
 ```
 
-However, this behavior is expected and it's okay to leave it like this while we import the server certificate.
-
-The health manager logs mention Azure IoT MQ is waiting for the server certificate.
-
-```console {hl_lines=11}
-$ kubectl logs azedge-dmqtt-health-manager-0
-[INFO] - Starting DMQTT Operator...
-[INFO] - set RLIMIT_NOFILE to 1048576
-[INFO] - running workers
-[INFO] - Operator listening on 0.0.0.0:1883
-[INFO] - Operator listening on [::]:1883
-[INFO] - starting operator
-[INFO] - press ctrl+c to shut down gracefully
-[INFO] - reconciling object; object.ref=AzEdgeBroker.v1.mq.iotoperations.azure.com/e4k.default object.reason=object updated
-[INFO] - Server certificate my-secret not found. Awaiting creation of secret.
-```
-
-Generally, in a distributed system, pods logs aren't deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in our backlog for public preview. Consider the previous step as a temporary workaround.
+> [!NOTE]
+> Generally, in a distributed system, pods logs aren't deterministic and should be used with caution. The right way for information like this to surface is through Kubernetes events and custom resource status, which is in the backlog. Consider the previous step as a temporary workaround.
 
 Even though the frontend pods aren't up, the external IP is already available.
 
 ```console
-$ kubectl get svc
-NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
-kubernetes                    ClusterIP      10.43.0.1       <none>        443/TCP             6h10m
-azedge-dmqtt-health-manager   ClusterIP      10.43.249.169   <none>        1883/TCP,8883/TCP   9m17s
-aio-mq-dmqtt-frontend         LoadBalancer   10.43.93.6      172.18.0.2    8883:30674/TCP      9m15s
+$ kubectl get svc mqtts-endpoint -n azure-iot-operations
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+mqtts-endpoint         LoadBalancer   10.43.93.6      172.18.0.2    8885:30674/TCP      1m15s
 ```
 
-From here, follow the same steps as previously to create a server certificate and secret with this external IP in `--san`, create the Kubernetes secret in the same way. Once the secret is created, it's automatically imported to the listener. You should see the logs showing the successful import:
-
-```console
-$ kubectl logs azedge-dmqtt-health-manager-0
-...
-[INFO] - Queried TLS server certificate my-secret.
-[INFO] - reconciled default/e4k (AzEdgeBroker)
-[INFO] - sending cell map to nodes, version: 1
-```
-
+From here, follow the same steps as previously to create a server certificate with this external IP in `--san` and create the Kubernetes secret in the same way. Once the secret is created, it's automatically imported to the listener. 
 
 ## Related content
 
