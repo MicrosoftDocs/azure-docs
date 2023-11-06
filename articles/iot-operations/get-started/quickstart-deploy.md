@@ -95,7 +95,7 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    | ----- | ----- |
    | **CLUSTER_NAME** | The name of your Arc-connected Kubernetes cluster. |
    | **RESOURCE_GROUP** | The resource group that also contains your Arc-enabled Kubernetes cluster. |
-   | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). |
+   | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). Make a note of this name, you need it the subsequent quickstarts. |
 
    ```azurecli-interactive
    az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <KEYVAULT-NAME> -g <RESOURCE_GROUP> -o tsv --query id) --simulate-plc
