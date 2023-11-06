@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 10/16/2023
+  ms.date: 11/06/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -22,6 +22,10 @@ sections:
           Azure OpenAI doesn't use customer data to retrain models. For more information, see the [Azure OpenAI data, privacy, and security guide](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).    
   - name: General
     questions:
+      - question: |
+          Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
+        answer: |
+          Azure OpenAI is supported by the latest release of the OpenAI Python library (version>=1.0). However, is is important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
