@@ -78,7 +78,7 @@ After the associated Standard logic app workflows run and emit the data that you
 
    The **Transaction details** pane now shows the tracked properties for the selected stage.
 
-1. To create custom experiences for the data provided here, check out [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) or [Azure Data Explorer with Power BI](azure/data-explorer/power-bi-data-connector?tabs=web-ui).
+1. To create custom experiences for the data provided here, check out [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
 
 ## Next steps
 
