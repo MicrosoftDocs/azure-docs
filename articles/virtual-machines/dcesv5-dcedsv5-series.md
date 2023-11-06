@@ -23,12 +23,6 @@ Featuring [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/
 
 These VMs have native support for [confidential disk encryption](disk-encryption-overview.md) meaning organizations can encrypt their VM disks at boot with either a customer-managed key (CMK), or platform-managed key (PMK). This feature is fully integrated with [Azure KeyVault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md) with validation for FIPS 140-2 Level 3. For organizations wanting further separation of duties for flexibility over key management, attestation, and disk encryption, these VMs also provide this experience.
 
-## DCesv5-series
-
-The DCesv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
-
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
@@ -47,6 +41,12 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
 - [Ephemeral OS Disks](ephemeral-os-disks.md) - DCedsv5 only
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
+
+## DCesv5-series
+
+The DCesv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
+
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### DCesv5-series specifications
 
@@ -90,4 +90,5 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
+> [Create a confidential VM in Azure Portal](../confidential-computing/quick-create-confidential-vm-portal-amd.md)
+> [Create a confidential VM in Azure CLI](../confidential-computing/quick-create-confidential-vm-azure-cli-amd.md)
