@@ -148,7 +148,7 @@ The **Destination** tab should now look something like this after you've filled 
 
 ### Configure the Tags tab (Optional)
 
-Before you complete your configuration in the **Review + create** tab, you may want to configure tags. You can do this step by selecting the **Next: Tags >** tab.
+Before you complete your configuration in the **Review + create** tab, you might want to configure tags. You can do this step by selecting the **Next: Tags >** tab.
 
 Tags are name and value pairs used for categorizing resources and are an optional step. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
@@ -166,7 +166,7 @@ If your deployment didn't validate, review the validation failure message(s), an
 
 1. Select the **Create** button to begin the deployment.
 
-2. The deployment process may take several minutes. The screen displays a message saying that your deployment is in progress.
+2. The deployment process can take several minutes. The screen displays a message saying that your deployment is in progress.
 
 3. When Azure has finishes deploying, a "Your Deployment is complete" message appears and also displays the following information:
 
