@@ -333,13 +333,12 @@ Use this version if you want generally available features only.
                         "metric": "cosine"
                     }
                 }
-
             ],
             "profiles": [
-              {
-                "name": "my-default-vector-profile",
-                "algorithm": "my-hnsw-config-1"
-              }
+                {
+                    "name": "my-default-vector-profile",
+                    "algorithm": "my-hnsw-config-1"
+                }
             ]
         }
     }
@@ -424,13 +423,12 @@ In the following REST API example, "title" and "content" contain textual content
                         "metric": "cosine"
                     }
                 }
-
             ],
             "profiles": [
-              {
-                "name": "my-default-vector-profile",
-                "algorithm": "my-hnsw-config-1"
-              }
+                {
+                    "name": "my-default-vector-profile",
+                    "algorithm": "my-hnsw-config-1"
+                }
             ]
         }
     }
