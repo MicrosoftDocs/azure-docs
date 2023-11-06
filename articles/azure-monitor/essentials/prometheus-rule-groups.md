@@ -34,7 +34,7 @@ Azure managed Prometheus rule groups follow the structure and terminology of the
 You can optionally limit the rules in a rule group to query data originating from a single specific cluster, by adding a cluster scope to your rule group, and/or by using the rule group `clusterName` property.
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
-To limit your rule group to a cluster scope, you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
+To limit your rule group to a cluster scope [using an ARM template](#creating-prometheus-rule-group-using-resource-manager-template), you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
 * Azure Kubernetes Service clusters (AKS) (Microsoft.ContainerService/managedClusters)
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
@@ -65,6 +65,8 @@ Here's an example of how a rule group is configured to limit query to a specific
 }        
 ```
 If both cluster ID scope and `clusterName` aren't specified  for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
+
+You can also limit your rule group to a cluster scope using the [portal UI](#configure-the-rule-group-scope).
 
 ### Create or edit Prometheus rule group in the Azure portal (preview)
 
@@ -126,17 +128,16 @@ On the rule group  **Details** tab:
    * You can enter optional **Annotations** key/value pairs for the rule. These annotations are added to alerts fired by the rule.
    * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the alerts fired by the rule.
    * Select the [action groups](../alerts/action-groups.md) that the rule triggers.
-   * Select **Automatically resolve alert** to resolve alerts after a period when the rule condition is no longer true.
-   * Select the auto resolution period using **Time to auto-resolve**.
+   * Select **Automatically resolve alert** to automatically resolve alerts if the rule condition is no longer true during the **Time to auto-resolve** period.
    * Select if the rule is to be enabled when created.
    * Select **Create** to add the new rule to the rule list.
   
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert.png" alt-text="Screenshot that shows configuration of Prometheus rule group alert rule.":::
 
 #### Finish creating the rule group
-1. On the **Tags** tab, set any required tags on the rule group resource.
+1. On the **Tags** tab, set any required Azure resource tags to be added to the rule group resource.
    :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-tags.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
-1. On the **Review + create** tab, the rule group is validated, and lets you know about any issues.
+1. On the **Review + create** tab, the rule group is validated, and lets you know about any issues. On this tab, you can also select the **View automation template** option, and download the template for the group you're about to create.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
     :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
 1. You can follow up on the rule group deployment to make sure it completes successfully or be notified on any error.
