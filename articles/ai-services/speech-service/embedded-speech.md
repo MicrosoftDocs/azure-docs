@@ -161,11 +161,11 @@ dependencies {
 
 ## Models and voices
 
-For embedded speech, you'll need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+For embedded speech, you need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions are provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
 The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
 
-All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for additional languages and voices. 
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
 
 ## Embedded speech configuration
 
@@ -275,7 +275,7 @@ Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service
 
 With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
 
-With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
+With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the final result is selected based on response speed. The best result is evaluated again on each new synthesis request.
 
 ## Cloud speech
 
@@ -283,7 +283,7 @@ For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to 
 
 ## Embedded voices capabilities
 
-For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, please refer to the table below.
+For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
 
 | Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
 |-----------------|-----------|-------------------------------------------------------|--------------------------|
