@@ -3,7 +3,7 @@ title: Overview of the MedTech service device mapping - Azure Health Data Servic
 description: Learn about the MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: jasteppe
@@ -140,31 +140,14 @@ When the MedTech service is processing the device message, the templates in the 
 
 ## Next steps
 
-In this article, you've been provided an overview of the MedTech service device mapping.
+[How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
 
-To learn how to use CalculatedContent with the MedTech service device mapping, see
+[How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
 
-> [!div class="nextstepaction"] 
-> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
+[How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-To learn how to use IotJsonPathContent with the MedTech service device mapping, see
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-To learn how to use custom functions with the MedTech service device mapping, see
-
-> [!div class="nextstepaction"] 
-> [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
-
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"] 
-> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
