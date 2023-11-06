@@ -90,17 +90,17 @@ Currently, a user can select one or more hosts to be removed from the cluster us
 
 The following three scenarios show examples of instances that would normally error out and demonstrate different methods that can be used to remove hosts without creating a vSAN fault domain (FD) imbalance.
 
-1. When removing a host creates a vSAN FD imbalance with a difference of hosts between most and least populated FD to be more than one.
+- When removing a host creates a vSAN FD imbalance with a difference of hosts between most and least populated FD to be more than one.
 	In the following example users, need to remove one of the hosts from FD 1 before removing hosts from other FDs.
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-1.png" alt-text="Diagram showing how users need to remove one of the hosts from FD 1 before removing hosts from other FDs." border="false":::
 
-2. When multiple host removal requests are made at the same time and certain host removals create an imbalance. In this scenario, the Azure VMware Solution control plane removes only hosts, which don't create imbalance.
+- When multiple host removal requests are made at the same time and certain host removals create an imbalance. In this scenario, the Azure VMware Solution control plane removes only hosts, which don't create imbalance.
 	In the following example users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower. 
 
      :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false":::
 
-3. When a selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs and, while adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
+- When a selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs and, while adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
 	In the following example users can remove one of the hosts from FD 1, but not from FD 2 or 3.
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
@@ -109,7 +109,7 @@ The following three scenarios show examples of instances that would normally err
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID6/FTT2 and RAID1/FTT3 policies will be supported in future on AV64 SKU. Microsoft will allow customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement.  
+This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID6/FTT2 and RAID1/FTT3 policies will be supported in future on AV64 SKU. Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement.  
 
 |RAID configuration 	|Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|
