@@ -556,6 +556,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/index.yml",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/language-support.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/language-support",
       "redirect_document_id": false
