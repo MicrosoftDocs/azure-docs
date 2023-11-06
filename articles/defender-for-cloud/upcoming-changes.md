@@ -50,7 +50,24 @@ Today, there are four Service Level 2 names: Azure Defender, Advanced Threat Pro
 
 The change will simplify the process of reviewing Defender for Cloud charges and provide better clarity in cost analysis. 
 
-To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. No action is necessary from customers.
+To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. 
+
+Organizations that retrieve cost data by calling our APIs, will need to update the values in their calls to accomodate the change. For example, in this filter function, the values will return no information: 
+
+```json
+"filter": {
+          "dimensions": {
+              "name": "MeterCategory",
+              "operator": "In",
+              "values": [
+                  "Advanced Threat Protection",
+                  "Advanced Data Security",
+                  "Azure Defender",
+                  "Security Center"
+                ]
+          }
+      }
+```
 
 The change is planned to go into effect on December 1, 2023.
 
