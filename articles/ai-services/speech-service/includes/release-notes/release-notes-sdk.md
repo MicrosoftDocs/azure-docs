@@ -18,12 +18,12 @@ ms.author: eur
 
 #### New features
 * Added the new NuGet package Microsoft.CognitiveServices.Speech.Extension.MAS.nupkg, which provides improved echo cancellation performance when using Microsoft Audio Stack
-* Pronunciation Assessment: added support for prosody and content evaluation, which can assess the spoken speech in terms of prosody, vocabulary, grammar as well as topic.
+* Pronunciation Assessment: added support for prosody and content evaluation, which can assess the spoken speech in terms of prosody, vocabulary, grammar, and topic.
 
 #### Bug fixes
 * Fixed keyword recognition result offsets so that they correctly match the input audio stream since the beginning. The fix applies to both stand-alone keyword recognition and keyword-triggered speech recognition.
 * Fixed Synthesizer stopSpeaking does not return immediately [SPXSpeechSynthesizer stopSpeaking() method cannot return immediately on iOS 17 - Issue #2081 ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2081)
-* Fixed Maccatalyst import issue on Swift module Support for mac catalyst with apple silicon. [Issue #1948](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1948)
+* Fixed Mac catalyst import issue on Swift module Support for mac catalyst with apple silicon. [Issue #1948](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1948)
 * JS: AudioWorkletNode module loads [now uses a trusted URL](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/732), with fallback for CDN browser includes.
 * JS: Packed lib files now targets ES6 JS, with support for ES5 JS removed.
 * JS: [intermediate events for translation scenario targeting v2 endpoint are correctly handled](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/735) 
@@ -64,7 +64,7 @@ ms.author: eur
 
 #### Breaking changes
 
-* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, this does not change the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
+* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, the renaming does not change the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
 
 - For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to differentiate multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.
 
@@ -111,7 +111,7 @@ This table shows the previous and new object names for real-time diarization and
 
 * **C++, C#, Java** - Added support for `DisplayWords` in Embedded Speech Recognition's detailed result.
 * **Objective-C/Swift** - Added support for `ConnectionMessageReceived` event in Objective-C/Swift.
-* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages, which contain iOS binaries (like NuGet, XCFramework). We're working on to reduce the size for future releases.
+* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of certain packages, which contain iOS binaries (like NuGet, XCFramework). We're working to reduce the size for future releases.
 
 #### Bug fixes
 
