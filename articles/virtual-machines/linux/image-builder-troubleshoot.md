@@ -33,7 +33,7 @@ When you're creating a build, do the following:
 - Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
 - VM Image Builder fails the build if the scripts or inline commands fail with errors (nonzero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 - Ensure your subscription has sufficient [quota](../../container-instances/container-instances-resource-and-quota-limits.md) of Azure Container Instances.
-    - Each image build may deploy up to one temporary Azure Container Instance resource (of four standard cores) in the staging resource group. These resources are required for [Isolated image builds](../security-isolated-image-builds-image-builder.md).
+    - Each image build might deploy up to one temporary Azure Container Instance resource (of four standard cores) in the staging resource group. These resources are required for [Isolated image builds](../security-isolated-image-builds-image-builder.md).
 
 
 VM Image Builder failures can happen in two areas:
@@ -151,7 +151,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 
 #### Cause
 
-In most cases, the resource deployment failure error occurs because of missing permissions. This error may also be caused by a conflict with the staging resource group.
+In most cases, the resource deployment failure error occurs because of missing permissions. This error might also be caused by a conflict with the staging resource group.
 
 #### Solution
 
@@ -778,7 +778,7 @@ If you determine that a build is failing due to Isolated Image Builds, you can d
 - Ensure there's no [Azure Policy](../../governance/policy/overview.md) blocking the deployment of resources mentioned in the Prerequisites section, specifically Azure Container Instances, Azure Virtual Networks, and Azure Private Endpoints.
 - Ensure your subscription has sufficient quota of Azure Container Instances to support all your concurrent image builds. For more information, see, Azure Container Instances [quota exceeded](./image-builder-troubleshoot.md#azure-container-instances-quota-exceeded).
 
-Azure Image Builder is currently in the process of deploying Isolated Image Builds. Specific image templates are not tied to Isolated Image Builds and the same image template may or may not utilize Isolated Image Builds during different builds. You can do the following to temporarily run your build without Isolated Image Builds.
+Azure Image Builder is currently in the process of deploying Isolated Image Builds. Specific image templates are not tied to Isolated Image Builds and the same image template might or might not utilize Isolated Image Builds during different builds. You can do the following to temporarily run your build without Isolated Image Builds.
 - Retry your build. Since Image Templates are not tied to the Isolated Image Builds feature, retrying a build has a high probability of rerunning without Isolated Image Builds.
 
  If none of these solutions mitigate failing image builds, then you can contact Azure support to temporarily opt your subscription out of Isolated Image Builds. For more information, see [Create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
@@ -856,7 +856,7 @@ Making these observations is especially important in build failures, where these
 
 #### Error
 
-When images are stuck in template deletion, the customization log may show the below error:
+When images are stuck in template deletion, the customization log might show the below error:
 
 ```output
 error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
