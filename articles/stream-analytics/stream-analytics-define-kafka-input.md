@@ -10,7 +10,7 @@ ms.date: 11/06/2023
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
 
-Kafka is a distributed streaming platform used to publish and subscribe to streams of records. Kafka is designed to allow your apps to process records as they occur. It is an open-source system developed by the Apache Software Foundation and written in Java and Scala. 
+Kafka is a distributed streaming platform used to publish and subscribe to streams of records. Kafka is designed to allow your apps to process records as they occur. It's an open-source system developed by the Apache Software Foundation and written in Java and Scala. 
 
 The following are the major use cases: 
 * Messaging 
@@ -44,13 +44,13 @@ You can use four types of security protocols to connect to your Kafka clusters:
 |Property name   |Description   |
 |----------|-----------|
 |mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol does not support SCRAM |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None |The serialization format (JSON, CSV, Avro, Parquet) of the incoming data stream. |
 
 
 > [!IMPORTANT]
-> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
+> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics doesn't support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
 
 ### Connect to Confluent Cloud using API key
@@ -161,7 +161,9 @@ You can configure your ASA job to use managed identity by navigating to the **Ma
 4.	Review and **save**.
 
 ### Grant the Stream Analytics job permissions to access the certificate in the key vault
-For your Azure Stream Analytics job to access the certificate in your key vault and read the secret for authentication using managed identity, the service principal you created when you configured managed identity for your Azure Stream Analytics job must have special permissions to the key vault. 
+
+For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
+Use the following steps to grant special permissions to your stream analytics job: 
 
 1. Select **Access control (IAM)**.
 
@@ -184,7 +186,7 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 ### Limitations
-* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit. . 
+* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit.
 * When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
 * Azure Stream Analytics does not support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol
