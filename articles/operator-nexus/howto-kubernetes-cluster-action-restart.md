@@ -13,7 +13,7 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 Occasionally, a Nexus Kubernetes Node may become unreachable. This article explains how to restart the node via the `az networkcloud kubernetescluster restart-node` CLI command.
 
-Restarting a Nexus Kubernetes Node can take up to 5 mins to complete. However, if the Virtual Machine is in bad state, the restart action may eventually time out.
+Restarting a Nexus Kubernetes Node can take up to 5 mins to complete. However, if the Virtual Machine is in bad state, the restart action may eventually time out ( Open an ICM ticket for such instances ).
 
 ## Before you begin
 > [!NOTE]
@@ -24,11 +24,9 @@ Restarting a Nexus Kubernetes Node can take up to 5 mins to complete. However, i
 * The action requires 1.1.0 or later version of `networkcloud` az CLI extension. 
 
 ## Get Node name
-In order to restart the cluster VM, we need the node name. There are two ways you can obtain it. 
-1. If connected to the cluster, run 
-    1. `kubectl get node` command to get the node name
-2. If not connected, obtain it through API.
-    1. Run `az networkcloud kubernetescluster show --name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName`. This endpoint will give you the details of the cluster along with the node. The node section contains the name of the Kubernetes cluster node.
+In order to restart the cluster VM, we need the node name. It can be obtained by running
+1. `kubectl get node` command 
+2. Alternatively az CLI command  `az networkcloud kubernetescluster show --name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName` will list the details of the node. 
 
 ## Run the CLI command to restart the Kubernetes cluster node
 
@@ -56,4 +54,6 @@ Sample output is as followed:
     "status": "succeeded"
 }
 ```
+ 
+
 
