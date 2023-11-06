@@ -55,7 +55,7 @@ az account set --subscription <subscription id>
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premise or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html).
-  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
+  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure Portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](https://learn.microsoft.com/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
 * Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
@@ -123,7 +123,7 @@ Here are the details for the arguments above:
 **Setting** | **Sample value** | **Description**
 ---|---|---
 data-source-type | azure_blob | The type of data source that serves as the source destination for triggering MySQL Import. Accepted values: [azure_blob]. Description of accepted values- azure_blob: Azure Blob storage.
-data-source | https://onprembackup.blob.core.windows.net/onprembackup | The resource ID of the Azure Blob container.
+data-source | {resourceID} | The resource ID of the Azure Blob container.
 data-source-backup-dir | mysql_percona_backup | The directory of the Azure Blob storage container in which the backup file was uploaded. This value is required only when the backup file isn't stored in the root folder of Azure Blob container.
 data-source-sas-token | {sas-token} | The Shared Access Signature (SAS) token generated for granting access to import from the Azure Blob storage container.
 resource-group | test-rg | The name of the Azure resource group of the target Azure Database for MySQL Flexible Server.
@@ -151,7 +151,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Migrate to Flexible Server with minimal downtime
 
-In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
+In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
 
 ## How long does MySQL Import take to migrate my Single Server instance?
 
