@@ -80,7 +80,7 @@ After you previously defined the business properties to capture, map the stage t
 
    - The **Properties** section shows the business properties that you previously specified.
 
-   - The **Business ID** box specifies the actual value for mapping to the business identifier that you previously specified. This identifier represents a unique value for a specific transaction, such as an order number, case number, or ticket number, that exists across all your business stages.
+   - The **Business ID** box specifies the actual value for mapping to the business identifier that you previously specified. This identifier represents a unique value for a specific transaction such as an order number, case number, or ticket number that exists across all your business stages.
    
      This example uses the identifier named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing.
 
