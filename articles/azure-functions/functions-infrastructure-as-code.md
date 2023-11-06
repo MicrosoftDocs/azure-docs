@@ -1821,7 +1821,11 @@ Experts with Bicep or ARM templates can manually code their deployments using a 
 
 + **Visual Studio Code**: There are extensions available to help you work with both [Bicep files](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) and [ARM templates](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). You can use these tools to help make sure that your code is correct, and they provide some [basic validation](functions-infrastructure-as-code.md?tabs=vs-code#validate-your-template).
 
-+ **Azure portal**: When you [create your function app and related resources in the portal](./functions-create-function-app-portal.md), the final **Review + create** screen has a **Download a template for automation** link. This link shows you the ARM template generated based on the options you chose in portal. While this template can be a bit complex when you're creating a function app with many new resources, it can provide a good reference for how your ARM template might look.   
++ **Azure portal**: When you [create your function app and related resources in the portal](./functions-create-function-app-portal.md), the final **Review + create** screen has a **Download a template for automation** link. 
+
+    :::image type="content" source="media/functions-infrastructure-as-code/portal-download-template.png" alt-text="Download template link from the Azure Functions creation process in the Azure portal.":::
+    
+    This link shows you the ARM template generated based on the options you chose in portal. While this template can be a bit complex when you're creating a function app with many new resources, it can provide a good reference for how your ARM template might look.   
  
 ## Validate your template
 
