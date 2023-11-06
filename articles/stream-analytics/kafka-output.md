@@ -48,7 +48,7 @@ Azure stream analytics is a librdkafka-based client, and to connect to confluent
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of lets encrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job." lightbox="./media/kafka/kafka-output.png" :::
 
 > [!IMPORTANT]
 >  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
