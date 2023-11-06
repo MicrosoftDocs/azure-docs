@@ -15,7 +15,7 @@ Use this article to get started using Azure OpenAI to deploy and use the GPT-4 w
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- An Azure OpenAI Service resource with a GPT-4 Vision model deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource with a GPT-4 Vision model deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
 
 ## Go to Azure OpenAI Studio
 
@@ -47,7 +47,7 @@ In this chat session, you try out the capabilities of the augmented Vision model
 
  
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
-1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
+1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Chat session** pane, enter the following question: "Describe this image," and upload an image. Then select **Send**.  
@@ -59,7 +59,7 @@ In this chat session, you try out the capabilities of the augmented Vision model
 In this chat session, you're instructing the assistant to aid in understanding videos that you input.
 
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
-1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the `EastUS` region. Select your resource, and **Save**. 
+1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you're uploading. 
 1. In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people." Upload a video using the **Add media** button and then select **Send**. 
 
