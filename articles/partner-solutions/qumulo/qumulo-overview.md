@@ -29,7 +29,7 @@ The Azure Native Qumulo Scalable File Service offering on Azure Marketplace allo
 
 ## Capabilities
 
-Azure Native Qumulo Scalable File Service provides the following capabilites:
+Azure Native Qumulo Scalable File Service provides the following capabilities:
 
 - Seamless onboarding
   - Easily include Qumulo as a natively integrated service on Azure. The service can be deployed quickly.
