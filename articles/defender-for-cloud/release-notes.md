@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/05/2023
+ms.date: 11/06/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,69 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## November 2023
+
+|Date |Update  |
+|----------|----------|
+| November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) |
+| November 20 | [Enhanced security recommendations prioritization in Defender for Cloud](#enhanced-security-recommendations-prioritization-in-defender-for-cloud) |
+| November 20 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
+| November 20 | [General Availability release of GCP support in Defender CSPM](#general-availability-release-of-gcp-support-in-defender-cspm) |
+| November 20 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
+
+### Attack path analysis new engine and extensive enhancements
+
+Announcement date: November 20, 2023
+
+We are releasing extensive enhancements to the attack path analysis capabilities in Defender for Cloud.  
+
+- **New engine** - attack path analysis has a new engine which uses path-finding algorithm to detect every possible attack path that exists in your cloud environment (based on the data we have in our graph). We can find many more attack paths in your environment and detect more complex and sophisticated attack patterns that attackers can use to breach your organization.
+
+- **Improvements** - The following improvements are released:
+
+  - **Risk prioritization** - prioritized list of attack paths based on risk (exploitability & business impact).
+  - **Enhanced remediation** - pinpointing the specific recommendations that should be resolved to actually break the chain.
+  - **Cross-cloud attack paths** – detection of attack paths that are cross-clouds (paths that start in one cloud and end in another).
+  - **MITRE** – Mapping all attack paths to the MITRE framework.
+  - **Refreshed user experience** – refreshed experience with stronger capabilities: advanced filters, search, and grouping of attack paths to allow easier triage.
+  - **Export capabilities** – export capabilities of attack paths to CSV, LA workspace and Event Hubs.
+  - **Email notifications** – you can receive email notifications of new attack paths.
+
+### Enhanced security recommendations prioritization in Defender for Cloud
+
+Announcement date: November 20, 2023
+
+Enhanced security recommendation prioritization is released, prioritizing security recommendations according to the risk level they pose, considering both the exploitability and potential business impact of each underlying security issue.
+
+ The advanced risk assessment engine takes into account essential contextual factors, such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations. This comprehensive approach ensures that you can focus on tackling the most pressing security concerns first, making your security efforts more efficient and effective.
+
+### Changes to Attack Path's Azure Resource Graph table scheme
+
+Announcement date: November 20, 2023
+
+The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and additional properties are added. Read more about the [updated Azure Resource Graph table scheme]().
+
+### General Availability release of GCP support in Defender CSPM
+
+November 20, 2023
+
+We're announcing the GA (General Availability) release of the Defender CSPM contextual cloud security graph and attack path analysis with support for GCP resources. You can apply the power of Defender CSPM for comprehensive visibility and intelligent cloud security across GCP resources.
+
+ Key features of our GCP support include:
+
+- **Attack path analysis** - Understand the potential routes attackers might take.
+- **Cloud security explorer** - Proactively identify security risks by running graph-based queries on the security graph.
+- **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
+- **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
+
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+
+### General Availability release of Data security dashboard
+
+Announcement date: November 20, 2023
+
+The data security dashboard is now available in General Availability (GA) as part of the Defender CSPM plan. The data security dashboard is an interactive, data-centric dashboard that illuminates significant risks to sensitive data, prioritizing alerts and potential attack paths for data across hybrid cloud workloads. Learn more about the [data security dashboard](data-aware-security-dashboard-overview.md).
 
 ## October 2023
 
