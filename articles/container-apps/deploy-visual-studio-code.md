@@ -70,7 +70,7 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
     | Select a location | Select an Azure region close to you. |
     | Would you like to save your deployment configuration? | Select **Save**. |
 
-    The Azure activity log panel opens and displays the deployment progress. This process may take a few minutes to complete.
+    The Azure activity log panel opens and displays the deployment progress. This process might take a few minutes to complete.
 
 1. Once this process finishes, Visual Studio Code displays a notification. Select **Browse** to open the deployed app in a browser.
 
@@ -88,7 +88,7 @@ Follow these steps in the Azure portal to remove the resources you created:
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name **my-container-app** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
 1. Select **Delete**.  
-    The process to delete the resource group may take a few minutes to complete.
+    The process to delete the resource group might take a few minutes to complete.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
