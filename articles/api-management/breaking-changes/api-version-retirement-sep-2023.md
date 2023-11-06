@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 07/25/2022
+ms.date: 11/06/2023
 ms.author: danlep
 ---
 
@@ -30,7 +30,9 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 ## Required action
 
-Update your tools, scripts, and programs using the details in the following section. We recommend also setting the **Minimum API version** in your API Management instance.
+Update your tools, scripts, and programs using the details in the following section. 
+
+We also recommend setting the **Minimum API version** in your API Management instance.
 
 ### Update your tools, scripts, and programs
 
@@ -59,7 +61,8 @@ We recommend setting the **Minimum API version** for your API Management instanc
 To set the **Minimum API version** in the portal:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **Deployment + infrastructure**, select **Management API** > **Management API settings**.
+1. In the left menu, under **Deployment + infrastructure**, select **Management API**.
+1. Select the **Management API settings** tab.
 1. Under **Prevent users with read-only permissions from accessing service secrets**, select **Yes**. The **Minimum API version** appears.
 1. Select **Save**.
    
@@ -72,7 +75,7 @@ To set the **Minimum API version** in the portal:
 * [Bicep](../../azure-resource-manager/bicep/overview.md)
 * [Microsoft Q&A](/answers/topics/azure-api-management.html)
 
-## Next steps
+## Related content
 
 See all [upcoming breaking changes and feature retirements](overview.md).
 
