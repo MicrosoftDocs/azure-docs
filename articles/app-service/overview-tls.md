@@ -24,7 +24,7 @@ App Service also allows you to set minimum TLS version for incoming requests to 
 
 ## TLS 1.0 and 1.1 
 
-TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 as the minimum TLS version, which is also the default limit.  
+TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 as the minimum TLS version, which is also the default.  
 
 To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so the requests won't be rejected. 
 
