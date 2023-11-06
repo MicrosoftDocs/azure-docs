@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: About integration environments (preview)
+  - name: About integration environments
     href: overview.md
 - name: How-to guides
   expanded: true
@@ -17,3 +17,5 @@ items:
     href: create-business-process.md
   - name: Map business process to workflow
     href: Map-business-process-workflow.md
+  - name: Deploy business process and tracking
+    href: deploy-business-process.md
