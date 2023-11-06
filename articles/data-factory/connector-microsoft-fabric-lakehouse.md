@@ -225,7 +225,7 @@ The copy activity properties for Microsoft Fabric Lakehouse Files dataset and Mi
 - [Microsoft Fabric Lakehouse Files in Copy activity](#microsoft-fabric-lakehouse-files-in-copy-activity)
 - [Microsoft Fabric Lakehouse Table in Copy activity](#microsoft-fabric-lakehouse-table-in-copy-activity)
 
-For a full list of sections and properties available for defining activities, see [Copy activity configurations](copy-activity-overview.md#configuration) and [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties supported by the Microsoft Fabric Lakehouse Files source and sink.
+For a full list of sections and properties available for defining activities, see [Copy activity configurations](copy-activity-overview.md#configuration) and [Pipelines and activities](concepts-pipelines-activities.md).
 
 ### Microsoft Fabric Lakehouse Files in Copy activity
 
@@ -466,7 +466,6 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The **type** property of the Copy Activity source must be set to **LakehouseTableSink**. | Yes      |
-| tableActionOption            | The way to write data to the sink table. Allowed values are `Append` and `Overwrite`. | No   |
 
 **Example:**
 
