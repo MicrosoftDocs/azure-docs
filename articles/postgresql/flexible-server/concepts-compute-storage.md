@@ -114,12 +114,6 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 |B12ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |3,800*|3,800*|3,800*|3,800* |3,800* |3,800* |
 |B16ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |4,300*|4,300*|4,300*|4,300* |4,300* |4,300* |
 |B20ms                                       |1,280 IOPS                |120|240|500 |1,100|2,300 |5,000 |5,000*|5,000*|5,000* |5,000* |5,000* |
-
-
-
-|SKU name                               |Storage size           |32 Gib |64 Gib|128 Gib |256 Gib|512 Gib|1,024 Gib|2,048 Gib|4,096 Gib|8,192 Gib|16,384 Gib|32,767 Gib|
-|---------------------------------------|-----------------------|---    |---   |----    |----   |-----  |-----    |-----    |-----    |------   |------    |-------   |
-|                                       |Maximum IOPS           |120    |240   |500     |1,100  | 2,300 |5,000    |7,500    |7,500    |16,000   |18,000    |20,000    |
 |**General Purpose**                               |                     |   |   |    |     |      |      |      |      |       |       |       |
 |D2s_v3 / D2ds_v4                                  |3,200 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
 |D2ds_v5 / D2ads_v5                                |3,750 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
@@ -130,12 +124,6 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 |D48s_v3 / D48ds_v4 / D48ds_v5 / D48ads_v5         |20,000 IOPS          |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 |D64s_v3 / D64ds_v4 / D64ds_v5 / D64ads_v5         |20,000 IOPS          |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 |D96ds_v5 / D96ads_v5                              |20,000 IOPS          |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
-
-
-|SKU name                               |Storage size           |32 Gib |64 Gib|128 Gib |256 Gib|512 Gib|1,024 Gib|2,048 Gib|4,096 Gib|8,192 Gib|16,384 Gib|32,767 Gib|
-|---------------------------------------|-----------------------|---    |---   |----    |----   |-----  |-----    |-----    |-----    |------   |------    |-------   |
-|                                       |Maximum IOPS           |120    |240   |500     |1,100  | 2,300 |5,000    |7,500    |7,500    |16,000   |18,000    |20,000    |
-
 |**Memory Optimized**                              |                     |   |   |    |    |     |     |     |     |      |      |      |
 |E2s_v3 / E2ds_v4                                  |3,200 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
 |E2ds_v5  /E2ads_v5                                |3,750 IOPS           |120|240|500 |1,100|2,300 |3,200*|3,200*|3,200*|3,200* |3,200* |3,200* |
@@ -249,14 +237,14 @@ Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a 
 
 The following table provides a comparison of the five disk types to help you decide which to use.
 
-|         |  Premium SSD v2 | Premium SSD | 
-| ------- | ----------------| ----------- | 
-| **Disk type** | SSD | SSD |
-| **Scenario**  | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | 
-| **Max disk size** | 65,536 GiB |32,767 GiB |
-| **Max throughput**  | 1,200 MB/s | 900 MB/s | 
-| **Max IOPS** | 80,000 | 20,000 |
-| **Usable as OS Disk?** | No | Yes | Yes | Yes |
+|                        |  Premium SSD v2 | Premium SSD | 
+| -------                | ----------------| ----------- | 
+| **Disk type**          | SSD             | SSD         |
+| **Scenario**           | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | 
+| **Max disk size**      | 65,536 GiB      |32,767 GiB   |
+| **Max throughput**     | 1,200 MB/s      | 900 MB/s    | 
+| **Max IOPS**           | 80,000          | 20,000      |
+| **Usable as OS Disk?** |  NO             | Yes         |     
 
 
 
