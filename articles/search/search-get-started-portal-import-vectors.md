@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 ---
 
 # Quickstart: Integrated vectorization (preview)
@@ -20,7 +20,7 @@ Get started with [integrated vectorization](vector-search-integrated-vectorizati
 In this preview version of the wizard:
 
 + Source data is blob only, using the default parsing mode (one search document per blob).
-+ Index schema is non-configurable. Fields include `content` and a metadata field for the document key.
++ Index schema is non-configurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key.
 + Vectorization is Azure OpenAI only, using the [HNSW](vector-search-ranking.md) algorithm with defaults.
 + Chunking is non-configurable. The effective settings are:
 

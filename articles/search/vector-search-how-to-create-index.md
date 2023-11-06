@@ -337,8 +337,8 @@ Use this version if you want generally available features only.
             ],
             "profiles": [
                 {
-                "name": "my-default-vector-profile",
-                "algorithm": "my-hnsw-config-1"
+                    "name": "my-default-vector-profile",
+                    "algorithm": "my-hnsw-config-1"
                 }
             ]
         }
@@ -428,8 +428,8 @@ In the following REST API example, "title" and "content" contain textual content
             ],
             "profiles": [
                 {
-                "name": "my-default-vector-profile",
-                "algorithm": "my-hnsw-config-1"
+                    "name": "my-default-vector-profile",
+                    "algorithm": "my-hnsw-config-1"
                 }
             ]
         }
