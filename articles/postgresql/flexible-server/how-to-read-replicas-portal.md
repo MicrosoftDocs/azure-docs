@@ -105,26 +105,56 @@ After the read replica is created, it can be viewed from the **Replication** win
     >  If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Promotion error when missing virtual endpoint.":::
 
+### Modify application(s) to point to virtual endpoint
+
+Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`)
+
 ## Promote replicas
 
-You can promote replicas to become stand-alone servers serving read-write requests.
-
-> [!IMPORTANT]
-> Promotion of replicas cannot be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
+With all the necessary components in place, you are now ready to perform a promote replica to primary operation.
 
 To promote replica from the Azure portal, follow these steps:
 
-1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
+1. In the [Azure portal](https://portal.azure.com/), select your primary Azure Database for PostgreSQL - Flexible server.
 
 2. On the server menu, under **Settings**, select **Replication**.
 
-3. Select the replica server for which to stop replication and hit **Promote**.
+3. Under **Servers**, select the **Promote** icon for the replica.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica.png" alt-text="Select the replica":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Select promote for a replica.":::
+4. In the dialog, ensure the action is **Promote to primary server**.
+5. For **Data sync**, ensure **Planned - sync data before promoting** is selected.
+   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Select promote for a replica.":::
+6. Select **Promote** to begin the process. Once it is completed, the roles will reverse: the replica will become the primary, and the primary will assume the role of the replica.
+   > [!NOTE]
+   >  The replica you are promoting must have the reader virtual endpoint assigned or you will receive an error on promotion:
+   > :::image type="content" source="./media/how-to-read-replicas-portal/promote-error.png" alt-text="Promote error.":::
 
-4. Confirm promote operation.
+### Test applications
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
+Restart your applications, attempt to perform some operations. Your applications should function seamlessly without the need to modify the virtual endpoint connection string or DNS entries. Leave your applications running this time.
+
+### Failback to original server and region
+Repeat the same operations to promote the original server to the primary:
+1. In the [Azure portal](https://portal.azure.com/), select the replica.
+2. On the server sidebar, under **Settings**, select **Replication**
+3. Under **Servers**, select the **Promote** icon for the replica.
+4. In the dialog, ensure the action is **Promote to primary server**.
+5. For **Data sync**, ensure **Planned - sync data before promoting** is selected.
+6. Select **Promote**, the process will begin. Once it is completed, the roles will reverse: the replica will become the primary, and the primary will assume the role of the replica.
+
+
+### Test applications
+Again, switch to one of the consuming applications. Wait for the primary and replica status to change to `Updating` and then attempt to perform some operations. During the replica promote, it is possible your application will encounter temporary connectivity issues to the endpoint:
+:::image type="content" source="./media/how-to-read-replicas-portal/failover-connectivity-psql.png" alt-text="Potential promote connectivity errors.":::
+
+If no application is available to test directly, connectivity during a promotion can be tested against the writer endpoint using psql and the `\watch` switch with a simple psql `select 1` command:
+
+```bash
+select 1; \watch
+```
+
+
 
 ## Delete a primary server
 You can only delete primary server once all read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
