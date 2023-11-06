@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 ---
 
 # Stream data from confluent cloud Kafka with Azure Stream Analytics
