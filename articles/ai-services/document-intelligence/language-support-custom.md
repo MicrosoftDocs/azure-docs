@@ -39,9 +39,63 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***custom classifier model***
 
+:::moniker range="doc-intel-3.1.0"
 | Language—Locale code | Default |
 |:----------------------|:---------|
 | English (United States)—en-US| English (United States)—en-US|
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
+|Language| Code (optional) |
+|:-----|:----:|
+|Afrikaans| `af`|
+|Albanian| `sq`|
+|Arabic|`ar`|
+|Bulgarian|`bg`|
+|Chinese (Han (Simplified variant))| `zh-Hans`|
+|Chinese (Han (Traditional variant))|`zh-Hant`|
+|Croatian|`hr`|
+|Czech|`cs`|
+|Danish|`da`|
+|Dutch|`nl`|
+|Estonian|`et`|
+|Finnish|`fi`|
+|French|`fr`|
+|German|`de`|
+|Hebrew|`he`|
+|Hindi|`hi`|
+|Hungarian|`hu`|
+|Indonesian|`id`|
+|Italian|`it`|
+|Japanese|`ja`|
+|Korean|`ko`|
+|Latvian|`lv`|
+|Lithuanian|`lt`|
+|Macedonian|`mk`|
+|Marathi|`mr`|
+|Modern Greek (1453-)|`el`|
+|Nepali (macrolanguage)|`ne`|
+|Norwegian|`no`|
+|Panjabi|`pa`|
+|Persian|`fa`|
+|Polish|`pl`|
+|Portuguese|`pt`|
+|Romanian|`rm`|
+|Russian|`ru`|
+|Slovak|`sk`|
+|Slovenian|`sl`|
+|Somali (Arabic)|`so`|
+|Somali (Latin)|`so-latn`|
+|Spanish|`es`|
+|Swahili (macrolanguage)|`sw`|
+|Swedish|`sv`|
+|Tamil|`ta`|
+|Thai|`th`|
+|Turkish|`tr`|
+|Ukrainian|`uk`|
+|Urdu|`ur`|
+|Vietnamese|`vi`|
+:::moniker-end
 
 ## [Custom neural](#tab/custom-neural)
 

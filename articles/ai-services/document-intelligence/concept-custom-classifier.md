@@ -25,6 +25,16 @@ monikerRange: '>=doc-intel-3.1.0'
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
 :::moniker-end
 
+::: moniker range=">=doc-intel-4.0.0"
+
+> [!IMPORTANT]
+>
+> * Starting with the `2023-10-31-preview` API, analyzing documents with the custom classification model won't split documents by default.
+> * You need to explicitly set the ``splitMode`` property to auto to preserve the behavior from previous releases. The default for `splitMode` is `none`.
+> * If your input file contains multiple documents, you need to enable splitting by setting the ``splitMode`` to ``auto``.
+
+::: moniker-end
+
 Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Model capabilities
@@ -97,7 +107,7 @@ Custom classification models require a minimum of five samples per class to trai
 
 Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
-When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
+When using the REST API, if you organize your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
 
 :::moniker range="doc-intel-4.0.0"
 
@@ -233,7 +243,7 @@ The response contains the identified documents with the associated page ranges i
 ```json
 {
   ...
-    
+
     "documents": [
       {
         "docType": "formA",
