@@ -71,7 +71,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
     > The first time you've launched the Cloud Shell, you'll be prompted to create a storage account for the Cloud Shell.
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png" alt-text="Screenshot of the cloud shell environment dropdown. "lightbox = "/media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png" alt-text="Screenshot of the cloud shell environment dropdown. "lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/PS_CLI1_1.png":::
 
 1. Copy the following bash commands to your computer and update the** projectName**,** subscriptionId**, and **environment variables** with the values for your project. If you're creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription.
      ``` bash
@@ -215,7 +215,7 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 - **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
 
 - **Comprehensive Reporting**: Generate detailed reports for each variant configuration, allowing you to make informed decisions. Provides detailed Metric collection, experiment and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png" alt-text="Screenshot of flow variants report." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png" alt-text="Screenshot of flow variants report." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/variants.png":::
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/metrics.png" alt-text="Screenshot of metrics report." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/metrics.png":::
 
 Other features for customization:
