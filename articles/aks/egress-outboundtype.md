@@ -15,7 +15,7 @@ ms.date: 06/06/2023
 You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS will provision a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article covers the various types of outbound connectivity that are available in AKS clusters.
-how 
+ 
 > [!NOTE]
 > You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
 
