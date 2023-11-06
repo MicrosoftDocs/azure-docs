@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Setup multiple FinOps dataset exports automatically - Preview
+title: Tutorial - Set up multiple FinOps dataset exports automatically - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: bandersmsft
 ms.author: banders
@@ -10,7 +10,7 @@ ms.subservice: cost-management
 ms.reviewer: jojoh
 ---
 
-# Tutorial: Setup multiple FinOps datasets exports automatically - Preview
+# Tutorial: Set up multiple FinOps datasets exports automatically - Preview
 
 This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format. The preview functionality is designed to streamline your FinOps practice by automating the export of cost-impacting datasets. The updated Exports feature optimizations help to handle large datasets. It includes an updated user interface with enhanced manageability. You can selectively rerun existing exports for enhanced security and compliance with firewall configurations.
 
