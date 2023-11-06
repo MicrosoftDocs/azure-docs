@@ -23,7 +23,7 @@ highlightedContent:
       itemType: concept
       url: ./capabilities.md
     # Card
-    - title: Limited Access
+    - title: Limited access
       itemType: get-started
       url: ./limited-access.md
     # Card
