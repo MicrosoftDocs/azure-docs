@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
@@ -33,7 +33,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 |Property name   |Description   |
 |----------|-----------|
 |mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission.   |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol does not support SCRAM. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None |The serialization format (JSON, CSV, Avro, Parquet) of the incoming data stream. |
 
