@@ -34,7 +34,7 @@ ms.custom: include file
 
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-3.png" alt-text="Screenshot of the welcome screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-3.png":::
- 9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Microsoft Entra Connect Cloud Sync** and click **Next**.
+ 9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Microsoft Entra Connect cloud sync** and click **Next**.
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-5.png" alt-text="Screenshot of the select extensions screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-5.png":::
 
  >[!NOTE]

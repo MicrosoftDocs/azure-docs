@@ -1,13 +1,15 @@
 ---
 title: Connect Windows Server machines to Azure through Azure Arc Setup
 description: In this article, you learn how to connect Windows Server machines to Azure Arc using the built-in Windows Server Azure Arc Setup wizard.
-ms.date: 10/10/2023
+ms.date: 10/12/2023
 ms.topic: conceptual
 ---
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
+Windows Server machines can be onboarded directly to [Azure Arc](https://azure.microsoft.com/products/azure-arc/) through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
+
+Onboarding to Azure Arc is not needed if the Windows Server machine is already running in Azure.
 
 > [!NOTE]
 > This feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
@@ -18,7 +20,7 @@ Windows Server machines can be onboarded directly to Azure Arc through a graphic
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Modern browser (Microsoft Edge) for authentication to Microsoft Azure. Configuration of the Azure Connected Machine agent requires authentication to your Azure account, either through interactive authentication on a modern browser or device code log-in on a separate device (if the machine doesn't have a modern browser).
+* Modern browser (Microsoft Edge) for authentication to Microsoft Azure. Configuration of the Azure Connected Machine agent requires authentication to your Azure account, either through interactive authentication on a modern browser or device code login on a separate device (if the machine doesn't have a modern browser).
 
 ## Launch Azure Arc Setup and connect to Azure Arc
 
@@ -41,10 +43,6 @@ The Azure Arc Setup wizard is launched from a system tray icon at the bottom of 
 1. Provide the resource details of how your machine will work within Azure Arc, such as the **Subscription** and **Resource group**, and then select **Next**.
 
     :::image type="content" source="media/onboard-windows-server/resource-details.png" alt-text="Screenshot of resource details window with fields.":::
-
-1. Select an option for enabling Azure Automanage on your machine, and then click **Next**.
-
-    Azure Automanage machine best practices help enhance reliability, security, and management for virtual machines. To learn more, see [Azure Automanage machine best practices](/azure/automanage/overview-about).
 
 1. Once the configuration completes and your machine is onboarded to Azure Arc, select **Finish**.
 
@@ -76,6 +74,12 @@ To uninstall Azure Arc Setup, follow these steps:
 1. On the Features page, uncheck the box for **Azure Arc Setup**.
 
 1. On the confirmation page, select **Restart the destination server automatically if required**, then select **Remove**.
+
+To uninstall Azure Arc Setup through PowerShell, run the following command:
+
+```powershell
+Disable-WindowsOptionalFeature -Online -FeatureName AzureArcSetup
+```
 
 > [!NOTE]
 > Uninstalling Azure Arc Setup does not uninstall the Azure Connected Machine agent from the machine. For instructions on uninstalling the agent, see [Managing and maintaining the Connected Machine agent](manage-agent.md).

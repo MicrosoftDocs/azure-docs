@@ -270,7 +270,7 @@ To authenticate with integrated authentication from Batch .NET:
 
 To authenticate with a service principal from Batch .NET:
 
-1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
+1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
 1. Declare the following `using` statements in your code:
 

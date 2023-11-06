@@ -44,12 +44,12 @@ Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azu
 | Virtual machine | Minimum memory requirement |
 |--|--|
 | Linux VMs when only encrypting data volumes| 2 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4GB or less | 8 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32GB of RAM |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4 GB or less | 8 GB |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4 GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32 GB of RAM |
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory.
 
-For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
+For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-linux.md#restrictions).
 
 ### Supported operating systems
 
@@ -90,8 +90,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 | 9.2 | RedHat:RHEL:9_2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 Gen 2 | 9.2 | RedHat:RHEL:92-gen2:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 | 9.1 | RedHat:RHEL:9_1:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 Gen 2 | 9.1 | RedHat:RHEL:91-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 | 9.0 | RedHat:RHEL:9_0:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 Gen 2 | 9.0 | RedHat:RHEL:90-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9-lvm | 9-lvm | RedHat:RHEL:9-lvm:latest | OS and data disk (see note below) |

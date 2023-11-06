@@ -13,9 +13,6 @@ ms.author: jianleishen
 
 # Copy activity in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-data-movement-activities.md)
-> * [Current version](copy-activity-overview.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

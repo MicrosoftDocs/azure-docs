@@ -4,7 +4,7 @@ description: Learn how to provide Dapr Publish output binding data using Azure F
 ms.topic: reference
 ms.date: 10/11/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -325,7 +325,7 @@ To use the Dapr publish output binding, start by setting up a Dapr pub/sub compo
 
 To use the `daprPublish` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](https://learn.microsoft.com/azure/azure-functions/create-first-function-cli-python?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
+1. [Create and activate a virtual environment](create-first-function-cli-python.md?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
 
 1. In your `requirements.text` file, add the following line:
 
@@ -356,4 +356,3 @@ The Python v1 model requires no additional changes, aside from setting up the ou
 ## Next steps
 
 [Learn more about Dapr publish and subscribe.](https://docs.dapr.io/developing-applications/building-blocks/pubsub/)
-

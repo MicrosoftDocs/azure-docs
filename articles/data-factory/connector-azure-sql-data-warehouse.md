@@ -13,11 +13,6 @@ ms.date: 04/20/2023
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> - [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> - [Current version](connector-azure-sql-data-warehouse.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse pipelines to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
@@ -728,7 +723,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ## Use PolyBase to load data into Azure Synapse Analytics
 
-Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
+Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. 
 
 - If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure Synapse Analytics pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.

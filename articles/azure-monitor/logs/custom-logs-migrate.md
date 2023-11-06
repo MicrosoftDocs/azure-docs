@@ -35,7 +35,7 @@ The migration procedure described in this article assumes you have:
 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
 
-- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the data you collect is ingested into the pipeline for processing.
 - [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
 ## Migrate existing custom tables or create new tables

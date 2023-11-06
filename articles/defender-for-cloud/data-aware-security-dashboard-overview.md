@@ -4,7 +4,7 @@ description: Learn about the capabilities and functions of the data-aware securi
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/06/2023
 ---
 
 # Data security dashboard
@@ -25,16 +25,41 @@ You can select any element on the page to get more detailed information.
 |---------|---------|
 |Release state: | Public Preview |
 | Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
-| Required roles and permissions: | No other roles needed on top of what is required for the security explorer. |
+| Required roles and permissions: | No other roles needed aside from what is required for the security explorer. <br><br> To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**. |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
-## Support and prerequisites
+## Prerequisites
 
-Sensitive data discovery is available in the Defender CSPM and Defender for storage plans.
+In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extension button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan for storage related alerts or Defender for Databases for database related alerts.
 
-When you enable one of the plans, the sensitive data discovery extension is turned on as part of the plan.
+:::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
 
 The feature is turned on at the subscription level.
+
+## Required permissions and roles
+
+- To view the dashboard, you must have either one of the following scenarios:
+
+  - **all of the following permissions**:
+
+    - Microsoft.Security/assessments/read
+    - Microsoft.Security/assessments/subassessments/read
+    - Microsoft.Security/alerts/read
+
+  - **the minimum required privileged RBAC role** of **Security Reader**.
+
+- Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
+
+    1. Sign-in to the Azure portal.
+    1. Select the affected subscription.
+    1. In the left-side menu, select the resource provider.
+
+        :::image type="content" source="media/data-aware-security-dashboard/select-resource-provider.png" alt-text="Screenshot that shows where to select the resource provider." lightbox="media/data-aware-security-dashboard/select-resource-provider.png":::
+
+    1. Search for and select the **Microsoft.Security** resource provider from the list.
+    1. Select **Register**.
+
+Learn more about [how to register for Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Data security overview section
 
@@ -74,7 +99,7 @@ You can select the **Manage data sensitivity settings** to get to the **Data sen
 
 ### Data resources security status
 
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days). 
+**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days).
 
 :::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
 
