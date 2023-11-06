@@ -25,7 +25,7 @@ sections:
       - question: |
           Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
         answer: |
-          Azure OpenAI is supported by the latest release of the OpenAI Python library (version>=1.0). However, is is important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
+          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it is important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
