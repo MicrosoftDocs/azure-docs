@@ -32,19 +32,19 @@ Azure Boost contains several features that can improve the performance and secur
 
 ## Networking
 The [Microsoft Azure Network Adapter (MANA)](../../articles/virtual-network/accelerated-networking-mana-overview.md) is installed in every Azure Boost compatible host. This network interface card (NIC) includes the latest hardware acceleration features and provides competitive performance with a consistent driver interface. This custom hardware and software implementation ensures optimal networking performance, tailored specifically for Azure's demands. MANA's features are designed to enhance your networking experience with: 
-- **Over 200-Gbps of network bandwidth**
+- **Over 200-Gbps of network bandwidth:**
 Custom hardware and software drivers facilitating faster and more efficient data transfers. 
 
-- **High network availability and stability** 
+- **High network availability and stability:** 
 With an active/active network connection to the Top of Rack (ToR) switch, Azure Boost ensures your network is always up and running at the highest possible performance.  
 
-- **Native support for DPDK**
+- **Native support for DPDK:**
 Learn more about Azure Boost's support for [Data Plane Development Kit (DPDK) on Linux VMs](../virtual-network/setup-dpdk-mana.md). 
 
-- **Consistent driver interface**
+- **Consistent driver interface:**
 Assuring a one-time transition that won't be disrupted during future hardware changes.
 
-- **Integration with future Azure features**
+- **Integration with future Azure features:**
 Consistent updates and performance enhancements ensures you're always a step ahead.
 
 ## Storage
@@ -61,31 +61,31 @@ By fully applying Azure Boost architecture, we deliver remote, local, and cached
 ## Security
 Azure Boost's security contains several components that work together to provide a secure environment for your virtual machines. Microsoft's in-house developed hardware and software systems provide a secure foundation for your cloud workloads. 
 
-- **Security chip**
+- **Security chip:**
 Boost employs the [Project Cerberus](../security/fundamentals/project-cerberus.md) chip as an independent HW Root of Trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system garners trust.
 
-- **Attestation**
+- **Attestation:**
 HW RoT identity, Secure Boot, and Attestation through Azure’s Attestation Service ensures that Boost and its powered hosts always operate in a healthy and trusted state. Any machine that can't be securely attested is prevented from hosting workloads and it's restored to a trusted state offline.
 
-- **Code integrity**
+- **Code integrity:**
 Boost systems embrace multiple layers of defense-in-depth, including ubiquitous code integrity verification that enforces only Microsoft approved and signed code runs on the Boost system on chip. Microsoft has sought to learn from and contribute back to the wider security community, up streaming advancements to the Integrity Measurement Architecture.
 
-- **Security Enhanced OS**
+- **Security Enhanced OS:**
 Azure Boost uses Security Enhanced Linux (SELinux) to enforce principle of least privileges for all software running on its system on chip. All control plane and data plane software running on top of the Boost OS is restricted to running only with the minimum set of privileges required to operate – the operating system restricts any attempt by Boost software to act in an unexpected manner. Boost OS properties make it difficult to compromise code, data, or the availability of Boost and Azure hosting Infrastructure.
 
-- **Rust memory safety**
+- **Rust memory safety:**
 RUST serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
 
-- **FIPS certification**
+- **FIPS certification:**
 Boost employs a FIPS 140 certified system kernel, providing reliable and robust security validation of cryptographic modules.
 
 ## Performance
 The hardware running virtual machines are a shared resource. The hypervisor (host system) must perform several tasks to ensure that each virtual machine is both isolated from other virtual machines and that each virtual machine receives the resources it needs to run. These tasks include networking between the physical and virtual networks, security, and storage management. Azure Boost reduces the overhead of these tasks by offloading them to dedicated hardware. This offloading frees up CPU resources for the guest virtual machines, resulting in improved performance.
 
-- **VMs using large sizes** 
+- **VMs using large sizes:** 
 Large sizes that encompass most of a host's resources benefit from Azure Boost. While a large VM size running on a Boost-enabled host might not directly see extra resources, workloads and applications that stress the host processes replaced by Azure Boost see a performance increase.
 
-- **Dedicated hosts**
+- **Dedicated hosts:**
 Performance improvements also have significant impact to Azure Dedicated Hosts (ADH) users. Azure Boost-enabled hosts can potentially run extra, small VMs or increase the size of existing VMs. This allows you to do more work on a single host, reducing your overall costs.
 
 
