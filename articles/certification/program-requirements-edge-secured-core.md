@@ -264,11 +264,11 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.|||
-|Requirements dependency||TPM v2.0 device|TPM v2.0 </br><sup>or *other supported method</sup>|
-|Validation Type|Manual/Tools|||
-|Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|||
-|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|||
+|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.|
+|Requirements dependency|TPM v2.0 </br><sup>or *other supported method</sup>|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|
+|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|
 
 ---
 </br>
@@ -310,7 +310,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Dependency||TPM 2.0|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
+|Dependency|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and applicable runtime measurements can be collected and remotely attested to the Microsoft Azure Attestation service.|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) </br> Certification portal test includes an attestation client that when combined with the TPM 2.0 can validate the Microsoft Azure Attestation service.|
@@ -500,9 +500,9 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.||
-|Validation Type|Prevalidated, no additional validation is required||
-|Validation|Provided by Microsoft||
+|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.|
+|Validation Type|Prevalidated, no additional validation is required|
+|Validation|Provided by Microsoft|
 
 ---
 </br>
