@@ -126,4 +126,4 @@ In this article, you learn how to:
 
 ## Next steps
 
-- [Learn more about Azure AI resources](../ai-services/ai-studio/concepts/ai-resources.md)
+- [Learn more about Azure AI resources](./multi-service-resource.md)

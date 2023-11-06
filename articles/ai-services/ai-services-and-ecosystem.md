@@ -12,7 +12,7 @@ ms.author: eur
 
 # Azure AI services and the AI ecosystem
 
-[Azure AI services](../../what-are-ai-services.md) provides capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
+[Azure AI services](what-are-ai-services.md) provides capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
 
 ## Azure Machine Learning
 

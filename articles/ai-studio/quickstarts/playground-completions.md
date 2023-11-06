@@ -22,7 +22,7 @@ Use this article to get started making your first calls to Azure OpenAI.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../../openai/how-to/create-resource.md).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
 
 
 ### Try text completions
@@ -70,13 +70,13 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 
 ## Playground options
 
-You've now successfully generated product name ideas using Azure OpenAI. You can experiment with the configuration settings such as temperature and preresponse text to improve the performance of your task. You can read more about each parameter in the [Azure OpenAI REST API documentation](../../openai/reference.md).
+You've now successfully generated product name ideas using Azure OpenAI. You can experiment with the configuration settings such as temperature and preresponse text to improve the performance of your task. You can read more about each parameter in the [Azure OpenAI REST API documentation](../../ai-services/openai/reference.md).
 
 - Selecting the **Generate** button sends the entered text to the completions API and stream the results back to the text box.
 - Select the **Undo** button to undo the prior generation call.
 - Select the **Regenerate** button to complete an undo and generation call together.
 
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses can be filtered if harmful content is detected. For more information, see the [content filter](../../openai/concepts/content-filter.md) article.
+Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses can be filtered if harmful content is detected. For more information, see the [content filter](../../ai-services/openai/concepts/content-filter.md) article.
 
 In the playground you can also view python, json, C#, and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 

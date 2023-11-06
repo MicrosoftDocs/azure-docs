@@ -179,7 +179,7 @@
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context
 - name: Resources
   items:
   - name: Support & help options
