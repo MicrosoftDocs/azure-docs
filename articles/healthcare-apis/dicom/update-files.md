@@ -37,14 +37,21 @@ POST {dicom-service-url}/{version}/partitions/{PartitionName}/studies/$bulkUpdat
 
 #### Request Body
 
+The request body contains the specification for studies to update.  Both the `studyInstanceUids` and `changeDataset` are required.
+
 ```json
 {
-    "studyInstanceUids": ["12.3.4.5"], 
-    "changeDataset": {
-        "00100010": {
-            "vr": "LO",
-            "Value": ["New patient name"]
-        }
+    "studyInstanceUids": ["1.113654.3.13.1026"],
+    "changeDataset": { 
+        "00100010": { 
+            "vr": "PN", 
+            "Value": 
+            [
+                { 
+                    "Alphabetic": "New Patient Name 1" 
+                }
+            ] 
+        } 
     }
 }
 ```
@@ -58,6 +65,27 @@ Content-Type: application/json
 {
     "id": "1323c079a1b64efcb8943ef7707b5438",
     "href": "../v1/operations/1323c079a1b64efcb8943ef7707b5438"
+}
+```
+
+If the operation fails to start successfully, the response will include information about the failure in the errors list, including UIDs of the failing instance(s).  
+
+```http
+{
+    "operationId": "1323c079a1b64efcb8943ef7707b5438",
+    "type": "update",
+    "createdTime": "2023-05-08T05:01:30.1441374Z",
+    "lastUpdatedTime": "2023-05-08T05:01:42.9067335Z",
+    "status": "failed",
+    "percentComplete": 100,
+    "results": {
+        "studyUpdated": 0,
+        "studyFailed": 1,
+        "instanceUpdated": 0,
+        "errors": [
+            "Failed to update instances for study 1.113654.3.13.1026"
+        ]
+    }
 }
 ```
 
