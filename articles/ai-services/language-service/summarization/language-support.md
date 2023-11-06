@@ -26,11 +26,13 @@ Use this article to learn which natural languages are supported by document and 
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
 | Italian               | `it`          |                     |
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
-| Spanish               | `es`          |                     |
+| Polish                | `pl`          |                     |
 | Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -40,7 +42,17 @@ Conversation summarization supports the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
 | English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Polish                | `pl`          |                     |
+| Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
 ---
 
