@@ -73,6 +73,8 @@ To learn more about secrets, see [Manage secrets for your Azure IoT Operations d
 | Partition expression | The [jq expression](../process-data/concept-jq-expression.md) to use on the incoming message to compute the partition `ID` or partition `Key` | Required | `0` | `.payload.header` |
 | Number of partitions| The number of partitions in a Data Processor pipeline. | Required | `1` | `1` |
 
+Data Processor adds additional metadata to the incoming message. See [Data Processor message structure overview](concept-message-structure.md) to understand how to correctly specify the partitioning expression that runs on the incoming message. By default, the partitioning expression is set to `0` with the **Partition type** as `ID` to send all the incoming data to a single partition.
+
 For recommendations and to learn more, see [What is partitioning?](../process-data/concept-partitioning.md).
 
 ## Related content
