@@ -27,7 +27,7 @@ Customers who are using the current **Log Analytics agent/Azure Monitor agent** 
     :::image type="content" source="media/defender-sql-autoprovisioning/action-required.png" alt-text="Screenshot that shows where the option to select action required is on the Defender plans page." lightbox="media/defender-sql-autoprovisioning/action-required.png":::
 
     > [!NOTE]
-    > If you do not see the action required button, under the Databases plan select **Settings** and then toggle the **Azure Monitoring Agent for SQL server on machines** option to **On**. Then select **Continue** **Save**.
+    > If you do not see the action required button, under the Databases plan select **Settings** and then toggle the **Azure Monitoring Agent for SQL server on machines** option to **On**. Then select **Continue** > **Save**.
 1. In the pop-up window, select **Enable**.
 
     :::image type="content" source="media/defender-sql-autoprovisioning/update-sql.png" alt-text="Screenshot that shows you where to select the Azure Monitor Agent on the screen." lightbox="media/defender-sql-autoprovisioning/update-sql.png":::
