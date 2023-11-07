@@ -11,13 +11,13 @@
 
 To connect your cluster to Azure Arc:
 
-1. Sign in with Azure CLI. To avoid permission issues later, it's important that the sign in happens interactively by using a browser window:
+1. Sign in with Azure CLI.
 
    ```bash
    az login
    ```
 
-1. Set environment variables for the rest of the setup. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created in your Azure subscription based on the names you provide:
+1. Set environment variables for the rest of the setup. Replace values in `<>` with valid values or names of your choice. A new cluster and resource group are created in your Azure subscription based on the names you provide:
 
    ```bash
    # Id of the subscription where your resource group and Arc-enabled cluster will be created
@@ -61,7 +61,7 @@ To connect your cluster to Azure Arc:
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses. 
+1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.
 
    ```bash
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
