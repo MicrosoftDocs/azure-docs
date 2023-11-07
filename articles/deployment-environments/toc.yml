@@ -62,8 +62,8 @@ items:
       items:         
       - name: Request a quota limit increase
         href: how-to-request-quota-increase.md  
-    - name: how-to-create-environment-with-azure-developer.md
-      href: Create an environment with AZD
+    - name: Create an environment with AZD
+      href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
     - name: Authenticate to REST APIs
