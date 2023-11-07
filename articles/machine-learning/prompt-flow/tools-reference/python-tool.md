@@ -1,10 +1,10 @@
 ---
 title: Python tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in Prompt flow.
+description: The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in prompt flow.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom: devx-track-python
 ms.topic: reference
 author: likebupt
@@ -15,7 +15,7 @@ ms.date: 11/02/2023
 
 # Python tool
 
-The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in Prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
+The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
 
 ## Inputs
 
