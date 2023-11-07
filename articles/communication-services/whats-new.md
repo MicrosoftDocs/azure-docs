@@ -21,7 +21,7 @@ We created this page to keep you updated on new features, blog posts, and other 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Managed identities in public preview
-:::image type="content" source="./media/whats-new-images/10-23/managed-id.png" alt-text="A graphic showing Azure logos for security and the Azure Communication Services logo":::
+:::image type="content" source="./media/whats-new-images/10-23/managed-id.png" alt-text="A graphic showing Azure logos for security and the Azure Communication Services logo.":::
 
 We're thrilled to announce the support for Azure Managed Identities for Azure Communication Services in public preview This is an Azure Enterprise Promise that enhances security for customers, and simplifies workflows to manage identities in their ACS resources.
 
