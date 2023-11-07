@@ -24,12 +24,26 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 > 
 > See the [**Enable Continuous Availability**](azure-netapp-files-create-volumes-smb.md#continuous-availability) option for additional details and considerations. 
 
->[!IMPORTANT]
-> You should enable Continuous Availability for [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html), SQL Server, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and FSLogix ODFC containers. Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, FSLogix user profile containers, or FSLogix ODFC containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported.   
-> If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
+You should enable Continuous Availability for for the following workloads/use cases only:
 
->[!IMPORTANT]
-> Change notifications are not supported with Continuously Available shares in Azure NetApp Files.
+* [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html)
+* [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), including [FSLogix ODFC containers](/fslogix/concepts-container-types#odfc-container)
+* [MSIX app attach with Azure Virtual Desktop](../virtual-desktop/create-netapp-files.md) with [Azure Virtual Desktop](../virtual-desktop/overview.md)
+    * When using MSIX applications with the `CIM FS` file format:
+        * The number of AVD session hosts should not exceed 500.
+        * The number of MSIX applications should not exceed 40.
+    * When using MSIX applications with the `VHDX` file format:
+        * The number of AVD session hosts should not exceed 500.
+        * The number of MSIX applications should not exceed 60.
+    * When using a combination of MSIX applications with both the `VHDX` and `CIM FS` file formats:
+        * The number of AVD session hosts should not exceed 500.
+        * The number of MSIX applications using the `CIM FS` file format should not exceed 24.
+        * The number of MSIX applications using the `VHDX` file format should not exceed 24.
+* SQL Server
+    * Continuous Availability is currently supported on Windows SQL Server.
+    * Linux SQL Server is not currently supported.
+
+[!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
  
 ## Steps
        
