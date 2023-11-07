@@ -14,11 +14,11 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview is a digital operations suite of services that includes Azure IoT Orchestrator. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you'll have a cluster that you can manage from the cloud that's generating sample telemetry data to use in the following quickstarts.
+In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview is a digital operations suite of services that includes Azure IoT Orchestrator. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that's generating sample data to use in the following quickstarts.
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator](../deploy/overview-orchestrator.md)
+* [Azure IoT Orchestrator](../deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
@@ -29,17 +29,21 @@ The services deployed in this quickstart include:
 
 ## Prerequisites
 
+Review the prerequisites based on the environment you use to host the Kubernetes cluster for this quickstart.
+
+For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Linux devices, use K3s. Or, if you don't want to install new tools, you can use GitHub Codespaces as a virtual environment that runs in the browser or in Visual Studio Code desktop.
+
 # [Windows](#tab/windows)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 
-* Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for additional prerequisites, specifically the system and OS requirements.
+* Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements.
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version.
+  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
 * The Azure IoT Operations extension for Azure CLI.
 
@@ -55,7 +59,7 @@ The services deployed in this quickstart include:
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version.
+  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
 * The Azure IoT Operations extension for Azure CLI.
 
@@ -64,8 +68,6 @@ The services deployed in this quickstart include:
   ```
 
 # [Virtual](#tab/codespaces)
-
-For this quickstart you can use GitHub Codespaces as an easy way to get started without installing new tools on your machine.
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -77,7 +79,12 @@ For this quickstart you can use GitHub Codespaces as an easy way to get started 
   
 ## What problem will we solve?
 
-Azure IoT Operations is a suite of data services that run on Arc-enabled Kubernetes clusters, and those services need to be managed remotely. Orchestrator is the service that helps you define, deploy, and manage these application workloads.
+Azure IoT Operations is a suite of data services that run on Kubernetes clusters. You want these clusters to be managed remotely from the cloud, and able to securely communicate with cloud resources and endpoints. We address these concerns with the following tasks in this quickstart:
+
+1. Connect a Kubernetes cluster to Azure Arc for remote management.
+1. Create an Azure Key Vault to manage secrets for your cluster.
+1. Configure your cluster with a secrets store and service principal to communicate with cloud resources.
+1. Deploy Azure IoT Operations to your cluster.
 
 ## Connect a Kubernetes cluster to Azure Arc
 
@@ -98,17 +105,29 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
 This script automates the following steps:
 
-* Downloads the GitHub archive of Azure/AKS-Edge into the working folder and unzips to a folder AKS-Edge-main (or AKS-Edge-\<tag>). By default, the script downloads the **main** branch.
-* Validates that the correct az cli version is installed and ensures that az cli is logged into Azure.
-* Downloads and installs the AKS Edge Essentials MSI.
-* Installs required host OS features (Install-AksEdgeHostFeatures). The machine might reboot when Hyper-V is enabled, and you must restart the script again.
-* Deploys a single machine cluster with internal switch (Linux node only).
-* Creates the Azure resource group in your Azure subscription to store all the resources.
-* Connects the cluster to Azure Arc and registers the required Azure resource providers.
-* Applies all the required configurations for Azure IoT Operations, including:
-  * Enables a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations MQ broker.
-  * Installs Storage local-path provisioner.
-  * Enables node level metrics to be picked up by Azure Managed Prometheus.
+* Download the GitHub archive of Azure/AKS-Edge into the working folder and unzip it to a folder AKS-Edge-main (or AKS-Edge-\<tag>). By default, the script downloads the **main** branch.
+
+* Validate that the correct az cli version is installed and ensure that az cli is logged into Azure.
+
+* Download and install the AKS Edge Essentials MSI.
+
+* Install required host OS features (Install-AksEdgeHostFeatures).
+
+  Your machine might reboot when Hyper-V is enabled. If so, run the script again.
+
+* Deploy a single machine cluster with internal switch (Linux node only).
+
+* Create the Azure resource group in your Azure subscription to store all the resources.
+
+* Connect the cluster to Azure Arc and registers the required Azure resource providers.
+
+* Apply all the required configurations for Azure IoT Operations, including:
+
+  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations MQ broker.
+
+  * Install Storage local-path provisioner.
+
+  * Enable node level metrics to be picked up by Azure Managed Prometheus.
 
 In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. This script brings up a K3s cluster. Replace the placeholder parameters with your own information.
 
@@ -129,8 +148,6 @@ When the script is completed, it brings up an Arc-enabled K3s cluster on your ma
 # [Linux](#tab/linux)
 
 On Ubuntu Linux, use K3s to create a Kubernetes cluster.
-
-To prepare a Kubernetes cluster on Ubuntu:
 
 1. Run the K3s installation script:
 
@@ -179,11 +196,9 @@ To prepare a Kubernetes cluster on Ubuntu:
 
 ## Configure cluster and deploy Azure IoT Operations
 
-Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you.
+Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
 
-Once your cluster is configured, then you can deploy Azure IoT Operations.
-
-Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+Use the Azure portal to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
 ### Create a key vault
 
