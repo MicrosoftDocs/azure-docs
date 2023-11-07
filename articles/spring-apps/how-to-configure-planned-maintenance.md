@@ -1,6 +1,6 @@
 ---
-title: How to configure Planned Maintenance
-description: Describes how to configure planned maintenance for Azure Spring Apps
+title: How to Configure Planned Maintenance
+description: Describes how to configure planned maintenance for Azure Spring Apps.
 author: KarlErickson
 ms.author: haochuang
 ms.service: spring-apps
@@ -9,18 +9,18 @@ ms.date: 10/24/2023
 ms.custom: 
 ---
 
-# How to configure Planned Maintenance
+# How to configure planned maintenance
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-This article describes how to configure Planned Maintenance in Azure Spring Apps. 
+This article describes how to configure planned maintenance in Azure Spring Apps. 
 
 Routine maintenance is necessary to keep the Azure Spring Apps platform up-to-date and secure. The maintenance, also called auto patching, includes security updates, bug fixes, new features, or performance improvements. Auto patching can be performed on components managed by Azure Spring Apps to support your Java applications, including JDK, APM, base OS image, managed middleware, and runtime infrastructure. For the maintenance to take effect, your applications restart within the maintenance window you specify, but the service quality and uptime guarantees continue to apply during this time. 
 
-## Maintenance of Azure Spring Apps
+## Configure maintenance for Azure Spring Apps
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -28,11 +28,11 @@ Use the following steps to configure planned maintenance in Azure Spring Apps:
 
 1. Go to the service **Overview** page and select **Planned Maintenance**.
 
-    :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-section.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps sidebar with Planned Maintenance highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-section.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps sidebar with Planned Maintenance highlighted.":::
 
-1. Select **Choose your preferred time** checkbox to specify detailed configuration for maintenance window.
+1. Select **Choose your preferred time** to specify detailed configuration for the maintenance window.
 
-    :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-checkbox.png" alt-text="Screenshot of Azure portal that shows the Choose your preferred time checkbox highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-checkbox.png" alt-text="Screenshot of the Azure portal that shows the Planned maintenance page with the Choose your preferred time checkbox highlighted.":::
 
 1. Select the day of the week you want to schedule the maintenance job.
 
