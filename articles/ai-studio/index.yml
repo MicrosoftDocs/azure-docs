@@ -40,8 +40,14 @@ landingContent:
         links:
           - text: Generate product name ideas
             url: quickstarts/playground-completions.md
+          - text: Analyze images and video with GPT-4 for Vision
+            url: quickstarts/multimodal-vision.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy a web app for chat on your data
+            url: tutorials/deploy-chat-web-app.md
 
   # Card
   - title: Develop apps

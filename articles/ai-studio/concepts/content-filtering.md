@@ -23,13 +23,13 @@ This system is powered by Azure AI Content Safety, and now works by running both
 
 The content filtering models have been trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality can vary. In all cases, you should do your own testing to ensure that it works for your application.
 
-Users now could create a content filter or use the default content filter for Azure OpenAI model deployment, and could also use a default content filter for other text models curated by Azure Machine Learning in the model catalog. The custom content filter for those models aren't yet available. Models available through Models as a Service will have content filtering enabled by default and can't be configured.
+Users now could create a content filter or use the default content filter for Azure OpenAI model deployment, and could also use a default content filter for other text models curated by Azure Machine Learning in the model catalog. The custom content filter for those models aren't yet available. Models available through Models as a Service will have content filtering enabled by default and can't be configured. Models available through Models as a Service will have content filtering enabled by default and cannot be configured.
 
 The following sections provide information about the content filtering categories, the filtering severity levels and their configurability, and API scenarios to be considered in application design and implementation. 
 
 ## Content filtering categories
 
-The content filtering system integrated in the Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
+The content filtering system integrated in Azure AI Studio contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 
 ### Categories
 

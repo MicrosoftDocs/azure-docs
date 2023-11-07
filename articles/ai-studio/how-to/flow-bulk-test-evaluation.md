@@ -25,12 +25,6 @@ In this article you'll learn to:
 - Understand the Built-in Evaluation Metrics
 - Ways to Improve Flow Performance
 
-You can quickly start testing and evaluating your flow by following this video tutorial [submit batch run and evaluate a flow video tutorial](https://www.youtube.com/watch?v=5Khu_zmYMZk).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 To run a batch run and use an evaluation method, you need to have the following ready:
@@ -42,7 +36,7 @@ To run a batch run and use an evaluation method, you need to have the following 
 
 A batch run allows you to run your flow with a large dataset and generate outputs for each data row. You can also choose an evaluation method to compare the output of your flow with certain criteria and goals. An evaluation method  **is a special type of flow**  that calculates metrics for your flow output based on different aspects. An evaluation run will be executed to calculate the metrics when submitted with the batch run.
 
-To start a batch run with evaluation, you can select on the **"Evaluate"** button on the top right corner of your flow page.
+To start a batch run with evaluation, you can select **Evaluate** > **Custom evaluation** or **Evaluate** > **Built-in evaluation** on the top right corner of your flow page.
 
 To submit batch run, you can select a dataset to test your flow with. You can also select an evaluation method to calculate metrics for your flow output. If you don't want to use an evaluation method, you can skip this step and run the batch run without calculating any metrics. You can also start a new round of evaluation later.
 
@@ -75,7 +69,7 @@ If an evaluation method uses Large Language Models (LLMs) to measure the perform
 > [!NOTE]
 > Some evaluation methods require GPT-4 or GPT-3 to run. You must provide valid connections for these evaluation methods before using them.
 
-After you finish the input mapping, select on  **"Next"**  to review your settings and select on  **"Submit"**  to start the batch run with evaluation.
+After you finish the input mapping, select  **"Next"**  to review your settings and select  **"Submit"**  to start the batch run with evaluation.
 
 ## View the evaluation result and metrics
 
@@ -120,7 +114,7 @@ In some scenarios, you'll modify your flow to improve its performance. You can s
 To check the batch run history of your flow, you can select the **"View batch run"** button on the top right corner of your flow page. You'll see a list of batch runs that you have submitted for this flow.
 
 
-You can select on each batch run to check the detail. You can also select multiple batch runs and select on the **"Visualize outputs"** to compare the metrics and the outputs of these batch runs.
+You can select each batch run to check the detail. You can also select multiple batch runs and select the **"Visualize outputs"** to compare the metrics and the outputs of these batch runs.
 
 
 In the "Visualize output" panel the **Runs & metrics** table shows the information of the selected runs with highlight. Other runs that take the outputs of the selected runs as input are also listed.

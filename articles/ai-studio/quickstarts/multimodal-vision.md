@@ -1,7 +1,7 @@
 ---
-title: Get started using GPT-4V on your images and video with the Azure AI Studio 
+title: Get started using GPT-4 for Vision on your images and video with the Azure AI Studio 
 titleSuffix: Azure AI services
-description: Get started using GPT-4V on your images and video with the Azure AI Studio 
+description: Get started using GPT-4 for Vision on your images and video with the Azure AI Studio 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -10,19 +10,19 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# Quickstart: Get started using GPT-4V on your images and video with the Azure AI Studio 
+# Quickstart: Get started using GPT-4 for Vision on your images and video with the Azure AI Studio 
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 Use this article to get started using Azure AI Studio to deploy and test the GPT-4(V)ision model. 
 
-GPT-4V and Azure AI Vision offer advanced functionality including:
+GPT-4 for Vision and Azure AI Vision offer advanced functionality including:
 
 - Optical character recognition (OCR): Extracts text from images and combines it with the user's prompt and image to expand the context. 
-- Object visualization: Complements the GPT-4V text response with object grounding and outlines salient objects in the input images.
-- Video chat: GPT-4V can answer questions by retrieving the video frames most relevant to the user's prompt.
+- Object visualization: Complements the GPT-4 for Vision text response with object grounding and outlines salient objects in the input images.
+- Video chat: GPT-4 for Vision can answer questions by retrieving the video frames most relevant to the user's prompt.
 
-Additional usage fees might apply for using GPT-4V with Azure AI Vision functionality.
+Additional usage fees might apply for using GPT-4 for Vision with Azure AI Vision functionality.
 
 ## Prerequisites
 
@@ -32,8 +32,8 @@ Additional usage fees might apply for using GPT-4V with Azure AI Vision function
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 You need:
-- An Azure OpenAI resource with the GPT-4V models deployed in one of the regions that support GPT-4V: Australia East, Switzerland North, Sweden Central, West US, and East US.
-- For enhanced image and video chat, you also need an Azure AI Vision resource in one of the regions that support GPT-4V: Australia East, Switzerland North, Sweden Central, West US, and East US.
+- An Azure OpenAI resource with the GPT-4 for Vision models deployed in one of the regions that support GPT-4 for Vision: Australia East, Switzerland North, Sweden Central, West US, and East US.
+- For enhanced image and video chat, you also need an Azure AI Vision resource in one of the regions that support GPT-4 for Vision: Australia East, Switzerland North, Sweden Central, West US, and East US.
 
 ## Start a chat session to analyze images or video
 
@@ -49,7 +49,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 for Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
     :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
 
@@ -89,7 +89,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
     > [!NOTE]
     > You might need to select **Vision** enhancement button again to apply the changes.
 
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 for Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
     :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload image button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
 
@@ -127,7 +127,7 @@ In this chat session, you will be instructing the assistant to aid in understand
     > [!NOTE]
     > You might need to select **Vision** enhancement button again to apply the changes.
 
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 for Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
     :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-video-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/playground/chat-multi-modal-video-select.png":::
 
@@ -173,7 +173,7 @@ At any point in the chat session, you can select the **Show raw JSON** option to
 ]
 ```
 
-This has been a walkthrough of GPT-4V in the Azure AI Studio chat playground experience.  
+This has been a walkthrough of GPT-4 for Vision in the Azure AI Studio chat playground experience.  
 
 ## Clean up resources
 
