@@ -68,7 +68,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. In Microsoft Fabric workspace, use **Manage access**, then select **+ Add people or groups**.
 
-1. Search for the IoT MQ Arc extension by its name, and make sure to select the app ID GUID value that you found in the previous step.
+1. Search for the IoT MQ Arc extension by its name "mq", and make sure to select the app ID GUID value that you found in the previous step.
 
 1. Select **Contributor** as the role, then select **Add**.
 
@@ -82,31 +82,38 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
     apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: DataLakeConnector
     metadata:
-        name: my-datalake-connector
-        namespace: <SAME NAMESPACE AS BROKER> # For example "default"
+      name: my-datalake-connector
+      namespace: azure-iot-operations
     spec:
-        protocol: v5
-        image:
+      protocol: v5
+      image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
         tag: 0.1.0-preview
         pullPolicy: IfNotPresent
-        instances: 2
-        logLevel: info
-        databaseFormat: delta
-        target:
+      instances: 2
+      logLevel: info
+      databaseFormat: delta
+      target:
         fabricOneLake:
-            endpoint: https://onelake.dfs.fabric.microsoft.com
-            names:
+          endpoint: https://onelake.dfs.fabric.microsoft.com
+          names:
             workspaceName: <example-workspace-name>
             lakehouseName: <example-lakehouse-name>
-            ## OR
-            # guids:
-            #   workspaceGuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-            #   lakehouseGuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-            fabricPath: tables
-            authentication:
+          ## OR
+          # guids:
+          #   workspaceGuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+          #   lakehouseGuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+          fabricPath: tables
+          authentication:
             systemAssignedManagedIdentity:
-                audience: https://storage.azure.com/
+              audience: https://storage.azure.com/
+      localBrokerConnection:
+        endpoint: aio-mq-dmqtt-frontend:8883
+        tls:
+          tlsEnabled: true
+          trustedCaCertificateConfigMap: aio-ca-trust-bundle-test-only
+        authentication:
+          kubernetes: {}
     ```
 
 1. Create a [DataLakeConnectorTopicMap](#datalakeconnectortopicmap) resource that defines the mapping between the MQTT topic and the Delta table in the Data Lake Storage. You can use the YAML provided as an example, but make sure to change the following fields:
@@ -159,22 +166,29 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
     apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: DataLakeConnector
     metadata:
-        name: my-datalake-connector
-        namespace: <SAME NAMESPACE AS BROKER> # For example "default"
+      name: my-datalake-connector
+      namespace: azure-iot-operations
     spec:
-        protocol: v5
-        image:
+      protocol: v5
+      image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
         tag: 0.1.0-preview
         pullPolicy: IfNotPresent
-        instances: 2
-        logLevel: "debug"
-        databaseFormat: "delta"
-        target:
+      instances: 2
+      logLevel: "debug"
+      databaseFormat: "delta"
+      target:
         datalakeStorage:
-            endpoint: "https://example.blob.core.windows.net"
-            authentication:
+          endpoint: "https://example.blob.core.windows.net"
+          authentication:
             accessTokenSecretName: "my-sas"
+      localBrokerConnection:
+        endpoint: aio-mq-dmqtt-frontend:8883
+        tls:
+          tlsEnabled: true
+          trustedCaCertificateConfigMap: aio-ca-trust-bundle-test-only
+        authentication:
+          kubernetes: {}
     ```
 
 1. Create a [DataLakeConnectorTopicMap](#datalakeconnectortopicmap) resource that defines the mapping between the MQTT topic and the Delta table in the Data Lake Storage. You can use the YAML provided as an example, but make sure to change the following fields:
@@ -267,7 +281,7 @@ apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: DataLakeConnectorTopicMap
 metadata:
   name: datalake-topicmap
-  namespace: <SAME NAMESPACE AS BROKER> # For example "default"
+  namespace: azure-iot-operations
 spec:
   dataLakeConnectorRef: "my-datalake-connector"
   mapping:

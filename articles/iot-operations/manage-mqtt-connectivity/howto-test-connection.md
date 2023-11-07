@@ -102,7 +102,7 @@ spec:
 1. To use *mqttui*, the command is similar:
 
     ```console
-    $ mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mqtt-client-token) --insecure
+    $ mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
     ```
 
     With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
