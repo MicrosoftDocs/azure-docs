@@ -86,15 +86,20 @@ spec:
   serviceAccountName: mqtt-client
 
   volumes: 
+    # SAT token used to authenticate between the application and the MQTT broker
     - name: mqtt-client-token
       projected:
         sources:
-        - serviceAccountToken:
-          path: mqtt-client-token
-          audience: aio-mq-dmqtt
-          expirationSeconds: 86400
+          - serviceAccountToken:
+              path: mqtt-client-token
+              audience: aio-mq-dmqtt
+              expirationSeconds: 86400
+    
+    # Certificate chain for the application to validate the MQTT broker    
+    - name: aio-mq-ca-cert-chain
+      configMap:
+        name: aio-mq-ca-cert-chain
 
-  # SAT token used to authenticate between Dapr and the MQTT broker
   containers:
     - name: mqtt-client-dotnet
       image: ghcr.io/azure-samples/explore-iot-operations/mqtt-client-dotnet:latest
@@ -102,6 +107,15 @@ spec:
       volumeMounts:
         - name: mqtt-client-token
           mountPath: /var/run/secrets/tokens
+        - name: aio-mq-ca-cert-chain
+          mountPath: /certs/aio-mq-ca-cert/      
+      env:
+        - name: IOT_MQ_HOST_NAME
+          value: "aio-mq-dmqtt-frontend"
+        - name: IOT_MQ_PORT
+          value: "8883"
+        - name: IOT_MQ_TLS_ENABLED
+          value: "true"
 ```
 
 The token is mounted into the container at the path specified in `containers[].volumeMount.mountPath`
