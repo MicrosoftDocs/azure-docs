@@ -90,7 +90,7 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 
 ## Explore and investigate security alerts
 
-      There are several ways to view Microsoft Defender for SQL alerts in Microsoft Defender for Cloud:
+There are several ways to view Microsoft Defender for SQL alerts in Microsoft Defender for Cloud:
 
 - The Alerts page.
 
