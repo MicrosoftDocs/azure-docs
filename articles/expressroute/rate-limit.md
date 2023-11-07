@@ -88,11 +88,11 @@ To disable rate limiting for an existing ExpressRoute Direct circuit, follow the
 
 * How does rate limiting affect my circuit performance?
 
-    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth gets set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, it isn't a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
+    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth is set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, it isn't a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
 
 * How can I check the rate limiting status of my ExpressRoute Direct port circuits?
 
-    In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct link-pair, you would see all the circuits configured over the ExpressRoute Direct link-pair along with the rate limiting status. See the following screenshot:
+    In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct port, you would see all the circuits configured over the ExpressRoute Direct port along with the rate limiting status. See the following screenshot:
 
     :::image type="content" source="./media/rate-limit/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
 
