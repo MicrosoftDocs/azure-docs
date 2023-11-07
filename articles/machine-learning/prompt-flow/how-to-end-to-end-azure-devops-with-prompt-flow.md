@@ -159,6 +159,7 @@ The Azure DevOps setup is successfully finished.
    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/import-repo-first-time.png" alt-text="Screenshot of Azure DevOps import repo first time." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/import-repo-first-time.png":::
 
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Select import at the bottom of the page
+
    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/import-repo-git-template.png" alt-text="Screenshot of Azure DevOps import MLOps demo repo." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/import-repo-git-template.png":::
 
 1. Open the **Project settings** at the bottom of the left hand navigation pane
