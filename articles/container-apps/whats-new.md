@@ -14,10 +14,6 @@ ms.date: 08/30/2023
 
 This article lists significant updates and new features available in Azure Container Apps.
 
-### November 2023
-
-
-
 ### September 2023 
 
 | Feature | Description |
@@ -61,7 +57,7 @@ This article lists significant updates and new features available in Azure Conta
 | [GA: TCP support](https://learn.microsoft.com/azure/container-apps/ingress-overview#tcp) | Azure Container Apps now supports using TCP-based protocols other than HTTP or HTTPS for ingress. | 
 | [GA: Github Actions for Azure Container Apps](https://learn.microsoft.com/azure/container-apps/github-actions) | Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. |
 | [GA: Azure Pipelines for Azure Container Apps](https://learn.microsoft.com/azure/container-apps/azure-pipelines) | Azure Container Apps allows you to use Azure Pipelines to publish revisions to your container app. |
-| [Dapr: Easy component creation](./dapr-component-connection.md) | [Connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md) | This feature makes it easier to configure and secure dependent Azure services to be used with Dapr APIs in the portal using the Service Connector feature. Learn how to [connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md). |
+| [Dapr: Easy component creation](./dapr-component-connection.md) | This feature makes it easier to configure and secure dependent Azure services to be used with Dapr APIs in the portal using the Service Connector feature. Learn how to [connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md). |
 
 
 ## Next steps
