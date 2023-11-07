@@ -14,7 +14,7 @@ keywords:
 
 # Use GPT-4 with Vision
 
-The model GPT-4 with Vision answers general questions about what's present in the images you show it. 
+The model GPT-4 with Vision answers general questions about what's present in the images or video you show it. 
 
 While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the location of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what is in your fridge, but if you show it an image of a room and ask it where the chair is, it may not answer correctly.
 
@@ -68,7 +68,7 @@ By controlling the _detail_ parameter, which has two options, `low` or `high`, y
 
 ## Managing images
 
-The Chat Completions API, unlike the Assistants API, is not stateful. That means you have to manage the messages (including images) you pass to the model yourself. If you want to pass the same image to the model multiple times, you have to pass the image each time you make a request to the API.
+The Chat Completions API, unlike the Assistants API, is not stateful. That means you have to manage the messages (including images or video) you pass to the model yourself. If you want to pass the same image to the model multiple times, you have to pass the image each time you make a request to the API.
 
 You can improve the latency of the model by downsizing your images ahead of time to be smaller than the maximum allowed size. For low res mode, the service expects a 512x512 pixel image. For high res mode, the short side of the image should be less than 768 px and the long side should be less than 2,000 px.
 
