@@ -1,10 +1,10 @@
 ---
-title: More tools in Prompt flow
+title: More tools in prompt flow
 titleSuffix: Azure Machine Learning
-description: More tools in Prompt flow are displayed in the table, along with instructions for custom tool package creation and tool package usage.
+description: More tools in prompt flow are displayed in the table, along with instructions for custom tool package creation and tool package usage.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: ChenJieting
 ms.author: chenjieting
@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 11/02/2023
 ---
 
-# More tools in Prompt flow
+# More tools in prompt flow
 This table provides an index of more tools. If existing tools can't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
 
 | Tool name | Description | Environment | Package Name |
