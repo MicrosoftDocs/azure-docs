@@ -2,7 +2,7 @@
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ---
 
 # Data security dashboard
@@ -28,41 +28,16 @@ You can select any element on the page to get more detailed information.
 
 ## Prerequisites
 
-- You must enable Defender CSPM or Defender for Storage
-- You must enable the sensitive data discovery extension.  
+- You must enable Defender CSPM
+- From within the Defender CSPM settings, you must enable the sensitive data discovery extension.  
 
 :::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
 
-- To receive the alerts for data sensitivity, you must:
-    - Enable the Defender for Storage plan for storage related alerts 
-    - Enable theDefender for Databases for database related alerts.
+- To receive the alerts for data sensitivity for storage related alerts, you must enable the Defender for Storage plan.
+- To receive the alerts for data sensitivity for database related alerts, you must enable the Defender for Databases plan.
 
-The feature is turned on at the subscription level.
-
-## Required permissions and roles
-
-- To view the dashboard, you must have either one of the following scenarios:
-
-  - **all of the following permissions**:
-
-    - Microsoft.Security/assessments/read
-    - Microsoft.Security/assessments/subassessments/read
-    - Microsoft.Security/alerts/read
-
-  - **the minimum required privileged RBAC role** of **Security Reader**.
-
-- Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
-
-    1. Sign-in to the Azure portal.
-    1. Select the affected subscription.
-    1. In the left-side menu, select the resource provider.
-
-        :::image type="content" source="media/data-aware-security-dashboard/select-resource-provider.png" alt-text="Screenshot that shows where to select the resource provider." lightbox="media/data-aware-security-dashboard/select-resource-provider.png":::
-
-    1. Search for and select the **Microsoft.Security** resource provider from the list.
-    1. Select **Register**.
-
-Learn more about [how to register for Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+> [!NOTE]
+> The feature is turned on at the subscription level.
 
 ## Data security overview section
 
