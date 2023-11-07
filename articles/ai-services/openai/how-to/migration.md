@@ -28,7 +28,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`.
+- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`. For those who cannot wait for native support for DALL-E and Azure OpenAI we are providing [two code examples](#dall-e-fix) which can be used as a workaround.
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
 - You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/703) for the OpenAI Python library.
 
@@ -252,6 +252,171 @@ completion = client.chat.completions.create(
 print(completion.model_dump_json(indent=2))
 ```
 
+## DALL-E fix
+
+# [DALLE-Fix](#tab/dalle-fix)
+
+```python
+import time
+import json
+import httpx
+import openai
+
+
+class CustomHTTPTransport(httpx.HTTPTransport):
+    def handle_request(
+        self,
+        request: httpx.Request,
+    ) -> httpx.Response:
+        if "images/generations" in request.url.path and request.url.params[
+            "api-version"
+        ] in [
+            "2023-06-01-preview",
+            "2023-07-01-preview",
+            "2023-08-01-preview",
+            "2023-09-01-preview",
+            "2023-10-01-preview",
+        ]:
+            request.url = request.url.copy_with(path="/openai/images/generations:submit")
+            response = super().handle_request(request)
+            operation_location_url = response.headers["operation-location"]
+            request.url = httpx.URL(operation_location_url)
+            request.method = "GET"
+            response = super().handle_request(request)
+            response.read()
+
+            timeout_secs: int = 120
+            start_time = time.time()
+            while response.json()["status"] not in ["succeeded", "failed"]:
+                if time.time() - start_time > timeout_secs:
+                    timeout = {"error": {"code": "Timeout", "message": "Operation polling timed out."}}
+                    return httpx.Response(
+                        status_code=400,
+                        headers=response.headers,
+                        content=json.dumps(timeout).encode("utf-8"),
+                        request=request,
+                    )
+
+                time.sleep(int(response.headers.get("retry-after")) or 10)
+                response = super().handle_request(request)
+                response.read()
+
+            if response.json()["status"] == "failed":
+                error_data = response.json()
+                return httpx.Response(
+                    status_code=400,
+                    headers=response.headers,
+                    content=json.dumps(error_data).encode("utf-8"),
+                    request=request,
+                )
+
+            result = response.json()["result"]
+            return httpx.Response(
+                status_code=200,
+                headers=response.headers,
+                content=json.dumps(result).encode("utf-8"),
+                request=request,
+            )
+        return super().handle_request(request)
+
+
+client = openai.AzureOpenAI(
+    azure_endpoint="<azure_endpoint>",
+    api_key="<api_key>",
+    api_version="<api_version>",
+    http_client=httpx.Client(
+        transport=CustomHTTPTransport(),
+    ),
+)
+image = client.images.generate(prompt="a cute baby seal")
+
+print(image.data[0].url)
+```
+
+# [DALLE-Fix Async](#tab/dalle-fix-async)
+
+```python
+import time
+import asyncio
+import json
+import httpx
+import openai
+
+
+class AsyncCustomHTTPTransport(httpx.AsyncHTTPTransport):
+    async def handle_async_request(
+        self,
+        request: httpx.Request,
+    ) -> httpx.Response:
+        if "images/generations" in request.url.path and request.url.params[
+            "api-version"
+        ] in [
+            "2023-06-01-preview",
+            "2023-07-01-preview",
+            "2023-08-01-preview",
+            "2023-09-01-preview",
+            "2023-10-01-preview",
+        ]:
+            request.url = request.url.copy_with(path="/openai/images/generations:submit")
+            response = await super().handle_async_request(request)
+            operation_location_url = response.headers["operation-location"]
+            request.url = httpx.URL(operation_location_url)
+            request.method = "GET"
+            response = await super().handle_async_request(request)
+            await response.aread()
+
+            timeout_secs: int = 120
+            start_time = time.time()
+            while response.json()["status"] not in ["succeeded", "failed"]:
+                if time.time() - start_time > timeout_secs:
+                    timeout = {"error": {"code": "Timeout", "message": "Operation polling timed out."}}
+                    return httpx.Response(
+                        status_code=400,
+                        headers=response.headers,
+                        content=json.dumps(timeout).encode("utf-8"),
+                        request=request,
+                    )
+
+                await asyncio.sleep(int(response.headers.get("retry-after")) or 10)
+                response = await super().handle_async_request(request)
+                await response.aread()
+
+            if response.json()["status"] == "failed":
+                error_data = response.json()
+                return httpx.Response(
+                    status_code=400,
+                    headers=response.headers,
+                    content=json.dumps(error_data).encode("utf-8"),
+                    request=request,
+                )
+
+            result = response.json()["result"]
+            return httpx.Response(
+                status_code=200,
+                headers=response.headers,
+                content=json.dumps(result).encode("utf-8"),
+                request=request,
+            )
+        return await super().handle_async_request(request)
+
+
+async def dall_e():
+    client = openai.AsyncAzureOpenAI(
+        azure_endpoint="<azure_endpoint>",
+        api_key="<api_key>",
+        api_version="<api_version>",
+        http_client=httpx.AsyncClient(
+            transport=AsyncCustomHTTPTransport(),
+        ),
+    )
+    image = await client.images.generate(prompt="a cute baby seal")
+
+    print(image.data[0].url)
+
+asyncio.run(dall_e())
+```
+
+---
 ## Name changes
 
 > [!NOTE]
@@ -260,7 +425,7 @@ print(completion.model_dump_json(indent=2))
 | OpenAI Python 0.28.1 | OpenAI Python 1.x |
 | --------------- | --------------- |
 | `openai.api_base` | `openai.base_url` |
-| `openai.proxy` | `openai.proxies (docs)` |
+| `openai.proxy` | `openai.proxies` |
 | `openai.InvalidRequestError` | `openai.BadRequestError` |
 | `openai.Audio.transcribe()` | `client.audio.transcriptions.create()` |
 | `openai.Audio.translate()` | `client.audio.translations.create()` |
@@ -296,22 +461,22 @@ print(completion.model_dump_json(indent=2))
 
 ### Removed
 
-`openai.api_key_path`
-`openai.app_info`
-`openai.debug`
-`openai.log`
-`openai.OpenAIError`
-`openai.Audio.transcribe_raw()`
-`openai.Audio.translate_raw()`
-`openai.ErrorObject`
-`openai.Customer`
-`openai.api_version`
-`openai.verify_ssl_certs`
-`openai.api_type`
-`openai.enable_telemetry`
-`openai.ca_bundle_path`
-`openai.requestssession` (OpenAI now uses `httpx`)
-`openai.aiosession` (OpenAI now uses `httpx`)
-`openai.Deployment` (Previously used for Azure OpenAI)
-`openai.Engine`
-`openai.File.find_matching_files()`
+- `openai.api_key_path`
+- `openai.app_info`
+- `openai.debug`
+- `openai.log`
+- `openai.OpenAIError`
+- `openai.Audio.transcribe_raw()`
+- `openai.Audio.translate_raw()`
+- `openai.ErrorObject`
+- `openai.Customer`
+- `openai.api_version`
+- `openai.verify_ssl_certs`
+- `openai.api_type`
+- `openai.enable_telemetry`
+- `openai.ca_bundle_path`
+- `openai.requestssession` (OpenAI now uses `httpx`)
+- `openai.aiosession` (OpenAI now uses `httpx`)
+- `openai.Deployment` (Previously used for Azure OpenAI)
+- `openai.Engine`
+- `openai.File.find_matching_files()`
