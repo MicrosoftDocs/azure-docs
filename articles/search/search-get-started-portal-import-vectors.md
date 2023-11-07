@@ -13,7 +13,7 @@ ms.date: 11/06/2023
 # Quickstart: Integrated vectorization (preview)
 
 > [!IMPORTANT] 
-> **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update).
+> **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true).
 
 Get started with [integrated vectorization](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal.
 
