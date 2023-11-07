@@ -50,6 +50,7 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 
 > [!NOTE]
 > Customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes will be asked to [migrate to the AMA for SQL server on machines autoprovisioning process](defender-for-sql-autoprovisioning.md).
+
 **To enable the plan on a subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
