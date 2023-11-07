@@ -501,7 +501,7 @@ To update or change the database name for the existing schedule
 select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 ```
 
-## pg_failover_slots
+## pg_failover_slots (preview)
 
 The PG Failover Slots extension enhances Azure Database for PostgreSQL when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that doesn't preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
 

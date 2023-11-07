@@ -360,12 +360,12 @@ While the server is a read replica, no backups are taken. However, once it's pro
 
 ### Networking
 
-Read replicas support all networking options available for Azure Database for PostgreSQL - Flexible Server, including private access via virtual network integration, public access through allowed IP addresses, and private link. However, please note that private endpoint configurations promoted to the primary server (preview) operation support only set up with one read replica. If you have two or more replicas promoted to the primary server, the operation fails.
+Read replicas support all networking options available for Azure Database for PostgreSQL - Flexible Server, including private access via virtual network integration, public access through allowed IP addresses, and private link (preview). However, please note that private endpoint configurations promoted to the primary server (preview) operation support only set up with one read replica. If you have two or more replicas promoted to the primary server, the operation fails.
 
 > [!IMPORTANT]  
 > Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL - Flexible Server setup. There must be a provision to send and receive traffic on destination port 5432 within the Azure virtual network subnet.
 
-The above requirement not only facilitates the synchronization process but also ensures proper functioning of the failover mechanism where replicas might need to communicate in reverse order—from replica to primary—especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
+The above requirement not only facilitates the synchronization process but also ensures proper functioning of the promote mechanism where replicas might need to communicate in reverse order—from replica to primary—especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
 
 For more information about how to configure private access (virtual network integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, see the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
 

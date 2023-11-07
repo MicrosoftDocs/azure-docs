@@ -2,7 +2,7 @@
 title: Scale operations - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to perform scale operations in Azure Database for PostgreSQL through the Azure portal.
 ms.author: alkuchar
-author: AwdotiaRomanowna
+author: AlicjaKucharczyk
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -105,7 +105,7 @@ Use below steps to enable storage autogrow for your flexible server and automati
 > [!IMPORTANT]
 > Storage autogrow initiates disk scaling operations online, but there are specific situations where online scaling is not possible. In such cases, like when approaching or surpassing the 4,096-GiB limit, storage autogrow does not activate, and you must manually increase the storage. A portal informational message is displayed when this happens.
 
-## Performance tier
+## Performance tier (preview)
 
 ### Scaling up
 

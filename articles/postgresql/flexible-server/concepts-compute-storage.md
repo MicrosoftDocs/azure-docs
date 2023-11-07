@@ -227,14 +227,16 @@ Remember that storage can only be scaled up, not down.
 > [!NOTE]
 > Storage auto-grow never triggers an offline increase.
 
-## IOPS
+## IOPS (preview)
 
 Azure Database for PostgreSQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
 The minimum and maximum IOPS is determined by the selected compute size. To learn more about the minimum and maximum IOPS per compute size refer to the [table](#maximum-iops-for-your-configuration).
 
 > [!Important]
-> Minimum and maximum IOPS are determined by the selected compute size.<br>
+> Minimum and maximum IOPS are determined by the selected compute size.
+
+Learn how to [scale up or down IOPS](how-to-scale-compute-storage-portal.md#performance-tier).
 
 ## Backup
 
