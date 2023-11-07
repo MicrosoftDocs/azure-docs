@@ -59,7 +59,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the experiment designer screen, with the edit button within the disable autoscale fault highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-edit.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-edit.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
 
-   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png#lightbox)
+   [![Screenshot that shows the fault parameters pane for autoscale, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png#lightbox)
 1. Select the autoscale setting resource that you want to use in the experiment. Select **Save**.
 
    [![Screenshot that shows the fault targets pane for autoscale, with the save button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-target.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-target.png#lightbox)
@@ -68,7 +68,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the experiment designer screen, with the edit button within the Virtual Machine Scale Set shutdown fault highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-edit.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-edit.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
 
-   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png#lightbox)
+   [![Screenshot that shows the fault parameters pane for the virtual machine scale set, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png#lightbox)
 1. Select the virtual machine scale set resource that you want to use in the experiment. Select **Next: Scope**.
 
    [![Screenshot that shows the fault targets pane for Virtual Machine Scale Set, with the save button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-target.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-target.png#lightbox)
