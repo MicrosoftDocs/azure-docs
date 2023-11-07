@@ -4,7 +4,7 @@ description: Learn about the capabilities and functions of the data-aware securi
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ---
 
 # Data security dashboard
