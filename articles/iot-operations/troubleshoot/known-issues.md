@@ -71,6 +71,33 @@ curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode
 
 ## OPC PLC simulator
 
+If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQ broker, try the following command:
+
+- Patch the asset endpoint with `autoAcceptUntrustedServerCertificates=true`:
+
+```bash
+ENDPOINT_NAME=<name-of-you-endpoint-here>
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+-n azure-iot-operations \
+--type=merge \
+-p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+```
+
+You can also patch all your asset endpoints with the following command:
+
+```bash
+ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
+for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+   -n azure-iot-operations \
+   --type=merge \
+   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
+done
+```
+
+> [!WARNING]
+> Don't use untrusted certificates in production environments.
+
 If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
