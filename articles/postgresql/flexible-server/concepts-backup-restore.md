@@ -181,6 +181,13 @@ Azure Backup and Azure PostgreSQL Services have come together to build an enterp
 - Use of pg_dump allows greater flexibility in restoring data, including the ability to restore across different database versions.
 
 - Azure backup vaults supports immutability and soft delete (preview) features, providing an added layer of protection for your data.
+- 
+#### Limitations and Considerations
+
+- During early preview, Long Term Retention is available only in East US1, West Europe and Central India regions. Support for other regions is coming soon.
+
+- In preview, LTR restore is currently available as **RestoreasFiles** to storage accounts. **RestoreasServer** capability will be added in future.
+
 
 ## Frequently asked questions
 
