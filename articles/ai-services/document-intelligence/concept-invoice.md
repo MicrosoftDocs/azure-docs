@@ -218,7 +218,7 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 | CurrencyCode | String | The currency code associated with the extracted amount | |
-| KVKNumber | String | The currency code associated with the extracted amount | A unique identifier for businesses registered in the Netherlands: 12345678|
+| KVKNumber(NL-only) | String | A unique identifier for businesses registered in the Netherlands|12345678|
 | PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPay(AU)` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
 | TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale|  | 
