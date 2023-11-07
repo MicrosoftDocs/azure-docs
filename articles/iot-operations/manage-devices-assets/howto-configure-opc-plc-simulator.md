@@ -37,74 +37,9 @@ kubectl cp azure-iot-operations/${OPC_PLC_POD}:/app/pki/own/certs/${SERVER_CERT}
 ## Configure OPC UA transport authentication
 After you get the simulator's certificate, the next step is to configure authentication. 
 
-OPC UA transport authentication requires you to configure the following items:
-- The OPC UA X.509 client transport certificate to be used for transport authentication and encryption.  Currently, this certificate is an application certificate used for all transport in OPC UA Broker.
-- The private key to be used for the authentication and encryption.  Currently, password protected private key files aren't supported. 
+1. To complete this configuration, follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication).
 
-In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der*.  
-
-To complete the configuration of an asset endpoint in Operations Experience, do the following steps:
-
-1. Configure the transport certificate and private key in Azure Key Vault. In the following example, the file *./secret/cert.der* contains the transport certificate and the file *./secret/cert.pem* contains the private key. 
-
-    To configure the transport certificate, run the following commands: 
-
-    
-    ```bash
-    # Upload cert.der Application certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name "aio-opc-opcua-connector-der" \
-      --vault-name <azure-key-vault-name> \
-      --file ./secret/cert.der \
-      --encoding hex \
-      --content-type application/pkix-cert
-    
-    # Upload cert.pem private key as secret to Azure Key Vault
-    az keyvault secret set \
-      --name "aio-opc-opcua-connector-pem" \
-      --vault-name <azure-key-vault-name> \
-      --file ./secret/cert.pem \
-      --encoding hex \
-      --content-type application/x-pem-file
-    ```
-    
-1. Configure the secret provider class `aio-opc-ua-broker-client-certificate` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secrets `aio-opc-opcua-connector-der` and `aio-opc-opcua-connector-pem` in the SPC object array in the connected cluster. 
-
-    The following example shows a complete SPC CR after you added the secret configurations:
-
-    
-    ```yml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-client-certificate
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <azure-key-vault-name>
-        tenantId: <azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: aio-opc-opcua-connector-der
-              objectType: secret
-              objectAlias: aio-opc-opcua-connector.der
-              objectEncoding: hex
-            - |
-              objectName: aio-opc-opcua-connector-pem
-              objectType: secret
-              objectAlias: aio-opc-opcua-connector.pem
-              objectEncoding: hex
-    ```
-    
-    The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval. 
-
-    > [!NOTE]
-    > Currently, the secret for the private key does not support password protected key files yet. Also, OPC UA Broker uses the certificate for transport authentication for all secure connections. 
-
-1. Optionally, rather than configure the secret provider class CR, you can configure a self-signed certificate for transport authentication. 
+1. Optionally, rather than configure a secret provider class CR, you can configure a self-signed certificate for transport authentication. 
 
     To create a self-signed certificate to test transport authentication, run the following command:
     
@@ -119,66 +54,9 @@ To complete the configuration of an asset endpoint in Operations Experience, do 
     ```
     
 ## Configure OPC UA mutual trust
+Another OPC UA authentication option you can configure is mutual trust. In OPC UA communication, the OPC UA client and server both confirm the identity of each other. 
 
-When you connect an OPC UA client (such as OPC UA Broker) to an OPC UA server, the OPC UA specification supports mutual authentication by using X.509 certificates. Mutual authentication requires you to configure the certificates before the connection is established. Otherwise, authentication fails with a certificate trust error. 
-
-To configure OPC UA Broker with a trusted OPC UA server certificate, there are two requirements:
-- The certificate should be configured for transport authentication as described previously. 
-- The connection should be established.
-
-To complete the configuration of mutual trust, do the following steps:  
-
-1. To configure the trusted certificate file *./secret/my-server.der* in Azure Key Vault, run the following command:
-
-    ```bash
-    # Upload my-server.der OPC UA Server's certificate as secret to Azure Key Vault 
-    az keyvault secret set \ 
-      --name "my-server-der" \ 
-      --vault-name <azure-key-vault-name> \ 
-      --file ./secret/my-server.der \ 
-      --encoding hex \ 
-      --content-type application/pkix-cert
-    ```
-
-    Typically you can export the trusted certificate of the OPC UA server by using the OPC UA server's management console. For more information, please see the [OPC UA Server documentation](https://reference.opcfoundation.org/). 
-
-1. Configure the secret provider class `aio-opc-ua-broker-client-certificate` CR in the connected cluster. Use a K8s client such as kubectl to configure the secrets (`my-server-der` in the following example) in the SPC object array in the connected cluster.
-
-    The following example shows a complete SPC CR after you configure the required transport certificate and add the trusted OPC UA server certificate configuration:
-
-    
-    ```yml
-    apiVersion: secrets-store.csi.x-k8s.io/v1 
-    kind: SecretProviderClass 
-    metadata: 
-      name: aio-opc-ua-broker-client-certificate 
-      namespace: azure-iot-operations 
-    spec: 
-      provider: azure 
-      parameters: 
-        usePodIdentity: 'false' 
-        keyvaultName: <azure-key-vault-name> 
-        tenantId: <azure-tenant-id> 
-        objects: | 
-          array: 
-            - | 
-              objectName: aio-opc-opcua-connector-der 
-              objectType: secret 
-              objectAlias: aio-opc-opcua-connector.der 
-              objectEncoding: hex 
-            - | 
-              objectName: aio-opc-opcua-connector-pem 
-              objectType: secret 
-              objectAlias: aio-opc-opcua-connector.pem 
-              objectEncoding: hex 
-              | 
-              objectName: my-server-der 
-              objectType: secret 
-              objectAlias: my-server.der 
-              objectEncoding: hex
-    ```
-    
-    The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval. 
+To complete this configuration, follow the steps in [Configure OPC UA mutual trust](howto-configure-opcua-authentication-options.md#configure-opc-ua-mutual-trust).
 
 ## Optionally configure for no authentication
 
