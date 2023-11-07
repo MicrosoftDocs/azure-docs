@@ -63,7 +63,7 @@ In this section, you create a Virtual Network (VNet) for your Elastic SAN. Then 
 
 ## Add an Elastic SAN volume as a datastore
 
-After you receive confirmation that your subscription has been allowlisted, you can use the Azure Portal to add the Elastic SAN volume as a datastore in your SDDC.
+After you receive confirmation that your subscription has been allowlisted, you can use the Azure Portal to add the Elastic SAN volume as a datastore in your SDDC. Use the following steps to add, connect, disconnect, and delete Elastic SAN.
 
 
 
