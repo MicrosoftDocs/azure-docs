@@ -19,15 +19,15 @@ For more information about compatibility, see [Packet core and Azure Stack Edge 
 
 ## Support lifetime
 
-Packet core versions are supported until two subsequent versions are released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
+Packet core versions are supported until two subsequent versions are released (unless otherwise noted). You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ### Currently supported packet core versions
-The following table shows the support status for different Packet Core releases.
+The following table shows the support status for different Packet Core releases and when they are expected to no longer be supported.
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2310 | Supported until AP5GC 2401 released |
-| AP5GC 2308 | Supported until AP5GC 2311 released |
+| AP5GC 2310 | Supported until AP5GC 2403 is released |
+| AP5GC 2308 | Supported until AP5GC 2401 is released |
 | AP5GC 2307 and earlier | Out of Support |
 
 ## What's new
