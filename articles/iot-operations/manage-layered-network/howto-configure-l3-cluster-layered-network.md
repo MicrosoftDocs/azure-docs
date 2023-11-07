@@ -188,7 +188,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 
 ### Arc-enable cluster
 
-Follow the steps in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md) to provision your cluster to Arc.
+Follow the steps in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to provision your cluster to Arc.
 
 ## Related content
 

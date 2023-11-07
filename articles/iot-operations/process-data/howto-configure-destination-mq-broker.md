@@ -32,7 +32,7 @@ The MQ destination stage JSON configuration defines the details of the stage. To
 | Broker | String | The broker address.  | Yes | - | `mqtt://mqttEndpoint.cluster.local:1111` |
 | Authentication | String | The authentication details to connect to MQTT broker. `None`/`Username/Password`/`Service account token (SAT)`  | Yes | `Service account token (SAT)` | `Username/Password` |
 | Username | String | The username to use when `Authentication` is set to `Username/Password`. | No | - | `myusername` |
-| Password | String | The [secret reference](../deploy/howto-manage-secrets.md) for the password to use when `Authentication` is set to `Username/Password`. | No | - | `mysecret` |
+| Password | String | The [secret reference](../deploy-iot-ops/howto-manage-secrets.md) for the password to use when `Authentication` is set to `Username/Password`. | No | - | `mysecret` |
 | Topic | [Static/Dynamic](concept-configuration-patterns.md#static-and-dynamic-fields) | The topic definition. String if type is static, [jq path](concept-configuration-patterns.md#path) if type is dynamic.  | Yes | - | `".topic"` |
 | Data Format<sup>1</sup> | String | The [format](concept-supported-formats.md) to serialize messages to. | Yes | - | `Raw` |
 

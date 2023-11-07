@@ -22,7 +22,7 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
 
 ## Set up Kubernetes cluster in Level 4
 
-The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md) with additional steps. You need to follow both documents to complete all the steps.
+The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) with additional steps. You need to follow both documents to complete all the steps.
 
 ## Prepare Windows 11
 

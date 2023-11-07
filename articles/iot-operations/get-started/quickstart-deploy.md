@@ -18,7 +18,7 @@ In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enab
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator](../deploy/overview-orchestrator.md)
+* [Azure IoT Orchestrator](../deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
