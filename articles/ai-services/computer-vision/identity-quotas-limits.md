@@ -45,7 +45,7 @@ Please [submit a support request](/azure/ai-services/cognitive-services-support-
 - For rate limits increase: 
     - How much TPS (Transaction per second) would you like to increase? 
     - How often do you experience throttling? 
-    - Have you reviewed your call history to better anticipate your future requirements? To view your usage history, see the monitoring metrics on Azure Portal. 
+    - Have you reviewed your call history to better anticipate your future requirements? To view your usage history, see the monitoring metrics on Azure portal. 
 - For resource limits: 
     - How much resources limit do you want to increase? 
     - How many Face resources do you currently have? Have you attempted to integrate your application with fewer Face resources? 

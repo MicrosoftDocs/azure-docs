@@ -15,7 +15,7 @@ ms.custom:
 
 # Abuse monitoring in Face liveness detection
 
-Azure AI Face liveness detection lets you you detect and mitigate instances of recurring content and/or behaviors that indicate a violation of the [Code of Conduct](/legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context) or other applicable product terms. This guide shows you how to work with these features to ensure your application is compliant with Azure policy.
+Azure AI Face liveness detection lets you detect and mitigate instances of recurring content and/or behaviors that indicate a violation of the [Code of Conduct](/legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context) or other applicable product terms. This guide shows you how to work with these features to ensure your application is compliant with Azure policy.
 
 Details on how data is handled can be found on the [Data, Privacy and Security](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) page.
 

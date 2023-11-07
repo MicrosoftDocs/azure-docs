@@ -51,7 +51,7 @@ Once you've added the code into your application, the SDK will handle starting t
 
 The high-level steps involved in liveness orchestration are illustrated below:  
 
-:::image type="content" source="../media/liveness/liveness-diagram.jpg" alt-text="Diagram of the liveness workflow in Azure AI Face.":::
+:::image type="content" source="../media/liveness/liveness-diagram.jpg" alt-text="Diagram of the liveness workflow in Azure AI Face." lightbox="../media/liveness/liveness-diagram.jpg":::
 
 1. The mobile application starts the liveness check and notifies the app server. 
 
@@ -78,15 +78,15 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The mobile application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
 
-```kotlin
-mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
-    callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
-})
-```
-
-```swift
-serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
-```
+    ```kotlin
+    mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
+        callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
+    })
+    ```
+    
+    ```swift
+    serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
+    ```
 
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
@@ -153,17 +153,17 @@ There are two parts to integrating liveness with verification:
 1.	Select a good reference image.
 2.	Set up the orchestration of liveness with verification.
 
-:::image type="content" source="../media/liveness/liveness-verify-diagram.jpg" alt-text="Diagram of the liveness-with-verify workflow of Azure AI Face.":::
+:::image type="content" source="../media/liveness/liveness-verify-diagram.jpg" alt-text="Diagram of the liveness-with-verify workflow of Azure AI Face." lightbox="../media/liveness/liveness-verify-diagram.jpg":::
 
 ### Select a good reference image
 
 Use the following tips to ensure that your input images give the most accurate recognition results.
 
-Technical requirements:
+#### Technical requirements:
 [!INCLUDE [identity-input-technical](../includes/identity-input-technical.md)]
 * You can utilize the `qualityForRecognition` attribute in the [face detection](../how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment and quality at or above `"medium"` is recommended for identification scenarios.
 
-Composition requirements:
+#### Composition requirements:
 -	Photo is clear and sharp, not blurry, pixelated, distorted, or damaged. 
 -	Photo is not altered to remove face blemishes or face appearance.
 -	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6MB in size.

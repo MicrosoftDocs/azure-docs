@@ -30,7 +30,7 @@ The Face Identify API uses container data structures to the hold face recognitio
 ### PersonGroup 
 
 **PersonGroup** is the smallest container data structure.
-- You need to specify a recognition model when you create a **PersonGroup**. When any faces are added to that **PersonGroup**, it uses that model to process them. This model must match the model version with Face Id from detect API.
+- You need to specify a recognition model when you create a **PersonGroup**. When any faces are added to that **PersonGroup**, it uses that model to process them. This model must match the model version with Face ID from detect API.
 - You must call the Train API to make any new face data reflect in the Identify API results. This includes adding/removing faces and adding/removing persons.
 - For the free tier subscription, it can hold up to 1000 Persons. For S0 paid subscription, it can have up to 10,000 Persons.  
 
