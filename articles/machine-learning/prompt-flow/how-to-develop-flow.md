@@ -1,5 +1,5 @@
 ---
-title: Develop a flow in Prompt flow
+title: Develop a flow in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to develop a prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -23,9 +23,9 @@ With prompt flow, you'll be able to:
 
 In this article, you'll learn how to create and develop your first prompt flow in your Azure Machine Learning studio.
 
-## Create and develop your Prompt flow
+## Create and develop your prompt flow
 
-In studio, select **Prompt flow** tab in the left navigation bar. Select **Create** to create your first Prompt flow. You can create a flow by either cloning the samples available in the gallery or creating a flow from scratch. If you already have flow files in local or file share, you can also import the files to create a flow.
+In studio, select **Prompt flow** tab in the left navigation bar. Select **Create** to create your first prompt flow. You can create a flow by either cloning the samples available in the gallery or creating a flow from scratch. If you already have flow files in local or file share, you can also import the files to create a flow.
 
 :::image type="content" source="./media/how-to-develop-flow/gallery.png" alt-text="Screenshot of prompt flow creation from scratch or gallery." lightbox ="./media/how-to-develop-flow/gallery.png":::
 
