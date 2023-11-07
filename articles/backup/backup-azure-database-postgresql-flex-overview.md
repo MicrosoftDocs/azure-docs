@@ -12,10 +12,10 @@ ms.author: v-abhmallick
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. The feature offers the following capabilities:
 
-- You can extend your backup retention beyond 35 days using the operational tier backup capability of PostgreSQL flexible database.
+- You can extend your backup retention beyond 35 days which is the maximum supported limit by the operational tier backup capability of PostgreSQL flexible database. 
 - The backups are copied to an isolated storage environment outside of customer tenant and subscription, thus providing protection against ransomware attacks.
 - Azure Backup provides enhanced backup resiliency by protecting the source data from different levels of data loss ranging from accidental deletion to ransomware attacks.
-- The zero-infrastructure solution with Azure Backup service manages the backups with automated retention and backup scheduling.
+- The zero-infrastructure solution with Azure Backup service managing the backups with automated retention and backup scheduling.
 - Central monitoring of all operations and jobs via backup center. 
 
 ## Backup process

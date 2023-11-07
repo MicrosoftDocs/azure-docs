@@ -12,8 +12,6 @@ ms.author: v-abhmallick
 
 This article describes how to back up Azure Database for PostgreSQL-Flex server. Before you begin, review the [supported configurations, feature considerations and known limitations](./backup-azure-database-postgresql-flex-support-matrix.md).
 
-Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with a end-user-controlled backup policy that enables retention of backups for up to 10 years. With this feature, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account, and you can use native PostgreSQL tools to re-create the PostgreSQL Server.
-
 
 ## Configure backup 
 
@@ -68,9 +66,9 @@ To create a backup policy, follow these steps:
     >[!Note]
     > Retention duration ranges from seven days to 10 years in the Backup data store.
 
->[!Note]
->The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
-
+    >[!Note]
+    >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
+    
 
 ## Run an on-demand backup
 
