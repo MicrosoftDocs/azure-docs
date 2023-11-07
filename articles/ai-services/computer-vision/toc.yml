@@ -310,7 +310,7 @@ items:
         href: how-to/add-faces.md
       - name: Use the PersonDirectory structure (preview)
         href: how-to/use-persondirectory.md
-      - name: Use the large-scale feature
+      - name: Scale to handle more enrolled users
         href: how-to/use-large-scale.md
       - name: Find similar faces
         href: how-to/find-similar-faces.md
