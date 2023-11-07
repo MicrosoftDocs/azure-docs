@@ -1,7 +1,7 @@
 ---
 title: Prompt tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The prompt tool in Prompt flow offers a collection of textual templates that serve as a starting point for creating prompts.
+description: The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 11/02/2023
 
 # Prompt tool
 
-The prompt tool in Prompt flow offers a collection of textual templates that serve as a starting point for creating prompts. These templates, based on the Jinja2 template engine, facilitate the definition of prompts. The tool proves useful  when prompt tuning is required prior to feeding the prompts into the Language Model (LLM) model in Prompt flow.
+The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts. These templates, based on the Jinja2 template engine, facilitate the definition of prompts. The tool proves useful  when prompt tuning is required prior to feeding the prompts into the Language Model (LLM) model in prompt flow.
 
 ## Inputs
 
@@ -29,7 +29,7 @@ The prompt tool in Prompt flow offers a collection of textual templates that ser
 The prompt text parsed from the prompt + Inputs.
 
 
-## How to write Prompt?
+## How to write prompt?
 
 1. Prepare jinja template. Learn more about [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
 
