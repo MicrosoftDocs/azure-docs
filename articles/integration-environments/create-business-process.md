@@ -56,23 +56,27 @@ Although this example shows a sequential business process, your process can also
    | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
    | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer**. <br><br>This example uses the **String** data type. |
 
+   The following example shows the information for the sample business process:
+
+   :::image type="content" source="media/create-business-process/business-process-details.png" alt-text="Screenshot shows pane for Create business process." lightbox="media/create-business-process/business-process-details.png":::
+
 1. When you're done, select **Create**.
 
    The **Business processes** list now includes the business process that you created.
 
    :::image type="content" source="media/create-business-process/business-process-created.png" alt-text="Screenshot shows Azure portal, application group, and business processes list with new business process." lightbox="media/create-business-process/business-process-created.png":::
 
-1. Continue to add stages for your business process.
+1. Now, add the stages for your business process.
 
 ## Add a business process stage
 
 After you create your business process, add the stages in that process.
 
-For example, suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
+Suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-1. From the **Business processes** list, select your business process to open the business process designer.
+1. From the **Business processes** list, select your business process, which opens the process designer.
 
 1. On the designer, select **Add stage**.
 
@@ -82,24 +86,33 @@ For example, suppose you're an integration developer at a power company. You man
 
    > [!TIP]
    >
-   > To quickly draft the stages in your business process, just provide 
-   > the name, and then update the remaining values later.
+   > To quickly draft the stages in your business process, just provide the stage 
+   > name, select **Add**, and then return later to provide the remaining values 
+   > when you [map the business process to a Standard logic app workflow](map-business-process-workflow.md).
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*stage-name*> | Name for this process stage that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. |
    | **Description** | No | <*stage-description*> | Purpose for this stage |
    | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br><br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br><br>- **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, the designer didn't find any Standard logic apps in your application group. |
-   | **Add property** | No | None | Add the properties and values for the key business data that your organization wants to track: <br><br>- **Property**: Name for the property, for example, **CustomerName**, **CustomerPhone**, and **CustomerEmail**. The platform automatically captures the transaction timestamp, so you don't have to add this value for tracking. <br><br>- **Type**: Property value's data type, which is either a **String** or **Integer** |
-   | **Business identifier** | Yes | <*business-ID*>, read-only | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier that exists across all your business stages. <br><br>In this example, the **TicketNumber** identifier is populated from when you defined the parent business process. |
+   | **Add property** | No | None | Add a property and value for key business data that your organization wants to capture and track: <br><br>- **Property**: Name for the property, for example, **CustomerName**, **CustomerPhone**, and **CustomerEmail**. The platform automatically includes and captures the transaction timestamp, so you don't have to add this value for tracking. <br><br>- **Type**: Property value's data type, which is either a **String** or **Integer** |
+   | **Business identifier** | Yes | <*business-ID*>, read-only | Visible only when **Show data source** is selected. This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier that exists across all your business stages. This ID is automatically populated from when defined the parent business process. <br><br>In this example, **TicketNumber** is the identifier that's automatically populated. |
+
+   The following example shows a stage named **Create_ticket** without the other values, which you provide when you [map the business process to a Standard logic app workflow](map-business-process-workflow.md):
+
+   :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage." lightbox="media/create-business-process/add-stage-quick.png":::
 
 1. When you're done, select **Add**.
 
 1. To add another stage, choose one of the following options:
 
-   - Under the last stage, select **Add stage**. 
+   - Under the last stage, select the plus sign (**+**) for **Add a stage**.
  
-   - Between stages, select the plus sign (**+**), and then select either **Add stage** or **Add a parallel stage**, which creates a decision branch in your business process.
+   - Between stages, select the plus sign (**+**), and then select either **Add a stage** or **Add a parallel stage**, which creates a decision branch in your business process.
+
+   > [!TIP]
+   >
+   > To delete a stage, open the stage's shortcut menu, and select **Delete**.
 
 1. Repeat the steps to add a stage as necessary.
 
@@ -109,7 +122,7 @@ For example, suppose you're an integration developer at a power company. You man
 
 1. When you're done, on the process designer toolbar, select **Save**.
 
-1. Now, [define key business data properties to capture for each stage and map each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights into your business process.
+1. Now, [define key business data properties to capture for each stage and map each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
 
 ## Next steps
 
