@@ -191,7 +191,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using PowerShell in
 1. Get the Elastic SAN Volume Group.
 1. Create a private link service connection using the volume group as input.
 1. Create the private endpoint using the subnet and the private link service connection as input.
-1. **(Optional** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+1. **(Optional)** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
 Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` with your own values:
 
