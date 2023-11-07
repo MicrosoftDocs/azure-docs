@@ -96,7 +96,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[GÉANT](https://www.geant.org/Networks)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Marseille |
 | **[GlobalConnect](https://www.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported | Supported | Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
 | **[GlobalConnect DK](https://www.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported | Supported | Amsterdam | 
-| **GTT** |Supported |Supported | Amsterdam<br/>Dallas<br/>Los Angeles2<br/>London2<br/><br/>Singapore<br/>Sydney<br/>Washington DC |
+| **GTT** |Supported |Supported | Amsterdam<br/>Dallas<br/>Los Angeles2<br/>London2<br/>Singapore<br/>Sydney<br/>Washington DC |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai<br/>Mumbai |
 | **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
 | **Intelsat** | Supported | Supported | London2<br/>Washington DC2 |
