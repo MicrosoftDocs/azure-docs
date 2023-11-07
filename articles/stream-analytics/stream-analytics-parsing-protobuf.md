@@ -20,7 +20,7 @@ To configure your stream analytics job to deserialize events in protobuf, use th
 
 :::image type="content" source="./media/protobuf/protobuf-input-config.png" alt-text=" Screenshot showing how to configure protobuf for an ASA job." lightbox="./media/protobuf/protobuf-input-config.png" :::
 
-Complete the configuration using the following as guidance:
+Complete the configuration using the following guidance:
 
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -39,9 +39,9 @@ Complete the configuration using the following as guidance:
 
     This protobuf definition file refers to another protobuf definition file in its imports. Because the protobuf deserializer would have only the current protobuf definition file and not know what carseat.proto is, it would be unable to deserialize correctly.
 
-2. Enums are not supported. If the protobuf definition file contains enums, then protobuf events will deserialize, but the enum field will be empty, leading to data loss.
+2. Enums are not supported. If the protobuf definition file contains enums, then protobuf events deserialize, but the enum field is empty, leading to data loss.
 
-3. Maps in protobuf are currently not supported. A map in protobuf will result in an error about missing a string key.
+3. Maps in protobuf are currently not supported. Maps in protobuf results in an error about missing a string key.
 
 4. When a protobuf definition file contains a namespace or pack. Then, the message type must include it.
     For example:
@@ -51,7 +51,7 @@ Complete the configuration using the following as guidance:
 
 5.	When sending messages that were serialized using Google.Protobuf, the prefix type should be set to base128 since that is the most cross-compatible type.
 
-6. Service Messages are not supported in the protobuf deserializers. Your job will throw an exception if you attempt to use a service message.
+6. Service Messages are not supported in the protobuf deserializers. Your job throws an exception if you attempt to use a service message.
 
 7. Current datatypes not supported: 
     * Any
