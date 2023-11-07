@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/6/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -262,7 +262,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
-Specifying server name indicator using the curl command, `contoso.com/shop` should return a response from the backend-v1 service with the requested path to the backend target showing `contoso.com/ecommerce`.
+If you specify the server name indicator `contoso.com/shop` using the curl command, a response from the backend-v1 service is returned with the requested path to the backend target showing `contoso.com/ecommerce`.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
@@ -300,14 +300,14 @@ Via the response we should see:
 }
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` should return a response from the backend-v2 service.
+If you specify the server name indicator `contoso.com` using the curl command, a response is returned from the backend-v2 service as shown.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
 curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
-Via the response we should see:
+The following response should be displayed:
 ```json
 {
  "path": "/",

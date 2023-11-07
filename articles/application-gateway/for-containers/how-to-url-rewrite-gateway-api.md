@@ -165,7 +165,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute resources for `contoso.com`.  This example ensures traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
+Once the gateway has been created, create an HTTPRoute resource for `contoso.com`.  This example ensures traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
 
 ```bash
 kubectl apply -f - <<EOF
