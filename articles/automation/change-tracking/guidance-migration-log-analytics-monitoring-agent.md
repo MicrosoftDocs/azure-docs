@@ -13,7 +13,12 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Azure Arc-enabled servers.
 
-This article provides guidance to move from Change Tracking and Inventory using Log Analytics version to the Azure Monitoring Agent version.
+This article provides guidance to move from Change Tracking and Inventory using Log Analytics (LA) version to the Azure Monitoring Agent (AMA) version. 
+
+Using the Azure portal, you can migrate from Change Tracking & Inventory with LA agent to Change Tracking & Inventory with AMA and there are two ways to do this migration: 
+
+- Migrate single/multiple VMs from the Virtual Machines page.
+- Migrate multiples VMs on LA version solution within a particular Automation Account.
 
 ## Onboarding to Change tracking and inventory using Azure Monitoring Agent
 
@@ -37,6 +42,9 @@ This article provides guidance to move from Change Tracking and Inventory using 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-inline.png" alt-text="Screenshot of onboarding at scale to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-expanded.png":::
 
 1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
+   
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-from-log-analytics-inline.png" alt-text="Screenshot of onboarding multiple virtual machines to Change tracking and inventory from log analytics to Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-from-log-analytics-expanded.png":::
+
 1. On the **Assess virtual machines** tab, select the machines and then select **Next**.
 1. On **Assign workspace** tab, assign a new [Log Analytics workspace resource ID](#obtain-log-analytics-workspace-resource-id) to which the settings of AMA based solution should be stored and select **Next**.
 
@@ -87,6 +95,17 @@ Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/maste
 
 ---
 
+### Compare data across Log analytics Agent and Azure Monitoring Agent version
+
+After you complete the onboarding to Change tracking with AMA version, select **Switch to CT with AMA** on the landing page to switch across the two versions and compare the following events.
+
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/data-compare-log-analytics-monitoring-agent-inline.png" alt-text="Screenshot of data comparison from log analytics to Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/data-compare-log-analytics-monitoring-agent-expanded.png":::
+
+For example, if the onboarding to AMA version of service takes place after 3rd November at 6:00 a.m. You can compare the data by keeping consistent filters across parameters like **Change Types**, **Time Range**. You can compare incoming logs in **Changes** section and in the graphical section to be assured on data consistency.
+
+> [!NOTE]
+> You must compare for the incoming data and logs after the onboarding to AMA version is done.
+
 ### Obtain Log Analytics Workspace Resource ID
 
 To obtain the Log Analytics Workspace resource ID, follow these steps:
@@ -94,6 +113,8 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 1. Sign in to [Azure portal](https://portal.azure.com)
 1. In **Log Analytics Workspace**, select the specific workspace and select **Json View**.
 1. Copy the **Resource ID**.
+
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-inline.png" alt-text="Screenshot that shows the log analytics workspace ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-expanded.png":::
 
 
 ## Limitations
