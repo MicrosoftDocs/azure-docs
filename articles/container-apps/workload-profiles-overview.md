@@ -21,7 +21,7 @@ Profiles are configured to fit the different needs of your applications.
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
 | Dedicated (General purpose) | Balance of memory and compute resources  |  Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
-| Dedicated (GPU enabled) | GPU enabled with increased memory and compute resources  | Apps that require GPU |
+| Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions.  | Apps that require GPU |
 
 The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
 
@@ -56,7 +56,7 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> |
 | Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> |
 
-<sup>\* Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.</sup>
+<sup>\*</sup> Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.
 
 Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
