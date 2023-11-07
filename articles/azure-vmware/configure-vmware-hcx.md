@@ -169,7 +169,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    The selections define the resources where VMs can consume VMware HCX services.
 
    > [!NOTE]
-   > If you have a mixed mode SDDC with a fleet cluster, deployment of service mesh appliances for fleet cluster is not viable/supported. 
+   > If you have a mixed mode SDDC with a AV64 cluster, deployment of service mesh appliances on AV64 cluster is not viable/supported. However, this would't prevent you from having HCX migration or network extention directly on to AV64 clusters with service appliances hosted on cluster-1.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="Screenshot that shows selecting the source compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
