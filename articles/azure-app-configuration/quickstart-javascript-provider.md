@@ -59,8 +59,10 @@ Add the following key-values to the App Configuration store. For more informatio
     const { load } = require("@azure/app-configuration-provider");
     const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
-    async function run() {    
-        // Connect to Azure App Configuration using a connection string.
+    async function run() {
+        let settings;
+
+        // Sample 1: Connect to Azure App Configuration using a connection string and load all key-values with null label.
         let settings = await load(connectionString);
 
         // Find the key "message" and print its value.
@@ -70,7 +72,7 @@ Add the following key-values to the App Configuration store. For more informatio
         const jsonObject = settings.get("app.json");
         console.log(jsonObject.myKey);  // Output: myValue
 
-        // Connect to Azure App Configuration using a connection string and "app." as trimmed key prefix.
+        // Sample 2: Connect to Azure App Configuration using a connection string and "app." as trimmed key prefix.
         settings = await load(connectionString, {
           trimKeyPrefixes: ["app."]
         });
@@ -78,7 +80,7 @@ Add the following key-values to the App Configuration store. For more informatio
         // From the keys with trimmed prefixes, find a key with "greeting" and print its value.
         console.log(settings.get("greeting")); // Output: Hello World
 
-        // Connect to Azure App Configuration using SettingSelector.
+        // Sample 3: Connect to Azure App Configuration using SettingSelector.
         settings = await load(connectionString, {
           selectors: [{
             keyFilter: "app.*"
