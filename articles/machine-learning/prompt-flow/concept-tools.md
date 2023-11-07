@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about how tools are the fundamental building blocks of a flow in Azure Machine Learning prompt flow.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
