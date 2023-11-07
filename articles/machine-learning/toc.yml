@@ -650,7 +650,7 @@
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
         - name: "Code first: Dev to Prod"
           items:
-            - name: Integrate prompt Flow with LLM-based application DevOps 
+            - name: Integrate prompt flow with LLM-based application DevOps 
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
