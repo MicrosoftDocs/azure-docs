@@ -68,3 +68,11 @@ If DNS queries aren't resolving to expected IP address while using [CoreDNS](htt
 ```bash
 curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
 ```
+
+## OPC PLC simulator
+
+If the OPC PLC simulator sin't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+
+```bash
+kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
+```
