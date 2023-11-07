@@ -35,7 +35,7 @@ The following types of data collected from a Kubernetes cluster with Container i
 
 Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **Reports** tab.
 
-[![Screenshot that shows the View Workbooks dropdown list.](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+:::image type="content" source="media/container-insights-cost/workbooks-dropdown.png" lightbox="media/container-insights-cost/workbooks-dropdown.png" alt-text="Screenshot that shows the View Workbooks dropdown list.":::
 
 This workbook helps you visualize the source of your data without having to build your own library of queries from what we share in our documentation. In this workbook, you can view charts that present billable data such as the:
 
@@ -46,7 +46,7 @@ This workbook helps you visualize the source of your data without having to buil
 - Billable container log data ingested by log source entry.
 - Billable diagnostic data ingested by diagnostic main node logs.
 
-[![Screenshot that shows the Data Usage workbook.](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
+:::image type="content" source="media/container-insights-cost/data-usage-workbook.png" lightbox="media/container-insights-cost/data-usage-workbook.png" alt-text="Screenshot that shows the Data Usage workbook.":::
 
 To learn about managing rights and permissions to the workbook, review [Access control](../visualize/workbooks-overview.md#access-control).
 
@@ -56,7 +56,7 @@ Container Insights data primarily consists of metric counters (Perf, Inventory, 
 
 By navigating to the By Table section of the Data Usage workbook, you can see the breakdown of table sizes for Container Insights.
 
-[![Screenshot that shows the By Table breakdown in Data Usage workbook.](media/container-insights-cost/data-usage-workbook-by-table.png)](media/container-insights-cost/data-usage-workbook-by-table.png#lightbox)
+:::image type="content" source="media/container-insights-cost/data-usage-workbook-by-table.png" lightbox="media/container-insights-cost/data-usage-workbook-by-table.png" alt-text="Screenshot that shows the By Table breakdown in Data Usage workbook.":::
 
 If the majority of your data comes from one of these following tables:
 - Perf
@@ -158,4 +158,3 @@ The following list is the cluster inventory data collected by default:
 ## Next steps
 
 To help you understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Analyze usage in a Log Analytics workspace](../logs/analyze-usage.md).
-

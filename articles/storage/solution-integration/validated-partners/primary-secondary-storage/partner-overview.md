@@ -14,7 +14,7 @@ ms.subservice: storage-partner-integration
 
 This article highlights Microsoft partner companies that deliver a network attached storage (NAS) or storage area network (SAN) solution. The solution can be on-premises, in Azure, or a hybrid solution that uses Azure Storage as a cost-effective tier. These solutions can enable customers to use the same solution in any of their environments.
 
-## Verified partners
+## Validated partners
 
 | Partner | Description | Website/product link |
 | ------- | ----------- | -------------------- |

@@ -79,7 +79,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they don't show as 'Registered', run the the following commented-out code
+# If they don't show as 'Registered', run the following commented-out code
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
