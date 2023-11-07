@@ -43,7 +43,7 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
     
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. 
 
-    :::image type="content" source="media/register-apis/metadata-property-details.png" alt-text="Screenshot of metadata schema property in the portal.":::
+    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata schema property in the portal.":::
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. (You'll add these entities in later tutorials.)
 
@@ -75,7 +75,7 @@ You can view and download the JSON schema for the metadata properties in your AP
 
 1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added. You can also view the metadata schema for deployments and environments you add to your API center.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/register-apis/metadata-schema.png":::
+    :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
 > [!NOTE]
 > * Add properties in the schema at any time and apply them to APIs and other entities in your API center. 
@@ -89,10 +89,8 @@ In this tutorial, you learned how to use the portal to:
 > * Define custom metadata properties in your API center
 > * View the metadata schema
 
-## Next steps
-
 Now that you've prepared your metadata schema, add to the inventory in your API center. Start by registering APIs.
 
 > [!div class="nextstepaction"]
-> [Register APIs in your API inventory](configure-environments-deployments.md.md)
+> [Register APIs in your API inventory](register-apis.md)
 

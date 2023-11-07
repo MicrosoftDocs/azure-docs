@@ -132,5 +132,5 @@ In this tutorial, you learned how to use the portal to:
 Your API inventory is starting to take shape! Now you can add information about API environments and deployments.
 
 > [!div class="nextstepaction"]
-> [Add API environments and deployments](configure-environments-deployments.md.md)
+> [Add API environments and deployments](configure-environments-deployments.md)
 
