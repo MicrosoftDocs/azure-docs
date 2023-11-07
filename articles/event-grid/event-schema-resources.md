@@ -442,8 +442,7 @@ This section shows the `Deleted` event generated when an Azure Storage account i
 
 ---
 
-## Contact us
-If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+[!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
 See [Subscribe to Azure Resource Notifications - Resources events](subscribe-to-resource-notifications-resources-events.md).
