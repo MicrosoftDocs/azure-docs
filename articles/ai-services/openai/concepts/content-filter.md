@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 09/15/2023
+ms.date: 11/06/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
@@ -294,11 +294,10 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
-# [Python](#tab/python)
+# [OpenAI Python 0.28.1](#tab/python)
 
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -387,7 +386,6 @@ print(response)
 The following code snippet shows how to retrieve annotations when content was filtered:
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -414,6 +412,29 @@ except openai.error.InvalidRequestError as e:
         for category, details in content_filter_result.items():
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2023-10-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    )
+
+response = client.completions.create(
+    model="gpt-35-turbo-instruct", # model = "deployment_name".
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+)
+
+print(response.model_dump_json(indent=2))
 ```
 
 # [JavaScript](#tab/javascrit)
