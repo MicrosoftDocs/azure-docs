@@ -10,7 +10,7 @@ author: JnHs
 
 # Deploy virtual machines effectively using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot for Azure (preview) can help you deploy [virtual machines in Azure](/azure/virtual-machines/overview) that are efficient and effective. You can get suggestions for different options to save costs and choose the right type and size for your VMs. Microsoft Copilot for Azure (preview) can also help you with VM-related tasks such as resetting your VM password.
+Microsoft Copilot for Azure (preview) can help you deploy [virtual machines in Azure](/azure/virtual-machines/overview) that are efficient and effective. You can get suggestions for different options to save costs and choose the right type and size for your VMs.
 
 For best results, start on the **Virtual machines** page in Azure. When you ask Microsoft Copilot for Azure (preview) for help with a VM, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the VM for which you want assistance.
 
