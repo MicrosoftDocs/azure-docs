@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article overviews the accelerated logs feature during its preview phase. It guides you on how to enable or disable this feature for Azure Database for MySQL flexible servers based on the Business Critical service tier.
+This article overview the accelerated logs feature during its preview phase. It guides you on how to enable or disable this feature for Azure Database for MySQL flexible servers based on the Business Critical service tier.
 
 > [!IMPORTANT]  
 > The accelerated logs feature is currently in preview and subject to [limitations](#limitations-preview) and ongoing development. This feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
@@ -29,7 +29,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 ### Key benefits
 
 - **Enhanced throughput:** Experience up to 2x increased query throughput in high concurrency scenarios, resulting in faster query execution. This improvement also comes with reduced latency, reducing latency by up to 50%, for enhanced performance.
-- **Cost efficiency**: Accelerated logs provide enhanced performance at no additional expense, offering a cost-effective solution for mission-critical workloads.
+- **Cost efficiency**: Accelerated logs provide enhanced performance at no extra expense, offering a cost-effective solution for mission-critical workloads.
 - **Enhanced scalability:** Accelerated logs can accommodate growing workloads, making it an ideal choice for applications that need to scale easily while maintaining high performance. Applications and services on the Business Critical service tier benefit from more responsive interactions and reduced query wait times.
 
 ## Limitations [Preview]
@@ -39,7 +39,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 - During the Preview phase,  you can't enable the accelerated logs feature on servers that have the following features enabled.
     - [High Availability](./concepts-high-availability.md) (HA) servers.
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
-    - Servers enabled with [Azure Active Directory](./concepts-azure-ad-authentication.md) authentication.
+    - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
     - [Read-replicas](concepts-read-replicas.md) servers.
 
 - Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server with the accelerated logs feature enabled is **not supported**. Suppose you wish to proceed with a major version upgrade. In that case, you should temporarily [disable](#disable-accelerated-logs-feature-preview) the accelerated logs feature, carry out the upgrade, and re-enable the accelerated logs feature once the upgrade is complete.
@@ -69,7 +69,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## Enable accelerated logs feature (preview))
 
-The enable accelated logs feature is available during the preview phase. You can enable this feature during server creation or on an existing server. The following sections provide details on how to enable the accelerated logs feature.
+The enable accelerated logs feature is available during the preview phase. You can enable this feature during server creation or on an existing server. The following sections provide details on how to enable the accelerated logs feature.
 
 ### Enable accelerated logs during server creation
 
@@ -81,9 +81,9 @@ This section provides details specifically for enabling the accelerated logs fea
 
 1. The checkbox for **Accelerated logs** under the Storage option is visible only when the server from the **Business Critical** compute tier is selected.
 
-    > :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal-create.png" alt-text="Screenshot shows Accelerated Logs during server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal-create.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png" alt-text="Screenshot shows Accelerated Logs during server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal-create.png":::
 
-1. Enable the checkbox for **Accelerated logs** to enable the feature. If the high availability option is checked, the accelerated logs feature won't be available to choose. Learn more about [limitations](#limitations-preview) during preview.
+1. Enable the checkbox for **Accelerated logs** to enable the feature. If the high availability option is checked, the accelerated logs feature isn't available to choose. Learn more about [limitations](#limitations-preview) during preview.
 
 1. Select the **Compute size** from the dropdown list. Select on Save and proceed to deploy your Azure MySQL Flexible Server following instructions from [how-to create a server.](./quickstart-create-server-portal.md)
 
@@ -95,9 +95,11 @@ During the Public Preview phase, this section details enabling accelerated logs.
 > Your server will restart during the deployment process, so ensure you either pause your workload or schedule it during a time that aligns with your application maintenance or off-hours.
 
 1. Navigate to the [Azure portal](https://portal.azure.com/).
+
 1. Under the Settings sections, navigate to the **Compute + Storage** page. You can enable "Accelerated Logs" by selecting the checkbox under the Storage section.
 
-    > :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_enable.png" alt-text="Screenshot shows Accelerated Logs enable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_enable.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_enable.png" alt-text="Screenshot shows Accelerated Logs enable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_enable.png":::
+
 1. Select on Save and wait for the deployment process to be completed. Once you receive a successful deployment message, the feature is ready to be used.
 
 ## Disable accelerated logs feature [Preview]
@@ -110,7 +112,8 @@ During the Public Preview phase, disabling the  accelerated logs feature is a st
 1. Navigate to the [Azure portal](https://portal.azure.com/).
 
 1. Under the Settings sections, navigate to the **Compute + Storage** page. You find the "Accelerated Logs" checkbox under the Storage section. Uncheck this box to disable the feature.
-    > :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_disable.png" alt-text="Screenshot shows Accelerated Logs disable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_disable.png":::
+
+    :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_disable.png" alt-text="Screenshot shows Accelerated Logs disable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_disable.png":::
 
 1. Select Save and wait for the deployment process to be completed. After you receive a successful deployment message, the feature is disabled.
 
