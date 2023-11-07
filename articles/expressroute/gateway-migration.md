@@ -6,7 +6,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 11/15/2023
 ms.author: duau
 ---
 
