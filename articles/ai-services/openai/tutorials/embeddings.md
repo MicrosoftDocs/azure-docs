@@ -425,7 +425,7 @@ def cosine_similarity(a, b):
 def get_embedding(text, model="text-embedding-ada-002"): # model = "deployment_name"
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
-def search_docs(df, user_query, top_n=3, to_print=True):
+def search_docs(df, user_query, top_n=4, to_print=True):
     embedding = get_embedding(
         user_query,
         model="text-embedding-ada-002" # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
