@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel Solution for Power Platform.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 11/07/2023
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform overview
@@ -22,6 +22,7 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 > [!IMPORTANT]
 > - The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
+> - Provide feedback for this solution by completing this survey: [https://aka.ms/SentinelPowerPlatformSolutionSurvey](https://aka.ms/SentinelPowerPlatformSolutionSurvey).
 
 ## Why you should install the solution
 

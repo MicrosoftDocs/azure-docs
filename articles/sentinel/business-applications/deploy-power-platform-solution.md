@@ -5,7 +5,7 @@ ms.author: cwatson
 author: cwatson-cat
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 11/07/2023
 #CustomerIntent: As a security engineer, I want to ingest Power Platform activity logs into Microsoft Sentinel for security monitoring, detect related threats, and respond to incidents.
 ---
 
@@ -16,6 +16,7 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 > [!IMPORTANT]
 > - The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
+> - Provide feedback for this solution by completing this survey: [https://aka.ms/SentinelPowerPlatformSolutionSurvey](https://aka.ms/SentinelPowerPlatformSolutionSurvey).
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 - Audit logging is enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
 - For the Power Platform inventory connector, have the following resources and configurations set up.
-   - Storage account to use with Azure Data Lake Storage Gen2. For more information see, [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+   - Storage account to use with Azure Data Lake Storage Gen2. For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
    - Blob service endpoint URL for the storage account. For more information, see [Get service endpoints for the storage account](/azure/storage/common/storage-account-get-info?tabs=portal#get-service-endpoints-for-the-storage-account).
    - Power Platform data export process configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics).
 
@@ -50,11 +51,9 @@ In Microsoft Sentinel, enable the six data connectors to collect activity logs a
 
 ### Power Platform inventory data connector
 
-> [!Note]
-> - The Power Platform inventory data connector, if enabled, allows resolving of Power Platform Environment GUIDs and Power Apps GUIDs, in the incident details, to their human readable names configured in the Power Platorm admin center and the Power Apps maker portal.
-> - Enabling the Power Platform inventory data connector is recommanded but not mandatory.
+The Power Platform inventory data connector resolves the GUIDs for Power Platform and PowerApps environments in the incident details to the human readable names that appear in Power Platform admin center and the Power Apps maker portal. We recommend enabling this data connector but it's not required to fully deploy the Microsoft Power Platform solution.
 
-To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your the Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
+To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
 
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
@@ -83,11 +82,7 @@ Connect each of the remaining data connectors by completing the following steps.
 
 ## Enable auditing in your Microsoft Dataverse environment
 
-> [!Note]
-> - Dataverse activity logging is available only for Production dataverse environments. Other types, such as sandbox, do not support activity logging. See [Microsoft Dataverse and model-driven apps activity logging requierments](https://learn.microsoft.com/en-us/power-platform/admin/enable-use-comprehensive-auditing#requirements).
-> - Dataverse activity logging is not enabled by default. Follow the steps below to enable Dataverse auditing.
-
-Enable auditing at the global level for Dataverse and for each Dataverse entity.
+Dataverse activity logging is available only for Production dataverse environments. Other types of environments, such as sandbox, don't support activity logging. See [Microsoft Dataverse and model-driven apps activity logging requirements](https://learn.microsoft.com/en-us/power-platform/admin/enable-use-comprehensive-auditing#requirements). Dataverse activity logging isn't enabled by default. Enable auditing at the global level for Dataverse and for each Dataverse entity.
 
 ### Audit at the global level
 
