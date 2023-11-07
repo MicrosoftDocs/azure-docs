@@ -169,26 +169,28 @@ Examples:
   cassandra@cqlsh> LIST ROLES;
   ```
 
-### Cassandra 4 and later
-In Cassandra 4 and the later, whitelist could be configured ... 
-
-included_keyspaces: Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces
-
-excluded_keyspaces: Comma separated list of keyspaces to be excluded from audit log, default - excludes no keyspace except system, system_schema and system_virtual_schema
-
-included_categories: Comma separated list of Audit Log Categories to be included in audit log, default - includes all categories
-
-excluded_categories: Comma separated list of Audit Log Categories to be excluded from audit log, default - excludes no category
-
-included_users: Comma separated list of users to be included in audit log, default - includes all users
-
-excluded_users: Comma separated list of users to be excluded from audit log, default - excludes no user
+### Cassandra 4 and later versions
+In Cassandra 4 and later versions, you can configure a whitelist in the Cassandra configuration in the portal. The available options are as follows:
+```
+audit_logging_options:
+  included_keyspaces: <Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces>
+  excluded_keyspaces: <Comma separated list of keyspaces to be excluded from audit log, default - excludes no keyspace except system, system_schema and system_virtual_schema>
+  included_categories: <Comma separated list of Audit Log Categories to be included in audit log, default - includes all categories>
+  excluded_categories: <Comma separated list of Audit Log Categories to be excluded from audit log, default - excludes no category>
+  included_users: <Comma separated list of users to be included in audit log, default - includes all users>
+  excluded_users: <Comma separated list of users to be excluded from audit log, default - excludes no user>
+```
 
 List of available categories are: QUERY, DML, DDL, DCL, OTHER, AUTH, ERROR, PREPARE
 
+Here's an example configuration:
+```
 audit_logging_options:
     included_keyspaces: keyspace1,keyspace2
     included_categories: AUTH,ERROR,DCL,DDL
+```
+
+By default, the configuration sets included_categories to AUTH,ERROR,DCL,DDL.
 
 ## Next steps
 
