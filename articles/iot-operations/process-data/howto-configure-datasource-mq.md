@@ -42,7 +42,7 @@ The following table describes the MQ source configuration parameters:
 | Clean session | Set to `FALSE` for a persistent session. | Required | `FALSE` | `FALSE` |
 | Topic | The topic to subscribe to for data acquisition. | Required | NA | `contoso/site1/asset1`, `contoso/site1/asset2` |
 
-To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-azure-iot-operations/howto-manage-secrets.md).
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 Data Processor doesn't reorder out-of-order data coming from the MQTT broker. If the data is received out of order from the broker, it remains so in the pipeline.
 

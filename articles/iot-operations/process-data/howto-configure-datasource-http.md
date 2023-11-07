@@ -53,7 +53,7 @@ The following table describes the HTTP endpoint source configuration parameters:
 | Request interval | [Duration](concept-configuration-patterns.md#duration) | String representation of the time to wait before the next API call. | Required | `10s`| `24h` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
 
-To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-azure-iot-operations/howto-manage-secrets.md).
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 ## Select data format
 

@@ -18,28 +18,28 @@ items:
     - name: Deploy Azure IoT Operations components
       items:
       - name: Prepare a cluster
-        href: deploy-azure-iot-operations/howto-prepare-cluster.md
+        href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
-        href: deploy-azure-iot-operations/howto-deploy-iot-operations.md
+        href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage secrets
-        href: deploy-azure-iot-operations/howto-manage-secrets.md
+        href: deploy-iot-ops/howto-manage-secrets.md
     - name: Deploy custom workloads
       items:
       - name: Overview
-        href: deploy-custom-workloads/overview-orchestrator.md
+        href: deploy-custom/overview-orchestrator.md
         displayName: Deploy, Orchestrator
       - name: Concepts
         items:
         - name: Manifests
-          href: deploy-custom-workloads/concept-manifests.md
+          href: deploy-custom/concept-manifests.md
         - name: Providers and components
-          href: deploy-custom-workloads/concept-providers.md
+          href: deploy-custom/concept-providers.md
       - name: Deploy K8s custom resources
-        href: deploy-custom-workloads/howto-k8s.md
+        href: deploy-custom/howto-k8s.md
       - name: Deploy Helm charts
-        href: deploy-custom-workloads/howto-helm.md
+        href: deploy-custom/howto-helm.md
       - name: Troubleshoot
-        href: deploy-custom-workloads/howto-troubleshoot-deployment.md
+        href: deploy-custom/howto-troubleshoot-deployment.md
         displayName: Deploy, Orchestrator
     - name: Manage assets
       items:

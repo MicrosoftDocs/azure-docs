@@ -80,4 +80,4 @@ The goals of the architecture are:
 
 ## Next steps
 
-[Deploy a solution in Azure IoT Operations](../deploy-azure-iot-operations/howto-deploy-iot-operations.md)
+[Deploy a solution in Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
