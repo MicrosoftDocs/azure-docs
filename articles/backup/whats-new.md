@@ -17,7 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2023
-  - [Back up Azure Database for PostgreSQL-Flexible server (in preview)](#back-up-azure-database-for-postgresql-flexible-server-in-preview)
+  - [Back up Azure Database for PostgreSQL-Flexible server (preview)](#back-up-azure-database-for-postgresql-flexible-server-in-preview)
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
@@ -71,13 +71,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Back up Azure Database for PostgreSQL-Flexible server (in preview) 
+## Back up Azure Database for PostgreSQL-Flexible server (preview) 
 
-Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years. 
+Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with a end-user-controlled backup policy that enables retention of backups for up to 10 years. 
 
-With this, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account and you can use native PostgreSQL tools to re-create the PostgreSQL Server.
+With this, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account, and you can use native PostgreSQL tools to re-create the PostgreSQL Server.
 
-For more information, see [Azure Database for PostgreSQL Flexible server](backup-azure-database-postgresql-overview.md).
+For more information, see [Azure Database for PostgreSQL Flexible server (preview)](backup-azure-database-postgresql-flex-overview.md).
 
 ## SAP HANA instance snapshot backup support is now generally available
 
