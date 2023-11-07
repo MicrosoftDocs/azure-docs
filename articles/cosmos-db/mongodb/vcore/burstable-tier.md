@@ -27,7 +27,7 @@ at significantly reduced prices. This democratization of access empowers busines
 Whether you're a startup, a small business, or an enterprise, this tier opens up new possibilities for cost-effective scalability.
 
 Provisioning a Burstable Tier is as straightforward as provisioning regular tiers; you only need to choose "M25" in the cluster tier option. Here's a quick start 
-guide that offers step-by-step instructions on how to set up a Burstable Tier with [Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/quickstart-portal)
+guide that offers step-by-step instructions on how to set up a Burstable Tier with [Azure Cosmos DB for MongoDB vCore](quickstart-portal.md)
 
 
   | Setting | Value |
