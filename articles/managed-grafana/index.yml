@@ -43,6 +43,8 @@ landingContent:
             url: how-to-create-dashboard.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
+          - text: Use reporting and image rendering
+            url: how-to-use-reporting-and-image-rendering.md
   
   - title: Manage access and networking
     linkLists:
@@ -71,8 +73,6 @@ landingContent:
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md
-          - text: Use reporting and image rendering
-            url: how-to-use-reporting-and-image-rendering.md
 
   - title: Manage availability
     linkLists:
