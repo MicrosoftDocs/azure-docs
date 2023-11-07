@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Vector Index Lookup is a tool tailored for querying within an Azure Machine Learning Vector Index. It empowers users to extract contextually relevant information from a domain knowledge base.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: likebupt
 ms.author: keli19
@@ -19,7 +19,7 @@ Vector index lookup is a tool tailored for querying within an Azure Machine Lear
 ## Prerequisites
 
 - Follow the instructions from sample flow `Bring your own Data QnA` to prepare a Vector Index as an input.
-- Based on where you put your Vector Index, the identity used by the promptflow runtime should be granted with certain roles. Please refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
+- Based on where you put your Vector Index, the identity used by the prompt flow runtime should be granted with certain roles. Please refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
 
     | Location | Role |
     | ---- | ---- |
