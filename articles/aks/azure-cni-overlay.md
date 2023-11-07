@@ -91,7 +91,6 @@ Azure CNI Overlay has the following limitations:
 
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
 - Virtual Machine Availability Sets (VMAS) aren't supported for Overlay.
-- Dual stack networking isn't supported in Overlay.
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
 
 ## Set up Overlay clusters
