@@ -53,7 +53,7 @@ You can directly select the **"Next"** button to skip this step and run the batc
 Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
 
 
-In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column could come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
 Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 
