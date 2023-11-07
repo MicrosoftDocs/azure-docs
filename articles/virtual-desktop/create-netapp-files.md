@@ -30,8 +30,8 @@ To start using Azure NetApp Files:
 
 1. Set up your Azure NetApp Files account by following the instructions in [Set up your Azure NetApp Files account](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account).
 2. Create a capacity pool by following the instructions in [Set up a capacity pool](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
-3. Join a Microsoft Entra connection by following the instructions in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection).
-4. Create a new volume by following the instructions in [Create a new volume](create-fslogix-profile-container.md#create-a-new-volume) and [Configure volume access parameters](create-fslogix-profile-container.md#configure-volume-access-parameters).
+3. Join an Active Directory connection by following the instructions in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection).
+4. Create a new volume by following the instructions to [create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). Ensure you enable Continuous Availability.
 5. Make sure your connection to the Azure NetApp Files share works by following the instructions in [Make sure users can access the Azure NetApp Files share](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-files-share).
 
 ## Upload an MSIX image to the Azure NetApp file share
