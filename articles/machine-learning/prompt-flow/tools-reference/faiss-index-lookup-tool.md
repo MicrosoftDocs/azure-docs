@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-based vector store. In combination with our Large Language Model (LLM) tool, it empowers users to extract contextually relevant information from a domain knowledge base.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: likebupt
 ms.author: keli19
