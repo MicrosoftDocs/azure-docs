@@ -42,7 +42,22 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
     :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
 
-3. Once you've specified which resource to use, you're all set to go. 
+3. This last step is optional. After specifying which resource to use, you can configure the Node.js agent. If you don't configure the Node.js agent, default configurations apply.
+
+    A JSON could be used to configure the Node.js agent, this can be provided adding APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable with the actual JSON string as value, also APPLICATIONINSIGHTS_CONFIGURATION_FILE environment variable could be used to specify the location of the file if prefered.
+
+      ```json
+        "samplingPercentage": 80,
+        "enableAutoCollectExternalLoggers": true,
+        "enableAutoCollectExceptions": true,
+        "enableAutoCollectHeartbeat": true,
+        "enableSendLiveMetrics": true,
+        ...
+    
+    ```
+
+    The full [set of configurations](https://github.com/microsoft/ApplicationInsights-node.js#configuration) is available, you just need to use a valid json file.
+    
 
     :::image type="content"source="./media/azure-web-apps-nodejs/app-service-node.png" alt-text="Screenshot of instrument your application."::: 
 
