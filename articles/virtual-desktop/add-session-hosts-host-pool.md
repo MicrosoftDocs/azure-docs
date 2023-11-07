@@ -337,5 +337,3 @@ Now that you've expanded your existing host pool, you can sign in to an Azure Vi
 - [Connect with the Android client](./users/connect-android-chrome-os.md)
 - [Connect with the macOS client](./users/connect-macos.md)
 - [Connect with the iOS client](./users/connect-ios-ipados.md)
-
-For session hosts on Azure Stack HCI, you must license and activate the Windows operating system. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition you need to enable [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
