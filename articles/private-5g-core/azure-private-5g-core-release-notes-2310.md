@@ -39,7 +39,7 @@ This feature makes the N2, N3 and N6 gateways optional during the network config
 This feature improves overall AP5GC software download time by reducing the size of underlying software packages. The overall size of the software image is reduced by around 40%.
 
 ### Per-UE information in Azure portal and API
-This feature allows you to view UE level information in the Azure portal, including a list of UEs with high level information and a detailed view for each UE. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min.
+This feature allows you to view UE-level information in the Azure portal, including a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
 
 ### Per gNB metrics in Azure portal
 This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
