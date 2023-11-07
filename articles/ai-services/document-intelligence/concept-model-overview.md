@@ -97,7 +97,7 @@ For all models, except Business card model, Document Intelligence now supports a
 
 |Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓|✓| | | | |O|O| |O|O|O|
+|prebuilt-read|✓| | | | | |O|O| |O|O|O|
 |prebuilt-layout|✓|✓|✓|✓|✓|✓| |O|O| |O|O|O|
 |prebuilt-document|✓|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
 |prebuilt-businessCard|✓|✓| | | | | | | |✓| | | |
@@ -293,6 +293,7 @@ A composed model is created by taking a collection of custom models and assignin
 | [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098E](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098T](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1099(variations)](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  || ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
