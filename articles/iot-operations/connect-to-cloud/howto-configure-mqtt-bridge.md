@@ -30,9 +30,9 @@ To bridge to another broker, Azure IoT MQ must know the remote broker endpoint U
 
    ```console
    $ kubectl apply -f my-mqtt-bridge.yaml 
-   mqttbridgeconnectors.mq.iotoperations.azure.com "my-mqtt-bridge" created
+   mqttbridgeconnectors.mq.iotoperations.azure.com my-mqtt-bridge created
    $ kubectl apply -f my-topic-map.yaml
-   mqttbridgetopicmaps.mq.iotoperations.azure.com "my-topic-map" created
+   mqttbridgetopicmaps.mq.iotoperations.azure.com my-topic-map created
    ```
 
 Once deployed, use `kubectl get pods` to verify messages start flowing to and from your endpoint.
@@ -45,14 +45,14 @@ The MqttBridgeConnector resource defines the MQTT bridge connector that can comm
 - A remote broker connection.
 - An optional local broker connection.
 
-The following example shows a minimal configuration for bridging to an Azure Event Grid MQTT broker. It uses system-assigned managed identity for authentication and TLS encryption.
+The following example shows an example configuration for bridging to an Azure Event Grid MQTT broker. It uses system-assigned managed identity for authentication and TLS encryption.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: MqttBridgeConnector
 metadata:
-  name: "my-mqtt-bridge"
-  namespace: <SAME NAMESPACE AS BROKER> 
+  name: my-mqtt-bridge
+  namespace: azure-iot-operations
 spec:
   image: 
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge 
@@ -60,22 +60,22 @@ spec:
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
-  clientIdPrefix: "factory-gateway-"
-  logLevel: "debug"
+  clientIdPrefix: factory-gateway-
+  logLevel: debug
   remoteBrokerConnection:
-    endpoint: "example.westeurope-1.ts.eventgrid.azure.net:8883"
+    endpoint: example.westeurope-1.ts.eventgrid.azure.net:8883
     tls:
       tlsEnabled: true
     authentication:
       systemAssignedManagedIdentity:
         audience: https://eventgrid.azure.net
-  ## Uncomment to customize local broker connection
-  # localBrokerConnection:
-  #   endpoint: "aio-mq-dmqtt-frontend:1883"
-  #   tls:
-  #     tlsEnabled: false
-  #   authentication:
-  #     kubernetes: {}
+  localBrokerConnection:
+    endpoint: aio-mq-dmqtt-frontend:8883
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: aio-ca-trust-bundle-test-only
+    authentication:
+      kubernetes: {}
 ```
 
 The following table describes the fields in the *MqttBridgeConnector* resource:
@@ -118,6 +118,7 @@ The `remoteBrokerConnection` field defines the connection details to bridge to t
 | endpoint | Yes | Remote broker endpoint URL with port. For example, `example.westeurope-1.ts.eventgrid.azure.net:8883`. |
 | tls | Yes | Specifies if connection is encrypted with TLS and trusted CA certificate. See [TLS support](#tls-support) |
 | authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. Must be one of the following values: system-assigned managed identity or X.509. See [Authentication](#authentication). |
+| protocol | No | String value defining to use MQTT or MQTT over WebSockets. Can be `mqtt` or `webSocket`. Default is `mqtt`. |
 
 #### Authentication
 
@@ -138,7 +139,7 @@ The systemAssignedManagedIdentity field includes the following fields:
 
 If Azure IoT MQ is deployed as an Azure Arc extension, it gets a [system-assignment managed identity](/azure/active-directory/managed-identities-azure-resources/overview) by default. You should use a managed identity for Azure IoT MQ to interact with Azure resources, including Event Grid MQTT broker, because it allows you to avoid credential management and retain high availability.
 
-To use managed identity for authentication with Azure resources, first [assign](/azure/role-based-access-control/role-assignments-portal) an appropriate Azure RBAC role like [MQTT Broker Publisher](#system-assigned-managed-identity) to Azure IoT MQ's managed identity provided by Arc.
+To use managed identity for authentication with Azure resources, first assign an appropriate Azure RBAC role like [EventGrid TopicSpaces Publisher](#azure-event-grid-mqtt-broker-support) to Azure IoT MQ's managed identity provided by Arc.
 
 Then, specify and *MQTTBridgeConnector* with managed identity as the authentication method:
 
@@ -178,7 +179,7 @@ spec:
   remoteBrokerConnection:
     authentication:
       x509:
-        secretName: "bridge-client-cert"
+        secretName: bridge-client-cert
 ```
 
 ### Local broker connection
@@ -189,47 +190,26 @@ The `localBrokerConnection` field defines the connection details to bridge to th
 | --- | --- | --- |
 | endpoint | Yes | Remote broker endpoint URL with port. |
 | tls | Yes | Specifies if connection is encrypted with TLS and trusted CA certificate. See [TLS support](#tls-support) |
-| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The only supported methods are Kubernetes service account token (SAT). To use SAT, specify `kubernetes: {}`. |
-| protocol | No | String value defining to use MQTT or MQTT over WebSockets. Can be `mqtt` or `webSocket`. Default is `mqtt`. |
+| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The only supported methods is Kubernetes service account token (SAT). To use SAT, specify `kubernetes: {}`. |
 
-By default, if not configured, the MQTT bridge connector authenticates with Azure IoT MQ broker with Kubernetes SAT via the 1883 port and TLS disabled.
+By default, IoT MQ is deployed in the namespace `azure-iot-operations` with TLS enabled and SAT authentication.
 
-```console
-$ kubectl describe crd mqttbridgeconnector
-...
-Local Broker Connection:
-  Default:
-    Authentication:
-      Kubernetes:
-        Secret Path:                 /var/run/serviceaccount/localbroker
-        Service Account Token Name:  sat-token
-    Endpoint:                        aio-mq-dmqtt-frontend:1883
-    Tls:
-      Tls Enabled:                  false
-      Trusted Ca Certificate:       <nil>
-      Trusted Ca Certificate Name:  <nil>
-```
-
-If you configured, on Azure IoT MQ broker listener:
-
-- Only non-SAT authentication like username and password,
-- Port numbers other than 1883, or
-- TLS
-
-Then MqttBridgeConnector local broker connection setting must be configured to match. The deployment YAML for the *MqttBridgeConnector* must have `localBrokerConnection` at the same level as `remoteBrokerConnection`. For example, to use TLS with SAT authentication:
+Then MqttBridgeConnector local broker connection setting must be configured to match. The deployment YAML for the *MqttBridgeConnector* must have `localBrokerConnection` at the same level as `remoteBrokerConnection`. For example, to use TLS with SAT authentication in order to match the default IoT MQ deployment:
 
 ```yaml
 spec:
   localBrokerConnection:
-    endpoint: "aio-mq-dmqtt-frontend:8883"
+    endpoint: aio-mq-dmqtt-frontend:8883
     tls:
       tlsEnabled: true
-      trustedCaCertificateName: "test-ca-configmap"
+      trustedCaCertificateConfigMap: aio-ca-trust-bundle-test-only
     authentication:
       kubernetes: {}
 ```
 
-In this example, `trustedCaCertifcateName` is the *ConfigMap* you create for the root CA of Azure IoT MQ, like the [ConfigMap for the root ca of the remote broker](#tls-support). If you used cert-manager to create the root ca for Azure IoT MQ, the root CA can be obtained. For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-auto.md). 
+Here, `trustedCaCertifcateName` is the *ConfigMap* for the root CA of Azure IoT MQ, like the [ConfigMap for the root ca of the remote broker](#tls-support). The default root CA is stored in a ConfigMap named `aio-ca-trust-bundle-test-only`.
+
+For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-auto.md). 
 
 ### TLS support
 
@@ -238,14 +218,14 @@ The `tls` field defines the TLS configuration for the remote or local broker con
 | Field | Required | Description |
 | --- | --- | --- |
 | tlsEnabled | Yes | Whether TLS is enabled or not. |
-| trustedCaCertificateName | No | The CA certificate to trust when connecting to the broker. Required if TLS is enabled. |
+| trustedCaCertificateConfigMap | No | The CA certificate to trust when connecting to the broker. Required if TLS is enabled. |
 
 TLS encryption support is available for both remote and local broker connections.
 
 - For remote broker connection: if TLS is enabled, a trusted CA certificate should be specified as a Kubernetes *ConfigMap* reference. If not, the TLS handshake is likely to fail unless the remote endpoint is widely trusted A trusted CA certificate is already in the OS certificate store. For example, Event Grid uses widely trusted CA root so specifying isn't required.
 - For local (Azure IoT MQ) broker connection: if TLS is enabled for Azure IoT MQ broker listener, CA certificate that issued the listener server certificate should be specified as a Kubernetes *ConfigMap* reference.
 
-When specifying a trusted CA is required, create a *ConfigMap* containing the public potion of the CA and specify the configmap name in the `trustedCaCertificateName` property. For example:
+When specifying a trusted CA is required, create a *ConfigMap* containing the public potion of the CA and specify the configmap name in the `trustedCaCertificateConfigMap` property. For example:
 
 ```bash
 kubectl create configmap client-ca-configmap --from-file ~/.step/certs/root_ca.crt
@@ -261,51 +241,30 @@ The *MqttBridgeTopicMap* resource defines the topic mapping between the local an
 
 A *MqttBridgeConnector* can use multiple *MqttBridgeTopicMaps* linked with it. When a *MqttBridgeConnector* resource is deployed, Azure IoT MQ operator starts scanning the namespace for any *MqttBridgeTopicMaps* linked with it and automatically manage message flow among the *MqttBridgeConnector* instances. Then, once deployed, the *MqttBridgeTopicMap* is linked with the *MqttBridgeConnector*. Each *MqttBridgeTopicMap* can be linked with only one *MqttBridgeConnector*.
 
-<!--
-```mermaid
-erDiagram
-    MqttBridgeConnector ||--|{ MqttBridgeTopicMap : uses
-```
--->
-
-![Diagram showing the mapping between MqttBridgeConnector and MqttBridgeTopicMap.](./media/howto-configure-mqtt-bridge/mqtt-bridge-connector-mapping.svg)
-
-The following example shows a *MqttBridgeTopicMap* configuration for bridging messages from the remote topic `my-remote-topic` to the local topic `my-local-topic`:
+The following example shows a *MqttBridgeTopicMap* configuration for bridging messages from the remote topic `remote-topic` to the local topic `local-topic`:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: MqttBridgeTopicMap
 metadata:
-  name: "my-topic-map"
-  namespace: <SAME NAMESPACE AS BROKER> 
+  name: my-topic-map
+  namespace: azure-iot-operations 
 spec:
-  # Name of the MqttBridgeConnector resource to link to. Required.
-  mqttBridgeConnectorRef: "my-mqtt-bridge"
-  # A list of routes for bridging. Required.
+  mqttBridgeConnectorRef: my-mqtt-bridge
   routes:
-      # Direction of message flow. Required.
     - direction: remote-to-local
-      # Name of the route. Required
-      name: "first-route"
-      # MQTT quality of service (QoS). Optional
+      name: first-route
       qos: 0
-      # Source MQTT topic. Can have wildcards. Required.
-      source: "my-remote-topic"
-      # Target MQTT topic. Cannot have wildcards.
-      # Optional, if not specified it would be same as source.
-      target: "my-local-topic"
-      # Shared subscription configuration. Optional.
-      # Activates a configured number of clients for additional scale.
+      source: remote-topic
+      target: local-topic
       sharedSubscription:
-        # Number of clients to use for shared subscription.
         groupMinimumShareNumber: 3
-        # Shared subscription group name.
-        groupName: "group1"
+        groupName: group1
     - direction: local-to-remote
-      name: "second-route"
+      name: second-route
       qos: 1
-      source: "my-local-topic"
-      target: "my-remote-topic"
+      source: local-topic
+      target: remote-topic
 ```
 
 The following table describes the fields in the MqttBridgeTopicMap resource:
@@ -428,102 +387,24 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 This support works well with MQTTBridgeConnector's dynamic client ID and shared subscription systems to scale out connector instances for increased throughput and redundancy.
 
-### System-assigned managed identity
+To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker.
 
-System-assigned managed identity is recommended for Arc-connected clusters. To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker. To set up:
+First, using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. Take note of the output value for `identity.principalId`, which should look like `00000000-0000-0000-0000-000000000000`.
 
-1. Deploy Azure IoT MQ on an Arc-connected Kubernetes cluster as an Arc extension.
+```azurecli
+az k8s-extension show --resource-group <RESOURCE_GROUP> --cluster-name <CLUSTER_NAME> --name mq --cluster-type connectedClusters --query identity.principalId -o tsv
+```
 
-1. Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. For example:
+Then, use Azure CLI to [assign](/azure/role-based-access-control/role-assignments-portal) the roles to the Azure IoT MQ Arc extension managed identity. Replace `<MQ_ID>` with the principal ID you found in the previous step. For example, to assign the *EventGrid TopicSpaces Publisher* role:
 
-   ```console
-   $ az k8s-extension show -resource-group <RESOURCE_GROUP> --cluster-name <CLUSTER_NAME> --name <IOT_MQ_EXTENSION_NAME> --cluster-type connectedClusters
-   {
-    ...
-     "identity": {
-       "principalId": "c2d41722-b23a-4d5c-bc93-a9e3eb21ead1",
-       "tenantId": null,
-       "type": "SystemAssigned"
-     },
-     "isSystemExtension": false,
-     "name": "my-mq-extension",
-     ...
-   }
-   ```
+```azurecli
+az role assignment create --assignee <MQ_ID> --role 'EventGrid TopicSpaces Publisher' --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EVENT_GRID_NAMESPACE>
+```
 
-1. The following requirement is temporary. Create a custom role with `Microsoft.EventGrid/topicSpaces/subscribe/action` and `Microsoft.EventGrid/topicSpaces/publish/action` *DataActions* as appropriate. You might have to create the custom role at the resource group level. For example:
+> [!TIP]
+> To optimize for principle of least privilege, you can assign the role to a topic space instead of the entire Event Grid namespace. To learn more, see [Event Grid RBAC](../../event-grid/mqtt-client-azure-ad-token-and-rbac.md) and [Topic spaces](../../event-grid/mqtt-topic-spaces).
 
-   ```json
-   {
-     "Name": "EventGridMQTTBrokerPublisher",
-     "IsCustom": true,
-     "Description": "Allows publishing to Event Grid MQTT broker",
-     "Actions": [
-       "Microsoft.EventGrid/topicSpaces/subscribe/action",
-       "Microsoft.EventGrid/topicSpaces/publish/action"
-     ],
-     "NotActions": [],
-     "AssignableScopes": [
-       "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-arc"
-     ]
-   }
-   ```
-
-   <!-- ![Screenshot showing custom role creation](custom-role.png) -->
-
-1. At the Event Grid resource, [assign](/azure/role-based-access-control/role-assignments-portal) the roles to the Azure IoT MQ Arc extension managed identity. Choose **User, group, or service principal** when searching for the extension identity. Verify the object ID matches the ID from earlier.
-
-1. Create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method
-
-1. Create MqttBridgeTopicMaps and deploy the MQTT bridge with `kubectl`.
-
-### With X.509 authentication
-
-In Azure Event Grid:
-
-1. Prepare a certificate authority (CA) certificate `ca.pem` have it sign a client certificate `iotmq.pem`.
-1. In Event Grid, upload the `ca.pem` CA certificate.
-1. Register a client and upload the client certificate `iotmq.pem` for it.
-1. Configure client attributes, grouping, and permission bindings as needed.
-
-On your Kubernetes cluster:
-
-1. Create a secret with using `iotmq.pem` and the corresponding private key. Include the intermediate cert if available.
-
-   ```bash
-   kubectl create secret generic e4k-client-cert \
-   --from-file=client_cert.pem=e4k.pem \
-   --from-file=client_key.pem=e4k.key \
-   --from-file=client_intermediate_certs.pem=intermediate.pem
-   ```
-
-1. Create a *MqttBridgeConnector* with X.509 authentication method and refer to the secret you created for `iotmq.pem`.
-
-   ```yaml
-   apiVersion: mq.iotoperations.azure.com/v1beta1
-   kind: MqttBridgeConnector
-   metadata:
-     name: mqtt-bridge-to-azure
-     namespace: <SAME NAMESPACE AS BROKER> 
-   spec:
-     protocol: v5
-     image:
-       repository: mcr.microsoft.com/azureiotoperations/mqttbridge
-       tag: 0.1.0-preview
-       pullPolicy: IfNotPresent
-     bridgeInstances: 1
-     remoteBrokerConnection:
-       endpoint: "example.westeurope-1.ts.eventgrid.azure.net:8883"
-       tls:
-         tlsEnabled: true
-       authentication:
-         x509:
-           secretName: "bridge-client-cert"
-   ```
-
-1. Create *Topic Maps* and deploy the MQTT bridge with `kubectl`.
-
-Once deployed, the messages should start flowing to your Event Grid MQTT broker.
+Finally, create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method. Create MqttBridgeTopicMaps and deploy the MQTT bridge with `kubectl`.
 
 ### Maximum client sessions per authentication name
 
