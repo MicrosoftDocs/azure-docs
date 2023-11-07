@@ -15,7 +15,7 @@ ms.topic: tutorial
 
 As customers embark on their modern data warehouse and analytics projects, they require not only more data but also more visibility into their data across their data estate. This workshop dives into how improvements to Azure Data Factory and Azure Data Share simplify data integration and management in Azure. 
 
-From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory will empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share will allow you to do business to business sharing in a governed manner.
+From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory empowers your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share allows you to do business to business sharing in a governed manner.
 
 In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics. Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
 
@@ -52,7 +52,7 @@ In Azure Data Factory linked services, define the connection information to exte
 
     :::image type="content" source="media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page in the Azure portal.":::
 
-1. You'll be redirected to the homepage of the ADF UX. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, select the pencil icon in left side-bar.
+1. You'll be redirected to the homepage of ADF in the Azure portal. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, select the pencil icon in left side-bar.
 
     :::image type="content" source="./media/doc-common-process/get-started-page-author-button.png" alt-text="Screenshot from the Azure portal of Portal configure.":::
 
@@ -90,7 +90,7 @@ In Azure Data Factory linked services, define the connection information to exte
 
 In section *Transform data using mapping data flow*, you'll be building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
 
-To turn on debug, select the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Select **OK** when the confirmation dialog is shown. The cluster will start up in about 5 to 7 minutes. Continue on to *Ingest data from Azure SQL Database into ADLS Gen2 using the copy activity* while it is initializing.
+To turn on debug, select the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Select **OK** when the confirmation dialog is shown. The cluster starts up in about 5 to 7 minutes. Continue on to *Ingest data from Azure SQL Database into ADLS Gen2 using the copy activity* while it is initializing.
 
 :::image type="content" source="media/lab-data-flow-data-share/factory-resources-data-flow-debug.png" alt-text="Screenshot from the Azure portal of the Factory Resources pages, with the data flow debug button enabled.":::
 
@@ -148,7 +148,7 @@ You have successfully created your source dataset. Make sure in the source setti
 1. To verify your copy activity is working correctly, select **Debug** at the top of the pipeline canvas to execute a debug run. A debug run allows you to test your pipeline either end-to-end or until a breakpoint before publishing it to the data factory service.
 
     :::image type="content" source="media/lab-data-flow-data-share/debug-copy-data.png" alt-text="Screenshot from the Azure portal of the debug button.":::
-1. To monitor your debug run, go to the **Output** tab of the pipeline canvas. The monitoring screen auto-refreshes every 20 seconds or when you manually select the refresh button. The copy activity has a special monitoring view, which can be access by selecting the eye-glasses icon in the **Actions** column.
+1. To monitor your debug run, go to the **Output** tab of the pipeline canvas. The monitoring screen autorefreshes every 20 seconds or when you manually select the refresh button. The copy activity has a special monitoring view, which can be access by selecting the eye-glasses icon in the **Actions** column.
 
     :::image type="content" source="media/lab-data-flow-data-share/debug-copy-data-monitoring.png" alt-text="Screenshot from the Azure portal of the monitoring button.":::
 1. The copy monitoring view gives the activity's execution details and performance characteristics. You can see information such as data read/written, rows read/written, files read/written, and throughput. If you have configured everything correctly, you should see 49,999 rows written into one file in your ADLS sink.
@@ -178,7 +178,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 ### Configure your trip data csv source
 
-1. The first thing you want to do is configure your two source transformations. The first source will point to the 'TripDataCSV' DelimitedText dataset. To add a source transformation, select on the **Add Source** box in the canvas.
+1. The first thing you want to do is configure your two source transformations. The first source points to the 'TripDataCSV' DelimitedText dataset. To add a source transformation, select on the **Add Source** box in the canvas.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-add-source.png" alt-text="Screenshot from the Azure portal of the add source button in a new data flow.":::
 1. Name your source 'TripDataCSV' and select the 'TripDataCSV' dataset from the source dropdown list. If you remember, you didn't import a schema initially when creating this dataset as there was no data there. Since `trip-data.csv` exists now, select **Edit** to go to the dataset settings tab.
@@ -196,7 +196,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 ### Configure your trip fares SQL Database source
 
-1. The second source you're adding will point at the SQL Database table `dbo.TripFares`. Under your 'TripDataCSV' source, there will be another **Add Source** box. Select it to add a new source transformation.
+1. The second source you're adding points at the SQL Database table `dbo.TripFares`. Under your 'TripDataCSV' source, there will be another **Add Source** box. Select it to add a new source transformation.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-add-another-source.png" alt-text="Screenshot from the Azure portal of adding another data source to a data flow.":::
 1. Name this source 'TripFaresSQL'. Select **New** next to the source dataset field to create a new SQL Database dataset.
@@ -234,18 +234,18 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 1. Name your aggregate transformation 'AggregateByPaymentType'. Select `payment_type` as the group by column.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-aggregate-settings.png" alt-text="Screenshot from the Azure portal of aggregate settings.":::
-1. Go to the **Aggregates** tab. Here, you'll specify two aggregations:
+1. Go to the **Aggregates** tab. Specify two aggregations:
     * The average fare grouped by payment type
     * The total trip distance grouped by payment type
 
     First, you'll create the average fare expression. In the text box labeled **Add or select a column**, enter 'average_fare'.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-aggregate-settings-grouped-by.png" alt-text="Screenshot from the Azure portal of the Grouped by option in aggregate settings.":::
-1. To enter an aggregation expression, select the blue box labeled **Enter expression**. This will open up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](./concepts-data-flow-expression-builder.md).
+1. To enter an aggregation expression, select the blue box labeled **Enter expression**. This opens up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](./concepts-data-flow-expression-builder.md).
 
     To get the average fare, use the `avg()` aggregation function to aggregate the `total_amount` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `avg(toInteger(total_amount))`. Select **Save and finish** when you're done.
 
-    :::image type="content" source="media/lab-data-flow-data-share/visual-expression-builder-aggregate.png" alt-text="Screenshot from the Azure portal of the Visual Expression Builder showing a aggregate function avg(toInteger(total_amount)).":::
+    :::image type="content" source="media/lab-data-flow-data-share/visual-expression-builder-aggregate.png" alt-text="Screenshot from the Azure portal of the Visual Expression Builder showing an aggregate function avg(toInteger(total_amount)).":::
 1. To add an additional aggregation expression, select on the plus icon next to `average_fare`. Select **Add column**.
 
     :::image type="content" source="media/lab-data-flow-data-share/aggregate-settings-grouped-by-add-column.png" alt-text="Screenshot from the Azure portal of the add column button in the aggregate settings grouped by option.":::
@@ -284,7 +284,7 @@ You have successfully created your data flow. Now it's time to run it in a pipel
 1. Go back to the tab for the **IngestAndTransformData** pipeline. Notice the green box on the 'IngestIntoADLS' copy activity. Drag it over to the 'JoinAndAggregateData' data flow activity. This creates an 'on success', which causes the data flow activity to only run if the copy is successful.
 
     :::image type="content" source="media/lab-data-flow-data-share/pipeline-on-success.png" alt-text="Screenshot from the Azure portal of a green success pipeline.":::
-1. As we did for the copy activity, select **Debug** to execute a debug run. For debug runs, the data flow activity will use the active debug cluster instead of spinning up a new cluster. This pipeline will take a little over a minute to execute.
+1. As we did for the copy activity, select **Debug** to execute a debug run. For debug runs, the data flow activity uses the active debug cluster instead of spinning up a new cluster. This pipeline takes a little over a minute to execute.
 
     :::image type="content" source="media/lab-data-flow-data-share/pipeline-on-success-data-flow-debug.png" alt-text="Screenshot from the Azure portal of the data flow debug button for the on success pipeline.":::
 1. Like the copy activity, the data flow has a special monitoring view accessed by the eyeglasses icon on completion of the activity.
@@ -301,9 +301,9 @@ You have now completed the data factory portion of this lab. Publish your resour
 
 ## Share data using Azure Data Share
 
-In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics. You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
+In this section, you learn how to set up a new data share using the Azure portal. This involves creating a new data share that contains datasets from Azure Data Lake Storage Gen2 and Azure Synapse Analytics. You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
 
-Once you have created a data share, you'll then switch hats and become the *data consumer*. As the data consumer, you'll walk through the flow of accepting a data share invitation, configuring where you'd like the data to be received and mapping datasets to different storage locations. Then you'll trigger a snapshot, which will copy the data shared with you into the destination specified. 
+Once you have created a data share, you'll then switch hats and become the *data consumer*. As the data consumer, you'll walk through the flow of accepting a data share invitation, configuring where you'd like the data to be received and mapping datasets to different storage locations. Then, you'll trigger a snapshot, which will copy the data shared with you into the destination specified. 
 
 ### Share data (Data Provider flow)
 
@@ -323,7 +323,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Under **Share name**, specify a name of your choice. This is the share name that will be seen by your data consumer, so be sure to give it a descriptive name such as TaxiData.
 
-1. Under **Description**, put in a sentence, which describes the contents of the data share. The data share will contain world-wide taxi trip data that is stored in a number of stores including Azure Synapse Analytics and Azure Data Lake Store. 
+1. Under **Description**, put in a sentence, which describes the contents of the data share. The data share contains world-wide taxi trip data that is stored in a variety of stores, including Azure Synapse Analytics and Azure Data Lake Storage. 
 
 1. Under **Terms of use**, specify a set of terms that you would like your data consumer to adhere to. Some examples include "Do not distribute this data outside your organization" or "Refer to legal agreement". 
 
@@ -339,9 +339,9 @@ Once you have created a data share, you'll then switch hats and become the *data
 1. You'll be given a script to run before you can proceed. The script provided creates a user in the SQL database to allow the Azure Data Share MSI to authenticate on its behalf. 
 
 > [!IMPORTANT]
-> Before running the script, you must set yourself as the Active Directory Admin for the SQL Server. 
+> Before running the script, you must set yourself as the Active Directory Admin for the logical SQL server of the Azure SQL Database. 
 
-1. Open a new tab and navigate to the Azure portal. Copy the script provided to create a user in the database that you want to share data from. Do this by signing in to the EDW database using the [Azure portal Query editor](/azure/azure-sql/database/query-editor), using Microsoft Entra authentication. You'll need to modify the user in the following sample script:
+1. Open a new tab and navigate to the Azure portal. Copy the script provided to create a user in the database that you want to share data from. Do this by signing in to the EDW database using the [Azure portal Query editor](/azure/azure-sql/database/query-editor), using Microsoft Entra authentication. You need to modify the user in the following sample script:
 
     ```sql
     CREATE USER [dataprovider-xxxx@contoso.com] FROM EXTERNAL PROVIDER; 
@@ -354,9 +354,9 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Select **Add dataset**
 
-    We now have a SQL table that is part of our dataset. Next, we will add additional datasets from Azure Data Lake Store. 
+    We now have a SQL table that is part of our dataset. Next, we will add additional datasets from Azure Data Lake Storage. 
 
-1. Select **Add dataset** and select **Azure Data Lake Store Gen2**
+1. Select **Add dataset** and select **Azure Data Lake Storage Gen2**
 
     :::image type="content" source="media/lab-data-flow-data-share/add-dataset-adls.png" alt-text="Screenshot from the Azure portal of add an ADLS Gen2 dataset.":::
 
@@ -434,7 +434,7 @@ You might be prompted to select a subscription. Make sure you select the subscri
 
     In configuring this option, a share subscription is created but there is nowhere for the data to land since no destination has been mapped. 
 
-    Next, we will configure dataset mappings for the data share. 
+    Next, configure dataset mappings for the data share. 
 
 1. Select the Received Share (the name you specified in step 5).
 
@@ -452,7 +452,7 @@ You might be prompted to select a subscription. Make sure you select the subscri
 
     :::image type="content" source="media/lab-data-flow-data-share/mapping-options.png" alt-text="Screenshot from the Azure portal of map datasets to target.":::
     
-    (Optional) Select **Azure Data Lake Store Gen2** as the target data type. 
+    (Optional) Select **Azure Data Lake Storage Gen2** as the target data type. 
     
     (Optional) Select the Subscription, Resource Group and Storage account you have been working in. 
     
@@ -498,9 +498,9 @@ You might be prompted to select a subscription. Make sure you select the subscri
 
     :::image type="content" source="media/lab-data-flow-data-share/trigger-full.png" alt-text="Screenshot from the Azure portal of the trigger snapshot, full copy option.":::
 
-    This will start copying data into your new data share account. In a real world scenario, this data would be coming from a third party. 
+    This starts copying data into your new data share account. In a real world scenario, this data would be coming from a third party. 
 
-    It will take approximately 3-5 minutes for the data to come across. You can monitor progress by selecting on the **History** tab. 
+    It takes approximately 3-5 minutes for the data to come across. You can monitor progress by selecting on the **History** tab. 
 
     While you wait, navigate to the original data share (DataProvider) and view the status of the **Share Subscriptions** and **History** tab. There is now an active subscription, and as a data provider, you can also monitor when the data consumer has started to receive the data shared with them. 
 
