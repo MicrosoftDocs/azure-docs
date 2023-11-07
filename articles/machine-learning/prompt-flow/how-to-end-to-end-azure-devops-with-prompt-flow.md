@@ -71,7 +71,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
     > The first time you've launched the Cloud Shell, you'll be prompted to create a storage account for the Cloud Shell.
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
-   :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/power-shell-cli.png" alt-text="Screenshot of the cloud shell environment dropdown. "lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/power-shell-cli.png:::
+   :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/power-shell-cli.png" alt-text="Screenshot of the cloud shell environment dropdown." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/power-shell-cli.png" :::
 
 1. Copy the following bash commands to your computer and update the** projectName**,** subscriptionID**, and **environment variables** with the values for your project. If you're creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription.
      ``` bash
