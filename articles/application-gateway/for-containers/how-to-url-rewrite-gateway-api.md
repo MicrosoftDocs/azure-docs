@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -244,7 +244,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-Specifying server name indicator using the curl command, `contoso.com/shop` should return a response from the backend-v1 service with the requested path to the backend target showing `contoso.com/ecommerce`.
+When you specify the server name indicator using the curl command, `contoso.com/shop` should return a response from the backend-v1 service with the requested path to the backend target showing `contoso.com/ecommerce`.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
@@ -282,7 +282,7 @@ Via the response we should see:
 }
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` should return a response from the backend-v2 service.
+When you specify the server name indicator using the curl command, `contoso.com` should return a response from the backend-v2 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
