@@ -51,6 +51,8 @@ The **Jailbreak risk detection** panel lets you try out jailbreak detection. Jai
 
 The service returns the jailbreak risk level and type for each sample. You can also view the details of the jailbreak risk detection result by selecting the **Details** button.
 
+For more information, see the [Jailbreak risk detection conceptual guide](./concepts/jailbreak-detection.md).
+
 ## Analyze image content
 The [Moderate image content](https://contentsafety.cognitive.azure.com/image) page provides capability for you to quickly try out image moderation.
 
