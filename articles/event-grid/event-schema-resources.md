@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/06/2023
 ---
 
-# Azure Resource Notifications - Resources events in Azure Event Grid
+# Azure Resource Notifications - Azure Resource Manager events in Azure Event Grid (Preview)
 The Azure Resource Management system topic provides insights into the life cycle of various Azure resources.
 
 The Event Grid system topics for Azure subscriptions and Azure resource groups provide resource life cycle events using a broader range of event types including action, write, and delete events for scenarios involving success, failure, and cancellation. However, it's worth noting that they don't include the resource payload. For details about these events, see [Event Grid system topic for Azure subscriptions](event-schema-subscriptions.md) and [Event Grid system topic for Azure resource groups](event-schema-resource-groups.md). 
@@ -442,8 +442,7 @@ This section shows the `Deleted` event generated when an Azure Storage account i
 
 ---
 
-## Contact us
-If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+[!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
 See [Subscribe to Azure Resource Notifications - Resources events](subscribe-to-resource-notifications-resources-events.md).
