@@ -31,6 +31,8 @@ To centrally and logically organize and manage Azure resources associated with y
 
 1. From the **Integration Environments** toolbar, select **Create**.
 
+   :::image type="content" source="media/create-integration-environment/create-integration-environment.png" alt-text="Screenshot shows Azure portal and Integration Environments list with Create selected." lightbox="media/create-integration-environment/create-integration-environment.png":::
+
 1. On the **Create an integration environment** page, provide the following information:
 
    | Property | Required | Value | Description |
@@ -44,6 +46,12 @@ To centrally and logically organize and manage Azure resources associated with y
 1. When you're done, select **Create**.
 
    After deployment completes, Azure opens your integration environment.
+
+   If the environment doesn't open, select **Go to resource**.
+
+   :::image type="content" source="media/create-integration-environment/integration-environment.png" alt-text="Screenshot shows Azure portal with new integration environment resource." lightbox="media/create-integration-environment/integration-environment.png":::
+
+1. Now [create an application group](create-application-group.md) in your integration environment.
 
 ## Next steps
 

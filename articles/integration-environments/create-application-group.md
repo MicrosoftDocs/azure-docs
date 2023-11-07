@@ -39,7 +39,9 @@ After you create an integration environment, create one or more application grou
 
 1. On your integration environment menu, under **Environment**, select **Applications**.
 
-1. On the **Applications** page toolbar, select **Create new**.
+1. On the **Applications** page toolbar, select **Create**.
+
+   :::image type="content" source="media/create-application-group/create-application-group.png" alt-text="Screenshot shows Azure portal, integration environment shortcut menu with Applications selected, and toolbar with Create selected." lightbox="media/create-application-group/create-application-group.png":::
 
 1. On the **Basics** tab, provide the following information:
 
@@ -78,7 +80,9 @@ After you create an integration environment, create one or more application grou
 
 1. When you're done, select **Create**.
 
-Your integration environment now shows the application group that you created with the selected Azure resources.
+   Your integration environment now shows the application group that you created with the selected Azure resources.
+
+   :::image type="content" source="media/create-application-group/application-group-created.png" alt-text="Screenshot shows Azure portal, application groups list, and new application group." lightbox="media/create-application-group/application-group-created.png":::
 
 ## Next steps
 

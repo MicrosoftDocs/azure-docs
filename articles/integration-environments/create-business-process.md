@@ -43,7 +43,9 @@ Although this example shows a sequential business process, your process can also
 
 1. On the application group menu, under **Business process tracking**, select **Business processes**.
 
-1. On the **Business processes** toolbar, select **Create new**.
+1. On the **Business processes** toolbar, select **Create**.
+
+   :::image type="content" source="media/create-business-process/create-business-process.png" alt-text="Screenshot shows Azure portal, application group, and business processes toolbar with Create new selected." lightbox="media/create-business-process/create-business-process.png":::
 
 1. On the **Create business process** pane, provide the following information:
 
@@ -58,15 +60,25 @@ Although this example shows a sequential business process, your process can also
 
    The **Business processes** list now includes the business process that you created.
 
+   :::image type="content" source="media/create-business-process/business-process-created.png" alt-text="Screenshot shows Azure portal, application group, and business processes list with new business process." lightbox="media/create-business-process/business-process-created.png":::
+
 1. Continue to add stages for your business process.
 
 ## Add a business process stage
 
-After you create your business process, add stages and define key business data properties for each stage so that you can get insights into your business process.
+After you create your business process, add the stages in that process.
+
+For example, suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
+
+:::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
 1. From the **Business processes** list, select your business process to open the business process designer.
 
-1. On the designer, select **Add stage**. On the **Add stage** pane, provide the following information:
+1. On the designer, select **Add stage**.
+
+   :::image type="content" source="media/create-business-process/add-stage.png" alt-text="Screenshot shows business process designer with Add stage selected." lightbox="media/create-business-process/add-stage.png":::
+
+1. On the **Add stage** pane, provide the following information:
 
    > [!TIP]
    >
@@ -91,7 +103,13 @@ After you create your business process, add stages and define key business data 
 
 1. Repeat the steps to add a stage as necessary.
 
+   The following example shows a completed business process:
+
+   :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer with completed business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
+
 1. When you're done, on the process designer toolbar, select **Save**.
+
+1. Now, [define key business data properties to capture for each stage and map each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights into your business process.
 
 ## Next steps
 

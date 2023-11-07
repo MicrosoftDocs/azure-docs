@@ -46,13 +46,17 @@ After you create a business process for an application group in an integration e
 
 1. On the process designer, select the stage where you want to define the business properties to capture.
 
-1. On the **Edit stage** pane, under **Properties**, on each row, provide the following information for each business property to capture and track:
+1. On the **Edit stage** pane, under **Properties**, on each row, provide the following information about each business property value to capture:
 
    | Property | Type |
    |----------|------|
    | Name for the business property | **String** or **Integer** |
 
    If you need to add another property, select **Add property**.
+
+   This example specifies to track the business properties named **CustomerName**, **CustomerPhone**, and **CustomerEmail**:
+
+   :::image type="content" source="media/map-business-process-workflow/define-business-properties-tracking.png" alt-text="Screenshot shows process designer, selected process stage, opened pane for Edit stage, and defined business properties to track." lightbox="media/map-business-process-workflow/define-business-properties-tracking.png":::
 
 1. When you're done, continue on to map the current stage to an actual Standard logic app workflow operation and the data that you want.
 
@@ -68,6 +72,8 @@ After you previously defined the business properties to capture, map the stage t
 > any Standard logic app resources, workflows, and operations.
 
 1. On the **Edit stage** pane, select **Show data source**.
+
+   :::image type="content" source="media/map-business-process-workflow/show-data-source.png" alt-text="Screenshot shows opened pane for Edit stage and selected box for Show data source." lightbox="media/map-business-process-workflow/show-data-source.png":::
 
 1. From the **Logic app** list, select the Standard logic app resource.
 
@@ -144,6 +150,11 @@ After you previously defined the business properties to capture, map the stage t
 1. When you're done, select **Continue**.
 
    After you finish mapping a stage, the platform sends the selected information to your database in Azure Data Explorer, and you're returned to the **Edit stage** pane.
+
+   The following example shows a completely mapped stage:
+
+   :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows opened pane for Edit stage, and complete mapping to workfow operation, business properties, and business identifier.":::
+
 
 1. Back on the **Edit stage** pane, select **Save**.
 
