@@ -26,7 +26,7 @@ items:
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
     - name: GPT-4 with Vision
-      href: quickstart-gpt-v.md
+      href: gpt-v-quickstart.md
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
