@@ -84,10 +84,10 @@ resource roleAssignmentDataSender 'Microsoft.Authorization/roleAssignments@2022-
 # Set the required environment variables
 
 # Resource group for resources
-export RESOURCE_GROUP=xxx
+RESOURCE_GROUP=xxx
 
 # Bicep template files name
-export TEMPLATE_FILE_NAME=xxx
+TEMPLATE_FILE_NAME=xxx
 
 # MQ Arc extension name
 MQ_EXTENSION_NAME=xxx
