@@ -11,227 +11,439 @@ ms.author: austinmc
 
 # RestApiPoller data connector reference for the Codeless Connector Platform
 
-Still a work in progress
+To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) reference docs. Specifically this reference document expands on the following details:
 
-From DataConnector API doc.
+- An updated data connector kind, `RestApiPoller`  
+- Authorization configuration
+- Data source request and response configuration options
+- Data stream paging options
+- Data collection rule map 
 
-- `pollingConfig`. Defines how Microsoft Sentinel collects data from your data source. For more information, see [Configure your connector's polling settings](#configure-your-connectors-polling-settings).
+Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
 
-## Configure your connector's polling settings
+For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-solution-deployment-template).
 
-This section describes the configuration for how data is polled from your data source for a codeless data connector.
+## Data Connectors - Create or Update 
 
-The following code shows the syntax of the `pollingConfig` section of the [CCP configuration] file.
+Reference the Create or Update operation in the REST API docs, [here](/rest/api/securityinsights/data-connectors/create-or-update) to find the latest stable or preview API version. The difference between the *create* and the *update* operation is the update requires an **etag** value.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId}?api-version=2022-11-01
+```
+
+## URI parameters
+
+For more information, see [Data Connectors - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+
+|Name  | Description  |
+|---------|---------|
+| dataConnectorId | The data connector ID must be a unique name and is the same name parameter in the [request body](#request-body).|
+| resourceGroupName | The name of the resource group, not case sensitive.  |
+| subscriptionId | The ID of the target subscription. |
+| workspaceName | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
+| api-version | The API version to use for this operation. |
+
+## Request body
+
+The request body for the CCP data connector has the following structure:
 
 ```json
-"pollingConfig": {
-    "auth": {
+{
+   "name": "{dataConnectorId}",
+   "kind": "RestApiPoller",
+   "etag": "",
+   "properties": {
+        "connectorDefinitionName": "",
+        "dataType": "",
+        "auth": {},
+        "request": {},
+        "response": {},
+        "paging": "",
+        "dcrConfig": ""
+   }
+}
+
+```
+
+CodelessRestApiPollerConnector
+
+| Name | Required | Type | Description |
+| ---- | ---- | ---- | ---- |
+| name | True | string | The unique name of the connection which matches the URI parameter |
+| kind | True | string | Must be "RestApiPoller" |
+| etag |  | GUID | Leave empty for creation of new connectors. For update operations, the etag must match the existing connector's etag (GUID). |
+| properties.connectorDefinitionName |  | string | The name of the DataConnectorDefinition resource that defines the UI configuration of the data connector. For more information, see [Data Connector Definition](create-codeless-connector.md#data-connector-definition). |
+| dataType | ? | string | ?? |
+| properties.auth	| True | Nested JSON | Describes the authentication properties for polling the data. For more information, see [authentication configuration](#authentication-configuration). |
+| properties.request | True | Nested JSON | Describes the request payload for polling the data, such as the API endpoint. For more information, see [request configuration](#request-configuration). |
+| properties.response | True | Nested JSON | Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
+| properties.paging |  | Nested JSON | Describes the pagination payload when polling the data. For more information, see [paging configuration](#paging-configuration). |
+| properties.dcrConfig |  | Nested JSON | Required parameters when the data is sent to a Data Collection Rule (DCR). For more information, see [DCR configuration](#dcr-configuration). |
+
+## Authentication configuration
+
+The following authentication types are supported by the CCP.
+- [Basic](#basic-auth)
+- [APIKey](#apikey)
+- [OAuth2](#oauth2) 
+
+CCP OAuth2 implementation does not support certificate credentials.
+
+#### Basic auth
+
+| Field | Required | Type |
+| ---- | ---- | ---- |
+| UserName | True | string |
+| Password | True | string |
+
+Example Basic auth:
+```json
+"auth": {
+    "type": "Basic",
+    "UserName": "usernameXYZ",
+    "Password": "password123"
+}
+```
+
+#### APIKey
+
+| Field | Required | Type | Description | Default value |
+| ---- | ---- | ---- | ---- | ---- |
+| ApiKey | Mandatory | string | user secret key | |
+| ApiKeyName | | string | name of the Uri header containing the ApiKey value | "Authorization" |
+| ApiKeyIdentifier | | string | string value to prepend the token | "token" |
+| IsApiKeyInPostPayload | | boolean | send secret in POST body instead of header | false |
+
+APIKey auth examples:
+```json
+"auth": {
+    "type": "APIKey",
+    "ApiKey": "123123123",
+    "ApiKeyName": "X-MyApp-Auth-Header",
+    "ApiKeyIdentifier": "Bearer"
+}
+``` 
+This example results in the secret sent in the following header: **X-Random-Auth-Header: Bearer 123123123**
+
+```json
+"auth": { 
+    "type": "APIKey",
+    "ApiKey": "123123123",
+}
+```
+This example uses the default values and results in the following header: **Authorization: token 123123123**
+
+```json
+"auth": { 
+    "type": "APIKey",
+    "ApiKey": "123123123",
+    "ApiKeyName": ""
+}
+```
+Since the `ApiKeyName` is explicitly set to `""`, the result is the following header: **Authorization: 123123123**
+
+#### OAuth2
+
+The Codeless Connector Platform supports OAuth 2.0 authorization code grant and client credentials.
+The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
+
+|Field | Required | Type | Description |
+| ---- | ---- | ---- | ---- | 
+| ClientId | True	| String | The client id |
+| ClientSecret	| True | String | The client secret |
+| AuthorizationCode | Mandatory when grantType = `authorization_code` |	String | if grant type is `authorization_code` this will be the authorization code returned from the auth server |
+| Scope | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
+| RedirectUri | True | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
+| GrantType | True | String | `authorization_code` or `client_credentials` |
+| TokenEndpoint | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
+| TokenEndpointHeaders |  | Object | An optional key value object to send custom headers to token server |
+| TokenEndpointQueryParameters |  | Object | An optional key value object to send custom query params to token server |
+| AuthorizationEndpoint	| True | String | URL for user consent for `authorization_code` flow |
+| AuthorizationEndpointHeaders |	 | Object | An optional key value object to send custom headers to auth server |
+| AuthorizationEndpointQueryParameters	|  | Object | An optional key value pair used in OAuth2 authorization code flow request |
+
+Example:
+OAuth2 auth code grant
+
+```json
+"auth": {
+    "type": "OAuth2",
+    "tokenEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/token",
+    "authorizationEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/authorize",
+    "authorizationEndpointHeaders": {},
+    "authorizationEndpointQueryParameters": {
+        "prompt": "consent"
     },
-    "request": {
+    "redirectionUri": "https://portal.azure.com/TokenAuthorize",
+    "tokenEndpointHeaders": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
     },
-    "response": {
+    "TokenEndpointQueryParameters": {},
+    "scope": "openid offline_access some_scope",
+    "grantType": "authorization_code"
+}
+```
+Example:
+```json
+"auth": {
+    "type": "OAuth2",
+    "tokenEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/token",
+    "tokenEndpointHeaders": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
     },
-    "paging": {
-    }
+    "TokenEndpointQueryParameters": {},
+    "scope": "openid offline_access some_scope",
+    "grantType": "client_credentials"
+}
+```
+The difference between code flow to client credentials is that code flow is for fetching data on behalf of user (user permissions) and client credentials is for fetching data with the application permissions, the data server grant access / permissions to the application, there is no user, that is why in client credentials flow we don’t need authorization endpoint, only a token endpoint for retrieving tokens.
+
+## Request configuration
+
+The request section includes the following parameters:
+Field	Required	Type	Description	Default value
+ApiEndpoint	True	String	URL for remote server. Defines the endpoint to pull data from	
+RateLimitQPS	False	Integer	Defines the number of calls or queries allowed in a second	
+QueryWindowInMin	False	Integer	Defines the available query window, in minutes.	Minimum is 1 minute. Default is 5 minutes. successStatusValue
+
+HttpMethod	False	String	Defines the API method: GET or Post	GET
+QueryTimeFormat	False	String	Defines the date time presentation that the endpoint (remote server) expects. Possible values are the constants: "UnixTimestamp", "UnixTimestampInMills" or any other valid representation of date time, for example: "yyyy-MM-dd", "MM/dd/yyyy HH:mm:ss", etc..	ISO 8601 UTC
+RetryCount	False	Integer	Defines how many retries are allowed in case of a failure.	A number from 1 to 6. Default is 3.
+TimeoutInSeconds	False	Integer	Defines the request timeout, in seconds.	A number from 1 to 180. Default is 20
+IsPostPayloadJson	False	Boolean	Determines whether the POST payload is in JSON format.	Default value is false
+Headers	False	Object	Key value pairs - defines the request headers 	
+QueryParameters	False	Object	Key value pairs - defines the request query parameters 	
+StartTimeAttributeName	Depends on the scenario 	String	Defines the query parameter name for query Start time.
+
+For example: if 
+StartTimeAttributeName = "from"
+and EndTimeAttributeName = "until"
+and ApiEndpoint = "https://www.example.com"
+Then, the query sent to the remote server will look as follows: 
+ https://www.example.com?from={QueryTimeFormat}&until={QueryTimeFormat + QueryWindowInMin}	
+EndTimeAttributeName 		String	see StartTimeAttributeName	
+QueryTimeIntervalAttributeName	Depends on the scenario, 	String	In case the endpoint supports a special format of querying the data on a time frame, then this property may be used together with the QueryTimeIntervalPrepend parameter  and the QueryTimeIntervalDelimiter parameter. 
+For example:
+Setting   
+QueryTimeIntervalAttributeName = "interval"
+and QueryTimeIntervalPrepend = "time:"
+and
+QueryTimeIntervalDelimiter = ".."
+and
+ApiEndpoint = "https://www.example.com"
+Will results in the following query:
+https://www.example.com?interval="time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}"	
+QueryTimeIntervalPrepend		String	See QueryTimeIntervalAttributeName	
+QueryTimeIntervalDelimiter		String	See QueryTimeIntervalAttributeName	
+QueryParametersTemplate	False	String	Defines the query parameters template to use when passing query parameters in advanced scenarios. 
+
+For example: "queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"
+
+{_QueryWindowStartTime} and {_QueryWindowEndTime} are only supported in the queryParameters and queryParametersTemplate request parameters.
+
+{_APIKeyName} and {_APIKey} are only supported in the queryParametersTemplate request parameter.	
+
+Examples: 
+Let’s take 2 examples for getting data from Microsoft Graph API:
+The first one is for querying messages with filter query parameter with a query syntax as shown in the docs :
+
+```json
+"request": {
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
+  "httpMethod": "Get",
+  "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
+  "queryWindowInMin": 10,
+  "retryCount": 3,
+  "rateLimitQPS": 20,
+  "headers": {
+    "Accept": "application/json",
+  },
+  "QueryTimeIntervalAttributeName": "filter",
+  "QueryTimeIntervalPrepend": "TimeStamp gt ",
+  "QueryTimeIntervalDelimiter": " and Timestamp lt "
+}
+```
+The JSON above will fire a GET request to https://graph.microsoft.com/v1.0/me/messages?filter=TimeStamp gt 2019-09-01T09:00:00.0000000 and Timestamp lt 2019-09-01T17:00:00.0000000
+Of course time stamp will change each queryWindowInMin time.
+Same results can be achieved with this option:
+
+```json
+"request": {
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
+  "httpMethod": "Get",
+  "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
+  "queryWindowInMin": 10,
+  "retryCount": 3,
+  "rateLimitQPS": 20,
+  "headers": {
+    "Accept": "application/json",
+  },
+  "queryParameters": {
+    "filter": "TimeStamp gt {_QueryWindowStartTime} and Timestamp lt {_QueryWindowEndTime}"
+  }
+}
+```
+
+Another option is when the data server expects 2 query parameters one for start time and one for end time, example:
+
+```json
+"request": {
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
+  "httpMethod": "Get",
+  "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
+  "queryWindowInMin": 10,
+  "retryCount": 3,
+  "rateLimitQPS": 20,
+  "headers": {
+    "Accept": "application/json",
+  },
+  "StartTimeAttributeName": "startDateTime",
+  "EndTimeAttributeName": "endDateTime",
+}
+```
+
+This will result with a GET request to `https://graph.microsoft.com/me/calendarView?startDateTime=2019-09-01T09:00:00.0000000&endDateTime=2019-09-01T17:00:00.0000000`
+
+For complex queries (POST requests) we can use QueryParametersTemplate as a body, for example:
+
+```json
+request: {
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
+  "httpMethod": "POST",
+  "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
+  "queryWindowInMin": 10,
+  "retryCount": 3,
+  "rateLimitQPS": 20,
+  "headers": {
+    "Accept": "application/json",
+  },
+  "isPostPayloadJson": true,
+  "queryParametersTemplate": "{\"query":"TableName | where createdTimestamp between (datetime({_QueryWindowStartTime}) .. datetime({_QueryWindowEndTime}))\"}"
+}
+```
+This example will send a POST request with parameters in the body.
+
+## Response configuration
+
+The response section includes the following parameters:
+Field	Required	Type	Description	Default Value
+EventsJsonPaths	True	List of Strings	Defines the path to the message in the response JSON. 
+A JSON path expression specifies a path to an element, or a set of elements, in a JSON structure 	
+SuccessStatusJsonPath	False	String	Defines the path to the success message in the response JSON.
+When this parameter is defined then SuccessStatusValue parameter should also be defined 	
+SuccessStatusValue	False	String	Defines the path to the success message value in the response JSON	
+IsGzipCompressed	False	Boolean	Determines whether the response is compressed in a gzip file	False
+format	True	String	"json" or "csv" or "xml"	
+CompressionAlgo	False	String	Can be either "multi-gzip" or "deflate". For gzip you can use IsGzipCompressed	
+CsvDelimiter	False	String	If response format is CSV and you want to change the default CSV delimiter ","	","
+HasCsvBoundary	False	Boolean	indicate if CSV data has a boundary	False
+HasCsvHeader	False	Boolean	indicate if CSV data has a header	True
+CsvEscape	False	String	Escape char for bound a field, for example double quote, 
+CSV with headers id,name,avg
+1, "my name", 5.5	‘"’ (double quotes)
+ConvertChildPropertiesToArray	False	Boolean	Special case in which the remote server returns an object instead of a list of events which each property has data in it.	False
+
+Note: CSV format type is parsed by this specification (RFC4180).
+Examples: 
+For server that response with JSON format and the data is inside a property called "value", also an indication for success call is in the response in property "status" and should only ingest the data if the value is "success"
+
+```json
+"response": {
+  "EventsJsonPaths ": ["$.value"],
+  "format": "json",
+  "SuccessStatusJsonPath": "$.status",
+  "SuccessStatusValue": "success",
+  "IsGzipCompressed: true
  }
 ```
 
-The `pollingConfig` section includes the following properties:
-
-| Name         | Type        | Description  |
-| ------------ | ----------- | ------------ |
-| **auth**     | String      | Describes the authentication properties for polling the data. For more information, see [auth configuration](#auth-configuration). |
-| <a name="authtype"></a>**auth.authType** | String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2` |
-| **request**  | Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration). |
-| **response** | Nested JSON | Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
-| **paging**   | Nested JSON | Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration). |
-
-For more information, see [Sample pollingConfig code](#sample-pollingconfig-code).
-
-### auth configuration
-
-The `auth` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
-
-#### Basic authType parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| **Username** | String | Mandatory. Defines user name. |
-| **Password** | String | Mandatory. Defines user password. |
-
-#### APIKey authType parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-|**APIKeyName**     |String | Optional. Defines the name of your API key, as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        |
-|**IsAPIKeyInPostPayload**     |Boolean | Determines where your API key is defined. <br><br>True: API key is defined in the POST request payload <br>False: API key is defined in the header     |
-|**APIKeyIdentifier**     |  String | Optional. Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |
-
-#### OAuth2 authType parameters
-
-The Codeless Connector Platform supports OAuth 2.0 authorization code grant.
-
-The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
-
-After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
-
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported value: `AuthCode` - requires an authorization flow |
-| **AccessToken** | String | Optional. Defines an OAuth2 access token, relevant when the access token doesn't expire. |
-| **AccessTokenPrepend** | String | Optional. Defines an OAuth2 access token prepend. Default is `Bearer`. |
-| **RefreshToken** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |
-| **TokenEndpoint** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 token service endpoint. |
-| **AuthorizationEndpoint** | String | Optional. Defines the OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. |
-| **RedirectionEndpoint** | String | Optional. Defines a redirection endpoint during onboarding. |
-| **AccessTokenExpirationDateTimeInUtc** | String | Optional. Defines an access token expiration datetime, in UTC format. Relevant for when the access token doesn't expire, and therefore has a large datetime in UTC, or when the access token has a large expiration datetime. |
-| **RefreshTokenExpirationDateTimeInUtc** | String | Mandatory for OAuth2 auth types. Defines the refresh token expiration datetime in UTC format. |
-| **TokenEndpointHeaders** | Dictionary<string, object> | Optional. Defines the headers when calling an OAuth2 token service endpoint.<br><br>Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }` |
-| **AuthorizationEndpointHeaders** | Dictionary<string, object> | Optional. Defines the headers when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
-| **AuthorizationEndpointQueryParameters** | Dictionary<string, object> | Optional. Defines query parameters when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
-| **TokenEndpointQueryParameters** | Dictionary<string, object> | Optional. Define query parameters when calling OAuth2 token service endpoint.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
-| **IsTokenEndpointPostPayloadJson** | Boolean | Optional, default is false. Determines whether query parameters are in JSON format and set in the request POST payload. |
-| **IsClientSecretInHeader** | Boolean | Optional, default is false. Determines whether the `client_id` and `client_secret` values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload. |
-| **RefreshTokenLifetimeinSecAttributeName** | String | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. |
-| **IsJwtBearerFlow** | Boolean | Optional, default is false. Determines whether you are using JWT. |
-| **JwtHeaderInJson** | Dictionary<string, object> | Optional. Define the JWT headers in JSON format.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>...}` |
-| **JwtClaimsInJson** | Dictionary<string, object> | Optional. Defines JWT claims in JSON format.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ...}` |
-| **JwtPem** | String | Optional. Defines a secret key, in PEM Pkcs1 format: `'-----BEGIN RSA PRIVATE KEY-----\r\n{privatekey}\r\n-----END RSA PRIVATE KEY-----\r\n'`<br><br>Make sure to keep the `'\r\n'` code in place. |
-| **RequestTimeoutInSeconds** | Integer | Optional. Determines timeout in seconds when calling token service endpoint. Default is 180 seconds |
-
-Here's an example of how an OAuth2 configuration might look:
+Another example for response in CSV format with no header:
 
 ```json
-"pollingConfig": {
-    "auth": {
-        "authType": "OAuth2",
-        "authorizationEndpoint": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
-        "redirectionEndpoint": "https://portal.azure.com/TokenAuthorize",
-        "tokenEndpoint": "https://oauth2.googleapis.com/token",
-        "authorizationEndpointQueryParameters": {},
-        "tokenEndpointHeaders": {
-            "Accept": "application/json"
-        },
-        "TokenEndpointQueryParameters": {},
-        "isClientSecretInHeader": false,
-        "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-        "grantType": "authorization_code",
-        "contentType": "application/x-www-form-urlencoded",
-        "FlowName": "AuthCode"
-    },
+"response": {
+  "EventsJsonPaths ": ["$"],
+  "format": "csv",
+  "HasCsvHeader": false
+ }
 ```
 
-#### Session authType parameters
+## Paging configuration
 
-| Name                        | Type                       | Description  |
-| --------------------------- | -------------------------- | ------------ |
-| **QueryParameters**         | Dictionary<string, object> | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>`{'<attr_name>': '<val>', '<attr_name>': '<val>'... }` |
-| **IsPostPayloadJson**       | Boolean                    | Optional. Determines whether the query parameters are in JSON format.  |
-| **Headers**                 | Dictionary<string, object> | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
-| **SessionTimeoutInMinutes** | String                     | Optional. Defines a session timeout, in minutes.       |
-| **SessionIdName**           | String                     | Optional. Defines an ID name for the session.  |
-| **SessionLoginRequestUri**  | String                     | Optional. Defines a session login request URI. |
+The paging section includes the following parameters based on the paging type:
+PagingType:  LinkHeader / PersistentLinkHeader
+This is the most common paging type – see specification here.
+In LinkHeader pagination, the API response includes links in the HTTP header, typically named "Link," that provide URLs to the next and previous pages of data. Clients can extract the next page URL from the header and make a new request to retrieve the next page of data.
+LinkHeader and PersistentLinkHeader have the same properties, The difference is that in PersistentLinkHeader link header will be persisted at backend storage – so it can be used across different query windows. For example, some API doesn’t support query start time/end time, but it might support server side *cursor*, persistent* page types can be used to remember the server side *cursor*. Also note a side effect of this page type – there can be only one query running for the connector with PersistentLinkHeader to avoid race conditions on service side *cursor* so it can affect latency.
 
-### Request configuration
-
-The `request` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
-
-| Name                               | Type    | Description                                        |
-| ---------------------------------- | ------- | -------------------------------------------------- |
-| **apiEndpoint**                    | String  | Mandatory. Defines the endpoint to pull data from. |
-| **httpMethod**                     | String  | Mandatory. Defines the API method: `GET` or `POST` |
-| **queryTimeFormat**                | String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp. |
-| **startTimeAttributeName**         | String  | Optional. Defines the name of the attribute that defines the query start time. |
-| **endTimeAttributeName**           | String  | Optional. Defines the name of the attribute that defines the query end time. |
-| **queryTimeIntervalAttributeName** | String  | Optional. Defines the name of the attribute that defines the query time interval. |
-| **queryTimeIntervalDelimiter**     | String  | Optional. Defines the query time interval delimiter. |
-| **queryWindowInMin**               | Integer | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
-| **queryParameters**                | Dictionary<string, object> | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path. <br><br>Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`. |
-| **queryParametersTemplate**        | String  | Optional. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"` <br><br>`{_QueryWindowStartTime}` and `{_QueryWindowEndTime}` are only supported in the `queryParameters` and `queryParametersTemplate` request parameters.  <br><br>`{_APIKeyName}` and `{_APIKey}` are only supported in the `queryParametersTemplate` request parameter. |
-| **isPostPayloadJson**              | Boolean | Optional. Determines whether the POST payload is in JSON format. |
-| **rateLimitQPS**                   | Double  | Optional. Defines the number of calls or queries allowed in a second. |
-| **timeoutInSeconds**               | Integer | Optional. Defines the request timeout, in seconds. |
-| **retryCount**                     | Integer | Optional. Defines the number of request retries to try if needed. |
-| **headers**                        |  Dictionary<string, object> | Optional. Defines the request header value, in the serialized `dictionary<string, object>` format: `{'<attr_name>': '<serialized val>', '<attr_name>': '<serialized val>'... }` |
-
-### Response configuration
-
-The `response` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
-
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |   List of strings | Mandatory.  Defines the path to the message in the response JSON. <br><br>A JSON path expression specifies a path to an element, or a set of elements, in a JSON structure |
-| **successStatusJsonPath**    |  String | Optional. Defines the path to the success message in the response JSON. |
-|  **successStatusValue**   | String | Optional. Defines the path to the success message value in the response JSON    |
-|  **isGzipCompressed**   |   Boolean | Optional. Determines whether the response is compressed in a gzip file.      |
+These are the paging types:
+- LinkHeader
+- PersistentLinkHeader
+- NextPageToken
+- PersistentToken
+- NextPageUrl
+- Offset
 
 
-The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
+## DCR configuration
+
+Field	Required	Type	Description
+DataCollectionEndpoint	true	String	DCE (Data Collection Endpoint) for example: https://example.ingest.monitor.azure.com.
+Create DCE here
+
+DataCollectionRuleImmutableId	true	String	On DCR creation, the response for the DCR will have its immutable id
+StreamName	true	string	Stream defined in DCR stream declaration for custom streams (prefix with “Custom-"), If stream is a standard stream prefix with “Microsoft-", for more information see docs
+
+## Unified example
+
+Here's an example of all the components of the CCP data connector JSON together.
 
 ```json
-"eventsJsonPaths": [
-              "$"
-            ]
-```
+{
+              "id": "/subscriptions/{subscription id} /resourceGroups/{resource group name}/providers/Microsoft.OperationalInsights/workspaces/{workspace name /providers/Microsoft.SecurityInsights/dataConnectors/{data connector name} ",
+              "name": "DataConnectorExample",
+              "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+              "kind": "RestApiPoller",
+              "properties": {
+                "connectorDefinitionName": "ConnectorDefinitionExample",
+                "dcrConfig": {
+                  "streamName": "Custom-MyTable_CL",
+                  "dataCollectionEndpoint": "{DCE collection endpoint (https://...)}",
+                  "dataCollectionRuleImmutableId": "{dcr-immutable id} " 
+                },
+                "dataType": "ExampleLogs",
+                "auth": {
+                  "type": "Basic",
+                  "password": "xxxxx",
+                  "userName": "user1"
+                },
+                "request": {
+                  "apiEndpoint": "{endpoint url (https://...)} ",
+                  "rateLimitQPS": 10,
+                  "queryWindowInMin": 5,
+                  "httpMethod": "GET",
+                  "queryTimeFormat": "UnixTimestamp",
+                  "startTimeAttributeName": "t0",
+                  "endTimeAttributeName": "t1",
+                  "retryCount": 3,
+                  "timeoutInSeconds": 60,
+                  "headers": {
+                    "Accept": "application/json",
+                    "User-Agent": "Scuba"
+                  }
+                  
+                },
+                "paging": {
+                  "pagingType": "LinkHeader"
+                  
+                },
+                "response": {
+                  "eventsJsonPaths": ["$"]
+                }
+              }
+            }
 
 
-### Paging configuration
-
-The `paging` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
-
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|  **pagingType**   | String | Mandatory. Determines the paging type to use in results, as one of the following values: `None`, `LinkHeader`, `NextPageToken`, `NextPageUrl`, `Offset`     |
-| **linkHeaderTokenJsonPath**    |  String | Optional. Defines the JSON path to link header in the response JSON, if the `LinkHeader` isn't defined in the response header. |
-| **nextPageTokenJsonPath**    |  String | Optional. Defines the path to a next page token JSON. |
-| **hasNextFlagJsonPath**    |String | Optional. Defines the path to the `HasNextPage` flag attribute. |
-|  **nextPageTokenResponseHeader**   | String | Optional. Defines the *next page* token header name in the response. |
-| **nextPageParaName**    |  String | Optional.  Determines the *next page* name in the request. |
-| **nextPageRequestHeader**    |   String | Optional. Determines the *next page* header name in the request.   |
-| **nextPageUrl**    |   String | Optional. Determines the *next page* URL, if it's different from the initial request URL. |
-| **nextPageUrlQueryParameters**    |  String | Optional.  Determines the *next page* URL's query parameters if it's different from the initial request's URL. <br><br>Define the string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>... }`        |
-|  **offsetParaName**   |    String | Optional. Defines the name of the offset parameter. |
-|  **pageSizeParaName**   |   String | Optional. Defines the name of the page size parameter. |
-| **PageSize**    |     Integer | Defines the paging size. |
-
-
-
-### Sample pollingConfig code
-
-The following code shows an example of the `pollingConfig` section of the [CCP configuration] file:
-
-```json
-"pollingConfig": {
-    "auth": {
-        "authType": "APIKey",
-        "APIKeyIdentifier": "token",
-        "APIKeyName": "Authorization"
-     },
-     "request": {
-        "apiEndpoint": "https://api.github.com/../{{placeHolder1}}/audit-log",
-        "rateLimitQPS": 50,
-        "queryWindowInMin": 15,
-        "httpMethod": "Get",
-        "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
-        "retryCount": 2,
-        "timeoutInSeconds": 60,
-        "headers": {
-           "Accept": "application/json",
-           "User-Agent": "Scuba"
-        },
-        "queryParameters": {
-           "phrase": "created:{_QueryWindowStartTime}..{_QueryWindowEndTime}"
-        }
-     },
-     "paging": {
-        "pagingType": "LinkHeader",
-        "pageSizeParaName": "per_page"
-     },
-     "response": {
-        "eventsJsonPaths": [
-          "$"
-        ]
-     }
-}
 ```

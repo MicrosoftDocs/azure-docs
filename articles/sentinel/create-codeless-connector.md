@@ -48,7 +48,7 @@ Before building a connector, understand your data source and how Microsoft Senti
 Research the following components and verify support for them in the [Data Connector API reference](restapipoller-data-connector-reference.md):
 
 1. HTTP request and response structure to the data source
-1. Authentication required by the data source.
+1. Authentication required by the data source. For example, if your data source requires a token signed with a certificate, the data connector API reference specifies cert authentication isn't supported. 
 1. Pagination options to the data source
 
 We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
@@ -88,7 +88,7 @@ To understand how to create a complex DCR with multiple data flows, see the [exa
 
 ### Data connector definition
 
-The data connector definition is a resource created to configure the UI of the RestApiPoller data connector. Use the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API with kind `Customizable` and the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
+The data connector definition is a resource created to configure the UI of the CCP data connector. Use the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API with kind `Customizable` and the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
 
 Use Postman to call the data connector definitions API to create the data connector. Validate the UI in the data connectors gallery.
 
