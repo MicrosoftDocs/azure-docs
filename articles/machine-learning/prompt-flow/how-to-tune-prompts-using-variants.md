@@ -1,10 +1,10 @@
 ---
-title: Tune prompts using variants in Prompt flow
+title: Tune prompts using variants in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to tune prompts using variants in Prompt flow with Azure Machine Learning studio.
+description: Learn how to tune prompts using variants in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: ishinzhang
 ms.author: yijunzhang
@@ -127,7 +127,7 @@ When you run the variants with a few single pieces of data and check the results
 
 You can submit a batch run, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
 
-1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
+1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
 2. Select **Evaluate** on the top right of the page.
 3. A wizard for **Batch run & Evaluate** occurs. The first step is to select a node to run all its variants.
   
@@ -157,7 +157,7 @@ You can submit a batch run, which allows you test the variants with a large amou
 2. After you identify which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
 3. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
 
-Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own Prompt flow to find the best variant for the LLM node.
+Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own prompt flow to find the best variant for the LLM node.
 
 ## Next steps
 
