@@ -79,7 +79,7 @@
         href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
-        - name: Connect to a server in VNET
+        - name: Connect to a server in virtual network
           href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
@@ -109,7 +109,7 @@
       items:
       - name: Networking with Public Access (allowed IP addresses)
         href: flexible-server/concepts-networking-public.md
-      - name: Networking with Private Access (VNET Integration)
+      - name: Networking with Private Access (virtual network Integration)
         href: flexible-server/concepts-networking-private.md
       - name: Networking with Private Endpoint
         href: flexible-server/concepts-networking-private-link.md
@@ -312,7 +312,7 @@
         href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
-      - name: Private access with VNET Integration
+      - name: Private access with virtual network Integration
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-portal.md
@@ -501,7 +501,7 @@
       href: single-server/concepts-servers.md
     - name: Supported versions
       href: single-server/concepts-supported-versions.md
-    - name: Single Server xtensions
+    - name: Single Server extensions
       href: single-server/concepts-extensions.md
     - name: Limits
       href: single-server/concepts-limits.md
@@ -557,7 +557,7 @@
         href: single-server/concepts-business-continuity.md
       - name: High availability
         href: single-server/concepts-high-availability.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: single-server/concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
     - name: Monitor and tune
@@ -791,7 +791,7 @@
         href: sample-scripts-azure-cli.md
       - name: Create a server and firewall rule
         href: ./scripts/sample-create-server-and-firewall-rule.md
-      - name: Create server with vNet rule
+      - name: Create server with virtual network rule
         href: ./scripts/sample-create-server-with-vnet-rule.md
       - name: Scale a server
         href: ./scripts/sample-scale-server-up-or-down.md
