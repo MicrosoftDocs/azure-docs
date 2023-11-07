@@ -3,16 +3,13 @@ title: How to use IotJsonPathContent templates with the MedTech service device m
 description: Learn how to use IotJsonPathContent templates with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
 # How to use IotJsonPathContent templates with the MedTech service device mapping
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides an overview of how to use IotJsonPathContent templates within a MedTech service device mapping.
 
@@ -165,21 +162,10 @@ The resulting normalized message will look like this after the normalization sta
 
 ## Next steps
 
-In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping.
+[Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
 
-To deploy the MedTech service with device message routing enabled through an Azure IoT Hub, see
+[Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
