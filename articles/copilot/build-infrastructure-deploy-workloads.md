@@ -1,6 +1,6 @@
 ---
 title: Build infrastructure and deploy workloads using Microsoft Copilot for Azure (preview)
-description: Learn about scenarios where Microsoft Copilot for Azure (preview) can use Microsoft Cost Management to help you manage your costs.
+description: Learn how Microsoft Copilot for Azure (preview) can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
 ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure
@@ -26,16 +26,16 @@ The prompts you use can vary depending on the type of workload you want to deplo
   - "Help me deploy a website on Azure"
   - "How can I deploy SAP based application on Azure?"
   - "Give me infrastructure for my new application."
-- Gathering requirements:
+- Requirement gathering stage:
   - "Give me examples of these requirements."
   - "What do you mean by security requirements?"
-  - (or provide your requirements based on the questions)
+  - (or simply provide your requirements based on the questions)
 - High level architecture stage:
   - "Let's go with option 1."
   - "Give me more details about option 1."
   - "Are there more options available?"
   - "Instead of SQL, use Cosmos DB."
-  - "Can you give me comparison table for these options? Also include approximate cost." 
+  - "Can you give me comparison table for these options? Also include approximate cost."
 - Detailed infrastructure building stage:
   - "I like this infrastructure. Give me an ARM template to deploy this."
   - "Can you include rolling upgrade mode Manual instead of Automatic for the VMSS?"
@@ -48,18 +48,26 @@ The prompts you use can vary depending on the type of workload you want to deplo
 
 ## Examples
 
-In this example, the first request is "Change cost management scope." Microsoft Copilot for Azure (preview) provides a prompt to open the scope selector, allowing you to choose the desired scope.
+From the **More virtual machines and related solutions** page, you can tell Microsoft Copilot for Azure (preview) "I want to deploy a website on Azure." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
 
-:::image type="content" source="media/analyze-cost-management/cost-management-change-scope.png" lightbox="media/analyze-cost-management/cost-management-change-scope.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) changing the cost management scope.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" lightbox="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing options to deploy a website.":::
 
-Once the desired scope is selected, you can say "Summarize my costs for the last 6 months?" A summary of costs for the selected scope is provided. You can follow up with questions to get more granular details, such as "How about the cost of VMs specifically?"
+After you provide answers, Microsoft Copilot for Azure (preview) provides several options that might be a good fit. You can choose one of these or ask more questions.
 
-:::image type="content" source="media/analyze-cost-management/cost-management-summarize-costs.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing a summary of costs.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-design-options.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) Design options":::
 
-:::image type="content" source="media/analyze-cost-management/cost-management-vm-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing details about VM costs.":::
+After you specify which option you'd like to use, Microsoft Copilot for Azure (preview) provides a step-by-step plan to walk you through the deployment. It gives you the option to change parts of the plan and also asks you to choose a development tool. In this example, Azure App Service is selected.
+
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-app-service.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing steps to deploy a website using Azure App Service.":::
+
+Since the response in this example is ARM template, Microsoft Copilot for Azure (preview) creates a basic ARM template, then provides instructions for how to deploy it.
+
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-create-template.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) creating an ARM template.":::
+
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workload-deploy-template.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing instructions for deploying the ARM template.":::
 
 ## Next steps
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
-- Learn more about [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
+- Learn more about [virtual machines in Azure](/azure/virtual-machines/overview).
 - [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
