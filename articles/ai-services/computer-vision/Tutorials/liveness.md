@@ -148,19 +148,20 @@ There are two parts to integrating liveness with verification:
 
 ### Select a good reference image
 
-Use the following tips to ensure that your input images give the most accurate recognition results:
-•	The supported input image formats are JPEG, PNG, GIF (first frame), BMP.
-•	The image file size should be no larger than 6 MB.
-•	You can utilize the `qualityForRecognition` attribute in the face detection operation when using applicable detection models as a general guideline of whether the image of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment. Quality at or above `"medium"` is recommended for identification scenarios.
+Use the following tips to ensure that your input images give the most accurate recognition results.
 
-Photo Requirements:
+Technical requirements:
+[!INCLUDE [identity-input-technical](../includes/identity-input-technical.md)]
+* You can utilize the `qualityForRecognition` attribute in the [face detection](../how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment and quality at or above `"medium"` is recommended for identification scenarios.
+
+Composition requirements:
 -	Photo is clear and sharp, not blurry, pixelated, distorted, or damaged. 
 -	Photo is not altered to remove face blemishes or face appearance.
 -	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6MB in size.
--	Glasses, masks, hats, headphones, head coverings, and face coverings are not allowed. Face should be free of any obstructions.
+-	User is not wearing glasses, masks, hats, headphones, head coverings, or face coverings. Face should be free of any obstructions.
 -	Facial jewelry is allowed provided they do not hide your face. 
 -	Only one face should be visible in the photo.
--	Face should be in neutral front facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt present.
+-	Face should be in neutral front-facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt.
 -	Face should be free of any shadows or red eyes. Please retake photo if either of these occur.
 -	Background should be uniform and plain, free of any shadows. 
 -	Face should be centered within the image and fill at least 50% of the image.

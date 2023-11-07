@@ -58,16 +58,9 @@ The recognition operations use mainly the following data structures. These objec
 
 Use the following tips to ensure that your input images give the most accurate recognition results:
 
-* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP.
-* Image file size should be no larger than 6 MB.
-* When you create Person objects, use photos that feature different kinds of angles and lighting.
-* Some faces might not be recognized because of technical challenges, such as:
-  * Images with extreme lighting, for example, severe backlighting.
-  * Obstructions that block one or both eyes.
-  * Differences in hair type or facial hair.
-  * Changes in facial appearance because of age.
-  * Extreme facial expressions.
-* You can utilize the qualityForRecognition attribute in the [face detection](./how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only "high" quality images are recommended for person enrollment and quality at or above "medium" is recommended for identification scenarios.
+[!INCLUDE [identity-input-technical](includes/identity-input-technical.md)]
+[!INCLUDE [identity-input-composition](includes/identity-input-composition.md)]
+* You can utilize the `qualityForRecognition` attribute in the [face detection](./how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment and quality at or above `"medium"` is recommended for identification scenarios.
 
 ## Next steps
 

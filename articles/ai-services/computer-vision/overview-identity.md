@@ -138,7 +138,15 @@ All of the faces in a returned group are likely to belong to the same person, bu
 
 ## Input requirements
 
-tbd
+General image input requirements:
+[!INCLUDE [identity-input-technical](includes/identity-input-technical.md)]
+
+Input requirements for face detection:
+[!INCLUDE [identity-input-detection](includes/identity-input-detection.md)]
+
+Input requirements for face recognition:
+[!INCLUDE [identity-input-composition](includes/identity-input-composition.md)]
+
 
 ## Data privacy and security
 
