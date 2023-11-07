@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/04/2023
+ms.date: 11/07/2023
 ms.custom: contperf-fy21q1, build-2023, build-2023-dataai
 ---
 # What's Azure AI Search?
@@ -54,9 +54,9 @@ Azure AI Search is well suited for the following application scenarios:
 
 + Consolidate heterogeneous content into a user-defined search index. 
 
-+ Integrate data chunking and vectorization for generative AI and RAG apps.
++ [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
-+ Apply granular access control at the document level.
++ [Apply granular access control](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408) at the document level.
 
 + Offload indexing and query workloads onto a dedicated search service.
 

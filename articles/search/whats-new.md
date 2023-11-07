@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # What's new in Azure AI Search
 
-Azure Cognitive Search is now Azure AI Search. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
+Azure Cognitive Search is now **Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
 
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
