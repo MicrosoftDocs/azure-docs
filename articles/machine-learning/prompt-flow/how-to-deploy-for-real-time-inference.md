@@ -44,9 +44,9 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 ## Build the flow and get it ready for deployment
 
-If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting bulk tests and evaluating the results.
+If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting batch run and evaluating the results.
 
-If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
+If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by batch run and evaluation before deployment is a recommended best practice.
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
@@ -60,7 +60,7 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
 
-The prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
+The prompt flow supports you to deploy endpoints from a flow, or a batch run. Testing your flow before deployment is recommended best practice.
 
 In the flow authoring page or run detail page, select **Deploy**.
 
@@ -198,9 +198,7 @@ You can also directly go to the **Endpoints** page in the studio, and check the 
 
 In the endpoint detail page, switch to the **Test** tab.
 
-If you select **Allow sharing sample input data for testing purpose only** when you deploy the endpoint, you can see the input data values are already preloaded.
-
-If there's no sample value, you'll need to input a URL.
+You can input the values and select **Test** button.
 
 The **Test result** shows as following: 
 
