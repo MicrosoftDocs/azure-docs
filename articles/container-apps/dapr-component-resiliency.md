@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -35,9 +35,9 @@ The following screenshot shows how an application uses a retry policy to attempt
 - [Timeouts](#timeouts)
 - [Retries (HTTP)](#retries)
 
-## Creating resiliency policies
+## Configure resiliency policies
 
-You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
+You can choose whether to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
 # [Bicep](#tab/bicep)
 
@@ -89,7 +89,27 @@ az login
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
+az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+```
+
+This command passes the resiliency policy YAML file, which might look similar to the following example:
+
+```yml
+properties:
+  outboundPolicy:
+    httpRetryPolicy:
+      maxRetries: 5
+      retryBackOff:
+        initialDelayInMilliseconds: 1000
+        maxIntervalInMilliseconds: 10000
+    timeoutPolicy:
+      responseTimeoutInSeconds: 15
+  inboundPolicy:
+    httpRetryPolicy:
+      maxRetries: 3
+      retryBackOff:
+        initialDelayInMilliseconds: 500
+        maxIntervalInMilliseconds: 5000
 ```
 
 ### Update specific policies
@@ -105,7 +125,7 @@ az containerapp env dapr-component resiliency update --name MyResiliency -g MyRe
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
+az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -178,7 +198,7 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
+| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the Dapr component. | `15` |
 
 ### Retries
 
@@ -214,6 +234,35 @@ properties: {
 | `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
+
+## Resiliency logs
+
+From the *Monitoring* section of your container app, select **Logs**.
+
+In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to find whether a resiliency policy was loaded:
+
+```
+ContainerAppConsoleLogs_CL
+| where ContainerName_s == "daprd"
+| where Log_s contains "Loading Resiliency configuration:"
+| project time_t, Category, ContainerAppName_s, Log_s
+| order by time_t desc
+```
+
+Click **Run** to run the query and view results.
+
+Or, you can find the actual resiliency policy using a query similar to the following example:
+
+```
+ContainerAppConsoleLogs_CL
+| where ContainerName_s == "daprd"
+| where Log_s contains "Resiliency configuration ("
+| project time_t, Category, ContainerAppName_s, Log_s
+| order by time_t desc
+```
+
+Click **Run** to run the query and view results. 
+
 
 ## Related content
 
