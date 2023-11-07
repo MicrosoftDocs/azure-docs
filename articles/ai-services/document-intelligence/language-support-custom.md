@@ -116,6 +116,7 @@ The following table lists the supported languages for extracting handwritten tex
 #### Printed text
 
 The following table lists the supported languages for printed text.
+
 |Language| Code (optional) |
 |:-----|:----:|
 |Afrikaans| `af`|
