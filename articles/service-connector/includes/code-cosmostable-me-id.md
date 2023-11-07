@@ -128,7 +128,7 @@ ms.author: wchi
         .buildClient();
     ```
 ### [Python](#tab/python)
-1. Install depedencies.
+1. Install dependencies.
     ```bash
     pip install azure-data-tables
     pip install azure-identity
