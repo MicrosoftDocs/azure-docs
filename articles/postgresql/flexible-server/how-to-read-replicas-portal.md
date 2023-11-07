@@ -194,7 +194,7 @@ Again, switch to one of the consuming applications. Wait for the primary and rep
 
 If no application is available to test directly, connectivity during promotion can be tested against the writer endpoint using psql and the `\watch` switch with a simple psql `select 1` command:
 
-```bash
+```
 select 1; \watch
 ```
 
