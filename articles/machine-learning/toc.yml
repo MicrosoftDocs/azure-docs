@@ -616,7 +616,7 @@
               href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
-        - name: prompt flow Ecosystem
+        - name: Prompt flow Ecosystem
           href: ./prompt-flow/community-ecosystem.md
         - name: Set up infrastructure
           items:
