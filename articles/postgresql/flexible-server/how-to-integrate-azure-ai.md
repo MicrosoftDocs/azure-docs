@@ -106,9 +106,9 @@ The `azure_ai.set_setting()` function lets you set the endpoint and critical val
 
 | Key | Description |
 | --- | --- |
-| `azure_openai.endpoint` | A supported OpenAI endpoint (for example, <https://example.openai.azure.com>). |
+| `azure_openai.endpoint` | A supported OpenAI endpoint (for example, `https://example.openai.azure.com`). |
 | `azure_openai.subscription_key` | A subscription key for an OpenAI resource. |
-| `azure_cognitive.endpoint` | A supported Cognitive Services endpoint (for example, <https://example.cognitiveservices.azure.com>). |
+| `azure_cognitive.endpoint` | A supported Cognitive Services endpoint (for example, `https://example.cognitiveservices.azure.com`). |
 | `azure_cognitive.subscription_key` | A subscription key for a Cognitive Services resource. |
 
 > Important
