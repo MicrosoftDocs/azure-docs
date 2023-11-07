@@ -105,12 +105,10 @@ ms.custom: devx-track-csharp
 
    - [prebuilt-read](#use-the-read-model)
    - [prebuilt-layout](#use-the-layout-model)
-   - [prebuilt-document](#use-the-general-document-model)
    - [prebuilt-tax.us.w2](#use-the-w-2-tax-model)
    - [prebuilt-invoice](#use-the-invoice-model)
    - [prebuilt-receipt](#use-the-receipt-model)
    - [prebuilt-idDocument](#use-the-id-document-model)
-   - [prebuilt-businessCard](#use-the-business-card-model)
 
 1. After you add a code sample to your application, choose the green **Start** button next to the project name to build and run your program, or press **F5**.
 
