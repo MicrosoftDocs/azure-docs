@@ -10,123 +10,45 @@ author: davidsmatlak
 # Understand Azure Policy for Kubernetes clusters
 
 Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
-controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
-at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure
-Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters
-from one place. The add-on enacts the following functions:
+controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces.
 
-- Checks with Azure Policy service for policy assignments to the cluster.
-- Deploys policy definitions into the cluster as
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and
-  [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources.
-- Reports auditing and compliance details back to Azure Policy service.
+Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes cluster components from one place. By using Azure Policy's Add-On or Extension, governing your cluster components is enhanced with Azure Policy features, like the ability to use [selectors](./assignment-structure.md#resource-selectors-preview) and [overrides](./assignment-structure.md#overrides-preview) for safe policy rollout and rollback. 
 
 Azure Policy for Kubernetes supports the following cluster environments:
 
-- [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
-- [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
+- [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md), through **Azure Policy’s **Add-On** for AKS**
+- [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md), through **Azure Policy’s **Extension** for Arc**
 
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 ## Overview
 
+By installing Azure Policy’s add-on or extension on your Kubernetes clusters, Azure Policy enacts the following functions:
+
+-	Checks with Azure Policy service for policy assignments to the cluster.
+-	Deploys policy definitions into the cluster as [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources or as a mutation template resource (depending on policy definition content).
+-	Reports auditing and compliance details back to Azure Policy service.
+
 To enable and use Azure Policy with your Kubernetes cluster, take the following actions:
 
-1. Configure your Kubernetes cluster and install the [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks) add-on
+1. Configure your Kubernetes cluster and install the [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks) add-on or Azure Policy's Extension for [Arc-enabled Kubernetes clusters](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) (depending on your cluster type).
 
    > [!NOTE]
    > For common issues with installation, see
    > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
-2. [Understand the Azure Policy language for Kubernetes](#policy-language)
+1. [Create or use a sample Azure Policy definition for Kubernetes](#create-a-policy-definition)
 
-3. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
+1. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
 
-4. [Wait for validation](#policy-evaluation)
-
-## Limitations
-
-The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
-
-- Azure Policy Add-on for Kubernetes [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
-- Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
-- Maximum number of Non-compliant records per policy per cluster: **500**
-- Maximum number of Non-compliant records per subscription: **1 million**
-- Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any
-  components installed by a previous Gatekeeper installation before enabling the Azure Policy
-  Add-on.
-- [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
-  available for the `Microsoft.Kubernetes.Data`
-  [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
-  [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
-- Component-level [exemptions](./exemption-structure.md) aren't supported for
-  [Resource Provider modes](./definition-structure.md#resource-provider-modes).
-
-The following limitations apply only to the Azure Policy Add-on for AKS:
-
-- [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
-  for AKS can't both be enabled. For more information, see
-  [AKS pod security limitation](../../../aks/use-azure-policy.md).
-- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_ and
-  _gatekeeper-system_.
-
-## Recommendations
-
-The following are general recommendations for using the Azure Policy Add-on:
-
-- The Azure Policy Add-on requires three Gatekeeper components to run: One audit pod and two webhook
-  pod replicas. These components consume more resources as the count of Kubernetes resources and
-  policy assignments increases in the cluster, which requires audit and enforcement operations.
-
-  - For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB
-    of memory per component.
-  - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB
-    of memory per component.
-
--  Open ports for the Azure Policy Add-On. The Azure Policy Add-On uses these domains and ports to fetch policy
-   definitions and assignments and report compliance of the cluster back to Azure Policy.
-
-   |Domain |Port |
-   |---|---|
-   |`data.policy.core.windows.net` |`443` |
-   |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
-   |`dc.services.visualstudio.com` |`443` |
-   
-- Windows pods
-  [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
-  Thus, some of the Azure Policy definitions, such as disallowing root privileges, can't be
-  escalated in Windows pods and only apply to Linux pods.
-
-The following recommendation applies only to AKS and the Azure Policy Add-on:
-
-- Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more
-  information, see
-  [Using system node pools](../../../aks/use-system-pools.md#system-and-user-node-pools).
-- Secure outbound traffic from your AKS clusters. For more information, see
-  [Control egress traffic for cluster nodes](../../../aks/limit-egress-traffic.md).
-- If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
-  iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
-  request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
-  `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity`
-  that any requests to the Metadata endpoint originating from a pod that matches labels defined in
-  CRD should be proxied without any processing in NMI. The system pods with
-  `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
-  `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
-  To configure an exception, install the
-  [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+1. [Wait for validation](#policy-evaluation)
+1. [Logging](#logging) and [troubleshooting](#troubleshooting-the-add-on)
+1. Review [limitations](#limitations) and [recommendations in our FAQ section](#frequently-asked-questions)
 
 ## Install Azure Policy Add-on for AKS
 
-Before you install the Azure Policy Add-on or enabling any of the service features, your subscription
-must enable the `Microsoft.PolicyInsights` resource providers.
-
-1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
-   find the version. If you need to install or upgrade, see
-   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+### Prerequisites
 
 1. Register the resource providers and preview features.
 
@@ -143,10 +65,10 @@ must enable the `Microsoft.PolicyInsights` resource providers.
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
      ```
-
-1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
-   button on your AKS cluster under the **Policies** page.
-
+1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
+   find the version. If you need to install or upgrade, see
+   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+   
 1. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md). Use the following script to validate your AKS
    cluster version:
 
@@ -157,8 +79,15 @@ must enable the `Microsoft.PolicyInsights` resource providers.
    az aks list
    ```
 
-1. Install version _2.12.0_ or higher of the Azure CLI. For more information, see
-   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+   definitions and assignments and report compliance of the cluster back to Azure Policy.
+
+   |Domain |Port |
+   |---|---|
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
+   |`login.windows.net` |`443` |
+   |`dc.services.visualstudio.com` |`443` |
 
 After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
 you want to manage.
@@ -207,7 +136,7 @@ similar to the following output:
 ```
 ## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
-[Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
+[Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. With Azure Policy's Extension for Arc-enabled Kubernetes clusters, you can govern your Arc-enabled Kubernetes cluster components, like pods and containers. 
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
@@ -353,20 +282,22 @@ To delete the extension instance, run the following command substituting `<>` wi
 az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
-## Policy language
+## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
-`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit) and [deny](./effects.md#deny)
-are used to manage your Kubernetes clusters. _Audit_ and _deny_ must provide **details** properties
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md) that can be used to govern your cluster components. 
+
+Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's VS Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
+
+With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
+`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutate-preview) are used to manage your Kubernetes clusters. 
+
+_Audit_ and _deny_ must provide **details** properties
 specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
 and Gatekeeper v3.
 
-As part of the _details.templateInfo_, _details.constraint_, or _details.constraintTemplate_
-properties in the policy definition, Azure Policy passes the URI or Base64Encoded value of these
-[CustomResourceDefinitions](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)
-(CRD) to the add-on. Rego is the language that OPA and Gatekeeper support to validate a request to
+As part of the _details.templateInfo_ or _details.constraintInfo_ properties in the policy definition, Azure Policy passes the URI or Base64Encoded value of these [CustomResourceDefinitions](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)(CRD) to the add-on. Rego is the language that OPA and Gatekeeper support to validate a request to
 the Kubernetes cluster. By supporting an existing standard for Kubernetes management, Azure Policy
 makes it possible to reuse existing rules and pair them with Azure Policy for a unified cloud
 compliance reporting experience. For more information, see
@@ -489,7 +420,7 @@ Some other considerations:
 If constraint templates have the same resource metadata name, but the policy definition references
 the source at different locations, the policy definitions are considered to be in conflict. Example:
 Two policy definitions reference the same `template.yaml` file stored at different source locations
-such as the Azure Policy template store (`store.policy.core.windows.net`) and GitHub.
+like the Azure Policy template store (`store.policy.core.windows.net`) and GitHub.
 
 When policy definitions and their constraint templates are assigned but aren't already installed on
 the cluster and are in conflict, they're reported as a conflict and aren't installed into the
@@ -549,6 +480,10 @@ artifacts, use the following steps:
 
 To view constraint templates downloaded by the add-on, run `kubectl get constrainttemplates`.
 Constraint templates that start with `k8sazure` are the ones installed by the add-on.
+
+### View the add-on mutation templates
+
+To view mutation templates downloaded by the add-on, run `kubectl get assign`, `kubectl get assignmetadata`, and `kubectl get modifyset`.
 
 ### Get Azure Policy mappings
 
@@ -638,6 +573,41 @@ For Azure Policy related issues, go to:
 - [Inspect Azure Policy logs](#logging)
 - [General troubleshooting for Azure Policy on Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 
+## Azure Policy Add-On for AKS Changelog
+Azure Policy’s Add-On for AKS has a version number that indicates the image version of add-on. As feature support is newly introduced on the Add-On, the version number is increased. 
+
+This section will help you identify which Add-On version is installed on your cluster and also share a historical table of the Azure Policy Add-On version installed per AKS cluster.
+
+### Identify which Add-On version is installed on your cluster  
+
+The Azure Policy Add-On uses the standard [Semantic Versioning](https://semver.org/) schema for each version. To identify the Azure Policy Add-On version being used, you can run the following command:
+`kubectl get pod azure-policy-<unique-pod-identifier> -n kube-system -o json | jq '.spec.containers[0].image'` 
+
+To identify the Gatekeeper version that your Azure Policy Add-On is using, you can run the following command: 
+`kubectl get pod gatekeeper-controller-<unique-pod-identifier> -n gatekeeper-system -o json | jq '.spec.containers[0].image' `
+
+Finally, to identify the AKS cluster version that you are using, follow the linked AKS guidance for this.
+
+### Add-On versions available per each AKS cluster version
+
+#### 1.2.1  
+- Released October 2023 
+- Kubernetes 1.25+ 
+- Gatekeeper 3.13.3
+
+#### 1.1.0 
+- Released July 2023 
+- Kubernetes 1.27+ 
+- Gatekeeper 3.11.1 
+
+#### 1.0.1 
+- Released June 2023 
+- Kubernetes 1.24+ 
+- Gatekeeper 3.11.1 
+
+#### 1.0.0
+Azure Policy for Kubernetes now supports mutation to remediate AKS clusters at-scale! 
+
 ## Remove the add-on
 
 ### Remove the add-on from AKS
@@ -703,9 +673,35 @@ aligns with how the add-on was installed:
   ```bash
   helm uninstall azure-policy-addon
   ```
+## Limitations
+  - For general Azure Policy definitions and assignment limits, please review [Azure Policy's documented limits](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-policy-limits)
+  - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
+  - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
+  - Maximum number of Non-compliant records per policy per cluster: **500**
+  - Maximum number of Non-compliant records per subscription: **1 million**
+  - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
+  - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+ - Component-level [exemptions](./exemption-structure.md) aren’t supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
 
-## Diagnostic data collected by Azure Policy Add-on
+The following limitations apply only to the Azure Policy Add-on for AKS:
+-	[AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](../../../aks/use-azure-policy.md).
+-	Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.
 
+## Frequently asked questions
+
+### What does the Azure Policy Add-On / Azure Policy Extension deploy on my cluster upon installation?
+The Azure Policy Add-on requires three Gatekeeper components to run: One audit pod and two webhook pod replicas. One Azure Policy pod and one Azure Policy webhook pod will also be installed.
+
+### How much resource consumption should I expect the Azure Policy Add-On / Extension to use on each cluster?
+The Azure Policy for Kubernetes components that run on your cluster consume more resources as the count of Kubernetes resources and policy assignments increases in the cluster, which requires audit and enforcement operations.
+The following are estimates to help you plan:
+  - For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB of memory per component.
+  - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB of memory per component.
+
+### Can Azure Policy for Kubernetes definitions be applied on Windows pods?
+Windows pods [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods). Thus, some of the Azure Policy definitions, like disallowing root privileges, can't be escalated in Windows pods and only apply to Linux pods.
+
+### What type of diagnostic data gets collected by Azure Policy Add-on?
 The Azure Policy Add-on for Kubernetes collects limited cluster diagnostic data. This diagnostic
 data is vital technical data related to software and performance. It's used in the following ways:
 
@@ -729,6 +725,12 @@ collected:
 - Exceptions/errors encountered by Azure Policy Add-on during agent installation on policy
   evaluation
 - Number of Gatekeeper policy definitions not installed by Azure Policy Add-on
+
+### What are general best practices to keep in mind when installing the Azure Policy Add-On? 
+  - Use system node pool with CriticalAddonsOnly taint to schedule Gatekeeper pods. For more information, see [Using system node pools](../../../aks/use-system-pools.md#system-and-user-node-pools).
+  - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](../../../aks/limit-egress-traffic.md) for cluster nodes.
+  - If the cluster has aad-pod-identity enabled, Node Managed Identity (NMI) pods modify the nodes' iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use aad-pod-identity.
+  - AzurePodIdentityException CRD can be configured to inform aad-pod-identity that any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with kubernetes.azure.com/managedby: aks label in kube-system namespace should be excluded in aad-pod-identity by configuring the AzurePodIdentityException CRD. For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception). To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## Next steps
 

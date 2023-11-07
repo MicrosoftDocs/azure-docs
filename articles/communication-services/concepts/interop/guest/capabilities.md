@@ -180,7 +180,7 @@ The following table shows supported server-side capabilities available in Azure 
 
 |Capability | Supported |
 | --- | --- |
-| [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
+| [Manage Azure Communication Services call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
 | [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
 | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                                  | ✔️ |
 | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                            | ✔️ |
