@@ -51,14 +51,13 @@ Once you've added the code into your application, the SDK will handle starting t
 
 The high-level steps involved in liveness orchestration are illustrated below:  
 
-tbd image
+:::image type="content" source="../media/liveness/liveness-diagram.jpg" alt-text="Diagram of the liveness workflow in Azure AI Face.":::
 
 1. The mobile application starts the liveness check and notifies the app server. 
 
-
 1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.  
     
-    ```
+    ```json
     Request:
     curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectliveness/singlemodal/sessions' \
     --header 'Ocp-Apim-Subscription-Key:<insert-api-key>
@@ -79,7 +78,15 @@ tbd image
 
 1. The mobile application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
 
-    tbd missing code
+```kotlin
+mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
+    callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
+})
+```
+
+```swift
+serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
+```
 
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
@@ -89,7 +96,7 @@ tbd image
 
 1. The app server can now query for the liveness detection result from the Azure AI Vision Face service. 
     
-    ```
+    ```json
     Request:
     curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectliveness/singlemodal/sessions/a3dc62a3-49d5-45a1-886c-36e7df97499a' \
     --header 'Ocp-Apim-Subscription-Key: <insert-api-key>
@@ -146,6 +153,8 @@ There are two parts to integrating liveness with verification:
 1.	Select a good reference image.
 2.	Set up the orchestration of liveness with verification.
 
+:::image type="content" source="../media/liveness/liveness-verify-diagram.jpg" alt-text="Diagram of the liveness-with-verify workflow of Azure AI Face.":::
+
 ### Select a good reference image
 
 Use the following tips to ensure that your input images give the most accurate recognition results.
@@ -168,13 +177,11 @@ Composition requirements:
 
 ### Set up the orchestration of liveness with verification.
 
-tbd image
-
-This is accomplished by:
-1.	Providing the verification reference image can be accomplished in either of the following two methods:
+The high-level steps involved in liveness with verification orchestration are illustrated below:
+1.	Provide the verification reference image by either of the following two methods:
     - The app server provides the reference image when creating the liveness session.
 
-        ```
+        ```json
         Request:
         curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions' \
         --header 'Ocp-Apim-Subscription-Key: <api_key>' \
@@ -202,11 +209,23 @@ This is accomplished by:
         ```
 
     - The mobile application provides the reference image when initializing the SDK.
-        tbd missing code
+
+        ```kotlin
+        val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
+        mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
+        ```
+
+        ```swift
+        if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
+           let image = UIImage(contentsOfFile: path),
+           let singleFaceImageSource = try? VisionSource(uiImage: image) {
+            try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
+        }
+        ```
 
 1. The app server can now query for the verification result in addition to the liveness result.
     
-    ```
+    ```json
     Request:
     curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectlivenesswithverify/singlemodal' \
     --header 'Content-Type: multipart/form-data' \
