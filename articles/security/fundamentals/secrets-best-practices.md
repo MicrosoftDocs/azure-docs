@@ -1,0 +1,33 @@
+---
+title: Best practices for protecting secrets - Microsoft Azure | Microsoft Docs
+description: This article links you to security best practices for protecting secrets.
+services: security
+documentationcenter: na
+author: TerryLanfear
+manager: rkarlin
+
+ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
+ms.service: security
+ms.subservice: security-fundamentals
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/07/2023
+ms.author: terrylan
+
+---
+# Best practices for protecting secrets
+The articles below provide best practices for protecting secrets. Follow this guidance to help ensure you do not log sensitive information, such as credentials, into GitHub repositories or continuous integration/continuous deployment (CI/CD) pipelines.
+
+- Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets.md)
+- Azure Key Vault: [Centralize storage of application secrets](/azure/key-vault/general/overview.md)
+- Azure Key Vault: [Automate the rotation of a secret for resources that use one set of authentication credentials](/azure/key-vault/secrets/tutorial-rotation.md)
+- Azure Communications Service: [Create and manage access tokens](/azure/communication-services/quickstarts/identity/access-tokens.md)
+- Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application)
+- Azure App Service: [Learn to configure common settings for an App Service application](/azure/app-service/configure-common.md)
+
+## Next steps
+
+Minimizing security risk is a shared responsibility. You need to be proactive in taking steps to secure your workloads. [Learn more about shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility.md)'
+
+See [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.

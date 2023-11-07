@@ -1,7 +1,7 @@
 ---
 title: Security best practices and patterns - Microsoft Azure | Microsoft Docs
 description: This article links you to security best practices and patterns for different Azure resources.
-services: security
+services: azure-security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
@@ -9,10 +9,11 @@ manager: rkarlin
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2023
+ms.date: 11/07/2023
 ms.author: terrylan
 
 ---
@@ -22,6 +23,7 @@ The articles below contain security best practices to use when you're designing,
 
 The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
+* [Best practices for protecting secrets](secrets-best-practices.md)
 * [Azure database security best practices](/azure/azure-sql/database/security-best-practice)
 * [Azure data security and encryption best practices](data-encryption-best-practices.md)
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
