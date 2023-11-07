@@ -42,7 +42,7 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
     :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
 
-3.  Once you've specified which resource to use, you're all set to go. 
+3. Once you've specified which resource to use, you're all set to go. 
 
     :::image type="content"source="./media/azure-web-apps-nodejs/app-service-node.png" alt-text="Screenshot of instrument your application."::: 
 
