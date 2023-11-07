@@ -54,11 +54,11 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
 1. After the deployment process is finished, select **Go to resource**.
 
-   [![Screenshot that shows Go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+   :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot that shows the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
 
    The result of the newly deployed DICOM service is shown here.
 
-   [![Screenshot that shows the DICOM finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+   :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
 
 ## Next steps
 
