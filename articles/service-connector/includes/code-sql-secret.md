@@ -97,7 +97,7 @@ public class Main {
    pip install pyodbc
    ```
 
-1. In setting file, get the Azure SQL Database connection configurations from the environment variable added by Service Connector.
+1. In the setting file, get the Azure SQL Database connection configurations from the environment variable added by Service Connector.
     ```python
     # in your setting file, eg. settings.py
     
@@ -120,6 +120,7 @@ public class Main {
             },
         },
     }
+    ```
 
 ### [Go](#tab/go)
 
