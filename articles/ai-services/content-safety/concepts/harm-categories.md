@@ -35,9 +35,17 @@ Classification can be multi-labeled. For example, when a text sample goes throug
 
 Every harm category the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
-**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier detects amongst all severities along this scale.
+**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier detects amongst all severities along this scale. If the user specifies, it can return severities in the trimmed scale of 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+- [0,1] -> 0
+- [2,3] -> 2
+- [4,5] -> 4
+- [6,7] -> 6
 
-**Image**: The current version of the image model supports a trimmed version of the full 0-7 severity scale for image analysis. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+**Image**: The current version of the image model supports the trimmed version of the full 0-7 severity scale. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+- [0,1] -> 0
+- [2,3] -> 2
+- [4,5] -> 4
+- [6,7] -> 6
 
 ## Text content
 
@@ -111,7 +119,7 @@ Every harm category the service applies also comes with a severity level rating.
 > [!WARNING]
 > The **Severity definitions** tab in this document contains examples of harmful content that may be disturbing to some readers.  
 
-#### [Severiy definitions](#tab/definitions)
+#### [Severity definitions](#tab/definitions)
 
 ### Hate and fairness severity levels
 
