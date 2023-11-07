@@ -76,15 +76,19 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
 1. Open the command palette, and enter *Azure Developer CLI init*, then from the list, select **Azure Developer CLI (azd): init**.
  
-1. To continue without selecting a template, press ENTER twice.
+    :::image type="content" source="media/how-to-create-environment-with-azure-developer/command-palette-azure-developer-initialize.png" alt-text="Screenshot of the Visual Studio Code command palette with Azure Developer CLI (azd): init highlighted." lightbox="media/how-to-create-environment-with-azure-developer/command-palette-azure-developer-initialize.png":::
+ 
+1. In the list of templates, to continue without selecting a template, press ENTER twice.
  
 1. In the AZD terminal, select ***Use code in the current directory***. 
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/use-code-current-directory.png" alt-text="Screenshot of the AZD terminal in Visual Studio Code, showing the Use code in current directory prompt." lightbox="media/how-to-create-environment-with-azure-developer/use-code-current-directory.png":::
 
 1. AZD scans the current directory and gathers more information depending on the type of app you're building. Follow the prompts to configure your AZD environment.
 
 1. Finally, enter a name for your environment. 
 
-AZD creates an azure.yaml file in the root of your project. 
+AZD creates an *azure.yaml* file in the root of your project. 
 
 ### Provision infrastructure to Azure Deployment Environment
 
