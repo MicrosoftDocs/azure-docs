@@ -37,7 +37,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 > [!IMPORTANT]
 > Automatic migration of your code using `openai migrate` is not supported with Azure OpenAI.
 
-As this is a completely new version of the library with breaking changes, you should test your code extensively against the new release before migrating any production applications to rely on version 1.x. You should also review your code and internal processes to make sure that you're following best practices and pinning your production code to only versions that you have fully tested.
+As this is a new version of the library with breaking changes, you should test your code extensively against the new release before migrating any production applications to rely on version 1.x. You should also review your code and internal processes to make sure that you're following best practices and pinning your production code to only versions that you have fully tested.
 
 To make the migration process easier, we're updating existing code examples in our docs for Python to a tabbed experience:
 
