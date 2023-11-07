@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/09/2023
+ms.date: 11/06/2023
 ---
 
 # Source control in Azure Data Factory
@@ -238,6 +238,18 @@ If you connect to GitHub Enterprise Server, you need to use personal access toke
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
+
+#### Connecting to Azure DevOps Server 2022
+
+If you connect to Azure DevOps Server 2022, you need to use a personal access token for authentication. [Learn how to create a personal access token here](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops-2022&tabs=Windows).
+ 
+Connect to on-prem Azure DevOps by providing the ``Azure DevOps Server URL`` and ``Azure DevOps Project Collection``
+
+:::image type="content" source="media/data-flows/devops-001.png" alt-text="Screenshot shows ADO configure a repository using server.":::
+
+Provide the token with access scope as read/write for code.
+
+:::image type="content" source="media/data-flows/devops-002.png" alt-text="Screenshot shows ADO configure access token.":::
 
 ## Version control
 
