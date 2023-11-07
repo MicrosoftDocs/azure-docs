@@ -115,7 +115,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 # [Video analysis chat](#tab/video-chat)
 
-In this chat session, you'll be instructing the assistant to aid in understanding videos that you input. The assistant extracts several frames from the video and use them to answer your questions.
+In this chat session, you'll be instructing the assistant to aid in understanding videos that you input. The assistant extracts several frames from the video and uses them to answer your questions.
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
