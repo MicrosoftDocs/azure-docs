@@ -88,3 +88,7 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 ### Limitations
 
 - Maintenance job can't be exempted regardless of how planned maintenance is configured or have not yet been configured. If you have special requests for maintenance time that can't be met with this feature, open a support ticket.
+
+## Next steps
+
+- [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
