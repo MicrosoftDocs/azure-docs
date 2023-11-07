@@ -54,6 +54,10 @@ Azure AI Search is well suited for the following application scenarios:
 
 + Consolidate heterogeneous content into a user-defined search index. 
 
++ Integrate data chunking and vectorization for generative AI and RAG apps.
+
++ Apply granular access control at the document level.
+
 + Offload indexing and query workloads onto a dedicated search service.
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.

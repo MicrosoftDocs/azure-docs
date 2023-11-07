@@ -32,6 +32,7 @@ Learn about the latest updates to Azure AI Search functionality, docs, and sampl
 | [**Azure OpenAI Embedding skill (preview)**](cognitive-search-skill-azure-openai-embedding.md) | Skill | Connects to a deployed embedding model on your Azure OpenAI resource to generate embeddings during skillset execution. This skill is available through the [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) REST API, the Azure portal, and any Azure SDK beta packages that are updated to use this feature.|
 | [**Text Split skill (preview)**](cognitive-search-skill-textsplit.md) | Skill | Updated in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) to support native data chunking. |
 | [**How vector search and semantic ranking improve your GPT prompts**](https://www.youtube.com/watch?v=Xwx1DJ0OqCk)| Video | Watch this short video to learn how hybrid retrieval gives you optimal grounding data for generating useful AI responses and enables search over both concepts and keywords. |
+| [**Access Control in Generative AI applications**](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)  | Blog | Explains how to use Microsoft Entra ID and Microsoft Graph API to roll out granular user permissions on chunked content in your index. |
 
 ## October 2023
 
