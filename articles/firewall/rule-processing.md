@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/15/2022
+ms.date: 08/30/2023
 ms.author: victorh
 ---
 
@@ -168,6 +168,7 @@ As a result, there's no need to create an explicit deny rule from VNet-B to VNet
 
 ## Next steps
 
-- Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
+- [Learn more about Azure Firewall NAT behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834)
+- [Learn how to deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
 - [Learn more about Azure network security](../networking/security/index.yml)
 

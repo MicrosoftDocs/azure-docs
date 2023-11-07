@@ -2,7 +2,7 @@
 title: Deploy Defender for IoT for OT monitoring - Microsoft Defender for IoT
 description: Learn about the steps involved in deploying a Microsoft Defender for IoT system for OT monitoring.
 ms.topic: install-set-up-deploy
-ms.date: 02/13/2023
+ms.date: 07/04/2023
 ---
 
 # Deploy Defender for IoT for OT monitoring
@@ -24,7 +24,7 @@ While teams and job titles differ across different organizations, all Defender f
 
 Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT.
 
-For more information, see [Add an OT plan to your Azure subscription](../getting-started.md).
+For more information, see [Start a Microsoft Defender for IoT trial](../getting-started.md).
 
 ## Planning and preparing
 
@@ -38,14 +38,14 @@ Plan basic details about your monitoring system, such as:
 
 - **Sites and zones**: Decide how you'll segment the network you want to monitor using *sites* and *zones* that can represent locations all around the world.
 
-- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally-managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
+- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
 
 - **Users and roles**: List of the types of users you'll need on each sensor, and the roles that they'll need for each activity.
 
 For more information, see [Plan your OT monitoring system with Defender for IoT](../best-practices/plan-corporate-monitoring.md).
 
 > [!TIP]
-> If you're using several locally-managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
+> If you're using several locally managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
 >
 #### Prepare for an OT site deployment
 
@@ -88,7 +88,7 @@ For more information, see:
 - [Configure mirroring with a switch SPAN port](../traffic-mirroring/configure-mirror-span.md)
 - [Configure traffic mirroring with a Remote SPAN (RSPAN) port](../traffic-mirroring/configure-mirror-rspan.md)
 - [Configure active or passive aggregation (TAP)](../best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap)
-- [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md)
+- [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
 - [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)
 - [Configure traffic mirroring with a Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)
 
@@ -123,7 +123,7 @@ Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-conf
 
 Use an initial setup wizard to confirm network settings, activate the sensor, and apply SSH/TLS certificates.
 
-For more information, see [Activate and set up your OT network sensor](activate-deploy-sensor.md).
+For more information, see [Configure and activate your OT sensor](activate-deploy-sensor.md).
 
 #### Configure proxy connections
 

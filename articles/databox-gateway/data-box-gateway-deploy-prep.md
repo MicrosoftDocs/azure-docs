@@ -2,13 +2,13 @@
 title: Tutorial on prepare Azure portal to deploy Data Box Gateway | Microsoft Docs
 description: First tutorial to deploy Azure Data Box Gateway involves preparing the Azure portal.
 services: databox-edge-gateway
-author: v-dalc
+author: shaas
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/01/2021
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 ---
 

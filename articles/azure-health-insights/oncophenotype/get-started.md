@@ -17,14 +17,14 @@ ms.author: behoorne
 This quickstart provides an overview on how to use the Onco Phenotype.
 
 ## Prerequisites
-To use the Onco Phenotype model, you must have a Cognitive Services account created. If you haven't already created a Cognitive Services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
+To use the Onco Phenotype model, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Cognitive Services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
 
 ## Example request and results
 
-To send an API request, you need your Cognitive Services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
+To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
 
 ![Screenshot of the Keys and Endpoints for the Onco Phenotype.](../media/keys-and-endpoints.png) 
 

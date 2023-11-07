@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # Interoperability in Azure - Control plane analysis
 
-This article describes the control plane analysis of the [test setup](./connectivty-interoperability-preface.md). You can also review the [test setup configuration](./connectivty-interoperability-configuration.md) and the [data plane analysis](./connectivty-interoperability-data-plane.md) of the test setup.
+This article describes the control plane analysis of the test setup. You can also review the test setup configuration and the data plane analysis of the test setup.
 
 Control plane analysis essentially examines routes that are exchanged between networks within a topology. Control plane analysis can help you understand how different networks view the topology.
 
@@ -77,7 +77,7 @@ For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-abou
 
 ## Next steps
 
-Learn about [data plane analysis](./connectivty-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
+Learn about [data plane analysis](./connectivity-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 

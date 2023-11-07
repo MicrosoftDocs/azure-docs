@@ -23,7 +23,7 @@ Scope is a set of resources that have access, to learn more on scopes, see the [
 
 To perform a restore, a user or a principal need the permission to restore (that is *restore/action* permission), and permission to provision a new account (that is *write* permission).  To grant these permissions, the owner of the subscription can assign the `CosmosRestoreOperator` and `Cosmos DB Operator` built in roles to a principal.
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your subscription. The `CosmosRestoreOperator` role is available at subscription level.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your subscription. The `CosmosRestoreOperator` role is available at subscription level.
 
 1. Select **Access control (IAM)**.
 
@@ -103,7 +103,7 @@ This operation is currently not supported.
 
 ## <a id="custom-restorable-action"></a>Custom role creation for restore action with CLI
 
-The subscription owner can provide the permission to restore to any other Azure AD identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
+The subscription owner can provide the permission to restore to any other Microsoft Entra identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
 
 The RestorableAction below represents a custom role. You have to explicitly create this role. The following JSON template creates a custom role *RestorableAction* with restore permission:
 
@@ -141,8 +141,8 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Provision continuous backup using the [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * [Get the latest restorable timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
-* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* Restore an account using the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

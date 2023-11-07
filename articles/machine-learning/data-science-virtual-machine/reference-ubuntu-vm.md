@@ -5,13 +5,11 @@ description: Details on tools included in the Ubuntu Data Science Virtual Machin
 author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-linux
 ms.author: jcioffi
 ms.reviewer: mattmcinnes
 ms.date: 04/18/2023
 ms.topic: reference
-
-
 ---
 
 # Reference: Ubuntu (Linux) Data Science Virtual Machine

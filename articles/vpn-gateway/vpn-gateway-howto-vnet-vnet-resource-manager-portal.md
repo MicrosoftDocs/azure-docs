@@ -9,7 +9,7 @@ ms.date: 07/17/2023
 ms.author: cherylmc
 
 ---
-# Configure a VNet-to-VNet VPN gateway connection by using the Azure portal
+# Configure a VNet-to-VNet VPN gateway connection - Azure portal
 
 This article helps you connect virtual networks (VNets) by using the VNet-to-VNet connection type using the Azure portal. The virtual networks can be in different regions and from different subscriptions. When you connect VNets from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant. This type of configuration creates a connection between two virtual network gateways. This article doesn't apply to VNet peering. For VNet peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
 

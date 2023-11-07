@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Onboard a customer to Azure Lighthouse
 
-This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, delegated resources (subscriptions and/or resource groups) in the customer's Azure Active Directory (Azure AD) tenant can be managed by users in your tenant through [Azure delegated resource management](../concepts/architecture.md).
+This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, delegated resources (subscriptions and/or resource groups) in the customer's Microsoft Entra tenant can be managed by users in your tenant through [Azure delegated resource management](../concepts/architecture.md).
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
@@ -29,26 +29,26 @@ To onboard a customer's tenant, it must have an active Azure subscription. When 
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
-If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](/azure/active-directory/fundamentals/how-to-find-tenant).
 
 If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), your tenant ID is provided automatically. You don't need to know the customer's tenant or subscription details in order to create your template in the Azure portal. However, if you plan to onboard one or more resource groups in the customer's tenant (rather than the entire subscription), you'll need to know the names of each resource group.
 
 ## Define roles and permissions
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Each authorization includes a `principalId` which refers to an Azure AD user, group, or service principal in the managing tenant.
+As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Each authorization includes a `principalId` which refers to a Microsoft Entra user, group, or service principal in the managing tenant.
 
 > [!NOTE]
-> Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
+> Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to a Microsoft Entra user, group, or service principal in an authorization.
 
 To define authorizations in your template, you must include the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You'll also need to include the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign. When you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), you can select the user account and role, and these ID values will be added automatically. If you are [creating a template manually](#create-your-template-manually), you can [retrieve user IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant.
 
 > [!TIP]
 > We recommend assigning the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](remove-delegation.md) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
-Whenever possible, we recommend using Azure AD user groups for each assignment whenever possible, rather than individual users. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can also assign roles to a service principal, which can be useful for automation scenarios.
+Whenever possible, we recommend using Microsoft Entra user groups for each assignment whenever possible, rather than individual users. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can also assign roles to a service principal, which can be useful for automation scenarios.
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for a Microsoft Entra group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For information about supported roles and best practices, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
@@ -79,7 +79,7 @@ You can create this template in the Azure portal, or by manually modifying the t
 
 To create your template in the Azure portal, go to **My customers** and then select **Create ARM Template** from the overview page.
 
-On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the `mspOfferName` and `mspOfferDescription` in your template, and they may be visible to your customer. The `managedByTenantId` value will be provided automatically, based on the Azure AD tenant to which you are logged in.
+On the **Create ARM Template offer** Page, provide your **Name** and an optional **Description**. These values will be used for the `mspOfferName` and `mspOfferDescription` in your template, and they may be visible to your customer. The `managedByTenantId` value will be provided automatically, based on the Microsoft Entra tenant to which you are logged in.
 
 Next, select either **Subscription** or **Resource group**, depending on the customer scope you want to onboard. If you select **Resource group**, you'll need to provide the name of the resource group to onboard. You can select the **+** icon to add additional resource groups in the same subscription if needed. (To onboard additional resource groups in a different subscription, you must create and deploy a separate template for that subscription.)
 
@@ -289,7 +289,7 @@ After a few minutes, you should see a notification that the deployment has compl
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Lighthouse, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
+When a customer subscription has successfully been onboarded to Azure Lighthouse, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of a Microsoft Entra group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
 
 ### Confirm in the Azure portal
 
@@ -349,7 +349,7 @@ If you are unable to successfully onboard your customer, or if your users have t
 - The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) role, any roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions), or any roles that include [restricted actions](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
 - Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
-- If access was granted to a group, check to make sure the user is a member of that group. If they aren't, you can [add them to the group using Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), without having to perform another deployment. Note that [group owners](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) are not necessarily members of the groups they manage, and may need to be added in order to have access.
+- If access was granted to a group, check to make sure the user is a member of that group. If they aren't, you can [add them to the group using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), without having to perform another deployment. Note that [group owners](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) are not necessarily members of the groups they manage, and may need to be added in order to have access.
 - There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - The [Azure built-in roles](../../role-based-access-control/built-in-roles.md) that you include in authorizations must not include any deprecated roles. If an Azure built-in role becomes deprecated, any users who were onboarded with that role will lose access, and you won't be able to onboard additional delegations. To fix this, update your template to use only supported built-in roles, then perform a new deployment.
 

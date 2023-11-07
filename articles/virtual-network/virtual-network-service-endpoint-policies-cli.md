@@ -12,7 +12,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 # Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ---
 

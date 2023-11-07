@@ -4,7 +4,8 @@ description: This article provides a tutorial for getting started writing log qu
 ms.topic: tutorial
 author: guywi-ms
 ms.author: guywild
-ms.date: 10/20/2021
+ms.reviewer: ilanawaitser
+ms.date: 10/31/2023
 
 ---
 
@@ -15,7 +16,7 @@ ms.date: 10/20/2021
 >
 > If you already know how to query in Kusto Query Language (KQL) but need to quickly create useful queries based on resource types, see the saved example queries pane in [Use queries in Azure Monitor Log Analytics](../logs/queries.md).
 
-In this tutorial, you'll learn to write log queries in Azure Monitor. The article shows you how to:
+In this tutorial, you learn to write log queries in Azure Monitor. The article shows you how to:
 
 - Understand query structure.
 - Sort query results.
@@ -32,6 +33,8 @@ For more information about log queries in Azure Monitor, see [Overview of log qu
 Here's a video version of this tutorial:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Write a new query
 
@@ -66,7 +69,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
+This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records are returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search goes over *all* tables. The process would then take longer and be less efficient.
 
 > [!IMPORTANT]
 > Search queries are ordinarily slower than table-based queries because they have to process more data.
@@ -89,8 +92,8 @@ SecurityEvent
 ```
 
 Descending is the default sorting order, so you would usually omit the `desc` argument. The output looks like this example.
-
-![Screenshot that shows the top 10 records sorted in descending order.](media/get-started-queries/top10.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/top10.png" lightbox="media/get-started-queries/top10.png" alt-text="Screenshot that shows the top 10 records sorted in descending order." border="false":::
 
 ## The where operator: Filter on a condition
 Filters, as indicated by their name, filter the data by a specific condition. Filtering is the most common way to limit query results to relevant information.
@@ -139,8 +142,8 @@ You can specify a time range by using the time picker or a time filter.
 ### Use the time picker
 
 The time picker is displayed next to the **Run** button and indicates that you're querying records from only the last 24 hours. This default time range is applied to all queries. To get records from only the last hour, select **Last hour** and then run the query again.
-
-![Screenshot that shows the time picker and its list of time-range commands.](media/get-started-queries/timepicker.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/timepicker.png" lightbox="media/get-started-queries/timepicker.png" alt-text="Screenshot that shows the time picker and its list of time-range commands." border="false":::
 
 ### Add a time filter to the query
 
@@ -165,8 +168,8 @@ SecurityEvent
 ```
 
 The preceding example generates the following output:
-
-![Screenshot that shows the query "project" results list.](media/get-started-queries/project.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/project.png" lightbox="media/get-started-queries/project.png" alt-text="Screenshot that shows the query 'project' results list." border="false":::
 
 You can also use `project` to rename columns and define new ones. The next example uses `project` to do the following:
 
@@ -237,8 +240,20 @@ Perf
 ```
 
 To make the output clearer, you can select to display it as a time chart, which shows the available memory over time.
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/chart.png" lightbox="media/get-started-queries/chart.png" alt-text="Screenshot that shows the values of a query memory over time." border="false":::
 
-![Screenshot that shows the values of a query memory over time.](media/get-started-queries/chart.png)
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Why am I seeing duplicate records in Azure Monitor Logs?
+
+Occasionally, you might notice duplicate records in Azure Monitor Logs. This duplication is typically from one of the following two conditions:
+          
+- Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
+- If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
+
 
 ## Next steps
 

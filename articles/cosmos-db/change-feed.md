@@ -65,7 +65,7 @@ Change feed is available for partition key ranges of an Azure Cosmos DB containe
 
 ### Sort order of items in change feed
 
-Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key, and there's no guaranteed order across the partition key values.
+Change feed items come in the order of their modification time. This sort order is guaranteed per partition key, and there's no guaranteed order across the partition key values.
 
 ### Change feed in multi-region Azure Cosmos DB accounts
 

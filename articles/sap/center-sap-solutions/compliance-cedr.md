@@ -6,6 +6,7 @@ ms.author: sushantyadav
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure
+ms.subservice: center-sap-solutions
 ms.date: 05/15/2023
 ---
 #  Customer enabled disaster recovery in *Azure Center for SAP solutions*

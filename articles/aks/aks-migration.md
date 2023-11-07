@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Kubernetes Service (AKS)
-description: This article shows you how to to Azure Kubernetes Service (AKS).
+description: This article shows you how to migrate to Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.date: 05/30/2023
 ms.custom: mvc, devx-track-azurecli
@@ -47,7 +47,7 @@ AKS is a managed service offering unique capabilities with lower management over
 
 We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) and the [Azure Standard Load Balancer](./load-balancer-standard.md) to ensure you get the following features:
 
-* [Multiple node pools](./use-multiple-node-pools.md),
+* [Multiple node pools](./create-node-pools.md),
 * [Availability zones](../reliability/availability-zones-overview.md),
 * [Authorized IP ranges](./api-server-authorized-ip-ranges.md),
 * [Cluster autoscaler](./cluster-autoscaler.md),

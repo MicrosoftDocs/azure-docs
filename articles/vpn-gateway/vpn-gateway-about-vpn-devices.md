@@ -5,7 +5,7 @@ description: Learn about VPN devices and IPsec parameters for Site-to-Site cross
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/14/2023
+ms.date: 10/06/2023
 ms.author: cherylmc
 
 ---
@@ -26,9 +26,11 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 ## <a name="devicetable"></a>Validated VPN devices and device configuration guides
 
-In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. See [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) to understand the VPN type use (PolicyBased or RouteBased) for the VPN Gateway solution you want to configure.
+In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. These are the recommended algorithms for your device configuration.
 
-To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
+[!INCLUDE [Recommended Algorithms table](../../includes/vpn-gateway-recommended-algorithms.md)]
+
+To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis and defaults listed in configuration guide need not contain the best cryptographic algorithms. For VPN device support, contact your device manufacturer.
 
 |**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased configuration instructions** |**RouteBased configuration instructions** |
 | --- | --- | ---  | --- | --- |
@@ -43,7 +45,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Cisco | CSR | RouteBased: IOS-XE 16.10 | Not tested | [Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Supported |Supported |
 | Cisco |Meraki (MX) | MX v15.12 |Not compatible | [Configuration guide](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
-| Cisco | vEdge (Viptela OS) | 18.4.0 (Active/Passive Mode)<br><br>19.2 (Active/Active Mode) | Not compatible |  [Manual configuration (Active/Passive)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Cloud Onramp configuration (Active/Active)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
+| Cisco | vEdge (Viptela OS) | 18.4.0 (Active/Passive Mode) | Not compatible |  [Manual configuration (Active/Passive)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and later |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://community.f5.com/t5/technical-articles/connecting-to-windows-azure-with-the-big-ip/ta-p/282476) |[Configuration guide](https://community.f5.com/t5/technical-articles/big-ip-to-azure-dynamic-ipsec-tunneling/ta-p/282665) |
 | Fortinet |FortiGate |FortiOS 5.6 | Not tested |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
@@ -81,7 +83,7 @@ For certain devices, you can download configuration scripts directly from Azure.
 
 ## <a name="additionaldevices"></a>Nonvalidated VPN devices
 
-If you don’t see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for support and configuration instructions.
+If you don’t see your device listed in the Validated VPN devices table, your device still might work with a Site-to-Site connection. Contact your device manufacturer for support and configuration instructions.
 
 ## <a name="editing"></a>Editing device configuration samples
 
@@ -127,6 +129,7 @@ In the following tables:
 | Authentication Method |Pre-Shared Key     |Pre-Shared Key     |
 | Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
 | SA Lifetime           |28,800 seconds     |28,800 seconds     |
+| Number of Quick Mode SA |100 |100 |
 
 ### IKE Phase 2 (Quick Mode) parameters
 
@@ -186,7 +189,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients may choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
+* You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients might choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the preceding tables to ensure security of your critical communication.
 
 ## <a name="known"></a>Known device compatibility issues

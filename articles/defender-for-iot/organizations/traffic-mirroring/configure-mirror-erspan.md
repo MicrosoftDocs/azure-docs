@@ -11,7 +11,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 :::image type="content" source="../media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Network level deployment highlighted." border="false" lightbox="../media/deployment-paths/progress-network-level-deployment.png":::
 
-This article provides high-level guidance for configuring [traffic mirroring with ERSPAN](../best-practices/traffic-mirroring-methods.md#erspan-ports). Specific implementation details will vary depending on your equipment vendor.
+This article provides high-level guidance for configuring [traffic mirroring with ERSPAN](../best-practices/traffic-mirroring-methods.md#erspan-ports). Specific implementation details vary depending on your equipment vendor.
 
 We recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
 
@@ -20,26 +20,6 @@ We recommend using your receiving router as the generic routing encapsulation (G
 Before you start, make sure that you understand your plan for network monitoring with Defender for IoT, and the SPAN ports you want to configure.
 
 For more information, see [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md).
-
-## Configure ERSPAN on your OT network sensor
-
-Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default. To turn on support for ERSPAN, you'll need to configure your ERSPAN interfaces, and then enable the RCDCAP component to restart your monitoring processes.
-
-ERSPAN support is configured in the **Select erspan monitor interfaces** screen, which appears during your first software installation on the appliance. For example:
-
-:::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
-
-To access this screen later on, sign in to your sensor via SSH as the *cyberx_host* user and run the following command:
-
-```console
-sudo dpkg-reconfigure iot-sensor
-```
-
-The installation wizard starts to run, and you can select the interfaces you want to receive ERSPAN traffic.
-
-Complete the wizard to apply your changes.
-
-For more information, see [Install OT monitoring software on OT sensors](../how-to-install-software.md).
 
 ## Sample configuration on a Cisco switch
 
@@ -62,6 +42,16 @@ For more information, see [CLI command reference from OT network sensors](../cli
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
+## Configure ERSPAN on your OT network sensor
+
+After deploying your sensor, make sure to configure ERSPAN settings on the **Interface configurations** page. For more information, see:
+
+- In the deployment wizard GUI: [Define the interfaces you want to monitor](../ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor)
+- In the OT sensor system settings: [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
+
+For example:
+
+:::image type="content" source="../media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
 
 ## Next steps
 

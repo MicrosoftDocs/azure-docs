@@ -4,8 +4,9 @@ description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbuck
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
 ms.date: 03/12/2021
-ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 ---
 
 # Continuous deployment to Azure App Service
@@ -109,7 +110,7 @@ You can customize the GitHub Actions build provider in these ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
 - If the selected branch is protected, you can still preview the workflow file without saving the configuration and then manually add it into your repository. This method doesn't give you log integration with the Azure portal.
-- Instead of using a publishing profile, deploy by using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
+- Instead of using a publishing profile, deploy by using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Microsoft Entra ID.
 
 #### Authenticate by using a service principal
 

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 08/10/2023
 ms.author: cshoe
 ms.custom: mode-other
 ---
@@ -52,7 +52,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
 3. Enter **Create static web app** in the command box.
 
-4. Select *Azure Static Web Apps: Create static web app...* and select **Enter**.
+4. Select *Azure Static Web Apps: Create static web app...*.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -60,7 +60,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **Custom**. |
+    | Framework | Select **Custom**. |
 
     # [Angular](#tab/angular)
 
@@ -68,7 +68,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **Angular**. |
+    | Framework | Select **Angular**. |
 
     # [Blazor](#tab/blazor)
 
@@ -76,7 +76,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **Blazor**. |
+    | Framework | Select **Blazor**. |
 
     # [React](#tab/react)
 
@@ -84,7 +84,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **React**. |
+    | Framework | Select **React**. |
 
     # [Vue](#tab/vue)
 
@@ -92,11 +92,11 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **Vue.js**. |
+    | Framework | Select **Vue.js**. |
 
     ---
 
-5. Enter the settings values for that match your framework preset choice.
+5. Enter the settings values that match your framework preset choice.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -153,7 +153,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
-In the Visual Studio Code Explorer window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
+In the Visual Studio Code Azure window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
 
 ## Next steps
 

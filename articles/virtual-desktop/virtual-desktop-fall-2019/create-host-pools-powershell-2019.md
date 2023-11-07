@@ -36,7 +36,7 @@ Run the next cmdlet to create a registration token to authorize a session host t
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
-After that, run this cmdlet to add Azure Active Directory users to the default desktop application group for the host pool.
+After that, run this cmdlet to add Microsoft Entra users to the default desktop application group for the host pool.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
@@ -66,7 +66,7 @@ After you've created your session host virtual machines, [apply a Windows licens
 
 You need to do the following things to prepare your virtual machines before you can install the Azure Virtual Desktop agents and register the virtual machines to your Azure Virtual Desktop host pool:
 
-- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Azure Active Directory account to their Active Directory account and be successfully allowed access to the virtual machine.
+- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Microsoft Entra account to their Active Directory account and be successfully allowed access to the virtual machine.
 - You must install the Remote Desktop Session Host (RDSH) role if the virtual machine is running a Windows Server OS. The RDSH role allows the Azure Virtual Desktop agents to install properly.
 
 To successfully domain-join, do the following things on each virtual machine:
@@ -78,7 +78,7 @@ To successfully domain-join, do the following things on each virtual machine:
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+    > If you're joining your VMs to a Microsoft Entra Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Azure Virtual Desktop host pool
 
@@ -101,7 +101,7 @@ To register the Azure Virtual Desktop agents, do the following on each virtual m
 
 ## Next steps
 
-Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage application groups tutorial.
+Now that you've made a host pool, you can populate it with applications. To learn more about how to manage applications in Azure Virtual Desktop, see the Manage application groups tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage application groups tutorial](../manage-app-groups.md)

@@ -4,8 +4,9 @@ description: This article provides information on how to upgrade an Application 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
@@ -13,6 +14,9 @@ ms.author: greglin
 
 The Azure Application Gateway Ingress Controller for Kubernetes (AGIC) can be upgraded
 using a Helm repository hosted on Azure Storage.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 Before beginning the upgrade procedure, ensure that you've added the required repository:
 

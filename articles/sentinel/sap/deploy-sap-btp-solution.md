@@ -49,7 +49,7 @@ Before you begin, verify that:
     - **uaa.clientsecret**: `682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=`
     - **uaa.url**: `https://915a0312trial.authentication.us10.hana.ondemand.com`
 
-1. Log into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the **Microsoft Sentinel** service.
 1. Select **Content hub**, and in the search bar, search for *BTP*.
 1. Select **SAP BTP**.

@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/22/2022
+ms.date: 07/19/2023
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor

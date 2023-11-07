@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 07/31/2023
 ---
 
-# Index data from Azure SQL
+# How to index data from Azure SQL in Azure Cognitive Search
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
 
@@ -28,7 +28,7 @@ This article also provides:
 
 ## Prerequisites
 
-+ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. 
++ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view, or a [SQL Managed Instance with a public endpoint](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
 
   Use a table if your data is large or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
@@ -392,7 +392,7 @@ Yes. However, you need to allow your search service to connect to your database.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
+Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/connector-azure-search.md).
 
 **Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 

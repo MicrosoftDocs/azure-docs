@@ -13,7 +13,7 @@ ms.custom: devops-pipelines-deploy
 
 Learn how to enforce compliance policies on your Azure resources before and after deployment with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). One scenario for adding Azure Policy to a pipeline is when you want to ensure that resources are deployed only to authorized regions and are configured to send diagnostics logs to Azure Log Analytics.
 
-You can use either the [classic pipeline](/azure/devops/pipelines/release/define-multistage-release-process) or [YAML pipeline](/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops) processes to implement Azure Policy in your CI/CD pipelines.
+You can use either the [classic pipeline](/azure/devops/pipelines/release/define-multistage-release-process) or [YAML pipeline](/azure/devops/pipelines/get-started/yaml-pipeline-editor) processes to implement Azure Policy in your CI/CD pipelines.
 
 For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).

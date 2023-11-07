@@ -413,7 +413,7 @@
         {
             "source_path_from_root": "/articles/security-center/defender-for-dns-introduction.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-introduction.md",
@@ -833,6 +833,16 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/get-started.md",
             "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-vulnerability-assessment-agentless.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-agentless-scanning-vms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-dns-plan.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
             "redirect_document_id": true
         },
         {

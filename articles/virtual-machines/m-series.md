@@ -4,6 +4,7 @@ description: Specifications for the M-series VMs.
 author: lauradolan
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: ayshak

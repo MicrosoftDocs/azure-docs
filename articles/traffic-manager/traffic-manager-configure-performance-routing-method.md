@@ -22,7 +22,7 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 ## Create a resource group
 Create a resource group for the Traffic Manager profile.
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left pane of the Azure portal, select **Resource groups**.
 1. In **Resource groups**, on the top of the page, select **Add**.
 1. In **Resource group name**, type a name *myResourceGroupTM1*. For **Resource group location**, select **East US**, and then select **OK**.
@@ -48,7 +48,7 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
 
 ##  To configure performance routing method on an existing Traffic Manager profile
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal’s search bar, search for the **Traffic Manager profiles** and then select the profile name that you want to configure the routing method for.
 1. In the **Traffic Manager profile** overview page, verify that both the cloud services and websites that you want to include in your configuration are present.
 1. In the **Settings** section, select **Configuration**, and in the **Configuration** blade, complete as follows:

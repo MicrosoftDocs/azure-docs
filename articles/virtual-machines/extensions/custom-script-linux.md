@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822, devx-track-azurecli
+ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-linux
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 03/31/2023

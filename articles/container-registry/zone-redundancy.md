@@ -99,7 +99,7 @@ In the command output, note the `zoneRedundancy` property for the replica. When 
 
 ## Create a zone-redundant registry - portal
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. In the **Basics** tab, select or create a resource group, and enter a unique registry name. 
 1. In **Location**, select a region that supports zone redundancy for Azure Container Registry, such as *East US*.

@@ -15,11 +15,11 @@ ms.date: 06/13/2023
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes a solution template that you can use to detect and mask PII data in your data flow with Azure Cognitive Services. 
+This article describes a solution template that you can use to detect and mask PII data in your data flow with Azure AI services. 
 
 ## About this solution template
 
-This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, a request body is created with a derived column and an external call transformation calls Azure Cognitive Services and masks PII before loading to the destination sink. 
+This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, a request body is created with a derived column and an external call transformation calls Azure AI services and masks PII before loading to the destination sink. 
 
 The template contains one activity: 
 -  **Data flow** to detect and mask PII data
@@ -31,7 +31,7 @@ This template defines 3 parameters:
 
 ## Prerequisites
 
-*  Azure Cognitive Services Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics))
+*  Azure AI services resource endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics))
 
 ## How to use this solution template
 
@@ -47,13 +47,13 @@ This template defines 3 parameters:
 	
 	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-12.png" alt-text="Screenshot of the template set up page with a fly-out open to create a new linked service connection to a data source.":::
 
-3. Use the drop down to create a **New** connection to your Cognitive Services resource or choose an existing connection. You will need an endpoint URL and resource key to create this connection. 
+3. Use the drop down to create a **New** connection to your Azure AI services resource or choose an existing connection. You will need an endpoint URL and resource key to create this connection. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of the template set up page to create a new connection or select an existing connection to Cognitive Services from a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of the template set up page to create a new connection or select an existing connection to Azure AI services from a drop down menu.":::
 	
    Clicking **New** will require you to create a new linked service connection. Make sure to enter your resource's endpoint URL and the resource key under the Auth header **Ocp-Apim-Subscription-Key**. 
    
-   :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-13.png" alt-text="Screenshot of the template set up page with a fly-out open to create a new linked service connection to Cognitive Services.":::
+   :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-13.png" alt-text="Screenshot of the template set up page with a fly-out open to create a new linked service connection to Azure AI services.":::
    
 
 4. Select **Use this template** to create the pipeline. 
@@ -94,8 +94,3 @@ This template defines 3 parameters:
 
 - [What's New in Azure Data Factory](whats-new.md)
 - [Introduction to Azure Data Factory](introduction.md)
-
-
-
-
-

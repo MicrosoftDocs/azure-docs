@@ -3,7 +3,7 @@ title: Add a data disk to Linux VM using the Azure CLI
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
 author: roygara
 ms.service: azure-disk-storage
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 01/09/2023
@@ -99,7 +99,7 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo partprobe /dev/sdc1
+sudo partprobe /dev/sdc
 sudo mkfs.xfs /dev/sdc1
 ```
 

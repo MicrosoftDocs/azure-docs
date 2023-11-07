@@ -203,24 +203,22 @@ az aks create \
 
 ### Add a new node pool with allowed ports and application security groups
 
-```azurecli-interactive
-az aks nodepool add \
+```az aks nodepool add \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ### Update the allowed ports and application security groups for a node pool
 
-```azurecli-interactive
-az aks nodepool update \
+```az aks nodepool update \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ## Automatically assign host ports for pod workloads (PREVIEW)
@@ -319,7 +317,7 @@ Containers:
 
 ## Next steps
 
-* Learn about [using multiple node pools in AKS](use-multiple-node-pools.md).
+* Learn about [using multiple node pools in AKS](create-node-pools.md).
 
 * Learn about [using standard load balancers in AKS](load-balancer-standard.md)
 

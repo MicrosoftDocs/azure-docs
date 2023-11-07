@@ -1,15 +1,15 @@
 ---
 title: Add language analyzers to string fields
 titleSuffix: Azure Cognitive Search
-description: Multi-lingual lexical analysis for non-English queries and indexes in Azure Cognitive Search.
-
+description: Configure multi-lingual lexical analysis for non-English queries and indexes in Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 07/19/2023
 ---
+
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
 A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable string field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
@@ -152,7 +152,7 @@ For more information about creating an index and setting field properties, see [
 | Urdu | ur.microsoft |  |
 | Vietnamese | vi.microsoft |  |
 
- All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
+ All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html).
 
 ## See also  
 

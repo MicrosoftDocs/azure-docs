@@ -21,24 +21,23 @@ items:
 - name: How-To
   items: 
   - name: Deploy
-    items: 
+    items:
     - name: Create a storage mover resource
       href: storage-mover-create.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
-    - name: Define a migration job
+    - name: Register an agent
+      href: agent-register.md
+    - name: Create endpoints
+      href: endpoint-manage.md  
+    - name: Define a migration project
+      href: project-manage.md
+    - name: Define and start a migration job
       href: job-definition-create.md
-  - name: Manage
-    items:
-      - name: Register or unregister an agent
-        href: agent-register.md
-      - name: Manage projects
-        href: project-manage.md
   - name: Decommission
-    items:
-      - name: Unregister an agent
-        href: agent-deploy.md#decommissioning-an-agent
-  expanded: true
+    items: 
+    - name: Unregister an agent
+      href: agent-deploy.md#decommissioning-an-agent  
 - name: Resources
   items:
   - name: Monitor copy and job run logs

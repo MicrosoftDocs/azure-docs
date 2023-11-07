@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Linux Java app with MongoDB'
 description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure Cosmos DB.
-author: rloutlaw
-ms.author: routlaw
+author: cephalin
+ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli, ignite-2022, devx-track-extended-java
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli, ignite-2022, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -267,7 +267,7 @@ Username: xxxxxxxxx
 [INFO] ------------------------------------------------------------------------
 ```
 
-The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
+The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net`). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
 explorer https://spring-todo-app.azurewebsites.net

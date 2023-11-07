@@ -25,7 +25,7 @@ For added assurance, when you use Azure Key Vault, you can import or generate ke
 
 Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
-This functionality isn't available for Azure China 21Vianet. 
+This functionality isn't available for Microsoft Azure operated by 21Vianet. 
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)
@@ -59,7 +59,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | nCipher nShield HSMs, smartcards, and support software |You must have access to a nCipher Hardware Security Module and basic operational knowledge of nCipher nShield HSMs. See [nCipher nShield Hardware Security Module](https://www.arrow.com/ecs-media/8441/33982ncipher_nshield_family_brochure.pdf) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16-MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16-MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
@@ -291,8 +291,8 @@ This program creates a **Security World** file at %NFAST_KMDATA%\local\world, wh
 > If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace `--cipher-suite= DLf3072s256mRijndael` with `--cipher-suite=DLf1024s160mRijndael`.
 >
 > Security world created with new-world.exe that ships with nCipher software version 12.50 is not compatible with this BYOK procedure. There are two options available:
-> 1) Downgrade nCipher software version to 12.40.2 to create a new security world.
-> 2) Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
+> 1. Downgrade nCipher software version to 12.40.2 to create a new security world.
+> 2. Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
 
 Then:
 

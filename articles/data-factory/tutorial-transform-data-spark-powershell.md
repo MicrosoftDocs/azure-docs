@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 author: nabhishek
 ms.author: abnarain
 ---
@@ -128,7 +128,7 @@ Update values for the following properties in the linked service definition:
 
 - **hostSubscriptionId**. Replace &lt;subscriptionID&gt; with the ID of your Azure subscription. The on-demand HDInsight cluster is created in this subscription. 
 - **tenant**. Replace &lt;tenantID&gt; with ID of your Azure tenant. 
-- **servicePrincipalId**, **servicePrincipalKey**. Replace &lt;servicePrincipalID&gt; and &lt;servicePrincipalKey&gt; with ID and key of your service principal in the Azure Active Directory. This service principal needs to be a member of the Contributor role of the subscription or the resource Group in which the cluster is created. See [create Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) for details. The **Service principal id** is equivalent to the *Application ID* and a **Service principal key** is equivalent to the value for a *Client secret*.
+- **servicePrincipalId**, **servicePrincipalKey**. Replace &lt;servicePrincipalID&gt; and &lt;servicePrincipalKey&gt; with ID and key of your service principal in the Microsoft Entra ID. This service principal needs to be a member of the Contributor role of the subscription or the resource Group in which the cluster is created. See [create Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) for details. The **Service principal id** is equivalent to the *Application ID* and a **Service principal key** is equivalent to the value for a *Client secret*.
 - **clusterResourceGroup**. Replace &lt;resourceGroupOfHDICluster&gt; with the name of the resource group in which the HDInsight cluster needs to be created. 
 
 > [!NOTE]

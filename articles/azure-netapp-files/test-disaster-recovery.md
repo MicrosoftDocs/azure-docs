@@ -12,11 +12,11 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 09/26/2023
 ms.author: anfdocs
 ---  
 
-# Test disaster recovery for Azure NetApp Files
+# Test disaster recovery using cross-region replication for Azure NetApp Files
 
 An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 

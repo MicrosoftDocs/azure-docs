@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 06/23/2023
+ms.date: 10/03/2023
 ms.author: radeltch
 
 ---
@@ -207,7 +207,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
       sudo mkfs.xfs /dev/vg_hana_log_<HANA SID>/hana_log
       sudo mkfs.xfs /dev/vg_hana_shared_<HANA SID>/hana_shared
       ```
-  
+
    1. Create the mount directories and copy the universally unique identifier (UUID) of all the logical volumes:
 
       ```bash
@@ -481,13 +481,13 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
       provider = SAPHanaSR
       path = /usr/share/SAPHanaSR
       execution_order = 1
-    
+       
       [ha_dr_provider_suschksrv]
       provider = susChkSrv
       path = /usr/share/SAPHanaSR
       execution_order = 3
       action_on_lost = fence
-
+   
       [trace]
       ha_dr_saphanasr = info
       ```
@@ -499,8 +499,8 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as root:
 
    ```bash
-   cat << EOF > /etc/sudoers.d/20-saphana
-   # Needed for SAPHanaSR and susChkSrv Python hooks
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR and susChkSrv Python hooks
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
     EOF
@@ -513,7 +513,7 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm:
 
    ```bash
-   sapcontrol -nr <instance number> -function StartSystem 
+    sapcontrol -nr <instance number> -function StartSystem 
    ```
 
 1. **[1]** Verify the hook installation.
@@ -521,13 +521,13 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm on the active HANA system replication site:
 
    ```bash
-     cdtrace
-     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-     # Example output
-     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+    cdtrace
+    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+    # Example output
+    # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+    # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+    # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
    ```
 
     Verify the susChkSrv hook installation.
@@ -535,12 +535,12 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm on all HANA VMs:
 
    ```bash
-     cdtrace
-     egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
-     # Example output
-     # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
-     # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
-     # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
+    cdtrace
+    egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+    # Example output
+    # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+    # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
+    # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
    ```
 
 ## Create SAP HANA cluster resources
@@ -580,7 +580,7 @@ Next, create the HANA resources:
 > For existing Pacemaker clusters, if your configuration was already changed to use `socat` as described in [Azure Load Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), you don't need to immediately switch to the `azure-lb` resource agent.
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 ```bash
 # Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
@@ -598,6 +598,8 @@ sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:sus
 sudo crm configure ms msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
+
+sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 100
 
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
@@ -619,6 +621,8 @@ sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: c
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
 sudo crm resource cleanup rsc_SAPHana_<HANA SID>_HDB<instance number>
+
+sudo crm configure property priority-fencing-delay=30
 
 sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
@@ -848,31 +852,44 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
 ```
 
-### Test the Azure fencing agent
+### Blocking network communication
 
-You can test the setup of the Azure fencing agent (not the *SBD*) by disabling the network interface on the `hn1-db-0` node:
+Resource state before starting the test:
 
-```bash
-sudo ifdown eth0
-```
+   ```bash
+   Online: [ hn1-db-0 hn1-db-1 ]
+   
+   Full list of resources:
+   stonith-sbd     (stonith:external/sbd): Started hn1-db-1
+    Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+        Started: [ hn1-db-0 hn1-db-1 ]
+    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+        Masters: [ hn1-db-1 ]
+        Slaves: [ hn1-db-0 ]
+    Resource Group: g_ip_HN1_HDB03
+        rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
+        rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+   ```
 
-The VM now restarts or stops, depending on your cluster configuration.
+Execute firewall rule to block the communication on one of the nodes.
 
-If you set the `stonith-action` setting to `off`, the VM is stopped and the resources are migrated to the running VM.
+   ```bash
+   # Execute iptable rule on hn1-db-1 (10.0.0.6) to block the incoming and outgoing traffic to hn1-db-0 (10.0.0.5)
+   iptables -A INPUT -s 10.0.0.5 -j DROP; iptables -A OUTPUT -d 10.0.0.5 -j DROP
+   ```
 
-After you start the VM again, the SAP HANA resource fails to start as secondary if you set `AUTOMATED_REGISTER="false"`. In this case, configure the HANA instance as secondary by running this command:
+When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes will try to simultaneously fence each other, resulting in fence race.
 
-```bash
-su - <hana sid>adm
+When configuring a fencing device, it's recommended to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay will be selected for fencing. 
 
-# Stop the HANA instance, just in case it is running
-sapcontrol -nr <instance number> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+Additionally, to ensure that the node running the HANA master takes priority and wins the fence race in a split brain scenario, it's recommended to set  [`priority-fencing-delay`](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing) property in the cluster configuration. By enabling priority-fencing-delay property, the cluster can introduce an additional delay in the fencing action specifically on the node hosting HANA master resource, allowing the node to win the fence race.
 
-# Switch back to root and clean up the failed state
-exit
-crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
-```
+Execute below command to delete the firewall rule.
+
+   ```bash
+   # If the iptables rule set on the server gets reset after a reboot, the rules will be cleared out. In case they have not been reset, please proceed to remove the iptables rule using the following command.
+   iptables -D INPUT -s 10.0.0.5 -j DROP; iptables -D OUTPUT -d 10.0.0.5 -j DROP
+   ```
 
 ### Test SBD fencing
 
@@ -1357,6 +1374,56 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
+
+1. Test 10: Crash primary database indexserver
+
+   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv).
+
+   The resource state before starting the test:
+
+   ```output
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+      Started: [ hn1-db-0 hn1-db-1 ]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+      Masters: [ hn1-db-0 ]
+      Slaves: [ hn1-db-1 ]
+   Resource Group: g_ip_HN1_HDB03
+      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+   ```
+
+   Run the following commands as root on the `hn1-db-0` node:
+
+   ```bash
+   hn1-db-0:~ # killall -9 hdbindexserver
+   ```
+
+   When the indexserver is terminated, the susChkSrv hook detects the event and trigger an action to fence 'hn1-db-0' node and initiate a takeover process.
+
+   Run the following commands to register `hn1-db-0` node as secondary and clean up the failed resource:
+
+   ```bash
+   # run as <hana sid>adm
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+   
+   # run as root
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
+   ```
+
+   The resource state after the test:
+
+   ```output
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+      Started: [ hn1-db-0 hn1-db-1 ]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+      Masters: [ hn1-db-1 ]
+      Slaves: [ hn1-db-0 ]
+   Resource Group: g_ip_HN1_HDB03
+      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+   ```
+
+   You can execute a comparable test case by causing the indexserver on the secondary node to crash. In the event of indexserver crash, the susChkSrv hook will recognize the occurrence and initiate an action to fence the secondary node.
 
 ## Next steps
 

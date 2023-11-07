@@ -67,6 +67,10 @@ landingContent:
   # Card
   - title: Indoor maps using Azure Maps Creator
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Maps Creator?
+            url: about-creator.md
       - linkListType: concept
         links:
           - text: Indoor map concepts

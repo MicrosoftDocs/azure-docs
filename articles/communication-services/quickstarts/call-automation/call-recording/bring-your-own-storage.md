@@ -82,7 +82,7 @@ Refer to this example of the event schema.
         "recordingStorageInfo": {
             "recordingChunks": [
                 {
-                    "documentId": "string", // Document id for for the recording chunk
+                    "documentId": "string", // Document id for the recording chunk
                     "contentLocation": "string", //Azure Communication Services URL where the content is located
                     "metadataLocation": "string", // Azure Communication Services URL where the metadata for this chunk is located
                     "deleteLocation": "string", // Azure Communication Services URL to use to delete all content, including recording and metadata.
@@ -106,6 +106,6 @@ Refer to this example of the event schema.
 
 For more information, see the following articles:
 
-- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) and [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording) call recording sample apps 
+- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) call recording sample app
 - Learn more about [Call Recording](../../../concepts/voice-video-calling/call-recording.md)
 - Learn more about [Call Automation](../../../concepts/call-automation/call-automation.md)

@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 11/16/2022
+ms.date: 11/06/2023
 ---
 
 # Monitor Azure Machine Learning
@@ -40,7 +40,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Machine Learning. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Machine Learning
 
@@ -51,6 +51,11 @@ See [Azure Machine Learning monitoring data reference](monitor-resource-referenc
 <a id="configuration"></a>
 
 ## Collection and routing
+
+> [!TIP]
+> Logs are grouped into _Category groups_. Category groups are a collection of different logs to help you achieve different monitoring goals. These groups are defined dynamically and may change over time as new resource logs become available and are added to the category group. Note that this may incur additional charges.
+> 
+> The __audit__ resource log category group allows you to select the resource logs that are necessary for auditing your resource. For more information, see [Diagnostic settings in Azure Monitor Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
@@ -105,7 +110,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Machine Learning data reference metrics](monitor-resource-reference.md#metrics).
 

@@ -37,8 +37,8 @@ The host that runs the Docker container on your premises, should be an x64-based
 The following table describes the minimum and recommended specifications for the different Health Insights containers.
 
 
-| Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory| | 
-|----------|--|--|--|--|--| 
+| Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory|
+|----------|--|--|--|--|
 | Trial Matcher | 4000m |4000m |5G | 7G | 
 | OncoPhenotype | 4000m |8000m |2G | 12G |
 
@@ -129,7 +129,7 @@ This command:
 Use the example cURL request as a reference how to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/health-insights/<model>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/health-insights/<model>/jobs?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 ```
 
 #### Example docker compose file
@@ -208,7 +208,7 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Billing
 
-Project Health Insights containers send billing information to Azure, using a _Language_ resource on your Azure account. 
+Project Health Insights containers send billing information to Azure, using a *Language* resource on your Azure account. 
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey` parameter.
 

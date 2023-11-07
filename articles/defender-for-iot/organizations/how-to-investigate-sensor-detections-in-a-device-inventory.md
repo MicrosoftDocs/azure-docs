@@ -12,7 +12,7 @@ Use the **Device inventory** page from a sensor console to manage all OT and IT 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 >
 
 ## View the device inventory
@@ -143,7 +143,7 @@ The device or devices are deleted, and a confirmation message appears at the top
 
 **To delete all inactive devices**:
 
-This procedure is supported for the *cyberx* and admin users only.
+This procedure is supported for the admin users only, including the *support* user. 
 
 1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.

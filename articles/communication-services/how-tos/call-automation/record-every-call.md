@@ -2,10 +2,10 @@
 title: Record a call when it starts
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to record a call through Azure Communication Services once it starts.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.date: 03/01/2023

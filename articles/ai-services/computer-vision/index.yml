@@ -1,0 +1,189 @@
+### YamlMime:Hub
+
+title: Azure AI Vision documentation # < 60 chars
+summary: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+
+metadata:
+  title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  services: cognitive-services
+  ms.service: azure-ai-vision
+  ms.topic: hub-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 07/04/2023
+
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+    items:
+      - title: About Azure AI Vision
+        itemType: overview
+        url: overview.md
+      - title: What's new in Azure AI Vision?
+        itemType: whats-new
+        url: whats-new.md
+      - title: Vision Studio
+        itemType: get-started
+        url: overview-vision-studio.md
+      - title: Language support
+        itemType: reference
+        url: language-support.md
+
+conceptualContent:
+  items:
+    - title: Optical character recognition
+      links:
+        - itemType: overview
+          text: About OCR
+          url: overview-ocr.md
+        - itemType: quickstart
+          text: Get started with OCR
+          url: quickstarts-sdk/client-library.md
+        - itemType: how-to-guide
+          text: Call the Read API
+          url: how-to/call-read-api.md
+        - itemType: deploy
+          text: Use the Read OCR container
+          url: computer-vision-how-to-install-containers.md
+        - itemType: learn
+          text: Microsoft Learn training
+          url: /training/modules/read-text-images-documents-with-computer-vision-service/
+        - itemType: reference
+          text: OCR API reference
+          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+
+    - title: Image Analysis
+      links:
+        - itemType: overview
+          text: About Image Analysis
+          url: overview-image-analysis.md
+        - itemType: quickstart
+          text: Get started with Image Analysis
+          url: quickstarts-sdk/image-analysis-client-library-40.md
+        - itemType: concept
+          text: Image tagging
+          url: concept-tag-images-40.md
+        - itemType: concept
+          text: Image captions
+          url: concept-describe-images-40.md
+        - itemType: concept
+          text: Optical Character Recognition
+          url: concept-ocr.md
+        - itemType: concept
+          text: Model customization
+          url: concept-model-customization.md
+        - itemType: concept
+          text: Background removal
+          url: concept-background-removal.md
+        - itemType: tutorial
+          text: Generate metadata for images
+          url: Tutorials/storage-lab-tutorial.md
+        - itemType: learn
+          text: Microsoft Learn training
+          url: /training/modules/analyze-images-computer-vision/
+        - itemType: reference
+          text: Image Analysis API reference
+          url: https://aka.ms/vision-4-0-ref
+      footerLink:
+        text: More
+        url: overview-image-analysis.md
+    - title: Face
+      links:
+        - itemType: overview
+          text: About Face service
+          url: overview-identity.md
+        - itemType: quickstart
+          text: Get started with Face
+          url: quickstarts-sdk/identity-client-library.md
+        - itemType: how-to-guide
+          text: Detect faces in an image
+          url: how-to/identity-detect-faces.md
+        - itemType: concept
+          text: Face detection
+          url: concept-face-detection.md
+        - itemType: concept
+          text: Face recognition
+          url: concept-face-recognition.md
+        - itemType: tutorial
+          text: Add users to a Face service
+          url: Tutorials/build-enrollment-app.md
+        - itemType: learn
+          text: Microsoft Learn training
+          url: /training/modules/detect-analyze-faces/
+        - itemType: reference
+          text: Face API reference
+          url: /rest/api/face/
+      footerLink:
+        text: More
+        url: overview-identity.md
+    - title: Spatial Analysis
+      links:
+        - itemType: overview
+          text: About Spatial Analysis
+          url: intro-to-spatial-analysis-public-preview.md
+        - itemType: quickstart
+          text: Get started with Spatial Analysis
+          url: spatial-analysis-container.md
+        - itemType: how-to-guide
+          text: Configure Spatial Analysis operations
+          url: spatial-analysis-operations.md
+        - itemType: concept
+          text: Zone and line placement
+          url: spatial-analysis-zone-line-placement.md
+        - itemType: concept
+          text: Camera placement
+          url: spatial-analysis-camera-placement.md
+        - itemType: concept
+          text: Logging and troubleshooting
+          url: spatial-analysis-logging.md
+      footerLink:
+        text: More
+        url: index-spatial-analysis.yml
+
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with the Vision SDK in your favorite programming language.
+  items:
+  - title: C#
+    imageSrc: media/index/logo_Csharp.svg
+    url: /dotnet/api/azure.ai.vision.imageanalysis
+  - title: Node.js
+    imageSrc: media/index/logo_nodejs.svg
+    url: /javascript/api/@azure/cognitiveservices-computervision/
+  - title: Python
+    imageSrc: media/index/logo_python.svg
+    url: /python/api/azure-ai-vision
+  - title: C++
+    imageSrc: media/index/logo-cplusplus.svg
+    url: /cpp/cognitive-services/vision
+  - title: Go
+    imageSrc: media/index/logo_go.svg
+    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+  - title: Java
+    imageSrc: /media/logos/logo_java.svg
+    url: /java/api/com.azure.ai.vision.imageanalysis
+
+
+additionalContent:
+  sections:
+    - items:
+      - title: REST APIs
+        links:
+        - text: Optical character recognition (OCR)
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+        - text: Image Analysis
+          url: https://aka.ms/vision-4-0-ref
+        - text: Face
+          url: /rest/api/face/
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+        - text: Regions
+          url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+        - text: Learn
+          url: /training/paths/explore-computer-vision-microsoft-azure/
+      - title: Support
+        links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/computer-vision/context/context

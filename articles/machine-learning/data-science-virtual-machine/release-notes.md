@@ -4,6 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
 author: jesscioffi
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 
 ms.author: jcioffi
 ms.date: 04/18/2023
@@ -19,6 +20,16 @@ Due to the rapidly evolving needs and packages updates, we target to release new
 Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## July 26, 2023
+
+New DSVM offering for [Data Science VM – Windows 2022 (Preview)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is currently live in the marketplace.
+
+Version `23.06.25`
+
+Main changes:
+
+- SDK `1.51.0`
 
 ## April 26, 2023
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)

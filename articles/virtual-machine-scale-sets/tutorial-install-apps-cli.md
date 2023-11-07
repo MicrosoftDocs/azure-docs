@@ -61,7 +61,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss#az-
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys

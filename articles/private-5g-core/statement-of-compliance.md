@@ -2,8 +2,8 @@
 title: Statement of compliance
 titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's compliance with specifications. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 01/20/2022
@@ -43,6 +43,7 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 
 - TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access: 
   - 5.5.1.1 X2-based handover.
+  - 5.5.1.2 S1-based handover.
 
 ### Policy and charging control (PCC) framework
 

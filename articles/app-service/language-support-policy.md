@@ -13,17 +13,17 @@ ms.custom: seodec18
 This document describes the App Service language runtime support policy for updating existing stacks and retiring process for upcoming end-of-life stacks.  This policy is to clarify existing practices and doesn't represent a change to customer commitments.    
 
 ## Updates to existing stacks
-App Service will update existing stacks after they become available from each community.  App Service will update major versions of stacks but can't guarantee any specific patch versions.  Patch versions are controlled by the platform, and it isn't possible for App Service to pin a specific patch version.  For example, Python 3.10 will be updated by App Service, but a specific Python 3.10.x version won't be guaranteed.  If you need a specific patch version, use a [custom container](quickstart-custom-container.md).  
+App Service will update existing stacks after they become available from each community.  App Service will update major versions of stacks but can't guarantee any specific minor or patch versions.  Minor and patch versions are controlled by the platform, and it's not possible for App Service to pin a specific minor or patch version.  For example, Node 18 will be updated by App Service but a specific Node 18.x.x version won't be guaranteed.  If you need a specific minor or patch version you can use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
 App Service follows community support timelines for the lifecycle of the runtime.  Once community support for a given language reaches end-of-life, your applications will continue to run unchanged.  However, App Service can't provide security patches or related customer support for that runtime version past its end-of-life date.  If your application has any issues past the end-of-life date for that version, you should move up to a supported version to receive the latest security patches and features.  
 
 > [!IMPORTANT]
-> You're encouraged to upgrade the language version of your affected apps to a supported version. If you're running apps using an unsupported language version, you'll be required to upgrade before receiving support for your app.
+> You're encouraged to upgrade the language version of your affected apps to a currently supported version. If you're running apps using an unsupported language version, you'll be required to upgrade before receiving support for your app.
 >
 
 ## Notifications
-End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions 12 months prior to the end-of-life date.
+End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions when they become available for each language.
 
 Those who receive notifications include account administrators, service administrators, and co-administrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt-in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 

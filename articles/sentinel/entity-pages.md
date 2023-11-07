@@ -17,7 +17,7 @@ In these situations, you can select the entity (it will appear as a clickable li
 
 More specifically, entity pages consist of three parts:
 
-- The left-side panel contains the entity's identifying information, collected from data sources like Azure Active Directory, Azure Monitor, Azure Activity, Azure Resource Manager, Microsoft Defender for Cloud, CEF/Syslog, and Microsoft 365 Defender (with all its components).
+- The left-side panel contains the entity's identifying information, collected from data sources like Microsoft Entra ID, Azure Monitor, Azure Activity, Azure Resource Manager, Microsoft Defender for Cloud, CEF/Syslog, and Microsoft 365 Defender (with all its components).
 
 - The center panel shows a [graphical and textual timeline](#the-timeline) of notable events related to the entity, such as alerts, bookmarks, [anomalies](soc-ml-anomalies.md), and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams, and you can now [add your own custom queries to detect activities](customize-entity-activities.md) of your choosing. 
 
@@ -51,8 +51,8 @@ The insights are based on the following data sources:
 
 - Syslog (Linux)
 - SecurityEvent (Windows)
-- AuditLogs (Azure AD)
-- SigninLogs (Azure AD)
+- AuditLogs (Microsoft Entra ID)
+- SigninLogs (Microsoft Entra ID)
 - OfficeActivity (Office 365)
 - BehaviorAnalytics (Microsoft Sentinel UEBA)
 - Heartbeat (Azure Monitor Agent)

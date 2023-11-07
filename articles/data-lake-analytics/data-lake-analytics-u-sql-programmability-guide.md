@@ -18,13 +18,13 @@ U-SQL is a query language that's designed for big data type of workloads. One of
 
 Download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
-## Get started with U-SQL  
+## Get started with U-SQL
 
 Look at the following U-SQL script:
 
 ```usql
-@a  = 
-  SELECT * FROM 
+@a  =
+  SELECT * FROM
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
@@ -35,7 +35,7 @@ Look at the following U-SQL script:
     customer,
     amount,
     date
-  FROM @a;    
+  FROM @a;
 ```
 
 This script defines two RowSets: `@a` and `@results`. RowSet `@results` is defined from `@a`.
@@ -50,7 +50,7 @@ A U-SQL Expression is a C# expression combined with U-SQL logical operations suc
     customer,
     amount,
     DateTime.Parse(date) AS date
-  FROM @a;    
+  FROM @a;
 ```
 
 The following snippet parses a string as DateTime value in a DECLARE statement.
@@ -67,13 +67,13 @@ The following example demonstrates how you can do a datetime data conversion by 
 DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-  SELECT 
+  SELECT
     Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
     dt AS olddt
   FROM @rs0;
 
-OUTPUT @rs1 
-  TO @output_file 
+OUTPUT @rs1
+  TO @output_file
   USING Outputters.Text();
 ```
 
@@ -98,11 +98,11 @@ Here's an example of how to use this expression in a script:
 ```
 ## Using .NET assemblies
 
-U-SQL’s extensibility model relies heavily on the ability to add custom code from .NET assemblies. 
+U-SQL’s extensibility model relies heavily on the ability to add custom code from .NET assemblies.
 
 ### Register a .NET assembly
 
-Use the `CREATE ASSEMBLY` statement to place a .NET assembly into a U-SQL Database. Afterwards, U-SQL scripts can use those assemblies by using the `REFERENCE ASSEMBLY` statement. 
+Use the `CREATE ASSEMBLY` statement to place a .NET assembly into a U-SQL Database. Afterwards, U-SQL scripts can use those assemblies by using the `REFERENCE ASSEMBLY` statement.
 
 The following code shows how to register an assembly:
 
@@ -153,29 +153,29 @@ public static string GetFiscalPeriod(DateTime dt)
     int FiscalMonth=0;
     if (dt.Month < 7)
     {
-	FiscalMonth = dt.Month + 6;
+        FiscalMonth = dt.Month + 6;
     }
     else
     {
-	FiscalMonth = dt.Month - 6;
+        FiscalMonth = dt.Month - 6;
     }
 
     int FiscalQuarter=0;
     if (FiscalMonth >=1 && FiscalMonth<=3)
     {
-	FiscalQuarter = 1;
+        FiscalQuarter = 1;
     }
     if (FiscalMonth >= 4 && FiscalMonth <= 6)
     {
-	FiscalQuarter = 2;
+        FiscalQuarter = 2;
     }
     if (FiscalMonth >= 7 && FiscalMonth <= 9)
     {
-	FiscalQuarter = 3;
+        FiscalQuarter = 3;
     }
     if (FiscalMonth >= 10 && FiscalMonth <= 12)
     {
-	FiscalQuarter = 4;
+        FiscalQuarter = 4;
     }
 
     return "Q" + FiscalQuarter.ToString() + ":P" + FiscalMonth.ToString();
@@ -247,19 +247,19 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
-            guid Guid,
-	    dt DateTime,
-            user String,
-            des String
-	FROM @input_file USING Extractors.Tsv();
+    EXTRACT
+        guid Guid,
+        dt DateTime,
+        user String,
+        des String
+    FROM @input_file USING Extractors.Tsv();
 
 DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 
 @rs1 =
     SELECT
         MAX(guid) AS start_id,
-	MIN(dt) AS start_time,
+        MIN(dt) AS start_time,
         MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
         MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
         user,
@@ -267,8 +267,8 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
     FROM @rs0
     GROUP BY user, des;
 
-OUTPUT @rs1 
-    TO @output_file 
+OUTPUT @rs1
+    TO @output_file
     USING Outputters.Text();
 ```
 
@@ -347,7 +347,7 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
 
 @records =
     EXTRACT DataId string,
-            EventDateTime string,           
+            EventDateTime string,
             UserName string,
             UserSessionTimestamp string
 
@@ -355,27 +355,27 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     USING Extractors.Tsv();
 
 @rs1 =
-    SELECT 
+    SELECT
         EventDateTime,
         UserName,
-	LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
-        string.IsNullOrEmpty(LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
+        LAG(EventDateTime, 1)
+            OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
+        string.IsNullOrEmpty(LAG(EventDateTime, 1)
+            OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
         USQLApplication21.UserSession.StampUserSession
            (
-           	EventDateTime,
-           	LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-           	LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+                EventDateTime,
+                LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+                LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            ) AS UserSessionTimestamp
     FROM @records;
 
 @rs2 =
-    SELECT 
-    	EventDateTime,
+    SELECT
+        EventDateTime,
         UserName,
-        LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
+        LAG(EventDateTime, 1)
+        OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
         string.IsNullOrEmpty( LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
         USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp) AS UserSessionTimestamp
     FROM @rs1

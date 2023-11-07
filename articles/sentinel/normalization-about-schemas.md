@@ -103,8 +103,8 @@ Users are central to activities reported by events. The fields listed in this se
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId**, **UserPuid** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
@@ -115,10 +115,11 @@ The allowed values for a user ID type are:
 | ---- | ------- | ------------- |
 | **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
 | **UID** | A Linux user ID. | `4578` |
-| **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
+| **AADID**| A Microsoft Entra user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
+| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
+| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
 
 #### The user name
 

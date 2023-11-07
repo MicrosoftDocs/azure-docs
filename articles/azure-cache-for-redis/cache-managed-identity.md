@@ -13,7 +13,7 @@ ms.author: franlanglois
 
 # Managed identity for storage
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
 
 ## Use managed identity with storage accounts
 
@@ -55,9 +55,9 @@ Managed identity for storage isn't supported on caches that have a dependency on
 
 ## Create a new cache with managed identity using the portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required  information.
+1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required information.
 
    :::image type="content" source="media/cache-managed-identity/basics.png" alt-text="Screenshot of showing how to create a premium cache.":::
 
@@ -77,7 +77,7 @@ Managed identity for storage isn't supported on caches that have a dependency on
 
    :::image type="content" source="media/cache-managed-identity/identity-save.png" alt-text="Screenshot showing System Assigned selected and Status is on.":::
 
-1. A dialog pops up saying that your cache will be registered with Azure Active Directory and that it can be granted permissions to access resources protected by Azure AD. Select **Yes**.
+1. A dialog pops up saying that your cache will be registered with Microsoft Entra ID and that it can be granted permissions to access resources protected by Microsoft Entra ID. Select **Yes**.
    :::image type="content" source="media/cache-managed-identity/identity-dialog.png" alt-text="Screenshot asking if you want to enable managed identity.":::
 
 1. You see an **Object (principal) ID**, indicating that the identity has been assigned.

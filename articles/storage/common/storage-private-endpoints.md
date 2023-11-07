@@ -3,12 +3,12 @@ title: Use private endpoints
 titleSuffix: Azure Storage
 description: Overview of private endpoints for secure access to storage accounts from virtual networks.
 services: storage
-author: jimmart-dev
+author: normesta
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 06/22/2023
-ms.author: jammart
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23

@@ -2,6 +2,7 @@
 title: Create a Batch pool with specified public IP addresses
 description: Learn how to create an Azure Batch pool that uses your own static public IP addresses.
 ms.topic: how-to
+ms.custom: devx-track-linux
 ms.date: 05/26/2023
 ---
 
@@ -15,7 +16,7 @@ For information about creating pools without public IP addresses, read [Create a
 
 ## Prerequisites
 
-- The Batch client API must use [Azure Active Directory (AD) authentication](batch-aad-auth.md) to use a public IP address.
+- The Batch client API must use [Microsoft Entra authentication](batch-aad-auth.md) to use a public IP address.
 - An [Azure VNet](batch-virtual-network.md) from the same subscription where you're creating your pool and IP addresses. You can only use Azure Resource Manager-based VNets. Verify that the VNet meets all of the [general VNet requirements](batch-virtual-network.md#general-virtual-network-requirements).
 - At least one existing Azure public IP address. Follow the [public IP address requirements](#public-ip-address-requirements) to create and configure the IP addresses.
 

@@ -1,258 +1,215 @@
 {
   "redirections": [
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-alerts-portal.md",
       "redirect_url": "/azure/sap/monitor/get-alerts-portal",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-faq.yml",
       "redirect_url": "/azure/sap/monitor/faq",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-providers.md",
       "redirect_url": "/azure/sap/monitor/providers",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md",
       "redirect_url": "/azure/sap/monitor/quickstart-powershell",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md",
       "redirect_url": "/azure/sap/monitor/quickstart-portal",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-db-2-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-ibm-db2",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-ha-cluster-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-ha-pacemaker-cluster",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-hana-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-hana",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-linux-os-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-linux",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-netweaver-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-netweaver",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-sql-server-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/provider-sql-server",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/create-network-azure-monitor-sap-solutions.md",
       "redirect_url": "/azure/sap/monitor/set-up-network",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/monitor-sap-on-azure-reference.md",
       "redirect_url": "/azure/sap/monitor/data-reference",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/monitor-sap-on-azure.md",
       "redirect_url": "/azure/sap/monitor/about-azure-monitor-sap-solutions",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-get-files.md",
       "redirect_url": "/azure/sap/automation/bom-get-files",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-db.md",
       "redirect_url": "/azure/sap/automation/bom-templates-db",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-prepare.md",
       "redirect_url": "/azure/sap/automation/bom-prepare",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-control-plane.md",
       "redirect_url": "/azure/sap/automation/configure-control-plane",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-devops.md",
       "redirect_url": "/azure/sap/automation/configure-devops",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-extra-disks.md",
       "redirect_url": "/azure/sap/automation/configure-extra-disks",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-sap-parameters.md",
       "redirect_url": "/azure/sap/automation/configure-sap-parameters",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-system.md",
       "redirect_url": "/azure/sap/automation/configure-system",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-webapp.md",
       "redirect_url": "/azure/sap/automation/configure-webapp",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-workload-zone.md",
       "redirect_url": "/azure/sap/automation/configure-workload-zone",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-control-plane.md",
       "redirect_url": "/azure/sap/automation/deploy-control-plane",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-system.md",
       "redirect_url": "/azure/sap/automation/deploy-system",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-workload-zone.md",
       "redirect_url": "/azure/sap/automation/deploy-workload-zone",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deployment-framework.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-devops-tutorial.md",
       "redirect_url": "/azure/sap/automation/devops-tutorial",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-faq.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-get-started.md",
       "redirect_url": "/azure/sap/automation/get-started",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-manual-deployment.md",
       "redirect_url": "/azure/sap/automation/manual-deployment",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-naming-module.md",
       "redirect_url": "/azure/sap/automation/naming-module",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-naming.md",
       "redirect_url": "/azure/sap/automation/naming",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-new-vs-existing.md",
       "redirect_url": "/azure/sap/automation/new-vs-existing",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-plan-deployment.md",
       "redirect_url": "/azure/sap/automation/plan-deployment",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-reference-bash.md",
       "redirect_url": "/azure/sap/automation/reference-bash",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-reference-powershell.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-run-ansible.md",
       "redirect_url": "/azure/sap/automation/run-ansible",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-software.md",
       "redirect_url": "/azure/sap/automation/software",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-supportability.md",
       "redirect_url": "/azure/sap/automation/supportability",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-tools-configuration.md",
       "redirect_url": "/azure/sap/automation/tools-configuration",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-tutorial.md",
       "redirect_url": "/azure/sap/automation/tutorial",
@@ -264,55 +221,56 @@
       "redirect_url": "/azure/sap/automation/bash/advanced-state-management",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_deployer.md",
       "redirect_url": "/azure/sap/automation/bash/install-deployer",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_library.md",
       "redirect_url": "/azure/sap/automation/bash/install-library",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_workloadzone.md",
       "redirect_url": "/azure/sap/automation/bash/install-workloadzone",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-installer.md",
       "redirect_url": "/azure/sap/automation/bash/installer",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-prepare-region.md",
       "redirect_url": "/azure/sap/automation/bash/prepare-region",
       "redirect_document_id": true
     },
-    
+    {
+      "source_path_from_root": "/articles/sap/automation/bash/prepare-region.md",
+      "redirect_url": "/azure/sap/automation/bash/deploy-controlplane",
+      "redirect_document_id": true
+    },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remove-region.md",
       "redirect_url": "/azure/sap/automation/bash/remove-region",
       "redirect_document_id": true
     },
-    
+    {
+      "source_path_from_root": "/articles/sap/automation/bash/remove-region.md",
+      "redirect_url": "/azure/sap/automation/bash/remove-controlplane",
+      "redirect_document_id": true
+    },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remover.md",
       "redirect_url": "/azure/sap/automation/bash/remover",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-set-secrets.md",
       "redirect_url": "/azure/sap/automation/bash/set-secrets",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-update_sas_token.md",
       "redirect_url": "/azure/sap/automation/bash/update-sas-token",
@@ -324,54 +282,47 @@
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapdeployer.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-saplibrary.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapsystem.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapworkloadzone.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapautomationregion.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapsystem.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-set-sapsecrets.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-update-tfstate.md",
       "redirect_url": "/azure/sap/automation/deployment-framework",
       "redirect_document_id": false
-    },    
+    },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-architecture.md",
@@ -1308,7 +1259,6 @@
       "source_path_from_root": "/articles/center-sap-solutions/get-sap-installation-media.md",
       "redirect_url": "/azure/sap/center-sap-solutions/get-sap-installation-media",
       "redirect_document_id": true
-    },
-
+    }
   ]
 }

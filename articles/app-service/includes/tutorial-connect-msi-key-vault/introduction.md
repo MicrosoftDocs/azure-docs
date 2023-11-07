@@ -6,12 +6,12 @@ ms.reviewer: madsd
 ms.custom: devx-track-azurecli
 ---
 
-[Azure App Service](../../overview.md) can use [managed identities](../../overview-managed-identity.md) to connect to back-end services without a connection string, which eliminates connection secrets to manage and keeps your back-end connectivity secure in a production environment. For back-end services that don't support managed identities and still requires connection secrets, you can use Key Vault to manage connection secrets. This tutorial uses Cognitive Services as an example to show you how it's done in practice. When you're finished, you have an app that makes programmatic calls to Cognitive Services, without storing any connection secrets inside App Service.
+[Azure App Service](../../overview.md) can use [managed identities](../../overview-managed-identity.md) to connect to back-end services without a connection string, which eliminates connection secrets to manage and keeps your back-end connectivity secure in a production environment. For back-end services that don't support managed identities and still requires connection secrets, you can use Key Vault to manage connection secrets. This tutorial uses Azure AI services as an example to show you how it's done in practice. When you're finished, you have an app that makes programmatic calls to Azure AI services, without storing any connection secrets inside App Service.
 
 * [Sample application](https://github.com/Azure-Samples/app-service-language-detector)
 
 > [!TIP]
-> Azure Cognitive Services do [support authentication through managed identities](../../../cognitive-services/authentication.md#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](../../../cognitive-services/authentication.md#authenticate-with-a-single-service-subscription-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
+> Azure AI services do [support authentication through managed identities](../../../ai-services/authentication.md#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](../../../ai-services/authentication.md#authenticate-with-a-single-service-resource-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
 
 ![Architecture diagram for tutorial scenario.](../../media/tutorial-connect-msi-key-vault/architecture.png)
 
@@ -28,7 +28,7 @@ What you will learn:
 > * Enable managed identities
 > * Use managed identities to connect to Key Vault
 > * Use Key Vault references
-> * Access Cognitive Services
+> * Access Azure AI services
 
 ## Prerequisites
 
@@ -36,7 +36,9 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Create app with connectivity to Cognitive Services
+<a name='create-app-with-connectivity-to-cognitive-services'></a>
+
+## Create app with connectivity to Azure AI services
 
 1. Create a resource group to contain all of your resources:
 
@@ -48,7 +50,7 @@ Prepare your environment for the Azure CLI.
     az group create --name $groupName --location $region
     ```
 
-1. Create a Cognitive Services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
+1. Create an Azure AI services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
 
     ```azurecli-interactive
     # Save resource name as variable for convenience. 
@@ -58,4 +60,4 @@ Prepare your environment for the Azure CLI.
     ```
 
     > [!NOTE]
-    > `--sku F0` creates a free tier Cognitive Services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.
+    > `--sku F0` creates a free tier Azure AI services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.

@@ -1,6 +1,6 @@
 ---
-title: Create a profile container with Azure Files and Azure Active Directory
-description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain.
+title: Create a profile container with Azure Files and Microsoft Entra ID
+description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Microsoft Entra domain.
 services: virtual-desktop
 author: Heidilohr
 manager: femila
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 04/28/2023
 ms.author: helohr
 ---
-# Create a profile container with Azure Files and Azure Active Directory
+# Create a profile container with Azure Files and Microsoft Entra ID
 
-In this article, you'll learn how to create and configure an Azure Files share for Azure Active Directory (Azure AD) Kerberos authentication. This configuration allows you to store FSLogix profiles that can be accessed by hybrid user identities from Azure AD-joined or Hybrid Azure AD-joined session hosts without requiring network line-of-sight to domain controllers. Azure AD Kerberos enables Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol.
+In this article, you'll learn how to create and configure an Azure Files share for Microsoft Entra Kerberos authentication. This configuration allows you to store FSLogix profiles that can be accessed by hybrid user identities from Microsoft Entra joined or Microsoft Entra hybrid joined session hosts without requiring network line-of-sight to domain controllers. Microsoft Entra Kerberos enables Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol.
 
-This feature is supported in the Azure Public, Azure US Gov and Azure China 21Vianet clouds.
+This feature is supported in the Azure Public, Azure US Gov, and Azure operated by 21Vianet.
 
 ## Prerequisites
 
-Before deploying this solution, verify that your environment [meets the requirements](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md#prerequisites) to configure Azure Files with Azure AD Kerberos authentication.
+Before deploying this solution, verify that your environment [meets the requirements](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md#prerequisites) to configure Azure Files with Microsoft Entra Kerberos authentication.
 
 When used for FSLogix profiles in Azure Virtual Desktop, the session hosts don't need to have network line-of-sight to the domain controller (DC). However, a system with network line-of-sight to the DC is required to configure the permissions on the Azure Files share.
 
@@ -28,20 +28,20 @@ To store your FSLogix profiles on an Azure file share:
 1. [Create an Azure Storage account](../storage/files/storage-how-to-create-file-share.md#create-a-storage-account) if you don't already have one.
 
     > [!NOTE]
-    > Your Azure Storage account can't authenticate with both Azure AD and a second method like Active Directory Domain Services (AD DS) or Azure AD DS. You can only use one authentication method.
+    > Your Azure Storage account can't authenticate with both Microsoft Entra ID and a second method like Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services. You can only use one authentication method.
 
 2. [Create an Azure Files share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles if you haven't already.
 
-3. [Enable Azure Active Directory Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md) to enable access from Azure AD-joined VMs.
+3. [Enable Microsoft Entra Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md) to enable access from Microsoft Entra joined VMs.
 
     - When configuring the directory and file-level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
     - Without proper directory-level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
 
 ## Configure the session hosts
 
-To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
+To access Azure file shares from a Microsoft Entra joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. Enable the Azure AD Kerberos functionality using one of the following methods.
+1. Enable the Microsoft Entra Kerberos functionality using one of the following methods.
 
     - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled).
     
@@ -54,7 +54,7 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
     
     - - Create the following registry value on the session host: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
-2. When you use Azure AD with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:
+2. When you use Microsoft Entra ID with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:
 
     ```
     reg add HKLM\Software\Policies\Microsoft\AzureADAccount /v LoadCredKeyFromProfile /t REG_DWORD /d 1

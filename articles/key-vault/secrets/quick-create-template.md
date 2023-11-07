@@ -30,7 +30,7 @@ To complete this article:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
+* Your Microsoft Entra user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
 
@@ -38,7 +38,7 @@ To complete this article:
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId" &&
+        az ad user show --id $upn --query "Id" &&
         echo "Press [ENTER] to continue ..."
         ```
 
@@ -83,7 +83,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
     * **Location**: select a location. For example, **Central US**.
     * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
     * **Tenant Id**: the template function automatically retrieves your tenant ID. Don't change the default value.
-    * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
+    * **Ad User Id**: enter your Microsoft Entra user object ID that you retrieved from [Prerequisites](#prerequisites).
     * **Secret Name**: enter a name for the secret that you store in the key vault. For example, **adminpassword**.
     * **Secret Value**: enter the secret value. If you store a password, it's recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.

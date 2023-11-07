@@ -43,9 +43,9 @@ A workspace with Microsoft Sentinel gets three months of free data retention ins
 
 
 **Combined workspace**
-Combing your data from Azure Monitor and Microsoft Sentinel in the same workspace gives you better visibility across all of your data allowing you to easily combine both in queries and workbooks. If access to the security data should be limited to a particular team, you can use [table level RBAC](../logs/manage-access.md#set-table-level-read-access) to block particular users from tables with security data or limit users to accessing the workspace using [resource-context](../logs/manage-access.md#access-mode).
+Combining your data from Azure Monitor and Microsoft Sentinel in the same workspace gives you better visibility across all of your data allowing you to easily combine both in queries and workbooks. If access to the security data should be limited to a particular team, you can use [table level RBAC](../logs/manage-access.md#set-table-level-read-access) to block particular users from tables with security data or limit users to accessing the workspace using [resource-context](../logs/manage-access.md#access-mode).
 
-This configuration may result in cost savings if helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
+This configuration may result in cost savings if it helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
 
 If you create separate workspaces for other criteria, you'll usually create more workspace pairs. For example, if you have two Azure tenants, you might create four workspaces with an operational and security workspace in each tenant.
 
@@ -64,7 +64,7 @@ Each Log Analytics workspace resides in a [particular Azure region](https://azur
 - **If you have requirements for keeping data in a particular geography:** Create a separate workspace for each region with such requirements.
 - **If you don't have requirements for keeping data in a particular geography:** Use a single workspace for all regions.
 
-Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../usage-estimated-costs.md#data-transfer-charges).
+Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../cost-usage.md#data-transfer-charges).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost and determine which regions you need. Consider workspaces in multiple regions if bandwidth charges are significant.
 
@@ -78,13 +78,13 @@ You might have a requirement to segregate data or define boundaries based on own
 - **If you don't require data segregation:** Use a single workspace for all data owners.
 
 ### Split billing
-You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
+You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
 
 - **If you don't need to split billing or perform charge back:** Use a single workspace for all cost owners.
-- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
+- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
 ### Data retention and archive
-You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#set-retention-and-archive-policy-by-table). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
+You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
 
 - **If you can use the same retention and archive settings for all data in each table:** Use a single workspace for all resources.
 - **If you require different retention and archive settings for different resources in the same table:** Use a separate workspace for different resources.
@@ -138,8 +138,8 @@ In a distributed architecture, a Log Analytics workspace is created in each Azur
 
 There are two options to allow service provider administrators to access the workspaces in the customer tenants:
 
-- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in an Azure Active Directory (Azure AD) user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
-- Add individual users from the service provider as [Azure AD guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
+- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in a Microsoft Entra user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
+- Add individual users from the service provider as [Microsoft Entra guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
 
 Advantages to this strategy:
 

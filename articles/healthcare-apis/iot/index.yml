@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 06/02/2023
+  ms.date: 09/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: Overview of the device data processing stages
+          - text: Device data processing stages
             url: overview-of-device-data-processing-stages.md
       - linkListType: quickstart
         links:
@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Choose a deployment method
+          - text: Deployment methods
             url: deploy-choose-method.md
       - linkListType: quickstart
         links:     
@@ -53,10 +53,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview of the device mapping
+          - text: Device mapping
             url: overview-of-device-mapping.md
-          - text: Overview of the FHIR destination mapping
+          - text: FHIR destination mapping
             url: overview-of-fhir-destination-mapping.md 
+          - text: Scenario-based mappings samples
+            url: overview-of-samples.md
       - linkListType: how-to-guide
         links:
           - text: Mapping debugger
@@ -85,10 +87,10 @@ landingContent:
         links:
           - text: Deployment errors
             url: troubleshoot-errors-deployment.md
-          - text: Error logs
+          - text: Service log errors
             url: troubleshoot-errors-logs.md
 
-  - title: The MedTech service with Azure IoT Hub 
+  - title: MedTech service and Azure IoT Hub 
     linkLists:
       - linkListType: tutorial
         links:

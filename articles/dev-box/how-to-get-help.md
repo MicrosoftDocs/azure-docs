@@ -17,14 +17,14 @@ In the following table, select your role to see how to get help for urgent issue
 
 |My role is: |My issue is urgent:                    |My issue isn't urgent: |
 |------------|-------------------------------------------------------------------------------------|------------------------|
-|Administrator </br>(IT admin, Dev infra admin) |[Support for administrators](#support-for-administrators) |[Learn about the Microsoft Developer Community](#discover-the-microsoft-developer-community-for-dev-box)|
+|Administrator </br>(IT admin, platform engineer) |[Support for administrators](#support-for-administrators) |[Learn about the Microsoft Developer Community](#discover-the-microsoft-developer-community-for-dev-box)|
 |Dev team lead </br>(Project Admin) |[Support for dev team leads](#support-for-dev-team-leads) |[Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox) |
 |Developer </br>(Dev Box User)|[Support for developers](#support-for-developers) |[Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report) |
 
 ## Support for administrators
-Administrators include IT admins, Dev infrastructure admins, and anyone who has administrative access to all your Dev Box resources.
+Administrators include IT admins, platform engineers, and anyone who has administrative access to all your Dev Box resources.
 #### 1. Internal troubleshooting
-Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal and through the Azure CLI.
+Always use your internal troubleshooting processes before contacting support. As a platform engineer, you have access to all Dev Box resources through the Azure portal and through the Azure CLI.
 #### 2. Contact support
 If you can't resolve the issue, open a support request to contact Azure support: 
 
@@ -41,8 +41,8 @@ As a DevCenter Project Admin, you can:
 - View the dev box definitions attached to the dev center.
 - Create, view, update, and delete dev box pools in the project. 
 
-#### 2. Contact your dev infrastructure admin
-If you can't resolve the issue, escalate it to your dev infrastructure admin.
+#### 2. Contact your platform engineers
+If you can't resolve the issue, escalate it to your platform engineering team.
 
 ## Support for developers
 Developers are assigned the Dev Box User role, which enables you to create and manage your own dev boxes through the developer portal. You don't usually have permissions to manage Dev Box resources in the Azure portal; your dev team lead manages those resources.

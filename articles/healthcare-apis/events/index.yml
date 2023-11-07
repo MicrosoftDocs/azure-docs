@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Events
-summary: Events documentation page for Azure Health Data Services. 
+summary: Events documentation for Azure Health Data Services. 
 
 metadata:
-  title: Azure Health Data Services MedTech service
-  description: Events documentation section for Azure Health Data Services
+  title: Azure Health Data Services events
+  description: Events documentation for Azure Health Data Services
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
@@ -13,29 +13,38 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 07/11/2023
+  ms.date: 09/26/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: About Events
+  - title: About events
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Events?
+          - text: What are events?
             url: events-overview.md
+          - text: Events message structures
+            url: events-message-structure.md 
             
-  - title: Deploy Events
+  - title: Deploy events
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Events using the Azure portal
+          - text: Deploy events using the Azure portal
             url: events-deploy-portal.md
                    
-  - title: Events message structures
+  - title: Disable events and delete events enabled workspaces
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to disable events and delete events enabled workspaces
+            url: events-disable-delete-workspace.md
+
+  - title: Consume FHIR events with Logic Apps
     linkLists:
       - linkListType: concept
         links:
-          - text: Events message structures
-            url: events-message-structure.md 
+          - text: How to consume FHIR events with Logic Apps to enable automation workflows
+            url: events-consume-logic-apps.md 

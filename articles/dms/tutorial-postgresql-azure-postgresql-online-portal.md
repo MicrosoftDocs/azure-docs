@@ -4,13 +4,14 @@ titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 author: apduvuri
 ms.author: adityaduvuri
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 03/31/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
   - seo-lt-2019
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS (classic) via the Azure portal
@@ -64,6 +65,8 @@ To complete this tutorial, you need to:
   * wal_level = **logical**
   * max_replication_slots = [number of slots], recommend setting to **five slots**
   * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
+
+* The user must have the REPLICATION role on the server hosting the source database.
 
 > [!IMPORTANT]
 > All tables in your existing database need a primary key to ensure that changes can be synced to the target database.

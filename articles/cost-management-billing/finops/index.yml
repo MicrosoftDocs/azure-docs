@@ -6,7 +6,7 @@ metadata:
   title: FinOps documentation
   description: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
   ms.service: cost-management-billing
-  ms.subservice: common
+  ms.subservice: finops
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
@@ -81,7 +81,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: Establishing commitment-based discounts
+      - text: Managing commitment-based discounts
         url: capabilities-commitment-discounts.md
 
   - title: Organizational alignment

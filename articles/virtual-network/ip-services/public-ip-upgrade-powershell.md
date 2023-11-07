@@ -1,12 +1,12 @@
 ---
 title: 'Upgrade a public IP address - Azure PowerShell'
 description: In this article, you learn how to upgrade a basic SKU public IP address using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/28/2022
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
 ---
 

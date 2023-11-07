@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal'
-description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using the Azure portal.
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal'
+description: Learn to a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 08/24/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using the Azure portal
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal
 
 Get started with Azure Virtual Network Manager by using the Azure portal to manage connectivity for all your virtual networks.
 
@@ -17,10 +17,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

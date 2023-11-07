@@ -22,9 +22,9 @@ This article describes how you can upgrade your MySQL major version in-place in 
 This feature enables customers to perform in-place upgrades of their MySQL 5.7 servers to MySQL 8.0 without any data movement or the need to make any application connection string changes.
 
 >[!Important]
-> - Major version upgrade for Azure Database for MySQL - Flexible Server is available in public preview.
 > - Major version upgrade is currently unavailable for version 5.7 servers based on the Burstable SKU.
 > - Duration of downtime varies based on the size of the database instance and the number of tables it contains.
+> - When initiating a major version upgrade for Azure MySQL via Rest API or SDK, please avoid modifying other properties of the service in the same request. The simultaneous changes are not permitted and may lead to unintended results or request failure. Please conduct property modifications in separate operations post-upgrade completion.
 > - Upgrading the major MySQL version is irreversible. Your deployment might fail if validation identifies that the server is configured with any features that are [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) or [deprecated](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations). You can make necessary configuration changes on the server and try upgrade again.
 
 ## Prerequisites

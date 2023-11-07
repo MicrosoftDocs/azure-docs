@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 07/13/2023
+ms.date: 07/25/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -68,7 +68,8 @@ Installing or migrating existing SAP on Oracle systems to Azure, the following d
 
 For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
 
-General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
+General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat) for application and database servers.
+ASCS/ERS servers can use RHEL/SUSE because Oracle client isn't installed or used on these VMs. Application Servers (PAS/AAS) shouldn't be installed on these VMs. Refer to SAP Note [3074643 - OLNX: FAQ: if Pacemaker for Oracle Linux is supported in SAP Environment](https://me.sap.com/notes/3074643). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
 
 ## Storage configuration
 
@@ -85,7 +86,7 @@ Checklist for Oracle Automatic Storage Management:
 
 1.  All SAP on Oracle on Azure systems are running **ASM** including Development, QAS and Production. Small, Medium and Large databases
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
-    is used and not UDEV. UDEV is required for multiple SANs, a scenario that does not exist on Azure
+    is used and not UDEV. UDEV is required for multiple SANs, a scenario that doesn't exist on Azure
 3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
 4.  No Mirror Log is required for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
@@ -200,7 +201,7 @@ Documentation is available with:
 
 Run an Oracle AWR report as the first step when troubleshooting a performance problem. Disk performance metrics are detailed in the AWR report.
 
-Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools. Documentation which might help is available here:
+Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools. Documentation, which might help is available here:
 - [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
 - [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/asmcmd-diskgroup-commands.html#GUID-55F7A91D-2197-467C-9847-82A3308F0392)
 
@@ -208,11 +209,11 @@ OS level monitoring tools can't monitor ASM disks as there is no recognizable fi
 
 ### Training Resources on Oracle Automatic Storage Management (ASM)
 
-Oracle DBAs that are not familiar with Oracle ASM follow the training materials and resources here:
+Oracle DBAs that aren't familiar with Oracle ASM follow the training materials and resources here:
 - [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
 - [Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 - [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
-- [Oracle for SAP Technology Update (April 2022)](https://www.oracle.com/a/ocom/docs/ora4sap-technology-update-5112158.pdf)
+- [Oracle for SAP Development Update (May 2022)](https://www.oracle.com/a/ocom/docs/sap-on-oracle-dev-update.pdf)
 - [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
 - [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
 - [Using RMAN to migrate to ASM \| The Oracle Mentor (wordpress.com)](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
@@ -263,7 +264,7 @@ or other backup tools.
 
 ## SAP on Oracle on Azure with LVM
 
-ASM is the default recommendation from Oracle for all SAP systems of any size on Azure. Performance, Reliability and Support are better for customers using ASM. Oracle provide documentation and training for DBAs to transition to ASM and every customer who has migrated to ASM has been pleased with the benefits. In cases where the Oracle DBA team doesn't follow the recommendation from Oracle, Microsoft and SAP to use ASM the following LVM configuration should be used.
+ASM is the default recommendation from Oracle for all SAP systems of any size on Azure. Performance, Reliability and Support are better for customers using ASM. Oracle provides documentation and training for DBAs to transition to ASM and every customer who has migrated to ASM has been pleased with the benefits. In cases where the Oracle DBA team doesn't follow the recommendation from Oracle, Microsoft and SAP to use ASM the following LVM configuration should be used.
 
 Note that: when creating LVM the “-i” option must be used to evenly distribute data across the number of disks in the LVM group.
 
@@ -388,12 +389,12 @@ SAP on Oracle on Azure also supports Windows. The recommendations for Windows de
 1.  The following Windows releases are recommended:
     Windows Server 2022 (only from Oracle Database 19.13.0 on)
     Windows Server 2019 (only from Oracle Database 19.5.0 on)
-2.  There is no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
+2.  There's no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
 3.  Install the Oracle Home on a dedicated independent disk (don't install Oracle Home on the C: Drive)
 4.  All disks must be formatted NTFS
 5.  Follow the Windows Tuning guide from Oracle and enable large pages, lock pages in memory and other Windows specific settings
 
-At the time, of writing ASM for Windows customers on Azure isn't supported. SWPM for Windows does not support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
+At the time, of writing ASM for Windows customers on Azure isn't supported. SWPM for Windows doesn't support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
 
 ## Storage Configurations for SAP on Oracle on Windows
 

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -38,27 +38,13 @@ Returns a boolean.
 
 This example demonstrates the function with various static values.
 
-```sql
-SELECT VALUE {
-    smallDecimalValue: IS_INTEGER(3454.123),
-    integerValue: IS_INTEGER(5523432),
-    minIntegerValue: IS_INTEGER(-9223372036854775808),
-    maxIntegerValue: IS_INTEGER(9223372036854775807),
-    outOfRangeValue: IS_INTEGER(18446744073709551615)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/query.sql" highlight="2-6":::
 
-```json
-[
-  {
-    "smallDecimalValue": false,
-    "integerValue": true,
-    "minIntegerValue": true,
-    "maxIntegerValue": true,
-    "outOfRangeValue": false
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/result.json":::
+
+## Remarks
+
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## See also
 

@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, devx-track-linux, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
@@ -358,4 +358,3 @@ This is an example parameter file for a Windows Server 2022 Gen 2 confidential V
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
-

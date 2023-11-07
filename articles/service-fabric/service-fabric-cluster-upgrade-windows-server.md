@@ -117,7 +117,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](/pow
     ```powershell
     ###### Get list of all upgrade compatible packages  
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
-	```
+    ```
 
 3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 

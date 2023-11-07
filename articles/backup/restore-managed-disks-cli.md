@@ -4,8 +4,8 @@ description: Learn how to restore Azure Managed Disks using Azure CLI.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 06/18/2021
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Managed Disks using Azure CLI

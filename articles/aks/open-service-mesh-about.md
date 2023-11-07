@@ -26,6 +26,8 @@ OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the 
 > | 1.24.0 or greater         | 1.2.5                 |
 > | Between 1.23.5 and 1.24.0 | 1.1.3                 |
 > | Below 1.23.5              | 1.0.0                 |
+>
+> Older versions of OSM may not be available for install or be actively supported if the corresponding AKS version has reached end of life. You can check the [AKS Kubernetes release calendar](./supported-kubernetes-versions.md#aks-kubernetes-release-calendar) for information on AKS version support windows.
 
 ## Capabilities and features
 

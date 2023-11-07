@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 08/02/2023
 ms.author: danlep
 ---
 
@@ -23,7 +23,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 <send-request mode="new | copy" response-variable-name="" timeout="60 sec" ignore-error
 ="false | true">
   <set-url>request URL</set-url>
-  <set-method>.../set-method>
+  <set-method>...</set-method>
   <set-header>...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
@@ -35,7 +35,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 | Attribute                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode                  | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                              | No       | `new`      |
+| mode                  | Determines whether this is a `new` request or a `copy` of the headers and body in the current request. In the outbound policy section, `mode=copy` does not initialize the request body. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                              | No       | `new`      |
 | response-variable-name | The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accessible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                         | Yes      | N/A      |
 | timeout               | The timeout interval in seconds before the call to the URL fails. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
 | ignore-error                    | If `true` and the request results in an error, the error will be ignored, and the response variable will contain a null value. Policy expressions aren't allowed.                                                                                                                                                                                                                                                                                                                                                                                  | No       | `false`    |
@@ -49,13 +49,31 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                          |
-| proxy | A [proxy](proxy-policy.md) policy statement. Used to route request via HTTP proxy | No |
+| [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- **[Policy sections:](./api-management-howto-policies.md#sections)** inbound, outbound, backend, on-error
+- **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, workspace, product, API, operation
+- **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted
+
+### Usage notes
+
+If your API Management instance is deployed (injected) in a VNet in *internal* mode and you use this policy to send an API request to an API that's exposed in the same API Management instance, you may encounter a timeout with an HTTP 500 BackendConnectionFailure error. This is the result of an [Azure Load Balancer limitation](../load-balancer/load-balancer-troubleshoot-backend-traffic.md).  
+  
+To chain API requests to the gateway in this scenario, configure `set-url` to use the localhost loopback URL `https://127.0.0.1`. Additionally, set the `HOST` header to specify this API Management instance's gateway host. You may use the default `azure-api.net` or your custom domain host. For example:  
+   
+```xml
+<send-request>
+     <set-url>https://127.0.0.1/myapi/myoperation</set-url>
+     <set-header name="Host">
+         <value>myapim.azure-api.net</value>
+     </set-header>
+</send-request>
+```
+
+
+For more information, see this [blog post](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417).
 
 ## Example
 
@@ -100,3 +118,7 @@ This example shows one way to verify a reference token with an authorization ser
 * [API Management advanced policies](api-management-advanced-policies.md)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+
+
+
+

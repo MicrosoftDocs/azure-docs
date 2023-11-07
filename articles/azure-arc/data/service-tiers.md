@@ -8,13 +8,13 @@ ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/01/2022
-ms.topic: overview
+ms.date: 07/19/2023
+ms.topic: conceptual
 ---
 
 # Azure Arc-enabled SQL Managed Instance service tiers
 
-As part of of the family of Azure SQL products, Azure Arc-enabled SQL Managed Instance is available in two [vCore](/azure/azure-sql/database/service-tiers-vcore) service tiers.
+As part of the family of Azure SQL products, Azure Arc-enabled SQL Managed Instance is available in two [vCore](/azure/azure-sql/database/service-tiers-vcore) service tiers.
 
 - **General Purpose** is a budget-friendly tier designed for most workloads with common performance and availability features.
 - **Business Critical** tier is designed for performance-sensitive workloads with higher availability features.

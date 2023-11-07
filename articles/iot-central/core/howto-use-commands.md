@@ -65,6 +65,9 @@ The following screenshot shows how the successful command response displays in t
 
 :::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command." lightbox="media/howto-use-commands/simple-command-ui.png":::
 
+> [!NOTE]
+> For standard commands, there's a timeout of 30 seconds. If a device doesn't respond within 30 seconds, IoT Central assumes that the command failed. This timeout period isn't configurable.
+
 ## Long-running commands
 
 In a long-running command, a device doesn't immediately complete the command. Instead, the device acknowledges receipt of the command and then later confirms that the command completed. This approach lets a device complete a long-running operation without keeping the connection to IoT Central open.

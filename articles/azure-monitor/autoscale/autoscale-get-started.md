@@ -121,7 +121,7 @@ You have now defined a scale condition for a specific day. When CPU usage is gre
 
 ### View the history of your resource's scale events
 
-Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the history of the scale events in the **Run history** tab.
+Whenever your resource has any scaling event, it is logged in the activity log. You can view the history of the scale events in the **Run history** tab.
 
 :::image type="content" source="./media/autoscale-get-started/run-history.png" lightbox="./media/autoscale-get-started/run-history.png" alt-text="A screenshot showing the run history tab in autoscale settings.":::
 

@@ -1,8 +1,7 @@
 ---
-title: Configure search apps for Azure AD
+title: Configure search apps for Microsoft Entra ID
 titleSuffix: Azure Cognitive Search
-description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
-
+description: Acquire a token from Microsoft Entra ID to authorize search requests to an app built on Azure Cognitive Search.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -11,17 +10,17 @@ ms.date: 05/09/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize access to a search app using Azure Active Directory
+# Authorize access to a search app using Microsoft Entra ID
 
-Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Azure Active Directory (Azure AD). A key [benefit of using Azure AD](../active-directory/develop/how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
+Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Microsoft Entra ID. A key [benefit of using Microsoft Entra ID](../active-directory/develop/how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Microsoft Entra authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Microsoft Entra ID returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
 
-This article shows you how to configure your client for Azure AD:
+This article shows you how to configure your client for Microsoft Entra ID:
 
 + For authentication, you'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle. You could also use a different type of service principal object, but this article uses managed identities because they eliminate the need to manage credentials.
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
++ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via a Microsoft Entra ID using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Configure role-based access for data plane
 
@@ -31,7 +30,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 
@@ -55,7 +54,7 @@ When you enable role-based access control in the portal, the failure mode will b
 
 Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
 
-All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
@@ -137,7 +136,9 @@ You can assign multiple roles, such as Search Service Contributor and Search Ind
 
 You can also [assign roles using PowerShell](search-security-rbac.md#assign-roles).
 
-## Set up Azure AD authentication in your client
+<a name='set-up-azure-ad-authentication-in-your-client'></a>
+
+## Set up Microsoft Entra authentication in your client
 
 Once you have a managed identity and a role assignment on the search service, you're ready to add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
 
@@ -149,7 +150,7 @@ Use the following client libraries for role-based access control:
 + [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/)
 
 > [!NOTE]
-> To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+> To learn more about the OAuth 2.0 code grant flow used by Microsoft Entra ID, see [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ### [**.NET SDK**](#tab/aad-dotnet)
 
@@ -183,7 +184,7 @@ User-assigned managed identities work only in Azure environments. If you run thi
 You should now be able to run the project from Visual Studio on your local system, using role-based access control for authorization.
 
 > [!NOTE]
-> The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
+> The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Microsoft Entra authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
 
 ### [**REST API**](#tab/aad-rest)
 
@@ -217,6 +218,6 @@ Using an Azure SDK simplifies the OAuth 2.0 flow but you can also program direct
 ## See also
 
 + [Use Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
-+ [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md)
-+ [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md#benefits-of-integration)
++ [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md)
++ [Integrating with Microsoft Entra ID](../active-directory/develop/how-to-integrate.md#benefits-of-integration)
 + [Azure custom roles](../role-based-access-control/custom-roles.md)

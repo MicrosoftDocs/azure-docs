@@ -2,7 +2,7 @@
 title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
 description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 07/04/2023
 ---
 
 # Tutorial: Onboard and activate a virtual OT sensor
@@ -91,7 +91,7 @@ Your VM is now prepared for your Defender for IoT software installation. You'll 
 
 ## Onboard the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription.
+Before you can start using your Defender for IoT sensor, you need to onboard your new virtual sensor to your Azure subscription.
 
 **To onboard the virtual sensor:**
 
@@ -120,20 +120,20 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time so they can activate the sensor.
+1. <a name="activation"></a>Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time so they can activate the sensor.
 
-    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-sensor).
+    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-ot-sensor).
 
 1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 
-    Save the downloaded file locally. You'll use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
+    Save the downloaded file locally. Use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
  
 1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
-    Until you activate your sensor, the sensor's status will show as **Pending Activation**.
+    Until you activate your sensor, the sensor's status shows as **Pending Activation**.
 
 For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
@@ -159,9 +159,9 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Select **Add** to close the vSwitch properties.
 
-1. Highlight the vSwitch you have just created, and select **Add uplink**.
+1. Highlight the vSwitch you've created, and select **Add uplink**.
 
-1. Select the physical NIC you will use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
+1. Select the physical NIC you'll use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
 
 1. Open the **Port Group** properties page and select **Add Port Group**.
 
@@ -202,7 +202,7 @@ This section describes how to download and install the sensor software on your o
 
 1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
-1. Save the downloaded software in a location that will be accessible from your VM.
+1. Save the downloaded software in a location that's accessible from your VM.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -215,7 +215,7 @@ This procedure describes how to install the sensor software on your VM.
 
 **To install the software on the virtual sensor**:
 
-1. If you had closed your VM, sign into the ESXi again and open your VM settings.
+1. If you closed your VM, sign into the ESXi again and open your VM settings.
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
@@ -223,69 +223,25 @@ This procedure describes how to install the sensor software on your VM.
 
 1. Power on the VM, and open a console.
 
-1. When the installation boots, you're first prompted to select the hardware profile you want to use.
+1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-`<version number>`** item to continue or let it start automatically after 30 seconds. For example:
 
-    For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+    :::image type="content" source="media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
-    After you've selected the hardware profile, the following steps occur, and can take a few minutes:
+    > [!NOTE]
+    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the  **Install iot-sensor-`<version number>`** option to continue.
 
-    - System files are installed
-    - The sensor appliance reboots
-    - Sensor files are installed
+    The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
-    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to  select your monitor interfaces.
+    When the installation is complete, you're shown the following set of default networking details.
 
-    In the `Configuring iot-sensor` wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
+    ```bash
+    IP: 172.23.41.83,
+    SUBNET: 255.255.255.0,
+    GATEWAY: 172.23.41.1,
+    UID: 91F14D56-C1E4-966F-726F-006A527C61D
+    ```
 
-1. In the wizard's `Select monitor interfaces` screen, select the interfaces you want to monitor.
-
-    By default, `eno1` is reserved for the management interface and we recommend that you leave this option unselected.
-
-    > [!IMPORTANT]
-    > Make sure that you select only interfaces that are connected.
-    >
-    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
-
-1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected.
-
-1. In the `Select management interface` screen, we recommend keeping the default `eno1` value selected as the management interface.
-
-1. In the `Enter sensor IP address` screen, enter the IP address for the sensor appliance you're installing.
-
-1. In the `Enter path to the mounted backups folder` screen, enter the path to the sensor's mounted backups. We recommend using the default path of `/opt/sensor/persist/backups`.
-
-1. In the `Enter Subnet Mask` screen, enter the IP address for the sensor's subnet mask.
-
-1. In the `Enter Gateway` screen, enter the sensor's default gateway IP address.
-
-1. In the `Enter DNS server` screen, enter the sensor's DNS server IP address.
-
-1. In the `Enter hostname` screen, enter the sensor hostname.
-
-1. In the `Run this sensor as a proxy server (Preview)` screen, select `<Yes>` only if you want to configure a proxy, and then enter the proxy credentials as prompted.
-
-    The default configuration is without a proxy.
-
-    For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).
-
-1. <a name="credentials"></a>The installation process starts running and then shows the credentials screen.
-
-    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
-
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
-
-    Select `<Ok>` when you're ready to continue.
-
-    The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in.
-
-1. Enter the credentials for the `support` user with the credentials that you'd copied down in the [previous step](#credentials).
-
-    - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
-    - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
-
-    When you have successfully signed in, the following confirmation screen appears:
-
-    :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of install confirmation.":::
+Use the default IP address provided to access your sensor for [initial setup and activation](ot-deploy/activate-deploy-sensor.md).
 
 ### Post-installation validation
 
@@ -305,29 +261,102 @@ This procedure describes how to validate your installation using the sensor's ow
 
 For more post-installation validation tests, such as gateway, DNS or firewall checks, see [Validate an OT sensor software installation](ot-deploy/post-install-validation-ot-software.md).
 
-## Activate your sensor
+## Define initial setup
 
-This procedure describes how to use the sensor activation file downloaded from Defender for IoT in the Azure portal to activate your newly added sensor.
+The following procedure describes how to configure your sensor's initial setup settings, including:
+
+- Signing into the sensor console and changing the *support* user password
+- Defining network details for your sensor
+- Defining the interfaces you want to monitor
+- Activating your sensor
+- Configuring SSL/TLS certificate settings
+
+### Sign in to the sensor console and change the default password
+
+This procedure describes how to sign into the OT sensor console for the first time. You're prompted to change the default password for the *support* user.
+
+**To sign in to your sensor**:
+
+1. In a browser, go the `192.168.0.101` IP address, which is the default IP address provided for your sensor at the end of the installation.
+
+    The initial sign-in page appears. For example:
+
+    :::image type="content" source="media/install-software-ot-sensor/ui-sign-in.png" alt-text="Screenshot of the initial sensor sign-in page.":::
+
+1. Enter the following credentials and select **Login**:
+
+    - **Username**: `support`
+    - **Password**: `support`
+
+    You're asked to define a new password for the *support* user.
+
+1. In the **New password** field, enter your new password. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
+
+    In the **Confirm new password** field, enter your new password again, and then select **Get started**.
+
+    For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
+
+The **Defender for IoT | Overview** page opens to the **Management interface** tab.
+
+### Define sensor networking details
+
+In the **Management interface** tab, use the following fields to define network details for your new sensor:
+
+|Name  |Description  |
+|---------|---------|
+|**Management interface**     |  Select the interface you want to use as the management interface and connect to the Azure portal. <br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
+|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browser or CLI. |
+|**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
+|**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
+|**DNS**     |   Enter the sensor's DNS server IP address.      |
+|**Hostname**     |  Enter the hostname you want to assign to the sensor. Make sure that you use the same hostname as is defined in the DNS server.       |
+
+For the sake of this tutorial, leave the skip the proxy configurations in the **Enable proxy for cloud connectivity (Optional)** area.
+
+When you're done, select **Next: Interface configurations** to continue.
+
+### Define the interfaces you want to monitor
+
+The **Interface connections** tab shows all interfaces detected by the sensor by default. Use this tab to turn monitoring on or off per interface, or define specific settings for each interface.
+
+> [!TIP]
+> We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use.
+>
+
+In the **Interface configurations** tab, do the following to configure settings for your monitored interfaces:
+
+1. Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must select at least one interface to continue.
+
+    If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
+
+1. For the sake of this tutorial, skip any advanced settings and select **Next: Reboot >** to continue.
+
+1. When prompted, select **Start reboot** to reboot your sensor machine. After the sensor starts again, you're automatically redirected to the IP address you'd [defined earlier as your sensor IP address](#ip).
+
+    Select **Cancel** to wait for the reboot.
+
+### Activate your OT sensor
+
+This procedure describes how to activate your new OT sensor.
 
 **To activate your sensor**:
 
-1. In a browser, go to the sensor console by entering the IP defined during the installation. The sign-in dialog box opens.
+1. In the **Activation** tab, select **Upload** to upload the sensor's activation file that you'd [downloaded from the Azure portal](#activation).
 
-1. Enter the credentials for the `support` user with the credentials defined during the sensor installation.
+1. Select the terms and conditions option and then select **Next: Certificates**.
 
-1. Select **Login**. The **Sensor Network Settings** tab opens.
+### Define SSL/TLS certificate settings
 
-1. In the **Sensor Network Settings** tab, you can modify the sensor network configuration defined during installation. For the sake of this tutorial, leave the default values as they are, and select **Next**.
+Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, select to use a self-signed certificate. 
 
-1. In the **Activation** tab, select **Upload** to upload the activation file you'd downloaded when [onboarding the virtual sensor](#onboard-the-virtual-sensor).
+**To define SSL/TLS certificate settings**:
 
-    Make sure that the confirmation message includes the name of the sensor that you're deploying.
+1. In the **Certificates** tab, select **Use Locally generated self-signed certificate (Not recommended)**, and then select the **Confirm** option.
 
-1. Select the **Approve these terms and conditions** option, and then select **Activate** to continue in the **Certificates** screen.
+    For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-1. In the **SSL/TLS Certificates** tab, you can import a trusted CA certificate, which is the recommended process for production environments. However, for the sake of the tutorial, you can select **Use Locally generated self-signed certificate**, and then select **Save**.
+1. Select **Finish** to complete the initial setup and open your sensor console.
 
-Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
 ## Next steps
 

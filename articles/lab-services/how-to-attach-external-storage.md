@@ -22,7 +22,6 @@ The following table lists important considerations for each external storage sol
 | -------------- | ------------------------ |
 | [Azure Files share with public endpoint](#azure-files-share) | <ul><li>Everyone has read/write access.</li><li>No virtual network peering is required.</li><li>Accessible to all VMs, not just lab VMs.</li><li>If you're using Linux, lab users have access to the storage account key.</li></ul> |
 | [Azure Files share with private endpoint](#azure-files-share) | <ul><li>Everyone has read/write access.</li><li>Virtual network peering is required.</li><li>Accessible only to VMs on the same network (or a peered network) as the storage account.</li><li>If you're using Linux, lab users have access to the storage account key.</li></ul> |
-| [Azure Files with identity-based authorization](#azure-files-with-identity-based-authorization) | <ul><li>Either read or read/write access permissions can be set for folder or file.</li><li>Virtual network peering is required.</li><li>Storage account must be connected to Active Directory.</li><li>Lab VMs must be domain-joined.</li><li>Storage account key isn't used for lab users to connect to the file share.</li></ul> |
 | [Azure NetApp Files with NFS volumes](#azure-netapp-files-with-nfs-volumes) | <ul><li>Either read or read/write access can be set for volumes.</li><li>Permissions are set by using a lab VM’s IP address.</li><li>Virtual network peering is required.</li><li>You might need to register to use the Azure NetApp Files service.</li><li>Linux only.</li></ul>
 
 The cost of using external storage isn't included in the cost of using Azure Lab Services.  For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
@@ -134,62 +133,6 @@ If the template VM that mounts the Azure Files share to the `/mnt` directory is 
 Lab users should run `mount -a` to remount directories.
 
 For more general information, see [Use Azure Files with Linux](/azure/storage/files/storage-how-to-use-files-linux).
-
-## Azure Files with identity-based authorization
-
-Azure Files shares can also be accessed by using Active Directory authentication, if the following are both true:
-
-- The lab VM is domain-joined.
-- Active Directory authentication is [enabled on the Azure Storage account](/azure/storage/files/storage-files-active-directory-overview) that hosts the file share.  
-
-The network drive is mounted on the virtual machine by using the user’s identity, not the key to the storage account. Public or private endpoints provide access to the storage account.
-
-Keep in mind the following important points:
-
-- You can set permissions on a directory or file level.
-- You can use current user credentials to authenticate to the file share.
-
-For a public endpoint, the virtual network for the storage account doesn't have to be connected to the lab virtual network. You can create the file share anytime before the template VM is published.
-
-For a private endpoint:
-
-- Access is restricted to traffic originating from the private network, and can’t be accessed through the public internet. Only VMs in the private virtual network, VMs in a network peered to the private virtual network, or machines connected to a VPN for the private network, can access the file share.  
-- This approach requires the file share virtual network to be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
-
-To create an Azure Files share that's enabled for Active Directory authentication, and to domain-join the lab VMs, follow these steps:
-
-1. Create an [Azure Storage account](/azure/storage/files/storage-how-to-create-file-share).
-1. If you've chosen the private method, create a [private endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal) in order for the file shares to be accessible from the virtual network. Create a [private DNS zone](/azure/dns/private-dns-privatednszone), or use an existing one. Private Azure DNS zones provide name resolution within a virtual network.
-1. Create an [Azure file share](/azure/storage/files/storage-how-to-create-file-share).
-1. Follow the steps to enable identity-based authorization. If you're using Active Directory on-premises, and you're synchronizing it with Azure Active Directory (Azure AD), see [On-premises Active Directory Domain Services authentication over SMB for Azure file shares](/azure/storage/files/storage-files-identity-auth-active-directory-enable). If you're using only  Azure AD, see [Enable Azure Active Directory Domain Services authentication on Azure Files](/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable).
-    >[!IMPORTANT]
-    >Talk to the team that manages your Active Directory instance to verify that all prerequisites listed in the instructions are met.
-1. Assign SMB share permission roles in Azure. For details about permissions that are granted to each role, see [share-level permissions](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
-    - **Storage File Data SMB Share Elevated Contributor** role must be assigned to the person or group that grants permissions for contents of the file share.
-    - **Storage File Data SMB Share Contributor** role should be assigned to lab users who need to add or edit files on the file share.
-    - **Storage File Data SMB Share Reader** role should be assigned to lab users who only need to read the files from the file share.
-
-1. Set up directory-level and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory-level and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
-1. [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md).
-1. [Create the lab](how-to-manage-labs.md).
-1. Save a script on the template VM that lab users can run to connect to the network drive:
-    1. Open the storage account in the Azure portal.
-    1. Under **File Service**, select **File Shares**.
-    1. Find the share that you want to connect to, select the ellipses button on the far right, and choose **Connect**.
-    1. The page shows instructions for Windows, Linux, and macOS. If you're using Windows, set **Authentication method** to **Active Directory**.
-    1. Copy the code in the example, and save it on the template machine in a `.ps1` file for Windows, or an `.sh` file for Linux.
-
-1. On the template machine, download and run the script to [join lab user machines to the domain](https://aka.ms/azlabs/scripts/ActiveDirectoryJoin).
-
-    The `Join-AzLabADTemplate` script [publishes the template VM](how-to-create-manage-template.md#publish-the-template-vm) automatically.
-
-    > [!NOTE]
-    > The template machine isn't domain-joined. To view files on the share, educators need to use a lab VM for themselves.
-
-1. Connect to the Azure Files share from the lab VM.
-
-    - Lab users on Windows can connect to the Azure Files share by using [File Explorer](/azure/storage/files/storage-how-to-use-files-windows) with their credentials, after they've been given the path to the file share. Alternately, lab users can run the script you saved earlier to connect to the network drive.
-    - For lab users who are using Linux, run the script you saved previously to connect to the network drive.
 
 ## Azure NetApp Files with NFS volumes
 

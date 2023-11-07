@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: albecker1
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 09/25/2020
+ ms.date: 08/09/2023
  ms.author: albecker1
  ms.custom: include file
 ---

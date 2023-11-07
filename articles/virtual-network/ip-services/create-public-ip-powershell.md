@@ -2,18 +2,18 @@
 title: 'Quickstart: Create a public IP - PowerShell'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a public IP using Azure PowerShell
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a public IP address using PowerShell
 
-In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ New-AzResourceGroup @rg
 >
 >The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
 
-In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
+In this section, you create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**. 
 
@@ -70,7 +70,7 @@ New-AzPublicIpAddress @ip
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 
-In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
+In this section, you create a basic IP. Basic public IPs don't support availability zones.
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.  
 
@@ -96,7 +96,7 @@ If it's acceptable for the IP address to change over time, **Dynamic** IP assign
 
 ## Create a zonal or no-zone public IP address
 
-In this section, you'll learn how to create a zonal or no-zone public IP address.
+In this section, you learn how to create a zonal or no-zone public IP address.
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
@@ -121,7 +121,7 @@ New-AzPublicIpAddress @ip
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
-In this section, you'll create a non-zonal IP address.  
+In this section, you create a non-zonal IP address.  
 
 >[!NOTE]
 >The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
@@ -153,7 +153,7 @@ Standard SKU static public IPv4 addresses support Routing Preference or the Glob
 
 # [**Routing Preference**](#tab/routing-preference)
 
-By default, the routing preference for public IP addresses is set to "Microsoft network", which delivers traffic over Microsoft's global wide area network to the user.  
+By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user.  
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
 

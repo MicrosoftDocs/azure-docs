@@ -117,6 +117,5 @@ For recommendations to improve the security posture of your container registries
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
 [az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
 [azure-cli]: /cli/azure
-[azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

@@ -45,11 +45,11 @@ To create the web app that you work with, follow the [static HTML quickstart](..
 
 ## Sign in to the Azure portal
 
-Open a browser and navigate to the [Azure portal](https://portal.azure.com).
+Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 
 ### Dynamic site acceleration optimization
 If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), you should use the [CDN portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). 
-Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Verizon** profiles, you can't change the optimization of a CDN endpoint after it has been created.
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Edgio** profiles, you can't change the optimization of a CDN endpoint after it has been created.
 
 ## Create a CDN profile and endpoint
 
@@ -82,7 +82,7 @@ Azure creates the profile and endpoint. The new endpoint appears in the **Endpoi
  Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-   - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+   - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes. 
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 

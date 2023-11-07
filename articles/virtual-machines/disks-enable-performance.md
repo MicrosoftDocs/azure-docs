@@ -43,7 +43,7 @@ region=desiredRegion
 sku=desiredSKU
 #Size must be 513 or larger
 size=513
-az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region –performance-plus true 
+az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region --performance-plus true 
 
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```

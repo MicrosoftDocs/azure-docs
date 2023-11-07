@@ -1,11 +1,11 @@
 ---
-title: Explore risks to sensitive data in Microsoft Defender for Cloud
+title: Explore risks to sensitive data
 description: Learn how to use attack paths and security explorer to find and remediate sensitive data risks.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 09/05/2023
 ms.custom: template-how-to-pattern
 ---
 # Explore risks to sensitive data
@@ -20,7 +20,6 @@ After you [discover resources with sensitive data](data-security-posture-enable.
 
 View predefined attack paths to discover data breach risks, and get remediation recommendations, as follows:
 
-
 1. In Defender for Cloud, open **Recommendations** > **Attack paths**.
 1. In **Risk category filter**, select **Data exposure** or **Sensitive data exposure** to filter the data-related attack paths.
 
@@ -33,12 +32,13 @@ View predefined attack paths to discover data breach risks, and get remediation 
 Other examples of attack paths for sensitive data include:
 
 - "Internet exposed Azure Storage container with sensitive data is publicly accessible"
+- "Managed database with excessive internet exposure and sensitive data allows basic (local user/password) authentication"
 - "VM has high severity vulnerabilities and read permission to a data store with sensitive data"
 - "Internet exposed AWS S3 Bucket with sensitive data is publicly accessible"
 - "Private AWS S3 bucket that replicates data to the internet is exposed and publicly accessible"
+- "RDS snapshot is publicly available to all AWS accounts"
 
 [Review](attack-path-reference.md) a full list of attack paths.
-
 
 ## Explore risks with Cloud Security Explorer
 
@@ -63,6 +63,26 @@ When you open a predefined query it's populated automatically and can be tweaked
 ## Explore sensitive data security alerts
 
 When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and focus on alerts the alerts that affect resources with sensitive data. [Learn more](defender-for-storage-data-sensitivity.md) about monitoring data security alerts in Defender for Storage.
+
+For PaaS databases and S3 Buckets, findings are reported to Azure Resource Graph (ARG) allowing you to filter and sort by sensitivity labels and sensitive info types in Defender for Cloud Inventory, Alert and Recommendation blades.
+
+## Export findings
+
+It's common for the security administrator, who reviews sensitive data findings in attack paths or the security explorer, to lack direct access to the data stores. Therefore, they'll need to share the findings with the data owners, who can then conduct further investigation.
+
+For that purpose, use the **Export** within the **Contains sensitive data** insight.
+
+:::image type="content" source="media/data-security-review-risks/export-findings.png" alt-text="Screenshot of how to export insights.":::
+
+The CSV file produced will include:
+
+- **Sample name** – depending on the resource type, this can be a database column, file name, or container name.
+- **Sensitivity label** – the highest ranking label found on this resource (same value for all rows).
+- **Contained in** – sample full path (file path or column full name).
+- **Sensitive info types** – discovered info types per sample. If more than one info type was detected, a new row will be added for each info type. This is to allow an easier filtering experience.
+
+> [!NOTE]
+> **Download CSV report** in the Cloud Security Explorer page will export all insights retrieved by the query in raw format (json).
 
 ## Next steps
 

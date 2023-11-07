@@ -116,6 +116,36 @@ Beginning with the November 2020 release, HDInsight supports the creation of clu
 
 For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
 
+### VM types that support disk encryption
+
+| Size | vCPU | Memory: GiB |
+|-------------------|-----------|-------------|
+| Standard_D4a_v4 | 4    | 16
+| Standard_D8a_v4 | 8    | 32
+| Standard_D16a_v4 | 16  | 64
+| Standard_D32a_v4 | 32  | 128
+| Standard_D48a_v4 | 48  | 192
+| Standard_D64a_v4 | 64  | 256
+| Standard_D96a_v4 | 96  | 384
+| Standard_E64is_v3 | 64  | 432
+| Standard_E20s_V3 | 20  | 160
+| Standard_E2s_V3 | 2  | 16
+| Standard_E2a_v4 | 2  | 16
+| Standard_E4a_v4 | 4  | 32
+| Standard_E8a_v4 | 8  | 64
+| Standard_E16a_v4 | 16  | 128
+| Standard_E20a_v4 | 20  | 160
+| Standard_E32a_v4 | 32  | 256
+| Standard_E48a_v4 | 48  | 384
+| Standard_E64a_v4 | 64  | 512
+| Standard_E96a_v4 | 96  | 672
+| Standard_DS3_v2 | 4  | 14
+| Standard_DS4_v2 | 8  | 28
+| Standard_DS5_v2 | 16  | 56
+| Standard_DS12_v2 | 4  | 28
+| Standard_DS13_v2 | 8  | 56
+| Standard_DS14_v2 | 16  | 112
+
 #### Using the Azure portal
 
 During cluster creation, you can either use a versioned key, or a versionless key in the following way:
@@ -357,7 +387,7 @@ The contents of the resource management template, `azuredeploy.json`:
 
 ### Rotating the encryption key
 
-You can change the encryption keys used on your running cluster, using the Azure portal or Azure CLI. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. For clusters created after the the November 2020 release you can choose if you want to your new key to have a version or not. For clusters created before the November 2020 release, you must use a versioned key when rotating the encryption key.
+You can change the encryption keys used on your running cluster, using the Azure portal or Azure CLI. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. For clusters created after the November 2020 release you can choose if you want to your new key to have a version or not. For clusters created before the November 2020 release, you must use a versioned key when rotating the encryption key.
 
 #### Using the Azure portal
 

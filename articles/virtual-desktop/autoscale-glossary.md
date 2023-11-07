@@ -90,7 +90,7 @@ The minimum percentage of hosts is the lowest percentage of all session hosts in
 
 ## Active user session
 
-A user session is considered "active" when the user signs in and connects to their remote app or desktop resource.
+A user session is considered "active" when the user signs in and connects to their RemoteApp or desktop resource.
 
 ## Disconnected user session
 

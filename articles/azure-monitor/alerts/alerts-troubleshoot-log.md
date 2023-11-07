@@ -31,7 +31,7 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 
 A common issue is that you think that the alert didn't fire, but it was actually the rule configuration.
 
-![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
+:::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
 ### Alert scope resource has been moved, renamed, or deleted
 
@@ -46,6 +46,15 @@ When you create a log alert rule with system-assigned managed identity, the iden
 [Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
 You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API](./alerts-log-api-switch.md).
+
+### Override query time range
+As a part of the configuration of the alert, in the section of the "Advance Options", there is an option to configure "Override query time range" parameter. 
+If you want the alert evaluation period to be different than the query time range, enter a time range here.
+The alert time range is limited to a maximum of two days. Even if the query contains an ago command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains ago(7d), the query only scans up to two days of data.
+If the query requires more data than the alert evaluation, you can change the time range manually.
+If there's ago command in the query, it will be changed automatically to be 2 days (48 hours).
+
+:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" lightbox="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
 
 ## Log alert fired unnecessarily
 

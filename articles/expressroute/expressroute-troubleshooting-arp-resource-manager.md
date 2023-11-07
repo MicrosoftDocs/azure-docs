@@ -4,10 +4,10 @@ description: This page provides instructions on getting the Address Resolution P
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: troubleshooting
 ms.date: 06/30/2023
 ms.author: duau
-
 ---
 # Getting ARP tables in the Resource Manager deployment model
 
@@ -205,4 +205,3 @@ Age InterfaceProperty IpAddress  MacAddress
   * Get route table to determine which prefixes are advertised across ExpressRoute.
 * Validate data transfer by reviewing bytes in / out.
 * Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you're still experiencing issues.
-

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -22,7 +22,7 @@ Returns a string expression after it removes trailing whitespace or specified ch
   
 ```sql
 RTRIM(<string_expr_1> [, <string_expr_2>])  
-```  
+```
   
 ## Arguments
   
@@ -39,39 +39,15 @@ Returns a string expression.
 
 The following example shows how to use this function with various parameters inside a query.  
   
-```sql
-SELECT VALUE {
-    whitespaceStart: RTRIM("  AdventureWorks"), 
-    whitespaceStartEnd: RTRIM("  AdventureWorks  "), 
-    whitespaceEnd: RTRIM("AdventureWorks  "), 
-    noWhitespace: RTRIM("AdventureWorks"),
-    trimSuffix: RTRIM("AdventureWorks", "Works"),
-    trimPrefix: RTRIM("AdventureWorks", "Adventure"),
-    trimEntireTerm: RTRIM("AdventureWorks", "AdventureWorks"),
-    trimEmptyString: RTRIM("AdventureWorks", "")
-}
-```  
-  
-```json
-[
-  {
-    "whitespaceStart": "  AdventureWorks",
-    "whitespaceStartEnd": "  AdventureWorks",
-    "whitespaceEnd": "AdventureWorks",
-    "noWhitespace": "AdventureWorks",
-    "trimSuffix": "Adventure",
-    "trimPrefix": "AdventureWorks",
-    "trimEntireTerm": "",
-    "trimEmptyString": "AdventureWorks"
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/rtrim/query.sql" highlight="2-9":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/rtrim/result.json":::
 
 ## Remarks
 
-- This system function doesn't use the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`LTRIM`](ltrim.md)

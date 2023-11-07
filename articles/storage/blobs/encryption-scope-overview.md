@@ -3,14 +3,13 @@ title: Encryption scopes for Blob storage
 titleSuffix: Azure Storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 
@@ -24,7 +23,7 @@ For more information about working with encryption scopes, see [Create and manag
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. When you define an encryption scope, you specify a key that may be scoped to a container or an individual blob. When the encryption scope is applied to a blob, the blob is encrypted with that key. When the encryption scope is applied to a container, it serves as the default scope for blobs in that container, so that all blobs that are uploaded to that container may be encrypted with the same key. The container can be configured to enforce the default encryption scope for all blobs in the container, or to permit an individual blob to be uploaded to the container with an encryption scope other than the default.
 
-Read operations on a blob that was created with an encryption scope happen transparently, so long as the encryption scope is not disabled.
+Read operations on a blob that was created with an encryption scope happen transparently, so long as the encryption scope isn't disabled.
 
 ### Key management
 
@@ -40,7 +39,7 @@ A storage account may have up to 10,000 encryption scopes that are protected wit
 
 Infrastructure encryption in Azure Storage enables double encryption of data. With infrastructure encryption, data is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys.
 
-Infrastructure encryption is supported for an encryption scope, as well as at the level of the storage account. If infrastructure encryption is enabled for an account, then any encryption scope created on that account automatically uses infrastructure encryption. If infrastructure encryption is not enabled at the account level, then you have the option to enable it for an encryption scope at the time that you create the scope. The infrastructure encryption setting for an encryption scope cannot be changed after the scope is created.
+Infrastructure encryption is supported for an encryption scope, as well as at the level of the storage account. If infrastructure encryption is enabled for an account, then any encryption scope created on that account automatically uses infrastructure encryption. If infrastructure encryption isn't enabled at the account level, then you have the option to enable it for an encryption scope at the time that you create the scope. The infrastructure encryption setting for an encryption scope cannot be changed after the scope is created.
 
 For more information about infrastructure encryption, see [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md).
 
@@ -81,9 +80,9 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 ## Billing for encryption scopes
 
-When you enable an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
+When you enable an encryption scope, you are billed for a minimum of 30 days. After 30 days, charges for an encryption scope are prorated on an hourly basis.
 
-If you disable the encryption scope within the first month, then you are billed for that full month, but not for subsequent months. If you disable the encryption scope after the first month, then you are charged for the first month, plus the number of hours that the encryption scope was in effect after the first month.
+After enabling the encryption scope, if you disable it within 30 days, you are still billed for 30 days. If you disable the encryption scope after 30 days, you are charged for those 30 days plus the number of hours the encryption scope was in effect after 30 days.
 
 Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
@@ -99,3 +98,4 @@ To learn about pricing for encryption scopes, see [Blob Storage pricing](https:/
 - [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
+

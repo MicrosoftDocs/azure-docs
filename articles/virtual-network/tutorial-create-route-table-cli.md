@@ -6,7 +6,6 @@ documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
 tags: azure-resource-manager
-# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
@@ -14,7 +13,8 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 04/20/2022
 ms.author: allensu
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
 # Route network traffic with a route table using the Azure CLI
@@ -120,7 +120,7 @@ Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/a
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --public-ip-address "" \
   --subnet DMZ \
   --vnet-name myVirtualNetwork \
@@ -163,7 +163,7 @@ adminPassword="<replace-with-your-password>"
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPublic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Public \
   --admin-username azureuser \
@@ -177,7 +177,7 @@ Create a VM in the *Private* subnet.
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --admin-username azureuser \

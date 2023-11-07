@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 06/20/2023
 ms.custom: devx-track-azurecli
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI

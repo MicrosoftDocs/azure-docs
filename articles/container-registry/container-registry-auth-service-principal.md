@@ -1,6 +1,6 @@
 ---
 title: Authenticate with service principal
-description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
+description: Provide access to images in your private container registry by using a Microsoft Entra service principal.
 ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
@@ -10,17 +10,17 @@ ms.date: 10/11/2022
 
 # Azure Container Registry authentication with service principals
 
-You can use an Azure Active Directory (Azure AD) service principal to provide push, pull, or other access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
+You can use a Microsoft Entra service principal to provide push, pull, or other access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
 
 ## What is a service principal?
 
-Azure AD [*service principals*](../active-directory/develop/app-objects-and-service-principals.md) provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs to access the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
+Microsoft Entra ID [*service principals*](../active-directory/develop/app-objects-and-service-principals.md) provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs to access the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
-In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or other permissions to your private registry in Azure. For a complete list, see [Azure Container Registry roles and permissions](container-registry-roles.md).
+In the context of Azure Container Registry, you can create a Microsoft Entra service principal with pull, push and pull, or other permissions to your private registry in Azure. For a complete list, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
 ## Why use a service principal?
 
-By using an Azure AD service principal, you can provide scoped access to your private container registry. Create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
+By using a Microsoft Entra service principal, you can provide scoped access to your private container registry. Create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
 
 For example, configure your web application to use a service principal that provides it with image `pull` access only, while your build system uses a service principal that provides it with both `push` and `pull` access. If development of your application changes hands, you can rotate its service principal credentials without affecting the build system.
 
@@ -34,7 +34,7 @@ You should use a service principal to provide registry access in **headless scen
     > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](../aks/cluster-container-registry-integration.md).
   * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
-For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
+For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Microsoft Entra identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -77,11 +77,11 @@ Once logged in, Docker caches the credentials.
 
 ### Use with certificate
 
-If you've added a certificate to your service principal, you can sign into the Azure CLI with certificate-based authentication, and then use the [az acr login][az-acr-login] command to access a registry. Using a certificate as a secret instead of a password provides additional security when you use the CLI.
+If you've added a certificate to your service principal, you can sign in to the Azure CLI with certificate-based authentication, and then use the [az acr login][az-acr-login] command to access a registry. Using a certificate as a secret instead of a password provides additional security when you use the CLI.
 
 A self-signed certificate can be created when you [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli). Or, add one or more certificates to an existing service principal. For example, if you use one of the scripts in this article to create or update a service principal with rights to pull or push images from a registry, add a certificate using the [az ad sp credential reset][az-ad-sp-credential-reset] command.
 
-To use the service principal with certificate to [sign into the Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), the certificate must be in PEM format and include the private key. If your certificate isn't in the required format, use a tool such as `openssl` to convert it. When you run [az login][az-login] to sign into the CLI using the service principal, also provide the service principal's application ID and the Active Directory tenant ID. The following example shows these values as environment variables:
+To use the service principal with certificate to [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), the certificate must be in PEM format and include the private key. If your certificate isn't in the required format, use a tool such as `openssl` to convert it. When you run [az login][az-login] to sign into the CLI using the service principal, also provide the service principal's application ID and the Active Directory tenant ID. The following example shows these values as environment variables:
 
 ```azurecli
 az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
@@ -97,7 +97,7 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 
 ## Create service principal for cross-tenant scenarios
 
-A service principal can also be used in Azure scenarios that require pulling images from a container registry in one Azure Active Directory (tenant) to a service or app in another. For example, an organization might run an app in Tenant A that needs to pull an image from a shared container registry in Tenant B.
+A service principal can also be used in Azure scenarios that require pulling images from a container registry in one Microsoft Entra ID (tenant) to a service or app in another. For example, an organization might run an app in Tenant A that needs to pull an image from a shared container registry in Tenant B.
 
 To create a service principal that can authenticate with a container registry in a cross-tenant scenario:
 

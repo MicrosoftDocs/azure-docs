@@ -3,13 +3,13 @@ title: Azure Arc-enabled System Center Virtual Machine Manager
 summary: Learn how to manage  Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
 
 metadata:
-  title: Azure Arc-enabled System Center Virtual Machine Manager
+  title: Azure Arc-enabled System Center Virtual Machine Manager 
   description: Learn about how to manage Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
-  author: jyothisuri
+  author: PriskeyJeronika-MS
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 04/28/2022
-  ms.author: jsuri
+  ms.author: v-gjeronika
 
 landingContent:
   - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
@@ -18,24 +18,39 @@ landingContent:
         links:
           - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
             url: overview.md
-      
-  - title: Get started
+      - linkListType: concept
+        links:
+          - text: Azure Arc agent
+            url: agent-overview-scvmm.md  
+                
+  - title: Get started with Arc-enabled SCVMM
     linkLists:
       - linkListType: quickstart
         links:
           - text: Connect a System Center Virtual Machine Manager management server to Azure Arc 
             url: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
-          
-  - title: Create Virtual Machine
-    linkLists:
-      - linkListType: how-to-guide
-        links:  
-          - text: Create a virtual machine 
+      - linkListType: tutorial
+        links:
+          - text: Create a VM on SCVMM using Azure Arc
             url: create-virtual-machine.md
 
-  - title: Enable SCVMM inventory in Azure
+  - title: Use Azure to manage SCVMM VMs
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Enable SCVMM inventory in Azure
-            url: enable-scvmm-inventory-resources.md     
+          - text: Enable SCVMM inventory resources in Azure
+            url: enable-scvmm-inventory-resources.md
+          - text: Set up and manage self-service access to SCVMM resources
+            url: set-up-and-manage-self-service-access-scvmm.md
+          - text: Install Arc agent at scale for your SCVMM VMs
+            url: enable-guest-management-at-scale.md
+          - text: Install Arc agent using a script for SCVMM VMs
+            url: install-arc-agents-using-script.md
+          
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:  
+          - text: Azure CLI
+            url: /cli/azure/scvmm
+  

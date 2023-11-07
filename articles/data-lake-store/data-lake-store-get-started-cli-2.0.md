@@ -41,31 +41,31 @@ This article uses a simpler authentication approach with Data Lake Storage Gen1 
 
 1. Log into your Azure subscription.
 
-	```azurecli
-	az login
-	```
+    ```azurecli
+    az login
+    ```
 
-	You get a code to use in the next step. Use a web browser to open the page https://aka.ms/devicelogin and enter the code to authenticate. You are prompted to log in using your credentials.
+    You get a code to use in the next step. Use a web browser to open the page https://aka.ms/devicelogin and enter the code to authenticate. You are prompted to log in using your credentials.
 
 2. Once you log in, the window lists all the Azure subscriptions that are associated with your account. Use the following command to use a specific subscription.
    
-	```azurecli
-	az account set --subscription <subscription id> 
-	```
+    ```azurecli
+    az account set --subscription <subscription id> 
+    ```
 
 ## Create an Azure Data Lake Storage Gen1 account
 
 1. Create a new resource group. In the following command, provide the parameter values you want to use. If the location name contains spaces, put it in quotes. For example "East US 2". 
    
-	```azurecli
-	az group create --location "East US 2" --name myresourcegroup
-	```
+    ```azurecli
+    az group create --location "East US 2" --name myresourcegroup
+    ```
 
 2. Create the Data Lake Storage Gen1 account.
    
-	```azurecli
-	az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
-	```
+    ```azurecli
+    az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
+    ```
 
 ## Create folders in a Data Lake Storage Gen1 account
 
@@ -106,23 +106,23 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 The output of this should be similar to the following:
 
-```output
+```json
 [
-	{
-		"accessTime": 1491323529542,
-		"aclBit": false,
-		"blockSize": 268435456,
-		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		"length": 1589881,
-		"modificationTime": 1491323531638,
-		"msExpirationTime": 0,
-		"name": "mynewfolder/vehicle1_09142014.csv",
-		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		"pathSuffix": "vehicle1_09142014.csv",
-		"permission": "770",
-		"replication": 1,
-		"type": "FILE"
-	}
+    {
+        "accessTime": 1491323529542,
+        "aclBit": false,
+        "blockSize": 268435456,
+        "group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+        "length": 1589881,
+        "modificationTime": 1491323531638,
+        "msExpirationTime": 0,
+        "name": "mynewfolder/vehicle1_09142014.csv",
+        "owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+        "pathSuffix": "vehicle1_09142014.csv",
+        "permission": "770",
+        "replication": 1,
+        "type": "FILE"
+    }
 ]
 ```
 
@@ -130,32 +130,32 @@ The output of this should be similar to the following:
 
 * **To rename a file**, use the following command:
   
-	```azurecli
-	az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
-	```
+    ```azurecli
+    az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
+    ```
 
 * **To download a file**, use the following command. Make sure the destination path you specify already exists.
   
-	```azurecli		
-	az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
-	```
+    ```azurecli
+    az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
+    ```
 
-	> [!NOTE]
-	> The command creates the destination folder if it does not exist.
-	> 
-	>
+    > [!NOTE]
+    > The command creates the destination folder if it does not exist.
+    > 
+    >
 
 * **To delete a file**, use the following command:
   
-	```azurecli
-	az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv
-	```
+    ```azurecli
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv
+    ```
 
-	If you want to delete the folder **mynewfolder** and the file **vehicle1_09142014_copy.csv** together in one command, use the --recurse parameter
+    If you want to delete the folder **mynewfolder** and the file **vehicle1_09142014_copy.csv** together in one command, use the --recurse parameter
 
-	```azurecli
-	az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
-	```
+    ```azurecli
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
+    ```
 
 ## Work with permissions and ACLs for a Data Lake Storage Gen1 account
 
@@ -163,61 +163,61 @@ In this section you learn about how to manage ACLs and permissions using the Azu
 
 * **To update the owner of a file/folder**, use the following command:
 
-	```azurecli
-	az dls fs access set-owner --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
-	```
+    ```azurecli
+    az dls fs access set-owner --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
+    ```
 
 * **To update the permissions for a file/folder**, use the following command:
 
-	```azurecli
-	az dls fs access set-permission --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --permission 777
-	```
-	
+    ```azurecli
+    az dls fs access set-permission --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --permission 777
+    ```
+    
 * **To get the ACLs for a given path**, use the following command:
 
-	```azurecli
-	az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
-	```
+    ```azurecli
+    az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
+    ```
 
-	The output should be similar to the following:
+    The output should be similar to the following:
 
     ```output
-	{
-		"entries": [
-		"user::rwx",
-		"group::rwx",
-		"other::---"
-		],
-		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		"permission": "770",
-		"stickyBit": false
-	}
+    {
+        "entries": [
+        "user::rwx",
+        "group::rwx",
+        "other::---"
+        ],
+        "group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+        "owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+        "permission": "770",
+        "stickyBit": false
+    }
     ```
 
 * **To set an entry for an ACL**, use the following command:
 
-	```azurecli
-	az dls fs access set-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
-	```
+    ```azurecli
+    az dls fs access set-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
+    ```
 
 * **To remove an entry for an ACL**, use the following command:
 
-	```azurecli
-	az dls fs access remove-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
-	```
+    ```azurecli
+    az dls fs access remove-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
+    ```
 
 * **To remove an entire default ACL**, use the following command:
 
-	```azurecli
-	az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder --default-acl
-	```
+    ```azurecli
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder --default-acl
+    ```
 
 * **To remove an entire non-default ACL**, use the following command:
 
-	```azurecli
-	az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
-	```
+    ```azurecli
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
+    ```
     
 ## Delete a Data Lake Storage Gen1 account
 Use the following command to delete a Data Lake Storage Gen1 account.

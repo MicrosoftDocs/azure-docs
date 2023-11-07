@@ -142,16 +142,16 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 1. Paste the following query in the query editor:
 
-	```SQL
-	SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-   	INTO "MyPBIoutput"
-   	FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-   	JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
-   	ON CS1.CallingIMSI = CS2.CallingIMSI
-   	AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
-   	WHERE CS1.SwitchNum != CS2.SwitchNum
-   	GROUP BY TumblingWindow(Duration(second, 1))
-	```
+    ```sql
+    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+        INTO "MyPBIoutput"
+        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+        ON CS1.CallingIMSI = CS2.CallingIMSI
+        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+        WHERE CS1.SwitchNum != CS2.SwitchNum
+        GROUP BY TumblingWindow(Duration(second, 1))
+    ```
 
     This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This function is different from the standard SQL `DATEDIFF` function.
 

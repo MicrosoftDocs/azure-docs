@@ -7,7 +7,7 @@ author: jeff-shepherd
 ms.author: jeffshep
 ms.topic: quickstart
 ms.date: 04/18/2023
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-linux
 ms.reviewer: mattmcinnes
 #Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---

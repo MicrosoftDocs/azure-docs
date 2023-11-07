@@ -4,8 +4,8 @@ description: In this article, learn how to troubleshoot the installation and reg
 ms.topic: troubleshooting
 ms.date: 12/05/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent

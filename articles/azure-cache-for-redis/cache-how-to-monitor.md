@@ -147,8 +147,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
 - Connected Clients
   - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
-- Connected Clients Using AAD Token (preview)
-   - The number of client connections to the cache authenticated using Azure AD token during the specified reporting interval.
+- Connected Clients Using Microsoft Entra Token (preview)
+   - The number of client connections to the cache authenticated using Microsoft Entra token during the specified reporting interval.
 - Connections Created Per Second
   - The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Connections Closed Per Second
@@ -164,8 +164,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Azure AD Access token
-    - **AADTokenExpired** (preview) - when an Azure AD access token used for authentication is not renewed and it expires.
+    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
+    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication is not renewed and it expires.
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.
@@ -228,6 +228,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.
 - Used Memory
   - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
+  - On the Enterprise and Enterprise Flash tier, the Used Memory value includes the memory in both the primary and replica nodes. This can make the metric appear twice as large as expected. 
 - Used Memory Percentage
   - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. This value doesn't include fragmentation.
 - Used Memory RSS

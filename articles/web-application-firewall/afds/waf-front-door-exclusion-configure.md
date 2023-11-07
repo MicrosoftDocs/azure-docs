@@ -1,6 +1,6 @@
 ---
-title: Configure WAF exclusion lists for Front Door
-description: Learn how to configure a WAF exclusion list for an existing Front Door endpoint.
+title: Configure WAF exclusion lists for Azure Front Door
+description: Learn how to configure a web application firewall (WAF) exclusion list for an existing Azure Front Door endpoint.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
@@ -11,17 +11,17 @@ ms.topic: conceptual
 zone_pivot_groups: web-application-firewall-configuration
 ---
 
-# Configure Web Application Firewall exclusion lists
+# Configure web application firewall exclusion lists
 
-Sometimes the Front Door Web Application Firewall (WAF) might block a legitimate request. As part of tuning your WAF, you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal. For more information about exclusion lists, see [Web Application Firewall (WAF) with Front Door exclusion lists](waf-front-door-exclusion.md).
+Sometimes Azure Web Application Firewall in Azure Front Door might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal. For more information about exclusion lists, see [Azure Web Application Firewall with Azure Front Door exclusion lists](waf-front-door-exclusion.md).
 
-An exclusion list can be configured by using [Azure PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), the [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), the [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), Bicep, ARM templates, and the Azure portal.
+An exclusion list can be configured by using [Azure PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), the [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), the [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), Bicep, Azure Resource Manager templates, and the Azure portal.
 
 ## Scenario
 
 Suppose you've created an API. Your clients send requests to your API that include headers with names like `userid` and `user-id`.
 
-While tuning your WAF, you've noticed that some legitimate requests have been blocked because the user headers included character sequences that the WAF detected as SQL injection attacks. Specifically, rule ID 942230 detects the request headers and blocks the requests. [Rule 942230 is part of the SQLI rule group.](waf-front-door-drs.md#drs942-20)
+While tuning your WAF, you notice that some legitimate requests were blocked because the user headers included character sequences that the WAF detected as SQL injection attacks. Specifically, rule ID 942230 detects the request headers and blocks the requests. [Rule 942230 is part of the SQLI rule group.](waf-front-door-drs.md#drs942-20)
 
 You decide to create an exclusion to allow these legitimate requests to pass through without the WAF blocking them.
 
@@ -29,17 +29,17 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
 
 ## Create an exclusion
 
-1. Open your Front Door WAF policy.
+1. Open your Azure Front Door WAF policy.
 
-1. Select **Managed rules**, and then select **Manage exclusions** on the toolbar.
+1. Select **Managed rules** > **Manage exclusions**.
 
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/managed-rules-exclusion.png" alt-text="Screenshot of the Azure portal showing the WAF policy's managed rules page, with the 'Manage exclusions' button highlighted." :::
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/managed-rules-exclusion.png" alt-text="Screenshot that shows the Azure portal showing the WAF policy's Managed rules page, with the Manage exclusions button highlighted." :::
 
-1. Select the **Add** button.
+1. Select **Add**.
 
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot of the Azure portal showing the exclusion list, with the Add button highlighted." :::
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot that shows the Azure portal with the exclusion list Add button." :::
 
-1. Configure the exclusion's **Applies to** section as follows:
+1. Configure the exclusion's **Applies to** section:
 
    | Field | Value |
    |-|-|
@@ -47,17 +47,17 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
    | Rule group | SQLI |
    | Rule | 942230 Detects conditional SQL injection attempts |
 
-1. Configure the exclusion match conditions as follows:
+1. Configure the exclusion match conditions:
 
    | Field | Value |
    |-|-|
    | Match variable | Request header name |
    | Operator | Starts with |
-   | Selector | user |
+   | Selector | User |
 
 1. Review the exclusion, which should look like the following screenshot:
 
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-details.png" alt-text="Screenshot of the Azure portal showing the exclusion configuration." :::
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-details.png" alt-text="Screenshot that shows the Azure portal showing the exclusion configuration." :::
 
    This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
 
@@ -96,7 +96,7 @@ $exclusion = New-AzFrontDoorWafManagedRuleOverrideObject `
 
 Use the [New-AzFrontDoorWafRuleGroupOverrideObject](/powershell/module/az.frontdoor/new-azfrontdoorwafrulegroupoverrideobject) cmdlet to create a rule group override, which applies the exclusion to the appropriate rule group.
 
-The example below uses the SQLI rule group, because that group contains rule ID 942230.
+The following example uses the SQLI rule group because that group contains rule ID 942230.
 
 ```azurepowershell
 $ruleGroupOverride = New-AzFrontDoorWafRuleGroupOverrideObject `
@@ -108,7 +108,7 @@ $ruleGroupOverride = New-AzFrontDoorWafRuleGroupOverrideObject `
 
 Use the [New-AzFrontDoorWafManagedRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleobject) cmdlet to configure the managed rule set, including the rule group override that you created in the previous step.
 
-The example below configures the DRS 2.0 rule set with the rule group override and its exclusion.
+The following example configures the DRS 2.0 rule set with the rule group override and its exclusion.
 
 ```azurepowershell
 $managedRuleSet = New-AzFrontDoorWafManagedRuleObject `
@@ -120,7 +120,7 @@ $managedRuleSet = New-AzFrontDoorWafManagedRuleObject `
 
 ## Apply the managed rule set configuration to the WAF profile
 
-Use the [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) cmdlet to update your WAF policy to include the configuration you created above. Ensure that you use the correct resource group name and WAF policy name for your own environment.
+Use the [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) cmdlet to update your WAF policy to include the configuration you created. Ensure that you use the correct resource group name and WAF policy name for your own environment.
 
 ```azurepowershell
 Update-AzFrontDoorWafPolicy `
@@ -135,7 +135,7 @@ Update-AzFrontDoorWafPolicy `
 
 ## Create an exclusion
 
-Use the [`az network front-door waf-policy managed-rules exclusion add`](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion) command to update your WAF policy to add a new exclusion. 
+Use the [`az network front-door waf-policy managed-rules exclusion add`](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion) command to update your WAF policy to add a new exclusion.
 
 The exclusion identifies request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion.
 
@@ -159,9 +159,9 @@ az network front-door waf-policy managed-rules exclusion add \
 
 ## Example Bicep file
 
-The following example Bicep file shows how to do the following steps:
+The following example Bicep file shows how to:
 
-- Create a Front Door WAF policy.
+- Create an Azure Front Door WAF policy.
 - Enable the DRS 2.0 rule set.
 - Configure an exclusion for rule 942230, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
 
@@ -222,4 +222,4 @@ resource wafPolicy 'Microsoft.Network/frontDoorWebApplicationFirewallPolicies@20
 
 ## Next steps
 
-- Learn more about [Front Door](../../frontdoor/front-door-overview.md).
+Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).

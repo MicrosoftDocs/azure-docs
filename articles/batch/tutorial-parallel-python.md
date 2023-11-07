@@ -4,7 +4,7 @@ description: Learn how to process media files in parallel using ffmpeg in Azure 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/25/2023
-ms.custom: mvc, devx-track-python
+ms.custom: mvc, devx-track-python, devx-track-linux
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
@@ -121,7 +121,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
-The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users or an unattended application.
+The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Microsoft Entra ID](batch-aad-auth.md), to authenticate individual users or an unattended application.
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,

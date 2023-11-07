@@ -14,7 +14,7 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 
 # Train a small object detection model with AutoML
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.

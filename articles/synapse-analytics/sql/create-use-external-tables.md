@@ -17,7 +17,7 @@ In this section, you'll learn how to create and use [native external tables](dev
 
 External tables are useful when you want to control access to external data in Synapse SQL pool. External tables are also useful if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
-- Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
+- Protected storage where users access storage files using SAS credential, Microsoft Entra identity, or Managed Identity of Synapse workspace.
 
 > [!NOTE]
 > In dedicated SQL pools you can only use native external tables with a Parquet file type, and this feature is in **public preview**. If you want to use generally available Parquet reader functionality in dedicated SQL pools, or you need to access CSV or ORC files, use Hadoop external tables. Native external tables are generally available in serverless SQL pools.
@@ -36,7 +36,7 @@ The following table lists the data formats supported:
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](https://learn.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
     ```sql
@@ -79,7 +79,7 @@ The queries in this article will be executed on your sample database and use the
 
 ## External table on a file
 
-You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
+You can create external tables that access data on an Azure storage account that allows access to users with some Microsoft Entra identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
 
 The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. 
 

@@ -3,8 +3,8 @@ title: Back up SQL Server workloads on Azure Stack
 description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: how-to
 ms.date: 01/18/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.service: backup
 ms.custom: engagement-fy23
 ---
@@ -134,7 +134,7 @@ To create a backup policy to protect SQL Server databases to Azure, follow these
 
 14. Once you review the policy details in the **Summary** screen, select **Create group** to complete the workflow. You can select **Close** and monitor the job progress in Monitoring workspace.
 
-    ![Screenshot shows the the in-progress job state of the Protection Group creation.](./media/backup-azure-backup-sql/pg-summary.png)
+    ![Screenshot shows the in-progress job state of the Protection Group creation.](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## Run an on-demand backup
 
@@ -147,7 +147,7 @@ To run an on-demand backup of a SQL Server database, follow these steps:
     ![Screenshot shows the Protection Group members.](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
 2. Right-click the database and select **Create Recovery Point**.
 
-    ![Screenshot shows how to start creating the online online Recovery Point.](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+    ![Screenshot shows how to start creating the online Recovery Point.](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
 3. Choose **Online Protection** in the drop-down menu and select **OK** to start creation of a recovery point in Azure.
 
     ![Screenshot shows how to choose the Online Protection option.](./media/backup-azure-backup-sql/sqlbackup-azure.png)

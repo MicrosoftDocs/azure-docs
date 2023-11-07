@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 07/07/2023
+ms.date: 09/12/2023
 ---
 
 
@@ -33,19 +33,23 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 1. Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online.md#managed-online-endpoints).
+1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
 1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
+1. Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Build the flow and get it ready for deployment
 
 If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting bulk tests and evaluating the results.
 
-If you didn't complete the tutorial, you'll need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
+If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
-> [!NOTE]
-> Currently Prompt flow only supports **single deployment** of managed online endpoints, so we will simplify the *deployment* configuration in the UI.
+## Define the environment used by deployment
+
+When you deploy prompt flow to managed online endpoint in UI. You need define the environment used by this flow. By default, it will use the latest prompt image version. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder, which is system generated file.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of Web requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
 ## Create an online endpoint
 
@@ -53,17 +57,17 @@ Now that you have built a flow and tested it properly, it's time to create your 
 
 The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
 
-1. In the flow authoring page or run detail page, select **Deploy**.
+In the flow authoring page or run detail page, select **Deploy**.
 
-    **Flow authoring page**:
+**Flow authoring page**:
     
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png" alt-text="Screenshot of Web Classification on the flow authoring page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png" alt-text="Screenshot of Web Classification on the flow authoring page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png":::
     
-    **Run detail page**:
+**Run detail page**:
     
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png" alt-text="Screenshot of Web Classification on the run detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png" alt-text="Screenshot of Web Classification on the run detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png":::
 
-1. A wizard for you to configure the endpoint occurs and include following steps.
+A wizard for you to configure the endpoint occurs and include following steps.
 
 ### Endpoint
 
@@ -83,19 +87,42 @@ The authentication method for the endpoint. Key-based authentication provides a 
 
 The endpoint needs to access Azure resources such as the Azure Container Registry or your workspace connections for inferencing. You can allow the endpoint permission to access Azure resources via giving permission to its managed identity.
 
-System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
+System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. The advantage of user-assigned identity is that you can assign multiple endpoints with the same user-assigned identity, and you just need to grant needed permissions to the user-assigned identity once. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Select the identity you want to use, and you'll notice a warning message to remind you to grant correct permissions to the identity after the endpoint is created.
+Select the identity you want to use, and you'll notice a warning message to remind you to grant correct permissions to the identity.
 
-You can continue to configure the endpoint in wizard, as the endpoint creation will take some time. Make sure you grant permissions to the identity after the endpoint is created. See detailed guidance in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
+> [!IMPORTANT]
+> When creating the deployment, Azure tries to pull the user container image from the workspace Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
+> 
+> To do these, Azure uses managed identities to access the storage account and the container registry.
+>
+>    - If you created the associated endpoint with **System Assigned Identity**, Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
+>
+>    - If you created the associated endpoint with **User Assigned Identity**, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission **before the deployment creation**; otherwise, the deployment creation will fail. If you need to create multiple endpoints, it is recommended to use the same user-assigned identity for all endpoints in the same workspace, so that you only need to grant the permissions to the identity once.
 
-#### Allow sharing sample input data for testing purpose only
+|Property| System Assigned Identity | User Assigned Identity|
+|---|---|---|
+|| if you select system assigned identity, it will be auto-created by system for this endpoint <br> | created by user. [Learn more about how to create user assigned identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). <br> one user assigned identity can be assigned to multiple endpoints|
+|Pros| Permissions needed to pull image and mount model and code artifacts from workspace storage are auto-granted.| Can be shared by multiple endpoints.|
+|Required permissions|**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> |**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> **Workspace container registry**: **Acr pull** <br> **Workspace default storage**: **Storage Blob Data Reader**|
 
-If the checkbox is selected, the first row of your input data will be used as sample input data for testing the endpoint later.
+See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
+
+### Deployment
+
+In this step, you can specify the following properties:
+
+|Property| Description |
+|---|-----|
+|Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint in the previous step, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
+|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [model monitoring.](how-to-monitor-generative-ai-applications.md)|
+|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard in the studio UI." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
 
 ### Outputs
 
-In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy.
+In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
 
@@ -110,7 +137,7 @@ In this step, you can view all connections within your flow, and change connecti
 In this step, you can select the virtual machine size and instance count for your deployment.
 
 > [!NOTE]
-> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
+> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it's better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
 >
 > For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
 
@@ -130,7 +157,9 @@ You can also directly go to the **Endpoints** page in the studio, and check the 
 ## Grant permissions to the endpoint
 
  > [!IMPORTANT]
- > After you finish creating the endpoint and **before you test or consume the endpoint**, make sure you have granted correct permissions by adding role assignment to the managed identity of the endpoint. Otherwise, the endpoint will fail to perform inference due to lacking of permissions.
+ > If you select **System Assigned Identity**, make sure you have granted correct permissions by adding role assignment to the managed identity of the endpoint **before you test or consume the endpoint**. Otherwise, the endpoint will fail to perform inference due to lacking of permissions.
+ > 
+ > If you select **User Assigned Identity**, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission **before the deployment creation** - better do it before you finisht the deploy wizard; otherwise, the deployment creation will fail. If you need to create multiple endpoints, it is recommended to use the same user-assigned identity for all endpoints in the same workspace, so that you only need to grant the permissions to the identity once.
  >
  > Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You may need to ask your IT admin for help.
  > 
@@ -142,22 +171,22 @@ For **System-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections. |
-|(Optional) Workspace default storage|* Storage Blob Data Contributor<br> * Storage Table Data Contributor| Enable tracing data including node level outputs/trace/logs when performing inference. Currently it's not required.|
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections. |
+
 
 For **User-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections|
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
 |Workspace container registry |Acr pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
-|(Optional) Workspace default storage|Storage Blob Data Contributor<br>  Storage Table Data Contributor| Enable tracing data including node level outputs/trace/logs when performing inference. Currently it's not required.|
+
 
 To grant permissions to the endpoint identity, there are two ways:
 
-- You can leverage Azure Resource Manager template to grant all permissions. You can find related Azure Resource Manager templates in [Prompt flow GitHub repo](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow). 
+- You can use Azure Resource Manager template to grant all permissions. You can find related Azure Resource Manager templates in [Prompt flow GitHub repo](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow). 
 
 - You can also grant all permissions in Azure portal UI by following steps.
 
@@ -169,7 +198,7 @@ To grant permissions to the endpoint identity, there are two ways:
         > [!NOTE]
         > AzureML Data Scientist is a built-in role which has permission to get workspace connections. 
         >
-        > If you want to use a customized role, make sure the customized role has the permission of “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action”. Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
+        > If you want to use a customized role, make sure the customized role has the permission of "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action". Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
 
     1. Select **Managed identity** and select members.
         For **system-assigned identity**, select **Machine learning online endpoint** under **System-assigned managed identity**, and search by endpoint name.
@@ -210,7 +239,9 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
 
-## View metrics using Azure Monitor (optional)
+## View endpoint metrics 
+
+### View managed online endpoints common metrics using Azure Monitor (optional)
 
 You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following these links take you to the exact metrics page in the Azure portal for the endpoint or deployment.
 
@@ -221,7 +252,44 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
 
+### View prompt flow endpoints specific metrics (optional)
+
+If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints specific metrics collected in the workspace default Application Insights.
+
+| Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
+|--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
+| token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens ; `total_tokens` = `prompt_tokens + completion tokens`          | openai token consumption metrics                                                |
+| flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
+| flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
+| node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
+| node_request                         | counter   | flow,node,exception,run_status            | node execution count                                                    |
+| rpc_latency                          | histogram | flow,node,api_call                        | rpc cost                                                                        |
+| rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
+| flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
+
+You can find the workspace default Application Insights in your workspace page in Azure portal.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png" alt-text="Screenshot of the workspace default Application Insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png":::
+
+Open the Application Insights, and select **Usage and estimated costs** from the left navigation. Select **Custom metrics (Preview)**, and select **With dimensions**, and save the change.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png" alt-text="Screenshot of enable multidimensional metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png":::
+
+Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggregation methods.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
+
 ## Troubleshoot endpoints deployed from prompt flow
+
+### Model response taking too long
+
+Sometimes you may notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+
+- Model is not powerful enough (ex. use gpt over text-ada)
+- Index query is not optimized and taking too long
+- Flow has many steps to process
+
+Consider optimizing the endpoint with above considerations to improve the performance of the model.
 
 ### Unable to fetch deployment schema
 
@@ -230,7 +298,7 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
-- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-runtime-from-ui) and re-run the flow in the latest runtime and then deploy the flow again.
+- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-runtime-from-ui) and rerun the flow in the latest runtime and then deploy the flow again.
 
 ### Access denied to list workspace secret
 
@@ -242,8 +310,6 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 > [!NOTE]
 > The complete deletion may take approximately 20 minutes.
-
-
 
 ## Next Steps
 

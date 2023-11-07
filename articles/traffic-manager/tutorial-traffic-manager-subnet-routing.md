@@ -40,7 +40,7 @@ The test VMs are used to illustrate how Traffic Manager routes user traffic to t
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 

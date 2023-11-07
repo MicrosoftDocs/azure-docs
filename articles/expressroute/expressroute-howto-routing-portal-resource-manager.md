@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/13/2022
+ms.date: 08/31/2023
 ms.author: duau
 ms.custom: template-tutorial
 ---
@@ -24,6 +24,8 @@ This tutorial shows you  how to create and manage routing configuration for an A
 > 
 
 You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
+
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -70,7 +72,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
 
-   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you'll assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
        * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
        * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
        * Both: Two /30 subnets and two /126 subnets.
@@ -130,7 +132,7 @@ This section helps you create, get, update, and delete the Azure private peering
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A pair of subnets that aren't part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you'll assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of subnets that aren't part of any address space reserved for virtual networks. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
        * IPv4: Two /30 subnets.
        * IPv6: Two /126 subnets.
        * Both: Two /30 subnets and two /126 subnets.

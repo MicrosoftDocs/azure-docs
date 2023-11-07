@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/26/2023
+ms.date: 08/16/2023
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -57,24 +57,30 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 
 The following example shows a context variable:
 
-```
+```yaml
 {"RecoveryPlanName":"hrweb-recovery",
+
+```json
+{
+"RecoveryPlanName":"hrweb-recovery",
+
 "FailoverType":"Test",
 "FailoverDirection":"PrimaryToSecondary",
 "GroupId":"1",
 "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
-	{ "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-	"ResourceGroupName":"ContosoRG",
-	"CloudServiceName":"pod02hrweb-Chicago-test",
-	"RoleName":"Fabrikam-Hrweb-frontend-test",
-	"RecoveryPointId":"TimeStamp"}
-	}
+    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+    "ResourceGroupName":"ContosoRG",
+    "CloudServiceName":"pod02hrweb-Chicago-test",
+    "RoleName":"Fabrikam-Hrweb-frontend-test",
+    "RecoveryPointId":"TimeStamp"}
+    }
 }
 ```
 
 If you want to access all VMs in VMMap in a loop, you can use the following code:
 
-```
+
+```powershell
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
     foreach($VMID in $VMinfo)
@@ -88,10 +94,7 @@ $vmMap = $RecoveryPlanContext.VmMap
         }
 ```
 
-
 Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has a useful example of a [recovery plan context script](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
-
-
 
 ## Before you start
 
@@ -105,20 +108,17 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
     All modules should be of compatible versions. The simplest way is to always use the latest versions of all modules.
 
-
-
 ## Customize the recovery plan
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
-2. To create a recovery plan, click **+Recovery Plan**. [Learn more](site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
-3. In the recovery plan page, click **Customize**.
+2. To create a recovery plan, select **+Recovery Plan**. [Learn more](site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
+3. In the recovery plan page, select **Customize**.
 
-    ![Click the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
+    ![Select the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Click the ellipses (...) next to **Group 1: Start** > **Add post action**.
+2. Select the ellipses (...) next to **Group 1: Start** > **Add post action**.
 3. In **Insert action**, verify that **Script** is selected, and specify a name for the script (**Hello World**).
-4. Specify an automation account and select a runbook. To save the script, click **OK**. The script is added to **Group 1: Post-steps**.
-
+4. Specify an automation account and select a runbook. To save the script, select **OK**. The script is added to **Group 1: Post-steps**.
 
 ## Reuse a runbook script
 
@@ -134,7 +134,7 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
 
 1. So that the script can detect which recovery plan is running, use this recovery plan context:
 
-    ```
+    ```powershell
     workflow AddPublicIPAndNSG {
         param (
               [parameter(Mandatory=$false)]
@@ -142,48 +142,51 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
         )
 
         $RPName = $RecoveryPlanContext.RecoveryPlanName
+    }
     ```
 
-2. Note the NSG name and resource group. You use these variables as inputs for recovery plan scripts. 
+1. Note the NSG name and resource group. You use these variables as inputs for recovery plan scripts.
+
 1. In the Automation account assets. create a variable to store the NSG name. Add a prefix to the variable name with the name of the recovery plan.
 
-	![Create an NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
+    ![Create an NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
 
 2. Create a variable to store the resource group name for the NSG resource. Add a prefix to the variable name with the name of the recovery plan.
 
 	![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
 
-
 3.	In the script, use this reference code to get the variable values:
 
-	```
-	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
-	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
+    ![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
 
-	$NSGnameVar = Get-AutomationVariable -Name $NSGValue
-	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
-	```
+3. In the script, use this reference code to get the variable values:
 
-4.	Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
+    ```powershell
+    $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
+    $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-	```
- 	InlineScript {
- 	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
-			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
-			Write-output $NSG.Id
-			#Apply the NSG to a network interface
-			#$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-			#Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-			#  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
-		}
-	}
-	```
+    $NSGnameVar = Get-AutomationVariable -Name $NSGValue
+    $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
+    ```
 
+4. Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
+
+    ```powershell
+    InlineScript {
+    if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+            $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
+            Write-output $NSG.Id
+            #Apply the NSG to a network interface
+            #$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+            #Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+            #  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
+        }
+    }
+    ```
 
 For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. 
 
 For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
-
 
 ### Use a complex variable to store more information
 
@@ -194,68 +197,70 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 
 1. In PowerShell, sign in to your Azure subscription:
 
-	```
-	Connect-AzureRmAccount
-	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
-	$sub | Select-AzureRmSubscription
-	```
+    ```powershell
+    Connect-AzureRmAccount
+    $sub = Get-AzureRmSubscription -Name <SubscriptionName>
+    $sub | Select-AzureRmSubscription
+    ```
 
 2. To store the parameters, create the complex variable using the name of the recovery plan:
 
-	```
-	$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
-		New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
-	```
+    ```powershell
+    $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
+        New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
+    ```
 
 3. In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
 
-	![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
-	```
-	$VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
-	```
+    ```powershell
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
+    ```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
 
-	```
-		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
-		$vmMap = $RecoveryPlanContext.VmMap
+    ```powershell
+        $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
+        $vmMap = $RecoveryPlanContext.VmMap
 
-		foreach($VMID in $VMinfo) {
-			$VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
-			Write-output $VMDetails
-			if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
-				$VM = $vmMap.$VMID
-				# Access the properties of the variable
-				$NSGname = $VMDetails.NSGName
-				$NSGRGname = $VMDetails.NSGResourceGroupName
+        foreach ($VMID in $VMinfo) {
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
+                $VM = $vmMap.$VMID
+                # Access the properties of the variable
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
-				# Add code to apply the NSG properties to the VM
-			}
-		}
-	```
+                # Add code to apply the NSG properties to the VM
+            }
+        }
+    ```
 
 You can use the same script for different recovery plans. Enter different parameters by storing the value that corresponds to a recovery plan in different variables.
 
 ## Sample scripts
 
-To deploy sample scripts to your Automation account, click the **Deploy to Azure** button.
+To deploy sample scripts to your Automation account, select the **Deploy to Azure** button.
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
-
-
 ## Next steps
 
-- Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
-- Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
-- [Learn more](site-recovery-failover.md) about running failovers.
+- Learn about:
+    - [Running failovers](site-recovery-failover.md)
+- Review:
+    -  [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+    - [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks).
+
+
+

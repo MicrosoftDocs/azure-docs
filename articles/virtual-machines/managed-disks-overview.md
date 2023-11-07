@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 10/12/2023
 ms.author: rogarana
 ms.custom: contperf-fy21q1
 ---
@@ -15,6 +15,8 @@ ms.custom: contperf-fy21q1
 Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.
 
 The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). For information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
+
+Alternatively, you could use an Azure Elastic SAN Preview as your VM's storage. An Elastic SAN allows you to consolidate the storage for all your workloads into a single storage backend and can be more cost effective if you've a sizeable amount of large scale IO-intensive workloads and top tier databases. To learn more, see [What is Azure Elastic SAN? Preview](../storage/elastic-san/elastic-san-introduction.md)
 
 ## Benefits of managed disks
 
@@ -85,7 +87,7 @@ There are three main disk roles in Azure: the data disk, the OS disk, and the te
 
 ### Data disk
 
-A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 32,767 gibibytes (GiB). The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 ### OS disk
 
@@ -132,7 +134,7 @@ The following diagram depicts real-time allocation of bandwidth and IOPS for dis
 
 The first IO path is the uncached managed disk path. This path is taken if you are using a managed disk and set the host caching to none. An IO using this path will execute based on disk-level provisioning and then VM network-level provisioning for IOPs and throughput.   
 
-The second IO Path is the cached managed disk path. Cached managed disk IO uses an SSD close to the VM, which has its own own IOPs and throughput provisioned, and is labeled SSD-level provisioning in the diagram. When a cached managed disk initiates a read, the request first checks to see if the data is in the server SSD. If the data isn't present, this created a cached miss and the IO then executes based on SSD-level provisioning, disk-level provisioning and then VM network-level provisioning for IOPs and throughput. When the server SSD initiates reads on cached IO that are present on the server SSD, it creates a cache hit and the IO will then execute based on the SSD-level provisioning. Writes initiated by a cached managed disk always follow the path of a cached-miss, and need to go through SSD-level, disk-level, and VM network-level provisioning.  
+The second IO Path is the cached managed disk path. Cached managed disk IO uses an SSD close to the VM, which has its own IOPs and throughput provisioned, and is labeled SSD-level provisioning in the diagram. When a cached managed disk initiates a read, the request first checks to see if the data is in the server SSD. If the data isn't present, this created a cached miss and the IO then executes based on SSD-level provisioning, disk-level provisioning and then VM network-level provisioning for IOPs and throughput. When the server SSD initiates reads on cached IO that are present on the server SSD, it creates a cache hit and the IO will then execute based on the SSD-level provisioning. Writes initiated by a cached managed disk always follow the path of a cached-miss, and need to go through SSD-level, disk-level, and VM network-level provisioning.  
 
 Finally, the third path is for the local/temp disk. This is available only on VMs that support local/temp disks. An IO using this path will execute based on SSD-Level Provisioning for IOPs and throughput.   
 

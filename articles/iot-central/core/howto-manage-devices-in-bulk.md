@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 07/24/2023
 ms.topic: how-to
 ms.custom: contperf-fy23q1
 ---
@@ -14,7 +14,10 @@ ms.custom: contperf-fy23q1
 
 You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. This article shows you how to use jobs in your own application and how to use the import and export features.
 
-To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md).
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices](../core/howto-manage-jobs-with-rest-api.md).
+
+> [!TIP]
+> When you create a recurring job, sign in to your application using a Microsoft account or Microsoft Entra account. If you sign in using a Microsoft Entra group, it's possible that the Microsoft Entra token associated with the group will expire at some point in the future and cause the job to fail.
 
 ## Create and run a job
 

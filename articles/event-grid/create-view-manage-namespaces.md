@@ -1,5 +1,5 @@
 ---
-title: Create, view, and manage Azure Event Grid namespaces
+title: Create, view, and manage Azure Event Grid namespaces (Preview)
 description: This article describes how to create, view and manage namespaces
 author: robece
 ms.topic: how-to
@@ -8,9 +8,11 @@ ms.author: robece
 ms.date: 05/23/2023
 ---
 
-# Create, view, and manage namespaces
+# Create, view, and manage namespaces (Preview)
 
 A namespace in Azure Event Grid is a logical container for one or more topics, clients, client groups, topic spaces and permission bindings. It provides a unique namespace, allowing you to have multiple resources in the same Azure region. With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
+
+[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
 
 This article shows you how to use the Azure portal to create, view and manage an Azure Event Grid namespace.
 
@@ -75,6 +77,9 @@ If you already created a namespace and want to increase or decrease TUs, follow 
 4. Select **Apply** to apply the changes.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-scale.png" alt-text="Screenshot showing Event Grid scale page.":::
+
+    > [!NOTE]
+    > For quotas and limits for resources in a namespace including maximum TUs in a namespace, See [Azure Event Grid quotas and limits](quotas-limits.md).
 
 ## Delete a namespace
 

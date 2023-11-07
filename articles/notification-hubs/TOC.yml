@@ -29,50 +29,30 @@
     items:
     - name: Firebase Cloud Messaging
       items:
-      - name: Send push notifications to all registrations (Current SDK)
+      - name: Send push notifications to all registrations
         href: android-sdk.md
-      - name: Send push notifications to all registrations (Legacy SDK)
-        href: notification-hubs-android-push-notification-google-fcm-get-started.md
       - name: Send push notifications to specific devices
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
       - name: Send push notifications to specific users
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
       - name: Send push notifications to Xamarin Android apps 
         href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Google Cloud Message (deprecated)
-      items:      
-      - name: Send push notifications to all registrations
-        href: notification-hubs-android-push-notification-google-gcm-get-started.md      
-      - name: Send push notifications to specific devices
-        href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-      - name: Send push notifications to specific users
-        href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: iOS
     items:
-    - name: Notification Hubs updates for iOS 13
+    - name: Notification Hubs updates for iOS 13+
       href: push-notification-updates-ios-13.md
-    - name: Send push notifications to iOS apps
-      items:
-      - name: Prerequisites for iOS tutorials
-        href: ios-sdk-get-started.md
-      - name: Objective-C (Current SDK)
-        href: ios-sdk-current.md
-      - name: Objective-C (Legacy SDK)
-        href: ios-sdk-legacy.md
+    - name: Set up your iOS app to work with Azure Notification Hubs
+      href: ios-sdk-get-started.md
+    - name: Initial configuration to receive push notification from Azure Notification Hubs
+      href: ios-sdk-current.md
     - name: Send push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Send push notifications to specific users
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
     - name: Send push notifications to Xamarin iOS apps
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
-    - name: Send push localized notifications to iOS devices
+    - name: Send localized push notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-  - name: Windows Phone
-    items:
-    - name: Send push notifications to apps
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md          
-    - name: Send push notifications to specific devices
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
   - name: Windows
     items:
     - name: Send push notifications to Universal Windows Platform apps
@@ -122,6 +102,8 @@
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+  - name: Send browser push notifications
+    href: browser-push.md
   - name: Send scheduled notifications
     href: notification-hubs-send-push-notifications-scheduled.md      
   - name: Deploy and manage notification hubs using Azure PowerShell

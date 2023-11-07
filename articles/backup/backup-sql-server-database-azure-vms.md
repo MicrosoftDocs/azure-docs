@@ -4,8 +4,8 @@ description: In this article, learn how to back up SQL Server databases on Azure
 ms.topic: conceptual
 ms.date: 05/24/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -42,7 +42,7 @@ Before you back up a SQL Server database, check the following criteria:
 
 ### Establish network connectivity
 
-For all operations, a SQL Server VM requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+For all operations, a SQL Server VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
 
 The following table lists the various alternatives you can use for establishing connectivity:
 
@@ -51,7 +51,7 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Azure Active Directory*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.    |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Microsoft Entra ID*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.    |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
 
 The following sections provide more details around using these options.
@@ -65,7 +65,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -75,7 +75,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD.
+You can similarly create NSG outbound security rules for Azure Storage and Microsoft Entra ID.
 
 #### Azure Firewall tags
 
@@ -83,7 +83,7 @@ If you're using Azure Firewall, create an application rule by using the *AzureBa
 
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Azure Active Directory.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -101,7 +101,7 @@ When using an internal load balancer, you need to allow the outbound connectivit
 
 #### Use an HTTP proxy server to route traffic
 
-When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
+When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Microsoft Entra ID for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
 > [!NOTE]
 > Disable proxy for localhost communications within the VM. Proxy will be honored for outbound communications from the SQL VM.

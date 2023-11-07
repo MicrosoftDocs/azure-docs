@@ -1,0 +1,52 @@
+### YamlMime:FAQ
+metadata:
+  title: "Voice Assistants on Windows - FAQ"
+  titleSuffix: Azure AI services
+  description: Common questions that frequently come up during Windows voice agent development.
+  services: cognitive-services
+  author: cfogg6
+  manager: trrwilson
+  ms.service: azure-ai-speech
+  ms.topic: faq
+  ms.date: 04/15/2020
+  ms.author: travisw
+  ms.custom: cogserv-non-critical-speech
+title: Samples and FAQs
+summary: |
+  ## The UWP Voice Assistant Sample
+  
+  The UWP Voice Assistant Sample is a voice assistant on Windows that serves to
+  
+  - demonstrate the use of the Windows ConversationalAgent APIs
+  - display best practices for a voice agent on Windows
+  - provide an adaptable app and reusable components for your MVP agent application
+  - show how Direct Line Speech and the Bot Framework can be used together with the Windows ConversationalAgent APIs for an end-to-end voice agent experience
+  
+  The documentation provided with the sample app walks through the code path of voice activation and agent management, from the prerequisites of startup through proper cleanup.
+  
+  > [!div class="nextstepaction"]
+  > [Visit the GitHub repo for the UWP Sample](https://aka.ms/MVA/sample)
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
+        answer: |
+          When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
+          
+          To make the transition from compact view to full app view, use the appView API `TryEnterViewModeAsync`:
+          
+          `var appView = ApplicationView.GetForCurrentView();
+           await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`
+          
+      - question: |
+          Why are voice assistant features on Windows only enabled for UWP applications?
+        answer: |
+          Given the privacy risks associated with features like voice activation, the features of the UWP platform are necessary allow the voice assistant features on Windows to be sufficiently secure.
+
+      - question: |
+          The UWP Voice Assistant Sample uses Direct Line Speech. Do I have to use Direct Line Speech for my voice assistant on Windows?
+        answer: |
+          The UWP Sample Application was developed using Direct Line Speech and the Speech SDK as a demonstration of how to use a dialog service with the Windows Conversational Agent capability. However, you can use any service for local and cloud keyword verification, speech to text conversion, bot dialog, and text to speech conversion.

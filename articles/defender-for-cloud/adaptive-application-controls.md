@@ -1,10 +1,10 @@
 ---
-title: Adaptive application controls in Microsoft Defender for Cloud
+title: Adaptive application controls
 description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 08/09/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
@@ -39,7 +39,7 @@ No enforcement options are currently available. Adaptive application controls ar
 |Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 
 ## Enable application controls on a group of machines
 
@@ -114,14 +114,16 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule.](./media/adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path. The following screens show some examples of how to use wildcards.
+
+       :::image type="content" source="media/adaptive-application/wildcard-examples.png" alt-text="Screenshot that shows examples of using wildcards." lightbox="media/adaptive-application/wildcard-examples.png":::
 
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:
       >
       > - Using a wildcard at the end of a path to allow all executables within this folder and sub-folders.
       > - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (for example, personal user folders containing a known executable, automatically generated folder names, etc).
-  
+
    1. Define the allowed users and protected file types.
 
    1. When you've finished defining the rule, select **Add**.
@@ -214,4 +216,4 @@ On this page, you learned how to use adaptive application control in Microsoft D
 
 - [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md)
 - [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)
--  View common question about [Adaptive application controls](faq-defender-for-servers.yml)
+- View common question about [Adaptive application controls](faq-defender-for-servers.yml)

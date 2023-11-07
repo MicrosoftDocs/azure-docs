@@ -74,7 +74,7 @@ All other settings remain at default values.
 Select the "bookwafpolicy" Azure WAF policy  and ensure the Policy mode is set to 
 ["Prevention" in the overview tab of the policy](waf-front-door-create-portal.md#change-mode)
 
-Azure WAF detection mode is used for testing and validating the policy. Detection doesn't block the call but logs all threats detected, while prevention mode blocks the call if an attack is detected. Typically, you test the scenario before switching to prevention model. For this exercise, we switch to prevention mode.  
+Azure WAF detection mode is used for testing and validating the policy. Detection doesn't block the call but logs all threats detected, while prevention mode blocks the call if an attack is detected. Typically, you test the scenario before switching to prevention mode. For this exercise, we switch to prevention mode.  
 [Azure Web Application Firewall on Azure Front Door](afds-overview.md#waf-modes) has more information about various WAF policy modes.
 
 

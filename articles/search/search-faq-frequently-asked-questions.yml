@@ -9,7 +9,7 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 06/29/2023
+  ms.date: 07/28/2023
 title: Cognitive Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
@@ -75,7 +75,7 @@ sections:
         answer: |
           There's no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
           
-          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). 
                    
       - question: |
           Can I restore my index or service once it's deleted?
@@ -92,7 +92,7 @@ sections:
       - question: |
           What is vector search?
         answer: |
-          Vector search is a technique used in information retrieval to find similar items in a dataset based on their vector representations.
+          Vector search is a technique that finds the most similar documents by comparing their vector representations. Since the goal of a vector representation is to capture the essential characteristics of an item in a numerical format, it can capture abstract concepts and identify matches even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. To improve efficiency on large databases, vector search often provides the approximate nearest neighbors for a query vector. See [Vector search overview](vector-search-overview.md) for the specifics of Azure Cognitive Search's vector search product offering.
 
       - question: |
           Does Azure Cognitive Search support vector search?
@@ -153,7 +153,7 @@ sections:
       - question: |
           Where does query execution occur?
         answer: |
-          Queries execute over a single search index that's hosted on your search service. You can't join multiple indexes to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
+          Queries execute over a single search index that's hosted on your search service. You can't join multiple indexes to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services).
               
       - question: |
           Why are there zero matches on terms I know to be valid?
@@ -189,7 +189,7 @@ sections:
       - question: |
           Does Cognitive Search send customer data to other services for processing?
         answer: |
-          Yes, if you use the built-in skills based on Cognitive Services, the indexer sends requests to Cognitive Services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
+          Yes, if you use the built-in skills based on Azure AI services, the indexer sends requests to Azure AI services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
 
       - question: |
           Can I control access to search results based on user identity?

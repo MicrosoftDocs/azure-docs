@@ -2,13 +2,13 @@
 title: How to mount an Azure Blob Storage container on Linux with BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
-author: jimmart-dev
-ms.author: jammart
+author: akashdubey-ms
+ms.author: akashdubey
 ms.reviewer: tamram
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2

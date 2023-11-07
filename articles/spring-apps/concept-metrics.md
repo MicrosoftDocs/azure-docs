@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Metrics for Azure Spring Apps
@@ -214,7 +214,7 @@ The following table applies to the Tanzu Spring Cloud Gateway in Enterprise plan
 ## Next steps
 
 * [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
-* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+* [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 * [Tutorial: Monitor Spring app resources using alerts and action groups](./tutorial-alerts-action-groups.md)
 * [Quotas and Service Plans for Azure Spring Apps](./quotas.md)

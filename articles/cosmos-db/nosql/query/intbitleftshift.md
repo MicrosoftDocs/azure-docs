@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -33,26 +33,18 @@ IntBitLeftShift(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    shiftInteger: IntBitLeftShift(16, 4),
-    shiftDecimal: IntBitLeftShift(16, 0.4)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitleftshift/query.novalidate.sql" highlight="2-3":::
 
-```json
-[
-  {
-    "shiftInteger": 256
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitleftshift/result.novalidate.json":::
 
 ## Remarks
 

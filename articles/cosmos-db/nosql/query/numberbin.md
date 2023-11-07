@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -21,7 +21,7 @@ Rounds the numeric expression's value down to a multiple of specified bin size.
 ## Syntax
 
 ```sql
-NumericBin(<numeric_expr> [, <bin_size>])
+NumberBin(<numeric_expr> [, <bin_size>])
 ```
 
 ## Arguments
@@ -39,58 +39,23 @@ Returns a numeric value.
 
 This first example bins a single static number with various bin sizes.
 
-```sql
-SELECT VALUE {
-    roundToNegativeHundreds: NumberBin(37.752, -100),
-    roundToTens: NumberBin(37.752, 10),
-    roundToOnes: NumberBin(37.752, 1),
-    roundToZeroes: NumberBin(37.752, 0),
-    roundToOneTenths: NumberBin(37.752, 0.1),
-    roundToOneHundreds: NumberBin(37.752, 0.01)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin/query.novalidate.sql" highlight="2-7":::
 
-```json
-[
-  {
-    "roundToNegativeHundreds": 100,
-    "roundToTens": 30,
-    "roundToOnes": 37,
-    "roundToOneTenths": 37.7,
-    "roundToOneHundreds": 37.75
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/numberbin/result.novalidate.json":::
 
-This next example uses a value from an existing item and rounds that value using the function.
+This next example uses a field from an existing item.
 
-```json
-{
-  "name": "Ignis Cooking System",
-  "price": 155.23478
-}
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/seed.novalidate.json" range="1-2,4-8" highlight="4":::
 
-```sql
-SELECT
-    p.name,
-    NumberBin(p.price, 0.01) AS price
-FROM
-    products p
-```
+This query rounds the previous field using the function.
 
-```json
-[
-  {
-    "name": "Ignis Cooking System",
-    "price": 155.23
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/query.novalidate.sql" highlight="3":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/result.novalidate.json":::
 
 ## Remarks
 
-- This function returns **undefined** if the specified bin size is `0`.
+- This function returns `undefined` if the specified bin size is `0`.
 - The default bin size is `1`. This bin size effectively returns a numeric value rounded to the next integer.
 
 ## See also

@@ -86,31 +86,6 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 ![Screenshot of pencil icon to change pipeline draft name.](./media/tutorial-designer-automobile-price-train-score/change-pipeline-draft-name.png) 
 
 
-## Set the default compute target
-
-A pipeline jobs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future jobs.
-
-> [!Important]
-> Attached compute is not supported, use [compute instances or clusters](../concept-compute-target.md#azure-machine-learning-compute-managed) instead.
-
-You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
-
-1. Select ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png)**Settings** to the right of the canvas to open the **Settings** pane.
- 
-1. Select **Create Azure Machine Learning compute instance**.
-
-    * If you already have an available compute target, you can select it from the **Select Azure Machine Learning compute instance** drop-down to run this pipeline.
-
-    * Or, select "Serverless" to use [serverless compute (preview)](../how-to-use-serverless-compute.md).
-
-1. Enter a name for the compute resource.
-
-1. Select **Create**.
-
-    > [!NOTE]
-    > It takes approximately five minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future jobs.
-    >
-    > The compute resource autoscales to zero nodes when it's idle to save cost. When you use it again after a delay, you might experience approximately five minutes of wait time while it scales back up.
 
 ## Import data
 
@@ -215,7 +190,7 @@ Because you want to predict price, which is a number, you can use a regression a
 
 ### Split the data
 
-Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
+Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset trains the model and the other will test how well the model performed.
 
 1. In the datasets and component palette to the left of the canvas, click **Component** and search for the **Split Data** component.
 
@@ -232,7 +207,7 @@ Splitting data is a common task in machine learning. You'll split your data into
 
 1. In the **Split Data** details pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
-    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data will be available through the right output port.
+    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data is available through the right output port.
 
 1. In the **Split Data** details pane, expand **Node info**.
 
@@ -300,26 +275,28 @@ Use the **Evaluate Model** component to evaluate how well your model scored the 
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Screenshot showing the correct configuration of the pipeline.":::
 
-## Submit the pipeline
+## Submit pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline job to train your machine learning model. You can submit a valid pipeline job at any point, which can be used to review changes to your pipeline during development.
+1. Select **Configure & Submit** on the right top corner to submit the pipeline.
 
-1. At the top of the canvas, select **Submit**.
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/configure-submit.png" alt-text="Screenshot showing configure and submit button." border="false":::
 
-1. In the **Set up pipeline job** dialog box, select **Create new**.
 
-    > [!NOTE]
-    > Experiments group similar pipeline jobs together. If you run a pipeline multiple times, you can select the same experiment for successive jobs.
+1. Then you'll see a step-by-step wizard, follow the wizard to submit the pipeline job.
 
-    1. For **New experiment Name**, enter **Tutorial-CarPrices**.
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/submission-wizard.png" alt-text="Screenshot showing submission wizard." lightbox ="./media/tutorial-designer-automobile-price-train-score/submission-wizard.png":::
 
-    1. Select **Submit**.
+In *Basics* step, you can configure the experiment, job display name, job description etc.
 
-    1. You'll see a submission list in the left pane of the canvas, and a notification will pop up at the top right corner of the page. You can select the **Job detail** link to go to job detail page for debugging.
+In *Inputs & Outputs* step, you can assign value to the Inputs/Outputs that are promoted to pipeline level. In this example it will be empty because we didn't promote any input/output to pipeline level.
 
-        :::image type="content" source="./media/how-to-run-batch-predictions-designer/submission-list.png" alt-text="Screenshot of the submitted jobs list with a success notification.":::
+In *Runtime settings*, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. However, if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
 
-    If this is the first job, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
+The *Review + Submit* step is the last step to review all settings before submit. The wizard will remember your last configuration if you ever submit the pipeline.
+
+After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
+
+  :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="./media/tutorial-designer-automobile-price-train-score/submit-message.png":::
 
 ### View scored labels
 

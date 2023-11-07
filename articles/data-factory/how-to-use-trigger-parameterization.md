@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: 
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ---
 
 # Reference trigger metadata in pipeline runs

@@ -16,7 +16,7 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 
 ## Authenticate Azure Monitor requests
 
-Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Azure Active Directory. One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve an authentication token. You can create an Azure Active Directory service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md)
+Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md)
 
 ### Retrieve a token
 Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
@@ -174,6 +174,15 @@ The result should be similar to the following example:
 >
 ---
 
+## API endpoints
+
+The API endpoints use the following pattern:  
+`/<resource URI>/providers/microsoft.insights/<metrics|metricDefinitions>?api-version=<apiVersion>`  
+The `resource URI` is composed of the following components:  
+`/subscriptions/<subscription id>/resourcegroups/<resourceGroupName>/providers/<resourceProviderNamespace>/<resourceType>/<resourceName>/`
+
+> [!IMPORTANT]
+> Be sure to include `/providers/microsoft.insights/` after the resource URI when you make an API call to retrieve metrics or metric definitions.
 ## Retrieve metric definitions
 
 Use the [Azure Monitor Metric Definitions REST API](/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
@@ -400,7 +409,7 @@ Content-Type: application/json
 Authorization: Bearer <access token>
 ```
 
-The following example retrieves the top three APIs,  by the number of `Transactions` in descending value order, during a 5-minute range, where  the `GeoType` dimension has a value of `Primary`.
+The following example retrieves the top three APIs,  by the number of `Transactions` in descending value order, during a 5-minute range, where the `GeoType` dimension has a value of `Primary`.
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics \
@@ -485,12 +494,12 @@ There are some important differences between querying metrics for multiple and i
 
 ### Querying metrics for multiple resources examples
 
-The following example shows an individual metricdefinitions request:
+The following example shows an individual metric definitions request:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
 ```
 
-The following request shows the equivalent metricdefinitions request for multiple resources.
+The following request shows the equivalent metric definitions request for multiple resources.
 The only changes are the subscription path instead of a resource ID path, and the addition of `region` and `metricNamespace` query parameters.
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
@@ -505,7 +514,7 @@ Below is an equivalent metrics request for multiple resources:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
-Note that  a `Microsoft.ResourceId eq '*'` filter is added for the multi resource metrics requests as well. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value.
+Note that a `Microsoft.ResourceId eq '*'` filter is added for the multi resource metrics requests as well. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value.
 
 ```JSON
 {
@@ -633,7 +642,7 @@ Note that  a `Microsoft.ResourceId eq '*'` filter is added for the multi resourc
 ### Troubleshooting querying metrics for multiple resources
 
 + No data returned can be due to the wrong region being specified:
-    The multi resource APIs do not verify that any valid resources exist in the specified region and subscription combination. The only indicator that the region may be wrong is getting an empty time series data response. For example: `"timeseries": [],`
+    The multi resource APIs don't verify that any valid resources exist in the specified region and subscription combination. The only indicator that the region may be wrong is getting an empty time series data response. For example: `"timeseries": [],`
 + 401 authorization errors:
     The individual resource metrics APIs requires a user have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
 

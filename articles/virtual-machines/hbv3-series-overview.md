@@ -3,6 +3,7 @@ title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines 
 description: Learn about the HBv3-series VM size in Azure.  
 services: virtual-machines 
 tags: azure-resource-manager 
+ms.custom: devx-track-linux
 ms.service: virtual-machines 
 ms.subservice: hpc
 ms.workload: infrastructure-services 

@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/01/2023
 ms.devlang: typescript
@@ -15,7 +15,15 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Create and manage blob leases with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
+
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with a blob lease. To learn more, see the authorization guidance for the following REST API operation:
+    - [Lease Blob](/rest/api/storageservices/lease-blob#authorization)
 
 ## About blob leases
 

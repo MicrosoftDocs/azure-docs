@@ -70,8 +70,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging. 
 
-> [!NOTE]
-> pgAudit settings are specified globally and cannot be specified at a database or role level.
+
 
 Once you have [enabled pgAudit](#installing-pgaudit), you can configure its parameters to start logging. 
 To configure pgAudit you can follow below instructions. 

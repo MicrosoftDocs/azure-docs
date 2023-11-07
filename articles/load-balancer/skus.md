@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
 ms.workload: infrastructure-services
-ms.date: 04/20/2023
+ms.date: 07/10/2023
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23
 ---
@@ -43,7 +43,7 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Global VNet Peering Support** | Standard Internal Load Balancer is supported via Global VNet Peering | Not supported | 
 | **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard Internal Load Balancer and Standard Public Load Balancer are supported via Nat Gateway | Not supported | 
 | **[Private Link Support](../private-link/private-link-overview.md)** | Standard Internal Load Balancer is supported via Private Link | Not supported | 
-| **[Global tier (Preview)](./cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public Load Balancers enabling cross-region load balancing | Not supported | 
+| **[Global tier](./cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public Load Balancers enabling cross-region load balancing | Not supported | 
 
 For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
 

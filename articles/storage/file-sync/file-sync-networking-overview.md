@@ -50,7 +50,7 @@ Azure File Sync requires the IP address ranges for the following services, as id
 | Azure File Sync | The Azure File Sync service, as represented by the Storage Sync Service object, is responsible for the core activity of syncing data between an Azure file share and a Windows file server. | `StorageSyncService` |
 | Azure Files | All data synchronized via Azure File Sync is stored in Azure file share. Files changed on your Windows file servers are replicated to your Azure file share, and files tiered on your on-premises file server are seamlessly downloaded when a user requests them. | `Storage` |
 | Azure Resource Manager | The Azure Resource Manager is the management interface for Azure. All management calls, including Azure File Sync server registration and ongoing sync server tasks, are made through the Azure Resource Manager. | `AzureResourceManager` |
-| Azure Active Directory | Azure Active Directory, or Azure AD, contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
+| Microsoft Entra ID | Microsoft Entra ID (formerly Azure AD) contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
 
 If you're using Azure File Sync within Azure, even if it's in a different region, you can use the name of the service tag directly in your network security group to allow traffic to that service. To learn more, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
 
@@ -59,7 +59,7 @@ If you're using Azure File Sync on-premises, you can use the service tag API to 
 - The current list of IP address ranges for all Azure services supporting service tags are published weekly on the Microsoft Download Center in the form of a JSON document. Each Azure cloud has its own JSON document with the IP address ranges relevant for that cloud:
     - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
     - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
-    - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
+    - [Microsoft Azure operated by 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
     - [REST API](/rest/api/virtualnetwork/servicetags/list)
@@ -100,7 +100,7 @@ To create a private endpoint, see [Configuring private endpoints for Azure File 
 When you create a private endpoint, by default we also create (or update an existing) private DNS zone corresponding to the `privatelink` subdomain. For public cloud regions, these DNS zones are `privatelink.file.core.windows.net` for Azure Files and `privatelink.afs.azure.net` for Azure File Sync.
 
 > [!Note]  
-> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Azure China cloud - just substitute the appropriate suffixes for your environment.
+> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Microsoft Azure operated by 21Vianet cloud - just substitute the appropriate suffixes for your environment.
 
 When you create private endpoints for a storage account and a Storage Sync Service, we create A records for them in their respective private DNS zones. We also update the public DNS entry such that the regular fully qualified domain names are CNAMEs for the relevant `privatelink` name. This enables the fully qualified domain names to point at the private endpoint IP address(es) when the requester is inside of the virtual network and to point at the public endpoint IP address(es) when the requester is outside of the virtual network.
 

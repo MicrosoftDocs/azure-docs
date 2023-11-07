@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 04/11/2023
+ms.date: 09/27/2023
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -57,7 +57,6 @@ In this tutorial, you learn how to:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>5.2.0</version>
     </dependency>
 
     <!-- Adds the Ability to Push Refresh -->
@@ -65,6 +64,18 @@ In this tutorial, you learn how to:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>5.5.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     ```
 
     ### [Spring Boot 2](#tab/spring-boot-2)
@@ -73,7 +84,7 @@ In this tutorial, you learn how to:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>4.8.0</version>
+        <version>4.10.0</version>
     </dependency>
 
     <!-- Adds the Ability to Push Refresh -->
@@ -81,6 +92,18 @@ In this tutorial, you learn how to:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>4.11.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     ```
 
     ---

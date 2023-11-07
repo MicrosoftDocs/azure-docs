@@ -368,6 +368,40 @@ This script helps you to create a data collection rule in Change tracking and in
 
 Save the above script on your machine with a name as *CtDcrCreation.json*. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-vms-monitoring-agent.md#enable-change-tracking-at-scale-using-azure-monitoring-agent).
 
+> [!NOTE]
+> A reference JSON script to configure windows file settings:
+> ```json
+> "fileSettings": {
+>        "fileCollectionFrequency": 2700,
+>        "fileinfo": [
+>            {
+>               "name": "ChangeTrackingCustomPath_witems1",
+>               "enabled": true,
+>                "description": "",
+>              "path": "D:\\testing\\*",
+>               "recurse": true,
+>               "maxContentsReturnable": 5000000,
+>               "maxOutputSize": 500000,
+>               "checksum": "sha256",
+>               "pathType": "File",
+>              "groupTag": "Custom"
+>            },
+>            {
+>              "name": "ChangeTrackingCustomPath_witems2",
+>               "enabled": true,
+>             "description": "",
+>               "path": "E:\\test1",
+>              "recurse": false,
+>              "maxContentsReturnable": 5000000,
+>               "maxOutputSize": 500000,
+>              "checksum": "sha256",
+>               "pathType": "File",
+>              "groupTag": "Custom"
+>           }
+>       ]
+>   }
+>```
+
 ## Next steps
 
 [Learn more](manage-change-tracking-monitoring-agent.md) on Manage change tracking and inventory using Azure Monitoring Agent (Preview).

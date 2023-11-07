@@ -8,7 +8,7 @@ ms.reviewer: harelbr
 # Call a webhook with a classic metric alert in Azure Monitor
 
 > [!WARNING]
-> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 >
 
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions.
@@ -20,7 +20,7 @@ Azure alerts use HTTP POST to send the alert contents in JSON format to a webhoo
 ## Configure webhooks via the Azure portal
 To add or update the webhook URI, in the [Azure portal](https://portal.azure.com/), go to **Create/Update Alerts**.
 
-![Add an alert rule pane](./media/alerts-webhooks/Alertwebhook.png)
+:::image type="content" source="./media/alerts-webhooks/Alertwebhook.png" lightbox="./media/alerts-webhooks/Alertwebhook.png" alt-text="Add an alert rule pane":::
 
 You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
 

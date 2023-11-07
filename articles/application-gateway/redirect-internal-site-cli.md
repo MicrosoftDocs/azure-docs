@@ -5,7 +5,7 @@ description: Learn how to create an application gateway that redirects internal 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
@@ -163,7 +163,7 @@ In this example, you create a virtual machine scale set that supports the backen
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

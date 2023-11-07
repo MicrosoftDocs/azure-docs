@@ -14,7 +14,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - [Integrate with Microsoft Sentinel](iot-solution.md) to view Defender for IoT alerts in Microsoft Sentinel and manage them together with security incidents.
 
-- If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
+- If you have **Enterprise IoT security** [turned on in Microsoft 365 Defender](eiot-defender-for-endpoint.md), alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
 
     For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
@@ -23,7 +23,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 ## Prerequisites
 
-- **To have alerts in Defender for IoT**, you must have an [OT](onboard-sensors.md) or [Enterprise IoT sensor](eiot-sensor.md) on-boarded, and network data streaming into Defender for IoT.
+- **To have alerts in Defender for IoT**, you must have an [OT](onboard-sensors.md) onboarded, and network data streaming into Defender for IoT.
 
 - **To view alerts on the Azure portal**, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
@@ -33,7 +33,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description
     |--|--|
@@ -57,7 +57,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Destination device** | The destination IP or MAC address, or the destination device name.|
         | **First detection** | The first time the alert was detected in the network. |
         | **ID** |The unique alert ID.|
-        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication |
+        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert deduplication |
         | **Protocol** | The protocol detected in the network traffic for the alert.|
         | **Sensor** |  The sensor that detected the alert.|
         | **Zone** | The zone assigned to the sensor that detected the alert.|
@@ -76,7 +76,7 @@ For example, filter alerts by **Category**:
 
 Use the **Group by** menu at the top-right to collapse the grid into subsections according to specific parameters.
 
-For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
+For example, while the total number of alerts appears above the grid, you might want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
 
 Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *Site*.
 
@@ -94,7 +94,7 @@ Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *
 
 ## Manage alert severity and status
 
-We recommend that you update alert severity In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
+We recommend that you update alert severity In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
@@ -135,9 +135,9 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 ## Export alerts to a CSV file
 
-You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
+You might want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
 
 1. Use the search box and filter options to show only the alerts you want to export.
 

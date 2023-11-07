@@ -6,21 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 04/28/2023
+ms.date: 07/21/2023
 ms.author: jasteppe
 ---
 
 # Troubleshoot MedTech service deployment errors
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 
 > [!TIP]
 > Having access to MedTech service metrics and logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service. Check out these MedTech service articles to learn how to enable, configure, and use these MedTech service monitoring features:
 >  
-> [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
+> [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
 > [How to configure the MedTech service metrics](how-to-configure-metrics.md)
 >
@@ -94,8 +91,8 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 |-----|
 |[The maximum number of resource type iotconnectors/fhirdestinations has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
 |[The fhirServiceResourceId provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
-|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)
-|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)
+|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)|
+|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)|
 
 ### The maximum number of resource type iotconnectors/destinations has been reached
 
@@ -134,11 +131,6 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix MedTech service deployment errors. 
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

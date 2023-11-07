@@ -3,7 +3,7 @@ title: "Infoblox NIOS connector for Microsoft Sentinel"
 description: "Learn how to install the connector Infoblox NIOS to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The [Infoblox Network Identity Operating System (NIOS)](https://www.infoblox.com
 | --- | --- |
 | **Log Analytics table(s)** | Syslog (InfobloxNIOS)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Infoblox](https://www.infoblox.com/support/) |
+| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
 

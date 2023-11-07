@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 10/12/2023
 ms.author: kendownie
 ---
 
@@ -124,9 +124,9 @@ The following table describes the required domains for communication:
 | Service | Public cloud endpoint | Azure Government endpoint | Usage |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | `https://management.usgovcloudapi.net` | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
-| **Azure Active Directory** | `https://login.windows.net`<br>`https://login.microsoftonline.com` | `https://login.microsoftonline.us` | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
-| **Azure Active Directory** | `https://graph.microsoft.com/` | `https://graph.microsoft.com/` | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Active Directory** | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
+| **Microsoft Entra ID** | `https://login.windows.net`<br>`https://login.microsoftonline.com`<br>`https://aadcdn.msftauth.net` | `https://login.microsoftonline.us` | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
+| **Microsoft Entra ID** | `https://graph.microsoft.com/` | `https://graph.microsoft.com/` | As part of deploying Azure File Sync, a service principal in the subscription's Microsoft Entra ID will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
+| **Microsoft Entra ID** | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 | **Microsoft PKI** |  `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
@@ -149,8 +149,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 | Public | Canada East | https:\//canadaeast01.afs.azure.net<br>https:\//kailani-cae.one.microsoft.com | Canada Central | https:\//tm-canadaeast01.afs.azure.net<br>https:\//tm-kailani.cae.one.microsoft.com |
 | Public | Central India | https:\//centralindia01.afs.azure.net<br>https:\//kailani-cin.one.microsoft.com | South India | https:\//tm-centralindia01.afs.azure.net<br>https:\//tm-kailani-cin.one.microsoft.com |
 | Public | Central US | https:\//centralus01.afs.azure.net<br>https:\//kailani-cus.one.microsoft.com | East US 2 | https:\//tm-centralus01.afs.azure.net<br>https:\//tm-kailani-cus.one.microsoft.com |
-| Azure China 21Vianet | China East 2 | https:\//chinaeast201.afs.azure.cn | China North 2 | https:\//tm-chinaeast201.afs.azure.cn |
-| Azure China 21Vianet | China North 2 | https:\//chinanorth201.afs.azure.cn | China East 2 | https:\//tm-chinanorth201.afs.azure.cn |
+| Microsoft Azure operated by 21Vianet | China East 2 | https:\//chinaeast201.afs.azure.cn | China North 2 | https:\//tm-chinaeast201.afs.azure.cn |
+| Microsoft Azure operated by 21Vianet | China North 2 | https:\//chinanorth201.afs.azure.cn | China East 2 | https:\//tm-chinanorth201.afs.azure.cn |
 | Public | East Asia | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Southeast Asia | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Public | East US | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | West US | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Public | East US 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | Central US | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
@@ -199,7 +199,7 @@ If you're using Azure File Sync on-premises, you can use the service tag API to 
 - The current list of IP address ranges for all Azure services supporting service tags are published weekly on the Microsoft Download Center in the form of a JSON document. Each Azure cloud has its own JSON document with the IP address ranges relevant for that cloud:
   - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
   - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
-  - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
+  - [Microsoft Azure operated by 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
   - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
 - The service tag discovery API allows programmatic retrieval of the current list of service tags. You can use the API surface based on your automation preference:
   - [REST API](/rest/api/virtualnetwork/servicetags/list)

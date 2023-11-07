@@ -1,5 +1,5 @@
 ---
-title: Connect your Azure subscriptions to Microsoft Defender for Cloud
+title: Connect your Azure subscriptions
 description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
 ms.date: 07/10/2023
@@ -29,7 +29,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 > [!TIP]
 > To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
-1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -59,7 +59,7 @@ Within minutes of launching Defender for Cloud for the first time, you might see
 
 ## Enable all paid plans on your subscription
 
-To enable all of the Defender for Cloud's protections, you need to enable the other paid plans for each of the workloads that you want to protect.
+To enable all of Defender for Cloud's protections, you need to enable the plans for the workloads that you want to protect.
 
 > [!NOTE]
 >
@@ -68,7 +68,7 @@ To enable all of the Defender for Cloud's protections, you need to enable the ot
 > - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
 
-When you enabled Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
+When you enable Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
 
 **To enable additional paid plans on a subscription**:
 

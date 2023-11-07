@@ -10,6 +10,8 @@ ms.author: geguirgu
 
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. 
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
 ## How can I use the routing feature?
@@ -33,10 +35,10 @@ The routing configuration enables you to send all your messages from your client
 The Event Grid custom topic that is used for routing need to fulfill the following requirements:
 - It needs to be set to use the Cloud Event Schema v1.0
 - It needs to be in the same region as the namespace.
-- You need to assign "EventGrid Data Sender" role to yourself on the Event Grid custom topic.
+- You need to assign "Event Grid Data Sender" role to yourself on the Event Grid custom topic.
     - In the portal, go to the created Event Grid topic resource.
     - In the "Access control (IAM)" menu item, select "Add a role assignment".
-    - In the "Role" tab, select "EventGrid Data Sender", then select "Next".
+    - In the "Role" tab, select "Event Grid Data Sender", then select "Next".
     - In the "Members" tab, select +Select members, then type your AD user name in the "Select" box that will appear (for example, [user@contoso.com](mailto:user@contoso.com)).
     - Select your AD user name, then select "Review + assign"
 
@@ -71,6 +73,34 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
 ```
 
 For enrichments configuration instructions, go to [Enrichment CLI configuration](mqtt-routing-enrichment.md#azure-cli-configuration).
+
+
+## MQTT message routing behavior
+While routing MQTT messages to custom topics, Event Grid provides durable delivery as it tries to deliver each message **at least once**  immediately. If there's a failure, Event Grid either retries delivery or drops the message that was meant to be routed. Event Grid doesn't guarantee order for event delivery, so subscribers might receive them out of order. 
+
+The following table describes the behavior of MQTT message routing based on different errors.
+
+| Error| Error description | Behavior |
+| --------------| -----------|-----------|
+| TopicNotFoundError | The custom topic that is configured to receive all the MQTT routed messages was deleted. | Event Grid drops the MQTT message that was meant to be routed.|
+| AuthenticationError | The EventGrid Data Sender role for the custom topic configured as the destination for MQTT routed messages was deleted.   | Event Grid drops the MQTT message that was meant to be routed.|
+| TooManyRequests | The number of MQTT routed messages per second exceeds the publish limit for the custom topic. | Event Grid retries to route the MQTT message.|
+| ServiceError |  An unexpected server error for a server's operational reason.  | Event Grid retries to route the MQTT message.|
+ 
+During retries, Event Grid uses an exponential backoff retry policy for MQTT message routing. Event Grid retries delivery on the following schedule on a best effort basis:
+
+- 10 seconds
+- 30 seconds
+- 1 minute
+- 5 minutes
+- 10 minutes
+- 30 minutes
+- 1 hour
+- 3 hours
+- 6 hours
+- Every 12 hours
+
+If a routed MQTT message that was queued for redelivery succeeded, Event Grid attempts to remove the message from the retry queue on a best effort basis, but duplicates might still be received.
 
 ## Next steps:
 

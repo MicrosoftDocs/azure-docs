@@ -4,7 +4,7 @@ description: Learn the basics of Azure Monitor Logs, which is used for advanced 
 documentationcenter: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 02/28/2023
+ms.date: 09/14/2023
 ms.author: bwren
 ---
 
@@ -28,11 +28,11 @@ The following table describes some of the ways that you can use Azure Monitor Lo
 | Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](./log-powerbi.md) to use different visualizations and share with users outside Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources.|
 | Get insights | Logs support [insights](../insights/insights-overview.md) that provide a customized monitoring experience for particular applications and services.  |
 | Retrieve | Access log query results from:<ul><li>Command line via the [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>Custom app via the [REST API](/rest/api/loganalytics/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
-| Import | Upload logs from a custom app via the [REST API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme). |
+| Import | Upload logs from a custom app via the [REST API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme). |
 | Export | Configure [automated export of log data](./logs-data-export.md) to an Azure Storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). |
 | Bring your own analysis | [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md) to create streamlined, multi-step processes on top of data you collect in Azure Monitor Logs. This is especially useful for purposes such as [building and running machine learning pipelines](../logs/aiops-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), advanced analysis, and troubleshooting guides (TSGs) for Support needs. |
 
-![Diagram that shows an overview of Azure Monitor Logs.](media/data-platform-logs/logs-overview.png)
+:::image type="content" source="media/data-platform-logs/logs-overview.png" lightbox="media/data-platform-logs/logs-overview.png" alt-text="Diagram that shows an overview of Azure Monitor Logs.":::
 
 ## Data collection
 After you create a [Log Analytics workspace](#log-analytics-workspaces), you must configure sources to send their data. No data is collected automatically.
@@ -68,11 +68,11 @@ You can:
 Insights include prebuilt queries to support their views and workbooks.
 
 For a list of where log queries are used and references to tutorials and other documentation to get you started, see [Log queries in Azure Monitor](./log-query-overview.md).
-
-![Screenshot that shows queries in Log Analytics.](media/data-platform-logs/log-analytics.png)
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-logs/log-analytics.png" lightbox="media/data-platform-logs/log-analytics.png" alt-text="Screenshot that shows queries in Log Analytics." border="false":::
 
 ## Relationship to Azure Data Explorer
-Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL.
+Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. For information on KQL, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 The experience of using Log Analytics to work with Azure Monitor queries in the Azure portal is similar to the experience of using the Azure Data Explorer Web UI. You can even [include data from a Log Analytics workspace in an Azure Data Explorer query](/azure/data-explorer/query-monitor-data).
 

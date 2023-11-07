@@ -4,8 +4,8 @@ description: An introduction to backing up SQL Server databases by using the Azu
 ms.topic: how-to
 ms.date: 01/17/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.custom: engagement-fy23
 ---
 

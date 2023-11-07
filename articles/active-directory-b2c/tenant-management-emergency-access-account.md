@@ -41,7 +41,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 Use the following steps to create an emergency access account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Azure AD account, make sure you're using the directory that contains your Azure AD B2C tenant:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Microsoft Entra account, make sure you're using the directory that contains your Azure AD B2C tenant:
 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
@@ -89,4 +89,3 @@ Once you create your emergency accounts, you need to do the following:
 
 - [Read tenant name and ID](tenant-management-read-tenant-name.md)
 - [Clean up resources and delete tenant](tutorial-delete-tenant.md)
-

@@ -89,7 +89,7 @@ Compared to the scenarios for inbound and outbound connectivity, the introductio
 - [Throttling](../../api-management/api-management-sample-flexible-throttling.md).
 - [API governance](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
 - Additional security options like [modern authentication flows](../../api-management/api-management-howto-protect-backend-with-aad.md).
-- [Azure Active Directory](../../active-directory/develop/active-directory-v2-protocols.md) integration.
+- [Microsoft Entra ID](../../active-directory/develop/active-directory-v2-protocols.md) integration.
 - The opportunity to add SAP APIs to a central API solution across the company.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-api-management-2.png" alt-text="Diagram that shows an inbound scenario with Azure API Management and SAP Process Orchestration on Azure.":::

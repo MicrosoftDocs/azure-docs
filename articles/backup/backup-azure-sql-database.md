@@ -2,9 +2,9 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 08/11/2022
-author: jyothisuri
-ms.author: jsuri
+ms.date: 09/21/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # About SQL Server Backup in Azure VMs
 
@@ -13,7 +13,7 @@ ms.author: jsuri
 1. Workload aware backups that support all backup types - full, differential, and log
 2. 15 minute RPO (recovery point objective) with frequent log backups
 3. Point-in-time recovery up to a second
-4. Individual database level backup and restore
+4. Individual database level back up and restore
 
 >[!Note]
 >Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
@@ -112,7 +112,7 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
 
     ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
-Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if need be:
+Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if needed.
 
 ```powershell
 param(
@@ -146,6 +146,66 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 ```
+
+## Configure simultaneous backups
+
+You can now configure backups to save the SQL server recovery points and logs in a local storage and Recovery Services vault simultaneously.
+
+To configure simultaneous backups, follow these steps:
+
+1. Go to the `C:\Program Files\Azure Workload Backup\bin\plugins` location, and then create the file **PluginConfigSettings.json**, if it's not present.
+2. Add the comma separated key value entities, with keys `EnableLocalDiskBackupForBackupTypes` and `LocalDiskBackupFolderPath` to the JSON file.
+
+   - Under `EnableLocalDiskBackupForBackupTypes`, list the backup types that you want to store locally.
+
+     For example, if you want to store the *Full* and *Log* backups, mention `["Full", "Log"]`. To store only the log backups, mention `["Log"]`.
+
+   - Under `LocalDiskBackupFolderPath`, mention the *path to the local folder*. Ensure that you use the *double forward slash* while mentioning the path in the JSON file.
+   
+     For example, if the preferred path for local backup is `E:\LocalBackup`, mention the path in JSON as `E:\\LocalBackup`.
+
+     The final JSON should appear as:
+ 
+     ```JSON
+     {
+             "EnableLocalDiskBackupForBackupTypes": ["Log"],
+             "LocalDiskBackupFolderPath": "E:\\LocalBackup",
+     }
+	 
+     ```	 
+ 
+     If there are other pre-populated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
+
+3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
+
+   >[!Caution]
+   >This action will cancel all the ongoing backup jobs.
+
+   The naming convention of the stored backup file and the folder structure for it will be `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
+
+   For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files will be located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
+
+   The name of the file is the `VDI device set guid`, which is used for the backup operation.
+
+4. Check if the target location under `LocalDiskBackupFolderPath` has *read* and *write* permissions for `NT Service\AzureWLBackupPluginSvc`.
+
+   >[!Note]
+   >For a folder on the local VM disks, right-click the folder and configure the required permissions for `NT Service\AzureWLBackupPluginSvc` on the **Security** tab.
+   
+   If you're using a network or SMB share, configure the permissions by running the below PowerShell cmdlets from a user console that already has the permission to access the share:
+
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @("<Comma Separated list of accounts>") -Persistent $true
+   
+   ```
+
+   **Example**:
+   
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
+    ```
 
 ## Next steps
 

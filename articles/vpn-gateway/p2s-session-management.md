@@ -14,6 +14,7 @@ ms.author: cherylmc
 
 Azure virtual network gateways provide an easy way to view and disconnect current Point-to-site VPN sessions. This article helps you view and disconnect current sessions. The session status is updated every 5 minutes. It is not updated immediately. 
 
+As this feature allows the disconnection of VPN clients, Reader permissions on the VPN gateway resource are not sufficient. Contributor role is needed to visualize Point-to-site VPN sessions correctly.
 
 ## Portal
 

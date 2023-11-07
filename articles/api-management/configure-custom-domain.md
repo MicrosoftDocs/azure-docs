@@ -75,7 +75,10 @@ If you already have a private certificate from a third-party provider, you can u
 
 We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
 
-If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/certificates/create-certificate/create-certificate), not a _secret_.
+If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a ](/rest/api/keyvault/certificates/create-certificate/create-certificate)_[certificate](/rest/api/keyvault/certificates/create-certificate/create-certificate)_, not a _secret_.
+
+> [!CAUTION]
+> When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
@@ -105,6 +108,8 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
 * Can only be configured when updating an existing API Management instance, not when creating an instance
+
+
 
 ---
 ## Set a custom domain name - portal
@@ -162,6 +167,8 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 > [!NOTE]
 > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
 
+
+
 ---
 
 ## DNS configuration
@@ -198,4 +205,5 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 ## Next steps
 
 [Upgrade and scale your service](upgrade-and-scale.md)
+
 

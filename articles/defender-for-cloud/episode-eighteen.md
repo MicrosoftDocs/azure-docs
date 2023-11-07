@@ -1,6 +1,6 @@
 ---
 title: Defender for Azure Cosmos DB | Defender for Cloud in the Field
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about Defender for Cloud integration with Azure Cosmos DB.
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,8 @@ ms.date: 04/27/2023
 # Defender for Azure Cosmos DB | Defender for Cloud in the Field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Haim Bendanan joins Yuri Diogenes to talk about Defender for Azure Cosmos DB. Haim explains the rationale behind the use of this plan to protect Azure Cosmos DB databases, the different threat detections that are available with this plan, and the security recommendations that were added. Haim also demonstrates how Defender for Azure Cosmos DB detects a SQL injection attack.
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=94238ff5-930e-48be-ad27-a2fff73e473f" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
+> [!VIDEO https://aka.ms/docs/player?id=94238ff5-930e-48be-ad27-a2fff73e473f]
 
 - [00:00](/shows/mdc-in-the-field/defender-cosmos-db#time=00m00s) - Intro
 

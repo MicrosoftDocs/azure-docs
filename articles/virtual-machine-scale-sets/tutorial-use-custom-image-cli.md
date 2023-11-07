@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 ---
 
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI

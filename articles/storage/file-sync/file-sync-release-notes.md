@@ -1,18 +1,18 @@
 ---
-title: Release notes for the Azure File Sync agent
-description: Read the release notes for the Azure File Sync agent, which lets you centralize your organization's file shares in Azure Files.
+title: Release notes for Azure File Sync
+description: Release notes for Azure File Sync which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 4/18/2023
+ms.date: 11/3/2023
 ms.author: wgries
 ---
 
-# Release notes for the Azure File Sync agent
-Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. Your Windows Server installations are transformed into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally (including SMB, NFS, and FTPS). You can have as many caches as you need around the world.
+# Release notes for Azure File Sync
+Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. While some users may opt to keep a full copy of their data locally, Azure File Sync additionally has the ability to transform Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article provides the release notes for the supported versions of the Azure File Sync agent.
+This article provides the release notes for Azure File Sync. It is important to note that major releases of Azure File Sync include service and agent improvements (for example, 15.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 15.2.0.0).
 
 ## Supported versions
 The following Azure File Sync agent versions are supported:
@@ -20,11 +20,11 @@ The following Azure File Sync agent versions are supported:
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
 | V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported |
-| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported - Agent version will expire on October 2, 2023 |
-| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on August 1, 2023 |
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on August 1, 2023 |
+| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported - Agent version will expire on March 19, 2024 |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on January 23, 2024 |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on January 23, 2024 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:
@@ -47,15 +47,12 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## Agent version 16.0.0.0
-The following release notes are for version 16.0.0.0 of the Azure File Sync agent (released January 30, 2023).
+## Version 16.0.0.0
+The following release notes are for Azure File Sync version 16.0.0.0 (released January 30, 2023). This release contains improvements for the Azure File Sync service and agent.
 
 ### Improvements and issues that are fixed
 - Improved Azure File Sync service availability
 	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](../files/files-redundancy.md).
-	> [!Note]
-	> Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
- 
 - Immediately run server change enumeration to detect files changes that were missed on the server
 	- Azure File Sync uses the [Windows USN journal](/windows/win32/fileio/change-journals) feature on Windows Server to immediately detect files that were changed and upload them to the Azure file share. If files changed are missed due to journal wrap or other issues, the files will not sync to the Azure file share until the changes are detected. Azure File Sync has a server change enumeration job that runs every 24 hours on the server endpoint path to detect changes that were missed by the USN journal. If you don't want to wait until the next server change enumeration job runs, you can now use the Invoke-StorageSyncServerChangeDetection PowerShell cmdlet to immediately run server change enumeration on a server endpoint path.
 		
@@ -80,6 +77,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
+- The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, the existing agent must be uninstalled, restart the server and install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
@@ -122,8 +120,8 @@ The following items don't sync, but the rest of the system continues to operate 
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
-## Agent version 15.2.0.0
-The following release notes are for version 15.2.0.0 of the Azure File Sync agent released November 21, 2022. These notes are in addition to the release notes listed for version 15.0.0.0.
+## Version 15.2.0.0
+The following release notes are for Azure File Sync version 15.2.0.0 (released November 21, 2022). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 15.0.0.0.
 
 ### Improvements and issues that are fixed 
 
@@ -133,8 +131,8 @@ The following release notes are for version 15.2.0.0 of the Azure File Sync agen
 	- Files are failing to recall with error ERROR_INVALID_HANDLE (0x00000006).
 - Fixed a health reporting issue with servers configured to use a non-Gregorian calendar.
 
-## Agent version 15.1.0.0
-The following release notes are for version 15.1.0.0 of the Azure File Sync agent released September 19, 2022. These notes are in addition to the release notes listed for version 15.0.0.0.
+## Version 15.1.0.0
+The following release notes are for Azure File Sync version 15.2.0.0 (released September 19, 2022). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 15.0.0.0.
 
 ### Improvements and issues that are fixed 
 - Low disk space mode to prevent running out of disk space when using cloud tiering.
@@ -151,8 +149,8 @@ The following release notes are for version 15.1.0.0 of the Azure File Sync agen
 
 - Miscellaneous reliability and telemetry improvements.
 
-## Agent version 15.0.0.0
-The following release notes are for version 15.0.0.0 of the Azure File Sync agent (released March 30, 2022).
+## Version 15.0.0.0
+The following release notes are for Azure File Sync version 15.0.0.0 (released March 30, 2022). This release contains improvements for the Azure File Sync service and agent.
 
 ### Improvements and issues that are fixed
 - Reduced transactions when cloud change enumeration job runs 
@@ -243,8 +241,8 @@ The following items don't sync, but the rest of the system continues to operate 
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
-## Agent version 14.1.0.0
-The following release notes are for version 14.1.0.0 of the Azure File Sync agent released December 1, 2021. These notes are in addition to the release notes listed for version 14.0.0.0.
+## Version 14.1.0.0
+The following release notes are for Azure File Sync version 14.1.0.0 (released December 1, 2021). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 14.0.0.0.
 
 ### Improvements and issues that are fixed 
 - Tiered files deleted on Windows Server 2022 are not detected by cloud tiering filter driver
@@ -253,8 +251,8 @@ The following release notes are for version 14.1.0.0 of the Azure File Sync agen
     > [!Note]  
     > This issue can also impact Windows 2016 and Windows Server 2019 if a tiered file is deleted using the FILE_DISPOSITION_INFORMATION_EX class.
 
-## Agent version 14.0.0.0
-The following release notes are for version 14.0.0.0 of the Azure File Sync agent (released October 29, 2021).
+## Version 14.0.0.0
+The following release notes are for Azure File Sync version 14.0.0.0 (released October 29, 2021). This release contains improvements for the Azure File Sync service and agent.
 
 ### Improvements and issues that are fixed
 - Reduced transactions when cloud change enumeration job runs 

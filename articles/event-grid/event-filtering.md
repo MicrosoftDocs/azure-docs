@@ -162,7 +162,7 @@ Key is the field in the event data that you're using for filtering. It can be on
 
 For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
-For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
+For events in **Cloud Events schema**, use the following values for the key: `id`, `source`, `type`, `specversion`, or custom properties using `.` as the nesting separator (example: `data.appEventTypeDetail.action`).
 
 For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.siteName`, `data.appEventTypeDetail.action` to access `siteName` or `action` for the following sample event.
 
@@ -179,6 +179,10 @@ For **custom input schema**, use the event data fields (like `data.key1`). To ac
 		"verb": "None"
 	},
 ```
+
+> [!NOTE]
+> Event Grid doesn't support filtering on an array of objects. It only allows String, Boolean, Numbers, and Array of the same types (like integer array or string array).
+ 
 
 ## Values
 The values can be: number, string, boolean, or array
@@ -677,7 +681,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ```
 
 ## CloudEvents 
-For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
+For events in the **CloudEvents schema**, use the following values for the key: `id`, `source`, `type`, `specversion`, or custom properties using `.` as the nesting operator (example: `data.appinfoA`). 
 
 You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes.
 

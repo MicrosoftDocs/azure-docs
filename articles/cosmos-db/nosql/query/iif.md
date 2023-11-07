@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -40,75 +40,19 @@ Returns an expression, which could be of any type.
 
 This first example evaluates a static boolean expression and returns one of two potential expressions.
 
-```sql
-SELECT VALUE {
-    evalTrue: IIF(true, 123, 456),
-    evalFalse: IIF(false, 123, 456),
-    evalNumberNotTrue: IIF(123, 123, 456),
-    evalStringNotTrue: IIF("ABC", 123, 456),
-    evalArrayNotTrue: IIF([1,2,3], 123, 456),
-    evalObjectNotTrue: IIF({"name": "Alice", "age": 20}, 123, 456)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/iif/query.sql" highlight="2-7":::  
 
-```json
-[
-  {
-    "evalTrue": 123,
-    "evalFalse": 456,
-    "evalNumberNotTrue": 456,
-    "evalStringNotTrue": 456,
-    "evalArrayNotTrue": 456,
-    "evalObjectNotTrue": 456
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif/result.json":::
 
 This example evaluates one of two potential expressions on multiple items in a container based on an expression that evaluates a boolean property.
 
-```json
-[
-  {
-    "id": "68719519221",
-    "name": "Estrel Set Cutlery",
-    "onSale": true,
-    "pricing": {
-      "msrp": 55.95,
-      "sale": 30.85
-    }
-  },
-  {
-    "id": "68719520367",
-    "name": "Willagno Spork",
-    "onSale": false,
-    "pricing": {
-      "msrp": 20.15,
-      "sale": 12.55
-    }
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/seed.json" range="1-2,4-12,14-22" highlight="4-9,13-18":::
 
-```sql
-SELECT
-    p.name,
-    IIF(p.onSale, p.pricing.sale, p.pricing.msrp) AS price
-FROM
-    products p
-```
+The query uses fields in the original items.
 
-```json
-[
-  {
-    "name": "Estrel Set Cutlery",
-    "price": 30.85
-  },
-  {
-    "name": "Willagno Spork",
-    "price": 20.15
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/query.sql" highlight="3":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/result.json":::
 
 ## Remarks
 
@@ -118,4 +62,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [Equality and comparison operators](equality-comparison-operators.md)
+- [`ToString`](tostring.md)

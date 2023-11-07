@@ -170,7 +170,7 @@ We have determined that your VMs are located in a region different or far from w
 
 ## Upgrade to the latest version of the Immersive Reader SDK
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
-Learn more about [Immersive reader SDK](../applied-ai-services/immersive-reader/index.yml).
+Learn more about [Immersive reader SDK](../ai-services/immersive-reader/index.yml).
 
 ## Improve VM performance by changing the maximum session limit
 

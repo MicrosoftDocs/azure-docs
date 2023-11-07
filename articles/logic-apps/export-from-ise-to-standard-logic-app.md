@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 07/21/2023
 ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
@@ -80,17 +80,17 @@ Consider the following recommendations when you select logic apps for export:
 
 1. In Visual Studio Code, sign in to Azure, if you haven't already.
 
-1. In the left navigation bar, select **Azure** to open the **Azure** window (Shift + Alt + A), and expand the **Logic Apps (Standard)** extension view.
+1. On the Visual Studio Code Activity Bar, select **Azure** to open the **Azure** window (Shift + Alt + A).
 
-   ![Screenshot showing Visual Studio Code with 'Azure' view selected.](media/export-from-ise-to-standard-logic-app/select-azure-view.png)
+   ![Screenshot showing Visual Studio Code Activity Bar with Azure icon selected.](media/export-from-ise-to-standard-logic-app/select-azure-view.png)
 
-1. On the extension toolbar, select **Export Logic App...**.
+1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export Logic App**.
 
-   ![Screenshot showing Visual Studio Code and 'Logic Apps (Standard)' extension toolbar with 'Export Logic App' selected.](media/export-from-ise-to-standard-logic-app/select-export-logic-app.png)
+   ![Screenshot showing Azure window, Workspace section toolbar, and Export Logic App selected.](media/export-from-ise-to-standard-logic-app/select-export-logic-app.png)
 
 1. After the **Export** tab opens, select your Azure subscription and ISE instance, and then select **Next**.
 
-   ![Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and ISE instance selected.](media/export-from-ise-to-standard-logic-app/select-subscription-ise.png)
+   ![Screenshot showing Export tab with Azure subscription and ISE instance selected.](media/export-from-ise-to-standard-logic-app/select-subscription-ise.png)
 
 1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.
 

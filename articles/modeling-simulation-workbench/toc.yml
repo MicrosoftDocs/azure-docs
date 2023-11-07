@@ -1,0 +1,63 @@
+items:
+- name: Azure Modeling and Simulation Workbench (preview) documentation
+  href: index.yml
+- name: Overview
+  items: 
+    - name: What is Azure Modeling and Simulation Workbench?
+      href: modeling-simulation-workbench-overview.md
+- name: Quickstart
+  items: 
+    - name: Create an Azure Modeling and Simulation Workbench
+      href: ./quickstart-create-portal.md
+#- name: Tutorials
+#  items: 
+#    - name: Create Azure Modeling and Simulation Workbench
+#      href: ./tutorial-create-Modeling and Simulation Workbench.md
+#    - name: Use Azure Modeling and Simulation Workbench
+#      href: ./tutorial-use-Modeling and Simulation Workbench.md
+- name: Concepts
+  items: 
+    - name: Workbench
+      href: ./concept-workbench.md
+    - name: User personas
+      href: ./concept-user-personas.md
+    - name: Chamber
+      href: ./concept-chamber.md
+    - name: Connector
+      href: ./concept-connector.md
+    - name: Data pipeline
+      href: ./concept-data-pipeline.md
+    - name: License service
+      href: ./concept-license-service.md      
+- name: How-to guides
+  items: 
+    - name: Manage users
+      href: ./how-to-guide-manage-users.md
+    - name: Set up networking
+      href: ./how-to-guide-set-up-networking.md
+    - name: Manage license service
+      href: ./how-to-guide-licenses.md
+    - name: Import data
+      href: ./how-to-guide-upload-data.md
+    - name: Export data
+      href: ./how-to-guide-download-data.md
+    - name: Manage chamber storage
+      href: ./how-to-guide-manage-storage.md          
+#        - name: Disaster Recovery
+#          href: ./how-to-guide-disaster-recovery.md
+- name: Resources
+  items: 
+    - name: Troubleshoot
+      href: ./resources-troubleshoot.md
+    - name: Get support
+      href: ./resources-get-support.md
+#- name: Reference
+#  items: 
+#    - name: Azure CLI
+#      href: /cli/azure/ModSimWorkbench
+#    - name: Azure PowerShell
+#      href: /powershell/module/az.ModSimWorkbench 
+#    - name: REST
+#      href: /rest/api/ModSimWorkbench
+#    - name: Resource Manager template
+#      href: /azure/templates/microsoft.ModSimWorkbench/allversions

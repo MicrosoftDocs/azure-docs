@@ -4,6 +4,7 @@ description: Symptoms, causes, and resolutions of restore point failures related
 ms.topic: troubleshooting
 ms.date: 04/12/2023
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ---
 
 # Troubleshoot restore point failures: Issues with the agent or extension

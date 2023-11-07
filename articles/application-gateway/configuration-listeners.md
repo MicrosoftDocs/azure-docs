@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 07/19/2023
 ms.author: greglin 
 ---
 
@@ -34,6 +34,10 @@ For the v2 SKU, multi-site listeners are processed before basic listeners, unles
 ## Frontend IP address
 
 Choose the frontend IP address that you plan to associate with this listener. The listener will listen to incoming requests on this IP.
+
+  > [!NOTE]
+  > Application Gateway frontend supports dual-stack IP addresses (Public Preview). You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
 
 ## Frontend port
 
@@ -89,11 +93,10 @@ WebSocket support is enabled by default. There's no user-configurable setting to
 
 ## Custom error pages
 
-You can define custom error at the global level or the listener level, however creating global-level custom error pages from the Azure portal is currently not supported. You can configure a custom error page for a 403 web application firewall error or a 502 maintenance page at the listener level. You must specify a publicly accessible blob URL for the given error status code. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
+You can define customized error pages for different response codes returned by the Application Gateway. The response codes for which you can configure error pages are 400, 403, 405, 408, 500, 502, 503, and 504. You can use global-level or listener-specific error page configuration to set them granularly for each listener. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
 
-![Application Gateway error codes](/azure/application-gateway/media/custom-error/ag-error-codes.png)
-
-To configure a global custom error page, see [Azure PowerShell configuration](./custom-error.md#azure-powershell-configuration).
+> [!NOTE]
+> An error originating from the backend server is passed along unmodified by the Application Gateway to the client. 
 
 ## TLS policy
 

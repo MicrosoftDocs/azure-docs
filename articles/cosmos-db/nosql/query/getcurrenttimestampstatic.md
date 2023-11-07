@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -35,57 +35,13 @@ Returns a signed numeric value that represents the current number of millisecond
 
 This example uses a container with a partition key path of `/pk`. There are three items in the container with two items within the same logical partition, and one item in a different logical partition.
 
-```json
-[
-  {
-    "id": "1",
-    "pk": "A"
-  },
-  {
-    "id": "2",
-    "pk": "A"
-  },
-  {
-    "id": "3",
-    "pk": "B"
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrenttimestampstatic/seed.novalidate.json" highlight="4,8,12":::
 
 This function returns the same static timestamp for items within the same partition. For comparison, the nonstatic function gets a new timestamp value for each item matched by the query.
 
-```sql
-SELECT
-    i.id,
-    i.pk AS partitionKey,
-    GetCurrentTimestamp() AS nonStaticTimestamp,
-    GetCurrentTimestampStatic() AS staticTimestamp
-FROM
-    items i
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrenttimestampstatic/query.novalidate.sql" highlight="4-5":::  
 
-```json
-[
-  {
-    "id": "1",
-    "partitionKey": "A",
-    "nonStaticTimestamp": 1687977636235,
-    "staticTimestamp": 1687977636232
-  },
-  {
-    "id": "2",
-    "partitionKey": "A",
-    "nonStaticTimestamp": 1687977636235,
-    "staticTimestamp": 1687977636232
-  },
-  {
-    "id": "3",
-    "partitionKey": "B",
-    "nonStaticTimestamp": 1687977636238,
-    "staticTimestamp": 1687977636237
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrenttimestampstatic/result.novalidate.json":::
 
 > [!NOTE]
 > It's possible for items in different logical partitions to exist in the same physical partition. In this scenario, the static date and time value would be identical.
@@ -98,4 +54,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentTimestamp` (nonstatic)](getcurrenttimestamp.md)
+- [`GetCurrentTimestamp`](getcurrenttimestamp.md)

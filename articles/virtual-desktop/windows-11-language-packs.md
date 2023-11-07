@@ -3,7 +3,7 @@ title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desk
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 10/20/2023
 ms.author: helohr
 manager: femila
 ---
@@ -26,10 +26,10 @@ Before you can add languages to a Windows 11 Enterprise VM, you'll need to have 
 - A Language and Optional Features ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
   - Language and Optional Features ISO:
     - [Windows 11, version 21H2 Language and Optional Features ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
-    - [Windows 11, version 22H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+    - [Windows 11, version 22H2 and 23H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
   - Inbox Apps ISO:
     - [Windows 11, version 21H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22000.2003.230512-1746.co_release_svc_prod3_amd64fre_InboxApps.iso)
-    - [Windows 11, version 22H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1778.230511-2102.ni_release_svc_prod3_amd64fre_InboxApps.iso)
+    - [Windows 11, version 22H2 and 23H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2501.231009-1937.ni_release_svc_prod3_amd64fre_InboxApps.iso)
 - An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]
@@ -51,7 +51,7 @@ To create the content repository you'll use to add languages and features to you
      > If you're working with limited storage, you can use the mounted "Languages and Optional Features" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
 
      >[!IMPORTANT]
-     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
+     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include "Jpan."
      >
      > [!div class="mx-imgBorder"]
      > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
@@ -116,33 +116,33 @@ You can create a custom image by following these steps:
     "Language.TextToSpeech~~~$sourceLanguage~0.0.1.0"
     )
 
-	##Install all FODs or fonts from the CSV file###
+    ##Install all FODs or fonts from the CSV file###
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Client-Language-Pack_x64_$sourceLanguage.cab
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Lip-Language-Pack_x64_$sourceLanguage.cab
     foreach($capability in $additionalCapabilityList){
        Dism /Online /Add-Capability /CapabilityName:$capability /Source:$LIPContent
-	}
+    }
 
-	foreach($feature in $additionalFODList){
+    foreach($feature in $additionalFODList){
     Dism /Online /Add-Package /PackagePath:$feature
     }
 
-	if($langGroup){
+    if($langGroup){
     Dism /Online /Add-Capability /CapabilityName:Language.Fonts.$langGroup~~~und-$langGroup~0.0.1.0 
     }
 
-	##Add installed language to language list##
-	$LanguageList = Get-WinUserLanguageList
-	$LanguageList.Add("$targetlanguage")
-	Set-WinUserLanguageList $LanguageList -force
-	```
+    ##Add installed language to language list##
+    $LanguageList = Get-WinUserLanguageList
+    $LanguageList.Add("$targetlanguage")
+    Set-WinUserLanguageList $LanguageList -force
+    ```
 
     >[!NOTE]
-	>This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+    >This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
     The script might take a while to finish depending on the number of languages you need to install. You can also install additional languages after initial setup by running the script again with a different *$targetLanguage* parameter.
 
-5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx ) as a CSV file, then save it in the same folder as your PowerShell script.
+5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx) as a CSV file, then save it in the same folder as your PowerShell script.
 
 6. Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 

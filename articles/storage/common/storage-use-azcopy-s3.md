@@ -14,9 +14,12 @@ ms.subservice: storage-common-concepts
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, directories, and buckets from Amazon Web Services (AWS) S3 to Azure Blob Storage by using AzCopy.
 
+> [!NOTE]
+> AzCopy supports standard virtual-hosted-style or path-style URLs defined by AWS. For example: `https://bucket.s3.amazonaws.com` or `https://s3.amazonaws.com/bucket`.
+
 ## Choose how you'll provide authorization credentials
 
-- To authorize with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+- To authorize with the Azure Storage, use Microsoft Entra ID or a Shared Access Signature (SAS) token.
 
 - To authorize with AWS S3, use an AWS access key and a secret access key.
 
@@ -25,7 +28,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and choose how you'll provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Microsoft Entra account to authorize access to data in Blob storage.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
@@ -38,8 +41,10 @@ Gather your AWS access key and secret access key, and then set these environment
 | Operating system | Command  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
+| **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 | **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+
+These credentials are used to generate pre-signed URLs that are used to copy objects.
 
 ## Copy objects, directories, and buckets
 

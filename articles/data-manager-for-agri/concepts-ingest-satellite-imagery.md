@@ -17,7 +17,7 @@ Satellite imagery makes up a foundational pillar of agriculture data. To support
 *	Read the Sinergise Sentinel Hub terms of service and privacy policy: https://www.sentinel-hub.com/tos/
 *	Have your providerClientId and providerClientSecret ready
 
-## Ingesting boundary-clipped imagery
+## Ingesting geometry-clipped imagery
 Using satellite data in Data Manager for Agriculture involves following steps: 
 
 :::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow.":::

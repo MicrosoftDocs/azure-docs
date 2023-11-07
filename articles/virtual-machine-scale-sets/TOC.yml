@@ -90,15 +90,14 @@
     href: virtual-machine-scale-sets-attach-detach-vm.md
   - name: Working with large uniform scale sets
     href: virtual-machine-scale-sets-placement-groups.md
-- name: Availability
+- name: Reliability
   items: 
+  - name: Reliability in Virtual Machine Scale Sets
+    href: ../reliability/reliability-virtual-machines.md?toc=/azure/virtual-machine-scale-sets/toc.json&bc=/azure/virtual-machine-scale-sets/breadcrumb/toc.json
   - name: Design considerations
     href: virtual-machine-scale-sets-design-overview.md
   - name: vCPU quotas
     href: ../virtual-machines/linux/quotas.md
-    maintainContext: true
-  - name: Availability Zones
-    href: virtual-machine-scale-sets-use-availability-zones.md
     maintainContext: true
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md

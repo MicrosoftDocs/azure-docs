@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -39,39 +39,15 @@ Returns a string expression.
 
 The following example shows how to use this function with various parameters inside a query.  
   
-```sql
-SELECT VALUE {
-    whitespaceStart: LTRIM("  AdventureWorks"), 
-    whitespaceStartEnd: LTRIM("  AdventureWorks  "), 
-    whitespaceEnd: LTRIM("AdventureWorks  "), 
-    noWhitespace: LTRIM("AdventureWorks"),
-    trimSuffix: LTRIM("AdventureWorks", "Works"),
-    trimPrefix: LTRIM("AdventureWorks", "Adventure"),
-    trimEntireTerm: LTRIM("AdventureWorks", "AdventureWorks"),
-    trimEmptyString: LTRIM("AdventureWorks", "")
-}
-```  
-  
-```json
-[
-  {
-    "whitespaceStart": "AdventureWorks",
-    "whitespaceStartEnd": "AdventureWorks  ",
-    "whitespaceEnd": "AdventureWorks  ",
-    "noWhitespace": "AdventureWorks",
-    "trimSuffix": "AdventureWorks",
-    "trimPrefix": "Works",
-    "trimEntireTerm": "",
-    "trimEmptyString": "AdventureWorks"
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/ltrim/query.sql" highlight="2-9":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ltrim/result.json":::
 
 ## Remarks
 
-- This system function doesn't use the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`RTRIM`](rtrim.md)

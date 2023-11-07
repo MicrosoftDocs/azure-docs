@@ -107,7 +107,7 @@ A: Some compatibility issues may arise due to changes in MySQL v8.0. It's import
 
 __Q: What support is available if I encounter issues during the upgrade process?__
 
-A: If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/microsoft-azure-mysql-qa). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also reach out to the Azure Database for MySQL product team at mailto:AskAzureDBforMySQL@service.microsoft.com.
+A: If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/microsoft-azure-mysql-qa). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also email the [Azure Database for MySQL product team](mailto:AskAzureDBforMySQL@service.microsoft.com).
 
 __Q: What will happen to my data during the upgrade?__
 

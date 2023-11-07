@@ -15,7 +15,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT sensor [installed](install-software-ot-sensor.md), [activated, and configured](activate-deploy-sensor.md), with device data detected.
+- An OT sensor [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md), with device data detected.
 
 - Access to your OT sensor as **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
@@ -37,7 +37,7 @@ For each device where you need to edit device properties:
 
 1. Select the device in the grid and then select **Edit** to view the editing pane. For example:
 
-    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor.":::
+    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor." lightbox="../media/update-device-inventory/edit-device-details.png":::
 
 1. Edit any of the following device properties as needed:
 

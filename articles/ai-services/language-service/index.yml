@@ -1,0 +1,116 @@
+### YamlMime:Hub
+
+title: Azure AI Language documentation
+summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
+brand: azure
+
+metadata:
+  title: Azure AI Language documentation - Tutorials, API Reference | Microsoft Docs
+  titleSuffix: Azure AI services
+  services: cognitive-services
+  description: Learn how to integrate AI that works on written text into your applications.
+  author: aahill
+  manager: nitinme
+  ms.service: speech-service
+  ms.custom: event-tier1-build-2022
+  ms.topic: hub-page
+  ms.date: 11/02/2021
+  ms.author: aahi
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure AI Language?
+      itemType: overview
+      url: overview.md
+    - title: What's new?
+      itemType: whats-new
+      url: whats-new.md
+    - title: Get started with Language Studio
+      itemType: get-started
+      url: language-studio.md
+    - title: Responsible use of AI
+      itemType: concept
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/ai-services/language-service/context/context
+
+conceptualContent:
+  items:
+    - title: Extract information
+      summary: Use Natural Language Understanding (NLU) to extract information from unstructured text. For example, identify key phrases or Personally Identifiable Information (PII), summarize text, recognize and categorize named entities, or customize an entity extraction model on top of your domain set.
+      links:
+        - itemType: overview
+          text: Extract key phrases
+          url:  key-phrase-extraction/overview.md
+        - itemType: overview
+          text: Find linked entities
+          url:  entity-linking/overview.md 
+        - itemType: overview
+          text: Named Entity Recognition (NER)
+          url:  named-entity-recognition/overview.md
+        - itemType: overview
+          text: Personally Identifiable Information (PII) detection
+          url:  personally-identifiable-information/overview.md
+        - itemType: overview
+          text: Custom Named Entity Recognition (custom NER)
+          url:  custom-named-entity-recognition/overview.md
+        - itemType: overview
+          text: Text analytics for health
+          url:  text-analytics-for-health/overview.md
+        - itemType: overview
+          text: Custom text analytics for health
+          url:  custom-text-analytics-for-health/overview.md
+    - title: Summarize text-based content
+      summary: Summarize lengthy documents and conversation transcripts.
+      links:
+      - itemType: overview
+        text: Document summarization
+        url: summarization/overview.md?tabs=document-summarization
+      - itemType: overview
+        text: Conversation summarization
+        url: summarization/overview.md?tabs=conversation-summarization
+    - title: Classify Text
+      summary: Use Natural Language Understanding (NLU) to detect the language or classify the sentiment of text you have. You can also classify your text documents by customizing a classification model over your dataset.
+      links:
+        - itemType: overview
+          text: Analyze sentiment and mine text for opinions
+          url: sentiment-opinion-mining/overview.md
+        - itemType: overview
+          text: Detect Language
+          url: language-detection/overview.md       
+        - itemType: overview
+          text: Custom text classification
+          url: custom-text-classification/overview.md  
+
+    - title: Answer questions
+      summary: Provide answers to questions being asked in unstructured texts using our prebuilt capabilities, or customize your domain specific question-and-answer pairs over data you provide.
+      links:
+        - itemType: overview
+          text: Question answering
+          url: question-answering/overview.md 
+    - title: Understand conversations
+      summary: Create your own models to classify conversational utterances and extract detailed information from them to fulfill scenarios. 
+      links:
+        - itemType: overview
+          text: Conversational language understanding
+          url: conversational-language-understanding/overview.md
+        - itemType: overview
+          text: Orchestration workflow
+          url: orchestration-workflow/overview.md
+    - title: Translate text 
+      summary: Use cloud-based neural machine translation to build intelligent, multi-language solutions for your applications.
+      links:
+        - itemType: overview
+          text: Use machine translation on text. 
+          url: ../translator/translator-overview.md
+additionalContent:
+  sections:
+    - items:
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+        - text: Learn
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
+      - title: Support
+        links:
+        - text: Support and help
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/speech-service/context/context
