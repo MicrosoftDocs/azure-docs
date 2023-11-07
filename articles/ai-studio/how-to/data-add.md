@@ -1,13 +1,12 @@
 ---
 title: How to add and manage data in your Azure AI project
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Learn how to add and manage data in your Azure AI project
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

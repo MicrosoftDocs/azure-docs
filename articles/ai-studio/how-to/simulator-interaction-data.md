@@ -1,13 +1,12 @@
 ---
 title: How to use the Azure AI simulator for interaction data
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: This article provides instructions on how to use the Azure AI simulator for interaction data.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

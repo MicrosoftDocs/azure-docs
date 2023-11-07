@@ -1,12 +1,12 @@
 ---
 title: Plan and manage costs for Azure AI services
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Learn how to plan for and manage costs for Azure AI services by using cost analysis in the Azure portal.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

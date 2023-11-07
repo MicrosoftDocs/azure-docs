@@ -1,12 +1,12 @@
 ---
 title: Evaluation and monitoring metrics for generative AI
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Discover the supported built-in metrics for evaluating large language models, understand their application and usage, and learn how to interpret them effectively.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

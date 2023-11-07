@@ -5,7 +5,7 @@ description: Learn about using customer-managed keys to improve data security wi
 author: deeikele
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: deeikele
 ---
 
