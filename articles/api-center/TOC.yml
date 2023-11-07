@@ -10,10 +10,18 @@
         href: key-concepts.md  
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+- name: Quickstarts
+  items:
+      - name: Create an API center
+        href: set-up-api-center.md
 - name: API inventory
   items:
-      - name: Set up an API center
-        href: set-up-api-center.md
+      - name: 1 - Customize metadata properties
+        href: add-metadata-properties.md
+      - name: 2 - Add APIs to the inventory
+        href: register-apis.md
+      - name: 3 - Add environments and deployments
+        href: configure-environments-deployments.md
 #- name: API governance
 #- name: API discovery and consumption
 - name: Reference
