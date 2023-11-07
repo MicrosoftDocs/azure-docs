@@ -53,24 +53,26 @@ Application Gateway for Containers offers an elastic and scalable ingress to AKS
 ### Load balancing features
 
 Application Gateway for Containers supports the following features for traffic management:
-- Layer 7 HTTP/HTTPS request forwarding based on prefix/exact match on:
-  - Hostname
-  - Path
-  - Headers
-  - Query string match
-  - Methods
-  - Ports (80/443)
+- Automatic retries
+- Autoscaling
+- Availability zone resiliency
+- Default and custom health probes
+- Header rewrite
 - HTTPS traffic management:
   - SSL termination
   - End to End SSL
 - Ingress and Gateway API support
-- Traffic Splitting / weighted round robin
+- Layer 7 HTTP/HTTPS request forwarding based on prefix/exact match on:
+  - Hostname
+  - Path
+  - Header
+  - Query string
+  - Methods
+  - Ports (80/443)
 - Mutual Authentication (mTLS) to backend target
-- Health checks: Application Gateway for Containers determines the health of a backend before it registers it as healthy and capable of handling traffic
-- Automatic retries
+- Traffic Splitting / weighted round robin
 - TLS Policies
-- Autoscaling
-- Availability zone resiliency
+- URL rewrite
 
 ### Deployment strategies
 
