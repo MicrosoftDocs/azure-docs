@@ -113,7 +113,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/query-result-with-errors.png" alt-text="Screenshot of query with health issues." lightbox="media/how-to-enable-diagnostic-settings/query-result-with-errors.png":::
 
-5. Select the down arrow in one of the error logs to display the full error log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the error log message shows that the MedTech service wasn't able to authenticate with the FHIR service.
+5. Select the down arrow in one of the error logs to display the full error log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the error log message shows that the MedTech service wasn't able to authenticate with the FHIR&reg; service.
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/display-log-error-message.png" alt-text="Screenshot of log error message." lightbox="media/how-to-enable-diagnostic-settings/display-log-error-message.png":::
 
