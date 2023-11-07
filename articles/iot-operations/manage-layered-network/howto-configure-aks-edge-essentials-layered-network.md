@@ -1,7 +1,7 @@
 ---
-title: Configure AKS Edge Essentials clusters in Azure IoT Layered Network Management
+title: Configure Layered Network Management service to enable Azure IoT Operations in an isolated network
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure AKS Edge Essentials clusters using Azure Arc in the ISA-95 network environment.
+description: Configure Layered Network Management service to enable Azure IoT Operations in an isolated network.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/30/2023
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure AKS Edge Essentials in Azure IoT Layered Network Management
+# Configure Layered Network Management service to enable Azure IoT Operations in an isolated network
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

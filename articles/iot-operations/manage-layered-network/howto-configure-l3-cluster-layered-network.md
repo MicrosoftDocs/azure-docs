@@ -5,7 +5,7 @@ description: Configure IoT Layered Network Management level 3 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -125,7 +125,14 @@ You should complete this step in an *internet facing environment outside of the 
 
 ## Create the K3S cluster
 
-1. [Install the K3S with online command](https://docs.k3s.io/quick-start).
+1. Install K3S with the following command:
+    
+    ```bash
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    ```
+    
+    > [!IMPORTANT]
+    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
     As an alternative, you can configure the K3S offline using the steps in the [Air-Gap Install](https://docs.k3s.io/installation/airgap) documentation *after* you move the device to the isolated network environment.
 1. Copy the K3s configuration yaml file to `.kube/config`.
