@@ -1,0 +1,74 @@
+---
+title: Configure Azure Elastic SAN (Preview)
+description: Learn how to use Elastic SAN with Azure VMware Solution
+ms.topic: how-to
+ms.service: azure-vmware
+ms.author: v-suzuber
+ms.date: 11/07/2023
+ms.custom: references_regions
+---
+
+# Configure Azure Elastic SAN (Preview)
+
+In this article, learn how to configure Azure Elastic SAN or delete an Elastic SAN-based datastore.
+
+## What is Azure Elastic SAN 
+
+[Azure Elastic storage area network](https://review.learn.microsoft.com/azure/storage/elastic-san/elastic-san-introduction?branch=main) (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+
+[Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/introduction) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
+
+## Prerequisites
+
+The following prerequisites are required to continue.
+
+- Register for the preview by filling out the [form](aka.ms/AVSESANPreviewSignup).
+- Verify you have a Dev/Test SDDC set up in one of the following regions:
+	- East US
+	- East US 2
+	- South Central US
+	- West US 2
+	- West US 3
+	- North Europe
+	- West Europe
+	- UK South
+	- France Central
+	- Sweden Central
+	- Southeast Asia
+	- Australia East
+- Know the availability zone your SCCD is in. 
+	- In the UI, select an Azure VMware Solution host.
+	> [!NOTE]
+	> The host exposes its AZ. You should use that AZ when deploying other Azure resources for the same subscription.
+- You have permission to set up new resources in the subscription your SDDC is in.
+- Verify you've received an email confirmation that your subscription has been allowlisted.
+
+## Set up Elastic SAN
+
+In this section, you create a Virtual Network (VNet) for your Elastic SAN. Then you create the Elastic SAN which includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN which allows your SDDC to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your SDDC.
+
+1. Use one of the following instruction options to set up a dedicated VNet for your Elastic SAN:
+	- [Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
+	- [Powershell](https://learn.microsoft.com/azure/virtual-network/quick-create-powershell)
+	- [Azure CLI](https://learn.microsoft.com/azure/virtual-network/quick-create-cli)
+2. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
+	> [!IMPORTANT]
+	> Make sure to create this Elastic SAN in the same region and availability zone as your SDDC for best performance.
+	- [Azure portal](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
+	- [Powershell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
+	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
+3. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
+	- [PowerShell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
+	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
+
+## Add an Elastic SAN volume as a datastore
+
+After you receive confirmation that your subscription has been allowlisted, you can use the Azure Portal to add the Elastic SAN volume as a datastore in your SDDC.
+
+
+
+
+
+
+
+
