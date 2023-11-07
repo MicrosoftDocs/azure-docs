@@ -39,7 +39,7 @@ The following prerequisites are required to continue.
 - Know the availability zone your SCCD is in. 
 	- In the UI, select an Azure VMware Solution host.
 	> [!NOTE]
-	> The host exposes its AZ. You should use that AZ when deploying other Azure resources for the same subscription.
+	> The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
 - You have permission to set up new resources in the subscription your SDDC is in.
 - Verify that you received an email confirmation that your subscription is now allowlisted.
 
