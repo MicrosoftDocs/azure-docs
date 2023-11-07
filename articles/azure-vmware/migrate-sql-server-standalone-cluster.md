@@ -61,7 +61,6 @@ For any of the following, ExpressRoute connectivity is recommended for a migrati
 - Production environments
 - Workloads with large database sizes
 - Scenarios in which there is a need to minimize downtime the ExpressRoute connectivity is recommended for the migration.migration.  
-=======
 - Production environments
 - Workloads with large database sizes
 - Any case where there is a need to minimize downtime
