@@ -40,9 +40,9 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
     
     This command creates the following on your cluster:
     - a namespace called `test-infra`
-    - 1 service called `echo` in the `test-infra` namespace
-    - 1 deployment called `echo` in the `test-infra` namespace
-    - 1 secret called `listener-tls-secret` in the `test-infra` namespace
+    - one service called `echo` in the `test-infra` namespace
+    - one deployment called `echo` in the `test-infra` namespace
+    - one secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -124,7 +124,7 @@ EOF
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -175,7 +175,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute
+Once the gateway is created, create an HTTPRoute
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -193,12 +193,12 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify the Application Gateway for Containers resource is successfully updated.
 
 ```yaml
 status:
