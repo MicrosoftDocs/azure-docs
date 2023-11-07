@@ -116,7 +116,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 1. In **Log Analytics Workspace**, select the specific workspace and select **Json View**.
 1. Copy the **Resource ID**.
 
-   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-inline.png" alt-text="Screenshot that shows the log analytics workspace id." lightbox="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-expanded.png":::
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-inline.png" alt-text="Screenshot that shows the log analytics workspace ID." lightbox="media/guidance-migration-log-analytics-monitoring-agent/workspace-resource-expanded.png":::
 
 
 ## Limitations
