@@ -12,7 +12,7 @@ ms.date: 11/07/2023
 
 # Create an environment by using the Azure Developer CLI
 
-In this article, you install the Azure Developer CLI, sign into azd to create a new deployment environment and deploy your app code onto the provisioned deployment environment.
+In this article, you install the Azure Developer CLI (AZD), create a new deployment environment by provisioning your app infrastructure to Azure Deployment Environments, and deploy your app code onto the provisioned deployment environment.
 
 Azure Developer CLI (AZD) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. AZD provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
 
@@ -29,7 +29,10 @@ You should:
 
 Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the attached catalog to provision new environments. 
 
-To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.  
+> [!NOTE]
+> Currently, Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog.
+
+To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.
 
 You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
 
@@ -42,7 +45,7 @@ When you work with AZD for the first time, there are some one-time setup tasks y
 
 ### Install the Azure Developer CLI extension for Visual Studio Code
 
-To enable Azure Developer CLI features in Visual Code, install the Azure Developer CLI extension. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
+To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension, version v0.8.0-alpha.1-beta.3173884. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-large.png":::
 
@@ -106,7 +109,7 @@ When you're ready, you can provision your local environment to a remote Azure De
  
 1. AZD instructs ADE to create a new environment based on the information you gave in the previous step.
  
-1. You can view the resources created in the Azure portal or in the developer portal.
+1. You can view the resources created in the Azure portal or in the [developer portal](https://devportal.microsoft.com).
 
 ### List existing environments (optional)
 
