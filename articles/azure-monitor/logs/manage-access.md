@@ -84,11 +84,11 @@ The *access control mode* is a setting on each workspace that defines how permis
 
 View the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
 
-![Screenshot that shows the workspace access control mode.](media/manage-access/view-access-control-mode.png)
+:::image type="content" source="media/manage-access/view-access-control-mode.png" lightbox="media/manage-access/view-access-control-mode.png" alt-text="Screenshot that shows the workspace access control mode.":::
 
 Change this setting on the **Properties** page of the workspace. If you don't have permissions to configure the workspace, changing the setting is disabled.
 
-![Screenshot that shows changing workspace access mode.](media/manage-access/change-access-control-mode.png)
+:::image type="content" source="media/manage-access/change-access-control-mode.png" lightbox="media/manage-access/change-access-control-mode.png" alt-text="Screenshot that shows changing workspace access mode.":::
 
 # [PowerShell](#tab/powershell)
 
