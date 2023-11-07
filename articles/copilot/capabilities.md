@@ -14,18 +14,23 @@ Microsoft Copilot for Azure (preview) amplifies your impact with AI-enhanced ope
 
 ## Perform tasks
 
-Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot for Azure (preview) can be especially helpful:
+Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot for Azure (preview) can be especially helpful.
 
-- [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
-- [Deploy virtual machines effectively](deploy-vms-effectively.md)
-- [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
-- [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
-- [Work smarter with Azure Stack HCI](work-smarter-edge.md)
-- [Improve security and resiliency of storage accounts](improve-storage-accounts.md)
-- [Generate Azure CLI scripts](generate-cli-scripts.md)
-- [Author API Management policies](author-api-management-policies.md)
-- [Understand service health events and status](understand-service-health.md)
-- [Analyze, estimate, and optimize costs](analyze-cost-management.md)
+- Understand your Azure environment:
+  - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
+  - [Understand service health events and status](understand-service-health.md)
+  - [Analyze, estimate, and optimize costs](analyze-cost-management.md)
+- Work smarter with Azure services:
+  - [Deploy virtual machines effectively](deploy-vms-effectively.md)
+  - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
+  - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
+  - [Improve security and resiliency of storage accounts](improve-storage-accounts.md)
+- Write and optimize code:
+  - [Generate Azure CLI scripts](generate-cli-scripts.md)
+  - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
+  - [Author API Management policies](author-api-management-policies.md)
+
+
 
 ## Get information
 

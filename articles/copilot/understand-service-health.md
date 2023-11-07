@@ -10,7 +10,7 @@ author: JnHs
 
 # Understand service health events and status using Microsoft Copilot for Azure (preview)
 
-You can ask Microsoft Copilot for Azure (preview) questions to get information from [Azure Service Health](/azure/service-health/overview). This provides a quick way to find out if there are any service health events impacting your Azure subscriptions. You can also find out more information about a known service health event.
+You can ask Microsoft Copilot for Azure (preview) questions to get information from [Azure Service Health](/azure/service-health/overview). This provides a quick way to find out if there are any service health events impacting your Azure subscriptions. You can also get more information about a known service health event.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -23,20 +23,13 @@ Here are a few examples of the kinds of prompts you can use to get service healt
 - "Can you tell me more about this tracking ID {0}?"
 - "Is the event with tracking ID {0} still active?"
 - "What is the status of the event with tracking ID {0}"
+- "Is there any upcoming planned maintenance"
 
 ## Examples
 
-You can ask "Is there an Azure outage ongoing?" In this example, Microsoft Copilot for Azure (preview) reports information about several service health events, providing information about the regions which are affected.
+You can ask "Is there any Azure outage ongoing?" After Microsoft Copilot for Azure (preview) responds, you can follow up with additional questions such as "Are there any planned maintenance activities?"
 
-:::image type="content" source="media/understand-service-health/azure-service-health-outages.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing information about service health events.":::
-
-You can continue to ask questions to get more details about an event. For example, say "Can you tell me more about the first incident" to get more details.
-
-:::image type="content" source="media/understand-service-health/azure-service-health-more-info.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing more details about a service health event.":::
-
-You can also get information about a service health event by using its *tracking ID. Here, Microsoft Copilot for Azure (preview) responds to "can you tell me more about 7K82-5TZ" by providing the impacted service and regions, along with the event level.
-
-:::image type="content" source="media/understand-service-health/azure-service-health-event-id.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing details based on a service health event ID.":::
+:::image type="content" source="media/understand-service-health/azure-service-health-outage-planned-maintenance.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about service issues and planned maintenance.":::
 
 ## Next steps
 
