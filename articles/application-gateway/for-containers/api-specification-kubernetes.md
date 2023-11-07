@@ -152,8 +152,8 @@ has been accepted by the controller.</p>
 <em>(Optional)</em>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Ready&rdquo;</li>
+<li>"Accepted"</li>
+<li>"Ready"</li>
 </ul>
 </td>
 </tr>
@@ -599,7 +599,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe BackendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -1032,7 +1032,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe FrontendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -1089,7 +1089,7 @@ case insensitive. (See <a href="https://tools.ietf.org/html/rfc7230#section-3.2"
 <p>If multiple entries specify equivalent header names, the first entry with
 an equivalent name MUST be considered for a match. Subsequent entries
 with an equivalent header name MUST be ignored. Due to the
-case-insensitivity of header names, &ldquo;foo&rdquo; and &ldquo;Foo&rdquo; are considered
+case-insensitivity of header names, "foo" and "Foo" are considered
 equivalent.</p>
 </td>
 </tr>
@@ -1115,14 +1115,14 @@ string
 <p>HTTPHeaderName is the name of an HTTP header.</p>
 <p>Valid values include:</p>
 <ul>
-<li>&ldquo;Authorization&rdquo;</li>
-<li>&ldquo;Set-Cookie&rdquo;</li>
+<li>"Authorization"</li>
+<li>"Set-Cookie"</li>
 </ul>
 <p>Invalid values include:</p>
 <ul>
-<li>&rdquo;:method&rdquo; - &ldquo;:&rdquo; is an invalid character. This means that HTTP/2 pseudo
+<li>":method" - ":" is an invalid character. This means that HTTP/2 pseudo
 headers are not currently supported by this type.</li>
-<li>&rdquo;/invalid&rdquo; - &ldquo;/ &rdquo; is an invalid character</li>
+<li>"/invalid" - "/ " is an invalid character</li>
 </ul>
 </div>
 <h3 id="alb.networking.azure.io/v1.HTTPMatch">HTTPMatch
@@ -1227,8 +1227,8 @@ string
 <em>(Optional)</em>
 <p>ReplacePrefixMatch specifies the value with which to replace the prefix
 match of a request during a rewrite or redirect. For example, a request
-to &ldquo;/foo/bar&rdquo; with a prefix match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch
-of &ldquo;/xyz&rdquo; would be modified to &ldquo;/xyz/bar&rdquo;.</p>
+to "/foo/bar" with a prefix match of "/foo" and a ReplacePrefixMatch
+of "/xyz" would be modified to "/xyz/bar".</p>
 <p>Note that this matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
@@ -1341,8 +1341,8 @@ by the specified value.</p>
 </tr><tr><td><p>&#34;ReplacePrefixMatch&#34;</p></td>
 <td><p>PrefixMatchHTTPPathModifier indicates that any prefix path matches will be
 replaced by the substitution value. For example, a path with a prefix
-match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch substitution of &ldquo;/bar&rdquo; will have
-the &ldquo;/foo&rdquo; prefix replaced with &ldquo;/bar&rdquo; in matching requests.</p>
+match of "/foo" and a ReplacePrefixMatch substitution of "/bar" will have
+the "/foo" prefix replaced with "/bar" in matching requests.</p>
 <p>Note that this matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
@@ -1446,8 +1446,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 set:
-- name: &ldquo;my-header&rdquo;
-value: &ldquo;bar&rdquo;</p>
+- name: "my-header"
+value: "bar"</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: bar</p>
@@ -1472,8 +1472,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 add:
-- name: &ldquo;my-header&rdquo;
-value: &ldquo;bar,baz&rdquo;</p>
+- name: "my-header"
+value: "bar,baz"</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: foo,bar,baz</p>
@@ -1498,7 +1498,7 @@ my-header1: foo
 my-header2: bar
 my-header3: baz</p>
 <p>Config:
-remove: [&ldquo;my-header1&rdquo;, &ldquo;my-header3&rdquo;]</p>
+remove: ["my-header1", "my-header3"]</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header2: bar</p>
@@ -1885,7 +1885,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe HealthCheckPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -1942,7 +1942,7 @@ Protocol
 </em>
 </td>
 <td>
-<p>Protocol should be one of &ldquo;HTTP&rdquo;, &ldquo;HTTPS&rdquo;</p>
+<p>Protocol should be one of "HTTP", "HTTPS"</p>
 </td>
 </tr>
 </tbody>
@@ -2378,8 +2378,8 @@ field.</p>
 <p>Conditions describe the current conditions of the IngressExtension.
 Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Errors&rdquo;</li>
+<li>"Accepted"</li>
+<li>"Errors"</li>
 </ul>
 </td>
 </tr>
@@ -2832,8 +2832,8 @@ header in the response.</p>
 following rules:</p>
 <ul>
 <li>If redirect scheme is not-empty, the redirect port MUST be the well-known
-port associated with the redirect scheme. Specifically &ldquo;http&rdquo; to port 80
-and &ldquo;https&rdquo; to port 443. If the redirect scheme does not have a
+port associated with the redirect scheme. Specifically "http" to port 80
+and "https" to port 443. If the redirect scheme does not have a
 well-known port, the listener port of the Gateway SHOULD be used.</li>
 <li>If redirect scheme is empty, the redirect port MUST be the Gateway
 Listener port.</li>
@@ -3200,7 +3200,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe RoutePolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
