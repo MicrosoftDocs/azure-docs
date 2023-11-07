@@ -4,21 +4,22 @@ description: This article describes the accelerated logs feature for Azure Datab
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
 ---
 
-# Accelerated Logs Feature in Azure Database for MySQL - Preview
+# Accelerated Logs Feature in Azure Database for MySQL - Flexible Server (Preview)
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article overview the accelerated logs feature during its preview phase. It guides you on how to enable or disable this feature for Azure Database for MySQL flexible servers based on the Business Critical service tier.
 
 > [!IMPORTANT]  
-> The accelerated logs feature is currently in preview and subject to [limitations](#limitations-preview) and ongoing development. This feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
+> The accelerated logs feature is currently in preview and subject to [limitations](#limitations) and ongoing development. This feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
 
 ## Introduction
 
@@ -32,11 +33,11 @@ Database servers with mission-critical workloads demand robust performance, requ
 - **Cost efficiency**: Accelerated logs provide enhanced performance at no extra expense, offering a cost-effective solution for mission-critical workloads.
 - **Enhanced scalability:** Accelerated logs can accommodate growing workloads, making it an ideal choice for applications that need to scale easily while maintaining high performance. Applications and services on the Business Critical service tier benefit from more responsive interactions and reduced query wait times.
 
-## Limitations [Preview]
+## Limitations
 
 - New primary servers created under the Business Critical service tier created after *November 14* are eligible to use the accelerated logs feature. The accelerated logs feature is only available for the Business Critical service tier.
 
-- During the Preview phase,  you can't enable the accelerated logs feature on servers that have the following features enabled.
+- During the preview phase,  you can't enable the accelerated logs feature on servers that have the following features enabled.
     - [High Availability](./concepts-high-availability.md) (HA) servers.
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
     - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
@@ -102,9 +103,9 @@ During the Public Preview phase, this section details enabling accelerated logs.
 
 1. Select on Save and wait for the deployment process to be completed. Once you receive a successful deployment message, the feature is ready to be used.
 
-## Disable accelerated logs feature [Preview]
+## Disable accelerated logs feature (preview)
 
-During the Public Preview phase, disabling the  accelerated logs feature is a straightforward process:
+During the public preview phase, disabling the  accelerated logs feature is a straightforward process:
 
 > [!NOTE]  
 > Your server will restart during the deployment process, so ensure you either pause your workload or schedule it during a time that aligns with your application maintenance or off-hours
