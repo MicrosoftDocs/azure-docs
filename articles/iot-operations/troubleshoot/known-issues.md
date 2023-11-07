@@ -55,19 +55,15 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## Layered Network Management (preview)
 
-If the Layered Network Management service doesn't have an IP address while running K3S on an Ubuntu host, reinstall K3S without the `trafeik` ingress controller:
+- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without *trafeik ingress controller* using `--disable=traefik` option. 
 
-```bash
-curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-```
+    ```bash
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    ```
+    For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
 
-To learn more, see [K3S | Traefik Ingress Controller](https://docs.k3s.io/networking#traefik-ingress-controller)
+- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
 
-If DNS queries aren't resolving to the expected IP address while using [CoreDNS](https://docs.k3s.io/networking#coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S:
-
-```bash
-curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-```
 
 ## OPC PLC simulator
 
@@ -97,33 +93,6 @@ done
 
 > [!WARNING]
 > Don't use untrusted certificates in production environments.
-
-If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
-
-```bash
-kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
-```
-
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. If you notice this happening, run the following commands:
-
-```bash
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
-kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-```
-
-## Layered Network Management
-
-- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without *trafeik ingress controller* using `--disable=traefik` option. 
-
-    ```bash
-    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-    ```
-    For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
-
-- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
-
-
-## OPC PLC simulator
 
 If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
