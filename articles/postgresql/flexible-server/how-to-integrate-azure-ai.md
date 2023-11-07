@@ -21,7 +21,7 @@ This tutorial showcases adding rich AI capabilities to an Azure Database for Pos
 ## Prerequisites
 
    1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-   1. Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <https://aka.ms/oai/access>.
+   1. Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted by the application. You can apply for access to Azure OpenAI by completing the form at <https://aka.ms/oai/access>.
    1. An Azure OpenAI resource with the `text-embedding-ada-002` (Version 2) model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). If you don't have a resource, the process for creating one is documented in the [Azure OpenAI resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
    1. An [Azure AI Language](/azure/ai-services/language-service/overview) service. If you don't have a resource, you can [create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal by following the instructions provided in the [quickstart for summarization](/azure/ai-services/language-service/summarization/custom/quickstart#create-a-new-resource-from-the-azure-portal) document. You can use the free pricing tier (`Free F0`) to try the service and upgrade later to a paid tier for production.
    1. An Azure Database for PostgreSQL Flexible Server instance in your Azure subscription. If you don't have a resource, use either the [Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal) or the [Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli) guide for creating one.
@@ -46,7 +46,7 @@ export PGDATABASE={your-database-name}
 export PGPASSWORD="{your-password}"
 ```
 
-Add one additional environment variable to require an SSL connection to the database.
+Add one extra environment variable to require an SSL connection to the database.
 
 ```bash
 export PGSSLMODE=require
@@ -185,7 +185,7 @@ ADD COLUMN bill_vector vector(1536);
 
 ### Generate and store vectors
 
-The `bill_summaries` table is now ready to store embeddings. Using the `azure_openai.create_embeddings()` function, you'll create vectors for the `bill_text` field and insert them into the newly created `bill_vector` column in the `bill_summaries` table.
+The `bill_summaries` table is now ready to store embeddings. Using the `azure_openai.create_embeddings()` function, you create vectors for the `bill_text` field and insert them into the newly created `bill_vector` column in the `bill_summaries` table.
 
 Before using the `create_embeddings()` function, run the following command to inspect it and review the required arguments:
 
@@ -264,9 +264,9 @@ SELECT azure_ai.set_setting('azure_cognitive.subscription_key', '{api-key}');
 
 ### Summarize bills
 
-To demonstrate some of the capabilities of the `azure_cognitive` functions of the `azure_ai` extension, you'll generate a summary of each bill. The `azure_cognitive` schema provides two functions for summarizing text, `summarize_abstractive` and `summarize_extractive`. Abstractive summarization produces a summary that captures the main concepts from input text but might not use identical words. Extractive summarization assembles a summary by extracting critical sentences from the input text.
+To demonstrate some of the capabilities of the `azure_cognitive` functions of the `azure_ai` extension, you generate a summary of each bill. The `azure_cognitive` schema provides two functions for summarizing text, `summarize_abstractive` and `summarize_extractive`. Abstractive summarization produces a summary that captures the main concepts from input text but might not use identical words. Extractive summarization assembles a summary by extracting critical sentences from the input text.
 
-To use the Azure AI Language service's ability to generate new, original content, you'll use the `summarize_abstractive` function to create a summary of text input. Use the `\df` meta-command from `psql` again, this time to look specifically at the `azure_cognitive.summarize_abstractive` function.
+To use the Azure AI Language service's ability to generate new, original content, you use the `summarize_abstractive` function to create a summary of text input. Use the `\df` meta-command from `psql` again, this time to look specifically at the `azure_cognitive.summarize_abstractive` function.
 
 ```sql
 \x
@@ -315,7 +315,7 @@ UPDATE bill_summaries b
 SET one_sentence_summary = array_to_string(azure_cognitive.summarize_abstractive(b.bill_text, 'en', throw_on_error => false, sentence_count => 1), ' ', '');
 ```
 
-In the output, you might notice a warning about an invalid document for which an appropriate summarization couldn't be generated. This warning results from setting `throw_on_error` to `false` in the above query. If that flag were left to the default of `true`, the query would have failed, and no summaries would have been written to the database. To view the record that threw the warning, execute the following:
+In the output, you might notice a warning about an invalid document for which an appropriate summarization couldn't be generated. This warning results from setting `throw_on_error` to `false` in the above query. If that flag were left to the default of `true`, the query fails, and no summaries would have been written to the database. To view the record that threw the warning, execute the following:
 
 ```sql
 SELECT bill_id, one_sentence_summary FROM bill_summaries WHERE one_sentence_summary = '';
