@@ -1,11 +1,11 @@
 ---
-title: About ExpressRoute virtual network gateways - Azure| Microsoft Docs
-description: Learn about virtual network gateways for ExpressRoute. This article includes information about gateway SKUs and types.
+title: About ExpressRoute virtual network gateways
+description: Learn about virtual network gateways for ExpressRoute, their SKUs, types, and other specifications and features.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 11/15/2023
 ms.author: duau
 
 ---
@@ -178,15 +178,15 @@ ErGwScale is free of charge during public preview. For information about Express
 
 | Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
 |--|--|--|--|--|--|
-| 1 | 1 | 100,000 | 7,000 | 2,000 | 200,000 |
+| 1 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
 
 #### Sample performance with scale unit
 
 | Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
 |--|--|--|--|--|--|
-| 10 | 10 | 1,000,000 | 70,000 | 20,000 | 2,000,000 |
-| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 4,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 8,000,000 |
+| 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 2,000,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 4,000,000 |
 
 ## Next steps
 
