@@ -50,7 +50,9 @@ This section shows you how to create a system topic of type `microsoft.resourcen
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. In the search bar, type **Event Grid System Topics**, and select it from the drop-down list. 
 1. On the **Event Grid system topics** page, select **Create** on the toolbar. 
-1. On the **Create Event Grid System Topic** page, select **Azure Resource Notifications - Resources events** for **Topic type**.    
+1. On the **Create Event Grid System Topic** page, select **Azure Resource Management - Preview** for **Topic type**.    
+
+    :::image type="content" source="./media/subscribe-to-resources-events/create-system-topic.png" alt-text="Screenshot that shows the Create System Topic page." lightbox="./media/subscribe-to-resources-events/create-system-topic.png":::
 1. Select the **resource group** in which you want to create the system topic.
 1. Enter a **name** for the system topic.
 1. Select **Review + create** 
@@ -294,6 +296,27 @@ Value = "virtualMachines"
 
 ## Contact us
 If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+
+To better assist you with specific feedback about a certain event, provide the following information: 
+ 
+### For missing events:
+
+- System topic type name
+- Approximate timestamp in UTC when the operation was executed
+- Base resource id for which the notification was generated
+- Navigate to your resource in Azure portal and select JSON view at the far right corner. Resource id is the first field on the JSON view page.
+- Expected event type
+- Operation executed (for example, VM  started or stopped, Storage account created etc.)
+- Description of issue encountered (for example, VM started and no Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged event generated)
+- If possible, provide the correlation id of operation executed 
+
+### For event that was delayed or has unexpected content
+
+- System topic type name
+- Entire contents of the notification excluding data.resourceInfo.properties
+- Description of issue encountered and impacted field values
+
+Ensure that you aren't providing any end user identifiable information while you're sharing this data. 
 
 ## Next steps
 For detailed information about these events, see [Azure Resource Notifications - Resources events](event-schema-resources.md).

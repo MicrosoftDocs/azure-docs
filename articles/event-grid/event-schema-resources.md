@@ -15,12 +15,12 @@ In contrast, the Azure Resource Notifications (ARN) powered Azure Resource Manag
 For the list of resource types exposed, see [Azure Resource Graph resources](/azure/governance/resource-graph/reference/supported-tables-resources#resources) or use the following Azure Resource Graph query. 
 
 ```kusto
-Resource
-| distinct type
+resources
+| distinct ['type']
 ```
 
 > [!NOTE]
-> The Resources system topic doesn't support all the notifications from Azure Resource Graph yet. We're working on improving this experience.
+> Azure Resource Management system topic doesn't yet support all the resource types from the resources table of Azure Resource Graph. We are working on improving this experience. 
 
 ## Event types
 ARN Resources system topic offers two event types for consumption:
@@ -204,7 +204,7 @@ The `resourceInfo` object has the following common properties across `CreatedOrU
 | `name` | String | This field indicates the Event-id. It always takes the value of the last section of the `id` field. |
 | `type` | String | The type of event that is being emitted. In this context, it's either `Microsoft.ResourceNotifications.Resources.CreatedOrUpdated` or `Microsoft.ResourceNotifications.Resources.Deleted`. |
 
-The `resourceInfo` object for the `CreatedOrUpdated` event has the following additional properties:
+The `resourceInfo` object for the `CreatedOrUpdated` event has the following extra properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
@@ -229,7 +229,7 @@ The `operationalInfo` object has the following properties:
 ## Example events
 
 ### CreatedOrUpdated event 
-This section shows the `CreatedOrUpdated` event that's generated when an Azure Storage account is created in the Azure subscription on which the system topic is created. 
+This section shows the `CreatedOrUpdated` event generated when an Azure Storage account is created in the Azure subscription on which the system topic is created. 
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -390,7 +390,7 @@ This section shows the `CreatedOrUpdated` event that's generated when an Azure S
 ---
 
 ### Deleted event 
-This section shows the `Deleted` event that's generated when an Azure Storage account is deleted in the Azure subscription on which the system topic is created. 
+This section shows the `Deleted` event generated when an Azure Storage account is deleted in the Azure subscription on which the system topic is created. 
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
