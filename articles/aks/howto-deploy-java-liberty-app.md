@@ -14,9 +14,9 @@ This article demonstrates how to:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
-* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
+* Deploy the containerized application to an AKS cluster using the Open Liberty Operator or WebSphere Liberty Operator.
 
-The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty or WebSphere Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -148,10 +148,10 @@ Now that you've gathered the necessary properties, you can build the application
 cd <path-to-your-repo>/java-app
 
 # The following variables will be used for deployment file generation into target.
-export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
-export REGISTRY_NAME=<Azure_Container_Registery_Name>
-export USER_NAME=<Azure_Container_Registery_Username>
-export PASSWORD=<Azure_Container_Registery_Password>
+export LOGIN_SERVER=<Azure_Container_Registry_Login_Server_URL>
+export REGISTRY_NAME=<Azure_Container_Registry_Name>
+export USER_NAME=<Azure_Container_Registry_Username>
+export PASSWORD=<Azure_Container_Registry_Password>
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Server name>
@@ -211,7 +211,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 ### Upload image to ACR
 
-Now, we upload the built image to the ACR created in the offer.
+Upload the built image to the ACR created in the offer.
 
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1

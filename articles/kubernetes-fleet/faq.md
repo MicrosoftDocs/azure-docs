@@ -34,7 +34,7 @@ During preview, you can join up to 20 AKS clusters as member clusters to the sam
 Fleet supports joining the following types of AKS clusters as member clusters:
 
 * AKS clusters across same or different resource groups within same subscription
-* AKS clusters across different subscriptions of the same Azure AD tenant
+* AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
 ## Relationship to Azure-Arc enabled Kubernetes

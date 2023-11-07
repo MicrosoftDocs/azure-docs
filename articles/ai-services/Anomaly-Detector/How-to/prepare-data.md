@@ -14,6 +14,8 @@ ms.author: mbullwin
 
 # Prepare your data and upload to Storage Account
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Multivariate Anomaly Detection requires training to process your data, and an Azure Storage Account to store your data for further training and inference steps.
 
 ## Data preparation

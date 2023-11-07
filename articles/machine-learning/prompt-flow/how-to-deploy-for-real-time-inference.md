@@ -281,6 +281,16 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ## Troubleshoot endpoints deployed from prompt flow
 
+### Model response taking too long
+
+Sometimes you may notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+
+- Model is not powerful enough (ex. use gpt over text-ada)
+- Index query is not optimized and taking too long
+- Flow has many steps to process
+
+Consider optimizing the endpoint with above considerations to improve the performance of the model.
+
 ### Unable to fetch deployment schema
 
 After you deploy the endpoint and want to test it in the **Test tab** in the endpoint detail page, if the **Test tab** shows **Unable to fetch deployment schema** like following, you can try the following 2 methods to mitigate this issue:

@@ -20,16 +20,21 @@ This article walks you through the main user journey of using Prompt flow in Azu
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites: Enable Prompt flow in your Azure Machine Learning workspace
+## Prerequisites: 
 
 > [!IMPORTANT]
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
 >
 >Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
-In your Azure Machine Learning workspace, you can enable Prompt flow by turning on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+- Enable Prompt flow in your Azure Machine Learning workspace: In your Azure Machine Learning workspace, you can enable Prompt flow by turning on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
 
-:::image type="content" source="./media/get-started-prompt-flow/preview-panel.png" alt-text="Screenshot of manage preview features highlighting build AI solutions with Prompt flow button." lightbox ="./media/get-started-prompt-flow/preview-panel.png":::
+    :::image type="content" source="./media/get-started-prompt-flow/preview-panel.png" alt-text="Screenshot of manage preview features highlighting build AI solutions with Prompt flow button." lightbox ="./media/get-started-prompt-flow/preview-panel.png":::
+
+- Make sure the default data store in your workspace is blob type. 
+
+- If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
+
 
 ## Setup
 

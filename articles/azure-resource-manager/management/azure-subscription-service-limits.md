@@ -55,7 +55,9 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Azure Active Directory limits
+<a name='azure-active-directory-limits'></a>
+
+## Microsoft Entra ID limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 

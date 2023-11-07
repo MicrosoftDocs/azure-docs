@@ -74,9 +74,9 @@ This error means that the challenge endpoint of the target registry did not issu
 
 ## CONNECTIVITY_AAD_LOGIN_ERROR
 
-This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Azure Active Directory authentication.
+This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Microsoft Entra authentication.
 
-*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Azure Active Directory, open an issue at https://aka.ms/acr/issues.
+*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Microsoft Entra ID, open an issue at https://aka.ms/acr/issues.
 
 ## CONNECTIVITY_REFRESH_TOKEN_ERROR
 

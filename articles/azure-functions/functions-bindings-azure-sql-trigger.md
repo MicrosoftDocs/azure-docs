@@ -519,7 +519,7 @@ In addition to the required ConnectionStringSetting [application setting](./func
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 

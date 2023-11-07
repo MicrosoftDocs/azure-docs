@@ -18,7 +18,35 @@ Azure Spring Apps is improved on an ongoing basis. To help you stay up to date w
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
-## June 2023
+## Q3 2023
+
+The following updates are now available in the Enterprise plan:
+
+- **Spring Cloud Gateway enables you to set log level per logger name**: Spring Cloud Gateway now supports precise control over the generation of log messages and their respective verbosity levels. This enhancement enables you to concentrate your attention on specific areas within the codebase that warrant closer inspection and monitoring. For more information, see the [Configure log levels](how-to-configure-enterprise-spring-cloud-gateway.md#configure-log-levels) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md) and [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
+
+- **Spring Cloud Gateway supports a restart operation using the Azure portal and the Azure CLI**: This enhancement enables you to initiate a restart of Spring Cloud Gateway conveniently, either through the Azure portal or by using Azure CLI commands, in alignment with your preferred schedule. For more information, see the [Restart VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md#restart-vmware-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+
+- **Spring Cloud Gateway supports Cross-Origin Resource Sharing (CORS)**: Spring Cloud Gateway now enables you to restrict access to resources to specific domains by using Cross-Origin Resource Sharing (CORS). For more information, see the [Configure cross-origin resource sharing](how-to-configure-enterprise-spring-cloud-gateway.md#configure-cross-origin-resource-sharing) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+
+- **Spring Cloud Gateway exposes addon properties**: This update enables you to configure advanced properties of Spring Cloud Gateway that serve specific use cases that might not be universally recommended. This capability brings you the flexibility to fine-tune Spring Cloud Gateway to address particular scenarios and requirements. For more information, see the [Update add-on configuration](how-to-configure-enterprise-spring-cloud-gateway.md#update-add-on-configuration) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+
+- **API Portal supports single sign-on with multiple replicas**: This update removes the restriction that prevents you from getting better reliability by configuring multiple replicas of your API Portal instance when single sign-on is enabled. For more information, see the [Configure single sign-on (SSO)](how-to-use-enterprise-api-portal.md#configure-single-sign-on-sso) section of [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md).
+
+- **App Accelerator supports Git repositories in Azure DevOps**: Application Accelerator maintains ready-made, enterprise-conformant code and configurations in Git repositories. Now, Application Accelerator enables loading accelerators directly from Git repositories hosted in Azure DevOps. For more information, see the [Manage your own accelerators](how-to-use-accelerator.md#manage-your-own-accelerators) section of [Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan](how-to-use-accelerator.md).
+
+- **App Accelerator supports fragments and sub paths**: Application Accelerator supports fragments, enabling the efficient reuse of sections within an accelerator. This functionality saves you effort when you add new accelerators. For more information, see the [Reference a fragment in your own accelerators](how-to-use-accelerator.md#reference-a-fragment-in-your-own-accelerators) section of [Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan](how-to-use-accelerator.md).
+
+- **Java native image support (preview)**: Native images generally have smaller memory footprints and quicker startup times when compared to their JVM counterparts. With this feature, you can deploy Spring Boot native image applications using the `java-native-image` buildpack. For more information, see the [Deploy Java Native Image applications](how-to-enterprise-deploy-polyglot-apps.md#deploy-java-native-image-applications-preview) section of [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
+
+- **Support for the PHP Buildpack**: You can deploy PHP apps directly from source code and receive continuous maintenance (CVE fixes) for the automatic built images. For more information, see the [Deploy PHP applications](how-to-enterprise-deploy-polyglot-apps.md#deploy-php-applications) section of [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
+
+- **New Relic APM support for .NET apps**: New Relic is a software analytics tool suite to measure and monitor performance bottlenecks, throughput, service health, and more. This update enables you to bind your .NET application with New Relic Application Performance Monitoring (APM). For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+The following update is now available in the Standard consumption and dedicated plan:
+
+- **JHipster Azure Spring Apps**: With the collaboration between the [JHipster](https://www.jhipster.tech/azure/) and Azure Spring Apps teams, JHipster Azure Spring Apps is designed to streamline your full-stack Spring application development and deployment from end to end. For more information, see [Build and deploy your full-stack Spring app with JHipster Azure Spring Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-and-deploy-your-full-stack-spring-app-with-jhipster-azure/ba-p/3923268).
+
+## Q2 2023
 
 The following update announces a new plan:
 
@@ -53,7 +81,7 @@ The following updates are now available in the Enterprise plan:
 
 - **App Accelerator certificate verification**: This update provides certification verification over TLS between App Accelerator and Git repos. For more information, see the [Configure accelerators with a self-signed certificate](how-to-use-accelerator.md#configure-accelerators-with-a-self-signed-certificate) section of [Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan](how-to-use-accelerator.md).
 
-## March 2023
+## Q1 2023
 
 The following updates are now available in both the Basic/Standard and Enterprise plans:
 
@@ -61,17 +89,17 @@ The following updates are now available in both the Basic/Standard and Enterpris
 
 The following updates are now available in the Enterprise plan:
 
-- **More options for build pools and allow queueing of build jobs**: Build service now supports a large build agent pool and allows at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+- **More options for build pools and enable queueing of build jobs**: Build service now supports a large build agent pool and enables at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 - **Improved SLA support**: Improved SLA for mission-critical workloads. For more information, see [SLA for Azure Spring Apps](https://azure.microsoft.com/support/legal/sla/spring-apps).
 
 - **High vCPU and memory app support**: Deployment support for large CPU and memory applications to support CPU intensive or memory intensive workloads. For more information, see [Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan](how-to-enterprise-large-cpu-memory-applications.md).
 
-- **SCG APM & certificate verification support**: You can allow configuration of APM and TLS certificate verification between Spring Cloud Gateway and applications. For more information, see the [Configure application performance monitoring](how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+- **SCG APM & certificate verification support**: You can enable the configuration of APM and TLS certificate verification between Spring Cloud Gateway and applications. For more information, see the [Configure application performance monitoring](how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
 
-- **Tanzu Components on demand**: You can allow enabling or disabling of Tanzu components after service provisioning. You can also learn how to do that per Tanzu component doc. For more information, see the [Enable/disable Application Configuration Service after service creation](how-to-enterprise-application-configuration-service.md#enabledisable-application-configuration-service-after-service-creation) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+- **Tanzu Components on demand**: You can enable or disable Tanzu components after service provisioning. You can also learn how to do that per Tanzu component doc. For more information, see the [Enable/disable Application Configuration Service after service creation](how-to-enterprise-application-configuration-service.md#enabledisable-application-configuration-service-after-service-creation) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
-## December 2022
+## Q4 2022
 
 The following updates are now available in both the Basic/Standard and Enterprise plans:
 
@@ -91,7 +119,7 @@ The following updates are now available in the Enterprise plan:
 
 - **Managed Spring Cloud Gateway enhancement**: We have newly added app-level routing rule support to simplify your routing rule configuration and TLS support from the gateway to apps in managed Spring Cloud Gateway. For more information, see [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md).
 
-## September 2022
+## Q3 2022
 
 The following updates are now available to help customers reduce adoption barriers and pricing frictions to take full advantage of the capabilities offered by Azure Spring Apps Enterprise.
 

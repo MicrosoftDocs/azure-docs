@@ -21,9 +21,9 @@ Many enterprises are taking advantage of big data analytics for business insight
 
 ## Authentication and identity management
 
-Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Storage Gen1 or with any service that connects to Data Lake Storage Gen1. For identity management and authentication, Data Lake Storage Gen1 uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
+Authentication is the process by which a user's identity is verified when the user interacts with Data Lake Storage Gen1 or with any service that connects to Data Lake Storage Gen1. For identity management and authentication, Data Lake Storage Gen1 uses [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
 
-Each Azure subscription can be associated with an instance of Azure Active Directory. Only users and service identities that are defined in your Azure Active Directory service can access your Data Lake Storage Gen1 account, by using the Azure portal, command-line tools, or through client applications your organization builds by using the Data Lake Storage Gen1 SDK. Key advantages of using Azure Active Directory as a centralized access control mechanism are:
+Each Azure subscription can be associated with an instance of Microsoft Entra ID. Only users and service identities that are defined in your Microsoft Entra service can access your Data Lake Storage Gen1 account, by using the Azure portal, command-line tools, or through client applications your organization builds by using the Data Lake Storage Gen1 SDK. Key advantages of using Microsoft Entra ID as a centralized access control mechanism are:
 
 * Simplified identity lifecycle management. The identity of a user or a service (a service principal identity) can be quickly created and quickly revoked by simply deleting or disabling the account in the directory.
 * Multi-factor authentication. [Multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides an additional layer of security for user sign-ins and transactions.
@@ -32,7 +32,7 @@ Each Azure subscription can be associated with an instance of Azure Active Direc
 
 ## Authorization and access control
 
-After Azure Active Directory authenticates a user so that the user can access Data Lake Storage Gen1, authorization controls access permissions for Data Lake Storage Gen1. Data Lake Storage Gen1 separates authorization for account-related and data-related activities in the following manner:
+After Microsoft Entra authenticates a user so that the user can access Data Lake Storage Gen1, authorization controls access permissions for Data Lake Storage Gen1. Data Lake Storage Gen1 separates authorization for account-related and data-related activities in the following manner:
 
 * [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management
 * POSIX ACL for accessing data in the store
@@ -59,7 +59,7 @@ For instructions, see [Assign users or security groups to Data Lake Storage Gen1
 
 Data Lake Storage Gen1 is a hierarchical file system like Hadoop Distributed File System (HDFS), and it supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). It controls read (r), write (w), and execute (x) permissions to resources for the Owner role, for the Owners group, and for other users and groups. In Data Lake Storage Gen1, ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](data-lake-store-access-control.md).
 
-We recommend that you define ACLs for multiple users by using [security groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Add users to a security group, and then assign the ACLs for a file or folder to that security group. This is useful when you want to provide assigned permissions, because you are limited to a maximum of 28 entries for assigned permissions. For more information about how to better secure data stored in Data Lake Storage Gen1 by using Azure Active Directory security groups, see [Assign users or security group as ACLs to the Data Lake Storage Gen1 file system](data-lake-store-secure-data.md#filepermissions).
+We recommend that you define ACLs for multiple users by using [security groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Add users to a security group, and then assign the ACLs for a file or folder to that security group. This is useful when you want to provide assigned permissions, because you are limited to a maximum of 28 entries for assigned permissions. For more information about how to better secure data stored in Data Lake Storage Gen1 by using Microsoft Entra security groups, see [Assign users or security group as ACLs to the Data Lake Storage Gen1 file system](data-lake-store-secure-data.md#filepermissions).
 
 ![List access permissions](./media/data-lake-store-security-overview/adl.acl.2.png "List access permissions")
 
@@ -108,7 +108,7 @@ For more information on working with diagnostic logs with Data Lake Storage Gen1
 
 ## Summary
 
-Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Data Lake Storage Gen1 is designed to help address these requirements through identity management and authentication via Azure Active Directory integration, ACL-based authorization, network isolation, data encryption in transit and at rest, and auditing.
+Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Data Lake Storage Gen1 is designed to help address these requirements through identity management and authentication via Microsoft Entra integration, ACL-based authorization, network isolation, data encryption in transit and at rest, and auditing.
 
 If you want to see new features in Data Lake Storage Gen1, send us your feedback in the [Data Lake Storage Gen1 UserVoice forum](https://feedback.azure.com/d365community/forum/7fd97106-7326-ec11-b6e6-000d3a4f032c).
 

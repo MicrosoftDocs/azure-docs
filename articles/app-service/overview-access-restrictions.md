@@ -106,7 +106,7 @@ If you want to deny/block one or more specific IP addresses, you can add the IP 
 
 ### Restrict access to the advanced tools site
 
-The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting allows you to use the rules configured for the main site.
+The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting allows you to use the rules configured for the main site. You can't selectively allow access to certain advanced tool site features. For example, you can't selectively allow access only to the WebJobs management console in the advanced tools site.
 
 ### Deploy through a private endpoint
 

@@ -63,7 +63,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | portal.azure.com          | Navigate to the Azure portal.              |
   | `login.windows.net `<br>`graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
-  |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  |management.azure.com |Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
   |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that the machines that need to be replicated have access to this URL. |
   |aka.ms |Allow access to "also known as" links. Used for Azure Site Recovery appliance updates. |
@@ -81,7 +81,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | ------------------------- | -------------------------------------------| -------------------------------------------|
   | `login.microsoftonline.us/*` <br> `graph.microsoftazure.us` | `login.chinacloudapi.cn/*` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
   | `portal.azure.us`          |    `portal.azure.cn`           |Navigate to the Azure portal. | 
-  | `*.microsoftonline.us/*` <br> `management.usgovcloudapi.net` | `*.microsoftonline.cn/*` <br> `management.chinacloudapi.cn/*` | Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  | `*.microsoftonline.us/*` <br> `management.usgovcloudapi.net` | `*.microsoftonline.cn/*` <br> `management.chinacloudapi.cn/*` | Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
   | `*.hypervrecoverymanager.windowsazure.us` <br> `*.migration.windowsazure.us` <br> `*.backup.windowsazure.us` | `*.hypervrecoverymanager.windowsazure.cn` <br> `*.migration.windowsazure.cn` <br> `*.backup.windowsazure.cn` | Connect to Azure Site Recovery micro-service URLs. |
   |`*.vault.usgovcloudapi.net`| `*.vault.azure.cn` |Manage secrets in the Azure Key Vault. Note: Ensure that the machines, which need to be replicated have access to this URL. |
 

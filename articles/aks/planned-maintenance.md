@@ -82,7 +82,7 @@ A `Daily` schedule may look like *"every three days"*:
 ```json
 "schedule": {
     "daily": {
-        "intervalDays": 2
+        "intervalDays": 3
     }
 }
 ```

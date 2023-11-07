@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - mode-ui
   - subject-rbac-steps
+  - sql-migration-content
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -88,7 +89,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
 You need to create an Azure App registration ID that the on-premises hybrid worker can use to communicate with Azure Database Migration Service in the cloud.
 
-1. In the Azure portal, select **Azure Active Directory**, select **App registrations**, and then select **New registration**.
+1. In the Azure portal, select **Microsoft Entra ID**, select **App registrations**, and then select **New registration**.
 2. Specify a name for the application, and then, under **Supported account types**, select the type of accounts to support to specify who can use the application.
 
     ![Azure Database Migration Service hybrid mode register application](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)

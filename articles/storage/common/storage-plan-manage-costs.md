@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/07/2023
+ms.date: 10/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
@@ -69,6 +69,17 @@ Data traffic might also incur networking costs. See the [Bandwidth pricing](http
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
 Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+
+#### Storage units
+
+Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. Line items on your bill that contain GB as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
+
+| Acronym | Unit | Definition |
+|---|---|--|
+| KiB | kibibyte | 1,024 bytes |
+| MiB | mebibyte | 1,024 KiB (1,048,576 bytes) |
+| GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
+| TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
 
 ### Finding the unit price for each meter
 

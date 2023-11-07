@@ -10,7 +10,7 @@ ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
-# Application Gateway health monitoring overview
+# Application Gateway health probes overview
 
 Azure Application Gateway monitors the health of all the servers in its backend pool and automatically stops sending traffic to any server it considers unhealthy. The probes continue to monitor such an unhealthy server, and the gateway starts routing the traffic to it once again as soon as the probes detect it as healthy. 
 
@@ -28,7 +28,7 @@ A gateway starts firing probes immediately after you configure a Rule by associa
 
 :::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
-The required probes are determined based on the unique combination of the Backend Server and Backend Setting. For example, consider a gateway with a single backend pool with two servers and two backend settings, each having different port numbers. When these distinct backend settings are associated with the same backend pool using their respective rules, the gateway creates probes for each server and the combination of the backend setting. You can view this on the [Backend health page](./application-gateway-diagnostics.md#backend-health).
+The required probes are determined based on the unique combination of the Backend Server and Backend Setting. For example, consider a gateway with a single backend pool with two servers and two backend settings, each having different port numbers. When these distinct backend settings are associated with the same backend pool using their respective rules, the gateway creates probes for each server and the combination of the backend setting. You can view this on the [Backend health page](application-gateway-backend-health.md).
 
 :::image type="content" source="media/application-gateway-probe-overview/multiple-be-settings.png" alt-text="Diagram showing health probes report on the Backend Health page":::
 
@@ -97,7 +97,7 @@ For example:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
+Match criteria can be attached to probe configuration using a `-Match` operator in PowerShell.
 
 ### Some use cases for Custom probes
 - If a backend server allows access to only authenticated users, the application gateway probes will receive a 403 response code instead of 200. As the clients (users) are bound to authenticate themselves for the live traffic, you can configure the probe traffic to accept 403 as an expected response.

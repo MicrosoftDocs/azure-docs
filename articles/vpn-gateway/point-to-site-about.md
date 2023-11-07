@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 10/25/2023
 ms.author: cherylmc
 
 ---
@@ -37,17 +37,19 @@ When using the native Azure certificate authentication, a client certificate tha
 
 The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
 
-Azure AD  authentication allows users to connect to Azure using their Azure Active Directory credentials. Native Azure AD authentication is only supported for OpenVPN protocol and also requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554). The supported client operation systems are Windows 10 or later and macOS.
+### Microsoft Entra authentication
 
-With native Azure AD authentication, you can use Azure AD's conditional access and multifactor authentication (MFA) features for VPN.
+Microsoft Entra authentication allows users to connect to Azure using their Microsoft Entra credentials. Native Microsoft Entra authentication is only supported for OpenVPN protocol and also requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554). The supported client operation systems are Windows 10 or later and macOS.
 
-At a high level, you need to perform the following steps to configure Azure AD authentication:
+With native Microsoft Entra authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN.
 
-1. [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md)
+At a high level, you need to perform the following steps to configure Microsoft Entra authentication:
 
-2. [Enable Azure AD authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
+1. [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md)
+
+2. [Enable Microsoft Entra authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. Download the latest version of the Azure VPN Client install files using one of the following links:
    
@@ -86,6 +88,8 @@ The following table shows gateway SKUs by tunnel, connection, and throughput. Fo
 >
 
 ## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
+
+The tables in this section show the values for the default policies. However, they don't reflect the available supported values for custom policies. For custom policies, see the **Accepted values** listed in the [New-AzVpnClientIpsecParameter](/powershell/module/az.network/new-azvpnclientipsecparameter) PowerShell cmdlet.
 
 **IKEv2**
 

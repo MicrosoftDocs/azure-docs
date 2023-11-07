@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # Tutorial: Visualize anomalies using batch detection and Power BI (univariate)
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Use this tutorial to find anomalies within a time series data set as a batch. Using Power BI desktop, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
 
 In this tutorial, you'll learn how to:

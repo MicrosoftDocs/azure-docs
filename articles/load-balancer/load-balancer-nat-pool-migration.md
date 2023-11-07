@@ -38,7 +38,7 @@ The migration process will create a new Backend Pool for each Inbound NAT Pool e
 
 ### Prerequisites 
 
-* In order to migrate a Load Balancer's NAT Pools to NAT Rules, the Load Balancer SKU must be 'Standard'. To automate this upgrade process, see the steps provided in [Upgrade a basic load balancer used with Virtual Machine Scale Sets](upgrade-basic-standard-virtual-machine-scale-sets.md).
+* In order to migrate a Load Balancer's NAT Pools to NAT Rules, the Load Balancer SKU must be 'Standard'. To automate this upgrade process, see the steps provided in [Upgrade a Basic Load Balancer to Standard with PowerShell](upgrade-basic-standard-with-powershell.md).
 * Virtual Machine Scale Sets associated with the target Load Balancer must use either a 'Manual' or 'Automatic' upgrade policy--'Rolling' upgrade policy is not supported. For more information, see [Virtual Machine Scale Sets Upgrade Policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md)
 * Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 * Install the [Azure PowerShell modules](/powershell/azure/install-azure-powershell)

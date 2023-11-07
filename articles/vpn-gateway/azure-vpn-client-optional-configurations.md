@@ -5,7 +5,7 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 10/05/2023
 ms.author: cherylmc
 
 ---
@@ -33,7 +33,7 @@ If you haven't already done so, make sure you complete the following items:
 * Download and install the Azure VPN Client. For steps, see one of the following articles:
 
   * [Certificate authentication](point-to-site-vpn-client-cert-windows.md#download-the-azure-vpn-client)
-  * [Azure AD authentication](openvpn-azure-ad-client.md#download)
+  * [Microsoft Entra authentication](openvpn-azure-ad-client.md#download)
 
 ## Working with VPN client profile configuration files
 
@@ -85,7 +85,7 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 ```
 
 > [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
+> The OpenVPN Microsoft Entra client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
 
 ## Routing
@@ -124,8 +124,8 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
   ```
 
 > [!NOTE]
-> - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
-> - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+> * The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
+> * A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 
 ### Add custom routes
 
@@ -170,25 +170,17 @@ The ability to completely block routes isn't supported by the Azure VPN Client. 
 ```
 
 > [!NOTE]
-> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
-> - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
+> * To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
+> * If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
 
-## Version Information
+## Azure VPN Client version information
 
-Version 3.2.0.0 
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
 
-New in this Release:
-  - AAD Authentication is now available from the settings page. 
-  - Server High Availability(HA), releasing on a rolling basis until October 20. 
-  - Accesibility Improvements
-  - Connection logs in UTC
-  - Minor bug fixes
-     
 ## Next steps
 
 For more information about P2S VPN, see the following articles:
 
 * [About point-to-site VPN](point-to-site-about.md)
 * [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)
-

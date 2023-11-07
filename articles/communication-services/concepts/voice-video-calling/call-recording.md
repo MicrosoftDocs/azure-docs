@@ -109,7 +109,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 
 ```typescript
 {
-  "resourceId": <string>,           // stable resource id of the ACS resource recording
+  "resourceId": <string>,           // stable resource id of the Azure Communication Services resource recording
   "callId": <string>,               // id of the call
   "chunkDocumentId": <string>,      // object identifier for the chunk this metadata corresponds to
   "chunkIndex": <number>,           // index of this chunk with respect to all chunks in the recording

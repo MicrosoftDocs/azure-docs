@@ -53,6 +53,8 @@
         href: diagnostic-logging.md   
       - name: Configure diagnostic logging alerts
         href: ddos-diagnostic-alert-templates.md 
+  - name: Test with simulation partners
+    href: test-through-simulations.md
   - name: View Monitoring and Logging
     items: 
       - name: View alerts in Microsoft Defender for Cloud
@@ -105,8 +107,6 @@
   items:
     - name: Switch tiers
       href: ddos-switch-ddos-protection-tier.md
-    - name: Test with simulation partners
-      href: test-through-simulations.md
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Defend against API Management DDoS attacks

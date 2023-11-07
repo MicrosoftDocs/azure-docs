@@ -16,7 +16,7 @@ If you're close to, or have reached your subscription's core limit, you see warn
 - Publish a lab
 - Increase lab capacity
 
-These actions may be disabled if there are no more cores available for your subscription.
+These actions might be disabled if there are no more cores available for your subscription.
 
 :::image type="content" source="./media/capacity-limits/warning-message.png" alt-text="Screenshot of core limit warning in Azure Lab Services.":::
 
@@ -39,7 +39,7 @@ Some rare subscription types that are more commonly used for fraud can have a de
 
 ## Per-customer assigned capacity
 
-Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren't visible to customers.  With the [August 2022 Update](lab-services-whats-new.md), VM capacity is dedicated to each customer.  Previous to this update, VM capacity was available from a large pool shared by customers.
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren't visible to customers.  With [lab plans](concept-lab-accounts-versus-lab-plans.md), VM capacity is dedicated to each customer.  With lab accounts, VM capacity was available from a large pool shared by customers.
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and location. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
 
@@ -87,5 +87,5 @@ You can contact Azure support and create a support ticket to lift the region res
 
 ## Related content
 
-- As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
+- As an admin, learn more about the different [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
 - As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)

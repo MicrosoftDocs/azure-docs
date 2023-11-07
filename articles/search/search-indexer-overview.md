@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: 
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 10/05/2023
 ---
 
 # Indexers in Azure Cognitive Search
@@ -30,6 +30,14 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 | Multiple data sources | An indexer specification can have only one data source, but the search index itself can accept content from multiple sources, where each indexer run brings new content from a different data provider. Each source can contribute its share of full documents, or populate selected fields in each document. For a closer look at this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
 | Multiple indexers | Multiple data sources are typically paired with multiple indexers if you need to vary run time parameters, the schedule, or field mappings. </br></br>[Cross-region scale out of Cognitive Search](search-reliability.md#data-sync) is another scenario. You might have copies of the same search index in different regions. To synchronize search index content, you could have multiple indexers pulling from the same data source, where each indexer targets a different search index in each region.</br></br>[Parallel indexing](search-howto-large-index.md#parallel-indexing) of very large data sets also requires a multi-indexer strategy, where each indexer targets a subset of the data. |
 | Content transformation | Indexers drive [AI enrichment](cognitive-search-concept-intro.md). Content transforms are defined in a [skillset](cognitive-search-working-with-skillsets.md) that you attach to the indexer.|
+
+ You should plan on creating one indexer for every target index and data source combination. You can have multiple indexers writing into the same index, and you can reuse the same data source for multiple indexers. However, an indexer can only consume one data source at a time, and can only write to a single index. As the following graphic illustrates, one data source provides input to one indexer, which then populates a single index:  
+
+:::image type="content" source="media/search-indexer-overview/azsrch-ds-indxr-index.png" alt-text="Diagram of indexer workflow.":::
+
+ Although you can only use one indexer at a time, resources can be used in different combinations. The main takeaway of the next illustration is to notice is that a data source can be paired with more than one indexer, and multiple indexers can write to same index.  
+
+:::image type="content" source="media/search-indexer-overview/azsrch-ds2-indexer3-index2.png" alt-text="Diagram of multiple combinations of data sources, indexers, and indexes.":::
 
 <a name="supported-data-sources"></a>
 
@@ -62,7 +70,7 @@ On an initial run, when the index is empty, an indexer will read in all of the d
 
 For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer also drives [skillset execution and outputs](cognitive-search-concept-intro.md), assuming a skillset is defined.
 
-:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Indexer Stages" border="false":::
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Diagram of indexer stages." border="false":::
 
 <a name="document-cracking"></a>
 
@@ -100,7 +108,7 @@ Despite the similarity in names, output field mappings and field mappings build 
 
 The next image shows a sample indexer [debug session](cognitive-search-debug-session.md) representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug session" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Screenshot of a sample debug session." lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## Basic workflow
 

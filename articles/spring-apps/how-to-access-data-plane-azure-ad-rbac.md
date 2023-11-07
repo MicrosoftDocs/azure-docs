@@ -1,7 +1,7 @@
 ---
 title: "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Apps
-description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
+description: How to access Config Server and Service Registry Endpoints with Microsoft Entra role-based access control.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -17,12 +17,14 @@ ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps, event-
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
-This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Azure Active Directory (Azure AD) role-based access control (RBAC).
+This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Microsoft Entra role-based access control (RBAC).
 
 > [!NOTE]
 > Applications deployed and running inside the Azure Spring Apps service are automatically wired up with certificate-based authentication and authorization when accessing the managed Spring Cloud Config Server and Service Registry. You don't need to follow this guidance for these applications. The related certificates are fully managed by the Azure Spring Apps platform, and are automatically injected in your application when connected to Config Server and Service Registry.
 
-## Assign role to Azure AD user/group, MSI, or service principal
+<a name='assign-role-to-azure-ad-usergroup-msi-or-service-principal'></a>
+
+## Assign role to Microsoft Entra user/group, MSI, or service principal
 
 Assign the role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
@@ -39,7 +41,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../role-base
 
 After the role is assigned, the assignee can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints using the following procedures:
 
-1. Get an access token. After an Azure AD user is assigned the role, they can use the following commands to sign in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Get an access token. After a Microsoft Entra user is assigned the role, they can use the following commands to sign in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
     az login
@@ -72,13 +74,13 @@ For config server endpoints and detailed path information, see [ResourceControll
 
 ## Register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps
 
-After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps with Azure AD token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
+After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps with Microsoft Entra token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
 
 For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client). The following sections explain some important details in these samples.
 
 **In *AccessTokenManager.java*:**
 
-`AccessTokenManager` is responsible for getting an access token from Azure AD. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
+`AccessTokenManager` is responsible for getting an access token from Microsoft Entra ID. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
 
 ```java
 prop.load(in);
@@ -92,7 +94,7 @@ credentials = new ApplicationTokenCredentials(
 
 **In *CustomConfigServiceBootstrapConfiguration.java*:**
 
-`CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Azure AD as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client).
+`CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Microsoft Entra ID as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client).
 
 ```java
 public class RequestResponseHandlerInterceptor implements ClientHttpRequestInterceptor {

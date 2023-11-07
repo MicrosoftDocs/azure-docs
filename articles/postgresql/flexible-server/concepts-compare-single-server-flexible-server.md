@@ -114,7 +114,7 @@ The following table provides a list of high-level features and capabilities comp
 | pg_cron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
-| Azure Active Directory Support (AAD) | Yes | Yes |
+| Microsoft Entra ID Support (Microsoft Entra ID) | Yes | Yes |
 | Customer managed encryption key (BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |

@@ -104,14 +104,14 @@ At least one identifier is required in a query.
 | Entity | Identifier | Description |
 | - | - | - |
 | **Account** | Account_Sid | The on-premises SID of the account in Active Directory |
-| | Account_AadUserId | The Azure AD object ID of the user in Azure Active Directory |
+| | Account_AadUserId | The Microsoft Entra object ID of the user in Microsoft Entra ID |
 | | Account_Name + Account_NTDomain | Similar to SamAccountName (example: Contoso\Joe) |
 | | Account_Name + Account_UPNSuffix | Similar to UserPrincipalName (example: Joe@Contoso.com) |
 | **Host** | Host_HostName + Host_NTDomain | similar to fully qualified domain name (FQDN) |
 | | Host_HostName + Host_DnsDomain | similar to fully qualified domain name (FQDN) |
 | | Host_NetBiosName + Host_NTDomain | similar to fully qualified domain name (FQDN) |
 | | Host_NetBiosName + Host_DnsDomain | similar to fully qualified domain name (FQDN) |
-| | Host_AzureID | the Azure AD object ID of the host in Azure Active Directory (if AAD domain joined) |
+| | Host_AzureID | the Microsoft Entra object ID of the host in Microsoft Entra ID (if Microsoft Entra domain joined) |
 | | Host_OMSAgentID | the OMS Agent ID of the agent installed on a specific host (unique per host) |
 |
 

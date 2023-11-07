@@ -126,7 +126,7 @@ Furthermore, Dynatrace is also available as a native solution integrated into Mi
 The Azure Native Dynatrace Service gives Microsoft Azure customers a seamless experience for Dynatrace automatic and intelligent observability and runtime application security in and from Azure. The benefits of this native integration include:
 
 - Integrated onboarding: You can provision Dynatrace and manage the integration through the Azure Marketplace and Portal. The seamless onboarding experience sets up Dynatrace automatically. 
-- Single sign-on: You can easily enable SSO through Azure Active Directory. 
+- Single sign-on: You can easily enable SSO through Microsoft Entra ID. 
 - Metrics and logs: You can enable the collection of metrics and logs for Virtual Machine (VM) and App Services resources by installing Dynatrace OneAgent on those resources. Furthermore, you can activate the sending of Azure [subscription activity logs](./essentials/activity-log-schema.md) and [resource logs](./essentials/resource-logs-categories.md) to Dynatrace.
 - OneAgent deployment: You can install or uninstall Dynatrace OneAgents on single or multiple virtual machines and Azure App Services directly from your Azure Portal.
 - Manage Dynatrace within Azure portal: Within your Azure Portal, you can verify which resources are sending Azure metrics and logs to Dynatrace and make instant changes as needed.

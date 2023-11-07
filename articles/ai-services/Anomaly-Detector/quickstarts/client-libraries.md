@@ -18,6 +18,8 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug
 
 # Quickstart: Use the Univariate Anomaly Detector client library
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/anomaly-detector-client-library-csharp.md)]

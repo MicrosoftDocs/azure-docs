@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 08/21/2022
+ms.date: 10/23/2023
 ---
 
 # Create custom APIs you can call from Azure Logic Apps
@@ -78,7 +78,7 @@ like custom APIs but also have these attributes:
 * Registered as Logic Apps Connector resources in Azure.
 * Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
 * Available only to the connectors' authors and logic app resource users who have the same 
-Azure Active Directory tenant and Azure subscription in the region where the 
+Microsoft Entra tenant and Azure subscription in the region where the 
 logic apps are deployed.
 
 You can also nominate registered connectors for Microsoft certification. 
@@ -188,7 +188,7 @@ accepted the request payload (data input), and is now processing.
    * *Optional*: A `retry-after` header that specifies the number of seconds 
    that the engine should wait before checking the `location` URL for job status. 
 
-     By default, the engine checks every 20 seconds. To specify a different interval, 
+     By default, the engine polls the `location` URL after one second. To specify a different interval, 
      include the `retry-after` header and the number of seconds until the next poll.
 
 2. After the specified time passes, the Azure Logic Apps engine polls 

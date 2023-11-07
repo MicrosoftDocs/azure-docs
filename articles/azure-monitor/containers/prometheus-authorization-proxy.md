@@ -1,14 +1,15 @@
 ---
-title: Azure Active Directory authorization proxy 
-description: Azure Active Directory authorization proxy 
+title: Microsoft Entra authorization proxy 
+description: Microsoft Entra authorization proxy 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 author: EdB-MSFT
 ms.author: edbaynash
 ms.date: 07/10/2022
 ---
 
-# Azure Active Directory authorization proxy 
-The Azure Active Directory authorization proxy is a reverse proxy, which can be used to authenticate requests using Azure Active Directory. This proxy can be used to authenticate requests to any service that supports Azure Active Directory authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
+# Microsoft Entra authorization proxy 
+The Microsoft Entra authorization proxy is a reverse proxy, which can be used to authenticate requests using Microsoft Entra ID. This proxy can be used to authenticate requests to any service that supports Microsoft Entra authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
 
 
 ## Prerequisites
@@ -22,7 +23,7 @@ The Azure Active Directory authorization proxy is a reverse proxy, which can be 
 
 The proxy can be deployed with custom templates using release image or as a helm chart. Both deployments contain the same customizable parameters. These parameters are described in the [Parameters](#parameters) table.  
 
-For for more information, see [Azure Active Directory authentication proxy](https://github.com/Azure/aad-auth-proxy) project.
+For for more information, see [Microsoft Entra authentication proxy](https://github.com/Azure/aad-auth-proxy) project.
 
 The following examples show how to deploy the proxy for remote write and for querying data from Azure Monitor.
 

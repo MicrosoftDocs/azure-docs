@@ -1,6 +1,6 @@
 ---
-title: Connect to an internal virtual network using Azure API Management
-description: Learn how to set up and configure Azure API Management in a virtual network using internal mode
+title: Deploy Azure API Management instance to internal VNet
+description: Learn how to deploy (inject) your Azure API instance to a virtual network in internal mode and access API backends through it.
 author: dlepow
 
 ms.service: api-management
@@ -9,8 +9,9 @@ ms.date: 01/03/2022
 ms.author: danlep
 ---
 
-# Connect to a virtual network in internal mode using Azure API Management 
-With Azure virtual networks (VNets), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
+# Deploy your Azure API Management instance to a virtual network - internal mode
+
+Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode. In this mode, you can only access the following API Management endpoints within a VNet whose access you control.
 * The API gateway
@@ -20,7 +21,7 @@ This article explains how to set up VNet connectivity for your API Management in
 
 > [!NOTE]
 > * None of the API Management endpoints are registered on the public DNS. The endpoints remain inaccessible until you [configure DNS](#dns-configuration) for the VNet.
-> * To use the self-hosted gateway in this mode, also enable private connectivity to the self-hosted gateway [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies). Currently, API Management doesn't enable configuring a custom domain name for the v2 endpoint.
+> * To use the self-hosted gateway in this mode, also enable private connectivity to the self-hosted gateway [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies). 
 
 Use API Management in internal mode to:
 
@@ -30,7 +31,7 @@ Use API Management in internal mode to:
 
 :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-vnet-internal.png" alt-text="Connect to internal VNet":::
 
-For configurations specific to the *external* mode, where the API Management endpoints are accessible from the public internet, and backend services are located in the network, see [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md). 
+For configurations specific to the *external* mode, where the API Management endpoints are accessible from the public internet, and backend services are located in the network, see [Deploy your Azure API Management instance to a virtual network - external mode](api-management-using-with-vnet.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +64,7 @@ After successful deployment, you should see your API Management service's **priv
 
 > [!NOTE]
 > Since the gateway URL is not registered on the public DNS, the test console available on the Azure portal will not work for an **internal** VNet deployed service. Instead, use the test console provided on the **developer portal**.
- 
+
 ### Enable connectivity using a Resource Manager template (`stv2` platform)
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip) (API version 2021-08-01 )
@@ -107,7 +108,18 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 | Direct management endpoint | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
-To access these API Management endpoints, you can create a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
+
+### Access on custom domain names
+
+If you don't want to access the API Management service with the default host names, set up [custom domain names](configure-custom-domain.md) for all your endpoints, as shown in the following image:
+
+:::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
+
+### Configure DNS records
+
+Create records in your DNS server to access the endpoints accessible from within your VNet. Map the endpoint records to the [private virtual IP address](#routing) for your service.
+
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
 
 | Internal virtual IP address | Endpoint configuration |
 | ----- | ----- |
@@ -118,16 +130,6 @@ To access these API Management endpoints, you can create a virtual machine in a 
 | 10.1.0.5 | `contosointernalvnet.scm.azure-api.net` |
 
 You can then access all the API Management endpoints from the virtual machine you created.
-
-### Access on custom domain names
-
-If you don't want to access the API Management service with the default host names: 
-
-1. Set up [custom domain names](configure-custom-domain.md) for all your endpoints, as shown in the following image:
-
-    :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
-
-2. Create records in your DNS server to access the endpoints accessible from within your VNet. Map the endpoint records to the [private virtual IP address](#routing) for your service.
 
 ## Routing
 
@@ -168,7 +170,9 @@ Learn more about:
 * [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/updated-api-management-using-with-internal-vnet.png
+
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/updated-api-management-internal-vnet-dashboard.png
+
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
@@ -176,3 +180,5 @@ Learn more about:
 [Common network configuration problems]: virtual-network-reference.md
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
+
+

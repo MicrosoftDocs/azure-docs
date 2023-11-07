@@ -15,7 +15,7 @@ ms.author: ankitadutta
 This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
-> Site Recovery currently supports ADE, with and without Azure Active Directory (Azure AD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without Azure AD. Moreover, for machines running ADE 1.1 (without Azure AD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with Azure AD) to 1.1, you need to disable replication and enable replication for a VM after enabling 1.1.
+> Site Recovery currently supports ADE, with and without Microsoft Entra ID for VMs running Windows operating systems. For Linux operating systems, we only support ADE without Microsoft Entra ID. Moreover, for machines running ADE 1.1 (without Microsoft Entra ID), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with Microsoft Entra ID) to 1.1, you need to disable replication and enable replication for a VM after enabling 1.1.
 
 
 ## <a id="required-user-permissions"></a> Required user permissions
@@ -78,7 +78,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 1. In the **Enable replication** page, under **Source**, do the following:
     - **Region**: Select the Azure region where you want to protect your virtual machines.
     For example, the source location is *East Asia*.
-    - **Subscription**: Select the subscription to which your source virtual machines belong. This can be any subscription that's in the same Azure Active Directory tenant as your recovery services vault.
+    - **Subscription**: Select the subscription to which your source virtual machines belong. This can be any subscription that's in the same Microsoft Entra tenant as your recovery services vault.
     - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
     - **Virtual machine deployment model**: Select the Azure deployment model of the source machines.
     - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.

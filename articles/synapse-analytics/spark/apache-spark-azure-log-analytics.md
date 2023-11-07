@@ -269,7 +269,7 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
+When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Microsoft Entra tenants.
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (A M P L S):
 

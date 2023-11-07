@@ -93,6 +93,8 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't currently supported.
 
+- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a network without public internet access, you aren't able to subscribe to a workspace with a private endpoint if you're also assigned to a workspace that doesn't have a private endpoint configured.
+
 - Early in the preview of Private Link with Azure Virtual Desktop, the private endpoint for the initial feed discovery (for the *global* sub-resource) shared the private DNS zone name of `privatelink.wvd.microsoft.com` with other private endpoints for workspaces and host pools. In this configuration, users are unable to establish private endpoints exclusively for host pools and workspaces. Starting September 1, 2023, sharing the private DNS zone in this configuration will no longer be supported. You need to create a new private endpoint for the *global* sub-resource to use the private DNS zone name of `privatelink-global.wvd.microsoft.com`. For the steps to do this, see [Initial feed discovery](private-link-setup.md#initial-feed-discovery).
 
 - Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.

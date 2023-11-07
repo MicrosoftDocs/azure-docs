@@ -227,7 +227,3 @@ landingContent:
         links:
           - text: Azure Database for PostgreSQL
             url: /training/paths/introduction-to-azure-postgres/
-      - linkListType: learn
-        links:
-          - text: Azure Cosmos DB for PostgreSQL
-            url: /training/paths/azure-cosmos-db-for-postgresql/

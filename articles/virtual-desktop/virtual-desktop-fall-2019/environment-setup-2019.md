@@ -16,7 +16,7 @@ Azure Virtual Desktop is a service that gives users easy and secure access to th
 
 ## Tenants
 
-The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
+The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Microsoft Entra ID containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
 ## Host pools
 

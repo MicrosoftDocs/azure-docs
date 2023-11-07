@@ -6,7 +6,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
