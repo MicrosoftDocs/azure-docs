@@ -296,6 +296,8 @@ To deploy the chat application:
 
    :::image type="content" source="./media/deploy-chat-application.png" alt-text="Screenshot that shows deploying the chat application to Azure from Visual Studio.":::
 
+1. Once you publish the solution, run it and check if Echobot echos the user message on the command prompt. Now that you hvae the solution you can proceed to play with the various activities that are needed for the business scenarios that you need to solve for.
+
 ## More things you can do with a bot
 
 A bot can receive more than a plain-text message from a user in a Communications Services Chat channel. Some of the activities a bot can receive from a user include:
