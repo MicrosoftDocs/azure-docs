@@ -39,6 +39,18 @@ The service returns all the categories that were detected, with the severity lev
 
 The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you get a **Blocklist detection** panel under **Results**. It reports any matches with the blocklist.
 
+## Detect jailbreak risks
+
+The **Jailbreak risk detection** panel lets you try out jailbreak detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
+
+:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with jailbreak detection panel selected.":::
+
+1. Select the **Jailbreak risk detection** panel.
+1. Select a sample text on the page, or input your own content for testing. You can also upload a CSV file to do a batch test.
+1. Select Run test.
+
+The service returns the jailbreak risk level and type for each sample. You can also view the details of the jailbreak risk detection result by selecting the **Details** button.
+
 ## Analyze image content
 The [Moderate image content](https://contentsafety.cognitive.azure.com/image) page provides capability for you to quickly try out image moderation.
 
