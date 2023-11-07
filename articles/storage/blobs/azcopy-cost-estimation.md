@@ -27,13 +27,13 @@ When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=
 
 If you upload data to the Blob Service endpoint, then by default, AzCopy uploads each blob in 8-MiB blocks. 
 
-AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
+AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
 
 The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
-| Number of MiB in 10 GiB | 5,120 |
+| Number of MiB in 5 GiB | 5,120 |
 | PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640 |
 | PutBlockList operations per blob | 1 |
 | **Total write operations (1,000 * 641)** | **641,000** |
@@ -43,10 +43,13 @@ The following table calculates the number of write operations required to upload
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs.
 
-| Price factor                                        | Hot        | Cool      | Cold       | Archive   |
-|-----------------------------------------------------|------------|-----------|------------|-----------|
-| Price of a single write operation (price / 10,000)  | $0.0000055 | $0.00001  | $0.000018  | $0.00001  |
-| **Total cost (641,000 * operation price)** | **$3.53**  | **$6.41** | **$11.54** | **$3.53** |
+| Price factor                                             | Hot         | Cool        | Cold         | Archive     |
+|----------------------------------------------------------|-------------|-------------|--------------|-------------|
+| Price of a single write operation (price / 10,000)       | $0.0000055  | $0.00001    | $0.000018    | $0.00001    |
+| **Cost of write operations (641,000 * operation price)** | **$3.5255** | **$6.4100** | **$11.5380** | **$3.5255** |
+| Price of a single other operations (price / 10,000)      | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044 |
+| **Cost to get blob properties (1000 * operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.0004** |
+| **Total cost (write + other operations)**                | **$3.53**   | **$6.41**   | **$11.54**   | **$3.53**   |
 
 > [!NOTE]
 > If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation.  
@@ -55,7 +58,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is nonconfigurable. 
 
-AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block, which is billed as a write operation.
+AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block, which is billed as a write operation. After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
 
 The following table calculates the number of write operations required to upload these blobs. 
 
@@ -67,10 +70,13 @@ The following table calculates the number of write operations required to upload
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs
 
-| Price factor                                        | Hot         | Cool       | Cold       | Archive    |
-|-----------------------------------------------------|-------------|------------|------------|------------|
-| Price of a single write operation (price / 10,000)  | $0.00000715 | $0.000013  | $0.0000234 | $0.0000143 |
-| **Total cost (1,280,000 * operation price)** | **$9.15**   | **$16.64** | **$29.95** | **$18.30** |
+| Price factor                                               | Hot         | Cool         | Cold         | Archive      |
+|------------------------------------------------------------|-------------|--------------|--------------|--------------|
+| Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013  | $0.0000234  | $0.0000143  |
+| **Cost of write operations (1,280,000 * operation price)** | **$9.15** | **$16.64** | **$29.95** | **$18.3** |
+| Price of a single other operations (price / 10,000)        | $0.00000044 | $0.00000044  | $0.00000052  | $0.00000044  |
+| **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0005**  | **$0.0004**  |
+| **Total cost (write + other operations)**                  | **$9.15**   | **$16.64**   | **$29.95**   | **$18.30**   |
 
 ## The cost to download
 
@@ -78,23 +84,24 @@ When you run the [azcopy copy](../common/storage-use-azcopy-blobs-download.md?to
 
 ### Cost of downloading from the Blob Service endpoint
 
-If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) and [Get Blob](/rest/api/storageservices/get-blob) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
+If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation, and the [Get Blob](/rest/api/storageservices/get-blob) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
 > [!NOTE]
 > This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-| Price factor                                            | Hot          | Cool        | Cold        |
-|---------------------------------------------------------|--------------|-------------|-------------|
-| Price of a single list operation (price/ 10,000)        | $0.0000055   | $0.0000055  | $0.0000065  |
-| **Cost of listing operations (1000 * operation price)** | **$0.0055**  | **$0.0055** | **$0.0065** |
-| Price of a single read operation (price / 10,000)       | $0.00000044  | $0.000001   | $0.00001    |
-| **Cost of read operations (1000 * operation price)**    | **$0.00044** | **$0.001**  | **$0.01**   |
-| Price of data retrieval (per GiB)                       | Free         | $0.01       | $0.03       |
-| **Cost of data retrieval (1000 * operation price)**     | **$0.00**    | **$5.00**   | **$15.00**  |
-| **Total cost (list + read + retrieval)**                | **$0.0059**  | **$5.01**   | **$15.02**  |
-
+| Price factor                                             | Hot            | Cool           | Cold           |
+|----------------------------------------------------------|----------------|----------------|----------------|
+| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
+| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
+| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
+| Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
+| **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
+| Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
+| **Cost of data retrieval (5 * operation price)**         | **$0.00**      | **$0.05**      | **$0.15**      |
+| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$0.051**     | **$0.161**     |
 
 
 ### Cost of downloading from the Data Lake Storage endpoint
@@ -258,8 +265,6 @@ The following table includes sample prices (fictitious) prices for each request 
 | Price of read transactions (every 4MiB, per 10,000)  | $0.0057  | $0.013   | $0.13    | $7.15   |
 | Price of data retrieval (per GiB)                    | Free     | $0.01    | $0.03    | $0.022  |
 | Iterative Read operations (per 10,000)              | $0.0715  | $0.0715  | $0.0845  | $0.0715 |
-| Iterative Write operations (per 10,000)             | $0.0715  | $0.13    | $0.234   | $0.143  |
-| All other operations (per 10,000)                   | $0.00572 | $0.00572 | $0.00676 | $0.0052 |
 
 ## Operations used by AzCopy commands
 
@@ -270,21 +275,21 @@ The following table shows the operations that are used by each AzCopy command. T
 
 | Command | Scenario | REST operations (Blob Service endpoint) | REST operations (Data Lake Storage endpoint) |
 |---------|----------|-----------------------------------------|----------------------------------------------|
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Upload   | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block from URL](/rest/api/storageservices/put-block-from-url) | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)   |
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Download | [Put Blob](/rest/api/storageservices/put-blob) |  [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read)|
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Upload | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block from URL](/rest/api/storageservices/put-block-from-url) | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Download | [List Blobs](/rest/api/storageservices/list-blobs) and [Get Blob](/rest/api/storageservices/get-blob) | [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Perform a dry run | [List Blobs](/rest/api/storageservices/list-blobs) | [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) |
+| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Upload   | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block List](/rest/api/storageservices/put-block-list) | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Append), and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Flush)   |
+| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Download | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |  [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read)|
+| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Upload | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block List](/rest/api/storageservices/put-block-list), [Get Blob Properties](/rest/api/storageservices/get-blob-properties) | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update), and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) |
+| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Download | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) |
+| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Perform a dry run | [List Blobs](/rest/api/storageservices/list-blobs) | [List Blobs](/rest/api/storageservices/list-blobs) | [List Blobs](/rest/api/storageservices/list-blobs) |
 | [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Amazon S3| [Put Blob from URL](/rest/api/storageservices/put-blob-from-url) | Not supported |
 | [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Google Cloud Storage | [Put Blob from URL](/rest/api/storageservices/put-blob-from-url) | Not supported |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy to another container |  [Copy Blob](/rest/api/storageservices/copy-blob) | Not supported | 
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update local with changes to container | [List Blobs](/rest/api/storageservices/list-blobs) and [Put Blob](/rest/api/storageservices/put-blob) | Not supported |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update container with changes to local file system | [List Blobs](/rest/api/storageservices/list-blobs), [Put Block](/rest/api/storageservices/put-block-list), and [Put Block from URL](/rest/api/storageservices/put-block-from-url) | Not supported |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Synchronize containers | [List Blobs](/rest/api/storageservices/list-blobs) and [Copy Blob](/rest/api/storageservices/copy-blob) | Not supported |
+| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy to another container |  [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Copy Blob](/rest/api/storageservices/copy-blob) | [List Blobs](/rest/api/storageservices/list-blobs), and [Copy Blob](/rest/api/storageservices/copy-blob). if --preserve-permissions-true, then [Path - Get Properties](/rest/api/storageservices/datalakestoragegen2/path/get-properties) (Get Access Control List) and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Set access control) otherwise, [Get Blob Properties](/rest/api/storageservices/get-blob-properties). | 
+| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update local with changes to container | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |
+| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update container with changes to local file system | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Put Block](/rest/api/storageservices/put-block-list), and [Put Block List](/rest/api/storageservices/put-block-list) | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Append), and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Flush)|
+| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Synchronize containers | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Copy Blob](/rest/api/storageservices/copy-blob) | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Copy Blob](/rest/api/storageservices/copy-blob) |
 | [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tier | [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | Not supported |
 | [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set metadata | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)  | Not supported |
 | [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tags | [Set Blob Tags](/rest/api/storageservices/set-blob-tags)  |Not supported |
-| [azcopy list](../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json) | List blobs in a container| [List Blobs](/rest/api/storageservices/list-blobs) | [Filesystem - List](/rest/api/storageservices/datalakestoragegen2/filesystem/list)|
+| [azcopy list](../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json) | List blobs in a container| [List Blobs](/rest/api/storageservices/list-blobs) | [List Blobs](/rest/api/storageservices/list-blobs)|
 | [azcopy make](../common/storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json) | Create a container | [Create Container](/rest/api/storageservices/create-container) | [Filesystem - Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create) |
 | [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a container | [Delete Container](/rest/api/storageservices/delete-container) | [Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) |
 | [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a blob | [Delete Blob](/rest/api/storageservices/delete-blob) | [Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) |
