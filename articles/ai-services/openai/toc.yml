@@ -71,7 +71,7 @@ items:
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
-    href: ./how-to/use-blocklist.md
+    href: ./how-to/use-blocklists.md
   - name: Embeddings
     items:
     - name: Embeddings basics
