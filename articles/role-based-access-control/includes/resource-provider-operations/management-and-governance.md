@@ -1597,18 +1597,6 @@ Azure service: [Azure Resource Manager](../../../azure-resource-manager/index.ym
 > | Microsoft.Resources/subscriptions/tagNames/tagValues/read | Gets or lists subscription tag values. |
 > | Microsoft.Resources/subscriptions/tagNames/tagValues/write | Adds a subscription tag value. |
 > | Microsoft.Resources/subscriptions/tagNames/tagValues/delete | Deletes a subscription tag value. |
-> | Microsoft.Resources/tagnamespaces/read | Gets or lists tag namespaces |
-> | Microsoft.Resources/tagnamespaces/write | Creates or updates a tag namespace |
-> | Microsoft.Resources/tagnamespaces/delete | Deletes a tag namespace |
-> | Microsoft.Resources/tagnamespaces/manageReservedTags/action | Manages tags in the reserved tag namespace. |
-> | Microsoft.Resources/tagnamespaces/cancelOperation/action | Cancels a tag namespace operation. |
-> | Microsoft.Resources/tagnamespaces/searchTags/action | Search resources by namespace tags. |
-> | Microsoft.Resources/tagnamespaces/tagnames/read | Gets or lists tag names in the tag namespace |
-> | Microsoft.Resources/tagnamespaces/tagnames/write | Creates or updates a tag name in the tag namespace |
-> | Microsoft.Resources/tagnamespaces/tagnames/delete | Deletes a tag name in the tag namespace |
-> | Microsoft.Resources/tagnamespaces/tags/read | Gets or lists tags in the tag namespace |
-> | Microsoft.Resources/tagnamespaces/tags/write | Creates or updates a tag in the tag namespace |
-> | Microsoft.Resources/tagnamespaces/tags/delete | Deletes a tag in the tag namespace |
 > | Microsoft.Resources/tags/read | Gets all the tags on a resource. |
 > | Microsoft.Resources/tags/write | Updates the tags on a resource by replacing or merging existing tags with a new set of tags, or removing existing tags. |
 > | Microsoft.Resources/tags/delete | Removes all the tags on a resource. |

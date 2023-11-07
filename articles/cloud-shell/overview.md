@@ -4,9 +4,9 @@ ms.contributor: jahelmic
 ms.date: 03/03/2023
 ms.topic: article
 tags: azure-resource-manager
-title: Azure Cloud Shell overview
+title: What is Azure Cloud Shell?
 ---
-# Overview of Azure Cloud Shell
+# What is Azure Cloud Shell?
 
 Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure
 resources. It provides the flexibility of choosing the shell experience that best suits the way you

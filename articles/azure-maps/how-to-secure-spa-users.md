@@ -41,7 +41,7 @@ Create the web application in Microsoft Entra ID for users to sign in. The web a
 
 6. Copy the Microsoft Entra app ID and the Microsoft Entra tenant ID from the app registration to use in the Web SDK. Add the Microsoft Entra app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
-    ```javascript
+    ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js" />
         <script>

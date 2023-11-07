@@ -396,6 +396,10 @@ items:
         href: spatial-analysis-camera-placement.md
       - name: All Azure AI containers
         href: ../cognitive-services-container-support.md?context=%2fazure%2fai-services%2fcomputer-vision%2fcontext%2fcontext
+  - name: Reference
+    items:
+    - name: Video Retrieval REST API
+      href: https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc4779b
 - name: How-to guides
   items:
   - name: Enterprise readiness

@@ -52,7 +52,6 @@ The following services are currently supported for Customer Lockbox:
 - Azure Storage
 - Azure Subscription Transfers
 - Azure Synapse Analytics
-- Azure Unified Vision Service
 - Commerce AI (Intelligent Recommendations)
 - DevCenter / DevBox
 - ElasticSan
