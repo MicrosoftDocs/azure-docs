@@ -656,6 +656,8 @@
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
+            - name: Set up end-to-end LLMOps with prompt flow and Azure DevOps
+              href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
         - name: Monitor generative AI applications in production
