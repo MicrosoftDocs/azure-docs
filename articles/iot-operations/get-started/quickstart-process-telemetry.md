@@ -185,9 +185,6 @@ To verify data is flowing from your assets by using the **mqttui** tool:
 
     If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically.
 
-    > [!TIP]
-    > If you see a topic name that starts with `boiler`, this is the asset that Akri discovered in the previous quickstart. You can ignore this topic for now.
-
 The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
 
 ```json
