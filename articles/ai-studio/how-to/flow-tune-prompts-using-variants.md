@@ -117,7 +117,6 @@ For **summarize_text_content** node, based on variant_0, you can create variant_
 
 Now, the flow looks as following, 2 variants for **summarize_text_content** node and 3 for **classify_with_llm** node.
 
-
 ### Run all variants with a single row of data and check outputs
 
 To make sure all the variants can run successfully, and work as expected, you can run the flow with a single row of data to test. 

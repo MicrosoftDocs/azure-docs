@@ -18,7 +18,7 @@ Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS
 
 ## Launch VS Code (Web) from Azure AI Studio
 
-1. Go to the AI Studio homepage at [aka.ms/AzureAIStudio](https://aka.ms/AzureAIStudio)
+1. Go to the Azure AI Studio homepage at [aka.ms/AzureAIStudio](https://aka.ms/AzureAIStudio).
 
 1. Got to **Build** > **Projects** and select or create the project you want to work with.
 
@@ -26,12 +26,12 @@ Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS
 
 1. Select or create the compute instance that you want to use. 
 
-1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need follow steps to authenticate your compute when prompted.
+1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.
 
     > [!WARNING]
     > Even if you enable and configure idle shutdown on your compute instance, any computes that host this custom container for VS Code (Web) won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container. We are working to improve this experience. Scheduled startup and shutdown should still work as expected.
 
-1. Once the container is ready, select **Launch**. A new browser tab opens and VS Code (Web) connects to *vscode.dev*. 
+1. Once the container is ready, select **Launch**. This launches VS Code (Web) in a new browser tab connected to *vscode.dev*. 
 
 
 ## The custom container folder structure

@@ -67,18 +67,12 @@
     items:
     - name: Prompt flow overview
       href: how-to/prompt-flow.md
-    - name: Set up infrastructure
-      items:
-      - name: Create and manage compute
-        href: how-to/create-manage-compute.md
-      - name: Create and manage runtime
-        href: how-to/create-manage-runtime.md
     - name: Develop flows
       items:
+      - name: Create and manage runtime
+        href: how-to/create-manage-runtime.md
       - name: Create a flow
         href: how-to/flow-develop.md
-      - name: Create an evaluation flow
-        href: how-to/flow-develop-evaluation.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
     - name: Use prompt flow tools
@@ -133,6 +127,8 @@
       href: how-to/cli-install.md
     - name: Get started with projects in VS Code (Web)
       href: how-to/vscode-web.md
+    - name: Create and manage compute
+      href: how-to/create-manage-compute.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs

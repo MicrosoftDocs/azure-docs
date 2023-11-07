@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Azure Machine Learning
 
-Azure AI services and Azure Machine Learning (AML) both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how each provides this in the respective offerings is different. 
+Azure AI services and Azure Machine Learning both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how each provides this in the respective offerings is different. 
 
 Generally, the audiences are different:
 

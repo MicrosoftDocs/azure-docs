@@ -14,15 +14,15 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-This article shows how to create and manage data in Azure AI Studio.
-Data can be used to a source for Index in Azure AI Studio.
-And Data can help when you need these capabilities:
+This article shows how to create and manage data in Azure AI Studio. Data can be used as a source for indexing in Azure AI Studio.
+
+And data can help when you need these capabilities:
 
 > [!div class="checklist"]
-> - **Versioning:** Data support data versioning.
-> - **Reproducibility:** Once you create a data version, it is *immutable*. It cannot be modified or deleted. Therefore, jobs or PromptFlow pipelines that consume the data can be reproduced.
+> - **Versioning:** Data versioning is supported.
+> - **Reproducibility:** Once you create a data version, it is *immutable*. It cannot be modified or deleted. Therefore, jobs or prompt flow pipelines that consume the data can be reproduced.
 > - **Auditability:** Because the data version is immutable, you can track the asset versions, who updated a version, and when the version updates occurred.
-> - **Lineage:** For any given data, you can view which jobs or PromptFlow pipelines consume the data.
+> - **Lineage:** For any given data, you can view which jobs or prompt flow pipelines consume the data.
 > - **Ease-of-use:** An Azure AI Studio data resembles web browser bookmarks (favorites). Instead of remembering long storage paths that *reference* your frequently-used data on Azure Storage, you can create a data *version* and then access that version of the asset with a friendly name.
 
 
@@ -33,8 +33,6 @@ To create and work with data, you need:
 * An Azure subscription. If you don't have one, create a free account before you begin.
 
 * An Azure AI Studio project.
-
-* The [Azure Gen AI CLI/SDK installed].
 
 ## Create data
 

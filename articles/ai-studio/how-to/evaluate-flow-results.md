@@ -34,7 +34,7 @@ You can oversee your evaluation runs within the run list. With the flexibility t
 
 :::image type="content" source="../media/evaluations/view-results/evaluation-run-list.png" alt-text="Screenshot of the evaluation run list." lightbox="../media/evaluations/view-results/evaluation-run-list.png":::
 
-For a deeper understanding of how the evaluation metrics are derived, you can access a comprehensive explanation by clicking on the 'Understand more about metrics' option. This detailed resource provides valuable insights into the calculation and interpretation of the metrics used in the evaluation process. 
+For a deeper understanding of how the evaluation metrics are derived, you can access a comprehensive explanation by selecting the 'Understand more about metrics' option. This detailed resource provides valuable insights into the calculation and interpretation of the metrics used in the evaluation process. 
 
 :::image type="content" source="../media/evaluations/view-results/understand-metrics-details.png" alt-text="Screenshot of the evaluation metrics details." lightbox="../media/evaluations/view-results/understand-metrics-details.png":::
 
@@ -78,7 +78,7 @@ To learn more about how the evaluation results are produced, select the **View i
 
 ## Compare the evaluation results 
 
-To facilitate a comprehensive comparison between two or more runs, you have the option to select the desired runs and initiate the process by clicking either the 'Compare' button or, for a general detailed dashboard view, the 'Switch to dashboard view' button. This feature empowers you to analyze and contrast the performance and outcomes of multiple runs, allowing for more informed decision-making and targeted improvements. 
+To facilitate a comprehensive comparison between two or more runs, you have the option to select the desired runs and initiate the process by selecting either the 'Compare' button or, for a general detailed dashboard view, the 'Switch to dashboard view' button. This feature empowers you to analyze and contrast the performance and outcomes of multiple runs, allowing for more informed decision-making and targeted improvements. 
 
 :::image type="content" source="../media/evaluations/view-results/compare-button.png" alt-text="Screenshot of the option to compare evaluations." lightbox="../media/evaluations/view-results/compare-button.png":::
 

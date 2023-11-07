@@ -99,7 +99,7 @@ Prompt Flow offers not just a streamlined way to execute the flow, but it also b
 
 At its core, conditional control provides the capability to associate each node in a flow with an **activate config**. This configuration is essentially a "when" statement that determines when a node should be executed. The power of this feature is realized when you have complex flows where the execution of certain tasks depends on the outcome of previous tasks. By using the conditional control, you can configure your specific nodes to execute only when the specified conditions are met.
 
-Specifically, you can set the activate config for a node by clicking the **Activate config** button in the node card. You can add "when" statement and set the condition.
+Specifically, you can set the activate config for a node by selecting the **Activate config** button in the node card. You can add "when" statement and set the condition.
 You can set the conditions by referencing the flow input, or node output. For example, you can set the condition `${input.[input name]}` as specific value or `${[node name].output}` as specific value. 
 
 If the condition isn't met, the node is skipped. The node status is shown as "Bypassed".

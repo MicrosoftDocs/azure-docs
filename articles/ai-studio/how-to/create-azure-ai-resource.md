@@ -20,7 +20,7 @@ In this article, you learn how to create an Azure AI resource from the Azure por
 
 ## Create an Azure AI resource in the Azure portal
 
-1. From the Azure portal, go to Azure AI Studio and create a new resource by clicking **+ New Azure AI**
+1. From the Azure portal, go to Azure AI Studio and create a new resource by selecting **+ New Azure AI**
 2.	Fill in **Subscription**, **Resource group**, and **Region**. **Name** your new Azure AI resource.  
     + For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
     + Your subscription must have access to Azure AI to create this resource.

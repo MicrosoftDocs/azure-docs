@@ -40,8 +40,14 @@ landingContent:
         links:
           - text: Generate product name ideas
             url: quickstarts/playground-completions.md
+          - text: Analyze images and video with GPT-4 for Vision
+            url: quickstarts/multimodal-vision.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy a web app for chat on your data
+            url: tutorials/deploy-chat-web-app.md
 
   # Card
   - title: Develop apps
@@ -80,8 +86,6 @@ landingContent:
             url: /ai-builder/
           - text: Power Virtual Agents with Azure AI Language
             url: /power-virtual-agents/advanced-clu-integration
-          - text: Windows AI
-            url: /windows/ai/
           - text: GitHub Copilot
             url: https://docs.github.com/copilot/getting-started-with-github-copilot
 
