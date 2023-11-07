@@ -13,23 +13,32 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you configure an AKS cluster and another cluster hosted by a Linux VM. Azure IoT Layered Network Management is deployed to an AKS cluster. The Linux VM simulates a cluster in an isolated network environment by connecting to Azure through the Layered Network Management instance.
+In this quickstart, you will setup the Layered Network Management on a 2 level Purdue network (level 4 and level 3). Network level 4 has internet access, where as level 3 does not.
+
+- Level 4 is realized via an AKS cluster that has Layered Network Management deployed on to it.
+- Level 3 is realized via a k3s cluster running on a linux VM, that uses the Layered Network Management instance in level 4 to achieve line of sight to Azure. The Level 3 network is setup to only have outbound access to the Level 4 network on ports 443 and 8084. All other outbound access should be disabled.
+
+The Layered Network Management architecture requires DNS configuration on the Level 3 network, where the allowlisted URLs are repointed to the Level4 network. In this example, this setup is accomplished using an automated setup that is built on CoreDNS, the default DNS resolution mecahnism that ships with k3s.
+
+The setup is done using a jumpbox or install machine that has access to the internet and both the level 3 and level 4 networks.
 
 ## Prerequisites
 
 - An AKS cluster
-- An Azure Linux VM
+- An Azure Linux Ubuntu **22.04.3 LTS** VM
 
-## Deploy Layered Network Management
+## Deploy Layered Network Management to the internet-facing cluster
 
-Deploy Layered Network Management to the internet-facing cluster (top ISA-95 layer).
+These steps will deploy Layered Network Management to the AKS cluster. This cluster will be the top layer in the ISA-95 model. At the end of this section, you will have an instance of Layered Network Management that is ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations (AIO) platform.
 
-1. Configure `kubectl` to manage your **AKS cluster** from your working machine by following the steps in [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).
+1. Configure `kubectl` to manage your **AKS cluster** from your jumpbox by following the steps in [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).
 
-1. Install the Layered Network Management operator using **helm**:
+1. Install the Layered Network Management operator with the following Azure CLI command:
 
     ```bash
-    helm install e4in oci://alicesprings.azurecr.io/az-e4in --version 0.1.2
+    az login
+
+    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-lnm-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-alpha.5 --release-train private-preview
     ```
 
 1. To validate the installation was successful, run:
@@ -42,7 +51,7 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 
     ```Output
     NAME                                    READY   STATUS        RESTARTS   AGE
-    azedge-e4in-operator-7db49dc9fd-kjf5x   1/1     Running       0          78s
+    aio-lnm-operator-7db49dc9fd-kjf5x   1/1     Running       0          78s
     ```
 
 1. Create the Layered Network Management custom resource by creating a file named *level4.yaml* with the following contents:
@@ -55,17 +64,43 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
       namespace: default
     spec:
       image:
-        pullPolicy: Always
-        repository: envoyproxy/envoy
+        pullPolicy: IfNotPresent
+        repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
         tag: v1.27.0
       replicas: 1
-      logLevel: "trace"
-      openTelemetryMetricsCollectorAddr: "oc-opentelemetry-collector:4317"
+      logLevel: "debug"
+      openTelemetryMetricsCollectorAddr: "http://aio-otel-collector.azure-iot-operations.svc.cluster.local:4317"
       level: 4
       allowList:
         enableArcDomains: true
         domains:
-        - destinationUrl: "a.b.com"
+        - destinationUrl: "*.ods.opinsights.azure.com"
+          destinationType: external
+        - destinationUrl: "*.oms.opinsights.azure.com"
+          destinationType: external
+        - destinationUrl: "*.monitoring.azure.com"
+          destinationType: external
+        - destinationUrl: "*.handler.control.monitor.azure.com"
+          destinationType: external
+        - destinationUrl: "quay.io"
+          destinationType: external
+        - destinationUrl: "*.quay.io"
+          destinationType: external
+        - destinationUrl: "docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.com"
+          destinationType: external
+        - destinationUrl: "gcr.io"
+          destinationType: external
+        - destinationUrl: "*.googleapis.com"
+          destinationType: external
+        - destinationUrl: "login.windows.net"
+          destinationType: external
+        - destinationUrl: "graph.windows.net"
+          destinationType: external
+        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
@@ -77,6 +112,7 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
     ```bash
     kubectl apply -f level4.yaml
     ```
+    This step creates n pods (n based on the number of replicas in the custom resource), one service, and two config maps.
 
 1. To validate the instance, run:
 
@@ -88,8 +124,8 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 
     ```Output
     NAME                                    READY       STATUS    RESTARTS   AGE
-    azedge-e4in-operator-7db49dc9fd-kjf5x   1/1         Running   0          3m57s
-    e4in-level4-7598574bf-2lgss             1/1         Running   0          4s
+    aio-lnm-operator-7db49dc9fd-kjf5x   1/1     Running       0          78s
+    lnm-level4-7598574bf-2lgss          1/1     Running       0          4s
     ```
 
 1. To view the service, run:
@@ -102,77 +138,44 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 
     ```Output
     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-    e4in-level4   LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
+    lnm-level4   LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
     ```
-  
+1. To view the config maps, run:
+
+    ```bash
+    kubectl get cm
+    ```
+    The output should look like the following:
+    ```
+    NAME                           DATA   AGE
+    aio-lnm-level4-config          1      50s
+    aio-lnm-level4-client-config   1      50s
+    ```
+
 1. In this example, the Layered Network Management instance is ready to accept traffic on the external IP `20.81.111.118`.
 
 ## Provision the cluster in the adjacent isolated layer to Arc
 
-You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in the ISA-95 layer one level below. Then you Arc-enable it using the Layered Network Management instance previously deployed at top level.
+In level 3, you will create a K3S kubernetes cluster on a linux VM and Arc enable it using the Layered Network Management instance at level 4.
 
 1. On the Linux VM, install and configure K3S using the following commands:
 
     ```bash
-    curl -sfL https://get.k3s.io | sh - 
-    ```
-    For more information, see the [K3S documentation](https://docs.k3s.io/quick-start).
-
-1. Arc-enable the K3S cluster using the level 4 Layered Network Management as a reverse proxy. For the reverse proxy, the following domains must point to the IP address of the level4 Layered Network Management service. For this rudimentary example setup, you achieve this through a simple localhost override. Add the following to your **/etc/hosts** file. For example, use a command like `sudo vi /etc/hosts`. Replace the example IP address (20.81.111.118) with the **EXTERNAL-IP** that you discovered in the earlier step.
-
-    ```hosts
-    20.81.111.118	management.azure.com
-    20.81.111.118	dp.kubernetesconfiguration.azure.com
-    20.81.111.118	.dp.kubernetesconfiguration.azure.com
-    20.81.111.118	login.microsoftonline.com
-    20.81.111.118	.login.microsoft.com
-    20.81.111.118	.login.microsoftonline.com
-    20.81.111.118	login.microsoft.com
-    20.81.111.118	mcr.microsoft.com
-    20.81.111.118	.data.mcr.microsoft.com
-    20.81.111.118	gbl.his.arc.azure.com
-    20.81.111.118	.his.arc.azure.com
-    20.81.111.118	k8connecthelm.azureedge.net
-    20.81.111.118	guestnotificationservice.azure.com
-    20.81.111.118	.guestnotificationservice.azure.com
-    20.81.111.118	sts.windows.nets
-    20.81.111.118	k8sconnectcsp.azureedge.net
-    20.81.111.118	.servicebus.windows.net
-    20.81.111.118	servicebus.windows.net
-    20.81.111.118	obo.arc.azure.com
-    20.81.111.118	.obo.arc.azure.com
-    20.81.111.118	adhs.events.data.microsoft.com
-    20.81.111.118	dc.services.visualstudio.com
-    20.81.111.118	go.microsoft.com
-    20.81.111.118	onegetcdn.azureedge.net
-    20.81.111.118	www.powershellgallery.com
-    20.81.111.118	self.events.data.microsoft.com
-    20.81.111.118	psg-prod-eastus.azureedge.net
-    20.81.111.118	.azureedge.net
-    20.81.111.118	api.segment.io
-    20.81.111.118	nw-umwatson.events.data.microsoft.com
-    20.81.111.118	sts.windows.net
-    20.81.111.118	.azurecr.io
-    20.81.111.118	.blob.core.windows.net
-    20.81.111.118	global.metrics.azure.microsoft.scloud
-    20.81.111.118	.prod.hot.ingestion.msftcloudes.com
-    20.81.111.118	.prod.microsoftmetrics.com
-    20.81.111.118	global.metrics.azure.eaglex.ic.gov
-    ```
-1. Copy the K3S configuration yaml file to `.kube/config`.
-
-    ```bash
-    mkdir ~/.kube
-    cp ~/.kube/config ~/.kube/config.back
-    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
-    mv ~/.kube/merged ~/.kube/config
-    chmod  0600 ~/.kube/config
-    export KUBECONFIG=~/.kube/config
-    #switch to k3s context
-    kubectl config use-context default
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
     ```
 
-1. Perform the following command to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
+1. Setup the jumpbox to have kubectl access to the cluster.
+   Generate the config file on your linux vm.
+   
+   ```bash
+   k3s kubectl config view --raw > config.level3
+   ```
+
+   On your jumpbox setup kubectl access to the level 3 k3s cluster by copying over the config.level3 file into the ~/.kube directory and rename it to config Note: the server entry in the config file should be set to the IP address (or domain name) of the level 3 VM.
+
+1. Refer to [Configure CoreDNS](azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configure-coredns) to uses an extension mechanims provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+
+1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 
     ```bash
     az login
@@ -197,9 +200,7 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
       ....
       ....
     ```
-1. Your Kubernetes cluster is now Arc enabled and is listed in the resource group you provided in the `az connectedk8s connect` command. You can also validate the provisioning of this cluster through the Azure portal.
-
-This article demonstrates the capability of Layered Network Management to enable an Azure Arc connection. As a next step, try the built-in Azure Arc experiences on this cluster within the isolated network.
+1. Your Kubernetes cluster is now Arc enabled and is listed in the resource group you provided in the az connectedk8s connect command. You can also validate the provisioning of this cluster through the Azure Portal. This quickstart is for showcasing the capability of Layered Network Management to enable Arc for your kubernetes cluster. You can now try the built-in Arc experiences on this cluster within the isolated network.
 
 ## Related content
 
