@@ -7,7 +7,7 @@ author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 11/07/2023
 ---
 
 # Vector index size limit
@@ -22,7 +22,7 @@ The service enforces a vector index size quota **based on the number of partitio
 
 Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests will result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The following table repurposes information from [Search service limits](search-limits-quotas-capacity.md). The limits are for newer search services. 
+The following limits are for newer search services created *after July 1, 2023*. For more information, including limits for older search services, see [Search service limits](search-limits-quotas-capacity.md). 
 
 | Tier   | Storage (GB) |Partitions | Vector quota per partition (GB) | Vector quota per service (GB) |
 | ----- | ------------- | ----------|-------------------------- | ---------------------------- |
