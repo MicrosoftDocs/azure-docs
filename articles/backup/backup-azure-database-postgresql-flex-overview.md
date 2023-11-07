@@ -18,12 +18,15 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - The zero-infrastructure solution with Azure Backup service managing the backups with automated retention and backup scheduling.
 - Central monitoring of all operations and jobs via backup center. 
 
-## Backup process
+## Backup flow
 
 To perform the backup operation:
 
 1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access and control. 
 1. Configure backup policies, specify scheduling, retention, and other parameters. 
+
+Once the configuration is complete:
+
 1. The Backup recovery point invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
 1. Backup runs independently preventing disruptions during long-running tasks. 
 1. The retention and recovery point lifecycles align with the backup policies for effective management. 

@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Azure Database for PostgreSQL Flexible server backup with long-term retention (preview) 
+# Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
 
 This article describes how to back up Azure Database for PostgreSQL-Flex server. 
 
@@ -81,7 +81,9 @@ Choose from the list of retention rules that were defined in the associated Back
 
 ## Track a backup job
 
-Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
+Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. 
+
+To view the backup job status:
 
 1. Go to the **Backup instance** screen.
 
@@ -95,4 +97,4 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL Flexible backups (preview)](./restore-azure-database-postgresql-flex.md)
+[Restore Azure Database for PostgreSQL Flexible backups (preview)](./restore-azure-database-postgresql-flex.md)
