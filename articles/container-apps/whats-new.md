@@ -28,7 +28,7 @@ This article lists significant updates and new features available in Azure Conta
 
 | Feature | Description |
 | ------- | ------------ |
-| [Generally Available: Azure Container Apps in China Cloud](https://azure.microsoft.com/updates/Generally Available-azure-container-apps-in-azure-china-cloud/) | Azure Container Apps is now available in China North 3. |
+| [Generally Available: Azure Container Apps in China Cloud](https://azure.microsoft.com/updates/ga-azure-container-apps-in-azure-china-cloud/) | Azure Container Apps is now available in China North 3. |
 | [ACA eligible for savings plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-eligible-for-azure-savings-plan-for-compute/ba-p/3941243) | Azure Container Apps is eligible for Azure savings plan for compute. |
 
 ## August 2023   
