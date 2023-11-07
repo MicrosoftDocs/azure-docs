@@ -269,10 +269,9 @@ Once you've created a VM with hibernation enabled, you need to configure the gue
 There are many ways you can configure the guest OS for hibernation in Linux VMs.  
 
 #### Option 1: LinuxHibernateExtension
- You can install the [LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
+When creating a Hibernation enabled VM via Azure Portal, the LinuxHibernationExtension is automatically installed on the VM. 
 
->[!NOTE] 
-> When creating a Hibernation enabled VM via Azure Portal, the LinxuHibernationExtension is automatically installed on the VM. 
+If the extension is missing, you can [manually install the LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
 
 >[!NOTE]
 > Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
