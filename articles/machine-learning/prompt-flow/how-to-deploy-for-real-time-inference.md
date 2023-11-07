@@ -25,6 +25,13 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 - [Test the endpoint](#test-the-endpoint-with-sample-data)
 - [Consume the endpoint](#consume-the-endpoint)
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+![image](https://github.com/lgayhardt/azure-docs-pr/assets/23491583/364d915b-2dc1-4159-8fc6-affb90b5a4d9)
+
+
 ## Prerequisites
 
 - Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
@@ -79,7 +86,7 @@ This step allows you to configure the basic settings of the deployment.
 |Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
 |Virtual machine| The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)|
-|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
+|Inference data collection (preview)| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
 |Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
 
