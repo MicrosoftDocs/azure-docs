@@ -77,8 +77,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     body = {
         # Enter your prompt text here
         "prompt": "A multi-colored umbrella on the beach, disposable camera",
-        "size": "1024x1024",
-        "n": 1
+        "size": "1024x1024", # supported values are “1792x1024”, “1024x1024” and “1024x1792” 
+        "n": 1,
+        "quality": "hd", # Options are “hd” and “standard”; defaults to standard 
+        "style": "vivid" # Options are “natural” and “vivid”; defaults to “vivid”
     }
     submission = requests.post(url, headers=headers, json=body)
     
@@ -152,10 +154,10 @@ The output from a successful image generation API call looks like the following 
     "created": 1698116662, 
     "data": [ 
         { 
-            "url": "<URL_to_generated_image>" 
+            "url": "<URL_to_generated_image>",
+            "revised_prompt": "<prompt_that_was_used>" 
         }
-    ],
-    "revised_prompt": "<prompt_that_was_used>" 
+    ]
 } 
 ```
 
