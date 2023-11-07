@@ -27,11 +27,11 @@ By default, the connector isn't installed with Azure IoT MQ. It must be explicit
 1. [Create an event hub](/azure/event-hubs/event-hubs-create#create-an-event-hub) for each Kafka topic.
 
 
-## Grant the connector access to the Event Hub namespace
+## Grant the connector access to the Event Hubs namespace
 
 Granting IoT MQ Arc extension access to an Event Hubs namespace is the most convenient way to establish a secure connection from IoT MQ's Kakfa connector to Event Hubs. 
 
-Save the Bicep template below to a file and apply it with the Azure CLI after setting the valid parameters for your environment:
+Save the following Bicep template to a file and apply it with the Azure CLI after setting the valid parameters for your environment:
 
 > [!NOTE]
 > The Bicep template assumes the Arc connnected cluster and the Event Hubs namespace are in the same resource group, adjust the template if your environment is different. 
@@ -55,24 +55,24 @@ resource ehNamespace 'Microsoft.EventHub/namespaces@2021-11-01' existing = {
   name: eventHubNamespaceName
 }
 
-// Role assignment for Event Hub Data Receiver role
+// Role assignment for Event Hubs Data Receiver role
 resource roleAssignmentDataReceiver 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(ehNamespace.id, mqExtension.id, '7f951dda-4ed3-4680-a7ca-43fe172d538d')
   scope: ehNamespace
   properties: {
-     // ID for Event Hub Data Receiver role is a638d3c7-ab3a-418d-83e6-5f17a39d4fde
+     // ID for Event Hubs Data Receiver role is a638d3c7-ab3a-418d-83e6-5f17a39d4fde
     roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', 'a638d3c7-ab3a-418d-83e6-5f17a39d4fde') 
     principalId: mqExtension.identity.principalId
     principalType: 'ServicePrincipal'
   }
 }
 
-// Role assignment for Event Hub Data Sender role
+// Role assignment for Event Hubs Data Sender role
 resource roleAssignmentDataSender 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(ehNamespace.id, mqExtension.id, '69b88ce2-a752-421f-bd8b-e230189e1d63')
   scope: ehNamespace
   properties: {
-    // ID for Event Hub Data Sender role is 2b629674-e913-4c01-ae53-ef4638d8f975
+    // ID for Event Hubs Data Sender role is 2b629674-e913-4c01-ae53-ef4638d8f975
     roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', '2b629674-e913-4c01-ae53-ef4638d8f975') 
     principalId: mqExtension.identity.principalId
     principalType: 'ServicePrincipal'
@@ -129,7 +129,7 @@ spec:
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
-    # Port 9093 is Event Hub's Kakfa endpoint
+    # Port 9093 is Event Hubs' Kakfa endpoint
     # Plug in your Event Hubs namespace name
     endpoint: <NAMESPACE>.servicebus.windows.net:9093
     tls:
@@ -196,7 +196,7 @@ The authentication field supports different types of authentication methods, suc
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| sasl | The configuration for SASL authentication. Specify the `saslType` which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
+| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
 | x509 | The configuration for X509 authentication. Specify the `secretName` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
 | systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
 
@@ -292,9 +292,9 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | none | No compression or batching is applied. *none* is the default value if no compression is specified. |
-| gzip | GZIP compression and batching is applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
-| snappy | Snappy compression and batching is applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| lz4 | LZ4 compression and batching is applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
+| snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
+| lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
 
 ### Batching
 
@@ -398,7 +398,7 @@ In this example, messages from Kafka topic *sending-event-hub** are published to
 
 ### Event hub name must match Kafka topic
 
-Each individual event hub not the namespace must be named exactly the same as the intended Kafka topic specified in the routes. Also, the connection string `EntityPath` must match if connection string is scoped to one Event Hubs. This requirement is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
+Each individual event hub not the namespace must be named exactly the same as the intended Kafka topic specified in the routes. Also, the connection string `EntityPath` must match if connection string is scoped to one event hub. This requirement is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
 
 ### Kafka consumer group offsets
 
