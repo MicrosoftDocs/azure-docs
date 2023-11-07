@@ -5,8 +5,7 @@ description: Learn more about the human languages that are available with Immers
 services: cognitive-services
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: rwaller

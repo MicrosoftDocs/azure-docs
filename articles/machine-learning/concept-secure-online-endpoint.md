@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2, moe-wsvnet
-ms.date: 08/15/2023
+ms.date: 09/27/2023
 ---
 
 # Network isolation with managed online endpoints
@@ -19,8 +19,6 @@ ms.date: 08/15/2023
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). In this article, you'll learn how a private endpoint can be used to secure inbound communication to a managed online endpoint. You'll also learn how a workspace managed virtual network can be used to provide secure communication between deployments and resources.
-
-[!INCLUDE [machine-learning-moe-with-workspace-vnet-preview](includes/machine-learning-moe-with-workspace-vnet-preview.md)]
 
 You can secure inbound scoring requests from clients to an _online endpoint_ and secure outbound communications between a _deployment_, the Azure resources it uses, and private resources. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints-online.md).
 

@@ -5,8 +5,7 @@ description: Concepts for game development with Azure AI Speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: eur

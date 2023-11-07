@@ -1,15 +1,14 @@
 ### YamlMime:Landing
 
 title: Personalizer documentation
-summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior.
+summary: Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
 
 metadata:
   ms.topic: landing-page
   ms.date: 07/06/2022
   ms.author: jacodel
   author: jcodella
-  ms.service: cognitive-services
-  ms.subservice: personalizer
+  ms.service: azure-ai-personalizer
   services: cognitive-services
   title: Personalizer documentation
   titleSuffix: Azure AI services

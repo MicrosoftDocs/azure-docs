@@ -2,15 +2,13 @@
 title: Regions - Speech service
 titleSuffix: Azure AI services
 description: A list of available regions and endpoints for the Speech service, including speech to text, text to speech, and speech translation.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 10/27/2023
 ms.author: eur
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # Speech service supported regions
@@ -46,6 +44,7 @@ The following regions are supported for Speech service features such as speech t
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
+| Europe | Sweden Central | `swedentcentral` |
 | Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
 | Europe | UK South | `uksouth` <sup>1,2,3,4,7</sup>|

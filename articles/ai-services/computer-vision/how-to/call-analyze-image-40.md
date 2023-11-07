@@ -6,11 +6,10 @@ services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: seodec18, references_regions, devx-track-python
+ms.custom: seodec18, references_regions, devx-track-python, devx-track-extended-java
 zone_pivot_groups: programming-languages-computer-vision-40
 ---
 

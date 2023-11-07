@@ -8,7 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Get started with manual deployment

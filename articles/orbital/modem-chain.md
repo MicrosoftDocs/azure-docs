@@ -16,7 +16,7 @@ You have the flexibility to choose between managed modem or virtual RF functiona
 
 ### Prerequisites
 - Managed modem: a modem configuration file
-- Virtual RF: GNU radio or your own software radio
+- Virtual RF: GNU radio or software radio
 
 ## Managed modems vs virtual RF delivery
 
@@ -131,9 +131,9 @@ Select 'Preset Named Modem Configuration'and chose a configuration as shown belo
 To use the virtual RF delivery feature, leave the modulationConfiguration or demodulationConfiguration parameters blank in the channel parameters. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. Refer to the [virtual RF tutorial](virtual-rf-tutorial.md) to learn more.
 
 >[!Note]
->Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint for downlink.
+>For downlink, Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint.
 >
->Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint for uplink.
+>For uplink, Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint.
 
 ## Next steps
 

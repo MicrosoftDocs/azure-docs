@@ -69,9 +69,9 @@ You can use the Azure Lab Services managed labs in different scenarios:
 
 ### Data residency
 
-[Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, if you access Azure Lab Services resources through the Azure Lab Services website (https://labs.azure.com), customer data might cross regions.
+[Azure Lab Services lab plans](concept-lab-accounts-versus-lab-plans.md) don't move or store customer data outside the region it's deployed in.  However, if you access Azure Lab Services resources through the Azure Lab Services website (https://labs.azure.com), customer data might cross regions.
 
-There are no guarantees that customer data stays in the region it's deployed to when using Azure Lab Services prior to the August 2022 Update.
+There are no guarantees that customer data stays in the region it's deployed to when using lab accounts in Azure Lab Services.
 
 ### Data at rest
 Azure Lab Services encrypts all content using a Microsoft-managed encryption key.

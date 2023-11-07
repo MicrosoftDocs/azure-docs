@@ -1,4 +1,4 @@
-﻿---
+---
 title: Common parameters and headers 
 description: The parameters and headers common to all operations that you might perform on Key Vault resources.
 services: key-vault
@@ -23,7 +23,7 @@ The following information is common to all operations that you might perform on 
 - Replace `{resource-group-name}` with the resource group. For more information, see Using Resource groups to manage your Azure resources.
 - Replace `{vault-name}` with your key vault name in the URI.
 - Set the Content-Type header to application/json.
-- Set the Authorization header to a JSON Web Token that you obtain from Azure Active Directory (Azure AD). For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
+- Set the Authorization header to a JSON Web Token that you obtain from Microsoft Entra ID. For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
 
 ## Common error response
 The service will use HTTP status codes to indicate success or failure. In addition, failures contain a response in the following format:

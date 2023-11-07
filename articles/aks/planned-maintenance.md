@@ -82,7 +82,7 @@ A `Daily` schedule may look like *"every three days"*:
 ```json
 "schedule": {
     "daily": {
-        "intervalDays": 2
+        "intervalDays": 3
     }
 }
 ```
@@ -310,7 +310,7 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 
 * I configured a maintenance window, but upgrade didn't happen - why?
 
-  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 6 hours between the creation/update of the maintenance configuration, and when it's scheduled to start.
+  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation/update of the maintenance configuration, and when it's scheduled to start.
 
 * AKS auto-upgrade didn't upgrade all my agent pools - or one of the pools was upgraded outside of the maintenance window?
 

@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the Python SDK and the endpoint and access keys for your Azure OpenAI resource.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/08/2023
+ms.date: 11/06/2023
 keywords: 
 ---
 
@@ -52,10 +51,13 @@ Open a command prompt and browse to your project folder. Create a new python fil
 
 ## Install the Python SDK
 
-Install the OpenAI Python SDK by using the following command: 
+> [!IMPORTANT]
+> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. To access DALL-E with Azure OpenAI use version `0.28.1`.
+
+Install the OpenAI Python SDK by using the following command:
 
 ```bash
-pip install openai
+pip install openai==0.28.1
 ```
 
 Install the following libraries as well:

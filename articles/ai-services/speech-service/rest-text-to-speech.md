@@ -5,8 +5,7 @@ description: Learn how to use the REST API to convert text into synthesized spee
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 01/24/2022
 ms.author: eur

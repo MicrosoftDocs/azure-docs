@@ -5,8 +5,16 @@
   items:
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
-  - name: What's new in Azure Lab Services?
-    href: lab-services-whats-new.md
+- name: Migrate to lab plans
+  expanded: true
+  items:
+  - name: Lab accounts versus lab plans
+    href: concept-lab-accounts-versus-lab-plans.md
+  - name: Migrate lab acounts to lab plans
+    href: how-to-migrate-lab-acounts-to-lab-plans.md
+  - name: Migrate lab account role assignments
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
+    href: concept-migrate-from-lab-accounts-roles.md
 - name: Quickstarts
   expanded: true
   items:
@@ -47,9 +55,6 @@
   - name: Azure role-based access control
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab plan
     href: concept-lab-services-role-based-access-control.md
-  - name: Migrate lab account role assignments
-    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
-    href: concept-migrate-from-lab-accounts-roles.md
   - name: Supported networking topologies
     displayName: advanced, networking, vnet, subnet, hybrid, connectivity, VPN, ExpressRoute, peering, NAT, gateway, firewall, proxy, load balancer, Azure Bastion, Azure Firewall, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer, Azure Bastion, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer
     href: concept-lab-services-supported-networking-scenarios.md
@@ -126,8 +131,6 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
-  - name: Transition to August 2022 Update
-    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Create and manage lab plans
@@ -239,7 +242,7 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Redeploy or reset a lab VM
+    - name: Redeploy or reimage a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 

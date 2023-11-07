@@ -4,9 +4,9 @@ description: include file
 services: cognitive-services
 
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.date: 05/18/2020
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: include
 ms.custom: include file
 

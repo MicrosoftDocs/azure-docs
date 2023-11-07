@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
 author: AwdotiaRomanowna
-ms.date: 10/21/2022
+ms.date: 9/26/2023
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
@@ -176,7 +176,9 @@ It is essential to monitor storage usage and replication lag closely, and take n
 
 ### Server parameters
 
-You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters are always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery.
+When a read replica is created, it inherits the server parameters from primary server. This is to ensure a consistent and reliable starting point. However, any changes to the server parameters on the primary server, made post the creation of the read replica, are not automatically replicated. This behavior offers the advantage of individual tuning of the read replica, such as enhancing its performance for read-intensive operations, without modifying the primary server's parameters. While this provides flexibility and customization options, it also necessitates careful and manual management to maintain consistency between the primary and its replica when uniformity of server parameters is required.
+
+Administrators can change server parameters on read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. To ensure the read replica’s recovery is seamless and it does not encounter shared memory limitations, these particular parameters should always be set to values that are either equivalent to or [greater than those configured on the primary server](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN).
 
 ### Scaling
 

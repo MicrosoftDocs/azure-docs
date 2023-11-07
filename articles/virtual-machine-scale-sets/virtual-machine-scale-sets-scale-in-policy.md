@@ -106,7 +106,7 @@ az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --orchestration-mode flexible \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --scale-in-policy OldestVM

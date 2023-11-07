@@ -402,7 +402,7 @@ The certificate for the emulator is available in the `_explorer/emulator.pem` pa
     > [!NOTE]
     > You may need to change the host (or IP address) and port number if you have previously modified those values.
 
-1. Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificats/` path.
+1. Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificates/` path.
 
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
@@ -476,7 +476,8 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     >     {
     >         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     >     }),
-    >     ConnectionMode = ConnectionMode.Gateway
+    >     ConnectionMode = ConnectionMode.Gateway,
+    >     LimitToEndpoint = true
     > };
     >
     > using CosmosClient client = new(

@@ -40,7 +40,7 @@ For information about this connector's operations and any limits, based on the c
   > [!NOTE]
   >
   > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), 
-  > Azure Active Directory (Azure AD) authentication works only with an account for 
+  > Microsoft Entra authentication works only with an account for 
   > Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
 
 * The logic app workflow from where you want to access your Outlook account. To add an Office 365 Outlook trigger, you have to start with a blank workflow. To add an Office 365 Outlook action, your workflow can start with any trigger.
@@ -62,7 +62,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -91,7 +91,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -130,7 +130,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -163,7 +163,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 

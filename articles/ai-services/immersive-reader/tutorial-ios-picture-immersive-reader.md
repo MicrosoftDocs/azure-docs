@@ -5,8 +5,7 @@ description: In this tutorial, you will build an iOS app from scratch and add th
 services: cognitive-services
 author: rwallerms
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: rwaller
@@ -26,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 * Usage of this sample requires an Azure subscription to the Azure AI Vision service. [Create an Azure AI Vision resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
@@ -65,9 +64,11 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
 
 6. Ensure to open the project by opening the `.xcworkspace` file and not the `.xcodeproj` file.
 
-## Acquire an Azure AD authentication token
+<a name='acquire-an-azure-ad-authentication-token'></a>
 
-You need some values from the Azure AD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+## Acquire a Microsoft Entra authentication token
+
+You need some values from the Microsoft Entra authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
 
 ````text
 TenantId     => Azure subscription TenantId

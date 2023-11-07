@@ -15,9 +15,11 @@ This glossary provides a brief description of important terms and concepts for t
 
 Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. See [Adaptive Application Controls](adaptive-application-controls.md).
 
-### **AAD**
+<a name='aad'></a>
 
-Azure Active Directory (Azure AD) is a cloud-based identity and access management service. See [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md).
+### **Microsoft Entra ID**
+
+Microsoft Entra ID is a cloud-based identity and access management service. See [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### **ACR Tasks**
 

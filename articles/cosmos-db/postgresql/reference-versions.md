@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/27/2023
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -20,6 +20,12 @@ The version of PostgreSQL running in a cluster is
 customizable during creation. Azure Cosmos DB for PostgreSQL currently supports the
 following major [PostgreSQL
 versions](https://www.postgresql.org/docs/release/):
+
+### PostgreSQL version 16
+
+The current minor release is 16.0. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/16.0/) to
+learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 15
 
@@ -87,6 +93,7 @@ policy](https://www.postgresql.org/support/versioning/).
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | Apr 6, 2021  | Nov 13, 2025 |
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | Oct 1, 2021  | Nov 12, 2026 |
 | [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/15/release-15.html) | Oct 20, 2022 | Nov 11, 2027 |
+| [PostgreSQL 16](https://www.postgresql.org/about/news/postgresql-16-released-2715/) | [Features](https://www.postgresql.org/docs/16/release-16.html) | Sep 28, 2023 | Nov 9, 2028  |
 
 ### Retired PostgreSQL engine versions not supported in Azure Cosmos DB for PostgreSQL
 
@@ -105,7 +112,7 @@ PostgreSQL database version:
 
 Depending on which version of PostgreSQL is running in a cluster,
 different [versions of PostgreSQL extensions](reference-extensions.md)
-will be installed as well. In particular, PostgreSQL 14 and PostgreSQL 15 come with Citus 12, PostgreSQL 13 comes with Citus 11, PostgreSQL 12 comes with Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
+will be installed as well. In particular, PostgreSQL 14, PostgreSQL 15, and PostgreSQL 16 come with Citus 12, PostgreSQL 13 comes with Citus 11, PostgreSQL 12 comes with Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 ## Next steps
 

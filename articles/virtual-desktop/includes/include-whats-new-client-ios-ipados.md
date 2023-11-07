@@ -21,7 +21,7 @@ The following table lists the current versions available for the public and beta
 In this release, we've made the following changes:
 
 - Added support for displaying sessions on an external monitor. You can use this new feature with iPad and iPhone using AirPlay or a physical cable.
-- Added support for location redirection. To use this feature, you need access to your device location, and your server must be running Windows 11 or later.
+- Added support for location redirection. To use this feature, you need access to your device location, and your session hosts must be running Windows 11 or later.
 
 ## Updates for version 10.5.0
 

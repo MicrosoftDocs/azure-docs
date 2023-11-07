@@ -73,7 +73,7 @@ Before you set up the Azure services for exporting alerts, make sure you have:
 - Azure resource group ([Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md))
 - **Owner** role on the alerts scope (subscription, management group or tenant), or these specific permissions:
   - Write permissions for event hubs and the Event Hub Policy
-  - Create permissions for [Azure AD applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Azure AD application
+  - Create permissions for [Microsoft Entra applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Microsoft Entra application
   - Assign permissions for policies, if you're using the Azure Policy 'DeployIfNotExist'
   <!-- - To export to a Log Analytics workspace:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
@@ -100,9 +100,9 @@ You can set up your Azure environment to support continuous export using either:
     5. Enable continuous export of security alerts to the defined event hub.
     6. **If you're streaming alerts to QRadar** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
     7. **If you're streaming alerts to Splunk**:
-        1. Create an Azure Active Directory (AD) application.
+        1. Create a Microsoft Entra application.
         2. Save the Tenant, App ID, and App password.
-        3. Give permissions to the Azure AD Application to read from the event hub you created before.
+        3. Give permissions to the Microsoft Entra Application to read from the event hub you created before.
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
@@ -140,7 +140,7 @@ To view the event schemas of the exported data types, visit the [Event Hubs even
 
 ## Use the Microsoft Graph Security API to stream alerts to third-party applications
 
-As an alternative to Microsoft Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api). No configuration is required.
+As an alternative to Microsoft Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](/graph/security-concept-overview/). No configuration is required.
 
 You can use this API to stream alerts from your **entire tenant** (and data from many Microsoft Security products) into third-party SIEMs and other popular platforms:
 
@@ -149,6 +149,9 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 - **ServiceNow** - [Install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/sandiego-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html?cshalt=yes).
 - **QRadar** - [Use IBM's Device Support Module for Microsoft Defender for Cloud via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html).
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Use the Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji).
+
+> [!NOTE]
+> The preferred way to export alerts is through [Continuously export Microsoft Defender for Cloud data](continuous-export.md).
 
 ## Next steps
 

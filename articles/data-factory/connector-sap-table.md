@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics

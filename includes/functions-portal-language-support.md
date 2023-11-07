@@ -13,8 +13,8 @@ The following table shows which languages supported by Functions can run on Linu
 
 | Language | Runtime stack | Linux | Windows | In-portal editing |
 |:--- |:-- |:--|:--- |:--- |
+| [C# (isolated worker model)](../articles/azure-functions/dotnet-isolated-process-guide.md) |.NET|✓ |✓ | | 
 | [C# (in-process model)](../articles/azure-functions/functions-dotnet-class-library.md)|.NET|✓ |✓ | | 
-| [C# (isolated worker model))](../articles/azure-functions/dotnet-isolated-process-guide.md) |.NET|✓ |✓<sup>1</sup> | | 
 | [C# script](../articles/azure-functions/functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
 | [JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
 | [Python](../articles/azure-functions/functions-reference-python.md) | Python |✓ | |✓ |
@@ -23,8 +23,6 @@ The following table shows which languages supported by Functions can run on Linu
 | [TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
  
-<sup>1</sup> The preview for .NET 8 on the isolated worker model currently only supports Linux. All other versions of .NET are supported on Windows.
-
 For more information on operating system and language support, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
 
 When in-portal editing isn't available, you must instead [develop your functions locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).

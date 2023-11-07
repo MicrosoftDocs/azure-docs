@@ -5,8 +5,7 @@ description: Learn how to monitor for connection status and manually connect or 
 services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: travisw

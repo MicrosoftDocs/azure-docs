@@ -46,7 +46,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Application Gateway              | Azure API Management                              | 
 > | Azure Backup                           | Azure App Configuration                           | 
 > | Azure Cosmos DB                        | Azure App Service                                 | 
-> | Azure Event Hubs                       | Azure Active Directory Domain Services            | 
+> | Azure Event Hubs                       | Microsoft Entra Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       | 
 > | Azure Load Balancer                    | Azure Cache for Redis                             | 

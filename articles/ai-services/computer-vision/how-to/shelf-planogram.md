@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to use the Planogram Matching API to check that a retail shelf in a photo matches its planogram layout.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/02/2023

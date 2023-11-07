@@ -79,7 +79,7 @@ az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalan
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \

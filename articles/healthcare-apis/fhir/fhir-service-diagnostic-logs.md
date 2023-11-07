@@ -59,7 +59,7 @@ At this time, the FHIR service returns the following fields in a diagnostic log:
 |`FhirResourceType` | String| The resource type for which the operation was executed.|
 |`LogCategory` | String| The log category. (In this article, we're returning `AuditLogs`.)|
 |`Location` | String| The location of the server that processed the request. For example: `South Central US`.|
-|`OperationDuration` | Int| The time it took to complete this request, in seconds.|
+|`OperationDuration` | Int| The time it took to complete this request, in seconds. Note: This collumn value is always 0 due to a known issue|
 |`OperationName` | String| The type of operation. For example: `update` or `search-type`.|
 |`RequestUri` | String| The request URI.|
 |`ResultType` | String| The status of the log. Available values are `Started`, `Succeeded`, or `Failed`.|

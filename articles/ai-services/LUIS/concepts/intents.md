@@ -6,8 +6,8 @@ services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
 ms.date: 07/19/2022
 

@@ -1,5 +1,5 @@
 ---
-title: Prepare for live traffic with Azure Communications Gateway
+title: Prepare for Operator Connect or Teams Phone Mobile live traffic with Azure Communications Gateway
 description: After deploying Azure Communications Gateway, you and your onboarding team must carry out further integration work before you can launch your Teams Phone Mobile or Operator Connect service.
 author: rcdun
 ms.author: rdunstan
@@ -15,10 +15,10 @@ Before you can launch your Operator Connect or Teams Phone Mobile service, you a
 - Test your service.
 - Prepare for launch.
 
-In this article, you learn about the steps you and your onboarding team must take.
+In this article, you learn about the steps that you and your onboarding team must take.
 
 > [!TIP]
-> In many cases, your onboarding team is from Microsoft, provided through the [Included Benefits](onboarding.md) or through a separate arrangement.
+> This article assumes that your Azure Communications Gateway onboarding team from Microsoft is also onboarding you to Operator Connect and/or Teams Phone Mobile. If you've chosen a different onboarding partner for Operator Connect or Teams Phone Mobile, you need to ask them to arrange changes to the Operator Connect and/or Teams Phone Mobile environments.
 
 > [!IMPORTANT]
 > Some steps can require days or weeks to complete. For example, you'll need to wait at least seven days for automated testing of your deployment and schedule your launch date at least two weeks in advance. We recommend that you read through these steps in advance to work out a timeline.
@@ -34,7 +34,7 @@ In this article, you learn about the steps you and your onboarding team must tak
 
     |Configuration portal  |Required permissions |
     |---------|---------|
-    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#1-add-the-project-synergy-application-to-your-azure-tenancy))|
+    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenancy))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
 
 
@@ -42,7 +42,7 @@ In this article, you learn about the steps you and your onboarding team must tak
 
 In some parts of this article, the steps you must take depend on whether your deployment includes the Number Management Portal. This article provides instructions for both types of deployment. Choose the appropriate instructions.
 
-## 1. Ask your onboarding team to register your test enterprise tenant
+## Ask your onboarding team to register your test enterprise tenant
 
 Your onboarding team must register the test enterprise tenant that you chose in [Prerequisites](#prerequisites) with Microsoft Teams.
 
@@ -53,7 +53,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     - The ID of the tenant to use for testing.
 1. Wait for your onboarding team to confirm that your test tenant has been registered.
 
-## 2. Assign numbers to test users in your tenant
+## Assign numbers to test users in your tenant
 
 1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
@@ -94,7 +94,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     1. Assign the number to a user.
     1. Repeat for all your test users.
 
-## 3. Carry out integration testing and request changes
+## Carry out integration testing and request changes
 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
 
@@ -103,11 +103,11 @@ You must test typical call flows for your network. Your onboarding team will pro
 - If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft will make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
-## 4. Run a connectivity test and upload proof
+## Run a connectivity test and upload proof
 
 Before you can launch, Microsoft Teams requires proof that your network is properly connected to Microsoft's network.
 
-1. Provide your onboarding team with proof that BFD is enabled. You should have enabled BFD in [8. Connect Azure Communications Gateway to your networks](deploy.md#8-connect-azure-communications-gateway-to-your-networks) when you deployed Azure Communications Gateway. For example, if you have a Cisco router, you can provide configuration similar to the following.
+1. Provide your onboarding team with proof that BFD is enabled. You should have enabled BFD when you [connected Azure Communications Gateway to your networks](deploy.md#connect-azure-communications-gateway-to-your-networks) as part of deploying. For example, if you have a Cisco router, you can provide configuration similar to the following.
 
     ```text
     interface TenGigabitEthernet2/0/0.150
@@ -130,7 +130,7 @@ Before you can launch, Microsoft Teams requires proof that your network is prope
 1. Test failover of the connectivity to your network. Your onboarding team will work with you to plan this testing and gather the required evidence.
 1. Work with your onboarding team to validate emergency call handling.
 
-## 5. Get your go-to-market resources approved
+## Get your go-to-market resources approved
 
 Before you can go live, you must get your customer-facing materials approved by Microsoft Teams. Provide the following to your onboarding team for review.
 
@@ -139,15 +139,15 @@ Before you can go live, you must get your customer-facing materials approved by 
 - Logo for the Microsoft Teams Operator Directory (200 px by 200 px)
 - Logo for the Microsoft Teams Admin Center (170 px by 90 px)
 
-## 6. Test raising a ticket
+## Test raising a ticket
 
 You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway. See [Get support or request changes for Azure Communications Gateway](request-changes.md).
 
-## 7. Learn about monitoring Azure Communications Gateway
+## Learn about monitoring Azure Communications Gateway
 
 Your staff can use a selection of key metrics to monitor Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
 
-## 8. Verify API integration
+## Verify API integration
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect API for provisioning.
 
@@ -166,13 +166,13 @@ If you don't have the Number Management Portal, you must provide your onboarding
 
 ---
 
-## 9. Arrange synthetic testing
+## Arrange synthetic testing
 
 Your onboarding team must arrange synthetic testing of your deployment. This synthetic testing is a series of automated tests lasting at least seven days. It verifies the most important metrics for quality of service and availability.
 
 After launch, synthetic traffic will be sent through your deployment using your test numbers. This traffic is used to continuously check the health of your deployment.
 
-## 10. Schedule launch
+## Schedule launch
 
 Your launch date is the date that you'll appear to enterprises in the Teams Admin Center. Your onboarding team must arrange this date by making a request to Microsoft Teams.
 

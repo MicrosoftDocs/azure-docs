@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn more about the human languages that are available with Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 monikerRange: '<=doc-intel-3.1.0'

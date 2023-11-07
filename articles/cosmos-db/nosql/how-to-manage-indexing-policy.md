@@ -227,10 +227,10 @@ It's optional to specify the order. If not specified, the order is ascending.
     "compositeIndexes":[  
         [  
             {  
-               "path":"/name",
+               "path":"/name"
             },
             {  
-               "path":"/age",
+               "path":"/age"
             }
         ]
     ]

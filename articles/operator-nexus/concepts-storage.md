@@ -25,11 +25,90 @@ The Azure Operator Nexus software Kubernetes stack offers two types of storage. 
 
 The default storage mechanism, *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource.
 
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: testPvc
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 107Mi
+  storageClassName: nexus-volume
+  volumeMode: Block
+  volumeName: testVolume
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 107Mi
+  phase: Bound
+```
+
 ### StorageClass: nexus-shared
 
-In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a shared storage solution by enabling multiple pods to concurrently access and share the same volume.
+In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a shared storage solution by enabling multiple pods to concurrently access and share the same volume. These volumes are of type NFS Storage that are accessed by the kubernetes nodes as a persistent volume. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the storage.
 
 Although the performance and availability of *nexus-shared* are sufficient for most applications, we recommend that workloads with heavy I/O requirements use the *nexus-volume* option for optimal performance.
+
+#### Read Write Once (RWO)
+
+In Read Write Once (RWO) mode, the nexus-shared volume can be mounted by only one node or claimant at a time. ReadWriteOnce access mode still allows multiple pods to access the volume when the pods are running on the same node.
+```
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: test-pvc
+    namespace: default
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+    storageClassName: nexus-shared
+    volumeMode: Filesystem
+    volumeName: TestVolume
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 5Gi
+    phase: Bound
+```
+
+#### Read Write Many (RWX)
+
+In Read Write Many (RWX) mode, the nexus-shared volume can be mounted by multiple nodes or claimants at the same time.
+```
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: test-pvc
+    namespace: default
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 5Gi
+    storageClassName: nexus-shared
+    volumeMode: Filesystem
+    volumeName: TestVolume
+  status:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 5Gi
+    phase: Bound
+```
 
 ## Storage appliance status
 

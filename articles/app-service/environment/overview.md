@@ -127,8 +127,8 @@ App Service Environment v3 is available in the following regions:
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
 | Norway West          | ✅                           |                             | ✅                           |
-| Poland Central       | ✅                           |                             |                               |
-| Qatar Central        | ✅                           | ✅                          |                              |
+| Poland Central       | ✅                           | ✅                          |                               |
+| Qatar Central        | ✅**                         | ✅**                        |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |
@@ -157,7 +157,7 @@ App Service Environment v3 is available in the following regions:
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
 | US DoD Central       | ✅                           |                             | ✅                          |
-| US DoD East          |                              |                             | ✅                          |
+| US DoD East          | ✅                           |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |
 | US Gov Texas         | ✅                           |                             | ✅                         |

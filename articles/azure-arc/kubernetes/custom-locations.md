@@ -62,7 +62,7 @@ In this article, you learn how to:
 
 ## Enable custom locations on your cluster
 
-If you are signed in to Azure CLI as an Azure Active Directory (Azure AD) user, to enable this feature on your cluster, execute the following command:
+If you are signed in to Azure CLI as a Microsoft Entra user, to enable this feature on your cluster, execute the following command:
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
@@ -76,7 +76,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service. To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Azure AD application used by Azure Arc service. The command you use depends on your version of Azure CLI.
+1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Microsoft Entra application used by Azure Arc service. The command you use depends on your version of Azure CLI.
 
    If you're using an Azure CLI version lower than 2.37.0, use the following command:
 

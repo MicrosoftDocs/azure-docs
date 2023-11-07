@@ -6,8 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2022
 ms.author: pafarley
@@ -42,5 +41,5 @@ The number of training images per project and tags per project are expected to i
 |Max number of tags per image (classification)|100|100|
 
 > [!NOTE]
-> Images smaller than than 256 pixels will be accepted but upscaled.
+> Images smaller than 256 pixels will be accepted but upscaled.
 > Image aspect ratio should not be larger than 25:1.

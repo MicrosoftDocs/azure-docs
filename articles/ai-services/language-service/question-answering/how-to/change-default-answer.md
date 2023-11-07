@@ -1,8 +1,7 @@
 ---
 title: Get default answer - custom question answering
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer in custom question answering.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/02/2021
 author: jboback

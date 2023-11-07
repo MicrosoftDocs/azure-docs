@@ -7,11 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: kesheth
 ---
 
 # Find identity object IDs for authentication configuration for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, you'll learn how to find identity object IDs needed when configuring the Azure API for FHIR to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
 
@@ -66,7 +68,7 @@ az ad group show --group "mygroup" --query id --out tsv
 
 ## Next steps
 
-In this article, you've learned how to find identity object IDs needed to configure the Azure API for FHIR to use an external or secondary Azure Active Directory tenant. Next read about how to use the object IDs to configure local RBAC settings:
+In this article, you've learned how to find identity object IDs needed to configure the Azure API for FHIR to use an external or secondary Microsoft Entra tenant. Next read about how to use the object IDs to configure local RBAC settings:
  
 >[!div class="nextstepaction"]
 >[Configure local RBAC settings](configure-local-rbac.md)

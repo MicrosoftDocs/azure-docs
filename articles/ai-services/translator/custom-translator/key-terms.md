@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: List of key terms used in Custom Translator articles.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: reference

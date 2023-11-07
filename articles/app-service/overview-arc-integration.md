@@ -2,6 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/15/2023
 author: msangapu-msft
 ms.author: msangapu

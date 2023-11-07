@@ -5,8 +5,7 @@ description: This article will show you how to extract named entities from text.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: jboback

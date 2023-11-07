@@ -133,10 +133,7 @@ Container container = await database.CreateContainerIfNotExistsAsync(containerPr
 ```
 
 #### [Java SDK v4](#tab/java-v4)
-
-#### [JavaScript SDK v4](#tab/javascript-v4)
-
-```javascript
+```java
 // List of partition keys, in hierarchical order. You can have up to three levels of keys.
 List<String> subpartitionKeyPaths = new ArrayList<String>();
 subpartitionKeyPaths.add("/TenantId");
@@ -157,6 +154,22 @@ ThroughputProperties throughputProperties = ThroughputProperties.createManualThr
 
 // Create a container that's subpartitioned by TenantId > UserId > SessionId
 Mono<CosmosContainerResponse> container = database.createContainerIfNotExists(containerProperties, throughputProperties);
+
+```
+#### [JavaScript SDK v4](#tab/javascript-v4)
+
+```javascript
+const containerDefinition = {
+  id: "Test Database",
+  partitionKey: {
+    paths: ["/name", "/address/zip"],
+    version: PartitionKeyDefinitionVersion.V2,
+    kind: PartitionKeyKind.MultiHash,
+  },
+}
+const { container } = await database.containers.createIfNotExists(containerDefinition);
+console.log(container.id);
+
 ```
 
 ---
@@ -273,7 +286,7 @@ item.setSessionId("0000-11-0000-1111");
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item);
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
  // Create a new item
@@ -341,7 +354,7 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item, partitionKey);
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 const item: UserSession = {
@@ -403,7 +416,7 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 // Perform a point read
 Mono<CosmosItemResponse<UserSession>> readResponse = container.readItem(id, partitionKey, UserSession.class);
 ```
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Store the unique identifier
@@ -486,7 +499,7 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
     return Flux.empty();
 }).blockLast();
 ```
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Define a single-partition query that specifies the full partition key path
@@ -549,7 +562,7 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 }).blockLast();
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Define a targeted cross-partition query specifying prefix path[s]

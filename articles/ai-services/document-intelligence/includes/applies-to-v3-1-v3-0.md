@@ -4,8 +4,7 @@ description: include file
 author: laujan
 ms.author: lajanuar
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/18/2023
 ---

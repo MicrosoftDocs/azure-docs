@@ -5,8 +5,7 @@ description: Learn about the languages and regions supported by custom named ent
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 05/06/2022
 ms.custom: language-service-custom-ner, event-tier1-build-2022

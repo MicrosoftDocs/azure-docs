@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 08/22/2022
 ms.topic: include
 ms.author: eur
@@ -10,6 +9,7 @@ ms.author: eur
 | Language | Locale (BCP-47) | 
 |--|--|
 |Arabic (Saudi Arabia)|`ar-SA` |
+|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
@@ -29,6 +29,7 @@ ms.author: eur
 |Russian (Russia)|`ru-RU`<sup>1</sup>|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`<sup>1</sup>|
 |Tamil (India)|`ta-IN`<sup>1</sup> | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 

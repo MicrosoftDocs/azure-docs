@@ -1,13 +1,13 @@
 ---
 title: Introduction to file APIs in Azure Synapse Analytics
 description: This tutorial describes how to use the file mount and file unmount APIs in Azure Synapse Analytics, for both Azure Data Lake Storage Gen2 and Azure Blob Storage.
-author: ruixinxu 
+author: JeneZhang 
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
-ms.author: ruxu
+ms.author: jingzh
 ms.reviewer: wiassaf
 ms.custom: subject-rbac-steps
 ---
@@ -80,8 +80,22 @@ mssparkutils.fs.mount(
 > [!NOTE]   
 > You might need to import `mssparkutils` if it's not available: 
 > ```python
-> From notebookutils import mssparkutils 
-> ``` 
+> from notebookutils import mssparkutils 
+> ```
+> Mount parameters:
+> - fileCacheTimeout: Blobs will be cached in the local temp folder for 120 seconds by default. During this time, blobfuse won't check whether the file is up to date or not. The parameter could be set to change the default timeout time. When multiple clients modify files at the same time, in order to avoid inconsistencies between local and remote files, we recommend shortening the cache time, or even changing it to 0, and always getting the latest files from the server.
+> - timeout: The mount operation timeout is 120 seconds by default. The parameter could be set to change the default timeout time. When there are too many executors or when the mount times out, we recommend increasing the value.
+> - scope: The scope parameter is used to specify the scope of the mount. The default value is "job." If the scope is set to "job," the mount is visible only to the current cluster. If the scope is set to "workspace," the mount is visible to all notebooks in the current workspace, and the mount point is automatically created if it doesn't exist. Add the same parameters to the unmount API to unmount the mount point. The workspace level mount is only supported for linked service authentication.
+>
+> You can use these parameters like this:
+> ```python
+> mssparkutils.fs.mount(
+>    "abfss://mycontainer@<accountname>.dfs.core.windows.net",
+>    "/test",
+>    {"linkedService":"mygen2account", "fileCacheTimeout": 120, "timeout": 120}
+> )
+> ```
+> 
 > We don't recommend that you mount a root folder, no matter which authentication method you use.
 
 
@@ -149,13 +163,19 @@ f.close()
 ``` 
 --->
 
-## Access files under the mount point by using the mssparktuils fs API 
+## Access files under the mount point by using the mssparkutils fs API 
 
 The main purpose of the mount operation is to let customers access the data stored in a remote storage account by using a local file system API. You can also access the data by using the `mssparkutils fs` API with a mounted path as a parameter. The path format used here is a little different. 
 
 Assume that you mounted the Data Lake Storage Gen2 container `mycontainer` to `/test` by using the mount API. When you access the data by using a local file system API, the path format is like this: 
 
 `/synfs/{jobId}/test/{filename}`
+
+We recommend using a `mssparkutils.fs.getMountPath()` to get the accurate path:
+
+```python
+path = mssparkutils.fs.getMountPath("/test") # equals to /synfs/{jobId}/test
+```
 
 When you want to access the data by using the `mssparkutils fs` API, the path format is like this: 
 
@@ -200,6 +220,9 @@ The following example assumes that a Data Lake Storage Gen2 storage account was 
 df = spark.read.load("synfs:/49/test/myFile.csv", format='csv') 
 df.show() 
 ``` 
+
+> [!NOTE]  
+> When you mount the storage using a linked service, you should always explicitly set spark linked service configuration before using synfs schema to access the data. Refer to [ADLS Gen2 storage with linked services](./apache-spark-secure-credentials-with-tokenlibrary.md#adls-gen2-storage-without-linked-services) for details. 
 
 ### Read a file from a mounted Blob Storage account 
 

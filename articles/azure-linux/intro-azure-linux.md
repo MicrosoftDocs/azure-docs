@@ -35,9 +35,15 @@ The Azure Linux Container Host offers the following key benefits:
   - All existing and future AKS extensions, add-ons, and open-source projects on AKS support both Ubuntu and Azure Linux. This includes support for runtime components like Dapr, IaC tools like Terraform, and monitoring solutions like Dynatrace.
   - Azure Linux ships with containerd as its container runtime and the upstream Linux kernel, which enables existing containers based on Linux images (like Alpine) to work seamlessly on Azure Linux.
 
+## Azure Linux Container Host supported GPU SKUs
+
+The Azure Linux Container Host supports the following GPU SKUs:
+
+- [NVIDIA V100][nvidia-v100]
+- [NVIDIA T4][nvidia-t4]
+
 > [!NOTE]
->
-> For GPU workloads, Azure Linux doesn't support NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
+> Azure Linux doesn't support the NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
 >
 > If there are any areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
 
@@ -47,9 +53,11 @@ The Azure Linux Container Host offers the following key benefits:
 - Follow our tutorial to [Deploy, manage, and update applications](./tutorial-azure-linux-create-cluster.md).
 - Get started by [Creating an Azure Linux Container Host for AKS cluster using Azure CLI](./quickstart-azure-cli.md).
 
+<!-- LINKS - internal -->
+[nvidia-v100]: ../virtual-machines/ncv3-series.md
+[nvidia-t4]: ../virtual-machines/nct4-v3-series.md
+[cis-benchmarks]: ../aks/cis-azure-linux.md
+
 <!-- LINKS - external -->
 [cbl-mariner]: https://github.com/microsoft/CBL-Mariner
 [azure-linux-packages]: https://packages.microsoft.com/cbl-mariner/2.0/prod/
-
-<!-- LINKS - internal -->
-[cis-benchmarks]: ../aks/cis-azure-linux.md

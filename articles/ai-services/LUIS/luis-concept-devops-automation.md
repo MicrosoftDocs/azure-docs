@@ -1,8 +1,8 @@
 ---
 title: Continuous Integration and Continuous Delivery workflows for LUIS apps
 description: How to implement CI/CD workflows for DevOps for Language Understanding (LUIS).
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: aahi

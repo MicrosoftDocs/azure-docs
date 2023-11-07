@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with the Saviynt Security Manager platform, which has visibility, security, and governance. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
-Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
+Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/integrations/old-version-azure-ad/for-b2c/)
 
 Use the following instructions to set up access control delegated administration for Azure AD B2C users. Saviynt determines if a user is authorized to manage Azure AD B2C users with:
 
@@ -46,7 +46,7 @@ The Saviynt integration includes the following components:
 * **Azure AD B2C** – identity as a service for custom control of customer sign-up, sign-in, and profile management
   * See, [Azure AD B2C, Get started](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) 
 * **Saviynt for Azure AD B2C** – identity governance for delegated administration of user life-cycle management and access governance
-  * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/azure-ad/for-b2c/)
+  * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/old-version-azure-ad/for-b2c/)
 * **Microsoft Graph API** – interface for Saviynt to manage Azure AD B2C users and their access
   * See, [Use the Microsoft Graph API](/graph/use-the-api)
     
@@ -119,7 +119,7 @@ Enable Saviynt to perform user delete operations in Azure AD B2C.
 
 Learn more: [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. Install the latest version of Microsoft Graph PowerShell Module on a Windows workstation or server.
+1. Install the latest version of the Microsoft Graph PowerShell module on a Windows workstation or server.
 
 For more information, see [Microsoft Graph PowerShell documentation](/powershell/microsoftgraph/).
 

@@ -5,14 +5,15 @@ description: Streaming inference with trained model
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 11/01/2022
 ms.author: mbullwin
 ---
 
 # Streaming inference with trained model
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 You could choose the batch inference API, or the streaming inference API for detection.
 

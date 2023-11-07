@@ -5,8 +5,7 @@ description: Learn how to convert speech to text, including object construction,
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/01/2023
 ms.author: eur

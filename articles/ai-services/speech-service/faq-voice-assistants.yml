@@ -6,8 +6,7 @@ metadata:
   services: cognitive-services
   author: trrwilson
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: speech-service
+  ms.service: azure-ai-speech
   ms.topic: faq
   ms.date: 11/05/2019
   ms.author: travisw

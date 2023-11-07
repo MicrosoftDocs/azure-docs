@@ -80,9 +80,9 @@ To download the list of activity events in a comma-separated values (CSV) file, 
 
 <a name='get-audit-logs-with-the-azure-ad-reporting-api'></a>
 
-## Get audit logs with the Microsoft Entra ID reporting API
+## Get audit logs with the Microsoft Entra reporting API
 
-Audit logs are published to the same pipeline as other activities for Microsoft Entra ID, so they can be accessed through the [Microsoft Entra ID reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Microsoft Entra ID reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
+Audit logs are published to the same pipeline as other activities for Microsoft Entra ID, so they can be accessed through the [Microsoft Entra reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Microsoft Entra reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
 
 ### Enable reporting API access
 

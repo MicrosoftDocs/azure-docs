@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Manage blob properties and metadata with Python
 
+[!INCLUDE [storage-dev-guide-selector-manage-properties-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-blob.md)]
+
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
 ## Prerequisites
