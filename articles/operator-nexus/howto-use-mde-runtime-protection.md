@@ -42,7 +42,7 @@ export CLUSTER_NAME="contoso-cluster"
 ```
 
 ## Enabling & Disabling MDE Service on All Nodes
-To use the MDE runtime protection service on the cluster, you need to make the cluster aware of it first. The cluster is not aware of this functionality by default.
+To use the MDE runtime protection service on the Cluster, you need to make the cluster aware of it first. The Cluster is not aware of this functionality by default.
 To do this, execute the following command with `enforcement-level="Disabled"`.
 
 ```bash
