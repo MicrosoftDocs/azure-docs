@@ -46,7 +46,7 @@ A process of *reconciliation* ensures that the desired state of a resource is ma
 
 If the resource manager can't reconcile the desired state, that deployment is reported as a failure and the cluster remains on the previous successful state.
 
-Right now, the resource manager triggers reconciliation every three minutes to check for updates to the desired state. Support for flexible, customizable reconciliation policies is planned for the future.
+By default, the resource manager triggers reconciliation every three minutes to check for updates to the desired state. You can configure this polling interval policy to customize it for scenarios that require more frequent checks or those that prefer less frequent checks to reduce overhead.
 
 ## Status reporting
 

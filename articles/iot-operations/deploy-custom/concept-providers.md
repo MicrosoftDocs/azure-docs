@@ -20,8 +20,6 @@ A provider encapsulates platform specific knowledge and implements a specific ca
 
 The Helm provider installs Helm charts on the target locations. The Helm provider uses the Helm chart name, repository, version, and other optional values to install and update the charts. The provider registers the new client with the Helm API, looks up the specified repository, and pulls the registry.
 
-The Helm provider works with OCI-based registries.
-
 If you need to troubleshoot the Helm provider, see [Helm provider error codes](howto-troubleshoot-deployment.md#helm-provider-error-codes).
 
 ### Helm provider configuration
@@ -67,13 +65,13 @@ The following solution snippet demonstrates installing a Helm chart using the He
 {
   "components": [
     {
-      "name": "e4i-opcua-connector",
+      "name": "simple-chart",
       "type": "helm.v3",
       "properties": {
         "chart": {
-          "repo": "alicesprings.azurecr.io/helm/az-e4i-opcua-connector",
-          "name": "e4i-opcua-connector",
-          "version": "0.7.0"
+          "repo": "oci://azureiotoperations.azurecr.io/simple-chart",
+          "name": "simple-chart",
+          "version": "0.1.0"
         },
         "values": {
           "e4iNamespace": "default",
