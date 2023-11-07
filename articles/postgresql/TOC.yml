@@ -385,36 +385,30 @@
     items:
     - name: Overview
       href: flexible-server/concepts-extensions.md
-      - name: Azure AI Extension
+    - name: Azure AI Extension
+      items:
+      - name: Overview
+        href: flexible-server/generative-ai-azure-overview.md
+      - name: Azure OpenAI
+        href: flexible-server/generative-ai-azure-openai.md
+      - name: Azure Cognitive Services
+        href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Integration
         items:
-          - name: Overview
-            href: flexible-server/generative-ai-azure-overview.md
-          - name: Azure OpenAI
-            href: flexible-server/generative-ai-azure-openai.md
-          - name: Azure Cognitive Services
-            href: flexible-server/generative-ai-azure-cognitive.md
-          - name: Integration
-            items:
-              - name: Integrate Azure AI capabilities
-                href: flexible-server/how-to-integrate-azure-ai.md
+        - name: Integrate Azure AI capabilities
+          href: flexible-server/how-to-integrate-azure-ai.md
         - name: Overview
           href: flexible-server/generative-ai-azure-overview.md
         - name: Azure OpenAI
           href: flexible-server/generative-ai-azure-openai.md
         - name: Azure Cognitive Services
           href: flexible-server/generative-ai-azure-cognitive.md
-        - name: Integration
-          items:
-          - name: Integrate Azure AI capabilities
-            href: flexible-server/how-to-integrate-azure-ai.md
       - name: Vector similarity search (pgvector)
         items:
         - name: Basics of pgvector
           href: flexible-server/how-to-use-pgvector.md
-          displayName: pgvector
         - name: Optimize performance when using pgvector
           href: flexible-server/howto-optimize-performance-pgvector.md
-          displayName: pgvector
     - name: pg_azure_storage
       href: flexible-server/reference-pg-azure-storage.md 
 - name: Single Server
