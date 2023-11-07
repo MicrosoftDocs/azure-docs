@@ -287,6 +287,10 @@ items:
       href: concept-face-detection.md
     - name: Face recognition
       href: concept-face-recognition.md
+    - name: Face recognition data structures
+      href: concept-face-recognition-data-structures.md
+    - name: Face liveness abuse monitoring
+      href: concept-liveness-abuse-monitoring.md
   
   - name: How-to guides
     items:
@@ -312,7 +316,7 @@ items:
         href: how-to/find-similar-faces.md
     - name: Service management
       items:
-      - name: Mitigate latency when using the Face service
+      - name: Mitigate latency and improve performance
         href: how-to/mitigate-latency.md
       - name: Use limited access tokens
         href: how-to/identity-access-token.md
@@ -322,6 +326,8 @@ items:
     items:
     - name: Add users to a Face identification app
       items:
+      - name: Detect liveness in face
+        href: Tutorials/liveness.md
       - name: Best practices for enrolling users
         href: enrollment-overview.md
       - name: Build a React Native app to enroll users
