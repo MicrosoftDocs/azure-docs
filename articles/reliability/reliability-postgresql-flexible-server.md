@@ -88,7 +88,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - Depending on the workload and activity on the primary server, the failover process might take longer than 120 seconds due to the recovery involved at the standby replica before it can be promoted.
 
-- The standby server typically recovers WAL files at 40 MB/s. If your workload exceeds this limit, you may encounter extended time for the recovery to complete either during the failover or after establishing a new standby.
+- The standby server typically recovers WAL files at 40 MB/s. If your workload exceeds this limit, you can encounter extended time for the recovery to complete either during the failover or after establishing a new standby.
 
 - Configuring for availability zones induces some latency to writes and commits—no impact on reading queries. The performance impact varies depending on your workload. As a general guideline, writes and commit impact can be around 20-30% impact.
 
@@ -240,7 +240,7 @@ Application downtime is expected to start after step #1 and persists until step 
 
 #### Considerations while performing forced failovers
 
-- The overall end-to-end operation time may be seen as longer than the actual downtime experienced by the application.
+- The overall end-to-end operation time can be seen as longer than the actual downtime experienced by the application.
 
     > [!IMPORTANT]  
     > Always observe the downtime from the application perspective!
@@ -259,7 +259,7 @@ For more information on point-in-time restore, see [Backup and restore in Azure 
 
 ## Configurations without availability zones
 
-Although it's not recommended, you can configure you flexible server without high availability enabled. For flexible servers configured without high availability, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it's supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration. During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
+Although it's not recommended, you can configure your flexible server without high availability enabled. For flexible servers configured without high availability, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it's supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration. During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
 
 1. A new compute Linux VM is provisioned.
 1. The storage with data files is mapped to the new virtual machine
@@ -287,7 +287,7 @@ For more information on geo-redundant backup and restore, see [geo-redundant bac
 
 #### Read replicas
 
-Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
+Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and can lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
 
 For more information on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
 
