@@ -50,9 +50,11 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## Layered Network Management
 
-- If the Layered Network Management service is not getting an IP address while running K3S on Ubuntu host, please re-install K3S without trafeik ingress controller using --disable=traefik option. 
-  ```bash
-  curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-  ```
-  Reference Link - [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller)
-- If DNS queries are not getting resolved to expected IP address while using [CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configurecoredns) service running on child network level, please upgrade to Ubuntu 22.04 and re-install K3S. 
+- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without *trafeik ingress controller* using `--disable=traefik` option. 
+
+    ```bash
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    ```
+    For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
+
+- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configurecoredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
