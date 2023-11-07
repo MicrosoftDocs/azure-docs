@@ -29,7 +29,7 @@ for all of your learning & evaluation needs. Users can provision a single free D
 Follow this document to [create a new Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/quickstart-portal) cluster and just select 'Free Tier' checkbox. 
 Alternatively, you can also use [Bicep template](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/quickstart-bicep?tabs=azure-cli) to provision the resource.
 
-:::image type="content" source="articles/cosmos-db/mongodb/vcore/media/how-to-scale-cluster/provision-freetier.jpg" alt-text="Screenshot of the freetier provisioning.":::
+:::image type="content" source="media/how-to-scale-cluster/provision-freetier.jpg" alt-text="Screenshot of the freetier provisioning.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -38,7 +38,7 @@ Alternatively, you can also use [Bicep template](https://learn.microsoft.com/azu
 As your application grows, and the need for more powerful machines arises, you can effortlessly transition to any of our available paid tiers with just a click. Just select the cluster tier of your choice from the Scale blade, 
 specify your storage requirements, and you're all set. Rest assured, your data, connection string, and network rules remain intact throughout the upgrade process.
 
-:::image type="content" source="articles/cosmos-db/mongodb/vcore/media/how-to-scale-cluster/upgrade-freetier.jpg" alt-text="Screenshot of the freetier scaling.":::
+:::image type="content" source="media/how-to-scale-cluster/upgrade-freetier.jpg" alt-text="Screenshot of the freetier scaling.":::
 
 
 ## Benefits
@@ -57,6 +57,8 @@ specify your storage requirements, and you're all set. Rest assured, your data, 
 
 
 ## Next steps
+
+Having gained insights into the Azure Cosmos DB for MongoDB vCore's free tier, it's time to embark on a journey to understand how to perform a migration assessment and successfully migrate your MongoDB to the Azure.
 
 > [!div class="nextstepaction"]
 > [Migration options for Azure Cosmos DB for MongoDB vCore](migration-options.md)
