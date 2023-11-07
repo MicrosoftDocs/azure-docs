@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Azure Content Safety is a content moderation service developed by Microsoft that help users detect harmful content from different modalities and languages. This tool is a wrapper for the Azure Content Safety Text API, which allows you to detect text content and get moderation results.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: likebupt
 ms.author: keli19
@@ -19,7 +19,7 @@ Azure Content Safety is a content moderation service developed by Microsoft that
 ## Prerequisites
 
 - Create an [Azure Content Safety](https://aka.ms/acs-create) resource.
-- Add "Azure Content Safety" connection in Prompt Flow. Fill "API key" field with "Primary key" from "Keys and Endpoint" section of created resource.
+- Add "Azure Content Safety" connection in prompt flow. Fill "API key" field with "Primary key" from "Keys and Endpoint" section of created resource.
 
 ## Inputs
 
