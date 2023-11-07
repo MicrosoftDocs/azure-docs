@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 11/07/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -127,12 +127,12 @@ This feature is supported with MARS agent version *2.0.9250.0* and higher from D
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
-| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent | Result with older DPM/MABS and or MARS agent |
+| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.   | Result with older DPM/MABS and or MARS agent |
 | --- | --- | --- |
 | **Remove Data Source from protection group configured for online backup** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
-| **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
+| **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.    | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Reduce online retention period** | 810002: Reduction in retention during Policy/Protection modification isn't allowed because the selected vault is immutable. | 130001: Microsoft Azure Backup encountered an internal error. |
-| **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration. | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
+| **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration.     <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.    | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
 
 ### Immutability support for MARS
 
