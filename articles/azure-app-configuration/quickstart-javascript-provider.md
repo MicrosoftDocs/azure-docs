@@ -63,7 +63,7 @@ Add the following key-values to the App Configuration store. For more informatio
         let settings;
 
         // Sample 1: Connect to Azure App Configuration using a connection string and load all key-values with null label.
-        let settings = await load(connectionString);
+        settings = await load(connectionString);
 
         // Find the key "message" and print its value.
         console.log(settings.get("message"));  // Output: Message from Azure App Configuration
