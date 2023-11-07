@@ -5,7 +5,7 @@ description: Configure Azure IoT Layered Network Management to an AKS cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -49,7 +49,7 @@ Deploy Layered Network Management to the internet-facing cluster (top ISA-95 lay
 
     ```yaml
     apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
-    kind: Lmn
+    kind: Lnm
     metadata:
       name: level4
       namespace: default

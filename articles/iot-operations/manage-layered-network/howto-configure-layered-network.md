@@ -5,7 +5,7 @@ description: Set up a test or sample network environment for Azure IoT Layered N
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -31,7 +31,7 @@ The following example configuration is a simple isolated network with minimum ph
 >[!IMPORTANT]
 > When assigning local IP addresses, avoid using the default address `192.168.0.x`. You should change the address if it's the default setting for your access point.
 
-Layered Network Management is deployed to the dual NIC cluster. The cluster in the local network connects to Layered Network Management as a proxy to access Azure and Arc services. In addition, it would need a custom DNS in the local network to provide domain name resolution and point the traffic to Layered Network Management. Please refer to [Configure custom DNS](#configure-custom-dns) for more detail.
+Layered Network Management is deployed to the dual NIC cluster. The cluster in the local network connects to Layered Network Management as a proxy to access Azure and Arc services. In addition, it would need a custom DNS in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ## Configure Isolated Network with logical segmentation
 
@@ -46,7 +46,8 @@ The multiple levels of networks in this test setup are accomplished using subnet
 - **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
 ## Configure custom DNS
-A custom DNS is needed for level 3 and below. It will ensure that DNS resolution for network traffic originating within the cluster is pointed to the parent level LNM instance. In an existing or production environment, please incorporate the DNS resolutions below into the DNS mechanism of your design. If you want to setup a test environment for Layered Network Management service and Azure IoT Operations, you can refer to one of the examples below.
+
+A custom DNS is needed for level 3 and below. It ensures that DNS resolution for network traffic originating within the cluster is pointed to the parent level Layered Network Management instance. In an existing or production environment, incorporate the following DNS resolutions into your DNS design. If you want to set up a test environment for Layered Network Management service and Azure IoT Operations, you can refer to one of the following examples.
 
 # [DNS Server](#tab/dnsserver)
 
@@ -155,7 +156,8 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 # [CoreDNS](#tab/coredns)
 
 ## Configure CoreDNS
-While the DNS setup can be achieved many different ways, this example uses an extension mechanims provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+
+While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS to add the allowlisted URLs to be resolved by CoreDNS. CoreDNS is the default DNS server for K3S clusters.
 
 ### Create configmap from level 4 Layered Network Management
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.
@@ -164,21 +166,28 @@ After the level 4 cluster and Layered Network Management are ready, perform the 
     kubectl get services
     ```
     The output should look like the following. The IP address of the service is `20.81.111.118`.
-    ```
+
+    ```Output
     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
     lnm-level4   LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
     ```
+
 1. View the config maps with following command:
+    
     ```bash
     kubectl get cm
     ```
-    The output should look like the following:
-    ```
+    
+    The output should look like the following example:
+    
+    ```Output
     NAME                           DATA   AGE
     aio-lnm-level4-config          1      50s
     aio-lnm-level4-client-config   1      50s
     ```
-1. Customize the `aio-lnm-level4-client-config`. This will be needed as part of the level 3 setup to forward traffic from the level 3 cluster to the top level Layered Network Management instance.
+
+1. Customize the `aio-lnm-level4-client-config`. This configuration is needed as part of the level 3 setup to forward traffic from the level 3 cluster to the top level Layered Network Management instance.
+
     ```bash
     # set the env var PARENT_IP_ADDR to the ip address of level 4 LNM instance.
       export PARENT_IP_ADDR="20.81.111.118"
@@ -186,11 +195,13 @@ After the level 4 cluster and Layered Network Management are ready, perform the 
     # run the script to generate a config map yaml
       kubectl get cm aio-lnm-level4-client-config -o yaml | yq eval '.metadata = {"name": "coredns-custom", "namespace": "kube-system"}' -| sed 's/PARENT_IP/'"$PARENT_IP_ADDR"'/' > configmap-custom-level4.yaml
     ```
+
     This step creates a file named `configmap-custom-level4.yaml`
 
-### Configure the level 3 CoreDNS of K3S
-After setting up the K3S cluster and moveing it to level 3 (isolated layer), configure the level 3 k3s's coredns with the customized client-config that was previously generated.  
-1. Copy the `configmap-custom-level4.yaml` to the level 3 host, or to the system that you are remotely accessing the cluster with.
+### Configure level 3 CoreDNS of K3S
+After setting up the K3S cluster and moving it to the level 3 isolated layer, configure the level 3 K3S's CoreDNS with the customized client-config that was previously generated.
+
+1. Copy the `configmap-custom-level4.yaml` to the level 3 host, or to the system where you're remotely accessing the cluster.
 1. Run the following commands:
     ```bash
     # Create a config map called coredns-custom in the kube-system namespace
@@ -211,24 +222,27 @@ After setting up the K3S cluster and moveing it to level 3 (isolated layer), con
     Address 1: 20.81.111.118
     pod "busybox" deleted
     
-    # Note: confirm that the resolved ip addresss matches the ip address of the level4 LNM instance.
+    # Note: confirm that the resolved ip addresss matches the ip address of the level 4 Layered Network Management instance.
     ```
 
-1. With the previous step, the DNS configuration is resolving the allowlisted URLs inside the cluster to level 4. To ensure that DNS outside the cluster is doing the same you need to configure systemd-resolved to forward traffic to CoreDNS inside the K3S cluster. Run the following command on the K3S host:
-    1. Create the following directory:
-        ```bash
-         sudo mkdir /etc/systemd/resolved.conf.d
-        ```
-    1. Create a file named lnm.conf with the following contents. The IP address here should be the level 3 Cluster IP address of the kube-dns service that is running in the kube-system namespace.
-        ```bash
-        [Resolve]
-        DNS=<PUT KUBE-DNS SERVICE IP HERE> 
-        DNSStubListener=no
-        ```
-    1. Restart the DNS resolver:
-        ```bash
-        sudo systemctl restart systemd-resolved
-        ```
+1. The previous step sets the DNS configuration to resolve the allowlisted URLs inside the cluster to level 4. To ensure that DNS outside the cluster is doing the same, you need to configure systemd-resolved to forward traffic to CoreDNS inside the K3S cluster. Run the following commands on the K3S host:
+    Create the following directory:
+    ```bash
+        sudo mkdir /etc/systemd/resolved.conf.d
+    ```
+
+    Create a file named `lnm.conf`` with the following contents. The IP address should be the level 3 cluster IP address of the kube-dns service that is running in the kube-system namespace.
+
+    ```bash
+    [Resolve]
+    DNS=<PUT KUBE-DNS SERVICE IP HERE> 
+    DNSStubListener=no
+    ```
+
+    Restart the DNS resolver:
+    ```bash
+    sudo systemctl restart systemd-resolved
+    ```
 
 ---
 

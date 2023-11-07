@@ -5,7 +5,7 @@ description: Configure IoT Layered Network Management level 4 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -69,22 +69,23 @@ The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your
 
 ## Arc enable the cluster
 
-Follow the steps in [Connect your AKS Edge Essentials cluster to Arc](azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-- In the **Arc** section of **aks-ee-config.json** that you created earlier, replace the placeholder text with values to reflect your specific environment.
+Follow the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
-    ```json
-    "Arc": {
-        "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
-        "Location": "<REGION>",
-        "ResourceGroupName": "<RESOURCE GROUP>",
-        "SubscriptionId": "<SUBSCRIPTION>",
-        "TenantId": "<TENANT ID>",
-        "ClientId": "<CLIENT ID>",
-        "ClientSecret": "<CLIENT SECRET>"
-      },
-    ```
+In the **Arc** section of **aks-ee-config.json** that you created earlier, replace the placeholder text with values to reflect your specific environment.
 
-As an alternative, you can follow [Connect an existing Kubernetes cluster to Azure Arc](azure/azure-arc/kubernetes/quickstart-connect-cluster) to Arc-enable your cluster. You will need to login to Azure from the Windows 11 during the process, but will not need to create the service principal that described in [Connect your AKS Edge Essentials cluster to Arc](azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+```json
+"Arc": {
+    "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
+    "Location": "<REGION>",
+    "ResourceGroupName": "<RESOURCE GROUP>",
+    "SubscriptionId": "<SUBSCRIPTION>",
+    "TenantId": "<TENANT ID>",
+    "ClientId": "<CLIENT ID>",
+    "ClientSecret": "<CLIENT SECRET>"
+  },
+```
+
+As an alternative, you can follow [Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) to Arc-enable your cluster. You need to sign in to Azure from the Windows 11 during the process, but won't need to create the service principal that described in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 ## Deploy Layered Network Management Service to the cluster
 
