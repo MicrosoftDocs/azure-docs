@@ -81,7 +81,7 @@ Open a command prompt window and run the cURL command.
 
 ### Interpret the API response
 
-You should see the text moderation results displayed as JSON data in the console output. For example:
+You should see the jailbreak detection results displayed as JSON data in the console output. For example:
 
 ```json
 {
@@ -95,5 +95,5 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **jailbreakAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. | String |
+| **jailbreakAnalysis**   | Each output class that the API predicts.  | String |
 | **detected** | A Jailbreak Attack was detected or not.	  | Boolean |
