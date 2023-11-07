@@ -16,31 +16,19 @@ zone_pivot_groups: azure-portal-console
 
 Reviewing Azure Container Apps logs and configuration settings can reveal underlying problems if your container app isn't behaving correctly.
 
-## Prerequisites
-
-| Requirement  | Instructions |
-|--|--|
-| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
-
-::: zone pivot="console"
-
 ## Scenarios
 
 | Issue | Actions |
 |--|--|
-| All issues. | - [View logs](#view-logs)
-- [Use Diagnose and solve problems](#use-diagnose-and-solve-problems) |
-| You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](#verify-container-apps-can-pull-container-image) |
-| - After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely.
-- A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-are-configured-correctly) |
-| - The container app endpoint doesn't respond to requests.
-- The container app endpoint responds to requests with HTTP error 403 (access denied). | - [Review ingress configuration](#review-ingress-configuration)
-- [Verify networking configuration is correct](#verify-networking-configuration-is-correct) |
-| The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision](#verify-traffic-is-routed-to-correct-revision) |
-| You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment](#ensure-dapr-is-enabled-in-your-environment) |
-| You receive a Dapr configuration error message regarding the `app-port` value. | [Verify you've provided the correct app-port value](#verify-app-port-value-in-dapr-configuration) |
+| All issues. | [View logs.](#view-logs)<br>[Use Diagnose and solve problems.](#use-diagnose-and-solve-problems) |
+| You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image.](#verify-container-apps-can-pull-container-image) |
+| After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
+| A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
+| The container app endpoint doesn't respond to requests. | [Review ingress configuration.](#review-ingress-configuration) |
+| The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct.](#verify-networking-configuration-is-correct) |
+| The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision.](#verify-traffic-is-routed-to-correct-revision) |
+| You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment.](#ensure-dapr-is-enabled-in-your-environment) |
+| You receive a Dapr configuration error message regarding the `app-port` value. | [Verify you've provided the correct app-port value.](#verify-app-port-value-in-dapr-configuration) |
 
 ## View logs
 
