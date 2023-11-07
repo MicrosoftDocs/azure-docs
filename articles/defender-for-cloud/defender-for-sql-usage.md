@@ -127,4 +127,3 @@ For related information, see these resources:
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.
 
-
