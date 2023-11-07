@@ -239,6 +239,8 @@ properties: {
 
 From the *Monitoring* section of your container app, select **Logs**.
 
+:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-logs-pane.png" alt-text="Screenshot demonstrating where to find the logs for your container app using Dapr component resiliency.":::
+
 In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to find whether a resiliency policy was loaded:
 
 ```
@@ -249,9 +251,11 @@ ContainerAppConsoleLogs_CL
 | order by time_t desc
 ```
 
-Click **Run** to run the query and view results.
+Click **Run** to run the query and view the result with the log message indicating the policy is loading.
 
-Or, you can find the actual resiliency policy using a query similar to the following example:
+:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png" alt-text="Screenshot showing resiliency query results based on provided query example for checking if resiliency policy has loaded.":::
+
+Or, you can find the actual resiliency policy by enabling debugging on your component and using a query similar to the following example:
 
 ```
 ContainerAppConsoleLogs_CL
@@ -261,8 +265,9 @@ ContainerAppConsoleLogs_CL
 | order by time_t desc
 ```
 
-Click **Run** to run the query and view results. 
+Click **Run** to run the query and view the resulting log message with the policy configuration. 
 
+:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-policy.png" alt-text="Screenshot showing resiliency query results based on provided query example for finding the actual resiliency policy.":::
 
 ## Related content
 
