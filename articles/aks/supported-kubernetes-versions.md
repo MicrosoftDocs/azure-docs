@@ -28,7 +28,7 @@ Examples:
 
 Each number in the version indicates general compatibility with the previous version:
 
-* **Major versions** change when incompatible API updates or backwards compatibility may be broken.
+* **Major versions** change when incompatible API updates or backwards compatibility might be broken.
 * **Minor versions** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
@@ -49,7 +49,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Jan 2, 2024 | Until 1.29 GA |
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024 | Until 1.30 GA |
 | 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
-| 1.28 | Aug 2023 | Sep 2023 | Oct 2023 || Until 1.32 GA|
+| 1.28 | Aug 2023 | Sep 2023 | Nov 2023 | Nov 2024 | Until 1.32 GA|
 | 1.29 | Dec 2023 | Jan 2024 | Feb 2024 | | Until 1.33 GA |
 
 *\* Indicates the version is designated for Long Term Support*
@@ -99,12 +99,12 @@ AKS defines a generally available (GA) version as a version available in all reg
 * Two previous minor versions.
   * Each supported minor version also supports a maximum of two stable patches.
 
-AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
+AKS might also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
 AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". For more information, see [platform support policy](#platform-support-policy).
 
 > [!NOTE]
-> AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
+> AKS uses safe deployment practices which involve gradual region deployment. This means it might take up to 10 business days for a new release or a new version to be available in all regions.
 
 The supported window of Kubernetes versions on AKS is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
@@ -239,7 +239,7 @@ For new **patch** versions of Kubernetes:
 
 AKS reserves the right to add or remove new/existing versions with one or more critical production-impacting bugs or security issues without advance notice.
 
-Specific patch releases may be skipped or rollout accelerated, depending on the severity of the bug or security issue.
+Specific patch releases might be skipped or rollout accelerated, depending on the severity of the bug or security issue.
 
 ## Azure portal and CLI versions
 
@@ -324,11 +324,11 @@ When performing an upgrade from an _unsupported version_ that skips two or more 
 
 ### Can I create a new 1.xx.x cluster during its 30 day support window?
 
-No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, you'll start to see the old version removed from your version list. This process may take up to two weeks from announcement, progressively by region.
+No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, you'll start to see the old version removed from your version list. This process might take up to two weeks from announcement, progressively by region.
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-No. You aren't allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but it may require you to update the control plane first.
+No. You aren't allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but it might require you to update the control plane first.
 
 ### How often do you update patches?
 
