@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: conceptual
 author: henry-zeng
 ms.author: yozen
@@ -55,10 +55,10 @@ The lifecycle consists of the following stages:
 - Evaluation & Refinement: Assess the flow's performance by running it against a larger dataset, evaluate the prompt's effectiveness, and refine as needed. Proceed to the next stage if the results meet the desired criteria.
 - Production: Optimize the flow for efficiency and effectiveness, deploy it, monitor performance in a production environment, and gather usage data and feedback. Use this information to improve the flow and contribute to earlier stages for further iterations.
 
-By following this structured and methodical approach, Prompt flow empowers you to develop, rigorously test, fine-tune, and deploy flows with confidence, resulting in the creation of robust and sophisticated AI applications.
+By following this structured and methodical approach, prompt flow empowers you to develop, rigorously test, fine-tune, and deploy flows with confidence, resulting in the creation of robust and sophisticated AI applications.
 
-:::image type="content" source="./media/overview-what-is-prompt-flow/prompt-flow-lifecycle.png" alt-text="Diagram of the Prompt flow lifecycle starting from initialization to experimentation then evaluation and refinement and finally production. " lightbox = "./media/overview-what-is-prompt-flow/prompt-flow-lifecycle.png":::
+:::image type="content" source="./media/overview-what-is-prompt-flow/prompt-flow-lifecycle.png" alt-text="Diagram of the prompt flow lifecycle starting from initialization to experimentation then evaluation and refinement and finally production. " lightbox = "./media/overview-what-is-prompt-flow/prompt-flow-lifecycle.png":::
 
 ## Next steps
 
-- [Get started with Prompt flow](get-started-prompt-flow.md)
+- [Get started with prompt flow](get-started-prompt-flow.md)
