@@ -291,7 +291,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:0.1.0-preview
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -302,7 +302,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:0.1.0-preview
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
