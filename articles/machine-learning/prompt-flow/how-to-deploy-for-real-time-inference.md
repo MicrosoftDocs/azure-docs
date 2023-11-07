@@ -1,10 +1,10 @@
 ---
-title: Deploy a flow as a managed online endpoint for real-time inference
+title: Deploy a flow in prompt flow as a managed online endpoint for real-time inference
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
+description: Learn how to deploy in prompt flow a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
@@ -27,11 +27,11 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 ## Prerequisites
 
-- Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
+- Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
 
 - Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
   
 - Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -53,7 +53,7 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
 
-The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
+The prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
 
 In the flow authoring page or run detail page, select **Deploy**.
 
