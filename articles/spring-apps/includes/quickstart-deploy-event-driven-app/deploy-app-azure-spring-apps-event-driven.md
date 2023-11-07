@@ -22,7 +22,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [event-driven-spring-apps-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
 
-1. Use the following command to deploy the app:
+2. Use the following command to deploy the app:
 
    ```bash
    ./mvnw azure-spring-apps:deploy

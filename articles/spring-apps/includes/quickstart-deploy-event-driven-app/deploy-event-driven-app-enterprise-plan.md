@@ -54,9 +54,9 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 8. Select **Queues** on the navigation menu, then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+9. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
 
-1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+10. Create another queue by repeating the previous step using *upper-case* for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -181,13 +181,13 @@ az spring app create \
 
 ### 3.5. Create a Service Bus instance
 
-Use the following command to create a Service Bus namespace:
+1. Use the following command to create a Service Bus namespace:
 
 ```azurecli
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-Then, use the following commands to create two queues named `lower-case` and `upper-case`:
+1. Use the following commands to create two queues named `lower-case` and `upper-case`:
 
 ```azurecli
 az servicebus queue create \
@@ -235,7 +235,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [event-driven-spring-apps-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
 
-1. Use the following command to deploy the app:
+2. Use the following command to deploy the app:
 
    ```bash
    ./mvnw azure-spring-apps:deploy

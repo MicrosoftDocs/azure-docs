@@ -118,7 +118,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 [!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
-1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
+3. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
@@ -130,31 +130,31 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 [!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
-1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
+3. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
-1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
+4. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 [!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
-1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
+3. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
-1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
+4. Check the details for each resource deployment, which are useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
 [!INCLUDE [validate-event-driven-app](includes/quickstart-deploy-event-driven-app/validate-event-driven-app.md)]
 
-1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
+3. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+4. Use the following command to check the app's log to investigate any deployment issue:
 
    ```azurecli
    az spring app logs \
