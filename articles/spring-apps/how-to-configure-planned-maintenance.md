@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haochuang
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 11/07/2023
 ms.custom: 
 ---
 
@@ -36,11 +36,11 @@ Use the following steps to configure planned maintenance in Azure Spring Apps:
 
 1. Select **Day of the week** to schedule the maintenance.
 
-   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-week.png" alt-text="Screenshot of Azure portal that shows the Day of week option highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-week.png" alt-text="Screenshot of Azure portal that shows the Planned maintenance page with the Day of week option highlighted.":::
 
 1. Select **Start time of upgrade**.
 
-   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-time.png" alt-text="Screenshot of Azure portal that shows the Start time of upgrade option highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-time.png" alt-text="Screenshot of Azure portal that shows the Planned maintenance page with the Start time of upgrade option highlighted.":::
 
 1. Select **Apply** to submit your configuration for planned maintenance.
 
@@ -49,7 +49,9 @@ Use the following steps to configure planned maintenance in Azure Spring Apps:
 Use the following command to configure planned maintenance:
 
 ```azurecli
-az spring update -g $RG -n $NAME \
+az spring update \
+    --resource-group <resource-group-name> \
+    --name <Azure-Spring-Apps-instance-name> \
     --enable-planned-maintenance \
     --planned-maintenance-day $DAY_OF_WEEK \
     --planned-maintenance-start-hour $START_HOUR
@@ -62,7 +64,7 @@ Updating the configuration can take a few minutes. You get a notification when t
 
 ## Manage maintenance notification
 
-Usually, notifications and messages are sent out before and during the maintenance. The following table describe the message types and time details:
+Notifications and messages are sent out before and during the maintenance. The following table describe the message types and time details:
 
 | Sequence number | Message type                | Channel             | Time the message is sent out                              |
 |-----------------|-----------------------------|---------------------|-----------------------------------------------------------|
@@ -80,9 +82,9 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 ## Best practices
 
 - When you configure planned maintenance for multiple service instances in the same region, the maintenance takes place within the same week. For example, if maintenance for cluster A is set on Monday and cluster B on Sunday, then cluster A is maintained before cluster B, in the same week.
-- If you have two service instances span across [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
-- Length of time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 - 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
-- Maintenance job can't be exempted regardless of how planned maintenance is configured or have not yet been configured. If you have special requests for maintenance time that can't be met with this feature, open a support ticket.
+- If you have two service instances that span across [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
+- The length of the time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 and 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
+- You can't exempt a maintenance job regardless of how planned maintenance is configured or whether it hasn't been configured. If you have special requests for a maintenance time that can't be met with this feature, open a support ticket.
 
 ## Next steps
 
