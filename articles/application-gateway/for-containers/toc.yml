@@ -5,6 +5,7 @@
   - name: What is Application Gateway for Containers?
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Deploy Application Gateway for Containers ALB Controller
     href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
