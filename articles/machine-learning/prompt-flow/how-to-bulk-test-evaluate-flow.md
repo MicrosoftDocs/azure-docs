@@ -1,20 +1,20 @@
 ---
-title: Submit batch run and evaluate a flow in Prompt flow
+title: Submit batch run and evaluate a flow in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to submit batch run and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 10/23/2023
+ms.date: 11/06/2023
 ---
 
 # Submit batch run and evaluate a flow
 
-To evaluate how well your flow performs with a large dataset, you can submit batch run and use built-in evaluation methods in Prompt flow.
+To evaluate how well your flow performs with a large dataset, you can submit batch run and use built-in evaluation methods in prompt flow.
 
 In this article you'll learn to:
 
@@ -171,7 +171,7 @@ After checking the [built-in metrics](#understand-the-built-in-evaluation-metric
   - Modify parameters of the flow
   - Modify the flow logic
 
-Prompt construction can be difficult. We provide a [Introduction to prompt engineering](../../cognitive-services/openai/concepts/prompt-engineering.md) to help you learn about the concept of constructing a prompt that can achieve your goal. You can also check the [Prompt engineering techniques](../../cognitive-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions) to learn more about how to construct a prompt that can achieve your goal.
+Prompt construction can be difficult. We provide a [Introduction to prompt engineering](../../cognitive-services/openai/concepts/prompt-engineering.md) to help you learn about the concept of constructing a prompt that can achieve your goal. See [prompt engineering techniques](../../cognitive-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions) to learn more about how to construct a prompt that can achieve your goal.
 
 System message, sometimes referred to as a metaprompt or [system prompt](../../cognitive-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-completions#meta-prompts) that can be used to guide an AI system’s behavior and improve system performance. Read this document on [System message framework and template recommendations for Large Language Models(LLMs)](../../cognitive-services/openai/concepts/system-message.md) to learn about how to improve your flow performance with system message.
 
