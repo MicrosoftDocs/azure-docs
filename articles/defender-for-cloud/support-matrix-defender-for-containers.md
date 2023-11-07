@@ -84,7 +84,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Runtime protection| Control plane | EKS | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Workload | EKS | Preview | - | Defender agent | Defender for Containers |
 | Deployment & monitoring | Discovery of unprotected clusters | EKS | Preview | - | Agentless | Free |
-| Deployment & monitoring | Collection of control plane threat data | EKS | Preview | Preview | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender agent | - | - | - | - | - |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | - | - | - | - | - |
 
@@ -123,7 +122,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Runtime protection| Control plane | GKE | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Workload | GKE | Preview | - | Defender agent | Defender for Containers |
 | Deployment & monitoring | Discovery of unprotected clusters | GKE | Preview | - | Agentless | Free |
-| Deployment & monitoring | Collection of control plane threat data | GKE | Preview | Preview | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender agent | GKE | Preview | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | Preview | - | Agentless | Defender for Containers |
 
@@ -157,7 +155,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Runtime protection| Threat protection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender agent | Defender for Containers |
 | Runtime protection | Threat protection (workload)| Arc enabled K8s clusters | Preview | - | Defender agent | Defender for Containers |
 | Deployment & monitoring | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
-| Deployment & monitoring | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender agent | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender agent | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
