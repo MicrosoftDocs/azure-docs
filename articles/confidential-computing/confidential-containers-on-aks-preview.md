@@ -10,10 +10,10 @@ ms.service: azure-kubernetes-service
 ms.custom: ignite-fall-2023
 ---
 
-# Confidential Containers on AKS
+# Confidential containers on AKS
 With the growth in cloud-native application development, there's an increased need to protect the workloads running in cloud environments as well. Containerizing the workload forms a key component for this programming model, and then, protecting the container is paramount to running confidentially in the cloud. 
 
-:::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that ake your cKubernetes container vulnerable.":::
+:::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that make your cKubernetes container vulnerable.":::
 
 
 Confidential containers on AKS enable container level isolation in your Kubernetes workloads. It's an addition to Azure suite of confidential computing products, and uses the AMD SEV-SNP memory encryption to protect your containers at runtime. 
