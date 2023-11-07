@@ -59,8 +59,6 @@ Layered Network Management supports the Azure IoT Operations components in an is
 |Support East-West traffic forwarding for Azure IoT Operations components - manual setup |Public Preview|
 |Installation: Layered Network Management deployed as an Arc extension|Public Preview|
 
-## Related content
-
-- [Create sample network environment](howto-configure-layered-network.md)
-- [Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
+## Next steps
+- [Setup Layered Network Management in a simplified virtual machine and network environment](howto-deploy-aks-layered-network.md)
 
