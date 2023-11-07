@@ -34,7 +34,7 @@ Visibility into a Kubernetes cluster cost helps you identify opportunities for o
   - Cost management reader
   - Cost management contributor
 
-## Access AKS views
+## Access Kubernetes cost views
 
 Use any of the following ways to view AKS costs.
 
@@ -72,7 +72,7 @@ The Kubernetes namespaces view shows the costs of namespaces for the cluster alo
 
 ### View cost from the Kubernetes assets view
 
-The Kubernetes assets view shows the costs of assets in a cluster categorized under one of the service categories: Compute, Networking, and Storage. The uptime SLA charges are under the service Category.
+The Kubernetes assets view shows the costs of assets in a cluster categorized under one of the service categories: Compute, Networking, and Storage. The uptime SLA charges are under the Service category.
 
 :::image type="content" source="./media/view-kubernetes-costs/kubernetes-assets-view.png" alt-text="Screenshot showing the Kubernetes assets view." lightbox="./media/view-kubernetes-costs/kubernetes-assets-view.png" :::
 
