@@ -10,7 +10,7 @@ author: JnHs
 
 # Analyze, estimate and optimize cloud costs using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot for Azure (preview) can help you  analyze, estimate and optimize cloud costs. Ask questions using natural language to get information and recommendations based on [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
+Microsoft Copilot for Azure (preview) can help you analyze, estimate and optimize cloud costs. Ask questions using natural language to get information and recommendations based on [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
 
 When you ask Microsoft Copilot for Azure (preview) questions about your costs, it automatically pulls context based on the last scope that you accessed using Cost Management. If the context isn't clear, you'll be prompted to select a scope or provide more context.
 

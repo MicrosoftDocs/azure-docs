@@ -56,9 +56,12 @@ conceptualContent:
             - url: ./deploy-vms-effectively.md
               itemType: get-started
               text: Deploy VMs effectively
+            - url: ./build-infrastructure-deploy-workloads
+              itemType: get-started
+              text: Build infrastructure and deploy workloads
             - url: ./improve-storage-accounts.md
               itemType: get-started
-              text: Improve storage accounts
+              text: Secure and protect storage accounts
             - url: ./work-smarter-edge.md
               itemType: get-started
               text: Work smarter with hybrid infrastructure
