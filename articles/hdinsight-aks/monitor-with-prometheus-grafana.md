@@ -143,11 +143,11 @@ User permission: For viewing Azure Managed Grafana, “Grafana Viewer” role is
        
 ## View metrics
 
-You can use the Grafana dashboard to view the service and system. We are using an Apache Spark™ cluster as an example, assuming few jobs are executed in the cluster. In order to have the metrics.  
+We are using an Apache Spark™ cluster as an example in this case, assuming few jobs are executed in the cluster, in order to have the metrics.  
 
 Review the following steps to use the Grafana sample templates:
 
-1. Download the sample template from [here](https://github.com/Azure-Samples/hdinsight-aks/blob/main/sample-grafana-template/Spark_Grafana_Dashboard%20_%20HDI%20on%20AKS.json) for the respective workloads. 
+1. Download the sample template from [here](https://github.com/Azure-Samples/hdinsight-aks/tree/main/sample-grafana-template) for the respective workloads (download the Apache Spark template in this case). 
 
 1. Login to the Grafana Dashboard from your cluster.
 
@@ -157,7 +157,7 @@ Review the following steps to use the Grafana sample templates:
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/grafana-dashboard.png" alt-text="Screenshot showing how to metric type." border="true" lightbox="./media/monitor-with-prometheus-grafana/grafana-dashboard.png":::
 
-1. Click on the Upload Dashboard JSON file and upload the respective template that you have downloaded. 
+1. Click on the Upload Dashboard JSON file and upload the Apache Spark Grafana template that you have downloaded and click on **Import**. 
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png" alt-text="Screenshot showing how to run query." border="true" lightbox="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png":::
 
