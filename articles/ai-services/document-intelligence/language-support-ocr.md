@@ -1,7 +1,7 @@
 ---
 title: Language and locale support for Read and Layout document analysis - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Document Intelligence Read and Layout OCR document analysis model language support
+description: Document Intelligence Read and Layout OCR document analysis model language extraction and detection support
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# OCR model language detection and extraction 
+# Read, Layout, and General document language support
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
