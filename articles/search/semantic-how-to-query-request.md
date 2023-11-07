@@ -84,7 +84,7 @@ Across all semantic configuration properties, the fields you assign must be:
 
 ### [**REST API**](#tab/rest)
 
-1. Formulate a [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) request.
+1. Formulate a [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) request.
 
 1. Add a semantic configuration to the index definition, perhaps after `scoringProfiles` or `suggesters`. Specifying a default is optional but useful if you have more than one configuration.
 
@@ -192,7 +192,7 @@ In this step, add parameters to the query request. To be successful, your query 
 
 ### [**REST API**](#tab/rest-query)
 
-Use [Search Documents](/rest/api/searchservice/2023-11-01/documents/search-post) to formulate the request.
+Use [Search Documents](/rest/api/searchservice/documents/search-post) to formulate the request.
 
 A response includes an `@search.rerankerScore` automatically. If you want captions or answers in the response, add captions and answers to the request.
 
@@ -300,13 +300,13 @@ If your semantic ranking code is using preview APIs, this section explains how t
 
 The semantic ranking engine is now language agnostic. If `queryLanguage` is specified in your query logic, it's no longer used for semantic ranking, but still applies to [spell correction](speller-how-to-add.md).
 
-+ [Update Search Documents](/rest/api/searchservice/2023-11-01/documents/search-post) to remove `queryLanguage` for semantic ranking purposes.
++ Use [Search POST](/rest/api/searchservice/documents/search-post) and remove `queryLanguage` for semantic ranking purposes.
 
 ### Step 2: Add semanticConfiguration
 
 If your code calls the 2020-06-30-Preview REST API or beta SDK packages targeting that REST API version, you might be using `searchFields` in a query request to specify semantic fields and priorities. This code must now be updated to use `semanticConfiguration` instead.
 
-+ [Create or Update Index](/rest/api/searchservice/2023-11-01/indexes/create-or-update) to add `semanticConfiguration`. 
++ [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) to add `semanticConfiguration`. 
 
 ## Next steps
 
