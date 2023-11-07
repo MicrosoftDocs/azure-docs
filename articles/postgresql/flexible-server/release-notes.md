@@ -20,6 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
 * General availability of Near-Zero Downtime Scaling.
 * General availability of Pgvector 0.5.1 extension.
+* General availability of pg_failover_slots extension.
 * General availability of Italy North and Israel Central.
 * Public preview of premium SSD v2.
 * Public preview of private endpoints.

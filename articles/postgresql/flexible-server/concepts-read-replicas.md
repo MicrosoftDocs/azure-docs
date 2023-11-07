@@ -170,6 +170,8 @@ For both promotion methods, there are more options to consider:
 > [!IMPORTANT]  
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica independently. An user action is always required for the promote operation.
 
+Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote-replicas) and [promote to independent server and remove from replication](how-to-read-replicas-portal.md#promote-replica-to-independent-server).
+
 ### Configuration management
 
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
@@ -220,6 +222,8 @@ The sections below delve into how these endpoints react to both "Promote to prim
 > [!NOTE]  
 > Resetting the admin password on the replica server is currently not supported. Additionally, updating the admin password along with promoting replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server and then update the password on the newly promoted server separately.
 
+Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints-preview).
+
 ### Considerations
 
 - Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require.
@@ -265,6 +269,8 @@ Here are the possible values:
 | <b> Catchup | WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced. | 3 | 3 |
 | <b> Active | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status remains as active. | 4 | 4 |
 | <b> Broken | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason. | N/A | N/A |
+
+Learn how to [monitor replication](how-to-read-replicas-portal.md#monitor-a-replica).
 
 ## Regional Failures and Recovery
 

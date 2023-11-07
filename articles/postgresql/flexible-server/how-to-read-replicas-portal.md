@@ -111,7 +111,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 >  
 > To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
-## Add Virtual Endpoints (preview)
+## Create virtual endpoints (preview)
 
 1. In the Azure portal, select the primary server.
 
