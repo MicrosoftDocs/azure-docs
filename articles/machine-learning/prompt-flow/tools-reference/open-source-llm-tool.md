@@ -1,10 +1,10 @@
 ---
 title: Open source LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The Prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models.
+description: The prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom: devx-track-python
 ms.topic: reference
 author: gjwoods
@@ -14,13 +14,13 @@ ms.date: 11/02/2023
 ---
 
 # Open Source LLM
-The Prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258) for natural language processing, in PromptFlow.
+The prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258) for natural language processing, in prompt flow.
 
-Here's how it looks in action on the Visual Studio Code Prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
+Here's how it looks in action on the Visual Studio Code prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
 
-:::image type="content" source="./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot of the Open Source LLm On VS Code PromptFlow extension." lightbox = "./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
+:::image type="content" source="./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot of the Open Source LLm On VS Code prompt flow extension." lightbox = "./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
 
-This Prompt flow supports two different LLM API types:
+This prompt flow supports two different LLM API types:
 
 - **Chat**: Shown in the example above. The chat API type facilitates interactive conversations with text-based inputs and responses.
 - **Completion**: The Completion API type is used to generate single response text completions based on provided prompt input.
@@ -30,7 +30,7 @@ This Prompt flow supports two different LLM API types:
 1. Choose a Model from the Azure Machine Learning Model Catalog and deploy.
 2. Setup and select the connections to the model deployment.
 3. Configure the tool with the model settings.
-4. [Prepare the Prompt](./prompt-tool.md#how-to-write-prompt).
+4. [Prepare the prompt](./prompt-tool.md#how-to-write-prompt).
 5. Run the flow.
 
 ## Prerequisites: Model Deployment
@@ -42,7 +42,7 @@ To learn more, see [Deploying foundation models to endpoints for inferencing.](.
 
 ## Prerequisites: Prompt flow Connections
 
-In order for Prompt flow to use your deployed model, you need to set up a Connection. Explicitly, the Open Source LLM tool uses the CustomConnection.
+In order for prompt flow to use your deployed model, you need to set up a Connection. Explicitly, the Open Source LLM tool uses the CustomConnection.
 
 1. To learn how to create a custom connection, see [create a connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
 
