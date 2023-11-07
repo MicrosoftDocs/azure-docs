@@ -59,7 +59,7 @@ With Advanced Messaging, you can build conversational scenarios such as contact 
 
 ### Pre-Registered Alpha IDs GA!
 
-:::image type="content" source="./media/whats-new-images/10-23/geo-expansion.png" alt-text="A photograph of a map of the world showing multiple regions.":::
+:::image type="content" source="./media/whats-new-images/10-23/geo-expansion-new.png" alt-text="A photograph of a map of the world showing multiple regions and a man pointing at one of them.":::
 
 Alphanumeric Sender IDs is a one-way SMS messaging number type, formed by alphabetic and numeric characters that allow our customers to use their company name as sender of an SMS message providing improved brand recognition. Alphanumeric Sender IDs also support higher message throughput than toll-free and geographic numbers.
  
@@ -144,7 +144,7 @@ To achieve more through intelligent communications, HCLTech brings together the 
 
 
 ### View of new features from October 2023
-:::image type="content" source="./media/whats-new-images/10-23/blog.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
+:::image type="content" source="./media/whats-new-images/10-23/blog-new.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
 
 View the complete list of all features launched in October
 
