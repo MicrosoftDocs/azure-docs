@@ -22,7 +22,7 @@ URL Rewrites take advantage of Application Gateway for Containers' IngressExtens
 ## Background
 URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
-See the following figure, which illustrates an example of a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
+The following figure illustrates a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
@@ -176,7 +176,7 @@ EOF
 
 ---
 
-Once each Ingress resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+When each Ingress resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 kubectl get ingress ingress-02 -n test-infra -o yaml
@@ -221,7 +221,7 @@ status:
         protocol: TCP
 ```
 
-Once the Ingress has been created, create an IngressExtension resource for `contoso.com`.  This example ensures traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
+When the Ingress is created, create an IngressExtension resource for `contoso.com`.  This example ensures traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -243,12 +243,12 @@ spec:
 EOF
 ```
 
-Once the IngressExtension resource has been created, ensure the IngressExtension resource shows _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+When the IngressExtension resource is created, ensure the IngressExtension resource shows _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
 kubectl get IngressExtension url-rewrite -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated for the IngressExtension.
+Verify the Application Gateway for Containers resource is successfully updated for the IngressExtension.
 
 ```yaml
 TODO: Replace
