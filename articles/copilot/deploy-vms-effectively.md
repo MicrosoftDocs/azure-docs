@@ -62,24 +62,11 @@ Azure offers different size options for VMs based on your workload needs. Micros
 - Help me choose a size for my Virtual Machine
 - Which Virtual Machine size will best suit my requirements?
 
-## Reset VM passwords
-
-If you want to reset the password for a VM, Microsoft Copilot for Azure (preview) can help you do so quickly, getting you to the right location in the Azure portal and prompting you on the steps to take.
-
-### Sample prompts
-
-- "Reset VM password"
-- "How do I reset my VM password?"
-
 ### Examples
 
-You can say "Reset VM password" when working with a VM. Microsoft Copilot for Azure (preview) provides a button you can select to reset your password, along with information about password reset options.
+Ask "Help me choose the right VM size for my workload?" Microsoft Copilot for Azure (preview) asks for some more information to help it determine the best options. After that, it presents some options and lets you choose which recommended size to use for your VM.
 
-:::image type="content" source="media/deploy-vms-effectively/vm-reset-password.png" lightbox="media/deploy-vms-effectively/vm-reset-password.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) when prompted to reset a VM password.":::
-
-If you select **Reset password**, Microsoft Copilot for Azure (preview) opens the password reset page, allowing you to choose an option and reset the password for your VM.
-
-:::image type="content" source="media/deploy-vms-effectively/vm-reset-password-screen.png" lightbox="media/deploy-vms-effectively/vm-reset-password.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) opening the VM password reset screen.":::
+:::image type="content" source="media/deploy-vms-effectively/vm-choose-size.png" lightbox="media/deploy-vms-effectively/vm-choose-size.png" alt-text="Screenshot of Screenshot showing Microsoft Copilot for Azure (preview) providing size recommendations for a VM.":::
 
 ## Next steps
 
