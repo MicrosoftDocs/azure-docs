@@ -68,7 +68,7 @@ items:
         href: manage-mqtt-connectivity/overview-iot-mq.md
       - name: Configure availability and scale
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
-      - name: Secure communication using BrokerListener
+      - name: Secure MQTT communication endpoints
         href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
       - name: Configure automatic TLS
         href: manage-mqtt-connectivity/howto-configure-tls-auto.md

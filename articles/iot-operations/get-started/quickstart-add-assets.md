@@ -110,7 +110,17 @@ To enable the asset endpoint to use an untrusted certificate:
     kubectl apply -f doe.yaml
     ```
 
-1. Restart the `aio-opc-supervisor` pod.
+1. Restart the `aio-opc-supervisor` pod:
+
+    ```bash
+    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
+    ```
+
+    The name of your pod might be different. To find the name of your pod, run the following command:
+
+    ```bash
+    kubectl get pods -n azure-iot-operations
+    ```
 
 ## Manage your assets
 

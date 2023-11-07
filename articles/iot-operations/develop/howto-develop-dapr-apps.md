@@ -20,7 +20,7 @@ The Distributed Application Runtime (Dapr) is a portable, serverless, event-driv
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
 - State Management
 
-To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and E4K pluggable components.
+To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Features supported
 
@@ -128,13 +128,13 @@ Your application can authenticate to MQ using any of the [supported authenticati
 1. Create a Kubernetes service account:
 
     ```bash
-    kubectl create serviceaccount mqtt-client-token
+    kubectl create serviceaccount mqtt-client
     ```
 
-1. Ensure that the service account `mqtt-client-token` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `mqtt-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```bash
-    kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
+    kubectl annotate serviceaccount mqtt-client aio-mq-broker-auth/group=dapr-workload
     ```
 
 1. Create a ConfigMap containing the CA certificate chain used to valid the MQTT broker:
@@ -264,7 +264,7 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-port: "6001"      # Required for
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
-      serviceAccountName: mqtt-client-token
+      serviceAccountName: mqtt-client
 
       volumes:
         - name: dapr-unix-domain-socket
@@ -287,11 +287,11 @@ To start, you create a yaml file that uses the following component definitions:
       containers:
         # Container for the dapr quickstart application 
         - name: dapr-workload
-          image: alicesprings.azurecr.io/quickstart-sample:latest
+          image: ghcr.io/azure-samples/explore-iot-operations/quickstart-sample:latest
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
-          image: alicesprings.azurecr.io/dapr/mq-pubsub:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -302,7 +302,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
-          image: alicesprings.azurecr.io/dapr/mq-statestore:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
