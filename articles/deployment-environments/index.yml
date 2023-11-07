@@ -40,6 +40,10 @@ landingContent:
             url: quickstart-create-and-configure-projects.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an environment with Azure Developer CLI
+            url: how-to-create-environment-with-azure-developer.md  
   
   # Card
   - title: Configure the Deployment Environments service
