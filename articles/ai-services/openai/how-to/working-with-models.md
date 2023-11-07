@@ -17,7 +17,7 @@ keywords:
 
 Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. [Model availability varies by region](../concepts/models.md).
 
-You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
+You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/azureopenai/models/list).
 
 ## Model updates
 
