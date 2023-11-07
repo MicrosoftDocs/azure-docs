@@ -15,34 +15,32 @@ items:
         href: get-started/quickstart-process-telemetry.md
       - name: Get insights from your data
         href: get-started/quickstart-get-insights.md
-    - name: Deploy
+    - name: Deploy Azure IoT Operations components
       items:
-      - name: Deploy Azure IoT Operations components
+      - name: Prepare a cluster
+        href: deploy-azure-iot-operations/howto-prepare-cluster.md
+      - name: Deploy to a cluster
+        href: deploy-azure-iot-operations/howto-deploy-iot-operations.md
+      - name: Manage secrets
+        href: deploy-azure-iot-operations/howto-manage-secrets.md
+    - name: Deploy custom workloads
+      items:
+      - name: Overview
+        href: deploy-custom-workloads/overview-orchestrator.md
+        displayName: Deploy, Orchestrator
+      - name: Concepts
         items:
-        - name: Prepare a cluster
-          href: deploy/howto-prepare-cluster.md
-        - name: Deploy to a cluster
-          href: deploy/howto-deploy-iot-operations.md
-        - name: Manage secrets
-          href: deploy/howto-manage-secrets.md
-      - name: Deploy custom workloads
-        items:
-        - name: Overview
-          href: deploy/overview-orchestrator.md
-          displayName: Deploy, Orchestrator
-        - name: Concepts
-          items:
-          - name: Manifests
-            href: deploy/concept-manifests.md
-          - name: Providers and components
-            href: deploy/concept-providers.md
-        - name: Deploy K8s custom resources
-          href: deploy/howto-k8s.md
-        - name: Deploy Helm charts
-          href: deploy/howto-helm.md
-        - name: Troubleshoot
-          href: deploy/howto-troubleshoot-deployment.md
-          displayName: Deploy, Orchestrator
+        - name: Manifests
+          href: deploy-custom-workloads/concept-manifests.md
+        - name: Providers and components
+          href: deploy-custom-workloads/concept-providers.md
+      - name: Deploy K8s custom resources
+        href: deploy-custom-workloads/howto-k8s.md
+      - name: Deploy Helm charts
+        href: deploy-custom-workloads/howto-helm.md
+      - name: Troubleshoot
+        href: deploy-custom-workloads/howto-troubleshoot-deployment.md
+        displayName: Deploy, Orchestrator
     - name: Manage assets
       items:
       - name: Overview
