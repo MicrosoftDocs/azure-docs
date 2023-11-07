@@ -109,7 +109,7 @@ Here are some examples of lines you can include to potentially mitigate differen
 
 Below is an example of a potential system message, or metaprompt, for a retail company deploying a chatbot to help with customer service. It follows the framework we’ve outlined above.
 
-:::image type="content" source="../media/system-message/template.png" alt-text="Screenshot of metaprompts influencing a chatbot conversation" lightbox="../media/system-message/template.png":::
+:::image type="content" source="../media/concepts/system-message/template.png" alt-text="Screenshot of metaprompts influencing a chatbot conversation" lightbox="../media/concepts/system-message/template.png":::
 
 Finally, remember that system messages, or metaprompts, are not “one size fits all.” Use of the above examples will have varying degrees of success in different applications. It is important to try different wording, ordering, and structure of metaprompt text to reduce identified harms, and to test the variations to see what works best for a given scenario.
 
