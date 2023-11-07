@@ -129,9 +129,9 @@ spec:
 
 Create the issuer with the following command:
 
-    ```bash
-    kubectl apply -f issuer-ca.yaml
-    ```
+```bash
+kubectl apply -f issuer-ca.yaml
+```
 
 The prior command creates an issuer for issuing the TLS server certificates. Note the name and kind of the issuer. In the example,  name `my-issuer` and kind `Issuer`. These values are set in the BrokerListener resource later.
 
