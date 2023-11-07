@@ -115,7 +115,7 @@ The `azure_ai.set_setting()` function lets you set the endpoint and critical val
 | `azure_cognitive.endpoint` | A supported Cognitive Services endpoint (for example, `https://example.cognitiveservices.azure.com`). |
 | `azure_cognitive.subscription_key` | A subscription key for a Cognitive Services resource. |
 
-> [!MPORTANT]
+> [!IMPORTANT]
 >  
 > Because the connection information for Azure AI services, including API keys, is stored in a configuration table in the database, the `azure_ai` extension defines a role called `azure_ai_settings_manager` to ensure this information is protected and accessible only to users assigned that role. This role enables reading and writing of settings related to the extension. Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_setting()` and `azure_ai.set_setting()` functions. In the Azure Database for PostgreSQL Flexible Server, all admin users are assigned the `azure_ai_settings_manager` role.
 
