@@ -22,7 +22,7 @@
     href: optimize-code-application-insights.md
   - name: Work smarter with Azure Stack HCI
     href: work-smarter-edge.md
-  - name: Improve storage accounts
+  - name: Secure and protect storage accounts
     href: improve-storage-accounts.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
