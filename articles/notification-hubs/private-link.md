@@ -27,12 +27,12 @@ The following procedure creates a private endpoint along with a new notification
 
    :::image type="content" source="media/private-link/create-hub.png" alt-text="Screenshot of notification hub creation page on portal showing private link option." lightbox="media/private-link/create-hub.png":::
 
-1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and a subnet. In **Integrate with Private DNS Zone**, select **Yes** and type **privatelink.notificationhubs.windows.net** in the **Private DNS Zone** box. Then select **Create**.
+1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and a subnet. In **Integrate with Private DNS Zone**, select **Yes** and type **privatelink.notificationhubs.windows.net** in the **Private DNS Zone** box.
 
    :::image type="content" source="media/private-link/create-private-endpoint.png" alt-text="Screenshot of notification hub private endpoint creation page." lightbox="media/private-link/create-private-endpoint.png":::
 
 1. Select **OK** to see confirmation of namespace and hub creation with a private endpoint.
-1. Select **OK** to create the notification hub with a private endpoint connection.
+1. Select **Create** to create the notification hub with a private endpoint connection.
 
    :::image type="content" source="media/private-link/private-endpoint-confirm.png" alt-text="Screenshot of notification hub private endpoint confirmation page." lightbox="media/private-link/private-endpoint-confirm.png":::
 
@@ -46,8 +46,6 @@ The following procedure creates a private endpoint along with a new notification
 1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and subnet. Select **Create**.
 
    :::image type="content" source="media/private-link/create-properties.png" alt-text="Screenshot of private link creation properties." lightbox="media/private-link/create-properties.png":::
-
-1. Select **Create** to finish creating the notification hub with a private endpoint connection.
 
 ## Create a private endpoint using PowerShell
 
