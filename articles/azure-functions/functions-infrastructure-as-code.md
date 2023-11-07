@@ -1779,7 +1779,7 @@ Keep these considerations in mind when working with site and application setting
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion) is only supported for .NET deployments.
 ::: zone-end
 :::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
-+ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../articles/app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
++ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
 ::: zone-end  
 + You should always define your application settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This makes sure that the settings that your function app needs to run are available on initial startup.
 
