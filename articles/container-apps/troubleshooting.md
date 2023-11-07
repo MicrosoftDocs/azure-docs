@@ -30,15 +30,17 @@ Reviewing Azure Container Apps logs and configuration settings can reveal underl
 
 | Issue | Actions |
 |--|--|
-| All issues. | - [View logs](./#view-logs)
-- [Use Diagnose and solve problems](./#use-diagnose-and-solve-problems) |
-| You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](./#verify-container-apps-can-pull-container-image) |
+| All issues. | - [View logs](#view-logs)
+- [Use Diagnose and solve problems](#use-diagnose-and-solve-problems) |
+| You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](#verify-container-apps-can-pull-container-image) |
 | - After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely.
-- A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](./#verify-health-probes-are-configured-correctly) |
+- A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-are-configured-correctly) |
 | - The container app endpoint doesn't respond to requests.
-- The container app endpoint responds to requests with HTTP error 403 (access denied). | - [Review ingress configuration](./#review-ingress-configuration)
-- [Verify networking configuration is correct](./#verify-networking-configuration-is-correct) |
-| - The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision](./#verify-traffic-is-routed-to-correct-revision) |
+- The container app endpoint responds to requests with HTTP error 403 (access denied). | - [Review ingress configuration](#review-ingress-configuration)
+- [Verify networking configuration is correct](#verify-networking-configuration-is-correct) |
+| The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision](#verify-traffic-is-routed-to-correct-revision) |
+| You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment](#ensure-dapr-is-enabled-in-your-environment) |
+| You receive a Dapr configuration error message regarding the `app-port` value. | [Verify you've provided the correct app-port value](#verify-app-port-value-in-dapr-configuration) |
 
 ## View logs
 
@@ -629,6 +631,86 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
+## Ensure Dapr is enabled in your environment
+
+If you're using Dapr bindings and triggers in Azure Functions, you might encounter an error message like the following:
+
+```plaintext
+Dapr sidecar is not present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.
+```
+
+This error typically occurs when Dapr is not properly enabled in your environment. Ensure Dapr is enabled in your environment using any of the three following solutions:
+
+- **If your Azure Function is deployed in Azure Container Apps (ACA):**  
+   Refer to [Dapr enablement instructions for the Dapr extension for Azure Functions](/azure-functions/functions-bindings-dapr.md#dapr-enablement).
+- **If your Azure Function is deployed in Kubernetes:**  
+   Ensure that your [deployment's YAML configuration](https://github.com/azure/azure-functions-dapr-extension/blob/master/deploy/kubernetes/kubernetes-deployment.md#sample-kubernetes-deployment) has the following annotations:  
+
+    ```YAML
+    annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "functionapp"
+        # Only define port of Dapr triggers are included
+        dapr.io/app-port: "3001"
+    ```
+- **If you are running your Azure Function locally:**  
+   Execute the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):  
+
+    ```bash
+    dapr run --app-id functionapp --app-port 3001  --components-path ..\components\ -- func host start 
+    ```
+
+To prevent this error in the future, verify that Dapr is properly set up and enabled in your environment before using Dapr bindings and triggers with Azure Functions.
+
+## Verify app-port value in Dapr configuration
+
+If you've provided an incorrect `app-port` value when running a function app using [Dapr Triggers for Azure Functions](/azure-functions/functions-bindings-dapr.md), you might receive the following error message.
+
+```plaintext
+The Dapr sidecar is configured to listen on port {portInt}, but the app server is running on port {appPort}. This may cause unexpected behavior. For more information, visit [this link](https://aka.ms/azfunc-dapr-app-config-error).
+```
+
+> [!NOTE]
+> The Dapr extension for Azure Functions starts an HTTP server on port 3001. You can configure this port using the [`DAPR_APP_PORT` environment variable](https://docs.dapr.io/reference/environment/). If you provide an incorrect app_port value when running the Function app, it can lead to this problem.
+
+1. Configure the correct `app_port` to Dapr in the Dapr configuration. Verify you've done the following in your container app's Dapr settings:
+
+   - **If you're using a Dapr Trigger in your code**
+      Make sure that the app port is set to `3001` or `DAPR_APP_PORT` if explicitly set as an environment variable for application.
+
+   - **If you're _not_ using a Dapr Trigger in your code** 
+      Make sure that the app port is _not_ set. It should be empty.
+
+1. Ensure that you provide the correct DAPR_APP_PORT value to Dapr in the Dapr configuration.
+
+   - **If using Azure Container Apps (ACA):**  
+      Specify it in Bicep as shown below:
+
+      ```bash
+      DaprConfig: {
+      ...
+      appPort: 3001
+      ...
+      }
+      ```
+
+   - **If using a Kubernetes environment:**
+      Set the `dapr.io/app-port` annotation:
+
+      ```
+      annotations:
+          ...
+          dapr.io/app-port: "3001"
+          ...
+      ```
+
+   - **For local development:**
+      Ensure you provide `--app-port` when running the function app with Dapr:
+
+      ```
+      dapr run --app-id functionapp --app-port 3001 --components-path ..\components\ -- func host start 
+      ```
 
 ## Next steps
 
