@@ -360,7 +360,7 @@ While the server is a read replica, no backups are taken. However, once it's pro
 
 ### Networking
 
-Read replicas support all networking options available for Azure Database for PostgreSQL - Flexible Server, including private access via virtual network integration, public access through allowed IP addresses, and private link (preview). However, please note that private endpoint configurations promoted to the primary server (preview) operation support only set up with one read replica. If you have two or more replicas promoted to the primary server, the operation fails.
+Read replicas support both, private access via virtual network integration and public access through allowed IP addresses. However, please note that [private endpoint](concepts-networking-private-link.md) is not currently supported.
 
 > [!IMPORTANT]  
 > Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL - Flexible Server setup. There must be a provision to send and receive traffic on destination port 5432 within the Azure virtual network subnet.

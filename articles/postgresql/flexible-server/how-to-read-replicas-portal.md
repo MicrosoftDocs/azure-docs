@@ -31,6 +31,8 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 **Premium SSD v2**: The current release doesn't support the creation of read replicas for primary servers using Premium SSD v2 storage. If your workload requires read replicas, choose a different storage option for the primary server.
 
+**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration.
+
 1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
 
 1. On the **Overview** dialog, note the PostgreSQL version (ex `15.4`). Also, note the region your primary is deployed to (ex., `East US`).
