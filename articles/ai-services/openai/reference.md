@@ -857,5 +857,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [ Models, and fine-tuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/files).
+Learn about [ Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
