@@ -28,12 +28,12 @@ Azure Chaos Studio can't inject faults against a resource until that resource is
 1. Select **Targets** and find your autoscale setting resource.
 1. Select the autoscale setting resource and select **Enable targets** > **Enable service-direct targets**.
 
-      [![Screenshot that shows the Targets screen in Chaos Studio, with the autoscale setting resource selected.](images/templates-azdowntargetenableone.png) ](images/templates-azdowntargetenableone.png#lightbox)
+      [![Screenshot that shows the Targets screen in Chaos Studio, with the autoscale setting resource selected.](images/chaos-studio-tutorial-availability-zone-down-portal/target-enable-one.png) ](images/chaos-studio-tutorial-availability-zone-down-portal/target-enable-one.png#lightbox)
 1. Select **Review + Enable** > **Enable**.
 1. Find your virtual machine scale set resource.
 1. Select the virtual machine scale set resource and select **Enable targets** > **Enable service-direct targets**.
 
-      [![Screenshot that shows the Targets screen in Chaos Studio, with the virtual machine scale set resource selected.](images/templates-azdowntargetenabletwo.png) ](images/templates-azdowntargetenabletwo.png#lightbox)
+      [![Screenshot that shows the Targets screen in Chaos Studio, with the virtual machine scale set resource selected.](images/chaos-studio-tutorial-availability-zone-down-portal/target-enable-two.png) ](images/chaos-studio-tutorial-availability-zone-down-portal/target-enable-two.png#lightbox)
 1. Select **Review + Enable** > **Enable**.
 
 You've now successfully added your autoscale setting and virtual machine scale set to Chaos Studio.
@@ -44,37 +44,37 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 
 1. In Chaos Studio, go to **Experiments** > **Create** > **New from template**.
 
-   [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/templates-az-down-create-from.png)](images/templates-az-down-create-from.png#lightbox)
+   [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/create-from.png)](images/chaos-studio-tutorial-availability-zone-down-portal/create-from.png#lightbox)
 1. Select **Availability Zone Down**.
 
-   [![Screenshot that shows the experiment templates screen, with the Availability Zone down template button highlighted.](images/templates-azdownselection.png)](images/templates-azdownselection.png#lightbox)
+   [![Screenshot that shows the experiment templates screen, with the Availability Zone down template button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/template-selection.png)](images/chaos-studio-tutorial-availability-zone-down-portal/template-selection.png#lightbox)
 1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Permissions**.
 
-   [![Screenshot that shows the experiment basics screen, with the permissions tab button highlighted.](images/templates-azdownbasics.png)](images/templates-azdownbasics.png#lightbox)
+   [![Screenshot that shows the experiment basics screen, with the permissions tab button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/basics.png)](images/chaos-studio-tutorial-availability-zone-down-portal/basics.png#lightbox)
 1. For your chaos experiment to run successfully, it must have [sufficient permissions on target resources](chaos-studio-permissions-security.md). Select a system-assigned managed identity or a user-assigned managed identity for your experiment. You can choose to enable custom role assignment if you would like Chaos Studio to add the necessary permissions to run (in the form of a custom role) to your experiment's identity. Select **Next: Experiment designer**.
 
-   [![Screenshot that shows the experiment permissions screen, with the experiment designer tab button highlighted.](images/templates-azdownpermspage.png)](images/templates-azdownpermspage.png#lightbox)
+   [![Screenshot that shows the experiment permissions screen, with the experiment designer tab button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/permissions-page.png)](images/chaos-studio-tutorial-availability-zone-down-portal/permissions-page.png#lightbox)
 1. Within the **Disable Autoscale** fault, select **Edit**.
 
-   [![Screenshot that shows the experiment designer screen, with the edit button within the disable autoscale fault highlighted.](images/templates-azdownfaultoneedit.png)](images/templates-azdownfaultoneedit.png#lightbox)
+   [![Screenshot that shows the experiment designer screen, with the edit button within the disable autoscale fault highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-edit.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-edit.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
 
-   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/templates-azdownfaultonedetails.png)](images/templates-azdownfaultonedetails.png#lightbox)
+   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-details.png#lightbox)
 1. Select the autoscale setting resource that you want to use in the experiment. Select **Save**.
 
-   [![Screenshot that shows the fault targets pane for autoscale, with the save button highlighted.](images/templates-azdownfaultonetarget.png)](images/templates-azdownfaultonetarget.png#lightbox)
+   [![Screenshot that shows the fault targets pane for autoscale, with the save button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-target.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-one-target.png#lightbox)
 1. Within the **VMSS Shutdown (version 2.0)** fault, select **Edit**.
 
-   [![Screenshot that shows the experiment designer screen, with the edit button within the Virtual Machine Scale Set shutdown fault highlighted.](images/templates-azdownfaulttwoedit.png)](images/templates-azdownfaulttwoedit.png#lightbox)
+   [![Screenshot that shows the experiment designer screen, with the edit button within the Virtual Machine Scale Set shutdown fault highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-edit.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-edit.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
 
-   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/templates-azdownfaultonedetails.png)](images/templates-azdownfaultonedetails.png#lightbox)
+   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-details.png#lightbox)
 1. Select the virtual machine scale set resource that you want to use in the experiment. Select **Next: Scope**.
 
-   [![Screenshot that shows the fault targets pane for Virtual Machine Scale Set, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
+   [![Screenshot that shows the fault targets pane for Virtual Machine Scale Set, with the save button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-target.png)](images/chaos-studio-tutorial-availability-zone-down-portal/fault-two-target.png#lightbox)
 1. Select the zone(s) within your virtual machine scale set you would like to take down. Select **Save**.
 
-   [![Screenshot that shows the scope pane, with the save button highlighted.](images/templates-az-down-scope.png)](images/templates-az-down-scope.png#lightbox)
+   [![Screenshot that shows the scope pane, with the save button highlighted.](images/chaos-studio-tutorial-availability-zone-down-portal/scope.png)](images/chaos-studio-tutorial-availability-zone-down-portal/scope.png#lightbox)
 1. Select **Review + create** > **Create** to save the experiment.
 
 ## Run your experiment
