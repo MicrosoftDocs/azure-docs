@@ -486,7 +486,7 @@ groups:
     title: Java
 - id: function-worker-process
   title: .NET Azure Functions worker process 
-  prompt: Choose how to run .NET Azure Functions  
+  prompt: Choose how to run   
   pivots: 
   - id: in-proc
     title: In-process

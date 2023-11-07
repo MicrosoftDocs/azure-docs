@@ -640,7 +640,7 @@ For more information on bindings in Azure Functions, see the [Azure Functions Tr
 
 ### Dependency injection in entity classes
 
-Entity classes support [Azure Functions Dependency Injection](../functions-dotnet-dependency-injection.md). The following example demonstrates how to register an `IHttpClientFactory` service into a class-based entity.
+Entity classes support [Azure Functions Dependency Injection](../dotnet-isolated-process-guide.md#dependency-injection). 
 
 The following demonstrates how to configure an `HttpClient` in the `program.cs` file to be imported later in the entity class. 
 
