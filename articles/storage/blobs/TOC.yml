@@ -48,6 +48,8 @@ items:
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
+      - name: Terraform
+        href: storage-quickstart-static-website-terraform.md
   - name: Tutorials
     items:
     - name: Upload and process image files

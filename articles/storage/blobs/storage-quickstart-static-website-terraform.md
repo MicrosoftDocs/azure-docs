@@ -79,7 +79,7 @@ In this article, you learn how to:
 
 1. Open a browser and enter the URL in your browser's address bar.
 
-    :::image type="content" source="./media/quickstart-storage-blob-static-website/static-website-running-in-storage-account.png" alt-text="Screenshot of the static web site stored in an Azure storage account":::
+    :::image type="content" source="./media/storage-quickstart-static-website-terraform/static-website-running-in-storage-account.png" alt-text="Screenshot of the static web site stored in an Azure storage account":::
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -91,7 +91,7 @@ In this article, you learn how to:
 
 1. Open a browser and enter the URL in your browser's address bar.
 
-    :::image type="content" source="./media/quickstart-storage-blob-static-website/static-website-running-in-storage-account.png" alt-text="Screenshot of the static web site stored in an Azure storage account":::
+    :::image type="content" source="./media/storage-quickstart-static-website-terraform/static-website-running-in-storage-account.png" alt-text="Screenshot of the static web site stored in an Azure storage account":::
 
 ---
 
