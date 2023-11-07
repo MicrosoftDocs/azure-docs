@@ -93,7 +93,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
 
 - You can set up logs for Azure Functions to track their execution. [Learn more](../azure-functions/streaming-logs.md).
 
-## Scenario 7 - Check if the script in Webhooks using Runbooks is triggered from Event Grid
+## Scenario 7 Check if the script in Webhooks using Runbooks is triggered from Event Grid
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -102,7 +102,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
    
     :::image type="content" source="./media/pre-post-events-common-scenarios/view-input-parameter.png" alt-text="Screenshot that shows how to view the latest run of the job." lightbox="./media/pre-post-events-common-scenarios/view-input-parameter.png":::
 
-## Scenario 8 - Check the cancelation of a schedule
+## Scenario 8 Check the cancelation of a schedule
 
 #### [Azure portal](#tab/cancel-portal)
 
@@ -119,7 +119,9 @@ This article presents common scenarios in the lifecycle of pre and post events (
 
 #### [REST API](#tab/cancel-rest)
 
-1. The cancellation flow is honored from T-40 when the premaintenance event is triggered until T-10. [Learn more](manage-pre-post-events.md#timeline-example). To invoke the cancelation API:
+1. The cancellation flow is honored from T-40 when the premaintenance event is triggered until T-10. [Learn more](manage-pre-post-events.md#timeline-example). 
+
+   To invoke the cancelation API:
    
    ```rest
    C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/<your-c-id-obtained-from-above>?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose
@@ -137,7 +139,7 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 
 :::image type="content" source="./media/pre-post-events-common-scenarios/cancelation-query.png" alt-text="Screenshot that shows the status of job that has been canceled by system or user." lightbox="./media/pre-post-events-common-scenarios/cancelation-query.png":::
 
-## Scenario 9 - Check the status of the maintenance configuration
+## Scenario 9 Check the status of the maintenance configuration
 
 #### [Azure portal](#tab/status-portal)
 
