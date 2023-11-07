@@ -175,22 +175,24 @@ az spring app create \
 
 ### 3.5. Create a Service Bus instance
 
+Use the following steps to create a Service Bus instance:
+
 1. Use the following command to create a Service Bus namespace:
 
-```azurecli
-az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
-```
+   ```azurecli
+   az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
+   ```
 
 1. Use the following commands to create two queues named `lower-case` and `upper-case`:
 
-```azurecli
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name lower-case
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name upper-case
-```
+   ```azurecli
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name lower-case
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name upper-case
+   ```
 
 ### 3.6. Connect app instance to Service Bus instance
 

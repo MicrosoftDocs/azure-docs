@@ -30,7 +30,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 [!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
-1. Select **Shared access policies** on the navigation menu and then select **RootManageSharedAccessKey**.
+8. Select **Shared access policies** on the navigation menu and then select **RootManageSharedAccessKey**.
 
 1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String** value, which is used to set up connections from the Spring app.
 
