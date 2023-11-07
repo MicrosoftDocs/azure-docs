@@ -23,7 +23,7 @@ In this release, an integration environment offers the following capabilities as
 
 - [Central organization and management](#central-resource)
 
-- [Business process design and tracking](#business-process-design-tracking)
+- [Business process modeling and tracking](#business-process-modeling-tracking)
 
 <a name="central-resource"></a>
 
@@ -51,14 +51,14 @@ The following table lists the currently supported Azure resources that you can a
 
 For more information about other Azure resource types planned for support, see the [Azure Integration Environments preview announcement](https://aka.ms/azure-integration-environments).
 
-<a name="business-process-design-tracking"></a>
+<a name="business-process-modeling-tracking"></a>
 
-## Business process design and tracking
+## Business process modeling and tracking
 
 > [!NOTE]
 >
-> In this release, business process design and tracking is available only 
-> for Standard logic app resources and their workflows in Azure Logic Apps. 
+> In this release, business process modeling and tracking is available only 
+> for Standard logic app resources and their workflows in Azure Logic Apps.
 
 Your integration environment provides a way for you to add business context about the transactions processed by Azure resources associated with your integration solutions. To describe this context, you define business processes and their stages using the process designer, and then map each stage to actual Azure resources. For your stakeholders, you can define key business data to capture and track as that data moves through the deployed resources. When you're done, you deploy each business process as a separate Azure resource along with a tracking profile that Azure adds to deployed resources. That way, you don't have to embed any tracking information in your resources and can decouple business process modeling from your implementation.
 
