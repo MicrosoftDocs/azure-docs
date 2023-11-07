@@ -9,11 +9,11 @@ ms.date: 10/22/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Restart Azure Operator Nexus Kubernetes Cluster Node
+# Restart Azure Operator Nexus Kubernetes cluster node
 
-Occasionally, a Nexus Kubernetes Node may become unreachable. This article explains how to restart the node via the `az networkcloud kubernetescluster restart-node` CLI command.
+Occasionally, a Nexus Kubernetes node might become unreachable. This article explains how to restart the node via the `az networkcloud kubernetescluster restart-node` CLI command.
 
-Restarting a Nexus Kubernetes Node can take up to 5 minutes to complete. However, if the Virtual Machine is in bad state, the restart action will eventually time out. Open an Azure support ticket for such instances.
+Restarting a Nexus Kubernetes node can take up to 5 minutes to complete. However, if the Virtual Machine is in bad state, the restart action will eventually time out. Open an Azure support ticket for such instances.
 
 ## Before you begin
 > [!NOTE]
