@@ -38,7 +38,7 @@ You should only engage DRR if:
 
 4. On the next **Problem** page, select the **severity** as A -Critical Impact and **Problem Type** as ‘Under attack.’
 
-    :::image type="content" source="./media/ddos-rapid-response/severity-and-problem-type.png" alt-text="Screenshot of choosing Severity and Problem Type":::
+    :::image type="content" source="./media/ddos-rapid-response/severity-and-problem-type.png" alt-text="Screenshot of choosing Severity and Problem Type.":::
 
 5. Complete additional details and submit the support request.
 
