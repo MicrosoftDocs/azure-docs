@@ -58,30 +58,29 @@ To view AKS costs from the Cost Management page:
 1. Select the **All views** tab, then under Customizable views, select a view under **Kubernetes views (preview)**.  
     :::image type="content" source="./media/view-kubernetes-costs/kubernetes-views.png" alt-text="Screenshot showing the Kubernetes views (preview) items." lightbox="./media/view-kubernetes-costs/kubernetes-views.png" :::
 
-### View cost from the Kubernetes cluster view
+## Kubernetes clusters view
 
 The Kubernetes clusters view shows the costs of all clusters in a subscription. With this view, you can drill down into namespaces or assets for a cluster. Select the **ellipsis** ( **…** ) to see the other views.
 
 :::image type="content" source="./media/view-kubernetes-costs/Kubernetes-clusters-view.png" alt-text="Screenshot showing the ellipsis item to show more views." lightbox="./media/view-kubernetes-costs/Kubernetes-clusters-view.png" :::
 
-### View cost from the Kubernetes namespaces view
+## Kubernetes namespaces view
 
 The Kubernetes namespaces view shows the costs of namespaces for the cluster along with Idle and System charges. Service charges, which represent the charges for Uptime SLA, are also shown.
 
 :::image type="content" source="./media/view-kubernetes-costs/kubernetes-namespaces-view.png" alt-text="Screenshot showing the Kubernetes namespaces view." lightbox="./media/view-kubernetes-costs/kubernetes-namespaces-view.png" :::
 
-### View cost from the Kubernetes assets view
+## Kubernetes assets view
 
 The Kubernetes assets view shows the costs of assets in a cluster categorized under one of the service categories: Compute, Networking, and Storage. The uptime SLA charges are under the Service category.
 
 :::image type="content" source="./media/view-kubernetes-costs/kubernetes-assets-view.png" alt-text="Screenshot showing the Kubernetes assets view." lightbox="./media/view-kubernetes-costs/kubernetes-assets-view.png" :::
 
-### View amortized costs
+## View amortized costs
 
 By default, all Kubernetes views show actual costs. You can view amortized costs by selecting **Customize** at the top of the view and then select **Amortize reservation and savings plan purchases**.
 
 :::image type="content" source="./media/view-kubernetes-costs/customize-view-amortize.png" alt-text="Screenshot showing the amortize display option." lightbox="./media/view-kubernetes-costs/customize-view-amortize.png" :::
-
 
 ## Next steps
 
