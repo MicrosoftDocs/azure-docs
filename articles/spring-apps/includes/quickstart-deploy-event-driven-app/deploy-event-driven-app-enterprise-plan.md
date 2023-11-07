@@ -36,11 +36,11 @@ Use the following steps to prepare the sample locally:
 
 ## 3. Prepare the cloud environment
 
-The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. The following sections describe how to create these resources.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-enterprise-azure-portal.md)]
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-environment-enterprise-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
