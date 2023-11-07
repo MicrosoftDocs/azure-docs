@@ -18,6 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - November 2023
   - [Azure Kubernetes Service backup is now generally available](#azure-kubernetes-service-backup-is-now-generally-available)
+  - [Save your MARS backup passphrase securely to Azure Key Vault is now generally available.](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-is-now-generally-available)
+  - [Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available](#update-rollup-1-for-microsoft-azure-backup-server-v4-is-now-generally-available)
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
@@ -82,6 +84,23 @@ AKS backup integrates with [Backup center](backup-center-overview.md) (with othe
 If you're running specialized database workloads in the AKS clusters in containers, you can achieve application consistent backups of those databases with Custom Hooks. Once the backup is complete, you can restore those databases in the original or alternate AKS cluster, in the same or different subscription.
 
 For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+
+## Save your MARS backup passphrase securely to Azure Key Vault is now generally available.
+
+Azure Backup now allows you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase with MARS agent.
+
+The MARS agent from Azure Backup requires a passphrase that you provide to encrypt the backups sent to and stored on Azure Recovery Services vault. This passphrase isn't shared with Microsoft and needs to be saved in a secure location to ensure that the backups can be retrieved if the server backed up with MARS goes down.
+
+For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+## Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available
+
+Azure Backup now provides Update Rollup 1 for Microsoft Azure Backup Server (MABS) V4.
+
+- It contains new features, such as item-level recovery from online recovery points for VMware VMs, support for Windows and Basic SMTP authentication for MABS email reports and alerts, and other enhancements.
+- It also contains stability improvements and bug fixes on MABS V4.
+
+For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
 
 ## SAP HANA instance snapshot backup support is now generally available
 
