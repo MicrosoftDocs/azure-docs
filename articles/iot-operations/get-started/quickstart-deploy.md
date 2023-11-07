@@ -18,7 +18,7 @@ In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enab
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator](../deploy/overview-orchestrator.md)
+* [Azure IoT Orchestrator](../deploy-custom-workloads/overview-orchestrator.md)
 * [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
@@ -31,7 +31,7 @@ The services deployed in this quickstart include:
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy/howto-prepare-cluster.md?tabs=codespaces). Using the Github codespace is the simplest way to get a new Kubernetes cluster, but you can use an existing environment like K3s or AKS Edge Essentials.
+* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-azure-iot-operations/howto-prepare-cluster.md?tabs=codespaces). Using the Github codespace is the simplest way to get a new Kubernetes cluster, but you can use an existing environment like K3s or AKS Edge Essentials.
 
   > [!IMPORTANT]
   > Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. However, the validated environments Microsoft supports for evaluation are K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows. The codespace option is intended for exploration only.

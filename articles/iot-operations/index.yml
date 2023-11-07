@@ -31,7 +31,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure IoT Operations
-            url: deploy/howto-deploy-iot-operations.md
+            url: deploy-azure-iot-operations/howto-deploy-iot-operations.md
           - text: Manage assets
             url: manage-devices-assets/overview-manage-assets.md
           - text: Manage MQTT connectivity

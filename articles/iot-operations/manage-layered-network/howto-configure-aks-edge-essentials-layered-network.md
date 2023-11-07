@@ -68,7 +68,7 @@ Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the c
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-aks-edge-essentials-layered-network/iot-operations-level-3-cluster.png)
 
-Follow the steps in [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster. You need to follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy/howto-prepare-cluster.md) for enabling custom location support.
+Follow the steps in [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-azure-iot-operations/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster. You need to follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-azure-iot-operations/howto-prepare-cluster.md) for enabling custom location support.
 
 ## Next steps
 
