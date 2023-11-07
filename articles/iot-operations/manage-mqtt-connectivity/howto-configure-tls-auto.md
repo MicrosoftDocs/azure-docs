@@ -14,7 +14,7 @@ ms.date: 10/29/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](howto-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
+You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](howto-configure-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
 ## Verify cert-manager installation
 
@@ -341,7 +341,7 @@ For production, you must configure a CA issuer with a certificate from a trusted
 
 ## Related content
 
-- About [BrokerListener resource](howto-brokerlistener.md)
+- About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)

@@ -70,7 +70,7 @@ items:
       - name: Configure availability and scale
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Secure MQTT communication endpoints
-        href: manage-mqtt-connectivity/howto-brokerlistener.md
+        href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
       - name: Configure automatic TLS
         href: manage-mqtt-connectivity/howto-configure-tls-auto.md
       - name: Configure manual TLS
@@ -81,8 +81,6 @@ items:
         href: manage-mqtt-connectivity/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-connectivity/howto-test-connection.md  
-      - name: Configure disk buffer
-        href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
       - name: Configure diagnostic settings
         href: manage-mqtt-connectivity/howto-configure-diagnostics.md
       - name: Manage secrets

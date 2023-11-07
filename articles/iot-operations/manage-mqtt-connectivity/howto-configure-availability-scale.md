@@ -87,7 +87,3 @@ Medium is the default profile.
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
-
-## Next step
-
-[Configure disk-backed message buffer behavior](./howto-configure-disk-buffer.md)
