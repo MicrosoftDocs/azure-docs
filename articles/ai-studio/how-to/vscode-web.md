@@ -1,12 +1,12 @@
 ---
 title: Get started with Azure AI projects in VS Code (Web)
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with Azure AI projects in VS Code (Web).
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

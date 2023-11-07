@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: tutorial
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

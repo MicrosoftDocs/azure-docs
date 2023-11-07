@@ -1,12 +1,12 @@
 ---
 title: Submit batch run and evaluate a flow
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Learn how to submit batch run and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Get started using GPT-4V on your images and video with the Azure AI Studio 
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Get started using GPT-4V on your images and video with the Azure AI Studio 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

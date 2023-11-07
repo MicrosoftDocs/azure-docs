@@ -1,12 +1,12 @@
 ---
 title: Explore the model catalog in Azure AI Studio
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: This article introduces foundation model capabilities and the model catalog in Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 
