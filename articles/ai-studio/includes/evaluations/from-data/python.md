@@ -5,7 +5,7 @@
  ms.author: eric-urban
  ms.service: azure-ai-services
  ms.topic: include
- ms.date: 10/1/2023
+ ms.date: 11/15/2023
  ms.custom: include
 ---
 

@@ -1,13 +1,12 @@
 ---
 title: How to create vector indexes
-titleSuffix: Azure AI services
-description: Learn how to create and use a vector index for performing Retrieval Augmented Generation (RAG)
-services: cognitive-services
+titleSuffix: Azure AI Studio
+description: Learn how to create and use a vector index for performing Retrieval Augmented Generation (RAG).
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 

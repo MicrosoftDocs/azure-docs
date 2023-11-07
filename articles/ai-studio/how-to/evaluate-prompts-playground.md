@@ -1,13 +1,12 @@
 ---
 title: How to evaluate from the Azure AI Studio playground 
-titleSuffix: Azure AI services
+titleSuffix: Azure AI Studio
 description: Quickly test and evaluate from the Azure AI Studio Playground.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/1/2023
+ms.date: 11/15/2023
 ms.author: eur
 ---
 
