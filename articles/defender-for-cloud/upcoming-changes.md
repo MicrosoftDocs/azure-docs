@@ -50,7 +50,24 @@ Today, there are four Service Level 2 names: Azure Defender, Advanced Threat Pro
 
 The change will simplify the process of reviewing Defender for Cloud charges and provide better clarity in cost analysis. 
 
-To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. No action is necessary from customers.
+To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. 
+
+Organizations that retrieve cost data by calling our APIs, will need to update the values in their calls to accomodate the change. For example, in this filter function, the values will return no information: 
+
+```json
+"filter": {
+          "dimensions": {
+              "name": "MeterCategory",
+              "operator": "In",
+              "values": [
+                  "Advanced Threat Protection",
+                  "Advanced Data Security",
+                  "Azure Defender",
+                  "Security Center"
+                ]
+          }
+      }
+```
 
 The change is planned to go into effect on December 1, 2023.
 
@@ -94,6 +111,13 @@ Once the recommendations are released for GA, they will be included in the secur
 
 > [!NOTE]
 > Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
+
+The below Qualys recommendations for Containers Vulnerability Assessment will be renamed and will continue to be availible for customers that enabled Defender for Containers on any of their subscriptions. New customers onboarding to Defender for Containers after November 15th will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management. 
+
+|Current recommendation name|New recommendation name|Description|Assessment key|
+|--|--|--|--|
+|Container registry images should have vulnerability findings resolved (powered by Qualys)|Azure registry container images should have vulnerabilities resolved (powered by Qualys)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |dbd0cb49-b563-45e7-9724-889e799fa648|
+|Running container images should have vulnerability findings resolved (powered by Qualys)|Azure running container images should have vulnerabilities resolved - (powered by Qualys)|Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.|41503391-efa5-47ee-9282-4eff6131462|
 
 ## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
 

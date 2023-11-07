@@ -50,7 +50,7 @@ Similar to the integration of Langchain with prompt flow, Semantic Kernel, which
 To learn more, see [Customize environment for runtime](./how-to-customize-environment-runtime.md) for guidance.
 
 > [!IMPORTANT]
-> The approach to consume OpenAI or Azure OpenAI in Semantic Kernel is to to obtain the keys you have specified in environment variables or stored in a `.env` file.
+> The approach to consume OpenAI or Azure OpenAI in Semantic Kernel is to obtain the keys you have specified in environment variables or stored in a `.env` file.
 
 In prompt flow, you need to use **Connection** to store the keys. You can convert these keys from environment variables to key-values in a custom connection in prompt flow. 
 
