@@ -243,7 +243,7 @@ Azure extensions are currently disabled by default for Debian images (more detai
 sed -i -e 's/^Extensions\.Enabled =.* $/Extensions.Enabled=y/" /etc/waagent.conf
 ```
 
-![Screenshot of the cloud init input field for new Linux VMs](./media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png)
+:::image type="content" source="./media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png" alt-text="Screenshot of the cloud init input field for new Linux VMs.":::
 
 Alternatively, you can enable hibernation on the guest by [installing the hibernation-setup-tool](hibernate-resume.md#option-2-hibernation-setup-tool).
 
