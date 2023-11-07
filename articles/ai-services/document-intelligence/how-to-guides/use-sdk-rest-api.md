@@ -43,7 +43,7 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-read](../concept-read.md) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
 >
-> - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
+> - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images. You can extract key/value pairs using the layout model with the optional query string parameter **`features=keyValuePairs`** enabled.
 >
 > - The [prebuilt-contract](../concept-contract.md) model extracts key information from contractual agreements.
 >
@@ -64,8 +64,6 @@ Choose from the following Document Intelligence models to analyze and extract da
 > - The [prebuilt-receipt](../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 >
 > - The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US drivers licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
->
-> - The [prebuilt-businessCard](../concept-business-card.md) model extracts key information from business cards.
 
 ::: moniker-end
 
