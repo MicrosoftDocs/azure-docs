@@ -72,7 +72,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. Select the virtual machine scale set resource that you want to use in the experiment. Select **Next: Scope**.
 
    [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
-1. Select the zone(s) within your virtual machine scale set you would like to take down. If no zones are selected, they will all be taken down. Select **Save**.
+1. Select the zone(s) within your virtual machine scale set you would like to take down. If no zones are selected, they are all taken down by the fault. Select **Save**.
 
    [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/templates-az-down-scope.png)](images/templates-az-down-scope.png#lightbox)
 1. Select **Review + create** > **Create** to save the experiment.
