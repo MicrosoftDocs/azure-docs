@@ -75,14 +75,14 @@ Usually, notifications and messages are sent out before and during the maintenan
 
 ## Maintenance frequency
 
-Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every three months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
+Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every three months. For a detailed maintenance timeline, check the notifications on the [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health) page.
 
 ## Rules and limitations 
 
 ### Rules
 
 - When you configure planned maintenance for multiple service instances in the same region, the maintenance takes place within the same week. For example, if maintenance for cluster A is set on Monday and cluster B on Sunday, then cluster A is maintained before cluster B, in the same week.
-- If you have two service instances span across Azure paired regions, the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information. 
+- If you have two service instances span across [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information. 
 - Length of time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 - 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
 
 ### Limitations
