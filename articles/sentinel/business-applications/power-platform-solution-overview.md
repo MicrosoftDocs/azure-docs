@@ -47,7 +47,7 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 |Microsoft Power Automate (Preview)     |  Power Automate activity logs  <br><br>For more information, see [View Power Automate audit logs](/power-platform/admin/logging-power-automate).     |   PowerAutomateActivity      |
 |Microsoft Power Platform Connectors (Preview)    |   Power Platform connector activity logs  <br><br>For more information, see [View the Power Platform connector activity logs](/power-platform/admin/connector-events-power-platform).      |     PowerPlatformConnectorActivity    |
 |Microsoft Power Platform DLP (Preview)     |     Data loss prevention activity logs  <br><br>For more information, see [Data loss prevention activity logging](/power-platform/admin/dlp-activity-logging).   |    PowerPlatformDlpActivity     |
-|Microsoft Dataverse  |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).    |   Dynamics365Activity      |
+|Microsoft Dataverse (Dynamics 365) (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).    |   DataverseActivity      |
 
 ### Analytic rules
 
