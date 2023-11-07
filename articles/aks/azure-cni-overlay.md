@@ -202,7 +202,7 @@ az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayDua
 az provider register --namespace Microsoft.ContainerService
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### Create a dual-stack AKS cluster
 
 1. Create an Azure resource group for the cluster using the [`az group create`][az-group-create] command.
 
@@ -218,6 +218,8 @@ az provider register --namespace Microsoft.ContainerService
       --network-plugin-mode overlay \
       --ip-families ipv4,ipv6
     ```
+
+---
 
 ## Create an example workload
 
