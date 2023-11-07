@@ -59,7 +59,7 @@ On the **Security** page of the **Create Topic**  or **Create Event Grid Domain*
 1. In the **Select user assigned identity** window, select the subscription that has the user-assigned identity, select the **user-assigned identity**, and then click **Select**. 
 
     :::image type="content" source="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png" alt-text="Screenshot of the Identity page with user assigned identity option selected." lightbox="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png":::
-1. To disable local authentication, select **Disabled**. When you do it, the topic or domain can't be accessed using accesskey and SAS authentication, but only via Azure AD authentication.
+1. To disable local authentication, select **Disabled**. When you do it, the topic or domain can't be accessed using accesskey and SAS authentication, but only via Microsoft Entra authentication.
 
     :::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
 1. Select **Advanced** at the bottom of the page to switch to the **Advanced** page. 

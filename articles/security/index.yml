@@ -237,7 +237,7 @@ additionalContent:
             - url: /azure/information-protection/tutorial-scan-networks-and-content
               text: Discovering your sensitive content
 
-        - title: Azure Active Directory
+        - title: Microsoft Entra ID
           summary: Multi-tenant, cloud-based identity and access management service
           links: 
             - url: ../active-directory/fundamentals/active-directory-whatis.md
@@ -245,7 +245,7 @@ additionalContent:
             - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
             - url: /training/modules/secure-aad-users-with-mfa/
-              text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
+              text: "Learn: Secure Microsoft Entra users with Multi-Factor Authentication"
 
         - title: Microsoft 365 Defender
           summary: Security solutions that protect your enterprise across attack surfaces

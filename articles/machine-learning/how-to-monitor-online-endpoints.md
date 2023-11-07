@@ -112,7 +112,7 @@ Azure Monitor allows you to create dashboards and alerts, based on metrics.
 
 #### Create dashboards and visualize queries
 
-You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/tutorial-app-dashboards.md).
+You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
     
 #### Create alerts
 

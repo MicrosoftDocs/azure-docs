@@ -46,7 +46,7 @@ To work with blob and container resources in a storage account, install the [azb
 ```console
 go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
-To authenticate with Azure Active Directory (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
+To authenticate with Microsoft Entra ID (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
 ```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
@@ -64,7 +64,9 @@ To learn more about the order and locations in which `DefaultAzureCredential` lo
 
 For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Once it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
 
-### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
@@ -72,7 +74,7 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. The following example shows how to authenticate via the Azure CLI:
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. The following example shows how to authenticate via the Azure CLI:
 
     ```azurecli
     az login
@@ -140,7 +142,7 @@ Next, we walk through the sample code to understand how it works.
 Working with any Azure resource using the SDK begins with creating a client object. To create the client object, the code sample calls [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient) with the following values:
 
 - **serviceURL** - the URL of the storage account
-- **cred** - an Azure AD credential obtained via the `azidentity` module
+- **cred** - a Microsoft Entra credential obtained via the `azidentity` module
 - **options** - client options; pass nil to accept the default values
 
 The following code example creates a client object to interact with container and blob resources in a storage account:

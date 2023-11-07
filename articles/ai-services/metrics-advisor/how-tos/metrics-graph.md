@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # How-to: Build a metrics graph to analyze related metrics
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Each time series in Metrics Advisor is monitored separately by a model that learns from historical data to predict future trends. Anomalies will be detected if any data point falls out of the historical pattern. In some cases, however, several metrics may relate to each other, and anomalies need to be analyzed across multiple metrics. **Metrics graph** is just the tool that helps with this. 
 
 For example, if you have several metrics that monitor your business from different perspectives, anomaly detection will be applied respectively. However, in the real business case, anomalies detected on multiple metrics may have a relation with each other, discovering those relations and analyzing root cause base on that would be helpful when addressing real issues. The metrics graph helps automatically correlate anomalies detected on related metrics to accelerate the troubleshooting process. 

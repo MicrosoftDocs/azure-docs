@@ -11,6 +11,8 @@ ms.date: 04/29/2020
 
 # Configure Personalizer learning loop
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
 Configure the learning loop on the **Configuration** page, in the Azure portal for that Personalizer resource.

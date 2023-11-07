@@ -31,7 +31,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. | | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `auth_mode` | string | The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based authentication is supported. | `aad_token` | `aad_token` |
+| `auth_mode` | string | The authentication method for the endpoint. Currently only Microsoft Entra token-based authentication is supported. | `aad_token` | `aad_token` |
 | `defaults` | object | Default settings for the endpoint. | | |
 | `defaults.deployment_name` | string | Name of the deployment that will serve as the default deployment for the endpoint. | | |
 

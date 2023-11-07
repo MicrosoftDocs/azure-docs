@@ -208,7 +208,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 
 - Updated Application Insights .NET/.NET Core SDK to 2.20.1 - red field.
 - Enabled SQL query collection.
-- Enabled support for Azure Active Directory authentication.
+- Enabled support for Microsoft Entra authentication.
 
 ### 2.8.42
 

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 10/04/2023
 ---
 
 # Transform XML in workflows with Azure Logic Apps
@@ -107,9 +107,9 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 ## Advanced capabilities
 
-### Reference assembly or custom code from maps
+### Reference assemblies or call custom code from maps
 
-The **Transform XML** action supports maps that reference an external assembly. For more information, review [Add XSLT maps for workflows in Azure Logic Apps](logic-apps-enterprise-integration-maps.md#add-assembly).
+The **Transform XML** action supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps. For more information, see [Add XSLT maps for workflows in Azure Logic Apps](logic-apps-enterprise-integration-maps.md).
 
 ### Byte order mark
 

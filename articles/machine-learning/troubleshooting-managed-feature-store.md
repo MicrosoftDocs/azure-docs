@@ -406,7 +406,7 @@ Code: AuthorizationFailed
 #### Solution:
 
 1. If the feature retrieval job is using a managed identity, assign the `AzureML Data Scientist` role on the feature store to the identity.
-1. If it happens when user runs code in an Azure Machine Learning Spark notebook, which uses the user's own identity to access the Azure Machine Learning service, assign the `AzureML Data Scientist` role on the feature store to the user's Azure Active Directory identity.
+1. If it happens when user runs code in an Azure Machine Learning Spark notebook, which uses the user's own identity to access the Azure Machine Learning service, assign the `AzureML Data Scientist` role on the feature store to the user's Microsoft Entra identity.
 
 `AzureML Data Scientist` is a recommended role. User can create their own custom role with the following actions
 - Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action

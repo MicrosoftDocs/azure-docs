@@ -100,8 +100,8 @@ Name | Description
 `Timestamp` | Aggregation time.
 `Status` | Status of the activity (success or failure).
 `Protocol` | Type of the protocol associated with the operation.
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy).
+`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource.
 `NetworkType` | Type of the network access: `Public` or `Private`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 

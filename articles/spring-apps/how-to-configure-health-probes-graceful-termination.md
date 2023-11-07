@@ -204,7 +204,7 @@ Use the following best practices when adding health probes to Azure Spring Apps:
 
 - When an app instance starts, the first check occurs after the delay specified by `initialDelaySeconds`. Subsequent checks occur periodically, according to the period length specified by `periodSeconds`. If the app fails to respond to the requests for several times as specified by `failureThreshold`, the app instance is restarted. Make sure your application can start fast enough, or update these parameters, so that the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 
-- For Spring Boot applications, Spring Boot shipped with the [Health Groups](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups) support, allowing developers to select a subset of health indicators and group them under a single, correlated health status. For more information, see [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot) on the Spring Blog.
+- For Spring Boot applications, Spring Boot is shipped with the [Health Groups](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html#actuator.endpoints.health.groups) support, allowing developers to select a subset of health indicators and group them under a single, correlated health status. For more information, see [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot) on the Spring Blog.
 
   The following example shows a liveness probe with Spring Boot:
 

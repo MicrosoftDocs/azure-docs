@@ -46,7 +46,7 @@ You can set up your deployment manually by following these tutorials:
 
 If you'd prefer an automatic process, you can use the getting started feature to set up your deployment for you. For more information, check out these articles:
 
-- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions for existing Azure AD DS or AD DS. This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
+- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions for existing Microsoft Entra Domain Services or AD DS. This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Microsoft Entra Domain Services or AD DS doesn't give you these benefits.)
 - [Troubleshoot the getting started feature](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Customize and manage Azure Virtual Desktop
@@ -55,7 +55,7 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 
 - [How to host custom apps with Azure Virtual Desktop](custom-apps.md)
 - [Enroll your subscription in per-user access pricing](per-user-access-pricing.md)
-- [How to use Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to use Microsoft Entra ID](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 - [Using Windows 10 virtual machines with Intune](/mem/intune/fundamentals/windows-10-virtual-machines)
 - [How to deploy an app using MSIX app attach](msix-app-attach.md)
 - [Use Azure Virtual Desktop Insights to monitor your deployment](../insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)

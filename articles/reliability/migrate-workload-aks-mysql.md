@@ -86,9 +86,11 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 *Zone-redundant*: Azure Cache for Redis supports zone-redundant configurations in the Premium and Enterprise tiers. A zone-redundant cache places its nodes across different availability zones in the same region. 
 
-#### Azure Active Directory (AD)
+<a name='azure-active-directory-ad'></a>
 
-*Global*: Azure AD is a global service with multiple levels of internal redundancy and automatic recoverability. Azure AD is deployed in over 30 datacenters around the world that provide  availability zones where present. This number is growing rapidly as more regions are deployed. 
+#### Microsoft Entra ID
+
+*Global*: Microsoft Entra ID is a global service with multiple levels of internal redundancy and automatic recoverability. Microsoft Entra ID is deployed in over 30 datacenters around the world that provide  availability zones where present. This number is growing rapidly as more regions are deployed. 
 
 #### Azure Key Vault 
 

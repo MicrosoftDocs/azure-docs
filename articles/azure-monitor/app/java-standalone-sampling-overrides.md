@@ -188,12 +188,9 @@ those are also collected for all '/login' requests.
 
 ## Span attributes available for sampling
 
-Span attribute names are based on the OpenTelemetry semantic conventions:
+Span attribute names are based on the OpenTelemetry semantic conventions. (HTTP, Messaging, Database, RPC)
 
-* [HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
-* [Messaging](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/messaging.md)
-* [Database](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md)
-* [RPC](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/rpc.md)
+https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md
 
 To see the exact set of attributes captured by Application Insights Java for your application, set the
 [self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting

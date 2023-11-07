@@ -73,7 +73,7 @@ landingContent:
           - text: Connect to Flexible server using PHP
             url: flexible-server/connect-php.md
           - text: Connect to Flexible server using Azure Data Studio
-            url: /sql/azure-data-studio/quickstart-mysql
+            url: /azure-data-studio/quickstart-mysql
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 

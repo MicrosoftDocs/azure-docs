@@ -53,13 +53,13 @@ For any of the following, ExpressRoute connectivity is recommended for a migrati
 Downtime during a migration depends on the size of the database to be migrated and the speed of the private network connection to Azure cloud.
 Migration of SQL Server Failover Cluster Instances Always On to Azure VMware Solution requires a full downtime of the database and all cluster nodes, however you should plan for the migration to be executed during off-peak hours with an approved change window.
 
-The table below indicates the downtime for each Microsoft SQL Server topology.
+The following table indicates the estimated downtime for migration of each SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | Low | Migration will be done using vMotion, the database will be available during migration time, but it isn't recommended to commit any critical data during it. |
-| **Always-On SQL Server Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Always On SQL Server Failover Cluster Instance** | High | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
+| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
+| **SQL Server Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **SQL Server Always On Failover Customer Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
