@@ -65,13 +65,13 @@ The following solution snippet demonstrates installing a Helm chart using the He
 {
   "components": [
     {
-      "name": "e4i-opcua-connector",
+      "name": "simple-chart",
       "type": "helm.v3",
       "properties": {
         "chart": {
-          "repo": "alicesprings.azurecr.io/helm/az-e4i-opcua-connector",
-          "name": "e4i-opcua-connector",
-          "version": "0.7.0"
+          "repo": "oci://azureiotoperations.azurecr.io/simple-chart",
+          "name": "simple-chart",
+          "version": "0.1.0"
         },
         "values": {
           "e4iNamespace": "default",
