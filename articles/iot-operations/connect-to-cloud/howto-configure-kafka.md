@@ -96,7 +96,7 @@ MQ_EXTENSION_NAME=xxx
 CLUSTER_NAME=xxx
 
 # Event Hubs namespace name
-EVENTHUB_NAMESPACE
+EVENTHUB_NAMESPACE=xxx
 
 
 az deployment group create \
