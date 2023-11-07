@@ -286,7 +286,7 @@ To improve the restart time, we recommend that you perform scale operations duri
 
 Changing the backup retention period is an online operation.
 
-## Near Zero Downtime Scaling 
+## Near-zero downtime scaling 
 
 Near Zero Downtime Scaling is a feature designed to minimize downtime when modifying storage and compute tiers. If you modify the number of vCores or change the compute tier, the server undergoes a restart to apply the new configuration. During this transition to the new server, no new connections can be established. This process with regular scaling could take anywhere from 2 to 10 minutes. However, with the new Near Zero Downtime Scaling feature this duration has been reduced to less than 30 seconds. This significant decrease in downtime greatly improves the overall availability of your flexible server workloads.
 
