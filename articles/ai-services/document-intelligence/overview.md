@@ -413,12 +413,13 @@ You can use Document Intelligence to automate document processing in application
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099 form variations.|&#9679; [**Document Intelligence Studio**]()</br>&#9679; [**REST API**]()
+|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099 form variations.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
 ::: moniker range="<=doc-intel-3.1.0"
+
 ### Business card
 
 :::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
