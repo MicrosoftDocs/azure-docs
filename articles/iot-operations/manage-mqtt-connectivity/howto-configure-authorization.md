@@ -167,7 +167,7 @@ To learn more with an example, see [Set up Authorization Policy with Dapr Client
 
 ## Key-value Store
 
-Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
+Azure IoT MQ Broker provides a distributed key-value (KV) store that clients can use as a state store. The KV store can also be configured to be highly available.
 
 To set up authorization for clients that use the key-value store, give it:
 
@@ -205,7 +205,7 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 ## Related content
 
-- About [BrokerListener resource](concept-brokerlistener.md)
+- About [BrokerListener resource](howto-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

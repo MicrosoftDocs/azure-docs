@@ -64,8 +64,10 @@ items:
       items:
       - name: Overview
         href: manage-mqtt-connectivity/overview-iot-mq.md
+      - name: Configure availability and scale
+        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Secure communication using BrokerListener
-        href: manage-mqtt-connectivity/concept-brokerlistener.md
+        href: manage-mqtt-connectivity/howto-brokerlistener.md
       - name: Configure automatic TLS
         href: manage-mqtt-connectivity/howto-configure-tls-auto.md
       - name: Configure manual TLS
@@ -76,8 +78,6 @@ items:
         href: manage-mqtt-connectivity/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-connectivity/howto-test-connection.md  
-      - name: Configure availability and scale
-        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
         href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
       - name: Configure diagnostic settings
@@ -182,8 +182,6 @@ items:
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Developer guide
       items:
-      - name: About the MQ state store
-        href: develop/concept-about-state-store.md
       - name: About the MQ state store protocol 
         href: develop/concept-about-state-store-protocol.md
       - name: About distributed apps
@@ -192,8 +190,6 @@ items:
         href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps
         href: develop/howto-develop-mqttnet-apps.md
-      - name: Develop Node-RED apps
-        href: develop/howto-develop-node-red-apps.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Known issues

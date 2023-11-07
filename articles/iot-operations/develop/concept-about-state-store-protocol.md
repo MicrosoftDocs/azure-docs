@@ -284,5 +284,4 @@ Clients being able to write keys for which they don't actually own the lock, is 
 ## Related content
 
 - [Azure IoT MQ overview](../manage-mqtt-connectivity/overview-iot-mq.md)
-- [Azure IoT MQ state store](concept-about-state-store.md)
 - [Develop with Azure IoT MQ](concept-about-distributed-apps.md)
