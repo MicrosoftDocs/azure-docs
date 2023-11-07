@@ -20,7 +20,7 @@ ms.date: 11/15/2023
 
 The NCads H100 v5 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
 
-The NCads H100 v5 series is powered by NVIDIA H100 NVL GPU and 4rd-generation AMD EPYC™ Genoa processors.  The VMs feature up to 2 NVIDIA H100 NVL GPUs with 94GB memory each, up to 80 non-multithreaded AMD EPYC Milan processor cores and 640 GiB of system memory. 
+The NCads H100 v5 series is powered by NVIDIA H100 NVL GPU and 4th-generation AMD EPYC™ Genoa processors.  The VMs feature up to 2 NVIDIA H100 NVL GPUs with 94GB memory each, up to 80 non-multithreaded AMD EPYC Milan processor cores and 640 GiB of system memory. 
 These VMs are ideal for real-world Applied AI workloads, such as: 
 
 - GPU-accelerated analytics and databases
