@@ -125,7 +125,11 @@ You should complete this step in an *internet facing environment outside of the 
 
 ## Create the K3S cluster
 
-1. [Install the K3S with online command](https://docs.k3s.io/quick-start).
+1. Install K3S with the following command:
+    ```bash
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    ```
+    > It is important to disable treafik with the command above. Otherwise, there could be issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
     As an alternative, you can configure the K3S offline using the steps in the [Air-Gap Install](https://docs.k3s.io/installation/airgap) documentation *after* you move the device to the isolated network environment.
 1. Copy the K3s configuration yaml file to `.kube/config`.
