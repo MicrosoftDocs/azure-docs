@@ -14,13 +14,15 @@ This article explains how to restore an Azure PostgreSQL -flex server backed up 
 
 ## Restore Azure PostgreSQL-Flexible database
 
+Follow these steps:
+
 1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL-Flex server to be restored and select **Restore**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/restore.png" alt-text="Screenshot showing how to restore a database.":::
 
-   Alternatively, you can go to [Backup center](./backup-center-overview.md) and select **Restore**.	  
+   Alternatively, go to [Backup center](./backup-center-overview.md) and select **Restore**.	  
   
-1. Select the point in time you would like to restore by using **Select restore point**. You can change the date range by selecting **Time period**.
+1. Select the point in time you would like to restore by using **Select restore point**. Change the date range by selecting **Time period**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point.":::
 
