@@ -24,6 +24,10 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
+      - name: Deploy from artifact
+        items:
+        - name: Command line
+          href: deploy-artifact.md
       - name: Run a job
         items:
         - name: Azure portal

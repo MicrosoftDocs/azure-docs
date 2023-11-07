@@ -21,11 +21,13 @@ Services available as an add-on include:
 
 | Title | Service name |
 |---|---|
-| Kafka | `kafka` |
-| MariaDB | `mariadb` |
-| Open-source PostgreSQL | `postgres` |
-| Qdrant | `qdrant` |
-| Open-source Redis | `redis` |
+| [Kafka](https://kafka.apache.org/) | `kafka` |
+| [MariaDB](https://mariadb.org/) | `mariadb` |
+| [Milvus](https://milvus.io/) | `milvus` |
+| [PostgreSQL](https://www.postgresql.org/) (open source) | `postgres` |
+| [Qdrant](https://qdrant.tech/) | `qdrant` |
+| [Redis](https://redis.io/) (open source) | `redis` |
+| [Weaviate](https://weaviate.io/) | `weaviate` |
 
 You can get most recent list of add-on services by running the following command:
 
@@ -77,7 +79,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `container app create service` command with the service name to create a new service.
+Use the `containerapp service <SERVICE_TYPE> create` command with the service type and name to create a new service.
 
 ``` CLI
 az containerapp service redis create \
