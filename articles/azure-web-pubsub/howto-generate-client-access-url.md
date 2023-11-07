@@ -200,7 +200,8 @@ You can enable Microsoft Entra ID in your service and use the Microsoft Entra to
 2. Follow [Get Microsoft Entra token](./howto-authorize-from-application.md#use-postman-to-get-the-microsoft-entra-token) to get the Microsoft Entra token with Postman.
 3. Use the Microsoft Entra token to invoke `:generateToken` with Postman:
    
-   [!NOTE] Please use the latest version of Postman. Old versions of Postman have [some issue](https://github.com/postmanlabs/postman-app-support/issues/3994#issuecomment-893453089) supporting colon `:` in path.
+   > [!NOTE]
+   > Please use the latest version of Postman. Old versions of Postman have [some issue](https://github.com/postmanlabs/postman-app-support/issues/3994#issuecomment-893453089) supporting colon `:` in path.
 
    1. For the URI, enter `https://{Endpoint}/api/hubs/{hub}/:generateToken?api-version=2022-11-01`
    2. On the **Auth** tab, select **Bearer Token** and paste the Microsoft Entra token fetched in the previous step
