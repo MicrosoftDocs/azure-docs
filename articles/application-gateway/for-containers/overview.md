@@ -109,7 +109,7 @@ ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/refe
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this API |
 
 > [!Note]
-> v1beta1 documentation has been removed within official Gateway API documentation, however the links to the v1 documentation are still highly relevent. ALB Controller will release official support for Gateway API v1 in an upcoming release.
+> v1beta1 documentation has been removed within official Gateway API documentation, however the links to the v1 documentation are still highly relevent.
 
 ### Implementation of Ingress API
 

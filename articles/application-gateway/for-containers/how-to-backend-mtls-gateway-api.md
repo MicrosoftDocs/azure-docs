@@ -266,7 +266,7 @@ spec:
 EOF
 ```
 
-Once the BackendTLSPolicy object has been create check the status on the object to ensure that the policy is valid.
+Once the BackendTLSPolicy object has been created check the status on the object to ensure that the policy is valid.
 
 ```bash
 kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml

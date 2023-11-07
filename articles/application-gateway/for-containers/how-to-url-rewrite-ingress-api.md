@@ -250,10 +250,6 @@ kubectl get IngressExtension url-rewrite -n test-infra -o yaml
 
 Verify the Application Gateway for Containers resource is successfully updated for the IngressExtension.
 
-```yaml
-TODO: Replace
-  ```
-
 ## Test access to the application
 
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.

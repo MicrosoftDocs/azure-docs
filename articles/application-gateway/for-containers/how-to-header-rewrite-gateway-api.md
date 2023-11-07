@@ -1,5 +1,5 @@
 ---
-title: Header Rewrite for Azure Application Gateway for Containers - Gateway API
+title: Header rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite headers in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
@@ -10,7 +10,7 @@ ms.date: 11/07/2023
 ms.author: greglin
 ---
 
-# Header Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
+# Header rewrite for Azure Application Gateway for Containers - Gateway API (preview)
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
 

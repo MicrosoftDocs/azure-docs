@@ -1,5 +1,5 @@
 ---
-title: Header Rewrite for Azure Application Gateway for Containers - Ingress API
+title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
@@ -10,7 +10,7 @@ ms.date: 11/6/2023
 ms.author: greglin
 ---
 
-# Header Rewrite for Azure Application Gateway for Containers - Ingress API (preview)
+# Header rewrite for Azure Application Gateway for Containers - Ingress API (preview)
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
 
@@ -207,10 +207,6 @@ kubectl get IngressExtension header-rewrite -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
-
-```yaml
-TODO: Replace
-```
 
 ## Test access to the application
 
