@@ -57,7 +57,7 @@ Prepare your environment for the Azure CLI.
 
  This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Microsoft Entra user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
 
-Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in [with your Microsoft Entra user](#1-grant-database-access-to-azure-ad-user). 
+Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in with your Microsoft Entra user. 
 
 # [Visual Studio Windows](#tab/windowsclient)
 
@@ -111,7 +111,7 @@ You're now ready to develop and debug your app with the SQL Database as the back
 
 ## 5. Test and publish
 
-1. Run your code in your dev environment. Your code uses the [signed-in Microsoft Entra user](#1-grant-database-access-to-azure-ad-user)) in your environment to connect to the back-end database. The user can access the database because it's configured as a Microsoft Entra administrator for the database.
+1. Run your code in your dev environment. Your code uses the signed-in Microsoft Entra user in your environment to connect to the back-end database. The user can access the database because it's configured as a Microsoft Entra administrator for the database.
 
 1. Publish your code to Azure using the preferred publishing method. In App Service, your code uses the app's managed identity to connect to the back-end database.
 
