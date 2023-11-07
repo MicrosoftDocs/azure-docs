@@ -26,8 +26,8 @@ Make sure you have the latest version of [necessary Azure CLI extensions](./howt
 
 ### Get node name
 In order to restart the cluster VM, node-name is required, which can be obtained through
-1. az CLI command  `az networkcloud kubernetescluster show --name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName` lists the details of the node. 
-2. Alternatively, `kubectl get node` lists the nodes. 
+- The az CLI command  `az networkcloud kubernetescluster show --name "kubernetesClusterName" --resource-group "resourceGroupName" --subscription "subscriptionName` lists the details of the node. 
+- Alternatively, `kubectl get node` lists the nodes. 
 
 ### Run the CLI command to restart the Nexus Kubernetes cluster node
 
@@ -38,10 +38,10 @@ az networkcloud kubernetescluster restart-node --node-name "nodeName" --kubernet
 ```
 To use this command, you need to understand the various options for specifying the node, Nexus Kubernetes cluster, and resource group. Here are the available options:
 
-1. `--node-name` - is a required argument that specifies the name of the node that you want to restart within the Nexus Kubernetes cluster. You must provide the exact name of the node that you want to restart.
-2. `--kubernetes-cluster-name` - is a required argument that specifies the name of the Nexus Kubernetes cluster that the node is a part of. You must provide the exact name of the cluster.
-3. `--resource-group` - is a required argument that specifies the name of the resource group that the Nexus Kubernetes cluster is located in. You must provide the exact name of the resource group.
-4. `--subscription` - is an optional argument that specifies the subscription that the resource group is located in. If you have multiple subscriptions, you have to specify which one to use.
+- `--node-name` - is a required argument that specifies the name of the node that you want to restart within the Nexus Kubernetes cluster. You must provide the exact name of the node that you want to restart.
+- `--kubernetes-cluster-name` - is a required argument that specifies the name of the Nexus Kubernetes cluster that the node is a part of. You must provide the exact name of the cluster.
+- `--resource-group` - is a required argument that specifies the name of the resource group that the Nexus Kubernetes cluster is located in. You must provide the exact name of the resource group.
+- `--subscription` - is an optional argument that specifies the subscription that the resource group is located in. If you have multiple subscriptions, you have to specify which one to use.
 
 
 Sample output is as followed:
