@@ -49,9 +49,12 @@ You can test the following scenarios through the Azure portal and REST API
         
   > [!NOTE]
   > - When you import a package, it might take several minutes. 100MB is the maximum total size of the files that you can import.
-  > - Use *.zip* files for PowerShell runbook types. 
-    > - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64.  
-    > - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.  
+  > - Use *.zip* files for PowerShell runbook types.
+    > 
+    > - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64
+    >
+    > - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
+    >  
     > - For Python 3.10 (preview) packages, use .whl files targeting cp310 Linux OS.
   
 1. Select **Next** and in the **Review + Create** tab, verify that the settings are correct. When you select **Create**, Azure runs validation on Runtime environment settings that you have chosen. If the validation passes, you can proceed to create Runtime environment else, the portal indicates the settings that you need to modify.
@@ -266,7 +269,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 } 
 ```
 > [!NOTE]
-> The View/Delete calls for runbook remains same and can be referenced [Runbook - REST API (Azure Automation) | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/runbook?view=rest-automation-2019-06-01).
+> The View/Delete calls for runbook remains same and can be referenced [Runbook - REST API Azure Automation | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/runbook?view=rest-automation-2019-06-01).
 
 ---
 
