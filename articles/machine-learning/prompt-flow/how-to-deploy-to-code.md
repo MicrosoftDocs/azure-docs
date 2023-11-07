@@ -1,5 +1,5 @@
 ---
-title: Deploy a flow to online endpoint for real-time inference with CLI
+title: Deploy a flow in prompt flow to online endpoint for real-time inference with CLI
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy your flow to a managed online endpoint or Kubernetes online endpoint in Azure Machine Learning prompt flow.
 services: machine-learning
@@ -19,8 +19,8 @@ In this article, you'll learn to deploy your flow to a [managed online endpoint]
 
 Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](how-to-bulk-test-evaluate-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
 
-- For the **CLI** experience, all the sample yaml files can be found in the [Prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
-- For the **Python SDK** experience, sample notebook is [Prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
+- For the **CLI** experience, all the sample yaml files can be found in the [prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
+- For the **Python SDK** experience, sample notebook is [prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
 ## Prerequisites
 
@@ -115,6 +115,11 @@ compute: azureml:<Kubernetes compute name>
 auth_mode: key
 ```
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ---
 
 | Key | Description |
@@ -132,7 +137,6 @@ identity:
   user_assigned_identities:
     - resource_id: user_identity_ARM_id_place_holder
 ```
-
 > [!IMPORTANT]
 >
 > You need to give the following permissions to the user-assigned identity **before create the endpoint**. Learn more about [how to grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
