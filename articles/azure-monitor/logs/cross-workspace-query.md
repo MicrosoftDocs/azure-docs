@@ -2,8 +2,8 @@
 title: Query across resources with Azure Monitor  | Microsoft Docs
 description: This article describes how you can query against resources from multiple workspaces and an Application Insights app in your subscription.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 05/30/2023
 
 ---
