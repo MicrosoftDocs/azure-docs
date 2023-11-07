@@ -67,7 +67,7 @@ After you receive confirmation that your subscription is allowlisted, you can us
 
 ## Configure external storage address block
 
-Start by providing an IP block for deploying external storage. You can do this by navigating to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
+Start by providing an IP block for deploying external storage. Navigate to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
 
 :::image type="content" source="media/configure-azure-elastic-san/configure-external-storage-address-block.png" alt-text="Screenshot showing External storage address block tab." border="false"lightbox="media/configure-azure-elastic-san/configure-external-storage-address-block.png":::
 
