@@ -1,5 +1,5 @@
 ---
-title: How to Configure Planned Maintenance
+title: How to configure planned maintenance for Azure Spring Apps
 description: Describes how to configure planned maintenance for Azure Spring Apps.
 author: KarlErickson
 ms.author: haochuang
@@ -57,10 +57,12 @@ az spring update \
     --planned-maintenance-start-hour $START_HOUR
 ```
 
+---
+
 Updating the configuration can take a few minutes. You get a notification when the configuration is complete.
 
 > [!NOTE]
-> If you don't configure planned maintenace, the maintenance takes place at a time chosen by the service team, with the best effort to minimize business risks for most customers.
+> If you don't configure planned maintenance, the maintenance takes place at a time chosen by the service team, with the best effort to minimize business risks for most customers.
 
 ## Manage maintenance notification
 

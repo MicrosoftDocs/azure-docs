@@ -201,6 +201,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
@@ -413,6 +415,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
