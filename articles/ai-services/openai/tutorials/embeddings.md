@@ -369,16 +369,17 @@ df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine =
 
 # [OpenAI Python 1.x](#tab/python-new)
 
+```python
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version = "2023-05-15",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
-def generate_embeddings(text, model="text-embedding-ada-002"):
+def generate_embeddings(text, model="text-embedding-ada-002"): # model = "deployment_name"
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
-df_bills['ada_v2'] = df_bills["text"].apply(lambda x : generate_embeddings (x, model = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+df_bills['ada_v2'] = df_bills["text"].apply(lambda x : generate_embeddings (x, model = 'text-embedding-ada-002')) # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
 
 ---
 
@@ -421,7 +422,7 @@ res = search_docs(df_bills, "Can I get information on cable company tax revenue?
 def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-def get_embedding(text, model="text-embedding-ada-002"):
+def get_embedding(text, model="text-embedding-ada-002"): # model = "deployment_name"
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
 def search_docs(df, user_query, top_n=3, to_print=True):
