@@ -608,7 +608,7 @@ Write-Host $myApp.AppRoles
 > Azure Automation "Run as account" has [retired](https://azure.microsoft.com/updates/azure-automation-runas-account-retiring-on-30-september-2023/) on 30 September 2023, which affects actions created with action type "Automation Runbook". Existing actions linking to "Run as account" runbooks won't be supported after retirement. However, those runbooks would continue to execute until the expiry of "Run as" certificate of the Automation account.
 
 To ensure you can continue using the runbook actions, you need to:
-1.  Edit the action group by adding a new action with action type "Automation Runbook" nd choose the same runbook from the dropdown. (All 5 runbooks in the dropdown have been re-configured at the backend to authenticate using Managed Identity instead of Run as account. System-assigned Managed Identity in Automation account would be enabled with VM Contributor role at the subscription level would be assigned automatically).
+1.  Edit the action group by adding a new action with action type "Automation Runbook" and choose the same runbook from the dropdown. (All 5 runbooks in the dropdown have been reconfigured at the backend to authenticate using Managed Identity instead of Run as account. System-assigned Managed Identity in Automation account would be enabled with VM Contributor role at the subscription level would be assigned automatically.)
 
     :::image type="content" source="./media/action-groups/action-group-runbook-add.png" alt-text="Screenshot of adding a runbook action to an action group.":::
 
