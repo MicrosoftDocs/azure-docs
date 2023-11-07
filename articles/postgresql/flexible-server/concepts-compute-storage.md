@@ -229,7 +229,7 @@ Remember that storage can only be scaled up, not down.
 
 ## Premium SSD v2 (Preview)
 
-Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
 
 ### Differences between Premium SSD and Premium SSD v2
 
@@ -262,7 +262,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 > Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
 
 
-#### Premium SSD v2 Early Preview Limitations
+#### Premium SSD v2 early preview limitations
 
 - Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
@@ -286,7 +286,7 @@ To improve the restart time, we recommend that you perform scale operations duri
 
 Changing the backup retention period is an online operation.
 
-## Near Zero Downtime Scaling 
+## Near-zero downtime scaling 
 
 Near Zero Downtime Scaling is a feature designed to minimize downtime when modifying storage and compute tiers. If you modify the number of vCores or change the compute tier, the server undergoes a restart to apply the new configuration. During this transition to the new server, no new connections can be established. This process with regular scaling could take anywhere from 2 to 10 minutes. However, with the new Near Zero Downtime Scaling feature this duration has been reduced to less than 30 seconds. This significant decrease in downtime greatly improves the overall availability of your flexible server workloads.
 

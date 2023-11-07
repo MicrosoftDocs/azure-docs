@@ -37,7 +37,7 @@ Flexible Server stores multiple copies of your backups to help protect your data
 
 Flexible Server offers three options: 
 
-- **Zone-redundant backup storage**: This option is automatically chosen for regions that support availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the same availability zone, but also replicated to another availability zone with in the same region. 
+- **Zone-redundant backup storage**: This option is automatically chosen for regions that support availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the same availability zone, but also replicated to another availability zone within the same region. 
 
   This option provides backup data availability across availability zones and restricts replication of data to within a country/region to meet data residency requirements. This option provides at least 99.9999999999 percent (12 nines) durability of backup objects over a year.  
 
@@ -61,7 +61,7 @@ You can configure geo-redundant storage for backup only during server creation. 
 
 Backups are retained based on the retention period that you set for the server. You can select a retention period between 7 (default) and 35 days. You can set the retention period during server creation or change it at a later time. Backups are retained even for stopped servers.
 
-The backup retention period governs the timeframe from which a PITR can be retrieved using the available backups.. You can also treat the backup retention period as a recovery window from a restore perspective. 
+The backup retention period governs the timeframe from which a PITR can be retrieved using the available backups. You can also treat the backup retention period as a recovery window from a restore perspective. 
 
 All backups required to perform a PITR within the backup retention period are retained in the backup storage. For example, if the backup retention period is set to 7 days, the recovery window is the last 7 days. In this scenario, all the data and logs that are required to restore and recover the server in the last 7 days are retained. 
 
@@ -168,7 +168,7 @@ After you restore the database, you can perform the following tasks to get your 
   
 - If you restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
  
-## Long Term Retention (Preview)
+## Long-term retention (preview)
 
 Azure Backup and Azure PostgreSQL Services have come together to build an enterprise-class long term backup solution for Azure Database for PostgreSQL Flexible servers that retains backups for up to 10 years.  You can use long term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL that offers retention up to 35 days. The automated backups are physical backups, which are suited for operational recoveries especially when you want to restore from the latest backups. Long term backups helps you with your compliance needs and are more granular in nature and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
 
