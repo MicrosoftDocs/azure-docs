@@ -61,7 +61,7 @@ Upon execution, inspect the output for the following:
   }
 ```
 
-Running this command will make the cluster aware of the MDE runtime protection service. To use the service and benefit from its features, you need to set the `enforcement-level`
+Running this command will make the Cluster aware of the MDE runtime protection service. To use the service and benefit from its features, you need to set the `enforcement-level`
 to a value other than `Disabled` in the next section
 
 > [!NOTE]
