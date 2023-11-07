@@ -1,8 +1,8 @@
 ---
 title: What's new in Azure Backup
-description: Learn about the new features in Azure Backup.
+description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 11/07/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -16,6 +16,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- November 2023
+  - [Save your MARS backup passphrase securely to Azure Key Vault is now generally available.](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-is-now-generally-available)
+  - [Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available](#update-rollup-1-for-microsoft-azure-backup-server-v4-is-now-generally-available)
+  - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
   - [Enhanced soft delete for Azure Backup is now generally available](#enhanced-soft-delete-for-azure-backup-is-now-generally-available)
@@ -67,6 +71,37 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Save your MARS backup passphrase securely to Azure Key Vault is now generally available.
+
+Azure Backup now allows you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase with MARS agent.
+
+The MARS agent from Azure Backup requires a passphrase that you provide to encrypt the backups sent to and stored on Azure Recovery Services vault. This passphrase isn't shared with Microsoft and needs to be saved in a secure location to ensure that the backups can be retrieved if the server backed up with MARS goes down.
+
+For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+## Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available
+
+Azure Backup now provides Update Rollup 1 for Microsoft Azure Backup Server (MABS) V4.
+
+- It contains new features, such as item-level recovery from online recovery points for VMware VMs, support for Windows and Basic SMTP authentication for MABS email reports and alerts, and other enhancements.
+- It also contains stability improvements and bug fixes on MABS V4.
+
+For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
+
+
+## SAP HANA instance snapshot backup support is now generally available
+
+Azure Backup now supports SAP HANA instance snapshot backup and enhanced restore, which provides a cost-effective backup solution using managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
+
+ You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot.
+
+>[!Note]
+>- Currently, the snapshots are stored on your storage account/operational tier and isn't stored in Recovery Services vault.
+>- Original Location Restore (OLR) is not supported.
+>- For pricing, as per SAP advisory, you must do a *weekly full backup + logs* streaming/Backint based backup so that the existing protected instance fee and storage cost are applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more about [Snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/) and [Streaming/Backint based backup pricing](https://azure.microsoft.com/pricing/details/backup/?ef_id=_k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&amp;OCID=AIDcmmf1elj9v5_SEM__k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&amp;gclid=CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE). 
+
+For more information, see [Back up databases' instance snapshots](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
 ## Multi-user authorization using Resource Guard for Backup vault is now generally available
 
@@ -190,7 +225,7 @@ Azure Backup now supports SAP HANA instance snapshot backup that provides a cost
 
 You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
 
-For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots-preview).
+For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
 ## SAP HANA System Replication database backup support (preview)
 

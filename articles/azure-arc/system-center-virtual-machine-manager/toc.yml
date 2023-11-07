@@ -16,10 +16,6 @@
     href: create-virtual-machine.md
 - name: Concepts
   items:
-  - name: Custom locations
-    href: custom-locations.md
-  - name: Azure Arc Resource Bridge
-    href: azure-arc-resource-bridge.md
   - name: Azure Arc agent
     href: agent-overview-scvmm.md
 - name: How-to guides

@@ -19,8 +19,6 @@ Included among these solutions are Kubernetes application-based container offers
 - Deploy the application on your AKS cluster.
 - Monitor usage and billing information.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Limitations
 
 This feature is currently supported only in the following regions:
@@ -100,6 +98,9 @@ Verify the deployment by using the following command to list the extensions that
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
+
+
+
 ---
 
 ## Manage the offer lifecycle
@@ -134,6 +135,9 @@ You can view the extension instance from the cluster by using the following comm
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
+
+
+
 ---
 
 ## Monitor billing and usage information
@@ -162,6 +166,9 @@ Select an application, then select the uninstall button to remove the extension 
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
+
+
+
 ---
 
 ## Troubleshooting
@@ -172,9 +179,15 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 
 - Learn more about [exploring and analyzing costs][billing].
 - Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
+- Learn more about [deploying a Kubernetes application through an ARM template](/azure/aks/deploy-application-template)
 
 <!-- LINKS -->
 [azure-marketplace]: /marketplace/azure-marketplace-overview
+
 [cluster-extensions]: ./cluster-extensions.md
+
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
+
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
+
