@@ -268,7 +268,7 @@ Each of the following sections makes API requests by using the five different lo
 5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
 
    ```HTTP
-   https://{geography}.{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
    > [!NOTE]
