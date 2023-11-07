@@ -18,10 +18,23 @@ Azure Developer CLI (AZD) is an open-source tool that accelerates the time it ta
 
 ## Prerequisites
 
-Verify your configuration meets the following prerequisites to work with Azure Deployment Environments using AZD:
+You should:
+- Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](/azure/deployment-environments/overview) and [key concepts](/azure/deployment-environments/concepts).
+- Create and configure a dev center with a project, environment types, and a catalog. Use the following articles as guidance:
+   - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
+   - [Quickstart: Create and configure an Azure Deployment Environments project](quickstart-create-and-configure-projects.md)
+- A catalog attached to your dev center.
 
-- [Created and configured a dev center](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a project, and environment types.
-- A catalog containing IaC templates, attached to your dev center.
+## AZD compatible catalogs
+
+Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the attached catalog to provision new environments. 
+
+To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.  
+
+You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
+
+To get help with AZD compatibility, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create).  
+
 
 ## Prepare to work with AZD 
 
@@ -49,49 +62,67 @@ You can configure AZD to provision and deploy resources to your deployment envir
 
 :::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-enable-support.png" alt-text="Screenshot of Visual Studio Code, showing the Enable support command in the command palette." lightbox="media/how-to-create-environment-with-azd/azure-developer-enable-support.png":::
 
-## Create an environment
+## Create an environment from existing code
 
 Now you're ready to create an environment to work in. You can begin with code in a local folder, or you can clone an existing repository. In this example, you create an environment by using code in a local folder. 
 
-### List existing environments
+### Initialize a new application
 
-Check to see if you have any existing environments.
+Initializing a new application creates the files and folders that are required for AZD to work with your application.
+
+AZD uses an *azure.yaml* file to define the environment. The azure.yaml file defines and describes the apps and types of Azure resources that the application uses. To learn more about azure.yaml, see [Azure Developer CLI's azure.yaml schema](/azure/developer/azure-developer-cli/azd-schema).
+
+1. In Visual Studio Code, and then open the folder that contains your application code.
+
+1. Open the command palette, and enter *Azure Developer CLI init*, then from the list, select **Azure Developer CLI (azd): init**.
+ 
+1. To continue without selecting a template, press ENTER twice.
+ 
+1. In the AZD terminal, select ***Use code in the current directory***. 
+
+1. AZD scans the current directory and gathers more information depending on the type of app you're building. Follow the prompts to configure your AZD environment.
+
+1. Finally, enter a name for your environment. 
+
+AZD creates an azure.yaml file in the root of your project. 
+
+### Provision infrastructure to Azure Deployment Environment
+
+When you're ready, you can provision your local environment to a remote Azure Deployment Environments environment in Azure. This process provisions the infrastructure and resources defined in the environment definition in your dev center catalog.
+
+1. In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Provision Azure Resources (provision)**.
+
+   :::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-environment-provision.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Provision environment highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-environment-provision.png":::
+
+1. AZD scans Azure Deployment Environments for projects that you have access to. In the AZD terminal, select or enter the following:
+    1. Project
+    1. Environment definition
+    1. Environment name
+    1. Location
+ 
+1. AZD instructs ADE to create a new environment based on the information you gave in the previous step.
+ 
+1. You can view the resources created in the Azure portal or in the developer portal.
+
+### List existing environments (optional)
+
+Verify that your environment is created by listing the existing environments.
 
 In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **View Local and Remote Environments (env list)**.
 
 :::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-environment-list.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and View Local and Remote environments highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-environment-list.png":::
 
-You're prompted to select a dev center, a project, and environment definition.
+You're prompted to select a project and an environment definition.
 
-### Create a new environment
+### Deploy code to Azure Deployment Environments
 
-Create a new environment to work in.
+When your environment is provisioned, you can deploy your code to the environment.
 
-1. In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Create environment (env list)**.
-
-   :::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-environment-new.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Create new environment highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-environment-new.png":::
-
-2. Enter a name for your environment.
-
-### Verify new environment
-
-Verify that your new environment is created by selecting View Local and Remote Environments as described in [List existing environments](#list-existing-environments).
-
-### Select a default environment
-
-If you have more than one environment, you can specify the default environment to be the focus of AZD commands.
-
-In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Select default environment (env select)**.
-
-:::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-environment-select-default.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Select default environment highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-environment-select-default.png":::
-
-### Provision to Azure
-
-When you're ready, you can provision your local environment to a remote Azure Deployment Environments environment in Azure.
-
-In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Provision Azure Resources (provision)**.
-
-:::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-environment-provision.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Provision environment highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-environment-provision.png":::
+1. In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Deploy Azure Resources (deploy)**.
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azd/azure-developer-menu-env-deploy.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Deploy to Azure highlighted." lightbox="media/how-to-create-environment-with-azd/azure-developer-menu-env-deploy.png":::
+ 
+1. You can verify that your code is deployed by selecting the end point URLs listed in the AZD terminal.
 
 ## Clean up resources
 
