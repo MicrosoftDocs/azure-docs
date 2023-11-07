@@ -51,8 +51,8 @@ To view the pre and post events, follow these steps:
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
 1. On the **Maintenance Configuration** page, select the maintenance configuration to which you want to add a pre and post event.
 1. Select **Overview** and check the **Maintenance events**.
-    - If you see **Configure**, it implies that there's no pre and post event currently set up. Select **Configure** to set up one.
-    - If the set up is already done, you can see the count of the pre and post events associated to the configuration.
+    - If you see **Configure**, it implies that there's no pre and post event currently setup. Select **Configure** to setup one.
+    - If the setup is already done, you can see the count of the pre and post events associated to the configuration.
    
       :::image type="content" source="./media/manage-pre-post-events/view-configure-events-inline.png" alt-text="Screenshot that shows how to view and configure a pre and post event." lightbox="./media/manage-pre-post-events/view-configure-events-expanded.png":::
 
@@ -83,7 +83,7 @@ The following example shows the timeline for schedules with pre and post events:
 |----------|-------------|
 |2:19 p.m. | You can modify the machines or dynamic scopes within the schedule's scope until this time. After this time, the resources will be included in the subsequent schedule run and not the current run. </br> **Note**</br> If you're creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the maintenance window for the pre-event to run. |
 |2:30 p.m. | The pre event is initiated.|
-|2:50 p.m. | The prescript would complete all the tasks for a successful schedule run. </br> **Note** </br> - If the Pre script keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancelation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancelation API from your script or Azure function code. If cancelation API fails to get invoked or hasn't been set up, the patch installation proceeds to run. |
+|2:50 p.m. | The prescript would complete all the tasks for a successful schedule run. </br> **Note** </br> - If the Pre script keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancelation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancelation API from your script or Azure function code. If cancelation API fails to get invoked or hasn't been setup, the patch installation proceeds to run. |
 |3:00 p.m.| The schedule gets triggered. | 
 |6:55 p.m.| The schedule completes patch installation.|
 |7:15 p.m.| The post event is initiated at 6:55 p.m. and completed by 7:15 p.m. |
@@ -91,7 +91,7 @@ The following example shows the timeline for schedules with pre and post events:
 
 ## Cancel a schedule from a pre event
 
-To cancel the schedule, you must call the cancelation API in your pre event to set up the cancelation process that is in your Runbook script or Azure function code. Here, you must define the criteria from when the schedule must be canceled. The system won't monitor and automatically cancels the schedule based on the status of the pre event. 
+To cancel the schedule, you must call the cancelation API in your pre event to setup the cancelation process that is in your Runbook script or Azure function code. Here, you must define the criteria from when the schedule must be canceled. The system won't monitor and automatically cancels the schedule based on the status of the pre event. 
 
 There are two types of cancelations:
 - **Cancelation by user** - when you invoke the cancelation API from your script or code.
