@@ -122,7 +122,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 ## Document Intelligence Studio
 
 > [!NOTE]
-> Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
+> Document Intelligence Studio is available with v3.0 APIs and later versions.
 
 ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
@@ -346,6 +346,13 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
+### Extract selected page(s) from documents
+
+For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
+::: moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 ### Annotations (available only in ``2023-07-31`` (v3.1 GA) API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
@@ -365,12 +372,7 @@ The Layout model extracts annotations in documents, such as checks and crosses. 
     ]
 }
 ```
-
-### Extract selected page(s) from documents
-
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
-
-::: moniker-end
+:::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
 
