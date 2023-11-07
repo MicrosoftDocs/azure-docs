@@ -29,7 +29,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 > Items marked (preview) in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-![image](https://github.com/lgayhardt/azure-docs-pr/assets/23491583/364d915b-2dc1-4159-8fc6-affb90b5a4d9)
+
 
 
 ## Prerequisites
