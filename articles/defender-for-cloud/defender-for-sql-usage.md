@@ -82,7 +82,7 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-      1. Navigate to your SQL VM/Arc-enabled SQL Server .
+1. Navigate to your SQL VM/Arc-enabled SQL Server .
 
       1. In the SQL VM/Arc-enabled SQL Server menu, under the **Security**  section, select **Microsoft Defender for Cloud**.
 
