@@ -20,8 +20,6 @@ A provider encapsulates platform specific knowledge and implements a specific ca
 
 The Helm provider installs Helm charts on the target locations. The Helm provider uses the Helm chart name, repository, version, and other optional values to install and update the charts. The provider registers the new client with the Helm API, looks up the specified repository, and pulls the registry.
 
-The Helm provider works with OCI-based registries.
-
 If you need to troubleshoot the Helm provider, see [Helm provider error codes](howto-troubleshoot-deployment.md#helm-provider-error-codes).
 
 ### Helm provider configuration

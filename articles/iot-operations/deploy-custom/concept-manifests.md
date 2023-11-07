@@ -22,7 +22,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 
 ```json
 {
-  "type": "Microsoft.iotoperationsorchestrator/targets",
+  "type": "Microsoft.IoTOperationsOrchestrator/Targets",
   "name": "myTarget",
   "location": "eastus",
   "apiVersion": "2023-10-04-preview",
@@ -85,7 +85,11 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
           }
         ]
       }
-    ]
+    ],
+    "reconciliationPolicy": {
+      "type": "periodic",
+      "interval": "20m"
+    }
   }
 }
 ```
@@ -94,7 +98,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 
 | Parameter | Description |
 | ---------------- | ----------- |
-| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/target*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/Targets*. |
 | name             | Name for the target resource. |
 | location         | Name of the region where the target resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
@@ -110,6 +114,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 | scope      | Namespace of the cluster. |
 | components | List of components used during deployment and their details. For more information, see [Providers and components](./concept-providers.md). |
 | topologies | List of bindings, which connect a group of devices or targets to a role. For more information, see the following [topologies.bindings parameters table](#target-topologiesbindings-parameters). |
+| reconciliationPolicy | An interval period for how frequently the the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
 
 ### Target topologies.bindings parameters
 
@@ -129,7 +134,7 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 
 ```json
 {
-  "type": "Microsoft.iotoperationsorchestrator/solutions",
+  "type": "Microsoft.IoTOperationsOrchestrator/Solutions",
   "name": "mySolution",
   "location": "eastus",
   "apiVersion": "2023-10-04-preview",
@@ -173,7 +178,7 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 
 | Parameter | Description |
 | ---------------- | ----------- |
-| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/solutions*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/Solutions*. |
 | name             | Name for the solution resource. |
 | location         | Name of the region where the solution resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
@@ -196,7 +201,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 
 ```json
 {
-  "type": "Microsoft.iotoperationsorchestrator/instances",
+  "type": "Microsoft.IoTOperationsOrchestrator/Instances",
   "name": "myInstance",
   "location": "eastus",
   "apiVersion": "2023-10-04-preview",
@@ -208,6 +213,10 @@ To create an instance resource, add the resource definition JSON to an Azure Res
     "solution": "mySolution",
     "target": {
       "name": "myInstance"
+    },
+    "reconciliationPolicy": {
+      "type": "periodic",
+      "interval": "1h"
     }
   }
 }
@@ -217,7 +226,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 
 | Parameter | Description |
 | --------- | ----------- |
-| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/instances*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/Instances*. |
 | name             | Name for the instance resource. |
 | location         | Name of the region where the instance resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
@@ -233,6 +242,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 | scope     | Namespace of the cluster. |
 | solution  | Name of the solution used for deployment. |
 | target    | Name of the target or targets on which the solution will be deployed. |
+| reconciliationPolicy | An interval period for how frequently the the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
 
 ## Components
 
