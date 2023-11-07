@@ -57,13 +57,13 @@ This article lists significant updates and new features available in Azure Conta
 | [Public Preview: Azure Spring Apps on Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-service-management-just-got-easier-preview/ba-p/3827305) | Azure Spring apps can be deployed as containers to your Azure Container Apps within the same compute environment, so you can leverage centralized networking, observability, and configuration boundary for multitype application development like microservices. | 
 | [Public Preview: Azure Container Apps add-ons](./services.md) | As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "add-ons". |
 | [Public Preview: Free and managed TLS certificates](./custom-domains-managed-certificates.md) | Managed certificates are free and enable you to automatically provision and renew TLS certificates for any custom domain you add to your container app. |
-| [Dapr: Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) |  | Use `dapr run -f .` to run multiple Dapr apps and see the app logs written to the console _and_ a local log file. Learn how to use [multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs). |
+| [Dapr: Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) | Use `dapr run -f .` to run multiple Dapr apps and see the app logs written to the console _and_ a local log file. Learn how to use [multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs). |
 
 ### May 2023
 
 | Feature | Description |
 | ------- | ----------- |
-| [GA: Inbound IP restrictions](./ingress-overview.md#ip-access-restrictions) | This feature enables container apps to restrict inbound HTTP or TCP traffic by allowing or denying access to a specific list of IP address ranges. | 
+| [GA: Inbound IP restrictions](./ingress-overview.md#ip-restrictions) | This feature enables container apps to restrict inbound HTTP or TCP traffic by allowing or denying access to a specific list of IP address ranges. | 
 | [GA: TCP support](./ingress-overview.md#tcp) | Azure Container Apps now supports using TCP-based protocols other than HTTP or HTTPS for ingress. | 
 | [GA: Github Actions for Azure Container Apps](./github-actions.md) | Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. |
 | [GA: Azure Pipelines for Azure Container Apps](./azure-pipelines.md) | Azure Container Apps allows you to use Azure Pipelines to publish revisions to your container app. |
