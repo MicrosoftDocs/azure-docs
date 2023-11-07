@@ -92,7 +92,7 @@ To apply the resiliency policies from a YAML file you created for your container
 az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
-This command passes the resiliency policy YAML file, which may look similar to the following example:
+This command passes the resiliency policy YAML file, which might look similar to the following example:
 
 ```yml
 properties:
