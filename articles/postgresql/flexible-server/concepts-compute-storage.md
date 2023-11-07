@@ -262,7 +262,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 > Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
 
 
-#### Premium SSD v2 Early Preview Limitations
+#### Premium SSD v2 early preview limitations
 
 - Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
