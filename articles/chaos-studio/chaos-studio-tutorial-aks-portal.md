@@ -1,6 +1,6 @@
 ---
 title: Create an experiment using a Chaos Mesh fault with the Azure portal
-description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio Preview with the Azure portal.
+description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio with the Azure portal.
 author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 04/21/2022
@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods with the Azure portal
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against service unavailability when there are sporadic failures.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against service unavailability when there are sporadic failures.
 
 Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source chaos engineering platform for Kubernetes, to inject faults into an AKS cluster. Chaos Mesh faults are [service-direct](chaos-studio-tutorial-aks-portal.md) faults that require Chaos Mesh to be installed on the AKS cluster. You can use these same steps to set up and run an experiment for any AKS Chaos Mesh fault.
 
@@ -66,7 +66,7 @@ You can also [use the installation instructions on the Chaos Mesh website](https
 Chaos Studio can't inject faults against a resource unless that resource is added to Chaos Studio first. You add a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. AKS clusters have only one target type (service-direct), but other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Each type of Chaos Mesh fault is represented as a capability like PodChaos, NetworkChaos, and IOChaos.
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and go to your AKS cluster.
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/tutorial-aks-targets.png)

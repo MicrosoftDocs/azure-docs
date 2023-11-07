@@ -5,12 +5,20 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 09/06/2023
+ms.date: 11/06/2023
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## November 2023
+
+### Support for Zoom Phone Cloud Peering
+
+From November 2023, Azure Communications Gateway supports providing PSTN connectivity to Zoom with Zoom Phone Cloud Peering. You can provide Zoom Phone calling services to many customers, each with many users, with minimal disruption to your existing network.
+
+For more information about Zoom Phone Cloud Peering with Azure Communications Gateway, see [Overview of interoperability of Azure Communications Gateway with Zoom Phone Cloud Peering](interoperability-zoom.md). For an overview of deploying and configuring Azure Communications Gateway for Zoom, see [Get started with Azure Communications Gateway](get-started.md).
 
 ## October 2023
 

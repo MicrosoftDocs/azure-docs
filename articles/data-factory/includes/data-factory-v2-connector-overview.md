@@ -3,7 +3,7 @@ author: jianleishen
 ms.service: data-factory
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 11/06/2023
 ms.author: jianleishen
 ---
 
@@ -71,6 +71,7 @@ ms.author: jianleishen
 |&nbsp;                | [Generic OData](../connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 |&nbsp;                | [Generic ODBC](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 |&nbsp;                | [Generic REST](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              ||
+| **Microsoft Fabric**               | [Microsoft Fabric Lakehouse (Preview)](../connector-microsoft-fabric-lakehouse.md) | ✓/✓                                                          |✓/✓                                                              |                                                            |                                                              |                                                              |✓|
 | **Services and apps** | [Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 |&nbsp;                | [Appfigures (Preview)](../connector-appfigures.md) |                                                              | ✓/-                                                          |                                                              |                                                              |                                                              |                                     |
 |&nbsp;                | [Asana (Preview)](../connector-asana.md) |                                                          | ✓/−                                                              |                                                             |                                                              |                                                              ||
