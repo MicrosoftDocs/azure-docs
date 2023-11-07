@@ -5,7 +5,7 @@ description: Configure observability features in Azure IoT Operations to monitor
 author: timlt
 ms.author: timlt
 ms.topic: how-to
-ms.date: 11/2/2023
+ms.date: 11/7/2023
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data 
 # on the health of my industrial assets and edge environment. 
@@ -28,16 +28,65 @@ Azure Monitor managed service for Prometheus allows you to collect and analyze m
 
 1. Follow the steps to [enable Prometheus metrics collection from your Arc-enabled Kubernetes cluster](../../azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md).
 
-1. To create a `configmap` to configure metrics scraping from your cluster, run the following command from within your cluster: 
+1. Copy and paste the following configuration to a new file named *ama-metrics-prometheus-config.yaml*, and save the file. 
+    
+    ```yml
+    apiVersion: v1
+    data:
+      prometheus-config: |2-
+            scrape_configs:
+            - job_name: e4k
+              scrape_interval: 1m
+              static_configs:
+              - targets:
+                - aio-mq-diagnostics-service.azure-iot-operations.svc.cluster.local:9600
+            - job_name: nats
+              scrape_interval: 1m
+              static_configs:
+              - targets:
+                - aio-dp-msg-store-0.aio-dp-msg-store-headless.azure-iot-operations.svc.cluster.local:7777
+            - job_name: otel
+              scrape_interval: 1m
+              static_configs:
+              - targets:
+                - aio-otel-collector.azure-iot-operations.svc.cluster.local:8889
+            - job_name: aio-annotated-pod-metrics
+              kubernetes_sd_configs:
+              - role: pod
+              relabel_configs:
+              - action: drop
+                regex: true
+                source_labels:
+                - __meta_kubernetes_pod_container_init
+              - action: keep
+                regex: true
+                source_labels:
+                - __meta_kubernetes_pod_annotation_prometheus_io_scrape
+              - action: replace
+                regex: ([^:]+)(?::\\d+)?;(\\d+)
+                replacement: $1:$2
+                source_labels:
+                - __address__
+                - __meta_kubernetes_pod_annotation_prometheus_io_port
+                target_label: __address__
+              - action: replace
+                source_labels:
+                - __meta_kubernetes_namespace
+                target_label: kubernetes_namespace
+              - action: keep
+                regex: 'azure-iot-operations'
+                source_labels:
+                - kubernetes_namespace
+              scrape_interval: 1m
+    kind: ConfigMap
+    metadata:
+      name: ama-metrics-prometheus-config
+      namespace: kube-system
+    ```
 
-   ```bash
-   kubectl create configmap ama-metrics-prometheus-config --from-literal=prometheus-config='{"scrape_configs": [{ "job_name": "akri", "scrape_interval": "1m", "static_configs": [{ "targets": [ "akri-agent-metrics-service.alice-springs.svc.cluster.local:8080" ]}]},{ "job_name": "e4k", "scrape_interval": "1m", "static_configs": [{ "targets": [ "azedge-diagnostics-service.alice-springs.svc.cluster.local:9600" ]}]},{ "job_name": "nats", "scrape_interval": "1m", "static_configs": [{ "targets": [ "bluefin-nats-0.bluefin-nats-headless.alice-springs.svc.cluster.local:7777" ]}]},{ "job_name": "otel", "scrape_interval": "1m", "static_configs": [{ "targets": [ "otel-collector.alice-springs.svc.cluster.local:8889" ] }]}]}' -n kube-system
-   ```
-1. If you're using an AKS Edge Essentials cluster, run the following extra command to have node level metrics monitored by the Managed Prometheus agent:
+1. To apply the configuration file you created, run the following command:
 
-   ```bash
-   Invoke-AksEdgeNodeCommand -NodeType "Linux" -command "sudo sed -i '/-A OUTPUT -j ACCEPT/i-A INPUT -p tcp -m tcp --dport 9110 -j ACCEPT' /etc/systemd/scripts/ip4save"
-   ```
+    `kubectl apply -f ama-metrics-prometheus-config.yaml`
 
 
 ## Install Container Insights
