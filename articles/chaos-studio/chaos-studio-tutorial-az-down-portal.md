@@ -86,5 +86,5 @@ You're now ready to run your experiment.
 ## Next steps
 Now that you've run an Availability Zone Down template experiment, you're ready to:
 - [Manage your experiment](chaos-studio-run-experiment.md)
-- [Create an experiment that induces an outage on an Azure Active Directory instance](chaos-studio-tutorial-aad-outage-portal.md)
+- [Create an experiment that induces an outage on an AAD instance](chaos-studio-tutorial-aad-outage-portal.md)
 
