@@ -3,6 +3,7 @@ items:
     href: index.yml
     items:
     - name: Get started
+      expanded: true
       items:
       - name: Overview
         href: get-started/overview-iot-operations.md
