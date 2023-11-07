@@ -541,6 +541,8 @@ To use Microsoft Fabric Lakehouse Table dataset as a source or sink dataset in m
 #### Microsoft Fabric Lakehouse Table as a source type
 
 There are no configurable properties under source options.
+> [!NOTE]
+> CDC support for Lakehouse table source is currently not available.
 
 #### Microsoft Fabric Lakehouse Table as a sink type
 
