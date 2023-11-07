@@ -124,7 +124,7 @@ EOF
 
 ---
 
-Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+When the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```

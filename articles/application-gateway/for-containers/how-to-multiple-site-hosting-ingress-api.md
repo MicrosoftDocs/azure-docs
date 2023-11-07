@@ -37,8 +37,8 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Ingress resource
 

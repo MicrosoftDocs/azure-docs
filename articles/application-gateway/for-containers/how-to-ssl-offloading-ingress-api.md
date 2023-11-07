@@ -38,9 +38,9 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
     
     This command creates the following on your cluster:
     - a namespace called `test-infra`
-    - 1 service called `echo` in the `test-infra` namespace
-    - 1 deployment called `echo` in the `test-infra` namespace
-    - 1 secret called `listener-tls-secret` in the `test-infra` namespace
+    - one service called `echo` in the `test-infra` namespace
+    - one deployment called `echo` in the `test-infra` namespace
+    - one secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Ingress API resources
 
@@ -124,7 +124,7 @@ EOF
 
 ---
 
-Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+When the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```

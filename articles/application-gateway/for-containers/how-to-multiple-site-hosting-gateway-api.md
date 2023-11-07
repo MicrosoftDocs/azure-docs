@@ -38,8 +38,8 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -195,7 +195,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource is created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
 kubectl get httproute contoso-route -n test-infra -o yaml
 kubectl get httproute fabrikam-route -n test-infra -o yaml
@@ -241,7 +241,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, it will return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, it returns a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
@@ -279,7 +279,7 @@ Via the response we should see:
 }
 ```
 
-If you specify the server name indicator using the curl command, `fabrikam.com` for the frontend FQDN, it will return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `fabrikam.com` for the frontend FQDN, it returns a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
