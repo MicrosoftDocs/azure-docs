@@ -101,7 +101,7 @@ If you need to specify a forward server for your network traffic, you can create
        name: coredns-custom
        namespace: kube-system
      data:
-       test.server: | # you may select any name here, but it must end with the .server file extension
+       test.server: | # you can select any name here, but it must end with the .server file extension
          <domain to be rewritten>.com:53 {
              forward foo.com 1.1.1.1
              bind 169.254.20.10
@@ -122,7 +122,7 @@ If you need to specify a forward server for your network traffic, you can create
 
 ## Use custom domains
 
-You may want to configure custom domains that can only be resolved internally. For example, you may want to resolve the custom domain `puglife.local`, which isn't a valid top-level domain. Without a custom domain `ConfigMap`, the Nexus Kubernetes cluster can't resolve the address.
+You might want to configure custom domains that can only be resolved internally. For example, you might want to resolve the custom domain `puglife.local`, which isn't a valid top-level domain. Without a custom domain `ConfigMap`, the Nexus Kubernetes cluster can't resolve the address.
 
 1. Create a new file named `customdns.yaml` and paste the following example configuration. Make sure to update the custom domain and IP address with the values for your own environment.  The `bind 169.254.20.10` line is required and should not be modified. 
 
@@ -133,7 +133,7 @@ You may want to configure custom domains that can only be resolved internally. F
        name: coredns-custom
        namespace: kube-system
      data:
-       puglife.server: | # you may select any name here, but it must end with the .server file extension
+       puglife.server: | # you can select any name here, but it must end with the .server file extension
          puglife.local:53 {
              errors
              cache 30
@@ -167,7 +167,7 @@ CoreDNS can also be used to configure stub domains.
        name: coredns-custom
        namespace: kube-system
      data:
-       test.server: | # you may select any name here, but it must end with the .server file extension
+       test.server: | # you can select any name here, but it must end with the .server file extension
          abc.com:53 {
           errors
           cache 30
@@ -206,7 +206,7 @@ metadata:
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-    test.override: | # you may select any name here, but it must end with the .override file extension
+    test.override: | # you can select any name here, but it must end with the .override file extension
           hosts { 
               10.0.0.1 example1.org
               10.0.0.2 example2.org
@@ -231,7 +231,7 @@ For general CoreDNS troubleshooting steps, such as checking the endpoints or res
      name: coredns-custom
      namespace: kube-system
    data:
-     log.override: | # you may select any name here, but it must end with the .override file extension
+     log.override: | # you can select any name here, but it must end with the .override file extension
            log
    ```
 
