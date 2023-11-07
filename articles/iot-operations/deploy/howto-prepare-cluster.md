@@ -29,12 +29,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 ## Arc-enable your cluster
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. However, this section provides steps to prepare and Arc-enable clusters in common environments:
-
-* AKS Edge Essentials on Windows
-* K3s on Ubuntu
-* Codespaces on GitHub (for exploration only)
-* WSL K3s with Ubuntu on Windows
+This section provides steps to prepare and Arc-enable clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
 
 # [AKS Edge Essentials](#tab/aks-edge-essentials)
 
