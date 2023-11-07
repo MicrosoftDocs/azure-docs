@@ -33,9 +33,41 @@ The *BrokerListener* resource has these fields:
 > [!IMPORTANT]
 > At this time, you cannot have two listener resources of the same *serviceType* with a different *serviceName*
 
-## Example configuration
+## Default BrokerListener
 
-This example shows how to create two *BrokerListener* resources for a *Broker* resource named *my-broker*. Each *BrokerListener* resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
+When you deploy Azure IoT Operations, the deployment also creates a *BrokerListener* resource named `listener` in the `azure-iot-operations` namespace. This listener is linked to the default Broker resource named `broker` that's also created during deployment. The default listener exposes the broker on port 8883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](howto-configure-tls-auto.md) by cert-manager. Authorization is disabled by default.
+
+To inspect the listener, run:
+
+```bash
+kubectl get brokerlistener listener -n azure-iot-operations -o yaml
+```
+
+The output should look like this, with metadata removed for brevity:
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: BrokerListener
+spec:
+  brokerRef: broker
+  authenticationEnabled: true
+  authorizationEnabled: false
+  port: 8883
+  serviceName: aio-mq-dmqtt-frontend
+  serviceType: clusterIp
+  tls:
+    automatic:
+      issuerRef:
+        group: cert-manager.io
+        kind: Issuer
+        name: mq-dmqtt-frontend
+```
+
+To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
+
+## Example: create new BrokerListeners
+
+This example shows how to create two new *BrokerListener* resources for a *Broker* resource named *my-broker*. Each *BrokerListener* resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
 
 - The first *BrokerListener* resource, named *my-test-listener*, defines a listener on port 1883 with no TLS and authentication off. Clients can connect to the broker without encryption or authentication.
 - The second *BrokerListener* resource, named *my-secure-listener*, defines a listener on port 8883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. The `tls` field is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.

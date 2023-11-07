@@ -310,6 +310,14 @@ To monitor backup data usage and daily churn, follow these steps:
 
 Learn more about [other report tabs](configure-reports.md) and receiving those [reports through email](backup-reports-email.md).
 
+## List recovery points for a data source
+Follow these steps:
+
+1. On the **MARS agent console**, go to **Status Pane**.
+1. Under **Available Recovery Points**, select **View Details** to list all available recovery points.
+
+:::image type="content" source="./media/backup-azure-manage-mars/list-recovery-points-for-data-source.png" alt-text="Screenshot shows how to list recovery points for a data source." lightbox="./media/backup-azure-manage-mars/list-recovery-points-for-data-source.png":::
+
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).

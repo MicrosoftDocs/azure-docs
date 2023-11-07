@@ -5,7 +5,7 @@ description: Configure IoT Layered Network Management level 4 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -54,20 +54,6 @@ The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your
       },
     ```
 
-1. In the **Arc** section, replace the placeholder text with values to reflect your specific environment.
-
-    ```json
-    "Arc": {
-        "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
-        "Location": "<REGION>",
-        "ResourceGroupName": "<RESOURCE GROUP>",
-        "SubscriptionId": "<SUBSCRIPTION>",
-        "TenantId": "<TENANT ID>",
-        "ClientId": "<CLIENT ID>",
-        "ClientSecret": "<CLIENT SECRET>"
-      },
-    ```
-
 1. In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that is assigned within network layers.
 
     ```json
@@ -79,27 +65,27 @@ The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your
         "SkipDnsCheck": false,
     ```
 
-    For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
-
-1. Create the AKS Edge Essentials cluster using the steps for AKS Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md).
-
-1. Create `aks-ee-config.json` file with the `New-AksEdgeDeployment` command then make the following modifications:
-
-    In the **Network** section, make sure the following properties are added or set. Replace text in placeholder values in braces with your values. Confirm that **A.B.C** doesn't overlap with the IP range that would be assigned within network layers.
-
-    ```json
-    "Network": {
-        "NetworkPlugin": "flannel",
-        "Ip4AddressPrefix": "<A.B.C.0/24>",
-        "Ip4PrefixLength": 24,
-        "InternetDisabled": false,
-        "SkipDnsCheck": false,
-    ```
-    For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json).
+    For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
 
 ## Arc enable the cluster
 
-Follow the steps to Arc-enable the AKE Edge Essentials cluster in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md).
+Follow the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+
+In the **Arc** section of **aks-ee-config.json** that you created earlier, replace the placeholder text with values to reflect your specific environment.
+
+```json
+"Arc": {
+    "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
+    "Location": "<REGION>",
+    "ResourceGroupName": "<RESOURCE GROUP>",
+    "SubscriptionId": "<SUBSCRIPTION>",
+    "TenantId": "<TENANT ID>",
+    "ClientId": "<CLIENT ID>",
+    "ClientSecret": "<CLIENT SECRET>"
+  },
+```
+
+As an alternative, you can follow [Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) to Arc-enable your cluster. You need to sign in to Azure from the Windows 11 during the process, but won't need to create the service principal that described in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 ## Deploy Layered Network Management Service to the cluster
 
@@ -134,19 +120,30 @@ Create the Layered Network Management custom resource.
 
     ```yaml
     apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
-    kind: Lmn
+    kind: Lnm
     metadata:
-      name: level-4
+      name: level4
       namespace: default
     spec:
       image:
+        pullPolicy: IfNotPresent
         repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
         tag: v1.27.0
       replicas: 1
-      logLevel: "info"
+      logLevel: "debug"
+      openTelemetryMetricsCollectorAddr: "http://aio-otel-collector.azure-iot-operations.svc.cluster.local:4317"
+      level: 4
       allowList:
         enableArcDomains: true
         domains:
+        - destinationUrl: "*.ods.opinsights.azure.com"
+          destinationType: external
+        - destinationUrl: "*.oms.opinsights.azure.com"
+          destinationType: external
+        - destinationUrl: "*.monitoring.azure.com"
+          destinationType: external
+        - destinationUrl: "*.handler.control.monitor.azure.com"
+          destinationType: external
         - destinationUrl: "quay.io"
           destinationType: external
         - destinationUrl: "*.quay.io"
