@@ -21,8 +21,6 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 - **Deploy an Azure Health Data Services workspace**.  For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
 - **Create a storage account with a hierarchical namespace**.  For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/articles/storage/blobs/create-data-lake-storage-account.md).
 - **Create a new blob container in the storage account**.  This container will be used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/articles/storage/blobs/blob-containers-portal.md)
-- **A user-assigned managed identity**. This identit must be assigned the role of Storage Blob Data Contributor for the storage account.  For more information see, [Manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
-
 
 ## Deploy the DICOM service with Data Lake Storage
 
@@ -56,8 +54,8 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
    :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot that shows the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
 
-   The result of the newly deployed DICOM service is shown here.
-
+   The DICOM service overview shows the newly created service.
+   
    :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
 
 ## Next steps
