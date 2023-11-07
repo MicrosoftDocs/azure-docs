@@ -199,7 +199,7 @@ sections:
       - question: |
           What happens if my image is unclear?
         answer: |
-          If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results may be less accurate. A good rule of thumb is that if an average human can't see the info in an image at the resolutions used in low/high res mode, then the model can't either.
+          If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results might be less accurate. A good rule of thumb is that if an average human can't see the info in an image at the resolutions used in low/high res mode, then the model can't either.
       - question: |
           What are the known limitations of GPT-4 with Vision?
         answer: |
@@ -207,15 +207,15 @@ sections:
 
           Scenario limitations:
           - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
-          - Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
+          - Non-English: The model might not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
           - Large text: Enlarge text within the image to improve readability, but avoid cropping important details.
-          - Rotation: The model may misinterpret rotated / upside-down text or images.
-          - Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
+          - Rotation: The model might misinterpret rotated / upside-down text or images.
+          - Visual elements: The model might struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
           - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
-          - Accuracy: The model may generate incorrect descriptions or captions in certain scenarios.
+          - Accuracy: The model might generate incorrect descriptions or captions in certain scenarios.
           - Image shape: The model struggles with panoramic and fisheye images.
           Metadata and resizing: The model doesn't process original file names or metadata, and images are resized before analysis, affecting their original dimensions.
-          - Counting: May give approximate counts for objects in images.
+          - Counting: Might give approximate counts for objects in images.
           - CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
 
           Technical limitations:
