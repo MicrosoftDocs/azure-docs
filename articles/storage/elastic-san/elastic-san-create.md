@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 11/06/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Deploy an Elastic SAN Preview
