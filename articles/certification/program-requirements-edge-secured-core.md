@@ -247,18 +247,10 @@ Some requirements of this program are based on a business agreement between your
 ::: zone pivot="platform-linux"
 
 ## Linux OS Support
-OS Support is determined through underlying requirements of Azure services and our ability to validate scenarios.
-
-The Edge Secured-core program for Linux is enabled through the IoT Edge runtime, which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support.md).
-
-## IoT Edge
-Edge Secured-core validation on Linux based devices is executed through a container run on the IoT Edge runtime. For this reason, all devices that are certifying Edge Secured-core must have the IoT Edge runtime installed.
+>[!Note]
+> Linux is not yet supported. The below represent expected requirements. Please contact iotcert@microsoft.com if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
 
 ## Linux Hardware/Firmware Requirements
->[!Note]
-> * Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
-> * Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
-
 
 ---
 |Name|SecuredCore.Hardware.Identity|
