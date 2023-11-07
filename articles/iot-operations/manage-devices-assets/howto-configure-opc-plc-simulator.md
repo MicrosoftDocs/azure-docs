@@ -104,7 +104,6 @@ To complete the configuration of an asset endpoint in Operations Experience, do 
     > [!NOTE]
     > Currently, the secret for the private key does not support password protected key files yet. Also, OPC UA Broker uses the certificate for transport authentication for all secure connections. 
 
-
 1. Optionally, rather than configure the secret provider class CR, you can configure a self-signed certificate for transport authentication. 
 
     To create a self-signed certificate to test transport authentication, run the following command:
@@ -183,7 +182,7 @@ To complete the configuration of mutual trust, do the following steps:
 
 ## Optionally configure for no authentication
 
-You can optionally configure an OPC PLC to run with no authentication. If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off authentication for testing purposes. 
+You can optionally configure an OPC PLC to run with no authentication. If you understand the risks, you can turn off authentication for testing purposes. 
 
 > [!CAUTION]
 > Don't configure for no authentication in production or pre-production. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
