@@ -266,7 +266,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
-- During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, Storage Autogrow features. These features will be supported soon on Premium SSD V2.
+- During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, Storage Auto-grow features. These features will be supported soon on Premium SSD V2.
 
 - During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
 
@@ -290,8 +290,7 @@ Changing the backup retention period is an online operation.
 
 Near Zero Downtime Scaling is a feature designed to minimize downtime when modifying storage and compute tiers. If you modify the number of vCores or change the compute tier, the server undergoes a restart to apply the new configuration. During this transition to the new server, no new connections can be established. This process with regular scaling could take anywhere from 2 to 10 minutes. However, with the new Near Zero Downtime Scaling feature this duration has been reduced to less than 30 seconds. This significant decrease in downtime greatly improves the overall availability of your flexible server workloads.
 
-Near Zero Downtime Feature is enabled across all public regions and no customer action is required to use this capability. This feature works by deploying a new virtual machine (VM) with the updated configuration. Once the new VM is ready, it seamlessly transitions, shutting down the old server and replacing it with the updated VM, ensuring minimal downtime. Importantly, this feature doesn't add any additional cost and you won't be charged for the new server. Instead you're billed for the new updated server once the scaling process is complete. This scaling process is triggered when changes are made to the storage and compute tiers, and it remains consistent for both (HA) and non-HA servers.
-
+Near Zero Downtime Feature is enabled across all public regions and **no customer action is required** to use this capability. This feature works by deploying a new virtual machine (VM) with the updated configuration. Once the new VM is ready, it seamlessly transitions, shutting down the old server and replacing it with the updated VM, ensuring minimal downtime. Importantly, this feature doesn't add any additional cost and you won't be charged for the new server. Instead you're billed for the new updated server once the scaling process is complete. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers.
 
 
 > [!NOTE]
@@ -303,7 +302,7 @@ Near Zero Downtime Feature is enabled across all public regions and no customer 
 
 - Near Zero Downtime Scaling doesn't work for replica server but supports the source server. For replica server it will automatically go through regular scaling process.
 
-- Near Zero Downtime Scaling won't work if a Vnet injected Server with delegated subnet does not have sufficient usable IP addresses. If you have a standalone server, additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
+- Near Zero Downtime Scaling will not work if a VNET injected Server with delegated subnet does not have sufficient usable IP addresses. If you have a standalone server, one additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
 
 
 ## Pricing
