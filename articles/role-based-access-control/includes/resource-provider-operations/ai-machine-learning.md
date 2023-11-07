@@ -340,7 +340,7 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/features/read | Get whitelist features. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/features/read | Get allowlist features. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistHitCalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistTopTerms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/categories/requestCounts/read | List API request count at different timestamps of a specific category given a time range. |
@@ -356,7 +356,7 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/write | Updates a text blocklist, if blocklistName does not exist, create a new blocklist. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/delete | Deletes a text blocklist. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/blockitems/read | Get blockItem By blockItemId from a text blocklist. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/whitelist/features/read | Get whitelist features. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/whitelist/features/read | Get allowlist features. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/write | Creates a new project or replaces metadata of an existing project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/delete | Deletes a project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/export/action | Triggers a job to export project data in JSON format. |
