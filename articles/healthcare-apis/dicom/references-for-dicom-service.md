@@ -3,7 +3,7 @@ title: References for DICOM service - Azure Health Data Services
 description: This reference provides related resources for the DICOM service.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 06/03/2022
 ms.author: mmitrik
@@ -41,7 +41,7 @@ This article describes our open-source projects on GitHub that provide source co
 
 ### Using the DICOM service with the OHIF viewer
 
-* [Azure DICOM service with OHIF viewer](https://github.com/microsoft/dicom-ohif): The [OHIF viewer](https://ohif.org/) is an open-source, non-diagnostic DICOM viewer that uses DICOMweb APIs to find and render DICOM images.  This project provides the guidance and sample templates for deploying the OHIF viewer and configuring it to integrate with the DICOM service.  
+* [Azure DICOM service with OHIF viewer](https://github.com/microsoft/dicom-ohif): The [OHIF viewer](https://ohif.org/) is an open-source, nondiagnostic DICOM viewer that uses DICOMweb APIs to find and render DICOM images.  This project provides the guidance and sample templates for deploying the OHIF viewer and configuring it to integrate with the DICOM service.  
 
 ### Medical imaging network demo environment
 * [Medical Imaging Network Demo Environment](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/dicom-demo-env#readme): This hands-on lab / demo highlights how an organization with existing on-premises radiology infrastructure can take the first steps to intelligently moving their data to the cloud, without disruptions to the current workflow.
