@@ -43,9 +43,9 @@ The following limits are for newer search services created *after July 1, 2023*.
 
 Use the REST APIs to return vector index size:
 
-+ [GET Index Statistics](/rest/api/searchservice/2023-11-01/indexes/get-statistics) returns usage for a given index.
++ [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
 
-+ [GET Service Statistics](/rest/api/searchservice/2023-11-01/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up.
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up.
 
 For a visual, here's the sample response for a Basic search service that has the quickstart vector search index. `storageSize` and `vectorIndexSize` are reported in bytes. 
 

@@ -86,7 +86,7 @@ Because index projections effectively generate "child" documents for each "paren
 REST API version `2023-10-01-Preview` can be used to create index projections through additions to a skillset.
 
 + [Create Skillset (api-version=2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview)
-+ [Create or Update Skillset (api-version=2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update)
++ [Create or Update Skillset (api-version=2023-10-01-Preview)](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true)
 
 ### [**.NET**](#tab/kstore-csharp)
 

@@ -123,7 +123,7 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
-+ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/2023-11-01/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update), or Azure SDK beta libraries that target either REST API version.
++ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update), or Azure SDK beta libraries that target either REST API version.
 
 Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 
