@@ -1537,12 +1537,12 @@ The following site settings are required on the `siteConfig` property:
 :::zone pivot="consumption-plan,premium-plan"  
 ### [Windows](#tab/windows)
 
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)  
 
 ### [Linux](#tab/linux)
 
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion) (C#/PowerShell-only)
 
 ---  
 
@@ -1639,11 +1639,7 @@ These application settings are required for container deployments:
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
  :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-+ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.
-
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version) is only supported for Node.js deployments. 
-
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion) is only supported for .NET deployments.
++ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
 ::: zone-end
 :::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
 + For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
