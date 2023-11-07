@@ -88,6 +88,8 @@ Support for interoperability Microsoft Teams roles and capabilities is now in ge
 
 [Learn more about Roles and Capabilities](https://azure.github.io/communication-ui-library/?path=/docs/capabilities--page)
 
+
+
 #### Pinned Layouts and Rendering Options
 Azure Communication Services UI library: Pinning and additional rendering options initially launched earlier in the year are now generally available. These features make it easier for developers to create responsive and flexible user interfaces.
 
