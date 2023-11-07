@@ -1,0 +1,204 @@
+- name: Azure AI Studio documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure AI Studio?
+    href: what-is-ai-studio.md
+  - name: Azure AI services
+    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
+    displayName: applied, cognitive, form recognizer
+  - name: Azure AI FAQ
+    href: faq.yml
+- name: Quickstarts
+  items:
+  - name: Generate text completions in the playground
+    href: quickstarts/playground-completions.md
+  - name: Moderate text and images with content safety
+    href: quickstarts/content-safety.md
+  - name: Analyze images and video with GPT-4V in the playground
+    href: quickstarts/multimodal-vision.md
+- name: Tutorials
+  items:
+  - name: Deploy a chat web app
+    href: tutorials/deploy-chat-web-app.md
+  - name: Using Azure AI Studio with a screen reader
+    href: tutorials/screen-reader.md
+- name: How-to
+  expanded: true
+  items:
+  - name: Explore Azure AI Studio
+    items:
+    - name: Model catalog
+      href: how-to/model-catalog.md
+    - name: Azure AI capabilities
+      href: how-to/models-foundation-azure-ai.md
+  - name: Create Azure AI projects and resources
+    items:
+    - name: Azure AI resources overview
+      href: concepts/ai-resources.md
+    - name: Create and manage an Azure AI resource
+      href: how-to/create-azure-ai-resource.md
+    - name: Create an Azure AI project
+      href: how-to/create-projects.md
+  - name: Data and connections
+    items:
+    - name: Connections
+      items:
+      - name: Connections overview
+        href: concepts/connections.md
+      - name: Create a connection
+        href: how-to/connections-add.md
+    - name: Index for retrieval
+      items:
+      - name: Vector index and retrieval augmented generation
+        href: concepts/retrieval-augmented-generation.md
+      - name: Create an index
+        href: how-to/index-add.md
+    - name: Add and manage data
+      href: how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: how-to/simulator-interaction-data.md
+  - name: Build apps with prompt flow
+    items:
+    - name: Prompt flow overview
+      href: how-to/prompt-flow.md
+    - name: Set up infrastructure
+      items:
+      - name: Create and manage compute
+        href: how-to/create-manage-compute.md
+      - name: Create and manage runtime
+        href: how-to/create-manage-runtime.md
+    - name: Develop flows
+      items:
+      - name: Create a flow
+        href: how-to/flow-develop.md
+      - name: Create an evaluation flow
+        href: how-to/flow-develop-evaluation.md
+      - name: Tune prompts using variants
+        href: how-to/flow-tune-prompts-using-variants.md
+    - name: Use prompt flow tools
+      items:
+      - name: LLM tool
+        href: how-to/prompt-flow-tools/llm-tool.md
+      - name: Prompt tool
+        href: how-to/prompt-flow-tools/prompt-tool.md
+      - name: Python tool
+        href: how-to/prompt-flow-tools/python-tool.md
+      - name: Content Safety tool
+        href: how-to/prompt-flow-tools/content-safety-tool.md
+      - name: Vector DB Lookup tool
+        href: how-to/prompt-flow-tools/vector-db-lookup-tool.md
+      - name: Embedding tool
+        href: how-to/prompt-flow-tools/embedding-tool.md
+      - name: Faiss Index Lookup tool
+        href: how-to/prompt-flow-tools/faiss-index-lookup-tool.md
+      - name: Vector Index Lookup tool
+        href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
+      - name: Serp API tool
+        href: how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Evaluate flows
+      items:
+        - name: Submit batch run and evaluate a flow 
+          href: how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: how-to/flow-develop-evaluation.md
+    - name: Deploy a flow as a managed online endpoint
+      href: how-to/flow-deploy.md
+  - name: Evaluate apps
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: concepts/evaluation-metrics-built-in.md
+      - name: Harms mitigation strategies with Azure AI
+        href: concepts/evaluation-improvement-strategies.md
+    - name: Evaluate with Azure AI Studio and SDK
+      href: how-to/evaluate-generative-ai-app.md
+    - name: Evaluate from the Azure AI Studio playground 
+      href: how-to/evaluate-prompts-playground.md
+    - name: View evaluation results in Azure AI Studio
+      href: how-to/evaluate-flow-results.md
+  - name: Setup your development environment
+    items:
+    - name: Get started with the Azure AI SDK
+      href: how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: how-to/cli-install.md
+    - name: Get started with projects in VS Code (Web)
+      href: how-to/vscode-web.md
+  - name: Costs and quotas
+    items:
+    - name: Plan and manage costs
+      href: how-to/costs-plan-manage.md
+    - name: Increase rate limit
+      href: ../ai-services/autoscale.md
+    - name: Use commitment tier pricing 
+      href: ../ai-services/commitment-tier.md
+  - name: Infrastructure & security
+    items:
+    - name: Identity & access management
+      items:
+      - name: Role-based access control in Azure AI Studio
+        href: concepts/rbac-ai-studio.md
+    - name: Network security
+      items:
+      - name: Configure managed network
+        href: how-to/configure-managed-network.md
+      - name: Configure private link
+        href: how-to/configure-private-link.md
+    - name: Data protection & encryption
+      items:
+      - name: Rotate keys
+        href: ../ai-services/rotate-keys.md
+      - name: Configure customer-managed keys
+        href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md
+- name: Responsible AI
+  items:
+  - name: Overview
+    href: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
+  - name: Limited Access features
+    href: ../ai-services/cognitive-services-limited-access.md?context=/azure/ai-studio/context/context
+  - name: Content safety
+    items:
+    - name: Content filtering
+      href: concepts/content-filtering.md
+    - name: System message templates
+      href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/cognitiveservices
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.cognitiveservices/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context
+- name: Resources
+  items:
+  - name: Support & help options
+    href: ../ai-services/cognitive-services-support-options.md?context=/azure/ai-studio/context/context
+  - name: Region support
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=cognitive%20services
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
+  - name: Azure Government
+    href: ../azure-government/compare-azure-government-global-azure.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Azure Blog
+    href: https://azure.microsoft.com/blog/
+  - name: Artificial Intelligence and Machine Learning Blog
+    href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI

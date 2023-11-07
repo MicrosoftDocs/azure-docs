@@ -111,7 +111,7 @@ With Azure and Azure AI services, you have access to a broad ecosystem, such as:
 * Azure AI services Docker containers for secure access.
 * Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
-To learn more, see [Azure AI services ecosystem](./ai-studio/concepts/ai-services-and-ecosystem.md).
+To learn more, see [Azure AI services ecosystem](ai-services-and-ecosystem.md).
 
 ## Regional availability
 

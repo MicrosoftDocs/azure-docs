@@ -69,10 +69,10 @@ The Azure AI services resource contains the keys and endpoints needed to authent
 
 | Service | Description |
 | --- | --- |
-| ![Azure OpenAI Service icon](../../media/service-icons/azure.svg) [Azure OpenAI](../../openai/index.yml) | Perform a wide variety of natural language tasks |
-| ![Content Safety icon](../../media/service-icons/content-safety.svg) [Content Safety](../../content-safety/index.yml) | An AI service that detects unwanted contents |
-| ![Speech icon](../../media/service-icons/speech.svg) [Speech](../../speech-service/index.yml) | Speech to text, text to speech, translation and speaker recognition |
-| ![Vision icon](../../media/service-icons/vision.svg) [Vision](../../computer-vision/index.yml) | Analyze content in images and videos |
+| ![Azure OpenAI Service icon](../../ai-services/media/service-icons/azure.svg) [Azure OpenAI](../../ai-services/openai/index.yml) | Perform a wide variety of natural language tasks |
+| ![Content Safety icon](../../ai-services/media/service-icons/content-safety.svg) [Content Safety](../../ai-services/content-safety/index.yml) | An AI service that detects unwanted contents |
+| ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Speech to text, text to speech, translation and speaker recognition |
+| ![Vision icon](../../ai-services/media/service-icons/vision.svg) [Vision](../../ai-services/computer-vision/index.yml) | Analyze content in images and videos |
 
 Large language models that can be used to generate text, speech, images, and more, are hosted by the AI resource. Fine-tuned models and OSS models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.<br/><br/>Model-as-as-service endpoints including Azure OpenAI base models 
 

@@ -21,7 +21,7 @@ The prompt flow *LLM* tool enables you to use large language models (LLM) for na
 
 ## Prerequisites
 
-Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [prompt engineering techniques](../../../openai/concepts/advanced-prompt-engineering.md).
+Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
 
 ## Build with the LLM tool
 

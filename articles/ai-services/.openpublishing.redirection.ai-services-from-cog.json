@@ -12,12 +12,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-and-machine-learning.md",
-      "redirect_url": "/azure/ai-services/ai-studio/concepts/ai-services-and-ecosystem",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/ai-services/cognitive-services-and-machine-learning.md",
-      "redirect_url": "/azure/ai-services/ai-studio/concepts/ai-services-and-ecosystem",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": true
     },
     {
@@ -52,12 +52,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-development-options.md",
-      "redirect_url": "/azure/ai-services/ai-studio/concepts/ai-services-and-ecosystem",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/ai-services/cognitive-services-development-options.md",
-      "redirect_url": "/azure/ai-services/ai-studio/concepts/ai-services-and-ecosystem",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": false
     },
     {
@@ -132,12 +132,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/plan-manage-costs.md",
-      "redirect_url": "/azure/ai-services/ai-studio/how-to/costs-plan-manage",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/ai-services/plan-manage-costs.md",
-      "redirect_url": "/azure/ai-services/ai-studio/how-to/costs-plan-manage",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
       "redirect_document_id": true
     },
     {

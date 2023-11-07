@@ -27,7 +27,7 @@ The prompt flow *Vector DB Lookup* tool is a vector search tool that allows user
 The tool searches data from a third-party vector database. To use it, you should create resources in advance and establish connection between the tool and the resource.
 
 **Azure AI Search:**
-- Create resource [Azure AI Search](../../../../search/search-create-service-portal.md).
+- Create resource [Azure AI Search](../../../search/search-create-service-portal.md).
 - Add an Azure AI Search connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "API base" field with the URL, the URL format is `https://{your_serive_name}.search.windows.net`.
 
 **Qdrant:**
@@ -76,7 +76,7 @@ The following JSON format response is an example returned by the tool that inclu
 | index_name | string | The index name created in an Azure AI Search resource. | Yes |
 | text_field | string | The text field name. The returned text field populates the text of output. | No |
 | vector_field | string | The vector field name. The target vector is searched in this vector field. | Yes |
-| search_params | dict | The search parameters. It's key-value pairs. Except for parameters in the tool input list mentioned previously, more search parameters can be formed into a JSON object as search_params. For example, use `{"select": ""}` as search_params to select the returned fields, use `{"search": ""}` to perform a [hybrid search](../../../../search/search-get-started-vector.md#hybrid-search). | No |
+| search_params | dict | The search parameters. It's key-value pairs. Except for parameters in the tool input list mentioned previously, more search parameters can be formed into a JSON object as search_params. For example, use `{"select": ""}` as search_params to select the returned fields, use `{"search": ""}` to perform a [hybrid search](../../../search/search-get-started-vector.md#hybrid-search). | No |
 | search_filters | dict | The search filters. It's key-value pairs, the input format is like `{"filter": ""}` | No |
 | vector | list | The target vector to be queried. The Vector DB Lookup tool can generate this vector. | Yes |
 | top_k | int | The count of top-scored entities to return. Default value is 3 | No |

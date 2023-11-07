@@ -11,7 +11,7 @@ metadata:
   author: eric-urban
 title: Azure AI frequently asked questions
 summary: |
-  If you can't find answers to your questions in this document, and still need help check the [Azure AI services support options guide](../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context). Azure OpenAI is part of Azure AI services.
+  If you can't find answers to your questions in this document, and still need help check the [Azure AI services support options guide](../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context). Azure OpenAI is part of Azure AI services.
 sections:
   - name: General questions
     questions:
@@ -26,7 +26,7 @@ sections:
       - question: |
           What regions is Azure AI Studio available in?
         answer: | 
-          Azure AI Studio is available in all regions where Azure OpenAI is available. For more information, see the [Azure OpenAI region availability guide](../openai/concepts/models.md#model-summary-table-and-region-availability). 
+          Azure AI Studio is available in all regions where Azure OpenAI is available. For more information, see the [Azure OpenAI region availability guide](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). 
       - question: |
           Can I integrate Microsoft Fabric data into Azure AI Studio? 
         answer: |
@@ -81,7 +81,7 @@ sections:
       - question: |
           Where do I go for Azure AI services customer support?
         answer: |  
-          You can learn about all the support options for Azure AI services in the [support and help options guide](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext).
+          You can learn about all the support options for Azure AI services in the [support and help options guide](../ai-services/cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext).
 
       
 additionalContent: |

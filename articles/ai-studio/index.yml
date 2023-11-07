@@ -23,19 +23,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure AI Studio?
-            url: ./ai-studio/what-is-ai-studio.md
+            url: what-is-ai-studio.md
+          - text: What are AI services?
+            url: ../ai-services/what-are-ai-services.md
           - text: What is prompt flow?
-            url: ./ai-studio/how-to/prompt-flow.md
+            url: how-to/prompt-flow.md
           - text: Retrieval Augmented Generation (RAG)
-            url: ./ai-studio/concepts/retrieval-augmented-generation.md
+            url: concepts/retrieval-augmented-generation.md
           - text: Responsible use of AI
-            url: responsible-use-of-ai-overview.md
-      - linkListType: learn
-        links:
-          - text: Azure AI Training
-            url: https://aka.ms/LearnAzureAIStudio
-          - text: Vector search in Azure AI Search
-            url: /training/modules/improve-search-results-vector-search/
+            url: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
 
   # Card
   - title: 10-minute quickstarts
@@ -43,9 +39,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Generate product name ideas
-            url: ./ai-studio/quickstarts/playground-completions.md
+            url: quickstarts/playground-completions.md
           - text: Moderate text and images
-            url: ./ai-studio/quickstarts/content-safety.md
+            url: quickstarts/content-safety.md
 
   # Card
   - title: Develop apps
@@ -53,34 +49,24 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Get started with the Azure AI SDK
-            url: ./ai-studio/how-to/sdk-install.md
+            url: how-to/sdk-install.md
           - text: Get started with the Azure AI CLI
-            url: ./ai-studio/how-to/cli-install.md
+            url: how-to/cli-install.md
       - linkListType: reference
         links:
           - text: Azure SDK for Python
             url: /python/api/overview/azure/
           - text: Azure OpenAI Service Reference
-            url: ./openai/reference.md
-         
-  # Card
-  - title: Azure AI services
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What are AI services?
-            url: ./what-are-ai-services.md
-          - text: Azure AI services documentation
-            url: ./index.yml
+            url: ../ai-services/openai/reference.md
       - linkListType: quickstart
         links:
           - text: Speech to speech chat
-            url: ./speech-service/openai-speech.md?pivots=programming-language-python
+            url: ../ai-services/speech-service/openai-speech.md?pivots=programming-language-python
           - text: Conversational language understanding
-            url: ./language-service/conversational-language-understanding/quickstart.md?pivots=rest-api
+            url: ../ai-services/language-service/conversational-language-understanding/quickstart.md?pivots=rest-api
           - text: Document intelligence
-            url: ./document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
-
+            url: ../ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
+  
   # Card
   - title: Explore more AI resources
     linkLists:
@@ -100,15 +86,19 @@ landingContent:
             url: https://docs.github.com/copilot/getting-started-with-github-copilot
 
   # Card
-  - title: Explore more AI resources
+  - title: Training
     linkLists:
-      - linkListType: overview
+      - linkListType: learn
         links:
-          - text: AI learning and community hub
-            url: /ai/
-          - text: Identify principles and practices for responsible AI
-            url: /training/paths/responsible-ai-business-principles/
+          - text: Azure AI Training
+            url: https://aka.ms/LearnAzureAIStudio
+          - text: Vector search in Azure AI Search
+            url: /training/modules/improve-search-results-vector-search/
           - text: AI Learning paths and modules
             url: /training/browse/?resource_type=learning%20path&expanded=data-ai&subjects=artificial-intelligence
           - text: AI Engineer career path
             url: /training/career-paths/ai-engineer
+          - text: AI learning and community hub
+            url: /ai/
+          - text: Identify principles and practices for responsible AI
+            url: /training/paths/responsible-ai-business-principles/

@@ -17,7 +17,7 @@ ms.author: eur
 Azure AI Studio includes a content filtering system that works alongside core models. 
 
 > [!IMPORTANT]
-> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../openai/concepts/models.md#whisper-preview).
+> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../ai-services/openai/concepts/models.md#whisper-preview).
 
 This system is powered by Azure AI Content Safety, and now works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
 
@@ -65,6 +65,6 @@ The default content filtering configuration is set to filter at the medium sever
 
 ## Next steps
 
-- Learn more about the [underlying models that power Azure OpenAI](../../openai/concepts/models.md).
+- Learn more about the [underlying models that power Azure OpenAI](../../ai-services/openai/concepts/models.md).
 - Azure AI Studio content filtering is powered by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/context/context).
