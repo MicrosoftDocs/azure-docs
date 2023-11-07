@@ -75,10 +75,10 @@ This article assumes that you have a basic understanding about [creating Bicep f
 ## Prerequisites  
 :::zone-end  
 :::zone pivot="container-apps" 
-This article assumes that you have already created a managed environment in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
+This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 :::zone-end  
 :::zone pivot="azure-arc" 
-This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). managed environment in Azure Container Apps. You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
+This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 :::zone-end  
 <a name="storage"></a>
 ## Create storage account
@@ -1338,7 +1338,13 @@ Function apps that are built remotely on Linux can run from a package.
 :::zone pivot="dedicated-plan,premium-plan"
 ## Linux containers
 
-If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set [other application settings](#application-configuration) (`DOCKER_REGISTRY_SERVER_*`)when obtaining the container from a private registry. 
+If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must:
+
++ Set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. 
++ Set any required [`DOCKER_REGISTRY_SERVER_*`](#application-configuration) settings when obtaining the container from a private registry. 
++ Set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../articles/app-service/reference-app-settings.md#custom-containers) application setting to `false`. 
+
+For more information, see [Application configuration](#application-configuration).
 
 ### [ARM template](#tab/json)
 
@@ -1455,7 +1461,11 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ::: zone-end
 :::zone pivot="container-apps"
-When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), you must set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. You must also set the `managedEnvironmentId` site property to the fully qualified URI of the Container Apps environment. If you're creating a `Microsoft.App/managedEnvironments` resource at the same time as the site, make sure to include this resource in the `dependsOn` collection in the site definition. 
+When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), your template must:
+
++ Set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. 
++ Set the `managedEnvironmentId` site property to the fully qualified URI of the Container Apps environment. 
++ Add a resource link in the site's `dependsOn` collection when creating a `Microsoft.App/managedEnvironments` resource at the same time as the site. 
 
 The definition of a containerized function app deployed from a private container registry to an existing Container Apps environment might look like this example:
 
@@ -1792,7 +1802,7 @@ Keep the following considerations in mind when working with slot deployments:
 :::zone pivot="premium-plan,dedicated-plan" 
 ## Secured deployments
 
-You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app may also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md).
+You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md).
 
 These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
 
