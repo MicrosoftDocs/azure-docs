@@ -87,7 +87,7 @@ To enable the asset endpoint to use an untrusted certificate:
           "defaults": {
             "publishingIntervalMilliseconds": 1000,
             "samplingIntervalMilliseconds": 500,
-            "queueSize": 15,
+            "queueSize": 1,
           },
           "session": {
             "timeout": 60000
