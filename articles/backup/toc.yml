@@ -106,6 +106,8 @@
       href: backup-azure-policy-supported-skus.md
     - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
+    - name: Azure Database for PostgreSQL -Flexible server backup support matrix
+      href: backup-azure-database-postgresql-flex-support-matrix.md      
     - name: Azure Kubernetes Service backup support matrix
       href: azure-kubernetes-service-cluster-backup-support-matrix.md
     - name: Automation in Azure Backup
@@ -324,6 +326,16 @@
         href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
+  - name: Azure Database for PostgreSQL -Flexible server backup
+    items:
+    - name: Overview
+      href: backup-azure-database-postgresql-flex-overview.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql-flex-overview.md
+      - name: Restore
+        href: restore-azure-database-postgresql-flex.md
   - name: Azure Kubernetes Service backup
     items:
     - name: From the Azure portal
