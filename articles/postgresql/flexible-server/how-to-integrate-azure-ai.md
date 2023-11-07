@@ -206,7 +206,7 @@ The `Argument data types` property in the output of the `\df+ azure_openai.*` co
 
 The first argument is the `deployment_name`, assigned when your embedding model was deployed in your Azure OpenAI account. To retrieve this value, go to your Azure OpenAI resource in the Azure portal. From there, select the **Model deployments** item under **Resource Management** in the left-hand navigation menu, then select **Manage Deployments** to open Azure OpenAI Studio. On the **Deployments** tab in Azure OpenAI Studio, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
 
-:::image type="content" source="./media/azure_openai_studio_deployments_embeddings.png" alt-text="The embeddings deployment for the text-embedding-ada-002 model is highlighted on the Deployments tab in Azure OpenAI Studio.":::
+:::image type="content" source="media/how-to-integrate-azure-ai/azure_openai_studio_deployments_embeddings.png" alt-text="Screenshot of embedding deployments for integrating AI.":::
 
 Using this information, run a query to update each record in the `bill_summaries` table, inserting the generated vector embeddings for the `bill_text` field into the `bill_vector` column using the `azure_openai.create_embeddings()` function. Replace `{your-deployment-name}` with the **Deployment name** value you copied from the Azure OpenAI Studio **Deployments** page, and then run the following command:
 
