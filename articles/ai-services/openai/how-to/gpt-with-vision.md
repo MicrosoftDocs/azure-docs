@@ -12,44 +12,34 @@ manager: nitinme
 keywords:
 ---
 
-# Use GPT-4 with Vision model
+# Use GPT-4 with Vision
 
-The model is best at answering general questions about what is present in the images. While it does understand the relationship between objects in images, it is not yet optimized to answer detailed questions about the location of certain objects in an image. For example, you can ask it what color a car is or what some ideas for dinner might be based on what is in you fridge, but if you show it an image of a room and ask it where the chair is, it may not answer the question correctly.
+The model GPT-4 with Vision answers general questions about what's present in the images you show it. 
 
-It is important to note the following:
+While it does understand the relationship between objects in images, it's not optimized to answer detailed questions about the location of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what is in you fridge, but if you show it an image of a room and ask it where the chair is, it may not answer correctly.
 
-- GPT-4 with Vision is not a model that behaves differently from GPT-4, with the small exception of the system prompt we use for the model
-- GPT-4 with Vision is not a different model that does worse at text tasks because it has vision, it is simply GPT-4 with Vision added
-- GPT-4 with Vision is an augmentative set of capabilities for the model
+It's important to note the following:
+- GPT-4 with Vision does not behave differently from GPT-4, with the small exception of the system prompt OpenAI uses for the model.
+- GPT-4 with Vision does not perform worse at text tasks because it has vision, it is simply GPT-4 with vision added.
+- GPT-4 with Vision is an augmentative set of capabilities for the model.
 
-## Low or high fidelity image understanding
+To use GPT-4 with Vision, you call the Chat Completion API on a GPT-4 Vision model that you've deployment.
 
-By controlling the _detail_ parameter, which has two options, `low` or `high`, you have control over how the model processes the image and generates its textual understanding.
-- `low` will disable the “high res” model. The model will receive a low-res 512 x 512 version of the image, and represent the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that do not require high detail.
-- `high` will enable “high res” mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512px squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
+## Call the Chat Completion APIs
 
-## Managing images
-The Chat Completions API, unlike the Assistants API, is not stateful. That means you have to manage the messages (including images) you pass to the model yourself. If you want to pass the same image to the model multiple times, you will have to pass the image each time you make a request to the API.
-
-For long running conversations, we suggest passing images via URL's instead of base64. The latency of the model can also be improved by downsizing your images ahead of time to be less than the maximum size they are expected them to be. For low res mode, we expect a 512px x 512px image. For high rest mode, the short side of the image should be less than 768px and the long side should be less than 2,000px.
-
-After an image has been processed by the model, it is deleted from OpenAI servers and not retained. [We do not use data uploaded via the OpenAI API to train our models](https://openai.com/enterprise-privacy).
-
-## Call the API
+The following REST command shows the most basic way to use the GPT-4 Vision model with code. If this is your first time using these models programmatically we recommend starting with our [GPT-4 with Vision quickstart](../gpt-v-quickstart.md).
 
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-08-01-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
-- DEPLOYMENT_NAME is the name of your gptv model deployment 
+- DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
 
-Required headers: 
-- Content-Type: application/json 
-- api-key: {API_KEY} 
+**Required headers**: 
+- `Content-Type`: application/json 
+- `api-key`: {API_KEY} 
 
-Body: 
-
-This is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content may be an array containing strings and images. 
-
+**Body**: 
+This is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content may be an array containing strings and base 64 encoded images. 
 
 ```json
 {
@@ -69,3 +59,24 @@ This is a sample request body. The format is the same as the chat completions AP
     "stream": false 
 } 
 ```
+
+## Low or high fidelity image understanding
+
+By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
+- `low` will disable the "high res" mode. The model will receive a low-res 512x512 version of the image and represent the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
+- `high` will enable "high res" mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512x512 squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
+
+## Managing images
+
+The Chat Completions API, unlike the Assistants API, is not stateful. That means you have to manage the messages (including images) you pass to the model yourself. If you want to pass the same image to the model multiple times, you have to pass the image each time you make a request to the API.
+
+You can improve the latency of the model by downsizing your images ahead of time to be smaller than the maximum allowed size. For low res mode, the service expects a 512x512 pixel image. For high res mode, the short side of the image should be less than 768px and the long side should be less than 2,000px.
+
+After an image has been processed by the model, it's deleted from OpenAI servers and not retained. [OpenAI does not use data uploaded through their APIs to train their models](https://openai.com/enterprise-privacy).
+
+## Next steps
+
+* [Learn more about Azure OpenAI](../overview.md).
+* [GPT-4 with Vision quickstart](../gpt-v-quickstart.md)
+* [GPT-4 with Vision frequently asked questions](../faq.yml#GPT-4-with-Vision)
+* [GPT-4 with Vision API reference](https://aka.ms/gpt-v-api-ref)
