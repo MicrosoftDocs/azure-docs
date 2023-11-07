@@ -37,12 +37,10 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
         "type": "helm.v3",
         "properties": {
           "chart": {
-            "repo": "alicesprings.azurecr.io/helm/microsoft-managed-akri",
-            "version": "0.1.0"
+            "repo": "oci://mcr.microsoft.com/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker",
+            "version": "0.1.0-preview"
           },
-          "values": {
-            "kubernetesDistro": "k8s"
-          }
+          "values": {}
         },
         "dependencies": []
       },
@@ -145,12 +143,10 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
         "type": "helm.v3",
         "properties": {
           "chart": {
-            "repo": "alicesprings.azurecr.io/helm/microsoft-managed-akri",
-            "version": "0.1.0"
+            "repo": "oci://mcr.microsoft.com/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker",
+            "version": "0.1.0-preview"
           },
-          "values": {
-            "kubernetesDistro": "k8s"
-          }
+          "values": {}
         },
         "dependencies": []
       },

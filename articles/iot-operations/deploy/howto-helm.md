@@ -40,12 +40,12 @@ param customLocationName string
 
 // Load the base helm chart config and the overlay helm chart config.
 // Apply the overlay config over the base config using union().
-var baseAkriValues = loadYamlContent('base.yml')
-var overlayAkriValues = loadYamlContent('overlay.yml')
-var akriValues = union(baseAkriValues, overlayAkriValues)
+var baseOpcUaValues = loadYamlContent('base.yml')
+var overlayOpcUaValues = loadYamlContent('overlay.yml')
+var opcUaValues = union(baseOpcUaValues, overlayOpcUaValues)
 
 resource helmChart 'Microsoft.iotoperationsorchestrator/targets@2023-05-22-preview' = {
-  name: 'akri-helm-chart-override'
+  name: 'opcUa-helm-chart-override'
   location: clusterLocation
   extendedLocation: {
     type: 'CustomLocation'
@@ -55,14 +55,14 @@ resource helmChart 'Microsoft.iotoperationsorchestrator/targets@2023-05-22-previ
     scope: clusterNamespace
     components: [
       {
-        name: 'akri'
         type: 'helm.v3'
+        name: 'opc-ua-broker'
         properties: {
           chart: {
-            repo: 'alicesprings.azurecr.io/helm/microsoft-managed-akri'
-            version: '0.1.0'
+            repo: 'oci://mcr.microsoft.com/azureiotoperations/opcuabroker/helmchart/microsoft.iotoperations.opcuabroker'
+            version: 0.1.0-preview
           }
-          values: akriValues
+          values: opcUaValues
         }
       }
     ]
