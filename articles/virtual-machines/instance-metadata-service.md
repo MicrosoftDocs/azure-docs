@@ -243,7 +243,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 #### Supported API versions
 
 > [!NOTE]
-> Version 2023-07-01 is still being rolled out, it may not be available in some areas.
+> Version 2023-07-01 is still being rolled out, it may not be available in some regions.
 
 - 2023-07-01
 - 2021-12-13
