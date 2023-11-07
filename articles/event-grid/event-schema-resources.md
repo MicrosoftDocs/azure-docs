@@ -193,7 +193,7 @@ The `data` object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceInfo` | Object | Data specific to the resource. For more information, see the next table. |
-| `apiVersion` | String | Api version of the resource properties. |
+| `apiVersion` | String | API version of the resource properties. |
 | `operationalInfo` | Object | Details of operational information pertaining to the resource. | 
 
 The `resourceInfo` object has the following common properties across `CreatedOrUpdated` and `Deleted` events:
@@ -212,7 +212,7 @@ The `resourceInfo` object for the `CreatedOrUpdated` event has the following ext
 | `tags` | String | Tags for the resource. |
 | `properties` | Object | Payload of the resource. |
 
-Only the `CreatedOrUpdated` event includes the `properties` object. The schema of this `properties` object is unique to each publisher. To discover the schema, see the [REST API documentation for the specific azure resource](/rest/api/azure/). You can find an example in the **Examples events** section of this article. 
+Only the `CreatedOrUpdated` event includes the `properties` object. The schema of this `properties` object is unique to each publisher. To discover the schema, see the [REST API documentation for the specific Azure resource](/rest/api/azure/). You can find an example in the **Examples events** section of this article. 
  
 ```json
             "properties": {
