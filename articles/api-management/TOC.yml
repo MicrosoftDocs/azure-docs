@@ -206,6 +206,8 @@
         href: import-api-from-odata.md
       - name: Import SAP OData metadata
         href: sap-api.md
+    - name: Import gRPC API
+      href: grpc-api.md    
     - name: Azure OpenAI
       items:
       - name: Protect Azure OpenAI keys
