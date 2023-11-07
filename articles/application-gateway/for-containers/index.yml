@@ -70,14 +70,6 @@ landingContent:
             url: how-to-backend-mtls-gateway-api.md
 
 # Card
-  - title: Application Gateway for Containers Kubernetes Reference
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: API Specification
-            url: api-specification-kubernetes.md
-
-# Card
   - title: Troubleshoot Application Gateway for Containers
     linkLists:
       - linkListType: overview
@@ -86,6 +78,10 @@ landingContent:
             url: troubleshooting-guide.md
           - text: Diagnostic Logs
             url: diagnostics.md
+      - linkListType: concept
+        links:
+          - text: API Specification for Kubernetes
+            url: api-specification-kubernetes.md
 
   # Card
   - title: Gateway API
