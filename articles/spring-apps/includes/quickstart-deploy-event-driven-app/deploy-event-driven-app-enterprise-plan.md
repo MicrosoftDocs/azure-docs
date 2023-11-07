@@ -54,9 +54,9 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 8. Select **Queues** on the navigation menu, then select **Queue**.
 
-9. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
 
-10. Create another queue by repeating the previous step using *upper-case* for **Name**.
+1. Create another queue by repeating the previous step using *upper-case* for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -76,8 +76,6 @@ Use the following steps to connect your service instances:
 
 1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-enterprise.png":::
-
 1. Fill out the **Basics** tab with the following information:
 
    - **Service type**: Select **Service Bus**.
@@ -86,13 +84,9 @@ Use the following steps to connect your service instances:
    - **Namespace**: Select the namespace you created.
    - **Client type**: Select **SpringBoot**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-basic-enterprise.png":::
-
 1. Configure the **Next: Authentication** tab with the following information:
 
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option selected." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png":::
 
 1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service**.
 
