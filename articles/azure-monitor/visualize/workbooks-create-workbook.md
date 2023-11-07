@@ -32,8 +32,8 @@ To create a new Azure workbook:
 ## Add text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
-   <!-- convertborder later -->
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" lightbox="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook." border="false":::
+   
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" lightbox="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook.":::
 
 Text is added through a markdown control into which an author can add their content. An author can use the full formatting capabilities of markdown. These include different heading and font styles, hyperlinks, tables, etc. Markdown allows authors to create rich Word- or Portal-like reports or analytic narratives.  Text can contain parameter values in the markdown text, and those parameter references will be updated as the parameters change.
 
@@ -81,8 +81,8 @@ You can also choose a text parameter as the source of the style. The parameter v
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" lightbox="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot of adding text to a workbook in preview mode showing info style." border="false":::
 
 **Warning style example**:
-   <!-- convertborder later -->
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" lightbox="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style." border="false":::
+   
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" lightbox="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
 ## Add queries
 
@@ -205,8 +205,8 @@ To add a parameter to an Azure Workbook:
 Most Azure resources emit metric data about state and health such as CPU utilization, storage availability, count of database transactions, failing app requests, etc. Using workbooks, you can create visualizations of the metric data as time-series charts. 
 
 The example below shows the number of transactions in a storage account over the prior hour. This allows the storage owner to see the transaction trend and look for anomalies in behavior.  
-  <!-- convertborder later -->
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook." border="false":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook.":::
 
 To add a metric chart to an Azure Workbook:
 
@@ -305,8 +305,8 @@ You can then add other items in the workbook that are conditionally visible if t
   :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab.png" lightbox="media/workbooks-create-workbook/workbooks-selected-tab.png" alt-text="Screenshot of conditionally visible tab in workbooks." border="false":::
 
 The first tab is selected by default, initially setting **selectedTab** to 1, and making that step visible. Selecting the second tab will change the value of the parameter to "2", and different content will be displayed:
-  <!-- convertborder later -->
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab2.png" lightbox="media/workbooks-create-workbook/workbooks-selected-tab2.png" alt-text="Screenshot of workbooks with content displayed when selected tab is 2." border="false":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab2.png" lightbox="media/workbooks-create-workbook/workbooks-selected-tab2.png" alt-text="Screenshot of workbooks with content displayed when selected tab is 2.":::
 
 A sample workbook with the above tabs is available in [sample Azure Workbooks with links](workbooks-sample-links.md#sample-workbook-with-links).
 g
@@ -394,8 +394,8 @@ This is the group before being loaded in the workbook:
 
 
 The group after being loaded in the workbook:
-  <!-- convertborder later -->
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" lightbox="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" alt-text="Screenshot showing an explicit group after being loaded in the workbook." border="false":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" lightbox="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" alt-text="Screenshot showing an explicit group after being loaded in the workbook.":::
 
 #### Always mode
 

@@ -180,8 +180,8 @@ To make a query control that uses [Application Change Analysis](../app/change-an
 
 With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
 
-<!-- convertborder later -->
-:::image type="content" source="./media/workbooks-data-sources/prometheus-query.png" lightbox="./media/workbooks-data-sources/prometheus-query.png" alt-text="Screenshot that shows sample PromQL query." border="false":::
+<!-- convertborder later; border-bottom is missing, so applying the Learn formatting border -->
+:::image type="content" source="./media/workbooks-data-sources/prometheus-query.png" lightbox="./media/workbooks-data-sources/prometheus-query.png" alt-text="Screenshot that shows sample PromQL query.":::
 
 > [!NOTE]
 > Querying from an Azure Monitor workspace is a data plane action and requires an explicit role assignment of Monitoring Data Reader, which is not assigned by default
