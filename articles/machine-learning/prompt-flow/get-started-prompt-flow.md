@@ -1,7 +1,7 @@
 ---
-title: Get started in Prompt flow (preview)
+title: Get started in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to use Prompt flow in Azure Machine Learning studio.
+description: Learn how to use prompt flow in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -12,13 +12,9 @@ ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
 
-# Get started with Prompt flow (preview)
+# Get started with prompt flow 
 
-This article walks you through the main user journey of using Prompt flow in Azure Machine Learning studio. You'll learn how to enable Prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article walks you through the main user journey of using prompt flow in Azure Machine Learning studio. You'll learn how to enable prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
 
 ## Prerequisites 
 
@@ -40,7 +36,7 @@ First you need to set up connection and runtime.
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM (Large Language Models) and other external tools, for example,  Azure Content Safety.
 
-Navigate to the Prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
+Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
 
 If you aren't already connected to AzureOpenAI, select the **Create** button then *AzureOpenAI* from the drop-down.
 
@@ -67,9 +63,9 @@ Once you have your Compute Instance running, you can start to create a runtime. 
 :::image type="content" source="./media/get-started-prompt-flow/create-runtime.png" alt-text="Screenshot of add compute instance runtime tab. " lightbox = "./media/get-started-prompt-flow/create-runtime.png":::
 
 
-## Create and develop your Prompt flow
+## Create and develop your prompt flow
 
-In **Flows** tab of Prompt flow home page, select **Create** to create your first Prompt flow. You can create a flow by cloning the samples in the gallery.
+In **Flows** tab of prompt flow home page, select **Create** to create your first prompt flow. You can create a flow by cloning the samples in the gallery.
 
 ### Clone from sample
 
