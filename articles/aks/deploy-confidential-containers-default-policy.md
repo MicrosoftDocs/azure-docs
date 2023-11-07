@@ -300,6 +300,8 @@ kubectl delete pod pod-name
 
 ## Next steps
 
+* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
+
 <!-- EXTERNAL LINKS -->
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
@@ -326,3 +328,4 @@ kubectl delete pod pod-name
 [entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
 [confidential-containers-considerations]: confidential-containers-overview.md#considerations
+[azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
