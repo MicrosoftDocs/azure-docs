@@ -176,10 +176,7 @@ If you want to describe a function that doesn't accept any parameters, use `{"ty
 
 ### Managing the flow with functions
 
-# [OpenAI Python 0.28.1](#tab/python)
-
 ```python
-# This is only a partial code example we aren't defining an actual search_hotels function, so without further modification this code will not execute successfully. For a fully functioning example visit out samples.
 
 response = openai.ChatCompletion.create(
     deployment_id="gpt-35-turbo-0613",
@@ -232,75 +229,6 @@ if response_message.get("function_call"):
 else:
     print(response["choices"][0]["message"])
 ```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-# This is only a partial code example we aren't defining an actual search_hotels function, so without further modification this code will not execute successfully. 
-
-import os
-from openai import AzureOpenAI
-
-client = AzureOpenAI(
-  api_key= os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-10-01-preview",
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"
-)
-
-response = client.chat.completions.create(
-    model="gpt-35-turbo-0613", # model = deployment_name
-    messages=messages,
-    functions=functions,
-    function_call="auto", 
-)
-response_message = response.choices[0].message
-
-# Check if the model wants to call a function
-if response_message.get("function_call"):
-
-    # Call the function. The JSON response may not always be valid so make sure to handle errors
-    function_name = response_message["function_call"]["name"]
-
-    available_functions = {
-            "search_hotels": search_hotels,
-    }
-    function_to_call = available_functions[function_name] 
-
-    function_args = json.loads(response_message["function_call"]["arguments"])
-    function_response = function_to_call(**function_args)
-
-    # Add the assistant response and function response to the messages
-    messages.append( # adding assistant response to messages
-        {
-            "role": response_message["role"],
-            "function_call": {
-                "name": function_name,
-                "arguments": response_message["function_call"]["arguments"],
-            },
-            "content": None
-        }
-    )
-    messages.append( # adding function response to messages
-        {
-            "role": "function",
-            "name": function_name,
-            "content": function_response,
-        }
-    ) 
-
-    # Call the API again to get the final response from the model
-    second_response = client.chat.completions.create(
-            messages=messages,
-            model="gpt-35-turbo-0613" #model = deployment_name
-            # optionally, you could provide functions in the second call as well
-        )
-    print(second_response.choices[0].message)
-else:
-    print(response.choices[0].message)
-
-```
-
----
 
 In the example above, we don't do any validation or error handling so you'll want to make sure to add that to your code.
 
