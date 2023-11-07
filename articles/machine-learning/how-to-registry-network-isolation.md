@@ -55,12 +55,12 @@ The identity (for example, a Data Scientist's Microsoft Entra user identity) use
 
 ### Share assets from workspace to registry 
 > [!NOTE]
-> Sharing a component from Azure MAchine Learning workspace to Azure MAchine Leanring registry is not supported currently.
+> Sharing a component from Azure Machine Learning workspace to Azure Machine Learning registry is not supported currently.
 
 Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a public registry if the storage account containing the asset has public access disabled. To enable asset sharing from workspace to registry:
 * Go to the **Networking** blade on the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
 * Set __Public network access__ to **Enabled from selected virtual networks and IP addresses**
-* Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure MAhcine Learning registry resource were you would like to enable sharing to from workspace.
+* Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure Machine Learning registry resource were you would like to enable sharing to from workspace.
 * Make sure to check rest of the settings as per your network configuration.
   
 ### Use assets from registry in workspace
@@ -122,12 +122,12 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 
 ### Share assets from workspace to registry 
 > [!NOTE]
-> Sharing a component from Azure MAchine Learning workspace to Azure MAchine Leanring registry is not supported currently.
+> Sharing a component from Azure Machine Learning workspace to Azure Machine Learning registry is not supported currently.
 
 Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a private registry if the storage account containing the asset has public access disabled. To enable asset sharing from workspace to registry:
 * Go to the **Networking** blade on the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
 * Set __Public network access__ to **Enabled from selected virtual networks and IP addresses**
-* Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure MAhcine Learning registry resource were you would like to enable sharing to from workspace.
+* Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure Machine Learning registry resource were you would like to enable sharing to from workspace.
 * Make sure to check rest of the settings as per your network configuration.
 
 ### Use assets from registry in workspace 

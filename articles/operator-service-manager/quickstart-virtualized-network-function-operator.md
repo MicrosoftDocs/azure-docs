@@ -113,7 +113,7 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
 
 1. **Login to Azure portal**: Open a web browser and sign in to the Azure portal (https://portal.azure.com/) using your Azure account credentials.
 1. **Navigate to All Services**: Under *Identity* select  *Managed identities*.
-1. **Locate the Managed Identity**: In the list of managed identities, find and select the one named **identity-for-ubuntu-vm-sns**. You should now be on the overview page for that managed identity.
+1. **Locate the Managed Identity**: In the list of managed identities, find and select the one named **identity-for-ubuntu-vm-sns** within your resource group. You should now be on the overview page for that managed identity.
 1. **Locate ID**: Select the properties section of the managed identity. You should see various information about the identity. Look for the **ID** field.
 1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID.
 1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
