@@ -43,10 +43,6 @@ In this article, you learn how to:
 
     :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/providers.tf":::
 
-1. Create a file named `ssh.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/ssh.tf":::
-
 1. Create a file named `main.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/main.tf":::
