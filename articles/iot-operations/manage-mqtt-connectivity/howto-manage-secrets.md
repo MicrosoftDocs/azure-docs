@@ -137,6 +137,6 @@ spec:
 
 ## Related content
 
-- About [BrokerListener resource](howto-brokerlistener.md)
+- About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)

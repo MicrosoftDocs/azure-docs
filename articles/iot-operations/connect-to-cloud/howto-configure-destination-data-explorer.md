@@ -85,6 +85,103 @@ Authentication<sup>1</sup>: Currently, the destination stage supports service pr
 | ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
 | Secret | The secret reference you created in your cluster.   | Yes |
 
+## Sample configuration
+
+The following JSON example shows a complete Azure Data Explorer destination stage configuration that writes the entire message to the `quickstart` table in the database`:
+
+```json
+{
+    "displayName": "Azure data explorer - 71c308",
+    "type": "output/dataexplorer@v1",
+    "viewOptions": {
+        "position": {
+            "x": 0,
+            "y": 784
+        }
+    },
+    "clusterUrl": "https://clusterurl.region.kusto.windows.net",
+    "database": "databaseName",
+    "table": "quickstart",
+    "authentication": {
+        "type": "servicePrincipal",
+        "tenantId": "tenantId",
+        "clientId": "clientId",
+        "clientSecret": "secretReference"
+    },
+    "batch": {
+        "time": "5s",
+        "path": ".payload"
+    },
+    "columns": [
+        {
+            "name": "Timestamp",
+            "path": ".Timestamp"
+        },
+        {
+            "name": "AssetName",
+            "path": ".assetName"
+        },
+        {
+            "name": "Customer",
+            "path": ".Customer"
+        },
+        {
+            "name": "Batch",
+            "path": ".Batch"
+        },
+        {
+            "name": "CurrentTemperature",
+            "path": ".CurrentTemperature"
+        },
+        {
+            "name": "LastKnownTemperature",
+            "path": ".LastKnownTemperature"
+        },
+        {
+            "name": "Pressure",
+            "path": ".Pressure"
+        },
+        {
+            "name": "IsSpare",
+            "path": ".IsSpare"
+        }
+    ]
+}
+```
+
+The configuration defines that:
+
+- Messages are batched for 5 seconds.
+- Uses the batch path `.payload` to locate the data for the columns.
+
+### Example
+
+The following example shows a sample input message to the Azure Data Explorer destination stage:
+
+```json
+{
+  "payload": {
+    "Batch": 102,
+    "CurrentTemperature": 7109,
+    "Customer": "Contoso",
+    "Equipment": "Boiler",
+    "IsSpare": true,
+    "LastKnownTemperature": 7109,
+    "Location": "Seattle",
+    "Pressure": 7109,
+    "Timestamp": "2023-08-10T00:54:58.6572007Z",
+    "assetName": "oven"
+  },
+  "qos": 0,
+  "systemProperties": {
+    "partitionId": 0,
+    "partitionKey": "quickstart",
+    "timestamp": "2023-11-06T23:42:51.004Z"
+  },
+  "topic": "quickstart"
+}
+```
+
 ## Related content
 
 - [Send data to Microsoft Fabric](howto-configure-destination-fabric.md)
