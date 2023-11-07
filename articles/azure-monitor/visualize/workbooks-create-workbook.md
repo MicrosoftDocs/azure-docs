@@ -32,16 +32,18 @@ To create a new Azure workbook:
 ## Add text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook.":::
+   
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example.png" lightbox="media/workbooks-create-workbook/workbooks-text-example.png" alt-text="Screenshot of adding text to a workbook.":::
 
 Text is added through a markdown control into which an author can add their content. An author can use the full formatting capabilities of markdown. These include different heading and font styles, hyperlinks, tables, etc. Markdown allows authors to create rich Word- or Portal-like reports or analytic narratives.  Text can contain parameter values in the markdown text, and those parameter references will be updated as the parameters change.
 
 **Edit mode**:
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode.png" alt-text="Screenshot showing adding text to a workbook in edit mode.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode.png" lightbox="media/workbooks-create-workbook/workbooks-text-control-edit-mode.png" alt-text="Screenshot showing adding text to a workbook in edit mode." border="false":::
 
 **Preview mode**:
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot showing adding text to a workbook in preview mode.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" lightbox="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot showing adding text to a workbook in preview mode." border="false":::
 
 To add text to an Azure workbook:
 
@@ -75,10 +77,12 @@ You can also choose a text parameter as the source of the style. The parameter v
 ### Text style examples
 
 **Info style example**:
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot of adding text to a workbook in preview mode showing info style.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" lightbox="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot of adding text to a workbook in preview mode showing info style." border="false":::
 
 **Warning style example**:
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
+   
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" lightbox="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
 ## Add queries
 
@@ -193,16 +197,16 @@ To add a parameter to an Azure Workbook:
     - Required: 
     
 1. Select **Done editing**.
-
-  :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing the creation of a time range parameter.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" lightbox="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing the creation of a time range parameter." border="false":::
 
 ## Add metric charts
 
 Most Azure resources emit metric data about state and health such as CPU utilization, storage availability, count of database transactions, failing app requests, etc. Using workbooks, you can create visualizations of the metric data as time-series charts. 
 
 The example below shows the number of transactions in a storage account over the prior hour. This allows the storage owner to see the transaction trend and look for anomalies in behavior.  
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook.":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook.":::
 
 To add a metric chart to an Azure Workbook:
 
@@ -214,8 +218,8 @@ To add a metric chart to an Azure Workbook:
 1. Select **Done Editing**.
 
 This is a metric chart in edit mode:
-
-:::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area-edit.png" alt-text="Screenshot showing a metric area chart for Storage transactions in edit mode.":::
+<!-- convertborder later -->
+:::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area-edit.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-area-edit.png" alt-text="Screenshot showing a metric area chart for Storage transactions in edit mode." border="false":::
 
 ### Metric chart parameters
 
@@ -235,23 +239,23 @@ This is a metric chart in edit mode:
 ### Metric chart examples
 
 **Transactions split by API name as a line chart**
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-split-line.png" alt-text="Screenshot showing a metric line chart for Storage transactions split by API name.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-split-line.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-split-line.png" alt-text="Screenshot showing a metric line chart for Storage transactions split by API name." border="false":::
 
 
 **Transactions split by response type as a large bar chart**
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-bar-large.png" alt-text="Screenshot showing a large metric bar chart for Storage transactions split by response type.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-bar-large.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-bar-large.png" alt-text="Screenshot showing a large metric bar chart for Storage transactions split by response type." border="false":::
 
 **Average latency as a scatter chart**
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" alt-text="Screenshot showing a metric scatter chart for storage latency.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" lightbox="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" alt-text="Screenshot showing a metric scatter chart for storage latency." border="false":::
 
 ## Add links 
 
 You can use links to create links to other views, workbooks, other items inside a workbook, or to create tabbed views within a workbook. The links can be styled as hyperlinks, buttons, and tabs.  
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-empty-links.png" alt-text="Screenshot of adding a link to a workbook.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-empty-links.png" lightbox="media/workbooks-create-workbook/workbooks-empty-links.png" alt-text="Screenshot of adding a link to a workbook." border="false":::
 
 Watch this video to learn how to use tabs, groups, and contextual links in Azure Workbooks:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE59YTe]
@@ -292,17 +296,17 @@ Links can use all of the link actions available in [link actions](workbooks-link
 ### Tabs
 
 Most of the time, tab links are combined with the **Set a parameter value** action. Here's an example showing the links step configured to create 2 tabs, where selecting either tab will set a **selectedTab** parameter to a different value (the example shows a third tab being edited to show the parameter name and parameter value placeholders):
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-creating-tabs.png" alt-text="Screenshot of creating tabs in workbooks.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-creating-tabs.png" lightbox="media/workbooks-create-workbook/workbooks-creating-tabs.png" alt-text="Screenshot of creating tabs in workbooks." border="false":::
 
 
 You can then add other items in the workbook that are conditionally visible if the **selectedTab** parameter value is "1" by using the advanced settings:
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab.png" alt-text="Screenshot of conditionally visible tab in workbooks.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab.png" lightbox="media/workbooks-create-workbook/workbooks-selected-tab.png" alt-text="Screenshot of conditionally visible tab in workbooks." border="false":::
 
 The first tab is selected by default, initially setting **selectedTab** to 1, and making that step visible. Selecting the second tab will change the value of the parameter to "2", and different content will be displayed:
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab2.png" alt-text="Screenshot of workbooks with content displayed when selected tab is 2.":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab2.png" lightbox="media/workbooks-create-workbook/workbooks-selected-tab2.png" alt-text="Screenshot of workbooks with content displayed when selected tab is 2.":::
 
 A sample workbook with the above tabs is available in [sample Azure Workbooks with links](workbooks-sample-links.md#sample-workbook-with-links).
 g
@@ -320,8 +324,8 @@ Use the Toolbar style to have your links appear styled as a toolbar.  In toolbar
  - Button text, the text to display on the toolbar. Parameters may be used in this field.
  - Icon, the icon to display in the toolbar.
  - Tooltip Text, text to be displayed on the toolbar button's tooltip text. Parameters may be used in this field.
-
- :::image type="content" source="media/workbooks-create-workbook/workbooks-links-create-toolbar.png" alt-text="Screenshot of creating links styled as a toolbar in workbooks.":::
+<!-- convertborder later -->
+ :::image type="content" source="media/workbooks-create-workbook/workbooks-links-create-toolbar.png" lightbox="media/workbooks-create-workbook/workbooks-links-create-toolbar.png" alt-text="Screenshot of creating links styled as a toolbar in workbooks." border="false":::
 
 If any required parameters are used in button text, tooltip text, or value fields, and the required parameter is unset, the toolbar button will be disabled. For example, this can be used to disable toolbar buttons when no value is selected in another parameter/control.
 
@@ -342,18 +346,18 @@ To add a group to your workbook:
 1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a parameter by doing either of these steps:
     - Select **Add**, and **Add group** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add group**.
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-add-group.png" alt-text="Screenshot showing selecting adding a group to a workbook. ":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-add-group.png" lightbox="media/workbooks-create-workbook/workbooks-add-group.png" alt-text="Screenshot showing selecting adding a group to a workbook. " border="false":::
 1. Select items for your group.
 1. Select **Done editing.**
 
    This is a group in read mode with two items inside: a text item and a query item.  
-   
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-view.png" alt-text="Screenshot showing a group in read mode in a workbook.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-view.png" lightbox="media/workbooks-create-workbook/workbooks-groups-view.png" alt-text="Screenshot showing a group in read mode in a workbook." border="false":::
 
    In edit mode, you can see those two items are actually inside a group item. In the screenshot below, the group is in edit mode. The group contains two items inside the dashed area. Each item can be in edit or read mode, independent of each other. For example, the text step is in edit mode while the query step is in read mode.
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-edit.png" alt-text="Screenshot of a group in edit mode in a workbook.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-edit.png" lightbox="media/workbooks-create-workbook/workbooks-groups-edit.png" alt-text="Screenshot of a group in edit mode in a workbook." border="false":::
 
 ### Scoping a group
 
@@ -381,17 +385,17 @@ For groups created from a template, the content of the template isn't retrieved 
 In this mode, a button is displayed where the group would be, and no content is retrieved or created until the user explicitly clicks the button to load the content. This is useful in scenarios where the content might be expensive to compute or rarely used. The author can specify the text to appear on the button.
 
 This screenshot shows explicit load settings with a configured "Load more" button.
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded.png" alt-text="Screenshot of explicit load settings for a group in workbooks.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded.png" lightbox="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded.png" alt-text="Screenshot of explicit load settings for a group in workbooks." border="false":::
 
 This is the group before being loaded in the workbook:
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-before.png" alt-text="Screenshot showing an explicit group before being loaded in the workbook.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-before.png" lightbox="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-before.png" alt-text="Screenshot showing an explicit group before being loaded in the workbook." border="false":::
 
 
 The group after being loaded in the workbook:
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" alt-text="Screenshot showing an explicit group after being loaded in the workbook.":::
+  
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" lightbox="media/workbooks-create-workbook/workbooks-groups-explicitly-loaded-after.png" alt-text="Screenshot showing an explicit group after being loaded in the workbook.":::
 
 #### Always mode
 
@@ -406,24 +410,24 @@ When a template is loaded into a group, the workbook attempts to merge any param
 #### Example 1: All parameters have identical names
 
 Suppose you have a template that has two parameters at the top, a time range parameter and a text parameter named "**Filter**":
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-top-level-params.png" alt-text="Screenshot showing top level parameters in a workbook.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-top-level-params.png" lightbox="media/workbooks-create-workbook/workbooks-groups-top-level-params.png" alt-text="Screenshot showing top level parameters in a workbook." border="false":::
 
 Then a group item loads a second template that has its own two parameters and a text step, where the parameters are named the same:
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-merged-away.png" alt-text="Screenshot of a workbook template with top level parameters.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-merged-away.png" lightbox="media/workbooks-create-workbook/workbooks-groups-merged-away.png" alt-text="Screenshot of a workbook template with top level parameters." border="false":::
 
 When the second template is loaded into the group, the duplicate parameters are merged out. Since all of the parameters are merged away, the inner parameters step is also merged out, resulting in the group containing only the text step.
 
 ### Example 2: One parameter has an identical name
 
 Suppose you have a template that has two parameters at the top, a **time range** parameter and a text parameter named "**FilterB**" ():
-
-   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-wont-merge-away.png" alt-text="Screenshot of a group item with the result of parameters merged away.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-wont-merge-away.png" lightbox="media/workbooks-create-workbook/workbooks-groups-wont-merge-away.png" alt-text="Screenshot of a group item with the result of parameters merged away." border="false":::
 
 When the group's item's template is loaded, the **TimeRange** parameter is merged out of the group. The workbook contains the initial parameters step with **TimeRange** and **Filter**, and the group's parameter only includes **FilterB**.
-
-  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-wont-merge-away-result.png" alt-text="Screenshot of workbook group where parameters won't merge away.":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/workbooks-create-workbook/workbooks-groups-wont-merge-away-result.png" lightbox="media/workbooks-create-workbook/workbooks-groups-wont-merge-away-result.png" alt-text="Screenshot of workbook group where parameters won't merge away." border="false":::
 
 If the loaded template had contained **TimeRange** and **Filter** (instead of **FilterB**), then the resulting workbook would have a parameters step and a group with only the text step remaining.
 
