@@ -61,6 +61,8 @@ items:
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
         - name: Configure an OPC PLC simulator
           href: manage-devices-assets/howto-configure-opc-plc-simulator.md
+        - name: Configure OPC UA authentication options
+          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview
