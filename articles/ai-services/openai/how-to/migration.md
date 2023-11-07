@@ -15,11 +15,11 @@ manager: nitinme
 
 OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/631) and will help bring you up to speed on the changes specific to Azure OpenAI.
 
-## What's changed
+## Updates
 
 - This is a completely new version of the OpenAI Python API library.
-- Starting on 11/6/2023 `pip install openai` and `pip install openai --upgrade` will install `version 1.x` of the OpenAI Python library.
-- Upgrading from `version 0.28.1` to `version 1.x` is a breaking change, you will need to test and update your code.  
+- Starting on November 6, 2023 `pip install openai` and `pip install openai --upgrade` will install `version 1.x` of the OpenAI Python library.
+- Upgrading from `version 0.28.1` to `version 1.x` is a breaking change, you'll need to test and update your code.  
 - Auto-retry with backoff if there's an error
 - Proper types (for mypy/pyright/editors)
 - You can now instantiate a client, instead of using a global default.
@@ -28,7 +28,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`.
+- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`.
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
 
 ## Test before you migrate
@@ -36,9 +36,9 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 > [!IMPORTANT]
 > Automatic migration of your code using `openai migrate` is not supported with Azure OpenAI.
 
-As this is a completely new version of the library with breaking changes you should test your code extensively against the new release before migrating any production applications to rely on version 1.x. You should also review your code and internal processes to make sure that you are following best practices and pinning your production code to only versions that you have fully tested.
+As this is a completely new version of the library with breaking changes, you should test your code extensively against the new release before migrating any production applications to rely on version 1.x. You should also review your code and internal processes to make sure that you're following best practices and pinning your production code to only versions that you have fully tested.
 
-To make the migration process easier we are updating all our code examples in our docs for Python to a tabbed experience:
+To make the migration process easier, we're updating most of our code examples in our docs for Python to a tabbed experience:
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -54,7 +54,7 @@ pip install openai --upgrade
 
 ---
 
-This provides context for what has changed and allows you to test the new library in parallel while continuing to provide support for version `0.28.1`.
+This provides context for what has changed and allows you to test the new library in parallel while continuing to provide support for version `0.28.1`. If you upgrade to `1.x` and realize you need to temporarily revert back to th previous version, you can always `pip uninstall openai` and then reinstall targeted to `0.28.1` with `pip install openai==0.28.1`.
 
 ## Chat completions
 
@@ -86,7 +86,7 @@ print(response['choices'][0]['message']['content'])
 
 # [OpenAI Python 1.x](#tab/python-new)
 
-You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```python
 import os
@@ -296,8 +296,8 @@ print(completion.model_dump_json(indent=2))
 `openai.api_type`
 `openai.enable_telemetry`
 `openai.ca_bundle_path`
-`openai.requestssession` (OpenAI now uses httpx)
-`openai.aiosession` (OpenAI now uses httpx)
+`openai.requestssession` (OpenAI now uses `httpx`)
+`openai.aiosession` (OpenAI now uses `httpx`)
 `openai.Deployment` (Previously used for Azure OpenAI)
 `openai.Engine`
 `openai.File.find_matching_files()`
