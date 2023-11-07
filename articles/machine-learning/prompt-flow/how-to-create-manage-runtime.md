@@ -1,10 +1,10 @@
 ---
-title: Create and manage runtimes in Prompt flow
+title: Create and manage runtimes in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage runtimes in Prompt flow with Azure Machine Learning studio.
+description: Learn how to create and manage runtimes in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: cloga
 ms.author: lochen
