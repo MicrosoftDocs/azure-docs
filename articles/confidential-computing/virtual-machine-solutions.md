@@ -80,7 +80,7 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. If you would like to resize your VM you must stop it before resizing. 
+Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. If you would like to resize your VM you must stop it before resizing.
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
