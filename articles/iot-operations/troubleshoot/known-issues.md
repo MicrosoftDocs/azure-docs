@@ -57,4 +57,4 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
     ```
     For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
 
-- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network#configurecoredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
+- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
