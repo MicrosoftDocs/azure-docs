@@ -10,8 +10,9 @@ ms.author: v-abhmallick
 
 # Azure Database for PostgreSQL Flexible server backup with long-term retention (preview) 
 
-This article describes how to back up Azure Database for PostgreSQL-Flex server. Before you begin, review the [supported configurations, feature considerations and known limitations](./backup-azure-database-postgresql-flex-support-matrix.md).
+This article describes how to back up Azure Database for PostgreSQL-Flex server. 
 
+[Learn about](./backup-azure-database-postgresql-flex-support-matrix.md) the supported scenarios and known limitations of Azure Database for PostgreSQL Flexible server backup.
 
 ## Configure backup 
 
@@ -23,7 +24,7 @@ To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, f
 
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/adding-backup-inline.png" alt-text="Screenshot showing the option to add a backup.":::
 
-   Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
+   Alternatively, go to **Backup center** and select **+Backup**. 
 
 1. Select the data source type as **Azure Database for PostgreSQL flexible servers (Preview)**.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy.":::
@@ -47,7 +48,7 @@ To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, f
 
 To create a backup policy, follow these steps: 
 
-1. In the Backup vault you created, go to **Backup policies** and select **Add**. Alternatively, go to **Backup center** -> **Backup policies** -> **Add**.
+1. In the Backup vault you created, go to **Backup policies** and select **Add**. Alternatively, go to **Backup center** > **Backup policies** > **Add**.
 
 1. Enter a name for the new policy.
 
@@ -72,7 +73,7 @@ To create a backup policy, follow these steps:
 
 ## Run an on-demand backup
 
-To trigger a backup not in the schedule specified in the policy, go to **Backup instances** -> **Backup Now**.
+To trigger a backup not in the schedule specified in the policy, go to **Backup instances** > **Backup Now**.
 Choose from the list of retention rules that were defined in the associated Backup policy.
 
 :::image type="content" source="./media/backup-azure-database-postgresql/navigate-to-retention-rules-inline.png" alt-text="Screenshot showing the option to navigate to the list of retention rules that were defined in the associated Backup policy." lightbox="./media/backup-azure-database-postgresql/navigate-to-retention-rules-expanded.png":::

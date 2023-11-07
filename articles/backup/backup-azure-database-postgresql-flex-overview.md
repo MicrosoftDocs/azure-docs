@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. The feature offers the following capabilities:
 
-- You can extend your backup retention beyond 35 days which is the maximum supported limit by the operational tier backup capability of PostgreSQL flexible database. 
+- You can extend your backup retention beyond 35 days which is the maximum supported limit by the operational tier backup capability of PostgreSQL flexible database. [Learn more](../postgresql/flexible-server/concepts-backup-restore.md#backup-retention).
 - The backups are copied to an isolated storage environment outside of customer tenant and subscription, thus providing protection against ransomware attacks.
 - Azure Backup provides enhanced backup resiliency by protecting the source data from different levels of data loss ranging from accidental deletion to ransomware attacks.
 - The zero-infrastructure solution with Azure Backup service managing the backups with automated retention and backup scheduling.
@@ -20,12 +20,14 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 ## Backup process
 
+To perform the backup operation:
+
 1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access and control. 
 1. Configure backup policies, specify scheduling, retention, and other parameters. 
-1. The Backup RP invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
+1. The Backup recovery point invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
 1. Backup runs independently preventing disruptions during long-running tasks. 
 1. The retention and recovery point lifecycles align with the backup policies for effective management. 
-1. During the restore, the Backup RP invokes restore on the ARM API of PostgresFlex server using the SAS for asynchronous, nondisruptive recovery. 
+1. During the restore, the Backup recovery point invokes restore on the ARM API of PostgresFlex server using the SAS for asynchronous, nondisruptive recovery. 
 
  :::image type="content" source="./media/backup-azure-database-postgresql-flex-overview/backup-process.png" alt-text="Diagram showing the backup process.":::
 
