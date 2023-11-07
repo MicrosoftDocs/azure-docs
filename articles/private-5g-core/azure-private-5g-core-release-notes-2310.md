@@ -19,7 +19,7 @@ For more information about compatibility, see [Packet core and Azure Stack Edge 
 
 ## Support lifetime
 
-Packet core versions are supported until two subsequent versions are released (unless otherwise noted), which is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
+Packet core versions are supported until two subsequent versions are released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ### Currently supported packet core versions
 The following table shows the support status for different Packet Core releases.
@@ -42,10 +42,10 @@ This feature improves overall AP5GC Software download time by reducing the size 
 This feature enables the customer to view UE level information in the Azure portal that includes UE list with high level information and a detailed view for each UE. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min.
 
 ### Per gNB metrics in Azure portal
-This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc and are exposed to customer via Azure monitor under PCCP and PCDP resources. These metrics shall be used to correlate the RAN & Packet Core metrics and troubleshoot.
+This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed to the customer via Azure monitor under PCCP and PCDP resources. These metrics can be used to correlate the RAN & Packet Core metrics and troubleshoot.
 
 ### Combined 4G/5G on a single packet core
-This feature allows a packet core which supports both 4G and 5G networks on a single Mobile Network Site. Customers can deploy a RAN network with both 4G and 5G radios and to connect to a single packet core.
+This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network Site. Customers can deploy a RAN network with both 4G and 5G radios and to connect to a single packet core.
 
 
 ## Issues fixed in the AP5GC 2310 release
@@ -54,7 +54,7 @@ The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 | Packet Forwarding  | In scenarios of sustained high load (for example, continuous setup of 100's of TCP flows per second) in 4G setups, AP5GC may encounter an internal error, leading to a short period of service disruption resulting in some call failures. |
+  | 1 | Packet Forwarding  | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) in 4G setups, AP5GC might encounter an internal error, leading to a short period of service disruption resulting in some call failures. |
 
 
 ## Known issues in the AP5GC 2310 release
@@ -70,7 +70,7 @@ The following table provides a summary of known issues carried over from the pre
   |-----|-----|-----|-----|
   | 1 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro2 with ASE-2309 for throughput higher than 3.0 Gbps. | None |
   | 2 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | None |
-  | 3 | Local distributed tracing | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory doesn't transmit via the web proxy. If there's a firewall blocking traffic that does not go via the web proxy then enabling Azure Active Directory causes the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead. |
+  | 3 | Local distributed tracing | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory doesn't transmit via the web proxy. If there's a firewall blocking traffic that doesn't go via the web proxy then enabling Azure Active Directory causes the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead. |
 
   
 
