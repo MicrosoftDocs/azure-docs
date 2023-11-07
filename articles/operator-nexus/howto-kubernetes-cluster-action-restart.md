@@ -13,11 +13,11 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 Occasionally, a Nexus Kubernetes Node may become unreachable. This article explains how to restart the node via the `az networkcloud kubernetescluster restart-node` CLI command.
 
-Restarting a Nexus Kubernetes Node can take up to 5 minutes to complete. However, if the Virtual Machine is in bad state, the restart action may eventually time out. Please open an Azure support ticket for such instances.
+Restarting a Nexus Kubernetes Node can take up to 5 minutes to complete. However, if the Virtual Machine is in bad state, the restart action will eventually time out. Open an Azure support ticket for such instances.
 
 ## Before you begin
 > [!NOTE]
-> The approach outlined in this article represents an aggressive method for recovering an unreachable cluster VM. Workloads that may be running on the VM will be terminated; therefore, this restart action should be considered a last resort.
+> The approach outlined in this article represents an aggressive method for recovering an unreachable cluster VM. Workloads that are running on the VM will be terminated; therefore, this restart action should be considered a last resort.
 > Before performing a restart on a VM, consider first cordoning and draining the node, then gracefully shutting the VM down and bringing it back up.
 
 Make sure you have the latest version of [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
