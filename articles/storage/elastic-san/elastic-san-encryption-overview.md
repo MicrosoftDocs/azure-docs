@@ -7,6 +7,7 @@ ms.date: 11/06/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
+ms.custom: references_regions
 ---
 
 # Encrypt an Azure Elastic SAN Preview
