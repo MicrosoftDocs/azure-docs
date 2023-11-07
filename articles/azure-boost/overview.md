@@ -94,7 +94,7 @@ Performance improvements also have significant impact to Azure Dedicated Hosts (
 ## Current availability
 Azure Boost is currently available on several VM size families:
 
-[!INCLUDE [azure-boost-series](../sizes/includes/azure-boost-series.md)]
+[!INCLUDE [azure-boost-series](/includes/azure-boost-series.md)]
 
 ## Next Steps
 - Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
