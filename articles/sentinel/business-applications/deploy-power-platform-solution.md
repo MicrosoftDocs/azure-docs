@@ -50,12 +50,17 @@ In Microsoft Sentinel, enable the six data connectors to collect activity logs a
 
 ### Power Platform inventory data connector
 
+> [!Note]
+> - The Power Platform inventory data connector, if enabled, allows resolving of Power Platform Environment GUIDs and Power Apps GUIDs, in the incident details, to their human readable names configured in the Power Platorm admin center and the Power Apps maker portal.
+> - Enabling the Power Platform inventory data connector is recommanded but not mandatory.
+
 To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your the Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
 
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
 1. Search for and select **Power Platform Inventory (using Azure Functions)**.
-1. Select **Open connector page**. 
+1. Select **Open connector page**.
+2. Under **Configuration** follow steps 1 to 3.
 1. Under **Configuration** > **Step 4 - Azure Resource Manager (ARM) Template**, select **Deploy to Azure**.
 1. Under **Project details**, enter the required information like the blob service endpoint URL for the storage account.
 1. Select  **Review + create** > **Create**.
@@ -70,13 +75,17 @@ Connect each of the remaining data connectors by completing the following steps.
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
 1. Search for and select the data connectors in the solution that you need to connect like **Microsoft Power Apps**.
 1. Select **Open connector page** > **Connect**.
-1. Repeat these steps for each of the following data connectors that are apart of the Power Platform solution.
+1. Repeat these steps for each of the following data connectors that are a part of the Power Platform solution.
    - **Microsoft Power Apps**
    - **Microsoft Power Platform Connectors**
    - **Microsoft Power Platform DLP**
    - **Microsoft Dataverse**
 
 ## Enable auditing in your Microsoft Dataverse environment
+
+> [!Note]
+> - Dataverse activity logging is available only for Production dataverse environments. Other types, such as sandbox, do not support activity logging. See [Microsoft Dataverse and model-driven apps activity logging requierments](https://learn.microsoft.com/en-us/power-platform/admin/enable-use-comprehensive-auditing#requirements).
+> - Dataverse activity logging is not enabled by default. Follow the steps below to enable Dataverse auditing.
 
 Enable auditing at the global level for Dataverse and for each Dataverse entity.
 
@@ -143,7 +152,7 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
    |PowerPlatformDlpActivity |Data loss prevention activity logs   |
-   |Dynamics365Activity |Dataverse and model-driven apps activity logging  |  
+   |DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
 1. Verify that the results for each table show the activities you generated.
 
