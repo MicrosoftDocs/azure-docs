@@ -212,7 +212,7 @@ The process of scaling storage is performed online without causing any downtime,
 
 Remember that storage can only be scaled up, not down.
 
-## Limitations
+## Limitations and Considerations
 
 - Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
   
