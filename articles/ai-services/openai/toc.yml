@@ -100,6 +100,8 @@ items:
         href: ./how-to/switching-endpoints.md
       - name: Manage quota
         href: ./how-to/quota.md
+      - name: Migrate to OpenAI Python v1.x
+        href: ./how-to/migration.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
