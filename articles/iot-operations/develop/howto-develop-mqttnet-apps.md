@@ -97,7 +97,7 @@ spec:
   # SAT token used to authenticate between Dapr and the MQTT broker
   containers:
     - name: publisherclient
-      image: e4kpreview.azurecr.io/dotnetmqttsample
+      image: ghcr.io/azure-samples/explore-iot-operations/mqtt-client-dotnet:latest
       imagePullPolicy: IfNotPresent
       volumeMounts:
         - name: mqtt-client-token

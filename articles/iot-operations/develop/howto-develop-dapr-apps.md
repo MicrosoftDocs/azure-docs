@@ -20,7 +20,7 @@ The Distributed Application Runtime (Dapr) is a portable, serverless, event-driv
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
 - State Management
 
-To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and E4K pluggable components.
+To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Features supported
 
@@ -287,7 +287,7 @@ To start, you create a yaml file that uses the following component definitions:
       containers:
         # Container for the dapr quickstart application 
         - name: dapr-workload
-          image: alicesprings.azurecr.io/quickstart-sample:latest
+          image: ghcr.io/azure-samples/explore-iot-operations/quickstart-sample:latest
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
