@@ -39,13 +39,13 @@ After you define the key business property values to capture for tracking, and y
 
 1. On the process designer toolbar, select **Deploy**.
 
-   In the **Deploy business process** section, the **Cluster** and **Database** properties already show the values for the Azure Data Explorer instance already populated with your application group.
+   In the **Deploy business process** section, the **Cluster** and **Database** properties show prepopulated values for the Azure Data Explorer instance associated with your application group.
 
 1. For the **Table** property, choose either of the following options:
 
-   - Keep the pre-populated name, which is the name for your business process and creates a table with this name in your database.
+   - Keep and use the prepopulated name for your business process to create a table in your database.
 
-   - Enter the name for an existing table in your database, and select **Use an existing table**.
+   - Provide the name for an existing table in your database, and select **Use an existing table**.
    
    > [!IMPORTANT]
    >
@@ -55,7 +55,7 @@ After you define the key business property values to capture for tracking, and y
 
 1. When you're ready, select **Deploy**.
 
-   Azure shows a notification whether or not the deployment succeeds.
+   Azure shows a notification based on whether the deployment succeeds.
 
 1. Return to the **Business processes** page, which now shows the business process with a checkmark in the **Deployed** column.
 

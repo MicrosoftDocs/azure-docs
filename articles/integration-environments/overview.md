@@ -66,15 +66,15 @@ For example, suppose you're an integration developer at a power company. You man
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-You already have an integration environment that includes an application group that logically organizes Azure resources for this business scenario. To expose some of this underlying information to stakeholders, you can visually define the supported business process and its stages by using the process designer in your integration environment, for example:
+You already have an integration environment that includes an application group that logically organizes Azure resources for this business scenario. To expose some of this underlying information to stakeholders, you can visually model the business processes and stages supported by resources in the application group by using the process designer, for example:
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process modeling in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-For each stage, you define or specify the properties for the key business data to capture. You then map these properties to selected operations in a Standard logic app workflow that handles this data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
+For each business process stage, you define or specify the key business data properties to capture. You then map the stage to a matching operation in a Standard logic app workflow and map the properties to outputs that provide the matching data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-When you're done, your stage and specified properties are mapped to the selected Standard logic app workflow, operation, and source data:
+When you're done, your stage and business properties are mapped to the matching Standard logic app workflow, operation, and source data:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 

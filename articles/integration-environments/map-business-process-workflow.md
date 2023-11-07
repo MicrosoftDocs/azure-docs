@@ -149,14 +149,13 @@ After you previously defined the business properties to capture, map the stage t
 
 1. When you're done, select **Continue**.
 
-   After you finish mapping a stage, the platform sends the selected information to your database in Azure Data Explorer, and you're returned to the **Edit stage** pane.
+   After you finish mapping a stage, the platform sends the selected information to your database in Azure Data Explorer and returns you to the **Edit stage** pane.
 
-   The following example shows a completely mapped stage:
+   The following example shows a complete mapped stage:
 
-   :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows opened pane for Edit stage, and complete mapping to workfow operation, business properties, and business identifier.":::
+   :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows opened pane for Edit stage, and complete mapping to workflow operation, business properties, and business identifier.":::
 
-
-1. Back on the **Edit stage** pane, select **Save**.
+1. On the **Edit stage** pane, select **Save**.
 
 1. Make sure to save your changes often. On the process designer toolbar, select **Save**.
 
