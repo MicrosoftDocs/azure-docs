@@ -21,3 +21,6 @@ items:
     - name: API Management
       tocHref: /azure/reliability/
       topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /semantic-kernel/
+      topicHref: /azure/api-management/index

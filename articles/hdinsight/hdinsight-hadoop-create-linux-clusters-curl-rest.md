@@ -220,7 +220,7 @@ Follow the steps documented in [Get started with Azure CLI](/cli/azure/get-start
 
     In the list, select the subscription that you want to use and note the **Subscription_ID** and __Tenant_ID__ columns. Save these values.
 
-2. Use the following command to create an application in Azure Active Directory.
+2. Use the following command to create an application in Microsoft Entra ID.
 
    ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'

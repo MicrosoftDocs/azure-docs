@@ -42,7 +42,7 @@ After the registration finishes, confirm that you see the lab virtual machine in
 
 Azure Lab Services supports different email account types when registering for a lab:
 
-- An organizational email account that's provided by your Azure Active Directory instance.
+- An organizational email account that's provided by your Microsoft Entra instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. You need to link your account with a Microsoft account.
 

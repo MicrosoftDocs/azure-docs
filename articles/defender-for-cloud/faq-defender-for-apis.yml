@@ -23,7 +23,11 @@ sections:
 
       - question: I use Azure API Management Consumption tier offering. Can I use Defender for APIs?
         answer: No, support for Azure API Management consumption tier is currently not available.
-
+      
+      - question: How does Defender for APIs handle support for API revisions in Azure API Management?
+        answer: API revisions in Azure API Management are shown as separate API endpoints within Defender for APIs because each API revision is unique and might have its own security insights. 
+                Offline Azure API Management API revisions aren't shown in the onboarding or security insights blades of Defender for APIs because offline revisions don't allow any traffic to be sent to them and pose no security risk.
+              
   - name: Questions related to region/geo 
     questions:
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
@@ -50,15 +54,19 @@ sections:
       - question: We use a custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
         answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
 
+      - question: Does Defender for APIs support APIs published in multi-region Azure API Management deployments?
+        answer: There is currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions).
+                All security detections and subsequently generated security alerts will work for API traffic sent to both primary and secondary regions.
+
   - name: Questions about alerts in Defender for APIs 
     questions:
       - question: How soon can we receive alerts on anomalous APIs? 
-        answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
+        answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs might be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
 
   - name: Questions about Defender for APIs and WAF
     questions:
       - question: Is Azure WAF sufficient for securing APIs? 
-        answer:  While Web Application Firewalls (WAF) are a valuable solution for protecting applications, they may not provide complete security for APIs. WAFs are designed to apply generalized protection measures like dictionary, pattern, and signature mapping, which work well for applications with consistent traffic patterns. However, APIs are unique to each application and have dynamically changing nature, making the abstract protections offered by WAFs less effective. <br> APIs have different request and response payloads, and each consumer interacts with them in their own specific ways. The general dictionary, pattern, and signature mappings used by WAFs may not adequately offer complete in depth protection for APIs due to their uniqueness. Although there are some cases where overlap exists, such as detecting and preventing SQL injection attacks, APIs often require more granular security measures. <br> To achieve the level of security needed for APIs, a solution like Microsoft Defender for APIs is recommended. Defender for APIs learns and understands the API logic using machine learning algorithms, thereby providing a contextual understanding that enables more precise and effective security measures. This granular level of protection helps safeguard APIs against various threats and ensures a higher level of security for organizations. 
+        answer:  While Web Application Firewalls (WAF) are a valuable solution for protecting applications, they might not provide complete security for APIs. WAFs are designed to apply generalized protection measures like dictionary, pattern, and signature mapping, which work well for applications with consistent traffic patterns. However, APIs are unique to each application and have dynamically changing nature, making the abstract protections offered by WAFs less effective. <br> APIs have different request and response payloads, and each consumer interacts with them in their own specific ways. The general dictionary, pattern, and signature mappings used by WAFs might not adequately offer complete in depth protection for APIs due to their uniqueness. Although there are some cases where overlap exists, such as detecting and preventing SQL injection attacks, APIs often require more granular security measures. <br> To achieve the level of security needed for APIs, a solution like Microsoft Defender for APIs is recommended. Defender for APIs learns and understands the API logic using machine learning algorithms, thereby providing a contextual understanding that enables more precise and effective security measures. This granular level of protection helps safeguard APIs against various threats and ensures a higher level of security for organizations. 
 
 additionalContent: |
 

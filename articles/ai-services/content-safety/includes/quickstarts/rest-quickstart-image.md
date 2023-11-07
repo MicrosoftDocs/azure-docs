@@ -57,13 +57,17 @@ Paste the command below into a text editor, and make the following changes.
 1. Populate the `"image"` field in the body with either a `"content"` field or a `"blobUrl"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"blobUrl": "<your_storage_url>"}`.
 
 ```shell
-curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
+curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "image": {
     "content": "<base_64_string>"
-  }
+  },
+  "categories": [
+    "Hate", "SelfHarm", "Sexual", "Violence"
+  ],
+  "outputType": "FourSeverityLevels"
 }'
 ```
 
@@ -80,28 +84,44 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 
 Open a command prompt window and run the cURL command.
 
+The below fields must be included in the URL:
+
+| Name      |Required?  |  Description | Type   |
+| :------- |-------- |:--------------- | ------ |
+| **API Version** |Required |This is the API version to be checked. Current version is: `api-version=2023-10-01`. Example: `<endpoint>/contentsafety/image:analyze?api-version=2023-10-01` | String |
+
+The parameters in the request body are defined in this table:
+
+| Name        | Required?     | Description  | Type    |
+| :---------- | ----------- | :------------ | ------- |
+| **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request will be refused. The maximum allowed size of the image is 2048 pixels x 2048 pixels, and the maximum file size is 4MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
+| **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
+| **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels. The value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
+
 ### Interpret the API response
 
 You should see the image moderation results displayed as JSON data in the console. For example:
 
 ```json
 {
-  "hateResult": {
-    "category": "Hate",
-    "severity": 0
-  },
-  "selfHarmResult": {
-    "category": "Hate",
-    "severity": 0
-  },
-  "sexualResult": {
-    "category": "Hate",
-    "severity": 0
-  },
-  "violenceResult": {
-    "category": "Hate",
-    "severity": 0
-  }
+    "categoriesAnalysis": [
+        {
+            "category": "Hate",
+            "severity": 2
+        },
+        {
+            "category": "SelfHarm",
+            "severity": 0
+        },
+        {
+            "category": "Sexual",
+            "severity": 0
+        },
+        {
+            "category": "Violence",
+            "severity": 0
+        }
+    ]
 }
 ```
 
@@ -109,5 +129,5 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
-| **Severity** | The higher the severity of input content, the larger this value is. The values can be: 0,2,4,6.	  | Integer |
+| **categoriesAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
+| **Severity** | The higher the severity of input content, the larger this value is.	  | Integer |

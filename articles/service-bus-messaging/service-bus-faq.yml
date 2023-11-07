@@ -64,7 +64,7 @@ sections:
           | AMQP | 5671, 5672 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
           | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
           
-          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Microsoft Entra ID (when used) run over HTTPS. 
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           

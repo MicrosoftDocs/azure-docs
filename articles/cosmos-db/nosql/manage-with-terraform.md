@@ -78,9 +78,9 @@ Create an Azure Cosmos account, database and container with a stored procedure, 
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-cosmos-db-serverside-functionality/variables.tf":::
 
-## <a id="create-rbac"></a>Azure Cosmos DB account with Azure AD and role-based access control
+## <a id="create-rbac"></a>Azure Cosmos DB account with Microsoft Entra ID and role-based access control
 
-Create an Azure Cosmos account, a natively maintained Role Definition, and a natively maintained Role Assignment for an Azure Active Directory identity.
+Create an Azure Cosmos account, a natively maintained Role Definition, and a natively maintained Role Assignment for a Microsoft Entra identity.
 
 ### `main.tf`
 

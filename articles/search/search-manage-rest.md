@@ -43,7 +43,7 @@ All of the Management REST APIs have examples. If a task isn't covered in this a
 
 ## Create a security principal
 
-Management REST API calls are authenticated through Azure Active Directory (Azure AD). You'll need a security principal for your REST client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
+Management REST API calls are authenticated through Microsoft Entra ID. You'll need a security principal for your REST client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
 
 > [!NOTE]
 > The following steps are borrowed from the [Azure REST APIs with Postman](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) blog post.
@@ -88,7 +88,7 @@ The following steps are from [this blog post](https://blog.jongallant.com/2021/0
 
     | Variable | Description |
     |----------|-------------|
-    | clientId | Provide the previously generated "appID" that you created in Azure AD. |
+    | clientId | Provide the previously generated "appID" that you created in Microsoft Entra ID. |
     | clientSecret | Provide the "password" that was created for your client. |
     | tenantId | Provide the "tenant" that was returned in the previous step. |
     | subscriptionId | Provide the subscription ID for your subscription. |

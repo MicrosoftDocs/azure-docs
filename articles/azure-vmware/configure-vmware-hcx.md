@@ -168,6 +168,9 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    The selections define the resources where VMs can consume VMware HCX services.
 
+   > [!NOTE]
+   > If you have a mixed mode SDDC with a fleet cluster, deployment of service mesh appliances for fleet cluster is not viable/supported. 
+
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="Screenshot that shows selecting the source compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="Screenshot that shows selecting the remote compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::

@@ -2842,8 +2842,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-example-utterances.md",
@@ -2937,8 +2936,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-boundaries.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-limits",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/luis-limits"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-app-iteration.md",
@@ -3157,8 +3155,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-features.md",
@@ -3222,8 +3219,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-migration-authoring-entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/luis-migration-authoring-entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
@@ -3262,8 +3258,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
@@ -3272,8 +3267,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
@@ -3287,8 +3281,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-java-add-utterance.md",
@@ -3352,8 +3345,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-function-appinsights.md",
@@ -3472,8 +3464,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-entity-roles.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-intents-only.md",
@@ -3482,8 +3473,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-machine-learned-entity.md",
@@ -3492,13 +3482,11 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-publish-settings.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
@@ -4172,8 +4160,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
-            "redirect_url": "/azure/ai-services/speech-service/how-to-custom-speech-test-and-train",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/speech-service/how-to-custom-speech-test-and-train"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
@@ -4622,18 +4609,15 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-voice-assistant-java-android.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstarts/create-luis.md",
@@ -4737,8 +4721,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/ship-application.md",
-            "redirect_url": "/azure/ai-services/speech-service/speech-sdk",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/ai-services/speech-service/speech-sdk"
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/speaker-recognition-basics.md",

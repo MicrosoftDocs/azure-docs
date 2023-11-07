@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 09/14/2023
+ms.date: 10/30/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -31,7 +31,7 @@ The following tables list the values for a single workflow definition:
 | ---- | ----- | ----- |
 | Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app is limited to 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows ||
 | Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
-| Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
+| Triggers per workflow | - Consumption (designer): 1 trigger <br>- Consumption (JSON): 10 triggers <br><br>- Standard: 1 trigger | - Consumption:  Multiple triggers are possible only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. <br><br>- Standard: Only one trigger is possible, whether in the designer, code view, or an Azure Resource Manager (ARM) template. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
 | Single trigger or action - Maximum name length | 80 characters ||
@@ -186,7 +186,7 @@ The following table lists the values for a single workflow definition:
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint - Read calls per 5 min  | 60,000 read calls | None | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | None | You can distribute workload across more than one workflow as necessary. |
-| Content throughput per 5 min | 600 MB | None | You can distribute workload across more than one workflow as necessary. |
+| Content throughput per 5 min | 6 GB | None | For example, suppose the backend has 100 workers. Each worker has a limit of 60 MB, which is the result from dividing 6 GB by 100 workers. You can distribute workload across more than one workflow as necessary. |
 
 <a name="run-high-throughput-mode"></a>
 
@@ -305,11 +305,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 <a name="content-storage-size-limits"></a>
 
-### Request trigger size limits
+### Request trigger and webhook trigger size limits
 
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Request trigger (inbound) - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. |
+| Request trigger (inbound) and webhook-based triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the Request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For a webhook trigger, you might have to use multiple workflows, which splits the load and avoids throttling. |
 
 <a name="message-size-limits"></a>
 
@@ -333,11 +333,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 ### Authentication limits
 
-The following table lists the values for a workflow that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+The following table lists the values for a workflow that starts with a Request trigger and enables [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml) (Microsoft Entra ID OAuth) for authorizing inbound calls to the Request trigger:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Azure AD authorization policies | 5 policies | |
+| Microsoft Entra authorization policies | 5 policies | |
 | Claims per authorization policy | 10 claims | |
 | Claim value - Maximum number of characters | 150 characters |
 

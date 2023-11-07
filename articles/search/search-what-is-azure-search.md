@@ -106,7 +106,7 @@ Key strengths include:
 
 + Data integration (crawlers) at the indexing layer.
 + AI and machine learning integration with Azure AI services, useful if you need to make unsearchable content full text-searchable.
-+ Security integration with Azure Active Directory for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
++ Security integration with Microsoft Entra ID for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
 + Linguistic and custom text analysis in 56 languages.
 + [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.
 + Azure scale, reliability, and world-class availability.

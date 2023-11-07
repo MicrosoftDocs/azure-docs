@@ -18,7 +18,7 @@ ms.date: 05/07/2023
 
 This article shows you how to create a managed identity for an app hosted in Azure Spring Apps and use it to invoke HTTP triggered Functions.
 
-Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By using this built-in authentication capability along with Managed Identities for Azure Spring Apps, you can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
+Both Azure Functions and App Services have built in support for Microsoft Entra authentication. By using this built-in authentication capability along with Managed Identities for Azure Spring Apps, you can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
 
 ## Prerequisites
 
@@ -70,9 +70,11 @@ az functionapp create \
 
 Make a note of the returned `hostNames` value, which is in the format `https://<your-functionapp-name>.azurewebsites.net`. Use this value in the Function app's root URL for testing the Function app.
 
-## Enable Azure Active Directory authentication
+<a name='enable-azure-active-directory-authentication'></a>
 
-Use the following steps to enable Azure Active Directory authentication to access your Function app.
+## Enable Microsoft Entra authentication
+
+Use the following steps to enable Microsoft Entra authentication to access your Function app.
 
 1. In the Azure portal, navigate to your resource group and then open the Function app you created.
 1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
@@ -81,14 +83,14 @@ Use the following steps to enable Azure Active Directory authentication to acces
    :::image type="content" source="media/tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/tutorial-managed-identities-functions/add-identity-provider.png":::
 
 1. Select **Add**.
-1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Azure AD directory - Multi-tenant**.
+1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Microsoft Entra directory - Multi-tenant**.
 1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
 
    :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Support account types and Unauthenticated requests highlighted." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
 
 1. Select **Add**.
 
-After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Azure AD. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Azure Active Directory sign-in screen.
+After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Microsoft Entra ID. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Microsoft Entra sign-in screen.
 
 You need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you created.
 
@@ -109,7 +111,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default, functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the *function.json* file, as shown in the following example:
+By default, functions use key-based authentication to secure HTTP endpoints. To enable Microsoft Entra authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the *function.json* file, as shown in the following example:
 
 ```json
 {
