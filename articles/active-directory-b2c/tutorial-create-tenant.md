@@ -97,11 +97,7 @@ Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as lon
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** icon.
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select the **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
     
 1. In the Azure portal, search for and select **Azure AD B2C**.
 
