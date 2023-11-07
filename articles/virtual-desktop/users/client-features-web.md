@@ -3,7 +3,7 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 11/07/2023
 ms.author: daknappe
 ---
 
@@ -164,11 +164,11 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 
 1. Open the downloaded RDP file in your Remote Desktop client to launch a remote session.
 
-## Reset user settings (preview)
+## Reset user settings
 
 If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client** to **On**, then select **Settings** on the taskbar.
 
 1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 
