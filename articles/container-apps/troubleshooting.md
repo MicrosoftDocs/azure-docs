@@ -104,7 +104,6 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ::: zone-end
 
-## Symptoms
 
 If your container app or revision is configured incorrectly, you might see the following issues.
 
