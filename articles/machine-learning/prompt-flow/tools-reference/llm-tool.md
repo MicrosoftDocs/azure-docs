@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Prompt flow LLM tool enables you to leverage widely used large language models like OpenAI or Azure OpenAI (AOAI) for natural language processing.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: likebupt
 ms.author: keli19
@@ -37,7 +37,7 @@ Create OpenAI resources:
 
 ## **Connections**
 
-Set up connections to provisioned resources in Prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|
@@ -91,4 +91,4 @@ Set up connections to provisioned resources in Prompt flow.
 
 1. Setup and select the connections to OpenAI resources
 2. Configure LLM model api and its parameters
-3. Prepare the Prompt with [guidance](prompt-tool.md#how-to-write-prompt).
+3. Prepare the prompt with [guidance](prompt-tool.md#how-to-write-prompt).
