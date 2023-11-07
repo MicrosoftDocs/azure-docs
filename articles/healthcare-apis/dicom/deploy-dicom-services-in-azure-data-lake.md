@@ -32,21 +32,23 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
 1. Select **Deploy DICOM service**.
 
-   :::image type="content" source="media/deploy-data-lake/workspace-deploy-dicom.png" alt-text="Screenshot that shows a Health Data Services Workspace in the resource group view in the Azure portal." lightbox="media/deploy-data-lake/workspace-deploy-dicom.png":::
+   :::image type="content" source="media/deploy-data-lake/workspace-deploy-dicom.png" alt-text="Screenshot that shows the Deploy DICOM service button in the workspace view in the Azure portal." lightbox="media/deploy-data-lake/workspace-deploy-dicom.png":::
 
 1. Select **Add DICOM service**.
 
-   [![Screenshot that shows adding the DICOM service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+   :::image type="content" source="media/deploy-data-lake/add-dicom-service.png" alt-text="Screenshot that shows the Add DICOM Service button in the Azure portal." lightbox="media/deploy-data-lake/add-dicom-service.png":::
 
 1. Enter a name for the DICOM service.
 
-1. Select 
+1. Select **External (preview)** for the Storage Location.  
 
-    :::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot that shows the system-assigned managed identity toggle on the Identity page." lightbox="media/system-assigned-managed-identity.png":::
+1. Select the storage account created in the prerequisites.
 
-1. (Optional) Select **Next: Tags**.
+1. Select the storage container created in the prerequisites.  
 
-    Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+1. Select **Review + create** to deploy the DICOM service.  
+
+    :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot that shows the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
 
 1. When you notice the green validation check mark, select **Create** to deploy the DICOM service.
 
