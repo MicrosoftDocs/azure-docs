@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about Confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 11/01/2023
+ms.date: 11/07/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -28,7 +28,7 @@ This article helps you understand the Confidential Containers feature, and how t
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
 * Add an annotation to your pod YAML to mark the pod as being run as a confidential container
-* Add a security policy to your pod YAML
+* Add a [security policy][confidential-containers-security-policy] to your pod YAML
 * Enable enforcement of the security policy
 * Deploy your application in confidential computing
 
@@ -73,6 +73,7 @@ With the local container filesystem backed by VM memory, writing to the containe
 
 ## Next steps
 
+* See the overview of [Confidential Containers security policy][confidential-containers-security-policy] to learn about how worklaods and their data in a pod is protected.
 * [Deploy Confidential Containers on AKS][deploy-confidential-containers-default-aks] with a default security policy.
 * Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
@@ -83,3 +84,4 @@ With the local container filesystem backed by VM memory, writing to the containe
 [pod-sandboxing-overview]: use-pod-sandboxing.md
 [azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [deploy-confidential-containers-default-aks]: deploy-confidential-containers-default-policy.md
+[confidential-containers-security-policy]: ../confidential-containers/confidential-containers-aks-security-policy.md
