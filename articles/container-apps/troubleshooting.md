@@ -22,13 +22,13 @@ Reviewing Azure Container Apps logs and configuration settings can reveal underl
 |--|--|
 | All issues. | [View logs.](#view-logs)<br>[Use Diagnose and solve problems.](#use-diagnose-and-solve-problems) |
 | You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image.](#verify-accessibility-of-container-image) |
-| After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
-| A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
+| After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
+| A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
 | The container app endpoint doesn't respond to requests. | [Review ingress configuration.](#review-ingress-configuration) |
 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct.](#verify-networking-configuration-is-correct) |
 | The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision.](#verify-traffic-is-routed-to-correct-revision) |
 | You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment.](#ensure-dapr-is-enabled-in-your-environment) |
-| You receive a Dapr configuration error message regarding the `app-port` value. | [Verify you've provided the correct app-port value.](#verify-app-port-value-in-dapr-configuration) |
+| You receive a Dapr configuration error message regarding the `app-port` value. | [Verify your Dapr configuration has the correct app-port value.](#verify-app-port-value-in-dapr-configuration) |
 
 ## View logs
 
@@ -232,7 +232,6 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 	docker run --rm <YOUR_CONTAINER_IMAGE>
 	```
 - Verify your container environment firewall is not blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- Verify your NAT gateway is forwarding packets correctly?
 - If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry does not fail. For more information, see [DNS](./networking.md#dns).
 
 For more information, see [Networking in Azure Container Apps environment] (./networking.md).
@@ -428,7 +427,7 @@ For more information, see [Ingress in Azure Container Apps](./ingress-overview.m
 
 ## Verify networking configuration is correct
 
-- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
+- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address.
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
@@ -440,9 +439,9 @@ For more information, see [Networking in Azure Container Apps environment](./net
 1. In the navigation bar at the left, expand *Application* and select **Containers**.
 1. In the *Containers* page, select **Health probes**.
 
-For all health probe types (liveness, readiness, and startup) that use TCP as their transport, verify their port numbers match the ingress target port you have configured for your container app.
+For all health probe types (liveness, readiness, and startup) that use TCP as their transport, verify their port numbers match the ingress target port you configured for your container app.
 
-If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *Initial delay seconds* settings to accommodate this.
+If your container app takes an extended amount of time to start, verify you configured your liveness and readiness probes' *Initial delay seconds* settings accordingly.
 
 If your health probes are not configured correctly:
 
@@ -542,7 +541,7 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 ## Ensure Dapr is enabled in your environment
 
-If you're using Dapr bindings and triggers in Azure Functions, you might encounter an error message like the following:
+If you're using Dapr bindings and triggers in Azure Functions, you might receive the following error message:
 
 ```plaintext
 Dapr sidecar is not present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.
@@ -573,7 +572,7 @@ To prevent this error in the future, verify that Dapr is properly set up and ena
 
 ## Verify app-port value in Dapr configuration
 
-If you've provided an incorrect `app-port` value when running a function app using [Dapr Triggers for Azure Functions](../azure-functions/functions-bindings-dapr.md), you might receive the following error message.
+If you provide an incorrect `app-port` value when running a function app using [Dapr Triggers for Azure Functions](../azure-functions/functions-bindings-dapr.md), you might receive the following error message.
 
 ```plaintext
 The Dapr sidecar is configured to listen on port {portInt}, but the app server is running on port {appPort}. This may cause unexpected behavior. For more information, visit [this link](https://aka.ms/azfunc-dapr-app-config-error).
@@ -593,7 +592,7 @@ The Dapr sidecar is configured to listen on port {portInt}, but the app server i
 1. Ensure that you provide the correct DAPR_APP_PORT value to Dapr in the Dapr configuration.
 
    - **If using Azure Container Apps (ACA):**  
-      Specify it in Bicep as shown below:
+      Specify it in Bicep as follows:
 
       ```bash
       DaprConfig: {
@@ -623,4 +622,4 @@ The Dapr sidecar is configured to listen on port {portInt}, but the app server i
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps.md)
+> [Reliability in Azure Container Apps](../reliability/reliability-azure-container-apps.md)
