@@ -87,7 +87,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=Tags`
+`https://<endpoint>/vision/v3.2/analyze?visualFeatures=Tags`
 
 #### [C#](#tab/csharp)
 
@@ -136,7 +136,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=Tags&language=en`
+`https://<endpoint>/vision/v3.2/analyze?visualFeatures=Tags&language=en`
 
 #### [C#](#tab/csharp)
 
