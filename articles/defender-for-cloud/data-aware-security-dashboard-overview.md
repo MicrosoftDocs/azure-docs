@@ -19,25 +19,21 @@ The data security dashboard addresses the need for an interactive, data-centric 
 
 You can select any element on the page to get more detailed information.
 
-| Aspect | Details |
-|---------|---------|
-|Release state: | General availability (GA) |
-| Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
-| Required roles and permissions: | No other roles needed aside from what is required for the security explorer. <br><br> To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**. |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+## Before you start
 
-## Prerequisites
-
-- You must enable Defender CSPM
-- From within the Defender CSPM settings, you must enable the sensitive data discovery extension.  
-
-:::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
-
-- To receive the alerts for data sensitivity for storage related alerts, you must enable the Defender for Storage plan.
-- To receive the alerts for data sensitivity for database related alerts, you must enable the Defender for Databases plan.
+- You must [enable Defender CSPM](tutorial-enable-cspm-plan.md) and the [sensitive data discovery extension](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan) within Defender CSPM.  
+- To receive the alerts for data sensitivity 
+    - for storage related alerts, you must [enable the Defender for Storage plan](tutorial-enable-storage-plan.md).
+    - for database related alerts, you must [enable the Defender for Databases plan](tutorial-enable-databases-plan.md).
 
 > [!NOTE]
 > The feature is turned on at the subscription level.
+
+### Required roles and permissions: 
+
+No other roles needed aside from what is required for the security explorer.
+
+To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**.
 
 ## Data security overview section
 

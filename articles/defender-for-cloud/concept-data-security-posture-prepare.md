@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 11/07/2023
 ms.custom: references_regions
 ---
 
@@ -15,7 +15,7 @@ Review the requirements on this page before setting up [data-aware security post
 
 ## Enabling sensitive data discovery
 
-Sensitive data discovery is available in the Defender CSPM and Defender for Storage plans.
+Sensitive data discovery is available in the Defender CSPM, Defender for Storage and Defender for Databases plans.
 
 - When you enable one of the plans, the sensitive data discovery extension is turned on as part of the plan.
 - If you have existing plans running, the extension is available, but turned off by default.
