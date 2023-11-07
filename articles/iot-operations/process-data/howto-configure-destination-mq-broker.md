@@ -30,20 +30,13 @@ The MQ destination stage JSON configuration defines the details of the stage. To
 | Name | String | A name to show in the Data Processor UI.  | Yes | -  | `MQTT broker output` |
 | Description | String | A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | Broker | String | The broker address.  | Yes | - | `mqtt://mqttEndpoint.cluster.local:1111` |
+| Authentication | String | The authentication details to connect to MQTT broker. `None`/`Username/Password`/`Service account token (SAT)`  | Yes | `Service account token (SAT)` | `Username/Password` |
+| Username | String | The username to use when `Authentication` is set to `Username/Password`. | No | - | `myusername` |
+| Password | String | The [secret reference](../deploy/howto-manage-secrets.md) for the password to use when `Authentication` is set to `Username/Password`. | No | - | `mysecret` |
 | Topic | [Static/Dynamic](concept-configuration-patterns.md#static-and-dynamic-fields) | The topic definition. String if type is static, [jq path](concept-configuration-patterns.md#path) if type is dynamic.  | Yes | - | `".topic"` |
-| Authentication<sup>1</sup> | String | The authentication details to connect to MQTT broker.  | Yes | Username/password | Username/password |
-| Data Format<sup>2</sup> | String | The [format](concept-supported-formats.md) to serialize messages to. | Yes | - | `Raw` |
+| Data Format<sup>1</sup> | String | The [format](concept-supported-formats.md) to serialize messages to. | Yes | - | `Raw` |
 
-Authentication<sup>1</sup>: Currently, Data Processor only supports password based authentication when it connects to an MQTT broker:
-
-| Field | Description | Required |
-| --- | --- | --- |
-| Username  | The username of the MQTT broker  | Yes |
-| Password | The password of the MQTT broker  | Yes |
-
-You can select `none` if authentication isn't required.
-
-Data format<sup>2</sup>: Use Data Processor's built-in serializer to serialize your messages to the following [Formats](concept-supported-formats.md) before it publishes messages to the MQTT broker:
+Data format<sup>1</sup>: Use Data Processor's built-in serializer to serialize your messages to the following [Formats](concept-supported-formats.md) before it publishes messages to the MQTT broker:
 
 - `Raw`
 - `JSON`
