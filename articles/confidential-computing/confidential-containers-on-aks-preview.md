@@ -13,6 +13,10 @@ ms.custom: ignite-fall-2023
 
 # Confidential Containers on AKS
 With the growth in cloud-native application development, there's an increased need to protect the workloads running in cloud environments as well. Containerizing the workload forms a key component for this programming model, and then, protecting the container is paramount to running confidentially in the cloud. 
+
+:::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that ake your cKubernetes container vulnerable.":::
+
+
 Confidential containers on AKS enable container level isolation in your Kubernetes workloads. It's an addition to Azure suite of confidential computing products, and uses the AMD SEV-SNP memory encryption to protect your containers at runtime. 
 Confidential containers are attractive for deployment scenarios that involve sensitive data (for instance, personal data or any data with strong security needed for regulatory compliance).
 
@@ -34,6 +38,9 @@ The Kata confidential container resides within the Azure Linux AKS Container Hos
 ## Container level isolation in AKS
 In default, AKS all workloads share the same kernel and the same cluster admin. With the preview of Pod Sandboxing on AKS, the isolation grew a notch higher with the ability to provide kernel isolation for workloads on the same AKS node. You can read more about the product [here](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557). Confidential containers are the next step of this isolation and it uses the memory encryption capabilities of the underlying AMD SEV-SNP virtual machine sizes. These virtual machines are the [DCa_cc](../../articles/virtual-machines/dcasccv5-dcadsccv5-series.md) and [ECa_cc](../../articles/virtual-machines/ecasccv5-ecadsccv5-series.md) sizes with the capability of surfacing the hardware’s root of trust to the pods deployed on it. 
 
+:::image type="content" source="media/confidential-containers/architechture-aks-conf-pods.png" alt-text="Diagram of various layers of the architechture forming confidential containers":::
+
+
 ## Get started
 To get started and learn more about supported scenarios, please refer to our AKS documentation [here](https://aka.ms/conf-containers-aks-documentation).
 
@@ -41,6 +48,6 @@ To get started and learn more about supported scenarios, please refer to our AKS
 
 ## Next step
 
-> To learn more about this announcement, please checkout our blog [here](https://aka.ms/coco-aks-preview). 
+> To learn more about this announcement, checkout our blog [here](https://aka.ms/coco-aks-preview). 
 > We also have a demo of a confidential container running an end-to-end encrypted messaging system on Kafka [here](https://aka.ms/Ignite2023-ConfContainers-AKS-Preview).
 
