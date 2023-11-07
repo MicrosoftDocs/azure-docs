@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -124,7 +124,7 @@ az containerapp env dapr-component resiliency update --name MyResiliency -g MyRe
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
+az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -235,6 +235,54 @@ properties: {
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
 
 ## Resiliency observability
+
+You can perform resiliency observability via your container app's metrics and system logs. 
+
+### Resiliency logs
+
+From the *Monitoring* section of your container app, select **Logs**.
+
+:::image type="content" source="media/service-discovery-resiliency/resiliency-query-results.png" alt-text="Screenshot demonstrating how to query for resiliency in your container app system logs.":::
+
+In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to find whether a resiliency policy was loaded:
+
+```
+ContainerAppConsoleLogs_CL
+| where ContainerName_s == "daprd"
+| where Log_s contains "Loading Resiliency configuration:"
+| project time_t, Category, ContainerAppName_s, Log_s
+| order by time_t desc
+```
+
+Click **Run** to run the query and view results.
+
+Or, you can find the actual resiliency policy using a query similar to the following:
+
+```
+ContainerAppConsoleLogs_CL
+| where ContainerName_s == "daprd"
+| where Log_s contains "Resiliency configuration ("
+| project time_t, Category, ContainerAppName_s, Log_s
+| order by time_t desc
+```
+
+Click **Run** to run the query and view results. 
+
+
+### Resiliency metrics
+
+From the *Monitoring* menu of your container app, select **Metrics**. In the Metrics pane:
+
+- Set the scope filter to the name of your container app.
+- Select the **Standard metrics** metrics namespace.
+- Select the metrics you'd like to filter from the drop-down menu.
+- Select how you'd like the data aggregated in the results (by average, by maximum, etc).
+
+:::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
+
+For example, for xxx metrics within the `test-app` scope with xxx aggregation, the results look like the following:
+
+Need image
 
 
 ## Related content

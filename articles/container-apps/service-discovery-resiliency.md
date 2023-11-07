@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -112,10 +112,33 @@ az login
 
 ### Create policies with recommended settings
 
-To create a resiliency policy with recommended settings for timeouts and retries, run the `resiliency create` command:
+To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--default` flag:
 
 ```azurecli
 az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
+```
+
+This command passes the "default", or recommended, resiliency policy configurations, as shown in the following example:
+
+```yaml
+properties:
+  httpRetryPolicy:
+    matches:
+      errors:
+      - 5xx
+    maxRetries: 3
+    retryBackOff:
+      initialDelayInMilliseconds: 1000
+      maxIntervalInMilliseconds: 10000
+  tcpRetryPolicy:
+    maxConnectAttempts: 3
+  timeoutPolicy:
+    connectionTimeoutInSeconds: 5
+    responseTimeoutInSeconds: 60
+ circuitBreakerPolicy:
+    consecutiveErrors: 5
+    intervalInSeconds: 10
+    maxEjectionPercent: 100
 ```
 
 ### Create policies with resiliency YAML
@@ -123,7 +146,7 @@ az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --conta
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml MyYAMLPath
+az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
@@ -167,7 +190,7 @@ az containerapp resiliency update --name MyResiliency -g MyResourceGroup --conta
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml MyYAMLPath
+az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -405,22 +428,19 @@ You can perform resiliency observability via your container app's metrics and sy
 
 From the *Monitoring* section of your container app, select **Logs**.
 
-In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to query for all actions logged within the past hour, write a query like the following:
+:::image type="content" source="media/service-discovery-resiliency/resiliency-query-results.png" alt-text="Screenshot demonstrating how to query for resiliency in your container app system logs.":::
+
+In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to query for resiliency events showing their time stamp, environment name, container app name, resiliency type and reason, and log messages, you'd run a query similar to the following:
 
 ```
-ContainerAppsSystemLogs_CL
-| where TimeGenerated > ago(1h)
+ContainerAppSystemLogs_CL
+| where EventSource_s == "Resiliency"
+| project TimeStamp_s, EnvironmentName_s, ContainerAppName_s, Type_s, EventSource_s, Reason_s, Log_s
 ```
 
 Click **Run** to run the query and view results.
 
-:::image type="content" source="media/service-discovery-resiliency/resiliency-logs-pane.png" alt-text="Screenshot demonstrating how to query for resiliency in your container app system logs.":::
-
-The corresponding message:
-
-```
-Container App 'testapp-2' has applied resiliency '{"target":"testapp-2","httpRetryPolicy":{"maxRetries":3,"retryBackOff":{"initialDelayInMilliseconds":100,"maxIntervalInMilliseconds":1000},"matches":{"errors":["5xx"]}}}'
-```
+:::image type="content" source="media/service-discovery-resiliency/resiliency-query-results.png" alt-text="Screenshot showing resiliency query results based on provided query example.":::
 
 ### Resiliency metrics
 
@@ -430,12 +450,13 @@ From the *Monitoring* menu of your container app, select **Metrics**. In the Met
 - Select the **Standard metrics** metrics namespace.
 - Select the metrics you'd like to filter from the drop-down menu.
 - Select how you'd like the data aggregated in the results (by average, by maximum, etc).
+- Select the time duration (last 30 minutes, last 24 hours, etc).
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
-For example, for xxx metrics within the `test-app` scope with xxx aggregation, the results look like the following:
+For example, if you set the *Resiliency Request Retries* metric in the *test-app* scope with *Average* aggregation to search within a 30 minute timeframe, the results look like the following:
 
-Need image
+:::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-results.png" alt-text="Screenshot showing the results from example metrics filters for resiliency.":::
 
 ## Related content
 
