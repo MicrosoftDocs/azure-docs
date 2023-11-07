@@ -27,7 +27,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 - [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
-## Arc-enable your cluster
+### Create a cluster
 
 This section provides steps to prepare and Arc-enable clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
 
@@ -60,36 +60,6 @@ To get started with your codespace:
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
    ![Open VS Code desktop](./media/howto-prepare-cluster/open-in-vs-code-desktop.png)
-
-1. In the integrated terminal, sign in to Azure. To prevent permission issues with conditional access policies later, you must use the interactive `login` method, which is why you're prompted to open VS Code desktop.
-
-   ```azurecli
-   az login
-   ```
-
-1. Set the Azure subscription context for all commands.
-
-    ```azurecli
-    az account set -s $SUBSCRIPTION_ID
-    ```
-
-1. Register the required resource providers in your subscription.
-
-    ```azurecli
-    az provider register -n "Microsoft.ExtendedLocation"
-    az provider register -n "Microsoft.Kubernetes"
-    az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-    az provider register -n "Microsoft.IoTOperationsMQ"
-    az provider register -n "Microsoft.IoTOperationsDataProcessor"
-    az provider register -n "Microsoft.DeviceRegistry"
-    ```
-
-1. Connect the Kubernetes cluster to Azure Arc.
-
-   ```azurecli
-   az connectedk8s connect --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --location $REGION
-   ```
 
 # [WSL Ubuntu](#tab/wsl-ubuntu)
 
@@ -127,6 +97,12 @@ To set up your WSL Ubuntu environment:
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
 ---
+
+## Arc-enable your cluster
+
+If you used the setup script for creating an AKS Edge Essentials cluster, that takes care of connecting to Azure Arc. You can skip this section.
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 ## Verify your cluster
 
