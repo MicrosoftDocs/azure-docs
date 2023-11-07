@@ -39,8 +39,6 @@ items:
   items:
   - name: Use a blocklist
     href: how-to/use-blocklist.md
-  - name: Detect protected materials
-    href: how-to/detect-protected-materials.md
   - name: Detect jailbreak attacks
     href: how-to/detect-jailbreak.md
   - name: Encryption of data at rest
