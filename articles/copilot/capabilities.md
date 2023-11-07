@@ -24,7 +24,7 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Deploy virtual machines effectively](deploy-vms-effectively.md)
   - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
   - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
-  - [Improve security and resiliency of storage accounts](improve-storage-accounts.md)
+  - [Secure and protect storage accounts](improve-storage-accounts.md)
 - Write and optimize code:
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
