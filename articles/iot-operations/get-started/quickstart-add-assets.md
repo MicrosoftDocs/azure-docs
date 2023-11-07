@@ -69,6 +69,9 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 To enable the asset endpoint to use an untrusted certificate:
 
+> [!WARNING]
+> Don't use untrusted certificates in production environments.
+
 1. On the machine where your Kubernetes cluster is running, create a file called _doe.yaml_ with the following content:
 
     ```yaml
@@ -178,7 +181,7 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-## Autodetect assets
+## Discover assets by using Akri
 
 In the previous section, you saw how to add assets manually. You can also use Akri to automatically discover assets that are available on an OPC UA server.
 
