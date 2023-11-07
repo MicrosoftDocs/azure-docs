@@ -85,7 +85,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you already logged in.
 
    ```bash
    azd auth login

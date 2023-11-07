@@ -194,7 +194,7 @@ az servicebus queue create \
 
 ### 3.6. Connect app instance to Service Bus instance
 
-Now, both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
+You've now created both the Service Bus and the app in Azure Spring Apps, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
 
 1. Get the Service Bus's connection string by using the following command:
 
