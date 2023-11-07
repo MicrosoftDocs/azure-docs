@@ -58,7 +58,7 @@ After you create an integration environment, create one or more application grou
 
       | Resource type | Properties |
       |---------------|------------|
-      | **Logic App** | **Name**: Name for the logic app |
+      | **Logic App** | **Name**: Name for the Standard logic app |
       | **API** | -**Name**: Name for the API Management instance <br>- **API**: Name for the API |
       | **Service Bus** | -**Name**: Name for the service bus to add <br>- **Topic**: Name for the topic <br>- **Queue**: Name for the queue to add |
 

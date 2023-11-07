@@ -143,13 +143,15 @@ After you previously defined the business properties to capture, map the stage t
 
 1. When you're done, select **Continue**.
 
+   After you finish mapping a stage, the platform sends the selected information to your database in Azure Data Explorer, and you're returned to the **Edit stage** pane.
+
 1. Back on the **Edit stage** pane, select **Save**.
 
-1. To save the whole business process, On the process designer toolbar, select **Save**.
+1. Make sure to save your changes often. On the process designer toolbar, select **Save**.
 
-1. Continue to another business stage and repeat the previous steps to map that stage.
+1. Select another business stage and repeat the previous steps to map that stage.
 
-1. When you're done, make sure to save your whole business process one more time.
+1. When you're done, save your business process one more time.
 
 Now, you're ready to deploy your business process and tracking profile.
 
