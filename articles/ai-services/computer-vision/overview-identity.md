@@ -85,7 +85,7 @@ Our liveness detection solution meets iBeta Level 1 and 2 ISO/IEC 30107-3 compli
 Tutorial
 - [Face liveness Tutorial](Tutorials/liveness.md)
 Concepts
-- [Abuse monitoring](concept-identity-abuse-monitoring.md)
+- [Abuse monitoring](concept-liveness-abuse-monitoring.md)
 
 Face liveness SDK reference docs:
 - (Java (Android))[https://aka.ms/liveness-sdk-java]
