@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.service: azure
 ms.author: jenhayes
 author: JnHs
-
+hideEdit: true
 ---
 
 # Limited access to Microsoft Copilot for Azure (preview)
@@ -19,7 +19,7 @@ Microsoft Copilot for Azure requires registration (preview) and is currently onl
 
 Access to Microsoft Copilot for Azure (preview) is subject to Microsoft's sole discretion based on eligibility criteria and a vetting process, and customers must acknowledge that they have read and understand the Azure terms of service for Microsoft Copilot for Azure (preview).
 
-Microsoft Copilot for Azure (preview) is made available to customers under the terms governing their subscription to Microsoft Azure Services, including the Microsoft Copilot for Azure (preview) section of the Microsoft Product Terms. Please review these terms carefully as they contain important conditions and obligations governing your use of Microsoft Copilot for Azure (preview).
+Microsoft Copilot for Azure (preview) is made available to customers under the terms governing their subscription to Microsoft Azure Services, including the Microsoft Copilot for Azure (preview) section of the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS). Please review these terms carefully as they contain important conditions and obligations governing your use of Microsoft Copilot for Azure (preview).
 
 ## Important links
 
