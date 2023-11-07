@@ -31,7 +31,7 @@ spec:
     - usernamePassword:
         secretName: credentials
     - sat:
-        audiences: ["azedge-dmqtt"]
+        audiences: ["aio-mq"]
 ```
 
 A *BrokerListener* can be configured as follows:
