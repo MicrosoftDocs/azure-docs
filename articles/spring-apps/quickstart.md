@@ -20,7 +20,7 @@ zone_pivot_groups: spring-apps-plan-selection
 
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
-The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
+The application code used in this tutorial is a simple app. When you complete this example, the application is accessible online, and you can manage it through the Azure portal.
 
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart/quickstart-tool-introduction.md)]
 

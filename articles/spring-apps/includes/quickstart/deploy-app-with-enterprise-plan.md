@@ -235,7 +235,7 @@ Use the following steps to import the project:
 
 Use the following steps to build and deploy your app:
 
-1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+1. If you didn't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
    > [!NOTE]
    > Azure Toolkit for IntelliJ provides four ways to log in to Azure, and the deployment can only start after logging in.

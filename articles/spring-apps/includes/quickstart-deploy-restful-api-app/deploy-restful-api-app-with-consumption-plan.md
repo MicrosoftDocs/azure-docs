@@ -49,7 +49,7 @@ Use the following steps to initialize the web application from Azure Developer C
    The following list describes the command interactions:
 
    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that's created to hold all the Azure resources. This name should be unique within your Azure subscription.
+   - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -160,7 +160,7 @@ Use the following steps to connect your service instances:
 
 Use the following steps to provision the required Azure resources:
 
-1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Run the following command to log in to Azure with OAuth2. Ignore this step if you already logged in.
 
    ```bash
    azd auth login
