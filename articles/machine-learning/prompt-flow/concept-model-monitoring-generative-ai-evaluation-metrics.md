@@ -67,6 +67,6 @@ Similarity quantifies the similarity between a ground truth sentence (or documen
 
 ## Next steps
 
-- [Get started with Prompt flow (preview)](get-started-prompt-flow.md)
+- [Get started with prompt flow (preview)](get-started-prompt-flow.md)
 - [Submit bulk test and evaluate a flow (preview)](how-to-bulk-test-evaluate-flow.md)
 - [Monitoring AI applications](how-to-monitor-generative-ai-applications.md)
