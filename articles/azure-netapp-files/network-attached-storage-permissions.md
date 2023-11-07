@@ -30,9 +30,9 @@ Azure NetApp Files permissions rely on NAS standards, simplifying the process of
 
 ## Share access permissions 
 
-The initial entry point to be secured in a NAS environment is access to the share itself. In most cases, access should be restricted to shares to only the users and groups that need access to the share. With share access permissions, you can lock down who can even mount the share in the first place.  
+The initial entry point to be secured in a NAS environment is access to the share itself. In most cases, access should be restricted to only the users and groups that need access to the share. With share access permissions, you can lock down who can even mount the share in the first place.  
 
-Since the most restrictive permissions override other permissions, and a share is the main entry point to the volume (with the fewest access controls), share permissions should use a "funnel" format where the share allows more access than the underlying files and folders. The funnel format enacts more granular, restrictive controls. 
+Since the most restrictive permissions override other permissions, and a share is the main entry point to the volume (with the fewest access controls), share permissions should abide by a funnel logic, where the share allows more access than the underlying files and folders. The funnel logic enacts more granular, restrictive controls. 
 
 :::image type="content" source="../media/azure-netapp-files/shares-pyramid.png" alt-text="Diagram of inverted pyramid of file access hierarchy." lightbox="../media/azure-netapp-files/shares-pyramid.png":::
 
@@ -40,7 +40,7 @@ Since the most restrictive permissions override other permissions, and a share i
 
 Volumes in Azure NetApp Files are shared out to NFS clients by exporting a path that is accessible to a client or set of clients. Both NFSv3 and NFSv4.x use the same method to limit access to an NFS share in Azure NetApp Files: export policies. 
 
-An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule--either allowing or explicitly denying access--then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rule is applied to a client (for example, by way of a subnet), then it's read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
+An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule—either allowing or explicitly denying access—then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rule is applied to a client (for example, by way of a subnet), then it's read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-diagram.png" alt-text="Diagram modeling export policy rule hierarchy." lightbox="../media/azure-netapp-files/export-policy-diagram.png":::
 
@@ -48,11 +48,11 @@ An export policy is a container for a set of access rules that are listed in ord
 
 When creating an Azure NetApp Files volume, there are several options configurable for control of access to NFS volumes.
 
-* **Index**: Specifies the order in which an export policy rule is evaluated. If a client falls under multiple rules in the policy, then the first applicable rule applies to the client and subsequent rules are ignored.
-* **Allowed clients**: Specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values aren't supported in Azure NetApp Files.
-* **Access**: Specifies the level of access allowed to non-root users. For NFS volumes without Kerberos enabled, the options are: Read only, Read & write, or No access. For volumes with Kerberos enabled, the options are: Kerberos 5, Kerberos 5i, or Kerberos 5p.
-* **Root access**: Specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](#root-squashing) to the anonymous user ID 65534. 
-* **chown mode**: This controls what users can run change ownership commands on the export (chown). If set to "Restricted," only the root user can run chown. If set to "Unrestricted," any user with the proper file/folder permissions can run chown commands.
+* **Index**: specifies the order in which an export policy rule is evaluated. If a client falls under multiple rules in the policy, then the first applicable rule applies to the client and subsequent rules are ignored.
+* **Allowed clients**: specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values aren't supported in Azure NetApp Files.
+* **Access**: specifies the level of access allowed to non-root users. For NFS volumes without Kerberos enabled, the options are: Read only, Read & write, or No access. For volumes with Kerberos enabled, the options are: Kerberos 5, Kerberos 5i, or Kerberos 5p.
+* **Root access**: specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](#root-squashing) to the anonymous user ID 65534. 
+* **chown mode**: controls what users can run change ownership commands on the export (chown). If set to "Restricted," only the root user can run chown. If set to "Unrestricted," any user with the proper file/folder permissions can run chown commands.
 
 ### Default policy rule in Azure NetApp Files
 
@@ -84,36 +84,38 @@ Only Kerberos-enabled clients are able to access volumes with export rules speci
 
 ### Root squashing 
 
-There are some scenarios where you want to restrict root access to an Azure NetApp Files volume. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
+There are some scenarios where you want to restrict root access to an Azure NetApp Files volume. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs—the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
 
 In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions generally fall under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
 
 To learn more about managing export policies, see [Configure export policies for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 
-#### Understand export policy rule order
+#### Export policy rule ordering
 
-Export policy rules are evaluated in order. The first rule in the list that applies to an NFS client is the rule used for that client. When using CIDR ranges/subnets for export policy rules, an NFS client in that range may receive unwanted access due to the range in which it's included. 
+The order of export policy rules determines how they are applied. The first rule in the list that applies to an NFS client is the rule used for that client. When using CIDR ranges/subnets for export policy rules, an NFS client in that range may receive unwanted access due to the range in which it's included.
+
+Consider the following example:
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-rule-sequence.png" alt-text="Screenshot of two export policy rules." lightbox="../media/azure-netapp-files/export-policy-rule-sequence.png":::
 
 - The first rule in the index includes *all clients* in *all subnets* by way of the default policy rule using 0.0.0.0/0 as the **Allowed clients** entry. That rule allows “Read & Write” access to all clients for that Azure NetApp Files NFSv3 volume.
 - The second rule in the index explicitly lists NFS client 10.10.10.10 and is configured to limit access to “Read only,” with no root access (root is squashed).
 
-As it stands, the client 10.10.10.10 receives access as per the first rule in the list. The next rule is never be evaluated for access restrictions, thus 10.10.10.10 get Read & Write access even though “Read only” is desired. Root is also root, rather than [being squashed](#root-squashing).
+As it stands, the client 10.10.10.10 receives access due to the first rule in the list. The next rule is never be evaluated for access restrictions, thus 10.10.10.10 get Read & Write access even though “Read only” is desired. Root is also root, rather than [being squashed](#root-squashing).
 
-To fix this and set access to the desired level, the rules can be re-ordered to place the desired client access rule above any subnet/CIDR rules. You can modify the order of export policy rules in the Azure portal by dragging the rules or using the **Move** commands in the `...` menu in the row for each export policy rule. 
+To fix this and set access to the desired level, the rules can be re-ordered to place the desired client access rule above any subnet/CIDR rules. You can reorder export policy rules in the Azure portal by dragging the rules or using the **Move** commands in the `...` menu in the row for each export policy rule. 
 
 >[!NOTE]
 >You can use the [Azure NetApp Files CLI or REST API](azure-netapp-files-sdk-cli.md) only to add or remove export policy rules. 
 
 ## SMB shares 
 
-SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as Access Based Enumeration and non-browsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
+SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as access-based enumeration and non-browsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
 
 :::image type="content" source="../media/azure-netapp-files/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/share-level-permissions.png":::
 
-Share-level permission ACLs are managed through a Windows MMC console rather than through Azure NetApp Files. For more information, see the sections below.
+Share-level permission ACLs are managed through a Windows MMC console rather than through Azure NetApp Files.
 
 ### Security-related share properties
 
@@ -127,11 +129,11 @@ Azure NetApp Files offers multiple share properties to enhance security for admi
 
 In the below example, access-based enumeration is disabled, so the user has access to the `ABE` directory of `SMBVolume`.
 
-:::image type="content" source="../media/azure-netapp-files/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-access.png":::
-
-In the below example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` doesn't display for the user.
-
 :::image type="content" source="../media/azure-netapp-files/directory-listing-no-access.png" alt-text="Screenshot of directory without access-bassed enumeration." lightbox="../media/azure-netapp-files/directory-listing-no-access.png":::
+
+In the next example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` doesn't display for the user.
+
+:::image type="content" source="../media/azure-netapp-files/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-access.png":::
 
 The permissions also extend to individual files. In the below example, access-based enumeration is disabled and `ABE-file` displays to the user. 
 
@@ -145,14 +147,13 @@ With access-based enumeration enabled, `ABE-file` doesn't display to the user.
 
 The non-browsable shares feature in Azure NetApp Files limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
 
-In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so it displays in the listing of the file server (using `\\servername`).
-
+In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so the volume displays in the listing of the file server (using `\\servername`).
 
 :::image type="content" source="../media/azure-netapp-files/directory-with-smb-volume.png" alt-text="Screenshot of a directory that includes folder SMBVolume." lightbox="../media/azure-netapp-files/directory-with-smb-volume.png":::
 
 With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same view of the file server excludes `SMBVolume`.
 
-In the next image, the share “SMBVolume” has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
+In the next image, the share `SMBVolume` has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
 :::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-no-smb-volume.png":::
 
@@ -162,11 +163,11 @@ Even though the volume in the listing cannot be seen, it remains accessible if t
 
 #### SMB3 Encryption
 
-SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information--such as file names and file handles--is visible.
+SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information—such as file names and file handles—is visible.
 
 :::image type="content" source="../media/azure-netapp-files/packet-capture-encryption.png" alt-text="Screenshot of packet capture with SMB encryption disabled." lightbox="../media/azure-netapp-files/packet-capture-encryption.png":::
 
-When SMB Encryption is enabled, the packets are marked as encrypted and no sensitive information can be seen. Instead, it’s shown as "Encrypted SMB3 data."
+When SMB Encryption is enabled, the packets are marked as encrypted, and no sensitive information can be seen. Instead, it’s shown as "Encrypted SMB3 data."
 
 :::image type="content" source="../media/azure-netapp-files/packet-capture-encryption-enabled.png" alt-text="Screenshot of packet capture with SMB encryption enabled." lightbox="../media/azure-netapp-files/packet-capture-encryption-enabled.png":::
 
@@ -188,10 +189,10 @@ To control access to specific files and folders in a file system, permissions ca
 
 | SMB share permission | NFS export policy rule permissions | SMB file permission attributes | NFS file permission attributes |
 | --- | --- | --- | --- |
-| <ul>File and folder permissions can overrule share permissions, as most restrictive permissions win.<li>Change</li><li>Full control</ul></ul> |
-| <ul><li>Read</li><li>Write</li><li>Root</ul></ul> |
+| <ul><li>Read</li><li>Change</li><li>Full control</li></ul> |
+| <ul><li>Read</li><li>Write</li><li>Root</li></ul> |
 | <ul><li>Full control</li><li>Traverse folder/execute</li><li>Read data/list folders</li><li>Read attributes</li><li>Read extended attributes</li><li>Write data/create files</li><li>Append data/create folders</li><li>Write attributes</li><li>Write extended attributes</li><li>Delete subfolders/files</li><li>Delete</li><li>Read permissions</li><li>Change permissions</li><li>Take ownership</li></ul> |
-| NFSv3 <br /> <ul><li>Read</li><li>Write</li><li>Execute</li></ul> <br /> NFSv4.1 <br /> <ul><li>Read data/list files and folders</li><li>Write data/create files and folders</li><li>Append data/create subdirectories</li><li>Execute files/traverse directories</li><li>Delete files/directories</li><li>Delete subdirectories (directories only)</li><li>Read attributes (GETATTR)</li><li>Write attributes (SETATTR/chmod)</li><li>Read named attributes</li><li>write named attributes</li><li>Read ACLs</li><li>Write ACLs</li><li>Write owner (chown)</li><li>Synchronize I/O</li></ul> |
+| **NFSv3** <br /> <ul><li>Read</li><li>Write</li><li>Execute</li></ul> <br /> **NFSv4.1** <br /> <ul><li>Read data/list files and folders</li><li>Write data/create files and folders</li><li>Append data/create subdirectories</li><li>Execute files/traverse directories</li><li>Delete files/directories</li><li>Delete subdirectories (directories only)</li><li>Read attributes (GETATTR)</li><li>Write attributes (SETATTR/chmod)</li><li>Read named attributes</li><li>Write named attributes</li><li>Read ACLs</li><li>Write ACLs</li><li>Write owner (chown)</li><li>Synchronize I/O</li></ul> |
 
 File and folder permissions can overrule share permissions, as most restrictive permissions override less restrictive permissions.
 
@@ -208,7 +209,7 @@ Folders can be assigned inheritance flags, which means that parent folder permis
 
 ### NTFS ACLs
 
-Azure NetApp Files volumes that leverage NTFS security styles make use of NTFS ACLs for access controls. NTFS ACLs provide granular permissions and ownership for files and folders by way of Access Control Entries (ACEs). Directory permissions can also be set to enable or disable inheritance of permissions.
+Azure NetApp Files volumes that leverage NTFS security styles make use of NTFS ACLs for access controls. NTFS ACLs provide granular permissions and ownership for files and folders by way of access control entries (ACEs). Directory permissions can also be set to enable or disable inheritance of permissions.
 
 :::image type="content" source="../media/azure-netapp-files/access-control-entry-diagram.png" alt-text="Diagram of access control entries." lightbox="../media/azure-netapp-files/access-control-entry-diagram.png":::
 
@@ -313,7 +314,7 @@ drwxrwxrwx 5 root  root   4096 Oct 11 16:37 ..
 -rw-r--r-- 1 root  group1    0 Oct 11 17:09 file
 ```
 
-For files, setgid behaves similarly to `setuid`--executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they aren't in the group, they don't get access. For instance, if an administrator wants to limit which users could run the `mkdir` command on a client, they can use setgid.
+For files, setgid behaves similarly to `setuid`—executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they aren't in the group, they don't get access. For instance, if an administrator wants to limit which users could run the `mkdir` command on a client, they can use setgid.
 
 Normally, `/bin/mkdir` has 755 permissions with root ownership. This means anyone can run `mkdir` on a client. 
 
