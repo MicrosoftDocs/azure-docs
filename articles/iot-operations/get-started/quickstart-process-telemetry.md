@@ -129,7 +129,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
         objects: |                             
           array:                               
             - |                                
-              objectName: PlaceholderSecret
+              objectName: azure-iot-operations
               objectType: secret           
               objectVersion: ""            
             - |                            
