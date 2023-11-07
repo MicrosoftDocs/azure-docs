@@ -50,7 +50,7 @@ Metric category|Metric name|Metric description|
 |Errors|**Total Error Count**|The total number of errors.|
 |Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](overview-of-device-data-processing-stages.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](overview-of-device-data-processing-stages.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of FHIR resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
+|Traffic|Number of Fhir resources saved|The total number of FHIR&reg; resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
 |Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](overview-of-device-data-processing-stages.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](overview-of-device-data-processing-stages.md#transform) of the MedTech service.|
 |Traffic|**Number of Message Groups**|The number of groups that have messages aggregated in the designated time window.|
@@ -62,7 +62,7 @@ Metric category|Metric name|Metric description|
 
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png" alt-text="Screenshot of the MedTech service health checks tab without errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png":::
 
-2. In this example, we can see that the MedTech service is indicating that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you may select the **Accessing the MedTech service from the event hub** link under the **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
+2. In this example, we can see that the MedTech service is indicating that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you can select the **Accessing the MedTech service from the event hub** link under the **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
  
     :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png" alt-text="Screenshot of the MedTech service health checks tab with errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png":::
 
