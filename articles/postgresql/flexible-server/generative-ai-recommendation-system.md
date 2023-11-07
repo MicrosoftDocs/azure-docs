@@ -1,6 +1,6 @@
 ---
-title: Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI  
-description: Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
+title: Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI  
+description: Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
 author: mulander
 ms.author: adamwolk
 ms.date: 11/07/2023
@@ -13,17 +13,9 @@ ms.topic: tutorial
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL Flexible Server and Azure OpenAI service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
+This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL Flexible Server and Azure OpenAI service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
 
-Building semantic search capability on your data using GenAI and Flexible Server involves the following steps:
->[!div class="checklist"]
-> * Identify the search scenarios. Identify the data fields that will be involved in search. 
-> * For every data field involved in search, create a corresponding vector field of type embedding. 
-> * Generate embeddings for the data in the selected data fields and store the embeddings in the corresponding vector fields. 
-> * Generate the embedding for any given input search query. 
-> * Search for the vector data field and list the nearest neighbors. 
-> * Run the results through appropriate relevance, ranking and personalization models to produce the final ranking. In the absence of such models, rank the results in decreasing dot-product order. 
-> * Monitor the model, results quality, and business metrics such as CTR (click-through rate) and dwell time. Incorporate feedback mechanisms to debug and improve the search stack from data quality, data freshness and personalization to user experience. 
+There are different ways to model recommendation systems. This article explores the simplest form – recommendation based one product corresponding to, say, a prior purchase. This tutorial uses the recipe dataset used in the [Semantic Search](./generative-ai-semantic-search.md) article and the recommendation is for recipes based on a recipe a customer liked or searched for before. 
 
 ## Prerequisites
 
@@ -109,7 +101,8 @@ psql -d <database> -h <host> -U <user> -c "\copy recipes FROM <local recipe data
 ALTER TABLE recipes ADD COLUMN embedding vector(1536); 
 ```
 
-## Search
+
+## Recommendation system
 
 Generate embeddings for your data using the azure_ai extension. In the following, we vectorize a few different fields, concatenated:
 
@@ -142,52 +135,68 @@ Create a search function in your database for convenience:
 
 ```postgresql
 create function
-    recipe_search(searchQuery text, numResults int)
+    recommend_recipe(sampleRecipeId int, numResults int) 
 returns table(
-            recipeId int,
-            recipe_name text,
-            nutrition text,
-            score real)
-as $$ 
+            out_recipeName text,
+            out_nutrition text,
+            out_similarityScore real)
+as $$  
 declare
-    query_embedding vector(1536); 
+    queryEmbedding vector(1536); 
+    sampleRecipeText text; 
 begin 
-    query_embedding := (azure_openai.create_embeddings('text-embedding-ada-002', searchQuery)); 
-    return query 
+    sampleRecipeText := (select 
+                            recipe_name||' '||cuisine_path||' '||ingredients||' '||nutrition||' '||directions
+                        from
+                            recipes where rid = sampleRecipeId); 
+
+    queryEmbedding := (azure_openai.create_embeddings('text-embedding-ada-002',sampleRecipeText));
+
+    return query  
     select
-        r.rid,
-        r.recipe_name,
+        distinct r.recipe_name,
         r.nutrition,
-        (r.embedding <=> query_embedding)::real as score 
+        (r.embedding <=> queryEmbedding)::real as score  
     from
-        recipes r 
-    order by score asc limit numResults; -- cosine distance 
-end $$ 
+        recipes r  
+    order by score asc limit numResults; -- cosine distance  
+end $$
 language plpgsql; 
 ```
 
-Now just use the search:
+Now just search for recommendations: 
 
 ```postgresql
-select recipeid, recipe_name, score from recipe_search('vegan recipes', 10);
+select out_recipename, out_similarityscore from recommend_recipe(1, 20); -- search for 20 recipe recommendations that closest to recipeId 1
 ```
 
 and explore the results:
 
+
 ```
- recipeid |                         recipe_name                          |   score
-----------+--------------------------------------------------------------+------------
-      829 | Avocado Toast (Vegan)                                        | 0.15672222
-      836 | Vegetarian Tortilla Soup                                     | 0.17583494
-      922 | Vegan Overnight Oats with Chia Seeds and Fruit               | 0.17668104
-      600 | Spinach and Banana Power Smoothie                            |  0.1773768
-      519 | Smokey Butternut Squash Soup                                 | 0.18031077
-      604 | Vegan Banana Muffins                                         | 0.18287598
-      832 | Kale, Quinoa, and Avocado Salad with Lemon Dijon Vinaigrette | 0.18368931
-      617 | Hearty Breakfast Muffins                                     | 0.18737361
-      946 | Chia Coconut Pudding with Coconut Milk                       |  0.1884186
-      468 | Spicy Oven-Roasted Plums                                     | 0.18994217
-(10 rows)
+            out_recipename             | out_similarityscore
+---------------------------------------+---------------------
+ Apple Pie by Grandma Ople             |                   0
+ Easy Apple Pie                        |          0.05137232
+ Grandma's Iron Skillet Apple Pie      |         0.054287136
+ Old Fashioned Apple Pie               |         0.058492836
+ Apple Hand Pies                       |          0.06449003
+ Apple Crumb Pie                       |          0.07290977
+ Old-Fashioned Apple Dumplings         |         0.078374185
+ Fried Apple Pies                      |          0.07918481
+ Apple Pie Filling                     |         0.084320426
+ Apple Turnovers                       |          0.08576391
+ Dutch Apple Pie with Oatmeal Streusel |          0.08779895
+ Apple Crisp - Perfect and Easy        |          0.09170883
+ Delicious Cinnamon Baked Apples       |          0.09384012
+ Easy Apple Crisp with Pie Filling     |          0.09477234
+ Jump Rope Pie                         |          0.09503954
+ Easy Apple Strudel                    |         0.095167875
+ Apricot Pie                           |          0.09634114
+ Easy Apple Crisp with Oat Topping     |          0.09708358
+ Baked Apples                          |          0.09826993
+ Pear Pie                              |         0.099974394
+(20 rows)
 ```
 
 ## Next steps
@@ -202,6 +211,3 @@ You learned how to perform semantic search with Azure Database for PostgreSQL Fl
 
 > [!div class="nextstepaction"]
 > [Learn more about vector similarity search using `pgvector`](./how-to-use-pgvector.md)
-
-> [!div class="nextstepaction"]
-> [Build a Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](./generative-ai-recommendation-system.md)

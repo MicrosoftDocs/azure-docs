@@ -125,6 +125,8 @@
         href: flexible-server/generative-ai-overview.md
       - name: Semantic Search
         href: flexible-server/generative-ai-semantic-search.md
+      - name: Recommendation System
+        href: flexible-server/generative-ai-recommendation-system.md
       - name: Azure AI Extension
         items:
         - name: Overview
