@@ -19,6 +19,8 @@ Azure AI Face liveness detection lets you you detect and mitigate instances of r
 
 Details on how data is handled can be found on the [Data, Privacy and Security](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) page.
 
+[!INCLUDE [liveness-sdk-gate](./includes/liveness-sdk-gate.md)]
+
 ## Components of abuse monitoring
 
 There are several components to Face liveness abuse monitoring:
