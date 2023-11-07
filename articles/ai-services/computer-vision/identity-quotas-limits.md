@@ -58,7 +58,7 @@ Please [submit a support request](/azure/ai-services/cognitive-services-support-
 | --- | --- |
 | Free (F0) |<ul><li>1 PersonDirectory</li><li>1,000 persons</li><li>Each holds up to 248 faces.</li><li>Unlimited DynamicPersonGroups</li></ul>|
 | Standard (S0),</br>Enterprise (E0) | <ul><li>1 PersonDirectory</li><li>75,000,000 persons<ul><li>Contact support if you want to increase this limit.</li></ul></li><li>Each holds up to 248 faces.</li><li>Unlimited DynamicPersonGroups</li></ul> |
-TBD add note on how it can be changed. "reach out to support if you want to increase this limit"
+
 
 **Quota of FaceList**
 
