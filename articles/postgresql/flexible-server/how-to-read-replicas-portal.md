@@ -31,37 +31,37 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 **Premium SSD v2**: The current release doesn't support the creation of read replicas for primary servers using Premium SSD v2 storage. If your workload requires read replicas, choose a different storage option for the primary server.
 
-**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration.
+**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using virtual network integration.
 
 1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
 
 1. On the **Overview** dialog, note the PostgreSQL version (ex `15.4`). Also, note the region your primary is deployed to (ex., `East US`).
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-settings.png" alt-text="Review primary settings." lightbox="./media/how-to-read-replicas-portal/primary-settings.png":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/primary-settings.png" alt-text="Review primary settings." lightbox="./media/how-to-read-replicas-portal/primary-settings.png":::
 
 1. On the server sidebar, under **Settings**, select **Compute + storage**.
 
 1. Review and note the following settings:
 
-  - Compute Tier, Processor, Size (ex `Standard_D4ads_v5`).
-
-  - Storage
-    - Storage size (ex `128GB`)
-    - Autogrowth
-
-  - High Availability
-    - Enabled / Disabled
-    - Availability zone settings
-
-  - Backup settings
-    - Retention period
-    - Redundancy Options
+      - Compute Tier, Processor, Size (ex `Standard_D4ads_v5`).
+    
+      - Storage
+        - Storage size (ex `128GB`)
+        - Autogrowth
+    
+      - High Availability
+        - Enabled / Disabled
+        - Availability zone settings
+    
+      - Backup settings
+        - Retention period
+        - Redundancy Options
 
 1. Under **Settings**, select **Networking**
 
    - Review the network settings
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Review features enabled." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
+        :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Review features enabled." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
 
 ## Create a read replica
 
@@ -70,17 +70,22 @@ To create a read replica, follow these steps:
 1. Select an existing Azure Database for the PostgreSQL server to use as the primary server.
 
 1. On the server sidebar, under **Settings**, select **Replication**.
+
 1. Select **Create replica**.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Add a replica." lightbox="./media/how-to-read-replicas-portal/add-replica.png":::
 
 1. Enter the Basics form with the following information.
+
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Enter the Basics information." lightbox="./media/how-to-read-replicas-portal/basics.png":::
 
 - Set the replica server name.
+
    > [!TIP]  
    > It is a Cloud Adoption Framework (CAF) best practice to [use a resource naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming) that will allow you to easily determine what instance you are connecting to or managing and where it resides.
 
 - Select a location different from your primary but note that you can select the same region.
+
    > [!TIP]  
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
 
@@ -219,9 +224,11 @@ Create a secondary read replica in a separate region to modify the reader virtua
 1. On the server sidebar, under **Settings**, select **Replication**.
 
 1. Select the ellipses and then select **Edit**.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png" alt-text="Edit the virtual endpoint." lightbox="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png":::
 
 1. In the dialog, select the new secondary replica.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/select-secondary-endpoint.png" alt-text="Select the secondary replica.":::
 
 1. Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
@@ -244,6 +251,7 @@ Rather than switchover to a replica, it's also possible to break the replication
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
 
 1. For **Data sync**, ensure **Planned - sync data before promoting** is selected.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Promote the replica to independent server.":::
 
 1. Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
@@ -276,9 +284,11 @@ To delete a server from the Azure portal, follow these steps:
 1. In the Azure portal, select your primary Azure Database for the PostgreSQL server.
 
 1. Open the **Overview** page for the server and select **Delete**.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary.png" alt-text="On the server Overview page, select to delete the primary server." lightbox="./media/how-to-read-replicas-portal/delete-primary.png":::
 
 1. Enter the name of the primary server to delete. Select **Delete** to confirm the deletion of the primary server.
+
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Confirm to delete the primary server.":::
 
 ## Monitor a replica
@@ -292,8 +302,11 @@ Two metrics are available to monitor read replicas.
 The **Max Physical Replication Lag** metric shows the byte lag between the primary server and the most lagging replica.
 
 1. In the Azure portal, select the primary server.
+
 1. Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
+
     :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics page showing Max Physical Replication Lag metric." lightbox="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png":::
+
 1. For your **Aggregation**, select **Max**.
 
 ### Read Replica Lag metric
