@@ -163,6 +163,8 @@ items:
       href: configure-storage-policy.md
     - name: Configure vSAN
       href: configure-vsan.md
+    - name: Configure Azure Elastic SAN
+      href: configure-azure-elastic-san.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
