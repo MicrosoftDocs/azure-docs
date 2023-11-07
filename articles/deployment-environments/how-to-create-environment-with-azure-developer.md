@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2023
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 11/07/2023
 ---
 
 # Create an environment by using the Azure Developer CLI
@@ -19,7 +19,7 @@ Azure Developer CLI (AZD) is an open-source tool that accelerates the time it ta
 ## Prerequisites
 
 You should:
-- Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](/azure/deployment-environments/overview) and [key concepts](/azure/deployment-environments/concepts).
+- Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md) and [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 - Create and configure a dev center with a project, environment types, and a catalog. Use the following articles as guidance:
    - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
    - [Quickstart: Create and configure an Azure Deployment Environments project](quickstart-create-and-configure-projects.md)
