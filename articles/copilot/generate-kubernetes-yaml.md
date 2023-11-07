@@ -18,7 +18,7 @@ You provide your application specifications, such as container images, resource 
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to generate Kubernetes YAML filese. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of Kubernetes YAML files.
+Here are a few examples of the kinds of prompts you can use to generate Kubernetes YAML files. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of Kubernetes YAML files.
 
 - "Help me generate a Kubernetes YAML file for a "frontend" service using port 8080"
 - "Give me an example YAML manifest for a CronJob that runs every day at midnight and calls a container named nightlyjob"
