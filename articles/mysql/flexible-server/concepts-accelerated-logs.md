@@ -82,7 +82,7 @@ This section provides details specifically for enabling the accelerated logs fea
 
 1. The checkbox for **Accelerated logs** under the Storage option is visible only when the server from the **Business Critical** compute tier is selected.
 
-    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png" alt-text="Screenshot shows Accelerated Logs during server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal-create.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png" alt-text="Screenshot shows Accelerated Logs during server create." lightbox="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png":::
 
 1. Enable the checkbox for **Accelerated logs** to enable the feature. If the high availability option is checked, the accelerated logs feature isn't available to choose. Learn more about [limitations](#limitations-preview) during preview.
 
@@ -99,7 +99,7 @@ During the Public Preview phase, this section details enabling accelerated logs.
 
 1. Under the Settings sections, navigate to the **Compute + Storage** page. You can enable "Accelerated Logs" by selecting the checkbox under the Storage section.
 
-    :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_enable.png" alt-text="Screenshot shows Accelerated Logs enable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_enable.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-enable.png" alt-text="Screenshot shows Accelerated Logs enable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_enable.png":::
 
 1. Select on Save and wait for the deployment process to be completed. Once you receive a successful deployment message, the feature is ready to be used.
 
@@ -114,7 +114,7 @@ During the public preview phase, disabling the  accelerated logs feature is a st
 
 1. Under the Settings sections, navigate to the **Compute + Storage** page. You find the "Accelerated Logs" checkbox under the Storage section. Uncheck this box to disable the feature.
 
-    :::image type="content" source="./media/concepts-accelerated-logs/ai-mysql-portal_disable.png" alt-text="Screenshot shows Accelerated Logs disable after server create." lightbox="./media/concepts-accelerated-logs/al-mysql-portal_disable.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-disable.png" alt-text="" lightbox="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-disable.png":::
 
 1. Select Save and wait for the deployment process to be completed. After you receive a successful deployment message, the feature is disabled.
 
