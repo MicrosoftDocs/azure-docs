@@ -51,7 +51,7 @@ A custom DNS is needed for level 3 and below. It ensures that DNS resolution for
 
 # [DNS Server](#tab/dnsserver)
 
-## Configure the DNS server
+### Configure the DNS server
 
 A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq](https://dnsmasq.org/) server, running on Ubuntu for DNS resolution.
 
@@ -155,7 +155,7 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 
 # [CoreDNS](#tab/coredns)
 
-## Configure CoreDNS
+### Configure CoreDNS
 
 While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS to add the allowlisted URLs to be resolved by CoreDNS. CoreDNS is the default DNS server for K3S clusters.
 
