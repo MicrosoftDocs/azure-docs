@@ -22,7 +22,7 @@ This article lists significant updates and new features available in Azure Conta
 | [Public Preview: Dedicated GPU workload profiles](./workload-profiles-overview.md) | Azure Container Apps support GPU compute in their dedicated workload profiles to unlock machine learning computing for event driven workloads. |
 | [Public preview: Vector database add-ons](./services.md) | Azure Container Apps now provides add-ons for three open source vector database variants: Qdrant, Milvus and Weaviate. |
 | [Public preview: Policy-driven resiliency](./service-discovery-resiliency.md) | The new resiliency feature enables you to seamlessly recover from service-to-service request and outbound dependency failures just by adding simple policies.  |
-| [Public preview: Code to cloud](./code-to-cloud-options.md) | Azure Container Apps now automatically builds and packages application code for deployment. |
+| [Public preview: Code to cloud](https://aka.ms/aca/cloud-build) | Azure Container Apps now automatically builds and packages application code for deployment. |
 
 ## September 2023 
 
