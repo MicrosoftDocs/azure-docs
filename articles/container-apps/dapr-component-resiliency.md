@@ -95,20 +95,21 @@ az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDap
 This command passes the resiliency policy YAML file, which may look similar to the following example:
 
 ```yml
-outboundPolicy:
-  httpRetryPolicy:
-    maxRetries: 5
-    retryBackOff:
-      initialDelayInMilliseconds: 1000
-      maxIntervalInMilliseconds: 10000
-  timeoutPolicy:
-    responseTimeoutInSeconds: 15
-inboundPolicy:
-  httpRetryPolicy:
-    maxRetries: 3
-    retryBackOff:
-      initialDelayInMilliseconds: 500
-      maxIntervalInMilliseconds: 5000
+properties:
+  outboundPolicy:
+    httpRetryPolicy:
+      maxRetries: 5
+      retryBackOff:
+        initialDelayInMilliseconds: 1000
+        maxIntervalInMilliseconds: 10000
+    timeoutPolicy:
+      responseTimeoutInSeconds: 15
+  inboundPolicy:
+    httpRetryPolicy:
+      maxRetries: 3
+      retryBackOff:
+        initialDelayInMilliseconds: 500
+        maxIntervalInMilliseconds: 5000
 ```
 
 ### Update specific policies

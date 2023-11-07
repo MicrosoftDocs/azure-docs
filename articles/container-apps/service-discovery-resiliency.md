@@ -152,29 +152,30 @@ az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --con
 This command passes the resiliency policy YAML file, which might look similar to the following example:
 
 ```yaml
-timeoutPolicy:
-  responseTimeoutInSeconds: 30
-  connectionTimeoutInSeconds: 5
-httpRetryPolicy:
-  maxRetries: 5
-  retryBackOff:
-    initialDelayInMilliseconds: 1000
-    maxIntervalInMilliseconds: 10000
-  matches:
-    errors:
-      - retriable-headers
-      - retriable-status-codes
-tcpRetryPolicy:
-  maxConnectAttempts: 3
-circuitBreakerPolicy:
-  consecutiveErrors: 5
-  intervalInSeconds: 10
-  maxEjectionPercent: 50
-tcpConnectionPool:
-  maxConnections: 100
-httpConnectionPool:
-  http1MaxPendingRequests: 1024
-  http2MaxRequests: 1024
+properties:
+  timeoutPolicy:
+    responseTimeoutInSeconds: 30
+    connectionTimeoutInSeconds: 5
+  httpRetryPolicy:
+    maxRetries: 5
+    retryBackOff:
+      initialDelayInMilliseconds: 1000
+      maxIntervalInMilliseconds: 10000
+    matches:
+      errors:
+        - retriable-headers
+        - retriable-status-codes
+  tcpRetryPolicy:
+    maxConnectAttempts: 3
+  circuitBreakerPolicy:
+    consecutiveErrors: 5
+    intervalInSeconds: 10
+    maxEjectionPercent: 50
+  tcpConnectionPool:
+    maxConnections: 100
+  httpConnectionPool:
+    http1MaxPendingRequests: 1024
+    http2MaxRequests: 1024
 ```
 
 ### Update specific policies
@@ -230,7 +231,7 @@ Select **Apply** to apply all the selected policies to your container app. Selec
 :::image type="content" source="media/service-discovery-resiliency/confirm-apply.png" alt-text="Screenshot of pop-up window confirming applying the new resiliency policies.":::
 
 > [!NOTE]
-> The Azure portal assigns a unique ID to your resiliency policy once created. To retrieve this name, use the [`az container app resiliency list`](#view-policies) command. 
+> The Azure portal assigns a unique ID to your resiliency policy once created. To retrieve this name, use the `az container app resiliency list` command. 
 
 ---
 
