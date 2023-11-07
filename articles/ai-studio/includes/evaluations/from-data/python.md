@@ -194,22 +194,49 @@ result = evaluate(
     tracking=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
 )
 ```
-#### Evaluation result 
-`Evaluate()` outputs an `EvaluationResult()` that includes a `metric_summary` and `artifacts`.
 
+#### Evaluation result 
+
+The `evaluate()` function outputs an `EvaluationResult()` that includes a `metric_summary` and `artifacts`. `metric_summary` outputs a mean calculated summary of all metrics.
+
+Here's an example output from `result.metric_summary`:
 ```json
-metric_summary = {"mean_gpt_groundedness":4.8, "mean_gpt_relevance":3.7, "mean_gpt_coherence":4.1}
-metric_artifacts =
-{"question":"What is the capital of France?",
-"context":"France is in Europe",
-"answer":"Paris is the capital of France.",
-"ground_truth": "Paris",
-"gpt_groundedness":"5","gpt_coherence":"5","gpt_relevance":"5"}
+{
+  "mean_gpt_groundedness":4.8, "mean_gpt_relevance":3.7, "mean_gpt_coherence":4.1
+}
 ```
-You can download your `EvaluationResult()` with the following
+
+The `artifacts` includes the name of the `.jsonl` file with metrics per data row logged as part as evaluation in AI Studio.
+
+Here's an example output from `result.artifacts`:
+```json
+{
+  "eval_results.jsonl": "runs:/8657dcb8-57b0-4ea5-9f8d-c040ebfa597f/eval_results.jsonl"
+}
+```
+
+The contents of `eval_results.jsonl` looks like this: 
+```json
+{
+  "question": "What is the capital of France?",
+  "context": "France is in Europe",
+  "answer": "Paris is the capital of France.",
+  "ground_truth": "Paris",
+  "gpt_groundedness": "5",
+  "gpt_coherence": "5",
+  "gpt_relevance": "5"
+}
+```
+
+You can download your `EvaluationResult()` with `download_evaluation_artifacts()` to a local folder path. 
+
 ```python
 result.download_evaluation_artifacts("./myevalresults")
 ```
+
+> [!TIP]
+> Get the contents of the `result.studio_url` property for a link to view your logged evaluation results in AI Studio.
+
 ### Evaluate Conversation: `chat`
 The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"` shown below
 ```python
