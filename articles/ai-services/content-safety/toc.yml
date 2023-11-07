@@ -53,6 +53,8 @@ items:
   items:
   - name: Harm categories
     href: concepts/harm-categories.md
+  - name: Jailbreak risk detection
+    href: concepts/jailbreak-detection.md
 - name: Reference
   items:
   - name: Content Safety REST API
