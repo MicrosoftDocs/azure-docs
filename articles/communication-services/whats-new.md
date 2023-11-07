@@ -79,7 +79,7 @@ The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognit
 ### PSTN direct offers in new regions
 :::image type="content" source="./media/whats-new-images/10-23/geo-expansion.png" alt-text="A photograph of a man pointing to a map of the world showing multiple countries.":::
 
-Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates.
+Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong SAR, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates.
 
 [Read more about our new availability](./concepts/numbers/sub-eligibility-number-capability.md)
 
