@@ -146,7 +146,7 @@ Use the following steps to create the service instance:
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="media/quickstart/app-deployment-diagram.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
+:::image type="content" source="../../media/quickstart/app-deployment-diagram.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to create the app on Azure Spring Apps:
 

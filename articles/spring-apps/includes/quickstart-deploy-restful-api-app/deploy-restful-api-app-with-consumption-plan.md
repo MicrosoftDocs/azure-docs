@@ -86,8 +86,6 @@ Use the following steps to create a service instance:
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
-
 1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.
 
    | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
@@ -98,8 +96,6 @@ Use the following steps to create a service instance:
    | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
    | **Region**                     | The region closest to your users.              | The location that's closest to your users.                                                                                                                                                                                                                                                         |
    | **Container Apps Environment** | *myenvironment*                                | The option to select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                |
-
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
 
    Use the following table as a guide for the Container Apps Environment creation:
 
