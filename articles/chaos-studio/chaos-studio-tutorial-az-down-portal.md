@@ -17,11 +17,11 @@ You can use a chaos experiment to verify that your application is resilient to f
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - A Virtual Machine Scale Sets instance.
-- An AutoScale Settings instance.
+- An Autoscale Settings instance.
 
-## Enable Chaos Studio on your Virtual Machine Scale Sets and AutoScale Settings instances
+## Enable Chaos Studio on your Virtual Machine Scale Sets and Autoscale Settings instances
 
-Azure Chaos Studio can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). AutoScale Settings has only one target type (`Microsoft-AutoScaleSettings`) and one capability (`disableAutoscale`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources might have many other capabilities.
+Azure Chaos Studio can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). Autoscale Settings has only one target type (`Microsoft-AutoScaleSettings`) and one capability (`disableAutoscale`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources might have many other capabilities.
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for **Chaos Studio** in the search bar.
