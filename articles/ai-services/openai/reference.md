@@ -404,6 +404,9 @@ The following parameters can be used inside of the `parameters` field inside of 
 
 ### Start an ingestion job 
 
+> [!TIP]
+> The `JOB_NAME` you choose will be used as the index name. Be aware of the [constraints](/rest/api/searchservice/create-index#uri-parameters) for the *index name*.
+
 ```console
 curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview \ 
 -H "Content-Type: application/json" \ 
