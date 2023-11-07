@@ -16,13 +16,13 @@ This article contains known issues for Azure IoT Operations Preview.
 
 ## Azure IoT Operations
 
-- QoS0 is not currently supported.
+- QoS0 isn't currently supported.
 
-- You must use the Azure CLI interactive login `az login`. If you don't you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+- You must use the Azure CLI interactive login `az login`. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
 
 ## Azure IoT MQ (preview)
 
-- You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need additional configuration before they can connect.
+- You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
 
 - You can't update the Broker custom resource after the initial deployment. You can't make configuration changes to cardinality, memory profile, or disk buffer.
 
@@ -55,7 +55,7 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## Layered Network Management (preview)
 
-If the Layered Network Management service doesn't an IP address while running K3S on an Ubuntu host, re-install K3S without the `trafeik` ingress controller:
+If the Layered Network Management service doesn't an IP address while running K3S on an Ubuntu host, reinstall K3S without the `trafeik` ingress controller:
 
 ```bash
 curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
@@ -63,7 +63,7 @@ curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode
 
 To learn more, see [K3S | Traefik Ingress Controller](https://docs.k3s.io/networking#traefik-ingress-controller)
 
-If DNS queries aren't resolving to expected IP address while using [CoreDNS](https://docs.k3s.io/networking#coredns) service running on child network level, upgrade to Ubuntu 22.04 and re-install K3S:
+If DNS queries aren't resolving to the expected IP address while using [CoreDNS](https://docs.k3s.io/networking#coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S:
 
 ```bash
 curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
@@ -71,7 +71,7 @@ curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode
 
 ## OPC PLC simulator
 
-If the OPC PLC simulator sin't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
