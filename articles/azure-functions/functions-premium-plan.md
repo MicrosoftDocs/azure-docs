@@ -157,7 +157,7 @@ If you have an existing function app, you can use Azure CLI commands to migrate 
 
 This migration isn't supported on Linux.
 
-## Premium plan settings
+## <a name="plan-and-sku-settings"></a>Premium plan settings
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
