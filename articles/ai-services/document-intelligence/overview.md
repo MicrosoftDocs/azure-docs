@@ -131,7 +131,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variaitions of the 1099 form.
+    [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1099 form.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -409,7 +409,7 @@ You can use Document Intelligence to automate document processing in application
 
 ### US tax 1099 (and Variations) form
 
-:::image type="content" source="media/overview/analyze-1099.png" alt-text="Screenshot of US 1099 tax form analyzed in the Document Intelligence Studio.":::
+:::image type="content" source="media/overview/analyze-1099.png" alt-text="Screenshot of US 1099 tax form analyzed in the Document Intelligence Studio." lightbox="media/overview/analyze-1099.png":::
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
