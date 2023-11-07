@@ -7,11 +7,11 @@ author: dcurwin
 ms.date: 09/21/2023
 ---
 
-# Migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process (Preview)
+# Migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process
 
-Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. As a result, a new SQL server-targeted Azure Monitoring Agent (AMA) autoprovisioning process is being released in preview. You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
+Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. As a result, a new SQL server-targeted Azure Monitoring Agent (AMA) autoprovisioning process was released. You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
 
-During the preview, customers who are using the current autoprovisioning process with Azure Monitor Agent (Preview) option,  should migrate to the new Azure Monitoring Agent for SQL server on machines (Preview) autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
+Customers who are using the current **Log Analytics agent/Azure Monitor agent** autoprovisioning process, should migrate to the new **Azure Monitoring Agent for SQL server on machines** autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
 
 ## Migrate to the SQL server-targeted AMA autoprovisioning process
 
@@ -24,19 +24,17 @@ During the preview, customers who are using the current autoprovisioning process
 1. Select the relevant subscription.
 
 1. Under the Databases plan, select **Action required**.
-
     :::image type="content" source="media/defender-sql-autoprovisioning/action-required.png" alt-text="Screenshot that shows where the option to select action required is on the Defender plans page." lightbox="media/defender-sql-autoprovisioning/action-required.png":::
 
     > [!NOTE]
-    > If you do not see the action required button, under the Databases plan select **Settings** and then toggle the Azure Monitoring Agent for SQL server on machines (Preview) option to **On**. Then select **Continue** > **Save**.
-
+    > If you do not see the action required button, under the Databases plan select **Settings** and then toggle the **Azure Monitoring Agent for SQL server on machines** option to **On**. Then select **Continue** > **Save**.
 1. In the pop-up window, select **Enable**.
 
     :::image type="content" source="media/defender-sql-autoprovisioning/update-sql.png" alt-text="Screenshot that shows you where to select the Azure Monitor Agent on the screen." lightbox="media/defender-sql-autoprovisioning/update-sql.png":::
 
 1. Select **Save**.
 
-Once the SQL server-targeted AMA autoprovisioning process has been enabled, you should disable the Log Analytics agent/Azure Monitor agent autoprovisioning process.
+Once the SQL server-targeted AMA autoprovisioning process has been enabled, you should disable the **Log Analytics agent/Azure Monitor agent** autoprovisioning process.
 
 > [!NOTE]
 > If you have the Defender for Server plan enabled, you will need to [review the Defender for Servers Log Analytics deprecation plan](upcoming-changes.md#defender-for-servers) for Log Analytics agent/Azure Monitor agent dependency before disabling the process. 
@@ -69,3 +67,4 @@ For related information, see these resources:
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.
+

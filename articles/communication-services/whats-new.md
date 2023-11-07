@@ -83,8 +83,10 @@ Closed captions are a textual representation of audio during a video conversatio
 
 [Try the quickstart](./how-tos/calling-sdk/closed-captions-teams-interop-how-to.md)
 
+
 #### Interoperability Roles and Capabilities
 Support for interoperability Microsoft Teams roles and capabilities is now in general availability. This feature enables users to control what features other users can have within a call. This signals the enabling of the Capabilities API within the Azure Communication Services Web UI Library. With the Capabilities API, users within Microsoft Teams interoperability calls can be assigned different roles that have different capabilities and access to different features. For example, a presenter might have the ability to share their screen, while a participant might only have the ability to view the presenter's screen.
+
 
 [Learn more about Roles and Capabilities](https://azure.github.io/communication-ui-library/?path=/docs/capabilities--page)
 
