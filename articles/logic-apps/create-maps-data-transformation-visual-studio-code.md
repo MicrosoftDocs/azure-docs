@@ -6,21 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 # As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
 ---
 
-# Create maps to transform data in Azure Logic Apps with Visual Studio Code (preview)
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create maps to transform data in Azure Logic Apps with Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the transformation between data elements in the source and target schemas.
 
-To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
+To visually create and edit a map, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
 After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
@@ -28,7 +24,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 ## Limitations and known issues
 
-- The Data Mapper extension currently works only in Visual Studio Code running on Windows operating systems.
+- The Data Mapper tool currently works only in Visual Studio Code running on Windows operating systems.
 
 - The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
 
@@ -38,13 +34,17 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - The map layout and item position are currently automatic and read only.
 
-- The Data Mapper extension currently works only with schemas in flat folder-structured projects.
+- The Data Mapper tool currently works only with schemas in flat folder-structured projects.
 
 ## Prerequisites
 
-- [Same prerequisites for using Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
+- [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
 
-- The latest **Azure Logic Apps - Data Mapper** extension. You can download and install this extension from inside Visual Studio Code through the Marketplace, or you can find this extension externally on the [Marketplace website](https://marketplace.visualstudio.com/vscode).
+  > [!NOTE]
+  >
+  > The previously separate Data Mapper extension is now merged with the Azure Logic Apps (Standard) extension. 
+  > To avoid conflicts, any existing version of the Data Mapper extension is removed when you install or update 
+  > the Azure Logic Apps (Standard) extension. After extension install or update, please restart Visual Studio Code.
 
 - The source and target schema files that describe the data types to transform. These files can have either the following formats:
 
@@ -194,13 +194,13 @@ The following table lists the available function groups and *example* functions 
 
 | Group | Example functions |
 |-------|-------------------|
-| Collection | Average, Count, Direct Access, Index, Join, Maximum, Minimum, Sum |
+| Collection | Average, Count, Direct Access, Distinct values, Filter, Index, Join, Maximum, Minimum, Reverse, Sort, Subsequence, Sum |
 | Conversion | To date, To integer, To number, To string |
 | Date and time | Add days |
 | Logical comparison | Equal, Exists, Greater, Greater or equal, If, If else, Is nil, Is null, Is number, Is string, Less, Less or equal, Logical AND, Logical NOT, Logical OR, Not equal |
 | Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square root, Subtract, Tangent |
 | String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
-| Utility | Copy, Error, Format date-time, Format number |
+| Utility | Copy, Error, Execute XPath, Format date-time, Format number, Run XSLT |
 
 On the map, the function's label looks like the following example and is color-coded based on the function group. To the function name's left side, a symbol for the function appears. To the function name's right side, a symbol for the function output's data type appears.
 
