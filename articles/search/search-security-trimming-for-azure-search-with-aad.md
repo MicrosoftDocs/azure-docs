@@ -1,7 +1,7 @@
 ---
-title: Security filters to trim results using Active Directory
+title: Security filters to trim results using MIcrosoft Entra ID
 titleSuffix: Azure AI Search
-description: Learn how to implement security privileges at the document level for Azure AI Search search results, using security filters and Microsoft Entra identities.
+description: Access control at the document level for search results, using security filters and Microsoft Entra identities.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: devx-track-csharp
 ---
-# Security filters for trimming Azure AI Search results using Active Directory identities
+# Security filters for trimming Azure AI Search results using Microsoft Entra tenants and identities
 
 This article demonstrates how to use Microsoft Entra security identities together with filters in Azure AI Search to trim search results based on user group membership.
 
@@ -23,9 +23,6 @@ This article covers the following tasks:
 > - Cache the new groups
 > - Index documents with associated groups
 > - Issue a search request with group identifiers filter
-
-> [!NOTE]
-> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## Prerequisites
 

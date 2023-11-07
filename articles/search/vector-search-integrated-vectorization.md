@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 11/07/2023
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -95,9 +95,17 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 ## Limitations
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) aren't currently supported.
-+ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer aren't currently supported.
-+ Currently, there's no batching for integrated data chunking and vectorization.
+Make sure you know the [Azure OpenAI quotas and limits for embedding models](/azure/ai-services/openai/quotas-limits). Azure AI Search has retry policies, but if the quota is exhausted, retries fail.
+
+Azure OpenAI token-per-minute limits are per model, per subscription. Keep this in mind if you're using an embedding model for both query and indexing workloads. If possible, [follow best practices](/azure/ai-services/openai/quotas-limits#general-best-practices-to-remain-within-rate-limits). Have an embedding model for each workload, and try to deploy them in different subscriptions.
+
+On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
+
+Finally, the following features aren't currently supported: 
+
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
++ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer
++ Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 
 
