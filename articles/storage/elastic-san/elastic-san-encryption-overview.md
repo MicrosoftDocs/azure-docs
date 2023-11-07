@@ -41,6 +41,10 @@ The following list explains the numbered steps in the diagram:
 1. Azure Elastic SAN wraps the data encryption key with the customer-managed key from the key vault.
 1. For read/write operations, Azure Elastic SAN sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
+### Regional availability
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
+
 ## Next steps
 
 - [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-configure-customer-managed-keys.md)
