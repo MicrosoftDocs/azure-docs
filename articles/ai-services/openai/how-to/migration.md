@@ -55,7 +55,7 @@ pip install openai --upgrade
 
 ---
 
-This provides context for what has changed and allows you to test the new library in parallel while continuing to provide support for version `0.28.1`. If you upgrade to `1.x` and realize you need to temporarily revert back to th previous version, you can always `pip uninstall openai` and then reinstall targeted to `0.28.1` with `pip install openai==0.28.1`.
+This provides context for what has changed and allows you to test the new library in parallel while continuing to provide support for version `0.28.1`. If you upgrade to `1.x` and realize you need to temporarily revert back to the previous version, you can always `pip uninstall openai` and then reinstall targeted to `0.28.1` with `pip install openai==0.28.1`.
 
 ## Chat completions
 
