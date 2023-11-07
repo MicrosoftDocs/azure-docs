@@ -76,5 +76,5 @@ items:
     - name: Azure PowerShell
       href: /powershell/module/az.workloads/new-azworkloadssapvirtualinstance
     - name: REST - SAP Virtual Instance
-      href: /rest/api/workloads/        
+      href: /rest/api/workloads/sap-virtual-instances?view=rest-workloads-2023-10-01-preview&preserve-view=true        
 

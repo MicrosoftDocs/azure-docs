@@ -501,24 +501,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-sdk-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "sdk-preview",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-online-endpoint-vnet",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-featurestore",
-      "url": "https://github.com/Azure/azureml-examples",
-      "branch": "featurestore/pup",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-temp-fix",
       "url": "https://github.com/Azure/azureml-examples",
       "branch": "temp-fix-doc-error",

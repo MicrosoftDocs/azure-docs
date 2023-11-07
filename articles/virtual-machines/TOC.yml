@@ -657,6 +657,9 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
+        - name: Security mechanisms
+          displayName: Image builder, images, building
+          href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
@@ -869,8 +872,14 @@
     - name: Create from an existing OS disk or VHD
       displayName: attach
       href: attach-os-disk.md
-  - name: Auto-shutdown the VM
+  - name: Auto-shutdown a VM
     href: auto-shutdown-vm.md
+  - name: Hibernating Virtual Machines
+    items:
+      - name: Hibernate a VM
+        href: hibernate-resume.md
+      - name: Troubleshoot VM hibernation
+        href: hibernate-resume-troubleshooting.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
@@ -2011,6 +2020,10 @@
       items:
       - name: Create VM restore points
         href: create-restore-points.md
+      - name: VMSnapshot extension
+        href: virtual-machines-restore-points-vm-snapshot-extension.md
+      - name: Cross-region copy
+        href: virtual-machines-restore-points-copy.md        
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2021,6 +2034,8 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
+      - name: How to copy VM restore points to another region
+        href: virtual-machines-copy-restore-points-how-to.md        
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting

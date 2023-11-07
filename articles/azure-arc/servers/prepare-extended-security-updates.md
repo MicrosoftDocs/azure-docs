@@ -1,13 +1,13 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 10/30/2023
+ms.date: 11/01/2023
 ms.topic: conceptual
 ---
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
 
-With Windows Server 2012 and Windows Server 2012 R2 reaching end of support on October 10, 2023, Azure Arc-enabled servers lets you enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Affording both cost flexibility and an enhanced delivery experience, Azure Arc better positions you to migrate to Azure.
+With Windows Server 2012 and Windows Server 2012 R2 having reached end of support on October 10, 2023, Azure Arc-enabled servers lets you enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Affording both cost flexibility and an enhanced delivery experience, Azure Arc better positions you to migrate to Azure.
 
 The purpose of this article is to help you understand the benefits and how to prepare to use Arc-enabled servers to enable delivery of ESUs.
 
@@ -28,6 +28,7 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 For Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc, free access is provided to these Azure services from October 10, 2023:
 
 * [Azure Update Manager](../../update-center/overview.md) - Unified management and governance of update compliance that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
+    Enrollment in ESUs does not impact Azure Update Manager. After enrollment in ESUs through Azure Arc, the server becomes eligible for ESU patches. These patches can be delivered through Azure Update Manager or any other patching solution. You'll still need to configure updates from Microsoft Updates or Windows Server Update Services.
 * [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview?tabs=python-2) - Track changes in virtual machines hosted in Azure, on-premises, and other cloud environments.
 * [Azure Policy Guest Configuration](/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) - Audit the configuration settings in a virtual machine. Guest configuration supports Azure VMs natively and non-Azure physical and virtual servers through Azure Arc-enabled servers.
 
@@ -37,13 +38,13 @@ Other Azure services through Azure Arc-enabled servers are available as well, wi
 * [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) - Collect security-related events and correlate them with other data sources.
 
     >[!NOTE]
-    >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Azure Update Manager (preview) and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
+    >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Azure Update Manager and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
 
 ## Prepare delivery of ESUs
 
 To prepare for this new offer, you need to plan and prepare to onboard your machines to Azure Arc-enabled servers through the installation of the [Azure Connected Machine agent](agent-overview.md) (version 1.34 or higher) and establishing a connection to Azure. Windows Server 2012 Extended Security Updates supports Windows Server 2012 and R2 Standard and Datacenter editions. Windows Server 2012 Storage is not supported.
 
-We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy one month before Windows Server 2012 end of support. Billing for this service starts from October 2023, after Windows Server 2012 end of support.
+We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy. Billing for this service starts from October 2023 (i.e., after Windows Server 2012 end of support).
 
 
 

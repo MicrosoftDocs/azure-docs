@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/10/2023
+ms.date: 11/03/2023
 ---
 
 # Create parameters files for Bicep deployment
@@ -47,7 +47,7 @@ using './main.bicep'
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
-You can define and use variables. Bicep CLI version 0.21.1 or newer is required for using variables in .bicepparam file.  Here are some examples:
+You can define and use variables. [Bicep CLI version 0.21.X or higher](./install.md) is required for using variables in .bicepparam file.  Here are some examples:
 
 ```bicep
 using './main.bicep'
@@ -336,7 +336,7 @@ From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
 
 ```azurecli
@@ -358,7 +358,7 @@ az deployment group create \
 
 ---
 
-For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). 
+For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters).
 
 From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
 
