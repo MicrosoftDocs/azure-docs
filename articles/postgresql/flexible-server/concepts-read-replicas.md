@@ -121,7 +121,7 @@ The replica inherits the admin account from the primary server. All user account
 
 There are two methods to connect to the replica:
 
-1. **Direct to the Replica Instance**: You can connect to the replica using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using `psql`:
+* **Direct to the Replica Instance**: You can connect to the replica using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using `psql`:
 
 ```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin postgres
@@ -131,7 +131,7 @@ At the prompt, enter the password for the user account.
 
 Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** page. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
 
-1. **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+* **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
 
 ## Promote replicas
 
@@ -145,7 +145,7 @@ This action elevates a replica to the role of the primary server. In the process
 
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server operation." lightbox="./media/concepts-read-replica/promote-to-primary-server.png":::
+:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Diagram that shows promote to primary server operation." lightbox="./media/concepts-read-replica/promote-to-primary-server.png":::
 
 **Promote to independent server and remove from replication**
 
@@ -153,7 +153,7 @@ By opting for this, the replica becomes an independent server and is removed fro
 
 The diagram below illustrates the configuration of the servers before the promotion and the resulting state after the promotion to independent server operation has been successfully completed.
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Promote to independent server and remove from replication operation." lightbox="./media/concepts-read-replica/promote-to-independent-server.png":::
+:::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Diagram that shows promote to independent server and remove from replication operation." lightbox="./media/concepts-read-replica/promote-to-independent-server.png":::
 
 > [!IMPORTANT]  
 > The **Promote to primary server** action is currently in preview. The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
@@ -192,8 +192,10 @@ All operations involving virtual endpoints, whether adding, editing, or removing
 
 Virtual Endpoints offer two distinct types of connection points:
 
-1. **Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations users trigger. This endpoint can't be changed to point to a replica.
-1. **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint anytime, whether before or after promotion.
+**Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations users trigger. This endpoint can't be changed to point to a replica.
+
+
+**Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint anytime, whether before or after promotion.
 
 ### Virtual Endpoints and Promote Behavior
 
@@ -240,7 +242,7 @@ Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas
 Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to adjust the number of transaction logs automatically (WAL segments) needed by all replica servers and, therefore, avoid situations when one or more replicas go out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case the replication slot remains inactive for an extended time. In such situations, primary accumulates WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations.  
 Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
 
-We recommend setting alert rules for storage used or storage percentage, and for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size, and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, and if the replica lag being higher than 1 h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric shows you if the WAL files accumulation is the main reason of the excessive storage usage.
+We recommend setting alert rules for storage used or storage percentage, and for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size, and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, and if the replica lag is higher than 1 h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric shows you if the WAL files accumulation is the main reason of the excessive storage usage.
 
 Azure Database for PostgreSQL: Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
@@ -280,15 +282,15 @@ Azure facilities across various regions are designed to be highly reliable. Howe
 
 Being prepared for potential regional disasters is critical to ensure the uninterrupted operation of your applications and services. If you're considering a robust contingency plan for your Azure Database for PostgreSQL - Flexible Server, here are the key steps and considerations:
 
-1. **Establish a geo-replicated read replica**: It's essential to have a read replica set up in a separate region from your primary. This ensures continuity in case the primary region faces an outage. More details can be found in the [geo-replication](#geo-replication) section.
-1. **Ensure server symmetry**: The "promote to primary server" action is the most recommended for handling regional outages, but it comes with a [server symmetry](#configuration-management) requirement. This means both the primary and replica servers must have identical configurations of specific settings. The advantages of using this action include:
+1.  **Establish a geo-replicated read replica**: It's essential to have a read replica set up in a separate region from your primary. This ensures continuity in case the primary region faces an outage. More details can be found in the [geo-replication](#geo-replication) section.
+2.  **Ensure server symmetry**: The "promote to primary server" action is the most recommended for handling regional outages, but it comes with a [server symmetry](#configuration-management) requirement. This means both the primary and replica servers must have identical configurations of specific settings. The advantages of using this action include:
   * No need to modify application connection strings if you use [virtual endpoints](#virtual-endpoints-preview).
   * It provides a seamless recovery process where, once the affected region is back online, the original primary server automatically resumes its function, but in a new replica role.
-1. **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region if there is an outage. They eliminate the need for any changes in the connection strings of your application.
-1. **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more information, see the [Configuration management](#configuration-management-1) section.
-1. **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
-1. **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios.
-1. **Follow Azure's general guidance**: Azure provides comprehensive guidance on [reliability and disaster preparedness](../../reliability/overview.md). It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
+3.  **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region if there is an outage. They eliminate the need for any changes in the connection strings of your application.
+4.  **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more information, see the [Configuration management](#configuration-management-1) section.
+5.  **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
+6.  **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios.
+7.  **Follow Azure's general guidance**: Azure provides comprehensive guidance on [reliability and disaster preparedness](../../reliability/overview.md). It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
 
 Being proactive and preparing in advance for regional disasters ensure the resilience and reliability of your applications and data.
 

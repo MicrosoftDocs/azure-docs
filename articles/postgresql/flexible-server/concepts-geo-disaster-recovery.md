@@ -33,7 +33,7 @@ Both geo-replication with read replicas and geo-backup are solutions for geo-dis
 
 ## Geo-redundant backup and restore
 
-Geo-redundant backup and restore allow you to restore your server in a different region in the event of a disaster. It also provides at least 99.99999999999999 percent (16 nines) durability of backup objects over a year.
+Geo-redundant backup and restore allows you to restore your server in a different region in the event of a disaster. It also provides at least 99.99999999999999 percent (16 nines) durability of backup objects over a year.
 
 Geo-redundant backup can be configured only at the time of server creation. When the server is configured with geo-redundant backup, the backup data and transaction logs are copied to the paired region asynchronously through storage replication.
 
@@ -41,7 +41,7 @@ For more information on geo-redundant backup and restore, see [geo-redundant bac
 
 ## Read replicas
 
-Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
+Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and can lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
 
 For more information on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
 

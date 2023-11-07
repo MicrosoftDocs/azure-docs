@@ -62,7 +62,8 @@ Follow these steps to choose the compute tier.
 
 Follow these steps to increase your storage size.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+
 2.  Select **Compute+storage**.
 
 3.  A page with current settings is displayed.
@@ -73,13 +74,13 @@ Follow these steps to increase your storage size.
 
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Screenshot that shows storage scale up.":::
 
-6.  If you're good with the storage size, select **Save**.
+5. If you're good with the storage size, select **Save**.
    
-8.  Most of the disk scaling operations are **online** and as soon as you select **Save** scaling process starts without any downtime but some scaling operations are **offline** and you see below server restart message. Select **continue** if you want to proceed.
+6. Most of the disk scaling operations are **online** and as soon as you select **Save** scaling process starts without any downtime but some scaling operations are **offline** and you see below server restart message. Select **continue** if you want to proceed.
 
-     :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="Screenshot that shows  offline scaling.":::
+     :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="Screenshot that shows offline scaling.":::
    
-10.  A receive a notification that scaling operation is in progress.
+7. You will receive a notification that scaling operation is in progress.
 
 
 ## Storage autogrow 
