@@ -25,7 +25,7 @@ Visibility into a Kubernetes cluster cost helps you identify opportunities for o
 - You must install the AKS cost analysis addon on the cluster to view its costs. For more information about how to install the addon and setting up your cluster, see [AKS cost analysis addon](https://aka.ms/aks/costanalysis). If you have multiple clusters running in a subscription, you must install the addon on every cluster.
 - Kubernetes cost views are available only for the following subscription agreement types:
   - Enterprise Agreement
-  - Microsoft Customer Agreement
+  - Microsoft Customer Agreement  
  Other agreement types aren't supported.
 - You must have one of the following roles on the subscription hosting the cluster.
   - Owner
