@@ -17,9 +17,9 @@ The pre and post events in Azure Update Manager allows you to perform certain ta
 - Start VMs patch them and shut them down again.
 - Stop a service on the machine, patch it and start the service again.
 
-Pre-events run before the patch installation begins and post-events run after the patch installation ends. If the VM requires a reboot, it will happen before the post-event begins.
+Pre-events run before the patch installation begins and post-events run after the patch installation ends. If the VM requires a reboot, it happens before the post-event begins.
 
-Update Manager uses [Event Grid](../event-grid/overview.md) to create and manage pre and post events on scheduled maintenance configurations. In the Event Grid, you can choose from Azure Webhooks, Azure Functions, Storage accounts, and Event hub to trigger your pre activity. If you are using pre and post scripts in Azure Automation Update management and plan to move to Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks.
+Update Manager uses [Event Grid](../event-grid/overview.md) to create and manage pre and post events on scheduled maintenance configurations. In the Event Grid, you can choose from Azure Webhooks, Azure Functions, Storage accounts, and Event hub to trigger your pre activity. If you're using pre and post scripts in Azure Automation Update management and plan to move to Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks.
 
 ## User scenarios
 
@@ -57,4 +57,6 @@ The following are the scenarios where you can define pre and post events:
 
 ## Next steps
 
-To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- Troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- Manage the [pre and post maintenance configuration events](manage-pre-post-events.md)
+- Learn on the [common scenarios of pre and post events](pre-post-events-common-scenarios.md)
