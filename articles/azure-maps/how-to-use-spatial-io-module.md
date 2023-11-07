@@ -114,7 +114,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </head>
 
     <body onload="GetMap()">
-        <div id="myMap"></div>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
     </body>
 
     </html>
@@ -144,10 +144,13 @@ You can load the Azure Maps spatial IO module using one of the two options:
     map.layers.add(layer);
     ```
 
-1. Your HTML code should now look like the following code. This sample demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map.
+1. Your HTML code should now look like the following code. This sample demonstrates how to display an XML file's feature data on a map.
+
+    > [!NOTE]
+    > This example uses [Route66Attractions.xml].
 
     ```html
-    ﻿<!DOCTYPE html>
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Spatial IO Module Example</title>
@@ -194,7 +197,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
                     map.layers.add(layer);
 
                     //Read an XML file from a URL or pass in a raw XML string.
-                    atlas.io.read('superCoolKmlFile.xml').then(r => {
+                    atlas.io.read('Route66Attractions.xml').then(r => {
                         if (r) {
                             //Add the feature data to the data source.
                             datasource.add(r);
@@ -220,7 +223,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
 1. Remember to replace `<Your Azure Maps Key>` with your subscription key. You should see results similar to the following image in your HTML file:
 
-    :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot of an indoor map demonstrating Spatial Data.":::
+    :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" lightbox="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot showing the Spatial Data sample in a map.":::
 
 ## Next steps
 
@@ -261,6 +264,7 @@ Refer to the Azure Maps Spatial IO documentation:
 [How to use the Azure Maps map control npm package]: how-to-use-npm-package.md
 [Leverage core operations]: spatial-io-core-operations.md
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
+[Route66Attractions.xml]: https://samples.azuremaps.com/data/Gpx/Route66Attractions.xml
 [Spatial IO module]: https://www.npmjs.com/package/azure-maps-spatial-io
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported data format details]: spatial-io-supported-data-format-details.md

@@ -568,5 +568,5 @@ To provide feedback, use the feedback option.
 ## Next steps
 
 * To learn more about how correlation works in Application Insights, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md).
-* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights-monitored components into a single view.
+* The [end-to-end transaction diagnostic experience](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) correlates server-side telemetry from across all your Application Insights-monitored components into a single view.
 * For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).

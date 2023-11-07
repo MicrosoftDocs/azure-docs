@@ -19,7 +19,6 @@
 | ATH | Athens, Greece | Greece Central, Europe |
 | BCN | Barcelona, Spain | Spain Central, Europe |
 | BER | Berlin, Germany | Germany West Central, Europe |
-| BJJ | Beijing, China | APAC |
 | BKK | Bangkok, Thailand | South East Asia |
 | BL  | Ashburn, Virginia, USA | East US, United States |
 | BN  | Boydton, Virginia, USA | East US, United States |

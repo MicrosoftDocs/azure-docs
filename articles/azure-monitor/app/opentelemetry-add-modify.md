@@ -12,7 +12,7 @@ ms.reviewer: mmcc
 
 This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
 
-To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
@@ -152,12 +152,40 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Automatic instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Instrumentations can be configured using AzureMonitorOpenTelemetryOptions  
 
-Logs
-- [Node.js console](https://nodejs.org/api/console.html)
-- [Bunyan](https://github.com/trentm/node-bunyan#readme)
-- [Winston](https://github.com/winstonjs/winston#readme)
+```typescript
+    // Import Azure Monitor OpenTelemetry
+    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+    // Import OpenTelemetry HTTP Instrumentation to get config type
+    const { HttpInstrumentationConfig } = require("@azure/monitor-opentelemetry");
+     // Import HTTP to get type
+    const { IncomingMessage } = require("http");
+
+    // Specific Instrumentation configs could be added
+    const httpInstrumentationConfig: HttpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request: IncomingMessage) => {
+            return false; //Return true if you want to ignore a specific request 
+        },
+        enabled: true
+    };
+    // Instrumentations configuration
+    const options: AzureMonitorOpenTelemetryOptions = {
+    instrumentationOptions: {
+        http: httpInstrumentationConfig,
+        azureSdk: { enabled: true },
+        mongoDb: { enabled: true },
+        mySql: { enabled: true },
+        postgreSql: { enabled: true },
+        redis: { enabled: true },
+        redis4: { enabled: true },
+    }
+    };
+
+    // Enable Azure Monitor integration
+    useAzureMonitor(options);
+
+```
 
 
 #### [Python](#tab/python)
@@ -332,8 +360,6 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Console, Winston, Bunyan|               |                |              |            |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
@@ -898,8 +924,8 @@ input()
 ### Add custom exceptions
 
 Select instrumentation libraries automatically report exceptions to Application Insights.
-However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
+However, you might want to manually report exceptions beyond what instrumentation libraries report.
+For instance, exceptions caught by your code aren't ordinarily reported. You might wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [ASP.NET Core](#tab/aspnetcore)
@@ -1090,7 +1116,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ### Add custom spans
 
-You may want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
+You might want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1354,7 +1380,7 @@ Currently unavailable.
   
 ### Send custom telemetry using the Application Insights Classic API
 
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
+We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
@@ -2265,6 +2291,8 @@ span_id = trace.get_current_span().get_span_context().span_id
 ```
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 

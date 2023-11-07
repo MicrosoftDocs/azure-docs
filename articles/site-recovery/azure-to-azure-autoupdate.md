@@ -467,7 +467,7 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
-  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
 
@@ -475,9 +475,9 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Azure Active Directory application can access the recovery services resource.
+  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Microsoft Entra application can access the recovery services resource.
 
-- **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
+- **Error**: Run As account is not found. Either one of these was deleted or not created - Microsoft Entra Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
 
   **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md).
 
@@ -495,4 +495,3 @@ If you can't enable automatic updates, see the following common errors and recom
 ## Next steps
 
 [Learn more](./how-to-migrate-run-as-accounts-managed-identity.md) on how to migrate the authentication type of the Automation accounts to Managed Identities.
-

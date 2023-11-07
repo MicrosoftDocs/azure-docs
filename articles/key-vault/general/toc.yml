@@ -121,7 +121,7 @@
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
     - name: Use Key Vault Connected Service
-      href: vs-key-vault-add-connected-service.md
+      href: /visualstudio/azure/vs-key-vault-add-connected-service?context=/azure/key-vault/general/context/context
   - name: Monitor and govern
     items:
     - name: Monitoring Key Vault

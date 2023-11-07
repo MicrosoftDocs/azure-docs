@@ -26,7 +26,7 @@ Now, you provision the Confluent Cloud resources through a resource provider nam
 The deep integration between Confluent Cloud and Azure enables the following capabilities:
 
 - Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud organization.
-- Streamline single sign-on (SSO) from Azure to Confluent Cloud with Azure Active Directory (Azure AD). No separate authentication is needed from the Confluent Cloud portal.
+- Streamline single sign-on (SSO) from Azure to Confluent Cloud with Microsoft Entra ID. No separate authentication is needed from the Confluent Cloud portal.
 - Get unified billing of Confluent Cloud consumption through Azure subscription invoicing.
 - Manage Confluent Cloud resources from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
@@ -42,7 +42,7 @@ For billing, each Confluent Cloud offer purchased in the Marketplace maps to a u
 
 ## Single sign-on
 
-When you sign in to the Azure portal, your credentials are also used to sign in to the Confluent Cloud SaaS portal. The experience uses [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) and [Azure AD SSO](../../active-directory/manage-apps/what-is-single-sign-on.md) to provide a secure and convenient way for you to sign in.
+When you sign in to the Azure portal, your credentials are also used to sign in to the Confluent Cloud SaaS portal. The experience uses [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) and [Microsoft Entra SSO](../../active-directory/manage-apps/what-is-single-sign-on.md) to provide a secure and convenient way for you to sign in.
 
 For more information, see [Single sign-on](manage.md#single-sign-on).
 

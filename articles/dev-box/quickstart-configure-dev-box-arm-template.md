@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
-- Entra AD. Your organization must use Entra AD for identity and access management.
+- Microsoft Entra AD. Your organization must use Microsoft Entra AD for identity and access management.
 
 ## Review the template 
 

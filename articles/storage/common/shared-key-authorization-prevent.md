@@ -1,15 +1,14 @@
 ---
 title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
-description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
+description: To require clients to use Microsoft Entra ID to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -17,9 +16,9 @@ ms.devlang: azurecli
 
 # Prevent Shared Key authorization for an Azure Storage account
 
-Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
+Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Microsoft Entra credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Microsoft Entra ID provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 
-When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Microsoft Entra ID will succeed. For more information about using Microsoft Entra ID, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 The **AllowSharedKeyAccess** property of a storage account is not set by default and does not return a value until you explicitly set it. The storage account permits requests that are authorized with Shared Key when the property value is **null** or when it is **true**.
 
@@ -31,7 +30,7 @@ Before disallowing Shared Key access on any of your storage accounts:
 
 - [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
 - [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
-- Consider the need to [disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
+- Consider the need to [disallow Shared Key authorization to use Microsoft Entra Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
 - [Transition Azure Files workloads](#transition-azure-files-workloads)
 
 ### Understand how disallowing Shared Key affects SAS tokens
@@ -40,14 +39,14 @@ When Shared Key access is disallowed for the storage account, Azure Storage hand
 
 | Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
 |-|-|-|
-| User delegation SAS (Blob storage only) | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
+| User delegation SAS (Blob storage only) | Microsoft Entra ID | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
 | Service SAS | Shared Key | Request is denied for all Azure Storage services. |
 | Account SAS | Shared Key | Request is denied for all Azure Storage services. |
 
 Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
 
 - A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
-- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+- A user delegation SAS is authorized with Microsoft Entra ID and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
 
 When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS.
 
@@ -57,25 +56,27 @@ For more information about shared access signatures, see [Grant limited access t
 
 A number of Azure services use Shared Key authorization to communicate with Azure Storage. If you disallow Shared Key authorization for a storage account, these services will not be able to access data in that account, and your applications may be adversely affected.
 
-Some Azure tools offer the option to use Azure AD authorization to access Azure Storage. The following table lists some popular Azure tools and notes whether they can use Azure AD to authorize requests to Azure Storage.
+Some Azure tools offer the option to use Microsoft Entra authorization to access Azure Storage. The following table lists some popular Azure tools and notes whether they can use Microsoft Entra ID to authorize requests to Azure Storage.
 
-| Azure tool | Azure AD authorization to Azure Storage |
+| Azure tool | Microsoft Entra authorization to Azure Storage |
 |-|-|
-| Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
+| Azure portal | Supported. For information about authorizing with your Microsoft Entra account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supported for Blob Storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
-| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage Gen2. Azure AD access to File storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Azure AD, see [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Azure AD credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
-| Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
+| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage Gen2. Microsoft Entra ID access to File storage is not supported. Make sure to select the correct Microsoft Entra tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Microsoft Entra ID, see [Run PowerShell commands with Microsoft Entra credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Microsoft Entra credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
+| Azure CLI | Supported. For information about how to authorize Azure CLI commands with Microsoft Entra ID for access to blob and queue data, see [Run Azure CLI commands with Microsoft Entra credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Persist files in Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
 
-### Disallow Shared Key authorization to use Azure AD Conditional Access
+<a name='disallow-shared-key-authorization-to-use-azure-ad-conditional-access'></a>
 
-To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account.
+### Disallow Shared Key authorization to use Microsoft Entra Conditional Access
+
+To protect an Azure Storage account with Microsoft Entra [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account.
 
 ### Transition Azure Files workloads
 
-Azure Storage supports Azure AD authorization for requests to Blob Storage, Queue Storage, and Table Storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. The Azure portal always uses Shared Key authorization to access data in Azure Files, so if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
+Azure Storage supports Microsoft Entra authorization for requests to Blob Storage, Queue Storage, and Table Storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. The Azure portal always uses Shared Key authorization to access data in Azure Files, so if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
 
 Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to an account via Shared Key, or do not apply this setting to storage accounts that support Azure Files workloads.
 
@@ -101,7 +102,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Azure AD rather than Shared Key for authorization, you can [update the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
+Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Microsoft Entra rather than Shared Key for authorization, you can [update the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -140,11 +141,11 @@ To understand how disallowing Shared Key authorization may affect client applica
 
 Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a shared access signature (SAS). Use logs to determine which clients are sending those requests.
 
-A SAS may be authorized with either Shared Key or Azure AD. For more information about interpreting requests made with a shared access signature, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
+A SAS may be authorized with either Shared Key or Microsoft Entra ID. For more information about interpreting requests made with a shared access signature, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### Determine the number and frequency of requests authorized with Shared Key
 
-To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 
@@ -222,12 +223,12 @@ You can also configure an alert rule based on this query to notify you about req
 
 ## Remediate authorization via Shared Key
 
-After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Azure AD instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Azure AD to access data in a storage account, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Microsoft Entra ID instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Microsoft Entra ID to access data in a storage account, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 When you are confident that you can safely reject requests that are authorized with Shared Key, you can set the **AllowSharedKeyAccess** property for the storage account to **false**.
 
 > [!WARNING]
-> If any clients are currently accessing data in your storage account with Shared Key, then Microsoft recommends that you migrate those clients to Azure AD before disallowing Shared Key access to the storage account.
+> If any clients are currently accessing data in your storage account with Shared Key, then Microsoft recommends that you migrate those clients to Microsoft Entra ID before disallowing Shared Key access to the storage account.
 
 ### Permissions for allowing or disallowing Shared Key access
 
@@ -237,14 +238,14 @@ To set the **AllowSharedKeyAccess** property for the storage account, a user mus
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles do not provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow Shared Key access for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Disable Shared Key authorization
 
@@ -328,5 +329,5 @@ To begin enforcing [the Azure Policy assignment you previously created](#configu
 ## Next steps
 
 - [Authorize access to data in Azure Storage](./authorize-data-access.md)
-- [Authorize access to blobs and queues using Azure Active Directory](authorize-data-access.md)
+- [Authorize access to blobs and queues using Microsoft Entra ID](authorize-data-access.md)
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)

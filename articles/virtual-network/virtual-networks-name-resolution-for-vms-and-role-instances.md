@@ -322,6 +322,15 @@ If you provide your own DNS solution, it needs to:
 > * For best performance, when you're using Azure VMs as DNS servers, IPv6 should be disabled.
 > * NSGs act as firewalls for your DNS resolver endpoints. You should modify or override your NSG security rules to allow access for UDP Port 53 (and optionally TCP Port 53) to your DNS listener endpoints. Once custom DNS servers are set on a network, then the traffic through port 53 will bypass the NSG's of the subnet.
 
+> [!IMPORTANT]
+> If you're using Windows DNS Servers as Custom DNS Servers forwarding DNS requests to Azure DNS Servers, make sure you increase the Forwarding Timeout value more than 4 seconds to allow Azure Recursive DNS Servers to perform proper recursion operations.
+> 
+> For more information about this issue, see [Forwarders and conditional forwarders resolution timeouts](/troubleshoot/windows-server/networking/forwarders-resolution-timeouts).
+> 
+> This recommendation may also apply to other DNS Server platforms with forwarding timeout value of 3 seconds or less.
+> 
+> Failing to do so may result in Private DNS Zone records being resolved with public IP addresses.
+
 ### Web apps
 
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:

@@ -269,7 +269,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Create a new code cell.
 
-1. In the code cell, add code to [execute a SQL query using the SDK](quickstart-dotnet.md#query-items) storing the output of the query in a variable of type <xref:System.Collections.Generic.List%601> named **results**.
+1. In the code cell, add code to [execute a SQL query using the SDK](query/index.yml) storing the output of the query in a variable of type <xref:System.Collections.Generic.List%601> named **results**.
 
     ```csharp
     using System.Collections.Generic;

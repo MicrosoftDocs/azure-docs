@@ -1,6 +1,6 @@
 ---
 title: Azure threat protection | Microsoft Docs
-description: Learn about built-in threat protection functionality for Azure, such as the Azure AD Identity Protection service. 
+description: Learn about built-in threat protection functionality for Azure, such as the Microsoft Entra ID Protection service. 
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -19,21 +19,23 @@ ms.author: terrylan
 
 # Azure threat protection
 
-Azure offers built in threat protection functionality through services such as Azure Active Directory (Azure AD), Azure Monitor logs, and Microsoft Defender for Cloud. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
+Azure offers built in threat protection functionality through services such as Microsoft Entra ID, Azure Monitor logs, and Microsoft Defender for Cloud. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
 
 Azure provides a wide array of options to configure and customize security to meet the requirements of your app deployments. This article discusses how to meet these requirements.
 
-## Azure Active Directory Identity Protection
+<a name='azure-active-directory-identity-protection'></a>
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) is an [Azure Active Directory Premium P2](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/reports-monitoring/overview-reports.md), and introduces new risk detection types that can detect real time anomalies.
+## Microsoft Entra ID Protection
 
-![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
+[Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md) is an [Microsoft Entra ID P2](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Microsoft Entra anomaly-detection capabilities that are available through [Microsoft Entra Anomalous Activity Reports](../../active-directory/reports-monitoring/overview-reports.md), and introduces new risk detection types that can detect real time anomalies.
+
+![Microsoft Entra ID Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk detections that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk detections and take appropriate remediation or mitigation action.
 
 ### Identity Protection capabilities
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) provided by Azure Active Directory and [EMS](../../active-directory/conditional-access/overview.md), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
+Microsoft Entra ID Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) provided by Microsoft Entra ID and [EMS](../../active-directory/conditional-access/overview.md), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
@@ -53,15 +55,17 @@ Examples of some of the ways that Azure Identity Protection can help secure your
 -	Block or secure risky user accounts.
 -	Require users to register for multi-factor authentication.
 
-### Azure AD Privileged Identity Management
+<a name='azure-ad-privileged-identity-management'></a>
 
-With [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), you can manage, control, and monitor access within your organization. This feature includes access to resources in Azure AD and other Microsoft online services, such as Microsoft 365 or Microsoft Intune.
+### Microsoft Entra Privileged Identity Management
 
-![Azure AD Privileged Identity Management diagram](./media/threat-detection/azure-threat-detection-fig2.png)
+With [Microsoft Entra Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), you can manage, control, and monitor access within your organization. This feature includes access to resources in Microsoft Entra ID and other Microsoft online services, such as Microsoft 365 or Microsoft Intune.
+
+![Microsoft Entra Privileged Identity Management diagram](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM helps you:
 
--	Get alerts and reports about Azure AD administrators and just-in-time (JIT) administrative access to Microsoft online services, such as Microsoft 365 and Intune.
+-	Get alerts and reports about Microsoft Entra administrators and just-in-time (JIT) administrative access to Microsoft online services, such as Microsoft 365 and Intune.
 
 -	Get reports about administrator access history and changes in administrator assignments.
 

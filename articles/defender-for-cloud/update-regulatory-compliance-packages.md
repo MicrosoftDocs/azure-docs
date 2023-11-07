@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard
 description: Learn how to assign and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 10/10/2023
 ms.custom: ignite-2022
 ---
 
@@ -39,12 +39,13 @@ If a subscription, account, or project has *any* Defender plan enabled, more sta
 | ----------------------------------| ------------------------------| ---------------------------|
 | PCI-DSS v3.2.1 **(deprecated)**   | CIS AWS Foundations v1.2.0    | CIS GCP Foundations v1.1.0 |
 | PCI DSS v4                        | CIS AWS Foundations v1.5.0    | CIS GCP Foundations v1.2.0 |
-| SOC TSP                           | PCI DSS v3.2.1                | PCI DSS v3.2.1             |
-| SOC 2 Type 2                      |                               | NIST 800-53                |
+| SOC TSP  **(deprecated)**         | PCI DSS v3.2.1                | PCI DSS v3.2.1             |
+| SOC 2 Type 2                      | AWS Foundational Security Best Practices | NIST 800-53                |
 | ISO 27001:2013                    |                               | ISO 27001                  |
 | CIS Azure Foundations v1.1.0            |||
 | CIS Azure Foundations v1.3.0            |||
 | CIS Azure Foundations v1.4.0            |||
+| CIS Azure Foundations v2.0.0            |||
 | NIST SP 800-53 R4                       |||
 | NIST SP 800-53 R5                       |||
 | NIST SP 800 171 R2                      |||
@@ -53,6 +54,7 @@ If a subscription, account, or project has *any* Defender plan enabled, more sta
 | FedRAMP M                               |||
 | HIPAA/HITRUST                           |||
 | SWIFT CSP CSCF v2020                    |||
+| SWIFT CSP CSCF v2022                    |||
 | UK OFFICIAL and UK NHS                  |||
 | Canada Federal PBMM                     |||
 | New Zealand ISM Restricted              |||
@@ -75,7 +77,7 @@ To add standards to your dashboard:
 - The user must have owner or policy contributor permissions
 
 > [!NOTE]
-> It may take a few hours for a newly added standard to appear in the compliance dashboard.
+> It might take a few hours for a newly added standard to appear in the compliance dashboard.
 
 ### Add a standard to your Azure subscriptions
 
@@ -132,7 +134,7 @@ To assign regulatory compliance standards on GCP projects:
 1. Select the three dots alongside an unassigned standard and select **Assign standard**.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp-from-list.png" alt-text="Screenshot that shows where to select a GCP standard to assign." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp-from-list.png":::
- 
+
 1. At the prompt, select **Yes**. The standard is assigned to your GCP project.
 
     :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::

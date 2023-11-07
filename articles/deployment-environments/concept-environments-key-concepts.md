@@ -47,7 +47,7 @@ An environment is a collection of Azure resources on which your application is d
 
 in Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
 
-The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant owner access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
+The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant Contributor and User Access Administrator access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
 
 ## Dev center environment types
 

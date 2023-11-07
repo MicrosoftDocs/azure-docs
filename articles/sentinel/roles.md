@@ -59,7 +59,7 @@ Users with particular job requirements might need to be assigned other roles or 
 
 - **Allow guest users to assign incidents**
 
-    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the **Microsoft Sentinel Responder** role. Note that the Directory Reader role is *not* an Azure role but an Azure Active Directory role, and that regular (non-guest) users have this role assigned by default.
+    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the **Microsoft Sentinel Responder** role. Note that the Directory Reader role is *not* an Azure role but a Microsoft Entra role, and that regular (non-guest) users have this role assigned by default.
 
 - **Create and delete workbooks**
 
@@ -121,7 +121,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 
 
 > [!TIP]
-> More roles might be required depending on the data you ingest or monitor. For example, Azure AD roles might be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.
+> More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles may be required, such as the Global Administrator or Security Administrator roles, to set up data connectors for services in other Microsoft portals.
 >
 
 ## Resource-based access control

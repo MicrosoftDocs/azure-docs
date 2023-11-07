@@ -13,7 +13,7 @@ ms.author: ruslanzdor
 ---
 
 ## Enable interoperability in your Teams tenant
-Azure AD user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
+Microsoft Entra user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
 
 ### 1. Prepare the Microsoft Teams module
 
@@ -81,5 +81,3 @@ Each Teams user has assigned an `External Access Policy` that determines whether
 ```script
 Set-CsExternalAccessPolicy -Identity Global -EnableAcsFederationAccess $true
 ```
-
-

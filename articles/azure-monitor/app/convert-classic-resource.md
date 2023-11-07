@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 10/11/2023
 ms.reviewer: cawa
 ---
 
@@ -365,7 +365,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 > [!NOTE]
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), first go to your Log Analytics workspace. During the preview, selecting **Logs** in the Application Insights pane gives you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
 
-[:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
+:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
 
 ### Table structure
 

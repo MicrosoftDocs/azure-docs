@@ -21,11 +21,11 @@ Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily
 
 ### Configure access to Azure Data Lake Storage Gen2
 
-Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
+Synapse notebooks use Microsoft Entra pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
-Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
+Follow these steps to make sure your Microsoft Entra ID and workspace MSI have access to the ADLS Gen2 account:
 
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
 
@@ -39,7 +39,7 @@ Follow these steps to make sure your Azure AD and workspace MSI have access to t
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | USER and MANAGEDIDENTITY |
-    | Members | your Azure AD account and your workspace identity |
+    | Members | your Microsoft Entra account and your workspace identity |
 
     > [!NOTE]
     > The managed identity name is also the workspace name.
@@ -170,14 +170,14 @@ Follow these steps to add an Azure Key Vault as a Synapse linked service:
 
 6. Select **Create** first and click **Publish all** to save your change.
 
-Synapse notebooks use Azure active directory(Azure AD) pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Azure AD account and workspace identity.
+Synapse notebooks use Microsoft Entra pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Microsoft Entra account and workspace identity.
 
 Follow these steps to grant secret access to your workspace identity:
 1. Open the [Azure portal](https://portal.azure.com/) and the Azure Key Vault you want to access.
 2. Select the **Access policies** from the left panel.
 3. Select **Add Access Policy**:
     - Choose **Key, Secret, & Certificate Management** as config template.
-    - Select **your Azure AD account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
+    - Select **your Microsoft Entra account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
 4. Select **Select** and **Add**.
 5. Select the **Save** button to commit changes.
 
@@ -946,7 +946,7 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 
 ### Get token
 
-Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types:
+Returns Microsoft Entra token for a given audience, name (optional). The table below list all the available audience types:
 
 | Audience Type                                         | String literal to be used in API call |
 |-------------------------------------------------------|---------------------------------------|
