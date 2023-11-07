@@ -33,8 +33,7 @@ In this article, you collect a new attribute during your sign-up journey in Azur
 ## Add user attributes your user flow
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under  **Azure services**, select  **Azure AD B2C**. Or use the search box to find and select  **Azure AD B2C**.
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
@@ -326,8 +325,7 @@ To return the city claim back to the relying party application, add an output cl
 
 ## Upload and test your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
