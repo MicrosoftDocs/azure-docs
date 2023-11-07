@@ -13,14 +13,14 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you will setup the Layered Network Management on a 2 level Purdue network (level 4 and level 3). Network level 4 has internet access, where as level 3 does not.
+In this quickstart, you set up the Layered Network Management on a level4 and level 3 Purdue network. Network level 4 has internet access and level 3 doesn't.
 
-- Level 4 is realized via an AKS cluster that has Layered Network Management deployed on to it.
-- Level 3 is realized via a k3s cluster running on a linux VM, that uses the Layered Network Management instance in level 4 to achieve line of sight to Azure. The Level 3 network is setup to only have outbound access to the Level 4 network on ports 443 and 8084. All other outbound access should be disabled.
+- Level 4 an AKS cluster with Layered Network Management deployed.
+- Level 3 is a K3S cluster running on a Linux VM that uses the Layered Network Management instance in level 4 to achieve connection to Azure. The level 3 network is configured to have outbound access to the level 4 network on ports 443 and 8084. All other outbound access is disabled.
 
-The Layered Network Management architecture requires DNS configuration on the Level 3 network, where the allowlisted URLs are repointed to the Level4 network. In this example, this setup is accomplished using an automated setup that is built on CoreDNS, the default DNS resolution mecahnism that ships with k3s.
+The Layered Network Management architecture requires DNS configuration on the level 3 network, where the allowlisted URLs are repointed to the level 4 network. In this example, this setup is accomplished using an automated setup that's built on CoreDNS, the default DNS resolution mechanism that ships with k3s.
 
-The setup is done using a jumpbox or install machine that has access to the internet and both the level 3 and level 4 networks.
+The setup is done using a jumpbox or installation machine that has access to the internet and both the level 3 and level 4 networks.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ The setup is done using a jumpbox or install machine that has access to the inte
 
 ## Deploy Layered Network Management to the internet-facing cluster
 
-These steps will deploy Layered Network Management to the AKS cluster. This cluster will be the top layer in the ISA-95 model. At the end of this section, you will have an instance of Layered Network Management that is ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations (AIO) platform.
+These steps deploy Layered Network Management to the AKS cluster. The cluster is the top layer in the ISA-95 model. At the end of this section, you have an instance of Layered Network Management that's ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations service.
 
 1. Configure `kubectl` to manage your **AKS cluster** from your jumpbox by following the steps in [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).
 
@@ -47,7 +47,7 @@ These steps will deploy Layered Network Management to the AKS cluster. This clus
     kubectl get pods
     ```
 
-    You should see an output that looks like the following:
+    You should see an output that looks like the following example:
 
     ```Output
     NAME                                    READY   STATUS        RESTARTS   AGE
@@ -112,7 +112,7 @@ These steps will deploy Layered Network Management to the AKS cluster. This clus
     ```bash
     kubectl apply -f level4.yaml
     ```
-    This step creates n pods (n based on the number of replicas in the custom resource), one service, and two config maps.
+    This step creates *n* pods, one service, and two config maps. *n* is based on the number of replicas in the custom resource.
 
 1. To validate the instance, run:
 
@@ -134,7 +134,7 @@ These steps will deploy Layered Network Management to the AKS cluster. This clus
     kubectl get services
     ```
 
-    The output should look like the following:
+    The output should look like the following example:
 
     ```Output
     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
@@ -145,7 +145,7 @@ These steps will deploy Layered Network Management to the AKS cluster. This clus
     ```bash
     kubectl get cm
     ```
-    The output should look like the following:
+    The output should look like the following example:
     ```
     NAME                           DATA   AGE
     aio-lnm-level4-config          1      50s
@@ -156,7 +156,7 @@ These steps will deploy Layered Network Management to the AKS cluster. This clus
 
 ## Provision the cluster in the adjacent isolated layer to Arc
 
-In level 3, you will create a K3S kubernetes cluster on a linux VM and Arc enable it using the Layered Network Management instance at level 4.
+In level 3, you create a K3S kubernetes cluster on a Linux VM and Arc-enable it using the Layered Network Management instance at level 4.
 
 1. On the Linux VM, install and configure K3S using the following commands:
 
@@ -164,16 +164,17 @@ In level 3, you will create a K3S kubernetes cluster on a linux VM and Arc enabl
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
     ```
 
-1. Setup the jumpbox to have kubectl access to the cluster.
-   Generate the config file on your linux vm.
+1. Set up the jumpbox to have *kubectl* access to the cluster.
+   
+   Generate the config file on your Linux VM.
    
    ```bash
    k3s kubectl config view --raw > config.level3
    ```
 
-   On your jumpbox setup kubectl access to the level 3 k3s cluster by copying over the config.level3 file into the ~/.kube directory and rename it to config Note: the server entry in the config file should be set to the IP address (or domain name) of the level 3 VM.
+   On your jumpbox, set up kubectl access to the level 3 k3s cluster by copying the `config.level3` file into the `~/.kube` directory and rename it to `config`. The server entry in the config file should be set to the IP address or domain name of the level 3 VM.
 
-1. Refer to [Configure CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configure-coredns) to uses an extension mechanims provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+1. Refer to [Configure CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
 
 1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 
@@ -186,7 +187,7 @@ In level 3, you will create a K3S kubernetes cluster on a linux VM and Arc enabl
 
     For more information about *connectedk8s*, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc ](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-1. You should see output like the following:
+1. You should see output like the following example:
     
     ```Output
     This operation might take a while...
@@ -200,7 +201,7 @@ In level 3, you will create a K3S kubernetes cluster on a linux VM and Arc enabl
       ....
       ....
     ```
-1. Your Kubernetes cluster is now Arc enabled and is listed in the resource group you provided in the az connectedk8s connect command. You can also validate the provisioning of this cluster through the Azure Portal. This quickstart is for showcasing the capability of Layered Network Management to enable Arc for your kubernetes cluster. You can now try the built-in Arc experiences on this cluster within the isolated network.
+1. Your Kubernetes cluster is now Arc-enabled and is listed in the resource group you provided in the az connectedk8s connect command. You can also validate the provisioning of this cluster through the Azure portal. This quickstart is for showcasing the capability of Layered Network Management to enable Arc for your Kubernetes cluster. You can now try the built-in Arc experiences on this cluster within the isolated network.
 
 ## Related content
 
