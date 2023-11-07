@@ -101,6 +101,22 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***custom neural model***
 
+#### Handwritten text
+
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+#### Printed text
+
+The following table lists the supported languages for printed text.
+
 |Language| Code (optional) |
 |:-----|:----:|
 |Afrikaans| `af`|
@@ -184,8 +200,7 @@ The following table lists the supported languages for extracting handwritten tex
 
 #### Printed text
 
-The following table lists the supported languages for print text by the most recent GA version.
-
+The following table lists the supported languages for printed text.
 :::row:::
    :::column span="":::
   |Language| Code (optional) |
