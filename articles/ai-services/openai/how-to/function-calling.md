@@ -32,7 +32,7 @@ When functions are provided, by default the `function_call` will be set to `"aut
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
+
 import os
 import openai
 
