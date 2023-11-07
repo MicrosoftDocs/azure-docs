@@ -1,10 +1,10 @@
 ---
-title: Deploy a flow as a managed online endpoint for real-time inference
+title: Deploy a flow in prompt flow as a managed online endpoint for real-time inference
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
+description: Learn how to deploy in prompt flow a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
@@ -25,13 +25,20 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 - [Test the endpoint](#test-the-endpoint-with-sample-data)
 - [Consume the endpoint](#consume-the-endpoint)
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+![image](https://github.com/lgayhardt/azure-docs-pr/assets/23491583/364d915b-2dc1-4159-8fc6-affb90b5a4d9)
+
+
 ## Prerequisites
 
-- Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
+- Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
 
 - Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
   
 - Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -53,7 +60,7 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
 
-The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
+The prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
 
 In the flow authoring page or run detail page, select **Deploy**.
 
@@ -79,7 +86,7 @@ This step allows you to configure the basic settings of the deployment.
 |Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
 |Virtual machine| The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)|
-|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
+|Inference data collection (preview)| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
 |Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
 
