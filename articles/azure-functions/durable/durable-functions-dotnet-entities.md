@@ -319,9 +319,9 @@ public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContex
 ```
 ::: zone-end
 
-::: zone pivot="in-proc"
 ## Accessing entities through interfaces
 
+::: zone pivot="in-proc"
 Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
 
 For example, we can modify the counter example as follows:
@@ -418,6 +418,10 @@ If any of these rules are violated, an `InvalidOperationException` is thrown at 
 
 > [!NOTE]
 > Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
+::: zone-end
+
+::: zone pivot="isolated"
+This is currently not supported in the .NET isolated worker. 
 ::: zone-end
 
 ## Entity serialization
