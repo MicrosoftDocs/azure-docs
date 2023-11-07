@@ -245,11 +245,11 @@ If you connect to Azure DevOps Server 2022, you need to use a personal access to
  
 Connect to on-prem Azure DevOps by providing the ``Azure DevOps Server URL`` and ``Azure DevOps Project Collection``
 
-:::image type="content" source="media/data-flows/devops-001.png" alt-text="Screenshot shows ADO configure a repository using server.":::
+:::image type="content" source="media/data-flow/devops-001.png" alt-text="Screenshot shows ADO configure a repository using server.":::
 
 Provide the token with access scope as read/write for code.
 
-:::image type="content" source="media/data-flows/devops-002.png" alt-text="Screenshot shows ADO configure access token.":::
+:::image type="content" source="media/data-flow/devops-002.png" alt-text="Screenshot shows ADO configure access token.":::
 
 ## Version control
 
