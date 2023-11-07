@@ -659,7 +659,7 @@ The function app resource is defined by a resource of type `Microsoft.Web/sites`
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan"
 The way that you define a function app resource depends on whether you're hosting on Linux or on Windows:
 ::: zone-end
-::: zone pivot="consumption-plan"
+::: zone pivot="consumption-plan,premium-plan"
 ### [Windows](#tab/windows)
 
 For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption) template. 
@@ -672,30 +672,14 @@ For a sample Bicep file or ARM template, see the [function app hosted on Linux C
 
 ---
 ::: zone-end  
-::: zone pivot="premium-plan"  
-### [Windows](#tab/windows)
-
-For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Premium plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan) template. 
-
-### [Linux](#tab/linux)
-
-[!INCLUDE [functions-arm-linux-intro](../../includes/functions-arm-linux-intro.md)]
-
-For a sample Bicep file or ARM template, see [Azure Function App Hosted on a Premium Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
-
----
-
-::: zone-end  
 :::zone pivot="dedicated-plan"
 ### [Windows](#tab/windows)
 
-For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan) template. 
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).  
 
 ### [Linux](#tab/linux)
 
 [!INCLUDE [functions-arm-linux-intro](../../includes/functions-arm-linux-intro.md)]
-
-For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan) template. 
 
 ---
 ::: zone-end  
@@ -752,6 +736,8 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 }
 ```
 
+For a complete end-to-end example, see this [main.bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/main.bicep).
+
 ### [Windows](#tab/windows/json)
 
 ```json
@@ -806,6 +792,8 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
+For a complete end-to-end example, see this [azuredeploy.json template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/azuredeploy.json).
+
 # [Linux](#tab/linux/bicep)
 
 ```bicep
@@ -848,6 +836,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
   }
 }
 ```
+
+For a complete end-to-end example, see this [main.bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep).
 
 # [Linux](#tab/linux/json)
 
@@ -901,6 +891,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
 ]
 ```
 
+For a complete end-to-end example, see this [azuredeploy.json template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json).
+
 ---
 
 :::zone-end
@@ -942,6 +934,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 ```
+
+For a complete end-to-end example, see this [main.bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep).
 
 ### [Windows](#tab/windows/json)
 
@@ -990,6 +984,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
+For a complete end-to-end example, see this [azuredeploy.json template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json).
 
 ### [Linux](#tab/linux/bicep)
 
@@ -1027,6 +1022,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 ```
+
+For a complete end-to-end example, see this [main.bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep).
 
 ### [Linux](#tab/linux/json)
 
@@ -1073,6 +1070,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
+For a complete end-to-end example, see this [azuredeploy.json template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json).
+
 ---
 
 :::zone-end  
@@ -1084,7 +1083,7 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 + [Zip deployment package](./deployment-zip-push.md)
 + [Linux container](./functions-how-to-custom-container.md) 
 :::zone-end  
-:::zone pivot="dedicated-plan,premium-plan,consumption-plan"  
+:::zone pivot="consumption-plan"  
 ## Deployment sources
 
 Your Bicep file or ARM template can optionally also define a deployment for your function code using a [zip deployment package](./deployment-zip-push.md).  
@@ -1190,17 +1189,11 @@ The way that you request a remote build depends on whether your hosted operating
 
 When an app is deployed to Windows, language-specific commands (like `dotnet restore` for C# apps or `npm install` for Node.js apps) are run.
 
-To enable the same build processes that you get with continuous integration, add the following to your application settings in your deployment code:
-
-+ `WEBSITE_RUN_FROM_PACKAGE=0` (or remove the setting entirely)
-+ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+To enable the same build processes that you get with continuous integration, add `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to your application settings in your deployment code and remove the `WEBSITE_RUN_FROM_PACKAGE` entirely.
 
 ### [Linux](#tab/linux)
 
-To enable the same build processes that you get with continuous integration, add the following to your application settings:
-
-+ `WEBSITE_RUN_FROM_PACKAGE=0` (or remove the setting entirely)
-+ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+To enable the same build processes that you get with continuous integration, add `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to your application settings in your deployment code and remove the `WEBSITE_RUN_FROM_PACKAGE` entirely.
 
 The `ENABLE_ORYX_BUILD` setting is set to `true` by default. If you have issues building a .NET or Java function app, instead set it to `false`. 
 
@@ -1562,7 +1555,7 @@ The following site settings are required on the `siteConfig` property:
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 ::: zone-end  
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-These application settings are required for a specific operating system and hosting option:
+These application settings are required (or recommended) for a specific operating system and hosting option:
 ::: zone-end  
 ::: zone pivot="consumption-plan"  
 
@@ -1574,8 +1567,8 @@ These application settings are required for a specific operating system and host
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) (recommended)
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version) (Node.js-only)
 
 ### [Linux](#tab/linux)
 
@@ -1596,8 +1589,8 @@ These application settings are required for a specific operating system and host
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) (recommended)
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version) (Node.js-only)
 
 ### [Linux](#tab/linux)
 
@@ -1607,7 +1600,7 @@ These application settings are required for a specific operating system and host
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) (recommended)
 
 [!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 ::: zone-end 
@@ -1618,8 +1611,8 @@ These application settings are required for a specific operating system and host
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) (recommended)
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version) (Node.js-only)
 
 ### [Linux](#tab/linux)
 
@@ -1627,7 +1620,7 @@ These application settings are required for a specific operating system and host
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
-+ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) (recommended)
  
 [!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 
