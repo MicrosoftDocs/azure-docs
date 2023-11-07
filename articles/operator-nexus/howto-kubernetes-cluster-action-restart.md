@@ -39,7 +39,7 @@ az networkcloud kubernetescluster restart-node --node-name "nodeName" --kubernet
 To use this command, you need to understand the various options for specifying the node, Nexus Kubernetes cluster, and resource group. Here are the available options:
 
 1. `--node-name` - is a required argument that specifies the name of the node that you want to restart within the Nexus Kubernetes cluster. You must provide the exact name of the node that you want to restart.
-2. `--kubernetes-cluster-name` - is also a required argument that specifies the name of the Nexus Kubernetes cluster that the node is a part of. You must provide the exact name of the cluster.
+2. `--kubernetes-cluster-name` - is a required argument that specifies the name of the Nexus Kubernetes cluster that the node is a part of. You must provide the exact name of the cluster.
 3. `--resource-group` - is a required argument that specifies the name of the resource group that the Nexus Kubernetes cluster is located in. You must provide the exact name of the resource group.
 4. `--subscription` - is an optional argument that specifies the subscription that the resource group is located in. If you have multiple subscriptions, you have to specify which one to use.
 
