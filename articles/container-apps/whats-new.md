@@ -35,7 +35,7 @@ This article lists significant updates and new features available in Azure Conta
 
 | Feature | Description |
 | ------- | ----------- |
-| [Generally Available: Dedicated plan](./plans.md#dedicated) | Azure Container Apps dedicated plan is now Generally Available in the new workload profiles environment type. When using dedicated workload profiles you're billed per compute instance, compared to consumption where you're billed per app. |
+| [Generally Available: Dedicated plan](./plans.md#dedicated) | Azure Container Apps dedicated plan is now generally available in the new workload profiles environment type. When using dedicated workload profiles you're billed per compute instance, compared to consumption where you're billed per app. |
 | [Generally Available: UDR, NAT Gateway, and smaller subnets](./networking.md?tabs=azure-cli#environment-selection) | Improved networking features now allow you to have greater control of egress and support smaller subnets in workload profiles environments. |
 | [Generally Available: Azure Container Apps jobs](./jobs.md) | In addition to continuously running services that can scale to zero, Azure Container Apps now supports jobs. Jobs enable you to run serverless containers that perform tasks that run to completion. |
 | [Generally Available: Cross Origin Resource Sharing (CORS)](./cors.md) | The CORS feature allows specific origins to make calls on their app through the browser. Azure Container Apps customers can now easily set up Cross Origin Resource Sharing from the portal or through the CLI. |
