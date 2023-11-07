@@ -26,94 +26,19 @@ Reviewing Azure Container Apps logs and configuration settings can reveal underl
 
 ::: zone pivot="console"
 
-## Setup
+## Scenarios
 
-TODO1 JW Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
-
-Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the `az upgrade` command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Install or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
-
-::: zone-end
-
-
-If your container app or revision is configured incorrectly, you might see the following issues.
-
-- You receive an error message when you try to deploy a new revision.
-- After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely.
-- A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.`
-- The container app endpoint doesn't respond to requests.
-- The container app endpoint responds to requests with HTTP error 403 (access denied).
-
-The following sections describe how to diagnose and resolve these issues.
+| Issue | Actions |
+|--|--|
+| All issues. | - [View logs](./#view-logs)
+- [Use Diagnose and solve problems](./#use-diagnose-and-solve-problems) |
+| You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](./#verify-container-apps-can-pull-container-image) |
+| - After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely.
+- A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](./#verify-health-probes-are-configured-correctly) |
+| - The container app endpoint doesn't respond to requests.
+- The container app endpoint responds to requests with HTTP error 403 (access denied). | - [Review ingress configuration](./#review-ingress-configuration)
+- [Verify networking configuration is correct](./#verify-networking-configuration-is-correct) |
+| - The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision](./#verify-traffic-is-routed-to-correct-revision) |
 
 ## View logs
 
