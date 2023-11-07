@@ -145,6 +145,8 @@ spec:
     tls:
       tlsEnabled: true
       trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
 ```
 
 The following table describes the fields in the KafkaConnector CR:
