@@ -37,7 +37,6 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | User VM Image isn't supported for a VM with Hibernation capability. | Use a platform image or Shared Gallery Image if you want to use the hibernation feature |
 | OperationNotAllowed | Referencing a Dedicated Host isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
-| OperationNotAllowed | Enabling/disabling hibernation on an existing VM requires the VM to be stopped (deallocated) first. | Stop-deallocate the VM, patch with VM to enable hibernation and then start the VM |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets Flex VMs |
 
