@@ -8,7 +8,7 @@ ms.date: 07/31/2023
 
 # Onboard agentless container posture in Defender CSPM
 
-Onboarding agentless container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
+Onboarding agentless container posture in Defender CSPM allows you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
 Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's software development lifecycle.
 
@@ -28,16 +28,16 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 1. Select **Save**.
 
-A notification message pops up in the top right corner that will verify that the settings were saved successfully.
+A notification message pops up in the top right corner that verifies that the settings were saved successfully.
 
 > [!NOTE]
-> Agentless discovery for Kubernetes uses AKS trusted access. Click [here](/azure/aks/trusted-access-feature) to learn more about AKS trusted access.
+> Agentless discovery for Kubernetes uses AKS trusted access. For more information about about AKS trusted access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](/azure/aks/trusted-access-feature).
 
 ## What are the extensions for agentless container posture management?
 
 There are two extensions that provide agentless CSPM functionality:
 
-- **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. . Learn more about [Agentless Vontainer vulnerability asses](agentless-container-registry-vulnerability-assessment.md).
+- **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. Learn more about [Agentless Container vulnerability assessment](agentless-container-registry-vulnerability-assessment.md).
 - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
 ## How can I onboard multiple subscriptions at once?
@@ -53,11 +53,11 @@ If you don't see results from your clusters, check the following:
 
 ## What can I do if I have stopped clusters?
 
-We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster.
+We don't support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster.
 
 ## What do I do if I have locked resource groups, subscriptions, or clusters?
 
-We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following:
+We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then relock the resource group/subscription/cluster by doing the following:
 
 1. Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
 

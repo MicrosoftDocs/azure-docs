@@ -34,41 +34,41 @@ ms.date: 06/01/2023
 
 ### Enablement method per capability
 
-By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically enable all capabilities and install all required components to provide the protections offered by plan, including the assignment of a default workspace.
+By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically enable all capabilities and install all required components to provide the protections offered by the plan, including the assignment of a default workspace.
 
-If you don't want to enable all capabilities of the plans, you can manually select which specific capabilities to enable by selecting select **Edit configuration** for the **Containers** plan. Then, in the Settings & monitoring page, select the capabilities you want to enable.
+If you don't want to enable all capabilities of the plans, you can manually select which specific capabilities to enable by selecting **Edit configuration** for the **Containers** plan. Then, in the **Settings & monitoring** page, select the capabilities you want to enable.
 In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) after initial configuration of the plan.
 
-The following table provides detailes information on enablement method for each one of the capabilities:
+The following table provides detailed information on enablement method for each one of the capabilities:
 
 | Domain | Feature | Description | Enablement method | Agents | Azure clouds availability |
 |--|--|--|--|--|--|
-| Security posture management  | Agentless discovery for Kubernetes | provides zero footprint, API-based discovery of your Kubernetes clusters, their configurations and deployments.| Enable "Agentless discovery on Kubernetes" toggle | Agentless | Azure commercial clouds |
-| Security posture management  | Comprehensive inventory capabilities | enables you to explore resources, pods, services, repositories, images and configurations through [security explorer](..\how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) to easily monitor and manage your assets | Enable "Agentless discovery on Kubernetes" toggle | Agentless | Azure commercial clouds |
-| Security posture management  | Enhanced risk-Hunting | enables security admins to activly hunt for posture issues in their containerized assests through queries (built-in and custom) and [security insights](..\attack-path-reference.md#insights) in the [security explorer](..\how-to-manage-cloud-security-explorer.md) | Enable "Agentless discovery on Kubernetes" toggle| Agentless | Azure commercial clouds |
-| Security posture management  | [control plane hardening](..\defender-for-containers-architecture.md) | continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations let you investigate and remediate issues | Activated with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Security posture management  | [Kubernetes data plane hardening](..\kubernetes-workload-protections.md) | Protect workloads of your Kubernetes containers with best practice recommendations | Enable "Azure Policy for Kubernetes" toggle | Azure policy agent| Commercial clouds<br><br> National clouds: Azure Government,Azure operated by 21Vianet |
-| Vulnerability assessment | Agentless vulnerability scan for registry images (powered by Qualys) | Vulnerability assesment for images in ACR | Activated with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Vulnerability assessment | Agentless vulnerability scan for running images (powered by Qualys) | Vulnerability assesment for running images in AKS | Activated with plan | Defender agent | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Vulnerability assessment | Agentless registry scan (powered by MDVM) |  Vulnerability assesment for images in ACR | Enable "Agentless container vulnerability assessment" toggle | Agentless | Commercial clouds |
-| Vulnerability assessment | Agentless/agent-based runtime (powered by MDVM)| Vulnerability assesment for running images in AKS | Enable "Agentless container vulnerability assessment" toggle | Agentless **OR** install Defender agent for shorter refresh rate | Commercial clouds |
-| Runtime threat protection | control plane threat detection | Detection of suspicious activity for Kubernetes based on Kubernetes audit trail | Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Runtime threat protection | workload threat detection| Detection of suspicious activity for Kubernetes for cluster level, node level , and workload level | Enable "Defender DaemonSet" toggle **OR** deploy Defender agent on individual clusters | Defender agent | Commercial clouds |
-| Deployment & monitoring | Discovery of Unprotected clusters | Discovering Kubernetes clusters missing Defennder agents| Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deployment & monitoring | Defender agent auto provisioning | Automatic deployment of Defender agent | Enable "Defender Daemonset" toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deployment & monitoring | Azure Policy for Kubernetes auto provisioning | Automatic deployment of Azure policy agent for Kubernetes | Enable "Azure policy for Kubernetes" toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Security posture management  | Agentless discovery for Kubernetes | Provides zero footprint, API-based discovery of your Kubernetes clusters, their configurations and deployments.| Enable **Agentless discovery on Kubernetes** toggle | Agentless | Azure commercial clouds |
+| Security posture management  | Comprehensive inventory capabilities | Enables you to explore resources, pods, services, repositories, images, and configurations through [security explorer](..\how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) to easily monitor and manage your assets. | Enable **Agentless discovery on Kubernetes** toggle | Agentless | Azure commercial clouds |
+| Security posture management  | Enhanced risk-hunting | Enables security admins to actively hunt for posture issues in their containerized assets through queries (built-in and custom) and [security insights](..\attack-path-reference.md#insights) in the [security explorer](..\how-to-manage-cloud-security-explorer.md). | Enable **Agentless discovery on Kubernetes**toggle | Agentless | Azure commercial clouds |
+| Security posture management  | [Control plane hardening](..\defender-for-containers-architecture.md) | Continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations let you investigate and remediate issues. | Activated with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Security posture management  | [Kubernetes data plane hardening](..\kubernetes-workload-protections.md) | Protect workloads of your Kubernetes containers with best practice recommendations. | Enable **Azure Policy for Kubernetes** toggle | Azure policy agent| Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Vulnerability assessment | Agentless vulnerability scan for registry images (powered by Qualys) | Vulnerability assessment for images in ACR | Activated with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Vulnerability assessment | Agentless vulnerability scan for running images (powered by Qualys) | Vulnerability assessment for running images in AKS | Activated with plan | Defender agent | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Vulnerability assessment | Agentless registry scan (powered by MDVM) |  Vulnerability assessment for images in ACR | Enable **Agentless container vulnerability assessment** toggle | Agentless | Commercial clouds |
+| Vulnerability assessment | Agentless/agent-based runtime (powered by MDVM)| Vulnerability assessment for running images in AKS | Enable **Agentless container vulnerability assessment** toggle | Agentless **OR** install Defender agent for shorter refresh rate | Commercial clouds |
+| Runtime threat protection | Control plane threat detection | Detection of suspicious activity for Kubernetes based on Kubernetes audit trail | Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Runtime threat protection | Workload threat detection | Detection of suspicious activity for Kubernetes for cluster level, node level, and workload level | Enable **Defender DaemonSet** toggle **OR** deploy Defender agent on individual clusters | Defender agent | Commercial clouds |
+| Deployment & monitoring | Discovery of unprotected clusters | Discovering Kubernetes clusters missing Defender agents| Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Deployment & monitoring | Defender agent auto provisioning | Automatic deployment of Defender agent | Enable **Defender Daemonset** toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Deployment & monitoring | Azure Policy for Kubernetes auto provisioning | Automatic deployment of Azure policy agent for Kubernetes | Enable **Azure policy for Kubernetes** toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Roles and permissions
 
 Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
 
 ### Assigning custom workspace for Defender agent
+
 You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
 
+### Manual deployment of Defender agent or Azure policy agent without auto-provisioning using recommendations
 
-### Manual deployment of Defender agent or Azure policy agent without auto-provisioning using recommendations 
-
-Capabilities that require agent installation, can also be deployed on one or more Kubernetes clusters, using the appropriate recommendation:
+Capabilities that require agent installation can also be deployed on one or more Kubernetes clusters, using the appropriate recommendation:
 
 | Agent | Recommendation |
 |--|--|
@@ -79,11 +79,11 @@ Capabilities that require agent installation, can also be deployed on one or mor
 
 Perform the following steps to perform deployment of the Defender agent on specific clusters:
 
-1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control or search directly for one of the above recommendations (or use the above links to open the recommendation direclty)
+1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control or search directly for one of the above recommendations (or use the above links to open the recommendation directly)
 
-1. View all clusters without an agent via the unhealthy tab/
+1. View all clusters without an agent via the unhealthy tab.
 
-1. Select the clusters to deploy the desired agent on and click "Fix".
+1. Select the clusters to deploy the desired agent on and select **Fix**.
 
 1. Select **Fix X resources**.
 
@@ -91,7 +91,7 @@ Perform the following steps to perform deployment of the Defender agent on speci
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
-Once the Defender agent has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
+Once the Defender agent has been deployed, a default workspace is automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
 > [!NOTE]
 > The Defender agent is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
@@ -119,7 +119,7 @@ A dedicated Defender for Cloud recommendation provides:
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation confirmation.
 
 1. Select **Fix X resources**.
-1. 
+
 ### [**REST API**](#tab/aks-deploy-rest)
 
 ### Use the REST API to deploy the Defender agent
@@ -228,7 +228,7 @@ To use Azure Resource Manager to deploy the Defender agent, you'll need a Log An
 
 To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 
-```
+```json
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
     "apiVersion": "2022-06-01", 

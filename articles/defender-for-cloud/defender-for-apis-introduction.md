@@ -13,12 +13,11 @@ Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud]
 
 Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
-
 > [!IMPORTANT]
 > Defender for APIs is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. 
+Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal.
 
 ## What can I do with Defender for APIs?
 
@@ -26,14 +25,14 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **API sensitive data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization. Defender for APIs integrates with MIP Purview enabling custom data classification and support for sensitivity labels, and hydration of same into Cloud Security Explorer for end to end Data Security
-- **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats. 
+- **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats.
 - **Defender CSPM integration**: Integrate with Cloud Security Graph and Attack Paths in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
 
 ## Reviewing API security findings
 
-Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded devices, broken down by API collections, endpoints, and Azure API Management services. 
+Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded devices, broken down by API collections, endpoints, and Azure API Management services.
 
 :::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Screenshot that shows the onboarded API inventory.":::
 
@@ -44,12 +43,12 @@ You can drill down into the API collection to review security findings for onboa
 API endpoint information includes:
 
 - **Endpoint name**: The name of API endpoint/operation as defined in Azure API Management.
-- **Endpoint**: The URL path of the API endpoints, and the HTTP method. 
-Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone). 
-- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*. 
+- **Endpoint**: The URL path of the API endpoints, and the HTTP method.
+Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone).
+- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*.
 - **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as *unauthenticated*.
-- **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint. 
-- **Data classification**: Classifies API request and response bodies based on data types defined in MIP Purview or from a Microsoft supported set. 
+- **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint.
+- **Data classification**: Classifies API request and response bodies based on data types defined in MIP Purview or from a Microsoft supported set.
 
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.
@@ -61,8 +60,6 @@ Use recommendations to improve your security posture, harden API configurations,
 Defender for API provides a number of recommendations, including recommendations to onboard APIs to the Defender for API plan, disable and remove unused APIs, and best practice recommendations for security, authentication, and access control.
 
 [Review the recommendations reference](recommendations-reference.md).
-
-
 
 ## Detecting threats
 
@@ -76,7 +73,7 @@ Act on alerts to mitigate threats and risk. Defender for Cloud alerts and recomm
 
 ## Investigating Cloud Security Graph insights
 
-[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
+[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths.
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 

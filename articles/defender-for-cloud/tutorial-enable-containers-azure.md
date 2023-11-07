@@ -7,7 +7,7 @@ ms.date: 06/29/2023
 
 # Protect your Azure containers with Defender for Containers
 
-Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containrized assests (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registeries, container images and more.) and their applications, across multi-cloud and on-prem environments.
+Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 

@@ -212,7 +212,7 @@ Agentless discovery for Kubernetes is now available to all Defender For Containe
 > [!NOTE]
 > Enabling the latest additions won't incur new costs to active Defender for Containers customers.
 
-For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
+For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 

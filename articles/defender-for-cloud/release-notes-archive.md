@@ -2530,7 +2530,7 @@ When Azure Policy for Kubernetes is installed on your Azure Kubernetes Service (
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#hardening).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md).
 
 > [!NOTE]
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
@@ -3331,7 +3331,7 @@ When you've installed Azure Policy for Kubernetes on your AKS cluster, every req
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#hardening).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md).
 
 ### Vulnerability assessment findings are now available in continuous export
 

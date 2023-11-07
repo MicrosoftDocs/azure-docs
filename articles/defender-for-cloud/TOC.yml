@@ -142,7 +142,7 @@
     - name: Defender for Servers support matrices
       displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
       href: support-matrix-defender-for-servers.md
-    - name: Containers support matrices
+    - name: Support matrices for Containers
       displayName: Containers, features availability, environment information
       href: support-matrix-defender-for-containers.md
   - name: Protect multicloud resources
@@ -224,7 +224,7 @@
   - name: Improve your container security posture with Defender CSPM
     items:
     - name: Agentless container posture in Defender CSPM
-      href: concept-agentless-containers-posture.md
+      href: concept-agentless-containers.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
