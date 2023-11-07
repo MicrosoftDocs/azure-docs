@@ -130,7 +130,7 @@ Use the following steps to create the required resources:
 
 [!INCLUDE [hello-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
-1. Use the following command to deploy the app:
+2. Use the following command to deploy the app:
 
    ```bash
    ./mvnw azure-spring-apps:deploy

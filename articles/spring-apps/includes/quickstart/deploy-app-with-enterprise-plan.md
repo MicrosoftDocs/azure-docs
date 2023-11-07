@@ -183,7 +183,7 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 [!INCLUDE [deploy-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
-1. Use the following command to deploy the app:
+2. Use the following command to deploy the app:
 
    ```bash
    ./mvnw azure-spring-apps:deploy
