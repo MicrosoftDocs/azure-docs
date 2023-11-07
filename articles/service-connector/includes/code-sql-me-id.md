@@ -7,7 +7,7 @@ ms.author: xiaofanzhou
 ---
 
 
-### [.NET](#tab/dotnet)
+### [.NET](#tab/sql-me-id-dotnet)
 
 1. Install dependencies.
     ```bash
@@ -27,7 +27,7 @@ ms.author: xiaofanzhou
     ```
     For more information, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication).
 
-### [Java](#tab/java)
+### [Java](#tab/sql-me-id-java)
 
 Get the Azure SQL Database connection string from the environment variable added by Service Connector.
 
@@ -57,13 +57,13 @@ public class Main {
 ```
 For more information, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/sql-me-id-spring)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
 Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
 
-### [Python](#tab/python)
+### [Python](#tab/sql-me-id-python)
 
 1. Install dependencies.
     ```bash
@@ -96,16 +96,7 @@ Update your application following the tutorial [Migrate a Java application to us
     conn = pyodbc.connect(connString)
     ```
 
-
-### [Django](#tab/django)
-
-The client type `Django` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
-
-### [Go](#tab/go)
-
-The client type `Go` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
-
-### [NodeJS](#tab/nodejs)
+### [NodeJS](#tab/sql-me-id-nodejs)
 
 1. Install dependencies.
     ```bash
@@ -174,14 +165,6 @@ The client type `Go` isn't supported for system-assigned managed identity, user-
 
     this.poolconnection = await sql.connect(config);
     ```
-
-### [PHP](#tab/php)
-
-The client type `PHP` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
-
-### [Ruby](#tab/ruby)
-
-The client type `Ruby` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
 
 ---
 
