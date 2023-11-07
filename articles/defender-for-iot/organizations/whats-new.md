@@ -44,6 +44,8 @@ For more information, see:
 - [Securing IoT devices in the enterprise](concept-enterprise.md)
 - [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md)
 - [Defender for IoT subscription billing](billing.md)
+- [Microsoft Defender for IoT Plans and Pricing](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing#x2a571382a40c482a993d13d7239102eb)
+- Blog: [Enterprise IoT security with Defender for IoT now included in Microsoft 365 E5 and E5 Security plans](https://techcommunity.microsoft.com/t5/microsoft-365-defender-blog/enterprise-iot-security-with-defender-for-iot-now-included-in/ba-p/3967533)
 
 ### Updated security stack integration guidance
 

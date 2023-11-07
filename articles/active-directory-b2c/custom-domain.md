@@ -103,11 +103,7 @@ Follow these steps to create an Azure Front Door:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant:
-    
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to the directory. 
+1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
     
 1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
@@ -231,9 +227,7 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 ## Test your custom domain
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows (policies)**.
 1. Select a user flow, and then select **Run user flow**.
