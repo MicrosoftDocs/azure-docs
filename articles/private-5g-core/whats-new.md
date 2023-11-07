@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 09/21/2023
+ms.date: 11/07/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -27,7 +27,7 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Type:** New release
 
-**Date available:** October XX, 2023
+**Date available:** October 7, 2023
 
 The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
 
