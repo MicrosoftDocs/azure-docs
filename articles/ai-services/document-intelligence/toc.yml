@@ -25,9 +25,9 @@ items:
         href: changelog-release-history.md
   - name: Language support
     items:
-      - name: Read and Layout models
+      - name: Read, Layout, General document models
         displayName: language, locale, handwritten, handwriting, text, detect, detection
-        href: language-support-ocr.md
+        href: language-support-ocr.md?view=doc-intel-4.0.0&preserve-view=true
       - name: Prebuilt models
         displayName: locale, handwritten, handwriting, text, detect, detection
         href: language-support-prebuilt.md
