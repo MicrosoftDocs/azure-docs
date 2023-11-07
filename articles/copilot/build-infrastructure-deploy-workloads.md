@@ -10,7 +10,7 @@ author: JnHs
 
 # Build infrastructure and deploy workloads using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot for Azure (preview) can help you quickly build custom infrastructure for your workloads and provide templates and scripts to help you deploy. By using Microsoft Copilot for Azure (preview), you can often reduce your deployment time dramatically.
+Microsoft Copilot for Azure (preview) can help you quickly build custom infrastructure for your workloads and provide templates and scripts to help you deploy. By using Microsoft Copilot for Azure (preview), you can often reduce your deployment time dramatically. Microsoft Copilot for Azure (preview) also helps you align to security and compliance standards and other best practices.
 
 Throughout a conversation, Microsoft Copilot for Azure (preview) will ask you questions to better understand your requirements and applications. Based on the provided information, it then provides several architecture options suitable for deploying that infrastructure. After you select an option, Microsoft Copilot for Azure (preview) provides detailed descriptions of the infrastructure, including how it can be configured. Finally, Microsoft Copilot for Azure provides templates and scripts using the language of your choice to deploy your infrastructure.
 
