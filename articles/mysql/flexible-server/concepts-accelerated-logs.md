@@ -1,5 +1,5 @@
 ---
-title: Accelerated Logs - Azure Database for MySQL - Flexible Server
+title: Accelerated logs - Azure Database for MySQL - Flexible Server
 description: This article describes the accelerated logs feature for Azure Database for MySQL - Flexible Server.
 author: code-sidd
 ms.author: sisawant
@@ -12,7 +12,7 @@ ms.custom:
   - references_regions
 ---
 
-# Accelerated Logs Feature in Azure Database for MySQL - Flexible Server (Preview)
+# Accelerated logs feature in Azure Database for MySQL - Flexible Server (Preview)
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -68,7 +68,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 - Australia East
 - UAE North
 
-## Enable accelerated logs feature (preview))
+## Enable accelerated logs feature (preview)
 
 The enable accelerated logs feature is available during the preview phase. You can enable this feature during server creation or on an existing server. The following sections provide details on how to enable the accelerated logs feature.
 
@@ -108,7 +108,7 @@ During the Public Preview phase, this section details enabling accelerated logs.
 During the public preview phase, disabling the  accelerated logs feature is a straightforward process:
 
 > [!NOTE]  
-> Your server will restart during the deployment process, so ensure you either pause your workload or schedule it during a time that aligns with your application maintenance or off-hours
+> Your server will restart during the deployment process, so ensure you either pause your workload or schedule it during a time that aligns with your application maintenance or off-hours.
 
 1. Navigate to the [Azure portal](https://portal.azure.com/).
 
@@ -120,5 +120,5 @@ During the public preview phase, disabling the  accelerated logs feature is a st
 
 ## Related content
 
-- [create a MySQL server in the portal](quickstart-create-server-portal.md)
-- [service limitations](concepts-limitations.md)
+- [Create a MySQL server in the portal](quickstart-create-server-portal.md)
+- [Service limitations](concepts-limitations.md)
