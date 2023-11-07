@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 11/6/2023
 ms.author: danlep
 ---
 
@@ -100,6 +100,8 @@ The following table compares features available in the managed gateway versus th
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
+| [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
+| [Circuit Breaker](backends.md#circuit-breaker-preview) |  ✔️ |  ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
