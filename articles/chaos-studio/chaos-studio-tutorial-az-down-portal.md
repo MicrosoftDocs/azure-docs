@@ -62,7 +62,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/templates-azdownfaultonedetails.png)](images/templates-azdownfaultonedetails.png#lightbox)
 1. Select the autoscale setting resource that you want to use in the experiment. Select **Save**.
 
-   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/templates-azdownfaultonetarget.png)](images/templates-azdownfaultonetarget.png#lightbox)
+   [![Screenshot that shows the fault targets pane for autoscale, with the save button highlighted.](images/templates-azdownfaultonetarget.png)](images/templates-azdownfaultonetarget.png#lightbox)
 1. Within the **VMSS Shutdown (version 2.0)** fault, select **Edit**.
 
    [![Screenshot that shows the experiment designer screen, with the edit button within the VMSS shutdown fault highlighted.](images/templates-azdownfaulttwoedit.png)](images/templates-azdownfaulttwoedit.png#lightbox)
@@ -71,10 +71,10 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/templates-azdownfaultonedetails.png)](images/templates-azdownfaultonedetails.png#lightbox)
 1. Select the virtual machine scale set resource that you want to use in the experiment. Select **Next: Scope**.
 
-   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
+   [![Screenshot that shows the fault targets pane for VMSS, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
 1. Select the zone(s) within your virtual machine scale set you would like to take down. Select **Save**.
 
-   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/templates-az-down-scope.png)](images/templates-az-down-scope.png#lightbox)
+   [![Screenshot that shows the scope pane, with the save button highlighted.](images/templates-az-down-scope.png)](images/templates-az-down-scope.png#lightbox)
 1. Select **Review + create** > **Create** to save the experiment.
 
 ## Run your experiment
