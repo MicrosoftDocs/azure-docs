@@ -15,7 +15,7 @@ This document is designed to help you guide through the process of selecting a c
 
 ## Azure Compute Decision Matrix
 
-Familiarize yourself with the overall [Azure Compute offerings](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) to understand the broader context in which Azure Confidential Computing operates.
+Familiarize yourself with the overall [Azure Compute offerings](/azure/architecture/guide/technology-choices/compute-decision-tree) to understand the broader context in which Azure Confidential Computing operates.
 
 ## Introduction to Azure Confidential Computing
 
