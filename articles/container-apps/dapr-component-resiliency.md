@@ -37,7 +37,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 ## Configure resiliency policies
 
-You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
+You can choose whether to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
 # [Bicep](#tab/bicep)
 
@@ -250,7 +250,7 @@ ContainerAppConsoleLogs_CL
 
 Click **Run** to run the query and view results.
 
-Or, you can find the actual resiliency policy using a query similar to the following:
+Or, you can find the actual resiliency policy using a query similar to the following example:
 
 ```
 ContainerAppConsoleLogs_CL

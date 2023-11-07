@@ -40,7 +40,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 Whether you configure resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
 
-When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B are not guaranteed to retry in failure. 
+When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B aren't guaranteed to retry in failure. 
 
 # [Bicep](#tab/bicep)
 
@@ -225,10 +225,12 @@ To add a resiliency policy, select the corresponding checkbox and enter paramete
 
 :::image type="content" source="media/service-discovery-resiliency/service-discovery-resiliency-example.png" alt-text="Screenshot of setting the service discovery resiliency policies.":::
 
-Select **Apply** once you've added all the policies you'd like to apply to your container app. Select **Continue** to confirm.
+Select **Apply** to apply all the selected policies to your container app. Select **Continue** to confirm.
 
 :::image type="content" source="media/service-discovery-resiliency/confirm-apply.png" alt-text="Screenshot of pop-up window confirming applying the new resiliency policies.":::
 
+> [!NOTE]
+> The Azure portal assigns a unique ID to your resiliency policy once created. To retrieve this name, use the [`az container app resiliency list`](#view-policies) command. 
 
 ---
 
@@ -342,7 +344,7 @@ matches: {
 
 | Metadata | Description |
 | -------- | ----------- |
-| `retriable-headers` | HTTP response headers that trigger a retry. A retry are performed if any of the header matches match the response headers. Required if you'd like to retry on any matching headers. |
+| `retriable-headers` | HTTP response headers that trigger a retry. A retry is performed if any of the header-matches match the response headers. Required if you'd like to retry on any matching headers. |
 | `retriable-status-codes` | HTTP status codes that should trigger retries. Required if you'd like to retry on any matching status codes. |
 | `5xx` | Retry if server responds with any 5xx response codes. |
 | `reset` | Retry if the server doesn't respond. |
@@ -382,7 +384,7 @@ properties: {
 | -------- | --------- | ----------- | ------- |
 | `consecutiveErrors` | Yes | Consecutive number of errors before a container app replica is temporarily removed from load balancing. | `5` |
 | `intervalInSeconds` | Yes | The amount of time given to determine if a replica is removed or restored from the load balance pool. | `10` |
-| `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Will eject at least one host regardless of the value. | `50` |
+| `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Removes at least one host regardless of the value. | `50` |
 
 ### Connection pools
 
@@ -418,7 +420,7 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxConnections` | Yes | Maximum number of concurrent connections to an container app. | `100` |
+| `maxConnections` | Yes | Maximum number of concurrent connections to a container app. | `100` |
 
 ## Resiliency observability
 
@@ -428,9 +430,14 @@ You can perform resiliency observability via your container app's metrics and sy
 
 From the *Monitoring* section of your container app, select **Logs**.
 
-:::image type="content" source="media/service-discovery-resiliency/resiliency-query-results.png" alt-text="Screenshot demonstrating how to query for resiliency in your container app system logs.":::
+:::image type="content" source="media/service-discovery-resiliency/resiliency-logs-pane.png" alt-text="Screenshot demonstrating where to find the logs for your container app.":::
 
-In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, to query for resiliency events showing their time stamp, environment name, container app name, resiliency type and reason, and log messages, you'd run a query similar to the following:
+In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, run a query similar to the following to search for resiliency events and show their:
+- Time stamp
+- Environment name
+- Container app name
+- Resiliency type and reason
+- Log messages
 
 ```
 ContainerAppSystemLogs_CL
@@ -444,17 +451,17 @@ Click **Run** to run the query and view results.
 
 ### Resiliency metrics
 
-From the *Monitoring* menu of your container app, select **Metrics**. In the Metrics pane:
+From the *Monitoring* menu of your container app, select **Metrics**. In the Metrics pane, select the following filters:
 
-- Set the scope filter to the name of your container app.
-- Select the **Standard metrics** metrics namespace.
-- Select the metrics you'd like to filter from the drop-down menu.
-- Select how you'd like the data aggregated in the results (by average, by maximum, etc).
-- Select the time duration (last 30 minutes, last 24 hours, etc).
+- The scope to the name of your container app.
+- The **Standard metrics** metrics namespace.
+- The resiliency metrics from the drop-down menu.
+- How you'd like the data aggregated in the results (by average, by maximum, etc.).
+- The time duration (last 30 minutes, last 24 hours, etc.).
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
-For example, if you set the *Resiliency Request Retries* metric in the *test-app* scope with *Average* aggregation to search within a 30 minute timeframe, the results look like the following:
+For example, if you set the *Resiliency Request Retries* metric in the *test-app* scope with *Average* aggregation to search within a 30-minute timeframe, the results look like the following:
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-results.png" alt-text="Screenshot showing the results from example metrics filters for resiliency.":::
 
