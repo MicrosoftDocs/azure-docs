@@ -92,6 +92,4 @@ To delete the Elastic SAN-based datastore, use the following steps from the Azur
 
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Storage list**.
 2. Under **Virtual network**, select **Disconnect** to disconnect the datastore from the Cluster(s).
-3. Delete the volume you previously created in your Elastic SAN.
-
-
+3. Optionally you can delete the volume you previously created in your Elastic SAN.
