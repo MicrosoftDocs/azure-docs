@@ -156,7 +156,7 @@ You can deploy your AKS clusters in a dual-stack mode when using Overlay network
 ### Prerequisites
 
   - You must have Azure CLI 2.48.0 or later installed.
-  - You must register the `AzureOverlayDualStackPreview` feature flag.
+  - You must register the `Microsoft.ContainerService` `AzureOverlayDualStackPreview` feature flag.
   - Kubernetes version 1.26.3 or greater.
 
 ### Limitations
@@ -299,7 +299,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 > There are currently **two limitations** pertaining to IPv6 services in AKS.
 >
 > 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
-> 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
+> 2. Prior to Kubernetes version 1.27, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6. This is no longer a limitation in kubernetes 1.27 or later.
 
 # [kubectl](#tab/kubectl)
 
