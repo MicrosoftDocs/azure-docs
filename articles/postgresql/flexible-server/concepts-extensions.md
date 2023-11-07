@@ -18,26 +18,26 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 
 
 ## How to use PostgreSQL extensions
-Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allow-list these extensions for use. 
+Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allowlist these extensions for use. 
 
 Using the [Azure portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL - Flexible Server.
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `azure.extensions` parameter.
-   4. Select extensions you wish to allow-list.
+   4. Select extensions you wish to allowlist.
      :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
   
 Using [Azure CLI](/cli/azure/):
 
-   You can allow-list extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can allowlist extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
    ```
 
    Using [ARM Template](../../azure-resource-manager/templates/index.yml):
-   Example shown below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+   Example shown below allowlists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
 
@@ -114,7 +114,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
 
-After extensions are allow-listed and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+After extensions are allowlisted and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
 > [!NOTE]
 > Third party extensions offered in Azure Database for PostgreSQL - Flexible Server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
@@ -134,6 +134,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
+> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -198,6 +199,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
+> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -234,7 +236,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -263,6 +265,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
+> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -299,7 +302,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -328,6 +331,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
+> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -364,7 +368,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -393,6 +397,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
+> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -429,7 +434,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
