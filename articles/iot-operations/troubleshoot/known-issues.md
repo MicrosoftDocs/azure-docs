@@ -46,7 +46,7 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. If you notice this happening, run this following commands:
+It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. If you notice this happening, run the following commands:
 
 ```bash
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
@@ -55,7 +55,7 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## Layered Network Management (preview)
 
-If the Layered Network Management service doesn't an IP address while running K3S on an Ubuntu host, reinstall K3S without the `trafeik` ingress controller:
+If the Layered Network Management service doesn't have an IP address while running K3S on an Ubuntu host, reinstall K3S without the `trafeik` ingress controller:
 
 ```bash
 curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
