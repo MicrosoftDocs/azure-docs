@@ -86,8 +86,6 @@ landingContent:
             url: /ai-builder/
           - text: Power Virtual Agents with Azure AI Language
             url: /power-virtual-agents/advanced-clu-integration
-          - text: Windows AI
-            url: /windows/ai/
           - text: GitHub Copilot
             url: https://docs.github.com/copilot/getting-started-with-github-copilot
 
