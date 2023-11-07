@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 11/07/2023
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
@@ -25,11 +25,11 @@ You can configure a SAS expiration policy on the storage account. The SAS expira
 
 The validity interval for the SAS is calculated by subtracting the date/time value of the signed start field from the date/time value of the signed expiry field. If the resulting value is less than or equal to the recommended upper limit, then the SAS is in compliance with the SAS expiration policy.
 
-After you configure the SAS expiration policy, then a user who creates a SAS with an interval that exceeds the recommended upper limit will see a warning.
+After you configure the SAS expiration policy, any user who creates a service SAS or account SAS with an interval that exceeds the recommended upper limit will see a warning.
 
-A SAS expiration policy does not prevent a user from creating a SAS with an expiration that exceeds the limit recommended by the policy. When a user creates a SAS that violates the policy, they'll see a warning, together with the recommended maximum interval. If you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user creates or uses a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval.
+A SAS expiration policy doesn't prevent a user from creating a SAS with an expiration that exceeds the limit recommended by the policy. When a user creates a SAS that violates the policy, they'll see a warning, together with the recommended maximum interval. If you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval.
 
-When a SAS expiration policy is in effect for the storage account, the signed start field is required for every SAS. If the signed start field is not included on the SAS, and you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user creates or uses a SAS without a value for the signed start field.
+When a SAS expiration policy is in effect for the storage account, the signed start field is required for every SAS. If the signed start field is not included on the SAS, and you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS without a value for the signed start field.
 
 ## Configure a SAS expiration policy
 
@@ -130,7 +130,7 @@ The SAS expiration period appears in the console output.
 
 ## Query logs for policy violations
 
-To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../../azure-monitor/platform/diagnostic-settings.md).
+To log the use of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../../azure-monitor/platform/diagnostic-settings.md).
 
 Next, use an Azure Monitor log query to monitor whether policy has been violated. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
 
