@@ -30,10 +30,16 @@ landingContent:
         links:
           - text: Components
             url: application-gateway-for-containers-components.md
+          - text: Custom health probe
+            url: custom-health-probe.md
+          - text: Session Affinity
+            url: session-affinity.md
           - text: TLS policy
             url: tls-policy.md
           - text: Backend health and metrics
             url: alb-controller-backend-health-metrics.md
+          - text: Metrics
+            url: application-gateway-for-containers-metrics.md
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new
@@ -86,9 +92,21 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Multiple site hosting
+          - text: Multi-site hosting
             url: how-to-multiple-site-hosting-gateway-api.md
           - text: Path, header, and query string routing
             url: how-to-path-header-query-string-routing-gateway-api.md
           - text: Traffic splitting
             url: how-to-traffic-splitting-gateway-api.md
+          - text: URL Rewrite
+            url: how-to-url-rewrite-gateway-api.md
+
+  # Card
+  - title: Ingress API
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Multi-site hosting
+            url: how-to-multiple-site-hosting-ingress-api.md
+          - text: SSL offloading
+            url: how-to-ssl-offloading-ingress-api.md
