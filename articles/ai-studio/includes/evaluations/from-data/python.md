@@ -234,6 +234,9 @@ You can download your `EvaluationResult()` with `download_evaluation_artifacts()
 result.download_evaluation_artifacts("./myevalresults")
 ```
 
+> [!TIP]
+> Get the contents of the `result.studio_url` property for a link to view your logged evaluation results in AI Studio.
+
 ### Evaluate Conversation: `chat`
 The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"` shown below
 ```python
