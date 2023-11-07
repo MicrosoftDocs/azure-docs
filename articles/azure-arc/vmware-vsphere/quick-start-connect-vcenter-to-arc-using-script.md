@@ -74,7 +74,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 4. In the **Platform** section, select **Add** under **VMware vCenter**.
 
-    :::image type="content" source="media/add-vmware-vcenter.png" alt-text="Screenshot that shows how to add VMware vCenter through Azure Arc.":::
+    :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/add-vmware-vcenter.png" alt-text="Screenshot that shows how to add VMware vCenter through Azure Arc.":::
 
 5. Select **Create a new resource bridge**, and then select **Next**.
 
@@ -94,7 +94,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 13. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
 
-    :::image type="content" source="media/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
+    :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
 
 14. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
 

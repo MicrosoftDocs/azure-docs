@@ -16,9 +16,19 @@ This article provides an overview of the requirements and options that are avail
 Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
-- [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
-   - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
+- Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
+   - AKS on Azure Stack HCI
+   - AKS Edge Essentials
+   - Canonical
+   - Cluster API Provider on Azure
+   - K8s on Azure Stack Edge
+   - Red Hat OpenShift version 4.x
+   - SUSE Rancher (Rancher Kubernetes engine)
+   - SUSE Rancher K3s
+   - VMware (ie. TKG)
+
+> [!NOTE]
+> Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 
 The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
 
@@ -160,4 +170,5 @@ If you have registered your cluster and/or configured HCI Insights before Novemb
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+
 
