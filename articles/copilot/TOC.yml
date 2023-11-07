@@ -16,6 +16,8 @@
     href: get-information-resource-graph.md
   - name: Deploy VMs effectively
     href: deploy-vms-effectively.md
+  - name: Build infrastructure and deploy workloads
+    href: build-infrastructure-deploy-workloads.md
   - name: Get monitoring information
     href: get-monitoring-information.md
   - name: Optimize your code
@@ -28,6 +30,8 @@
     href: generate-cli-scripts.md
   - name: Author API Management policies
     href: author-api-management-policies.md
+  - name: Generate Kubernetes YAML files
+    href: generate-kubernetes-yaml.md
   - name: Understand service health
     href: understand-service-health.md
   - name: Analyze costs

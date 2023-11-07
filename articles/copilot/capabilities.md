@@ -30,8 +30,7 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
-
-
+  - [Generate Kubernetes YAML files](generate-kubernetes-yaml.md)
 
 ## Get information
 

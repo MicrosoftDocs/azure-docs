@@ -77,6 +77,9 @@ conceptualContent:
             - url: ./optimize-code-application-insights.md
               itemType: get-started
               text: Discover performance recommendations with Code Optimizations
+            - url: ./generate-kubernetes-yaml.md
+              itemType: get-started
+              text: Generate Kubernetes YAML files
             - url: ./author-api-management-policies.md
               itemType: get-started
               text: Author API Management policies
