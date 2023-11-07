@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 
