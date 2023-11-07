@@ -18,14 +18,15 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: November 2023
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
-* General availability of near-zero downtime scaling.
+* General availability of [near-zero downtime scaling](concepts-compute-storage.md).
 * General availability of [Pgvector 0.5.1](concepts-extensions.md) extension.
-* Public preview of Italy North.
+* Public preview of Italy North region.
 * Public preview of [premium SSD v2](concepts-compute-storage.md).
+* Public preview of [decoupling storage and IOPS](concepts-compute-storage.md).
 * Public preview of [private endpoints](concepts-networking-private-link.md).
 * Public preview of [virtual endpoints and new promote to primary server](concepts-read-replicas.md) operation for read replica.
 * Public preview of Postgres [azure_ai](generative-ai-azure-overview.md) extension.
-* Public preview of [pg_failover_slots](concepts-extensions.md#pgfailoverslots-preview) extension.
+* Public preview of [pg_failover_slots](concepts-extensions.md#pg_failover_slots-preview) extension.
 * Public preview of [long-term backup retention](concepts-backup-restore.md).
 
 ## Release: October 2023
