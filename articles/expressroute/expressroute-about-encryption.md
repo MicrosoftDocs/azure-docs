@@ -1,11 +1,11 @@
 ---
 title: 'Azure ExpressRoute: About Encryption'
-description: Learn about ExpressRoute encryption. 
+description: Learn about ExpressRoute encryption.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 11/15/2023
 ms.author: duau
 
 ---
