@@ -3,7 +3,7 @@ title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 11/07/2023
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana
@@ -161,7 +161,7 @@ Review the following steps to use the Grafana sample templates:
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png" alt-text="Screenshot showing how to run query." border="true" lightbox="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png":::
 
-1. After the upload is complete you can click on the dashboard to view the metrics. 
+1. After the upload is complete, you can click on the dashboard to view the metrics. 
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/matrix-view.png" alt-text="Screenshot showing how to view the output." border="true" lightbox="./media/monitor-with-prometheus-grafana/matrix-view.png":::
    
