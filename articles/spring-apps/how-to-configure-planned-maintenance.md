@@ -34,13 +34,13 @@ Use the following steps to configure planned maintenance in Azure Spring Apps:
 
    :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-checkbox.png" alt-text="Screenshot of the Azure portal that shows the Planned maintenance page with the Choose your preferred time checkbox highlighted.":::
 
-1. Select the day of the week you want to schedule the maintenance job.
+1. Select **Day of the week** to schedule the maintenance.
 
-    :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-week.png" alt-text="Screenshot of Azure portal that shows the Day of week option highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-week.png" alt-text="Screenshot of Azure portal that shows the Day of week option highlighted.":::
 
-1. Select start time of upgrade.
+1. Select **Start time of upgrade**.
 
-    :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-time.png" alt-text="Screenshot of Azure portal that shows the Start time of upgrade option highlighted.":::
+   :::image type="content" source="media/how-to-configure-planned-maintenance/maintenance-time.png" alt-text="Screenshot of Azure portal that shows the Start time of upgrade option highlighted.":::
 
 1. Select **Apply** to submit your configuration for planned maintenance.
 
@@ -58,9 +58,9 @@ az spring update -g $RG -n $NAME \
 Updating the configuration can take a few minutes. You get a notification when the configuration is complete.
 
 > [!NOTE]
-> If you fail to configure planned maintenace, the maintenance takes place at a time chosen by the service team, with the best effort to minimize business risks for most customers.
+> If you don't configure planned maintenace, the maintenance takes place at a time chosen by the service team, with the best effort to minimize business risks for most customers.
 
-## Maintenance notification
+## Manage maintenance notification
 
 Usually, notifications and messages are sent out before and during the maintenance. The following table describe the message types and time details:
 
@@ -73,20 +73,15 @@ Usually, notifications and messages are sent out before and during the maintenan
 | 5               | End of maintenance window   | Activity Log        | At the end of the execution of the entire maintenance.    |
 | 6               | Feature update              | What's New article  | After the new feature becomes available to the customers. |
 
-## Maintenance frequency
+## Manage maintenance frequency
 
 Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every three months. For a detailed maintenance timeline, check the notifications on the [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health) page.
 
-## Rules and limitations 
-
-### Rules
+## Best practices
 
 - When you configure planned maintenance for multiple service instances in the same region, the maintenance takes place within the same week. For example, if maintenance for cluster A is set on Monday and cluster B on Sunday, then cluster A is maintained before cluster B, in the same week.
-- If you have two service instances span across [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information. 
+- If you have two service instances span across [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
 - Length of time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 - 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
-
-### Limitations
-
 - Maintenance job can't be exempted regardless of how planned maintenance is configured or have not yet been configured. If you have special requests for maintenance time that can't be met with this feature, open a support ticket.
 
 ## Next steps
