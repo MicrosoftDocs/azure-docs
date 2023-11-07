@@ -25,7 +25,7 @@ Microsoft Copilot for Azure generates responses grounded in your Azure environme
 
 ## What data does Microsoft Copilot for Azure collect?
 
-User-provided prompts and Microsoft Copilot for Azure's responses are not used to further train, retrain, or improve Azure OpenAI Service foundation models that generate responses. User-provided prompts and Microsoft Copilot for Azure's responses are collected and used to improve Microsoft products and services only when users have given explicit consent to include this information within feedback. We collect user engagement data, such as, number of chat sessions and session duration, the skill used in a particular session, thumbs up, thumbs down, feedback, etc. This information is retained and used as set forth in the Microsoft Privacy Statement.
+User-provided prompts and Microsoft Copilot for Azure's responses are not used to further train, retrain, or improve Azure OpenAI Service foundation models that generate responses. User-provided prompts and Microsoft Copilot for Azure's responses are collected and used to improve Microsoft products and services only when users have given explicit consent to include this information within feedback. We collect user engagement data, such as, number of chat sessions and session duration, the skill used in a particular session, thumbs up, thumbs down, feedback, etc. This information is retained and used as set forth in the [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 
 ## What should I do if I see unexpected or offensive content?
 
