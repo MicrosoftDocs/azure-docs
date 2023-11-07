@@ -72,17 +72,26 @@ Start by providing an IP block for deploying external storage. You can do this b
 :::image type="content" source="media/configure-azure-elastic-san/configure-external-storage-address-block.png" alt-text="Screenshot showing External storage address block tab." border="false"lightbox="media/configure-azure-elastic-san/configure-external-storage-address-block.png":::
 
 - The address block must be unique and not overlap with the /22 used to create your Azure VMware Solution private cloud or any other connected Azure virtual networks or on-premises network. 
-- The address block must fall within the following allowed network blocks: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. If you want to use a non-RFC 1918 address block, please submit a support request. 
+- The address block must fall within the following allowed network blocks: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. If you want to use a non-RFC 1918 address block, submit a support request. 
 - The address block can't overlap any of the following restricted network blocks: 100.72.0.0/15 
-- The address block provided here will be used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, please submit a support request. 
+- The address block provided is used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, submit a support request. 
 
-Once you've provided an External storage address block, you can connect to an Elastic SAN volume from the same page.
+After you provide an External storage address block, you can connect to an Elastic SAN volume from the same page.
 
 ## Connect Elastic SAN
 
-1. From your Azure VMware Solution private cloud, select **Storage**, then **+ Connect Elastic SAN**.
-2. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, 
+1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **+ Connect Elastic SAN**.
+2. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, and **Client cluster**.
+3. From section, "Rename datastore as per VMware requirements", under **Volume name** > **Data store name**, give names to the Elastic SAN volumes.
+	> [!NOTE]
+	> For best performance, verify that your Elastic SAN volume and SDDC are in the same Region and Availability Zone.
 
+## Disconnect and delete an Elastic SAN-based datastore
 
+To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
+
+1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Storage list**.
+2. Under **Virtual network**, select **Disconnect** to disconnect the datastore from the Cluster(s).
+3. Delete the volume you previously created in your Elastic SAN.
 
 
