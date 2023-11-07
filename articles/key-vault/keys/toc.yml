@@ -45,33 +45,6 @@ items:
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
 
-- name: Develop with Key Vault
-  items: 
-  - name: JavaScript
-    items: 
-    - name: Get Started
-      href: javascript-developer-guide-get-started.md
-    - name: Manage keys
-      items: 
-      - name: Create, update, rotate key
-        href: javascript-developer-guide-create-update-rotate-key.md
-      - name: Get key
-        href: javascript-developer-guide-get-key.md
-      - name: Enable and disable key
-        href: javascript-developer-guide-enable-disable-key.md
-      - name: List keys
-        href: javascript-developer-guide-list-key-version.md
-      - name: Import key
-        href: javascript-developer-guide-import-key.md
-      - name: Backup, delete, and restore key
-        href: javascript-developer-guide-backup-delete-restore-key.md
-    - name: Use keys
-      items:    
-      - name: Encrypt and decrypt key
-        href: javascript-developer-guide-encrypt-decrypt-key.md
-      - name: Sign and verify with key
-        href: javascript-developer-guide-sign-verify-key.md
-
 - name: Samples
   items:
   - name: Key Vault Code Samples
