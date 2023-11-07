@@ -86,7 +86,7 @@ $Resource | Set-AzResource -Force
 
 The prewarmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Prewarmed instances continue to buffer until the maximum scale-out limit is reached. The default prewarmed instance count is 1 and, for most scenarios, this value should remain as 1.
 
-Consider a less-common scenario, such as an app running in a custom container. Because custom containers have a long warm-up, you may consider increasing this buffer of prewarmed instances. A prewarmed instance becomes active only after all active instances are in use.
+Consider a less-common scenario, such as an app running in a custom container. Because custom containers have a long warm-up, you could consider increasing this buffer of prewarmed instances. A prewarmed instance becomes active only after all active instances are in use.
 
 You can also define a warmup trigger that is run during the prewarming process. You can use a warmup trigger to preload custom dependencies during the prewarming process so your functions are ready to start processing requests immediately. To learn more, see [Azure Functions warmup trigger](functions-bindings-warmup.md).
 

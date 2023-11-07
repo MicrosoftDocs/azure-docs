@@ -1183,7 +1183,7 @@ The deployment process assumes that the .zip file that you use or a zip deployme
 
 However, there are scenarios that require you to rebuild your app remotely, such as when you need to pull Linux-specific packages in Python or Node.js apps that you developed on a Windows computer. In this case, you can configure Functions to perform a remote build on your code after the zip deployment. 
 
-The way that you request a remote build depends on whether your hosted operating system
+The way that you request a remote build depends on the operating system to which you are deploying:
 
 ### [Windows](#tab/windows)
 
