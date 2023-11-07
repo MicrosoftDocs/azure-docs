@@ -150,6 +150,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
+> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
 > |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.7.1           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
@@ -212,6 +213,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
+> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
 > |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.6.1           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
@@ -275,6 +277,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
+> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
 > |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
@@ -338,6 +341,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
+> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | prewarm relation data|
@@ -401,6 +405,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
 > |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
+> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | prewarm relation data|
