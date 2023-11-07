@@ -61,7 +61,7 @@ You can configure geo-redundant storage for backup only during server creation. 
 
 Backups are retained based on the retention period that you set for the server. You can select a retention period between 7 (default) and 35 days. You can set the retention period during server creation or change it at a later time. Backups are retained even for stopped servers.
 
-The backup retention period governs the timeframe from which a PITR can be retrieved using the available backups.. You can also treat the backup retention period as a recovery window from a restore perspective. 
+The backup retention period governs the timeframe from which a PITR can be retrieved using the available backups. You can also treat the backup retention period as a recovery window from a restore perspective. 
 
 All backups required to perform a PITR within the backup retention period are retained in the backup storage. For example, if the backup retention period is set to 7 days, the recovery window is the last 7 days. In this scenario, all the data and logs that are required to restore and recover the server in the last 7 days are retained. 
 
