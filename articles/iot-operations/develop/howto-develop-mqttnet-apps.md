@@ -79,7 +79,7 @@ The `serviceAccountName` field in the pod configuration must match the service a
 apiVersion: v1
 kind: Pod
 metadata:
-  name: publisherclient
+  name: mqtt-client-dotnet
   labels:
     app: publisher
 spec:
@@ -96,7 +96,7 @@ spec:
 
   # SAT token used to authenticate between Dapr and the MQTT broker
   containers:
-    - name: publisherclient
+    - name: mqtt-client-dotnet
       image: ghcr.io/azure-samples/explore-iot-operations/mqtt-client-dotnet:latest
       imagePullPolicy: IfNotPresent
       volumeMounts:
