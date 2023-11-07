@@ -20,11 +20,15 @@ This tutorial showcases adding rich AI capabilities to an Azure Database for Pos
 
 ## Prerequisites
 
-   1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-   1. Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted by the application. You can apply for access to Azure OpenAI by completing the form at <https://aka.ms/oai/access>.
-   1. An Azure OpenAI resource with the `text-embedding-ada-002` (Version 2) model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). If you don't have a resource, the process for creating one is documented in the [Azure OpenAI resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-   1. An [Azure AI Language](/azure/ai-services/language-service/overview) service. If you don't have a resource, you can [create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal by following the instructions provided in the [quickstart for summarization](/azure/ai-services/language-service/summarization/custom/quickstart#create-a-new-resource-from-the-azure-portal) document. You can use the free pricing tier (`Free F0`) to try the service and upgrade later to a paid tier for production.
-   1. An Azure Database for PostgreSQL Flexible Server instance in your Azure subscription. If you don't have a resource, use either the [Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal) or the [Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli) guide for creating one.
+   - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
+
+   - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted by the application. You can apply for access to Azure OpenAI by completing the form at <https://aka.ms/oai/access>.
+
+   - An Azure OpenAI resource with the `text-embedding-ada-002` (Version 2) model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). If you don't have a resource, the process for creating one is documented in the [Azure OpenAI resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+
+   - An [Azure AI Language](/azure/ai-services/language-service/overview) service. If you don't have a resource, you can [create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal by following the instructions provided in the [quickstart for summarization](/azure/ai-services/language-service/summarization/custom/quickstart#create-a-new-resource-from-the-azure-portal) document. You can use the free pricing tier (`Free F0`) to try the service and upgrade later to a paid tier for production.
+
+   - An Azure Database for PostgreSQL Flexible Server instance in your Azure subscription. If you don't have a resource, use either the [Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal) or the [Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli) guide for creating one.
 
 ## Connect to the database using `psql` in the Azure Cloud Shell
 
@@ -38,25 +42,25 @@ To retrieve the database connection details:
 
 1. Paste the copied environment variable declaration lines into the Azure Cloud Shell terminal you opened above, replacing the `{your-password}` token with the password you set when creating the database.
 
-```bash
-export PGHOST={your-server-name}.postgresql.database.azure.com
-export PGUSER={your-user-name}
-export PGPORT=5432
-export PGDATABASE={your-database-name}
-export PGPASSWORD="{your-password}"
-```
-
-Add one extra environment variable to require an SSL connection to the database.
-
-```bash
-export PGSSLMODE=require
-```
-
-Connect to your database using the [psql command-line utility](https://www.postgresguide.com/utilities/psql/) by entering the following at the prompt.
-
-```bash
-psql
-```
+    ```bash
+    export PGHOST={your-server-name}.postgresql.database.azure.com
+    export PGUSER={your-user-name}
+    export PGPORT=5432
+    export PGDATABASE={your-database-name}
+    export PGPASSWORD="{your-password}"
+    ```
+    
+    Add one extra environment variable to require an SSL connection to the database.
+    
+    ```bash
+    export PGSSLMODE=require
+    ```
+    
+    Connect to your database using the [psql command-line utility](https://www.postgresguide.com/utilities/psql/) by entering the following at the prompt.
+    
+    ```bash
+    psql
+    ```
 
 ## Install the `azure_ai` extension
 
@@ -111,7 +115,7 @@ The `azure_ai.set_setting()` function lets you set the endpoint and critical val
 | `azure_cognitive.endpoint` | A supported Cognitive Services endpoint (for example, `https://example.cognitiveservices.azure.com`). |
 | `azure_cognitive.subscription_key` | A subscription key for a Cognitive Services resource. |
 
-> Important
+> [!MPORTANT]
 >  
 > Because the connection information for Azure AI services, including API keys, is stored in a configuration table in the database, the `azure_ai` extension defines a role called `azure_ai_settings_manager` to ensure this information is protected and accessible only to users assigned that role. This role enables reading and writing of settings related to the extension. Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_setting()` and `azure_ai.set_setting()` functions. In the Azure Database for PostgreSQL Flexible Server, all admin users are assigned the `azure_ai_settings_manager` role.
 
@@ -206,7 +210,7 @@ The `Argument data types` property in the output of the `\df+ azure_openai.*` co
 
 The first argument is the `deployment_name`, assigned when your embedding model was deployed in your Azure OpenAI account. To retrieve this value, go to your Azure OpenAI resource in the Azure portal. From there, select the **Model deployments** item under **Resource Management** in the left-hand navigation menu, then select **Manage Deployments** to open Azure OpenAI Studio. On the **Deployments** tab in Azure OpenAI Studio, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
 
-:::image type="content" source="media/how-to-integrate-azure-ai/azure_openai_studio_deployments_embeddings.png" alt-text="Screenshot of embedding deployments for integrating AI.":::
+:::image type="content" source="media/how-to-integrate-azure-ai/azure-open-ai-studio-deployments-embeddings.png" alt-text="Screenshot of embedding deployments for integrating AI.":::
 
 Using this information, run a query to update each record in the `bill_summaries` table, inserting the generated vector embeddings for the `bill_text` field into the `bill_vector` column using the `azure_openai.create_embeddings()` function. Replace `{your-deployment-name}` with the **Deployment name** value you copied from the Azure OpenAI Studio **Deployments** page, and then run the following command:
 
@@ -312,14 +316,14 @@ Next, update the table with the summaries. The `summarize_abstractive` function 
 
 ```sql
 UPDATE bill_summaries b
-SET one_sentence_summary = array_to_string(azure_cognitive.summarize_abstractive(b.bill_text, 'en', throw_on_error => false, sentence_count => 1), ' ', '');
+SET one_sentence_summary = array_to_string(azure_cognitive.summarize_abstractive(b.bill_text, 'en', throw_on_error => false, sentence_count => 1), ' ', '')
+where one_sentence_summary is NULL;
 ```
 
 In the output, you might notice a warning about an invalid document for which an appropriate summarization couldn't be generated. This warning results from setting `throw_on_error` to `false` in the above query. If that flag were left to the default of `true`, the query fails, and no summaries would have been written to the database. To view the record that threw the warning, execute the following:
 
 ```sql
-SELECT bill_id, one_sentence_summary FROM bill_summaries WHERE one_sentence_summary = '';
-```
+SELECT bill_id, one_sentence_summary FROM bill_summaries WHERE one_sentence_summary is NULL;
 
 You can then query the `bill_summaries` table to view the new, one-sentence summaries generated by the `azure_ai` extension for the other records in the table.
 
