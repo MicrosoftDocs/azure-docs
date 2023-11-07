@@ -82,7 +82,7 @@ Connect each of the remaining data connectors by completing the following steps.
 
 ## Enable auditing in your Microsoft Dataverse environment
 
-Dataverse activity logging is available only for Production dataverse environments. Other types of environments, such as sandbox, don't support activity logging. See [Microsoft Dataverse and model-driven apps activity logging requirements](https://learn.microsoft.com/en-us/power-platform/admin/enable-use-comprehensive-auditing#requirements). Dataverse activity logging isn't enabled by default. Enable auditing at the global level for Dataverse and for each Dataverse entity.
+Dataverse activity logging is available only for Production dataverse environments. Other types of environments, such as sandbox, don't support activity logging. See [Microsoft Dataverse and model-driven apps activity logging requirements](/power-platform/admin/enable-use-comprehensive-auditing#requirements). Dataverse activity logging isn't enabled by default. Enable auditing at the global level for Dataverse and for each Dataverse entity.
 
 ### Audit at the global level
 
