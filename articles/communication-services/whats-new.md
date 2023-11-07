@@ -66,7 +66,6 @@ Alphanumeric Sender IDs is a one-way SMS messaging number type, formed by alphab
 We're entering GA in five European regions that require preregistration to be able to use Alphanumeric Sender IDs: Norway, Finland, Slovakia, Slovenia and Czech Republic.
  
 
-
 ### Calling Web UI Library updates
 :::image type="content" source="./media/whats-new-images/10-23/ui-library.png" alt-text="A graphic showing the elements of the Azure Communication Services UI Library.":::
 
