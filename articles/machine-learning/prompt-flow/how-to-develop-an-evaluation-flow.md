@@ -1,10 +1,10 @@
 ---
-title: Develop an evaluation flow in Prompt flow
+title: Develop an evaluation flow in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method in Prompt flow with Azure Machine Learning studio.
+description: Learn how to customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
@@ -16,10 +16,10 @@ ms.date: 11/02/2023
 
 Evaluation flows are special types of flows that assess how well the outputs of a run align with specific criteria and goals.
 
-In Prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use it to evaluate other flows. This document you'll learn:
+In prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use it to evaluate other flows. This document you'll learn:
 
 - How to develop an evaluation method
-- Understand evaluation in Prompt flow
+- Understand evaluation in prompt flow
   - Inputs
   - Outputs and Metrics Logging
 
@@ -31,9 +31,9 @@ There are two ways to develop your own evaluation methods:
 
 - **Create a New Evaluation Flow from Scratch:** Develop a brand-new evaluation method from the ground up. In flow creation wizard, select “Create” Evaluation flow, then, you can see a template of evaluation flow. 
 
-## Understand evaluation in Prompt flow
+## Understand evaluation in prompt flow
 
-In Prompt flow, a flow is a sequence of nodes that process an input and generate an output. Evaluation flows also take required inputs and produce corresponding outputs.
+In prompt flow, a flow is a sequence of nodes that process an input and generate an output. Evaluation flows also take required inputs and produce corresponding outputs.
 
 Some special features of evaluation methods are:
 
@@ -79,7 +79,7 @@ The outputs of an evaluation are the results that measure the performance of the
 
 #### Instance-level scores — outputs
 
-In Prompt flow, the flow processes each sample dataset one at a time and generates an output record. Similarly, in most evaluation cases, there will be a metric for each output, allowing you to check how the flow performs on each individual data.
+In prompt flow, the flow processes each sample dataset one at a time and generates an output record. Similarly, in most evaluation cases, there will be a metric for each output, allowing you to check how the flow performs on each individual data.
 
 To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This authoring experience is the same as defining a standard flow output.
 
