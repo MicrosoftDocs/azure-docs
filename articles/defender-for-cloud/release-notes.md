@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| November 20 | Defender for Cloud is now integrated with Microsoft 365 Defender |
 | November 20 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) |
 | November 20 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) |
 | November 20 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
@@ -31,13 +32,29 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 20 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
+### Defender for Cloud is now integrated with Microsoft 365 Defender
+
+Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft 365 Defender. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences. 
+
+The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With XDR as their single pane of glass, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
+
+Some of the key benefits include:
+
+- **One easy-to-use interface for SOC teams**: With Defender for Cloud's alerts and cloud correlations integrated into M365D, SOC teams can now access all security information from a single interface, significantly improving operational efficiency.
+
+- **One attack story**: Customers are able to understand the complete attack story, including their cloud environment, by using prebuilt correlations that combine security alerts from multiple sources.
+
+- **New cloud entities in Microsoft 365 Defender**: Microsoft 365 Defender now supports new cloud entities that are unique to Microsoft Defender for Cloud, such as cloud resources. Customers can match Virtual Machine (VM) entities to device entities, providing a unified view of all relevant information about a machine, including alerts and incidents that were triggered on it.
+
+- **Unified API for Microsoft Security products**: Customers can now export their security alerts data into their systems of choice using a single API, as Microsoft Defender for Cloud alerts and incidents are now part of Microsoft 365 Defender's public API.
+
 ### Risk prioritization is now available for recommendations
 
 November 20, 2023
 
-You can now prioritize your security recommendations according to the risk level they pose, taking in to consideration both the exploitability and potential business impact of each underlying security issue.
+You can now prioritize your security recommendations according to the risk level they pose, taking in to consideration both the exploitability and potential business effect of each underlying security issue.
 
-By organizing your recommendations based on their risk level (Critical, high, medium, low), you are able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
+By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
 Learn more about [risk prioritization](security-policy-concept.md#what-is-a-security-recommendation).
 
@@ -45,13 +62,13 @@ Learn more about [risk prioritization](security-policy-concept.md#what-is-a-secu
 
 November 20, 2023
 
-We are releasing enhancements to the attack path analysis capabilities in Defender for Cloud.  
+We're releasing enhancements to the attack path analysis capabilities in Defender for Cloud.  
 
-- **New engine** - attack path analysis has a new engine which uses path-finding algorithm to detect every possible attack path that exists in your cloud environment (based on the data we have in our graph). We can find many more attack paths in your environment and detect more complex and sophisticated attack patterns that attackers can use to breach your organization.
+- **New engine** - attack path analysis has a new engine, which uses path-finding algorithm to detect every possible attack path that exists in your cloud environment (based on the data we have in our graph). We can find many more attack paths in your environment and detect more complex and sophisticated attack patterns that attackers can use to breach your organization.
 
 - **Improvements** - The following improvements are released:
 
-  - **Risk prioritization** - prioritized list of attack paths based on risk (exploitability & business impact).
+  - **Risk prioritization** - prioritized list of attack paths based on risk (exploitability & business affect).
   - **Enhanced remediation** - pinpointing the specific recommendations that should be resolved to actually break the chain.
   - **Cross-cloud attack paths** – detection of attack paths that are cross-clouds (paths that start in one cloud and end in another).
   - **MITRE** – Mapping all attack paths to the MITRE framework.
@@ -65,7 +82,7 @@ Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md)
 
 November 20, 2023
 
-The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and additional properties are added. Read more about the [updated Azure Resource Graph table scheme]().
+The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and other properties are added. Read more about the [updated Azure Resource Graph table scheme]().
 
 ### General Availability release of GCP support in Defender CSPM
 
@@ -96,7 +113,7 @@ Learn more about the [data security dashboard](data-aware-security-dashboard-ove
 
 November 6, 2023
 
-An additional agent is no longer needed on your Azure VMs and Azure Arc machines to ensure the machines have all of the latest security or critical system updates.
+An extra agent is no longer needed on your Azure VMs and Azure Arc machines to ensure the machines have all of the latest security or critical system updates.
 
 The new system updates recommendation, `System updates should be installed on your machines (powered by Azure Update Manager)` in the `Apply system updates` control, is based on the [Update Manager](/azure/update-center/overview) and is now fully GA. The recommendation relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The quick fix in the new recommendation navigates you to a one-time installation of the missing updates in the Update Manager portal.
 
