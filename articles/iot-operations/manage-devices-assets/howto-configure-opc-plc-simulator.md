@@ -183,12 +183,10 @@ To complete the configuration of mutual trust, do the following steps:
 
 ## Optionally configure for no authentication
 
-Azure IoT MQ uses TLS and service account authentication by default to provide a secure experience that minimizes inadvertent exposure of your solution to attackers. You shouldn't turn off TLS and authentication in production.
-
-However, if you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes. 
+You can optionally configure an OPC PLC to run with no authentication. If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off authentication for testing purposes. 
 
 > [!CAUTION]
-> Don't configure for no authentication in production or pre-production. Exposing your cluster to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
+> Don't configure for no authentication in production or pre-production. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
 
 To run an OPC PLC with no security profile, you can manually adjust the `AssetEndpointProfile` for OPC UA with the `additionalConfiguration` setting.  
 
