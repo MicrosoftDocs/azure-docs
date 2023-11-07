@@ -13,12 +13,12 @@ ms.date: 11/06/2023
 
 This article describes how to use *Private Link* to restrict access to managing resources in your subscriptions. Private links enable you to access Azure services over a private endpoint in your virtual network. This prevents exposure of the service to the public internet.
 
-This article walks through the Private Link setup process using the [Azure portal](https://portal.azure.com).
+This article describes the Private Link setup process using the [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
 > You can enable this feature on tiers, for an additional fee.
 
-## Create a private endpoint using the portal
+## Create a private endpoint along with a new notification hub in the portal
 
 The following procedure creates a private endpoint along with a new notification hub using the Azure portal:
 
