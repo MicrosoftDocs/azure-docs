@@ -9,7 +9,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ---
 
-# Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
+# Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
