@@ -16,6 +16,17 @@ ms.date: 9/20/2023
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL.
 
+## Release: November 2023
+* General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
+* General availability of Near-Zero Downtime Scaling.
+* General availability of Pgvector 0.5.1 extension.
+* General availability of Italy North and Israel Central.
+* Public preview of premium SSD v2.
+* Public preview of private endpoints.
+* Public preview of virtual endpoints and new promote to primary server operation for read replica.
+* Public preview of Postgres azure_ai extension.
+* Public preview of long-term backup retention.
+
 ## Release: October 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
 * General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL – Flexible Server.
