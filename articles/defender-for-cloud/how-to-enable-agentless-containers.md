@@ -1,5 +1,5 @@
 ---
-title: How-to enable agentless container posture in Microsoft Defender CSPM
+title: How-to enable agentless container posture 
 description: Learn how to onboard agentless containers
 ms.service: defender-for-cloud
 ms.topic: how-to
@@ -20,7 +20,7 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 1. Select the subscription that's onboarded to the Defender CSPM plan, then select **Settings**.
 
-1. Ensure the **Agentless discovery for Kubernetes** and **Container registries vulnerability assessments** extensions are toggled to **On**.
+1. Ensure the **Agentless discovery for Kubernetes** and **Agentless Container vulnerability assessments** extensions are toggled to **On**.
 
 1. Select **Continue**.
 
@@ -30,11 +30,14 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
+> [!NOTE]
+> Agentless discovery for Kubernetes uses AKS trusted access. Click [here](/azure/aks/trusted-access-feature) to learn more about AKS trusted access.
+
 ## What are the extensions for agentless container posture management?
 
 There are two extensions that provide agentless CSPM functionality:
 
-- **Container registries vulnerability assessments**: Provides agentless containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](agentless-container-registry-vulnerability-assessment.md).
+- **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. . Learn more about [Agentless Vontainer vulnerability asses](agentless-container-registry-vulnerability-assessment.md).
 - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
 ## How can I onboard multiple subscriptions at once?
