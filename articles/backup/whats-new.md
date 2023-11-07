@@ -17,7 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2023
-  - 
+  - [Back up Azure Database for PostgreSQL-Flexible server (in preview)](#back-up-azure-database-for-postgresql-flexible-server-in-preview)
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
