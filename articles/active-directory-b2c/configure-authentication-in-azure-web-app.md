@@ -48,8 +48,7 @@ During app registration, you'll specify the *redirect URI*. The redirect URI is 
 To register your application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure web app*).
@@ -74,8 +73,7 @@ To register your application, follow these steps:
 ## Step 3: Configure the Azure App
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Microsoft Entra tenant (not the Azure AD B2C tenant). Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find the Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Navigate to your Azure web app.
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
 1. Select **OpenID Connect** in the identity provider dropdown.

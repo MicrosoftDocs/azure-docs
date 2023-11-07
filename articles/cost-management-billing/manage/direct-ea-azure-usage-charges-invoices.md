@@ -217,6 +217,10 @@ You can use the Download Advanced Report to get reports that cover specific date
 
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" alt-text="Screenshot showing the Download Advanced Report page." lightbox="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" :::
 
+> [!NOTE]
+> - Inactive accounts for the selected time range aren't shown.
+> - You can redownload reports from the Report History since they were first created. For new reports, the selected time range must be within the last 90 days.
+
 ### Download your Azure invoices (.pdf)
 
 For EA enrollments, you can download your invoice in the Azure portal.
