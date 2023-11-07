@@ -190,13 +190,8 @@ Repeat the same operations to promote the original server to the primary:
 
 Again, switch to one of the consuming applications. Wait for the primary and replica status to change to `Updating` and then attempt to perform some operations. During the replica promote, your application might encounter temporary connectivity issues to the endpoint:
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/failover-connectivity-psql.png" alt-text="Screenshot of potential promote connectivity errors." lightbox="./media/how-to-read-replicas-portal/failover-connectivity-psql.png":::
+:::image type="content" source="./media/how-to-read-replicas-portal/failover-connectivity-psql.png" alt-text="Screenshot of potential promote connectivity errors." lightbox="./media/how-to-read-replicas-portal/failover-connectivity-psql.png":::
 
-If no application is available to test directly, connectivity during promotion can be tested against the writer endpoint using psql and the \watch switch with a simple psql select 1 command:
-
-```
-select 1; \watch
-```
 
 ## Add secondary read replica
 
