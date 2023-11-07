@@ -8,7 +8,7 @@ ms.date: 11/07/2023
 
 # QuickStart: Start a free trial
 
-A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up using the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services such as log forwarding, agent based monitoring and unified Azure billing. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer customized for your organization.
+A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up using the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services such as log forwarding, metrics integration, and agent based monitoring. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer customized for your organization.
 
 ## Subscribe to a free trial  
 
