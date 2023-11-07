@@ -40,7 +40,7 @@ To learn more about CCF applications and start building it, refer to the [Get St
 
 All changes to the Key-Value Store are encrypted and recorded by each node of the network to disk to a decentralized auditable ledger. The integrity of the ledger is guaranteed by a Merkle Tree whose root is periodically signed by the current primary or leader node.
 
-Find out how to audit the CCF ledger in the [Audit]https://microsoft.github.io/CCF/main/audit/index.html) section in the CCF documentation.
+Find out how to audit the CCF ledger in the [Audit](https://microsoft.github.io/CCF/main/audit/index.html) section in the CCF documentation.
 
 ### Governance
 
