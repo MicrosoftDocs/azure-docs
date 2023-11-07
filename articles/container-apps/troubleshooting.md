@@ -14,9 +14,7 @@ zone_pivot_groups: azure-portal-console
 
 # Troubleshoot a container app
 
-TODO1 JW Intro here.
-
-This topic describes how to troubleshoot a container app.
+Reviewing Azure Container Apps logs and configuration settings can reveal underlying problems if your container app isn't behaving correctly.
 
 ## Prerequisites
 
