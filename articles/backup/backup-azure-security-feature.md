@@ -79,7 +79,12 @@ Checks have been added to make sure only valid users can perform various operati
 
 ### Authentication to perform critical operations
 
-As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
+As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations for DPM, MABS, and MARS.
+
+Additionally, with MARS version *2.0.9262.0* and later, the operations to remove a volume from MARS file/folder backup, add a new exclusion setting for an existing volume, reduce retention duration, and move to a less-frequent backup schedule are also protected with a security pin for additional security.
+
+
+
 
 > [!NOTE]
 > Currently, for the following DPM and MABS versions, security PIN is supported for **Stop Protection with Delete data** to online storage:
@@ -141,9 +146,9 @@ The following table lists the disallowed operations for MARS when immutability i
 | Disallowed operation | Result with latest MARS agent | Result with old MARS agent |
 | --- | --- | --- |
 | **Stop protection with delete data for system state** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
-| **Stop protection with delete data for file/folder** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
+| **Stop protection with delete data** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error.    <br><br>    MARS *2.0.9262.0* and later provide the option of stopping protection and retaining recovery points according to the policy in the console. |
 | **Reduce online retention period** | User trying to modify policy or protection with reduction of retention. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
-| **Remove-OBPolicy with -DeleteBackup flag** | 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. <br><br> Use *–EnablePruning* flag to retain backups up to their retention period. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. <br><br> Don't use the *-DeleteBackup* flag. |
+| **Remove-OBPolicy with -DeleteBackup flag** | 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. <br><br> Use *–EnablePruning* flag to retain backups up to their retention period. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. <br><br> Don't use the *-DeleteBackup* flag.     <br><br>  MARS *2.0.9262.0*  and later provide the option of stopping protection and retaining recovery points according to the policy in the console. |
 
 
 ## Next steps
