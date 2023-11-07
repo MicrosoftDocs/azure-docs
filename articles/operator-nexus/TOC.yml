@@ -84,6 +84,8 @@
             href: howto-configure-isolation-domain.md
           - name: Network Fabric Route Policy
             href: how-to-route-policy.md  
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

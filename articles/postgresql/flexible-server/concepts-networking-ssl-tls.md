@@ -55,6 +55,19 @@ SELECT datname as "Database name", usename as "User name", ssl, client_addr, app
    ON pg_stat_ssl.pid = pg_stat_activity.pid
    ORDER BY ssl;
 ```
+## Cipher Suites
+
+A **cipher suite** is a set of cryptographic algorithms. TLS/SSL protocols use algorithms from a cipher suite to create keys and encrypt information. 
+A cipher suite is generally displayed as a long string of seemingly random information — but each segment of that string contains essential information. Generally, this data string is made up of several key components:
+- Protocol (i.e., TLS 1.2 or TLS 1.3)
+- Key exchange or agreement algorithm
+- Digital signature (authentication) algorithm
+- Bulk encryption algorithm
+- Message authentication code algorithm (MAC)
+
+Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
+As of this time Azure Database for PostgreSQL - Flexible Server supports number of cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+
 
 ## Related content
 

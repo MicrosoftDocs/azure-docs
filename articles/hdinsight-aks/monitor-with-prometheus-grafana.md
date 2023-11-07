@@ -3,7 +3,7 @@ title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana
@@ -23,8 +23,8 @@ This article covers the details of enabling the monitoring feature in HDInsight 
 * An Azure Managed Prometheus workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Azure Managed Prometheus workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
 * Azure Managed Grafana workspace. For the instructions, see [Create a Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
 * An [HDInsight on AKS cluster](./quickstart-create-cluster.md). Currently, you can use Azure Managed Prometheus with the following HDInsight on AKS cluster types:
-    * Apache Spark
-    * Apache Flink
+    * Apache Spark™
+    * Apache Flink®
     * Trino
 
 For the instructions on how to create an HDInsight on AKS cluster, see [Get started with Azure HDInsight on AKS](./overview.md).
@@ -164,3 +164,7 @@ You can use the Grafana dashboard to view the service and system. Trino cluster 
 1. View the metric as per selection.
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/view-output.png" alt-text="Screenshot showing how to view the output." border="true" lightbox="./media/monitor-with-prometheus-grafana/view-output.png":::
+
+## Reference
+
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](./trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

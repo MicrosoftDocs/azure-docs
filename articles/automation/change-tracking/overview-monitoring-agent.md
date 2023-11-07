@@ -1,21 +1,25 @@
 ---
-title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent (Preview)
-description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
+title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent
+description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 09/08/2023
+ms.date: 10/02/2023
 ms.topic: conceptual
 ---
 
-# Overview of change tracking and inventory using Azure Monitoring Agent (Preview)
+# Overview of change tracking and inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
 > [!Important]
-> Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
-> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available.
+> - Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
+> - Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available. [Learn more](guidance-migration-log-analytics-monitoring-agent.md).
+> - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
-This article explains on the latest version of change tracking support using Azure Monitoring Agent (Preview) as a singular agent for data collection. 
+This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
+
+> [!NOTE]
+> The [Current GA version](../../defender-for-cloud/file-integrity-monitoring-enable-log-analytics.md) of File Integrity Monitoring based on Log Analytics agent, will be deprecated in August 2024, and a **new version will be provided over MDE soon**.  The **[FIM Public Preview](../../defender-for-cloud/file-integrity-monitoring-enable-ama.md) based on Azure Monitor Agent (AMA), will be deprecated when the alternative is provided over MDE**. Hence, the FIM with AMA Public Preview version is not planned for GA. Read the announcement [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
 
 ## Key benefits
 
@@ -27,7 +31,7 @@ so that all VMs point to a single workspace for data collection and maintenance.
 
 ## Current limitations
 
-Change Tracking and Inventory using Azure Monitoring Agent (Preview) doesn't support or has the following limitations:
+Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
 - Network file systems

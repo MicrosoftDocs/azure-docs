@@ -39,7 +39,7 @@ For workload specific versions, see
 
 ## What's new
 
-* HDInsight announces the General availability of HDInsight 5.1 starting October 26, 2023. This release brings in a full stack refresh to the [open source components](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) and the integrations from Microsoft. 
+* HDInsight announces the General availability of HDInsight 5.1 starting November 1, 2023. This release brings in a full stack refresh to the [open source components](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) and the integrations from Microsoft. 
     * Latest Open Source Versions – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) available. Customers can benefit from all latest open source features, Microsoft performance improvements, and Bug fixes. 
     * Secure – The latest versions come with the most recent security fixes, both open-source security fixes and security improvements by Microsoft. 
     * Lower TCO – With performance enhancements customers can lower the operating cost, along with [enhanced autoscale](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271).
@@ -51,14 +51,14 @@ For workload specific versions, see
   * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer might face creation failures if this check is not enabled.
     
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
-     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
+     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture.
+       
+* In-line quota update.
+   * Now you can request quota increase directly from the My Quota page, with the direct API call it is much faster. In case the API call fails, you can create a new support request for quota increase.
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be rolled out to all regions starting upcoming release.
-
-* In-line quota update.
-   * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the APdI call fails, then customers need to create a new support request for quota increase.
 
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we will retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
