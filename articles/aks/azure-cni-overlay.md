@@ -395,6 +395,8 @@ Once the cluster has been created, you can deploy your workloads. This article w
     nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
     ```
 
+---
+
 ## Next steps
 
 To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).
