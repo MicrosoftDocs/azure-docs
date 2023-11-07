@@ -18,7 +18,7 @@ keywords:
 > [!NOTE]
 > All customers have the ability to modify the content filters to be stricter (for example, to filter content at lower severity levels than the default). Approval is required for full content filtering control, including (i) configuring content filters at severity level high only (ii) or turning the content filters off. Managed customers only may apply for full content filtering control via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu).
 
-The content filtering system integrated into Azure OpenAI Service runs alongside the core models and uses an ensemble of multi-class classification models to detect four categories of harmful content (violence, hate, sexual, and self-harm) at four severity levels respectively (safe, low, medium, and high). The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low or safe  is not filtered by the content filters. Learn more about content categories, severity levels, and the behavior of the content filtering system [here](../concepts/content-filter.md).
+The content filtering system integrated into Azure OpenAI Service runs alongside the core models and uses an ensemble of multi-class classification models to detect four categories of harmful content (violence, hate, sexual, and self-harm) at four severity levels respectively (safe, low, medium, and high), and optional binary classifiers for detecting jailbreak risk. The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions, and the other models are off by default. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low or safe  is not filtered by the content filters. Learn more about content categories, severity levels, and the behavior of the content filtering system [here](../concepts/content-filter.md).
 
 Content filters can be configured at resource level. Once a new configuration is created, it can be associated with one or more deployments. For more information about model deployment, see the [resource deployment guide](create-resource.md).
 
@@ -28,10 +28,20 @@ The configurability feature is available in preview and allows customers to adju
 |-------------------|--------------------------|------------------------------|--------------|
 | Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
 | Medium, high      | Yes | Yes | Default setting. Content detected at severity level low is not filtered, content at medium and high is filtered.|
-| High              | If approved<sup>\*</sup>| If approved<sup>\*</sup> | Content detected at severity levels low and medium is not filtered. Only content at severity level high is filtered. Requires approval<sup>\*</sup>.|
+| High              | Yes| Yes | Content detected at severity levels low and medium is not filtered. Only content at severity level high is filtered. |
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
 
-<sup>\*</sup> Only approved customers have full content filtering control, including configuring content filters at severity level high only or turning the content filters off. Managed customers only can apply for full content filtering control via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
+<sup>\*</sup> Only approved customers have full content filtering control and can turn the content filters partially or fully off. Managed customers only can apply for full content filtering control via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
+
+Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
+
+For jailbreak and protected material text and code models, the configurability feature allows customers to turn the models on and off. The models are by default off and can be turned on per your scenario. 
+
+
+|Filter category  |Default setting  |Applied to prompt or completion?  |Description  |
+|---------|---------|---------|---------|
+|Jailbreak risk detection     |    Off     |   Prompt      |    Default setting is off. Can be turned on to filter or annotate user prompts that may present a Jailbreak Risk. For more information about consuming annotations visit [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=python#annotations-preview) |
+
 
 ## Configuring content filters via Azure OpenAI Studio (preview)
 
@@ -41,7 +51,7 @@ The following steps show how to set up a customized content filtering configurat
 
     :::image type="content" source="../media/content-filters/studio.png" alt-text="Screenshot of the AI Studio UI with Content Filters highlighted" lightbox="../media/content-filters/studio.png":::
 
-2. Create a new customized content filtering configuration.
+1. Create a new customized content filtering configuration.
 
    :::image type="content" source="../media/content-filters/create-filter.png" alt-text="Screenshot of the content filtering configuration UI with create selected" lightbox="../media/content-filters/create-filter.png":::
 
@@ -49,15 +59,15 @@ The following steps show how to set up a customized content filtering configurat
 
     :::image type="content" source="../media/content-filters/filter-view.png" alt-text="Screenshot of the content filtering configuration UI" lightbox="../media/content-filters/filter-view.png":::
 
-3. This is the view of the default content filtering configuration, where content is filtered at medium and high severity levels for all categories. You can modify the content filtering severity level for both prompts and completions separately (configuration for prompts is in the left column and configuration for completions is in the right column, as designated with the blue boxes below) for each of the four content categories (content categories are listed on the left side of the screen, as designated with the green box below). There are three severity levels for each category that are partially or fully configurable: Low, medium, and high (labeled at the top of each column, as designated with the red box below).
+1. This is the view of the default content filtering configuration, where content is filtered at medium and high severity levels for all categories. You can modify the content filtering severity level for both prompts and completions separately (configuration for prompts is in the left column and configuration for completions is in the right column, as designated with the blue boxes below) for each of the four content categories (content categories are listed on the left side of the screen, as designated with the green box below). There are three severity levels for each category that are partially or fully configurable: Low, medium, and high (labeled at the top of each column, as designated with the red box below).
 
     :::image type="content" source="../media/content-filters/severity-level.png" alt-text="Screenshot of the content filtering configuration UI with user prompts and model completions highlighted" lightbox="../media/content-filters/severity-level.png":::
 
-4. If you determine that your application or usage scenario requires  stricter filtering for some or all content categories, you can configure the settings, separately for prompts and completions, to filter at more severity levels than the default setting. An example is shown in the image below, where the filtering level for user prompts is set to the strictest configuration for hate and sexual, with low severity content filtered along with content classified as medium and high severity (outlined in the red box below). In the example, the filtering levels for model completions are set at the strictest configuration for all content categories (blue box below). With this modified filtering configuration in place, low, medium, and high severity content will be filtered for the hate and sexual categories in user prompts; medium and high severity content will be filtered for the self-harm and violence categories in user prompts; and low, medium, and high severity content will be filtered for all content categories in model completions.
+1. If you determine that your application or usage scenario requires  stricter filtering for some or all content categories, you can configure the settings, separately for prompts and completions, to filter at more severity levels than the default setting. An example is shown in the image below, where the filtering level for user prompts is set to the strictest configuration for hate and sexual, with low severity content filtered along with content classified as medium and high severity (outlined in the red box below). In the example, the filtering levels for model completions are set at the strictest configuration for all content categories (blue box below). With this modified filtering configuration in place, low, medium, and high severity content will be filtered for the hate and sexual categories in user prompts; medium and high severity content will be filtered for the self-harm and violence categories in user prompts; and low, medium, and high severity content will be filtered for all content categories in model completions.
 
     :::image type="content" source="../media/content-filters/settings.png" alt-text="Screenshot of the content filtering configuration with low, medium, high, highlighted." lightbox="../media/content-filters/settings.png":::
 
-5. If your use case was approved for modified content filters as outlined above, you will receive full control over content filtering configurations. With full control, you can choose to turn filtering off, or filter only at severity level high, while accepting low and medium severity content. In the image below, filtering for the categories of self-harm and violence is turned off for user prompts (red box below), while default configurations are retained for other categories for user prompts. For model completions, only high severity content is filtered for the category self-harm (blue box below), and filtering is turned off for violence (green box below), while default configurations are retained for other categories.
+1. If your use case was approved for modified content filters as outlined above, you will receive full control over content filtering configurations and can choose to turn filtering partially or fully off. In the image below, filtering for the categories of self-harm and violence is turned off for user prompts (red box below), while default configurations are retained for other categories for user prompts. For model completions, only high severity content is filtered for the category self-harm (blue box below), and filtering is turned off for violence (green box below), while default configurations are retained for other categories.
 
     :::image type="content" source="../media/content-filters/off.png" alt-text="Screenshot of the content filtering configuration with self harm and violence set to off." lightbox="../media/content-filters/off.png":::
 
@@ -65,7 +75,15 @@ The following steps show how to set up a customized content filtering configurat
 
     :::image type="content" source="../media/content-filters/multiple.png" alt-text="Screenshot of the content filtering configuration with multiple content filters configured." lightbox="../media/content-filters/multiple.png":::
 
-6. Next, to make a custom content filtering configuration operational, assign a configuration to one or more deployments in your resource. To do this, go to the **Deployments** tab and select **Edit deployment** (outlined near the top of the screen in a red box below).
+1. To turn the optional models on, you can select any of the checkboxes at the left hand side. When each of the optional models is turned on, you can indicate whether the model should Annotate or Filter.
+
+    :::image type="content" source="../media/content-filters/additional-models.jpg" alt-text="Screenshot of portal with additional model options.":::
+
+1. Selecting Annotate will run the respective model and return annotations via API response, but it will not filter content. In addition to annotations, you can also choose to filter content by switching the Filter toggle to on. 
+
+1. You can create multiple content filtering configurations as per your requirements.
+
+1. Next, to make a custom content filtering configuration operational, assign a configuration to one or more deployments in your resource. To do this, go to the **Deployments** tab and select **Edit deployment** (outlined near the top of the screen in a red box below).
 
     :::image type="content" source="../media/content-filters/edit-deployment.png" alt-text="Screenshot of the content filtering configuration with edit deployment highlighted." lightbox="../media/content-filters/edit-deployment.png":::
 
