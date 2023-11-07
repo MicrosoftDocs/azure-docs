@@ -31,7 +31,7 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 **Premium SSD v2**: The current release doesn't support the creation of read replicas for primary servers using Premium SSD v2 storage. If your workload requires read replicas, choose a different storage option for the primary server.
 
-**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using VNET Integration.
+**Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using virtual network integration.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
 
@@ -43,25 +43,25 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 4.  Review and note the following settings:
 
-  - Compute Tier, Processor, Size (ex `Standard_D4ads_v5`).
+      - Compute Tier, Processor, Size (ex `Standard_D4ads_v5`).
+    
+      - Storage
+        - Storage size (ex `128GB`)
+        - Autogrowth
+    
+      - High Availability
+        - Enabled / Disabled
+        - Availability zone settings
+    
+      - Backup settings
+        - Retention period
+        - Redundancy Options
 
-  - Storage
-    - Storage size (ex `128GB`)
-    - Autogrowth
+5.  Under **Settings**, select **Networking.**
 
-  - High Availability
-    - Enabled / Disabled
-    - Availability zone settings
+6. Review the network settings.
 
-  - Backup settings
-    - Retention period
-    - Redundancy Options
-
-5.  Under **Settings**, select **Networking**
-
-   - Review the network settings
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Screenshot of server settings." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
+      :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Screenshot of server settings." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
 
 ## Create a read replica
 
@@ -70,17 +70,22 @@ To create a read replica, follow these steps:
 1.  Select an existing Azure Database for the PostgreSQL server to use as the primary server.
 
 2.  On the server sidebar, under **Settings**, select **Replication**.
+
 3.  Select **Create replica**.
-   :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Screenshot of create a replica action." lightbox="./media/how-to-read-replicas-portal/add-replica.png":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Screenshot of create a replica action." lightbox="./media/how-to-read-replicas-portal/add-replica.png":::
 
 4.  Enter the Basics form with the following information.
+
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Screenshot showing entering the basics information." lightbox="./media/how-to-read-replicas-portal/basics.png":::
 
 - Set the replica server name.
+
    > [!TIP]  
    > It is a Cloud Adoption Framework (CAF) best practice to [use a resource naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming) that will allow you to easily determine what instance you are connecting to or managing and where it resides.
 
 - Select a location different from your primary but note that you can select the same region.
+
    > [!TIP]  
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
 
@@ -103,7 +108,7 @@ To create a read replica, follow these steps:
 
 8.  During the deployment, you see the primary in `Updating` state.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
 After the read replica is created, it can be viewed from the **Replication** window.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
@@ -122,6 +127,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 3.  Select **Create endpoint**.
 
 4.  In the dialog, type a meaningful name for your endpoint. Notice the DNS endpoint that is being generated.
+
     :::image type="content" source="./media/how-to-read-replicas-portal/add-virtual-endpoint.png" alt-text="Screenshot of creating a new virtual endpoint with custom name.":::
 
 5.  Select **Create**.
@@ -147,12 +153,13 @@ To promote replica from the Azure portal, follow these steps:
 
 3.  Under **Servers**, select the **Promote** icon for the replica.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Screenshot of selecting to promote for a replica.":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Screenshot of selecting to promote for a replica.":::
 
 4.  In the dialog, ensure the action is **Promote to primary server**.
 
 5.  For **Data sync**, ensure **Planned - sync data before promoting** is selected.
-   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Screenshot of how to select promote for a replica.":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Screenshot of how to select promote for a replica.":::
 
 6.  Select **Promote** to begin the process. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
@@ -182,13 +189,14 @@ Repeat the same operations to promote the original server to the primary:
 ### Test applications
 
 Again, switch to one of the consuming applications. Wait for the primary and replica status to change to `Updating` and then attempt to perform some operations. During the replica promote, your application might encounter temporary connectivity issues to the endpoint:
-:::image type="content" source="./media/how-to-read-replicas-portal/failover-connectivity-psql.png" alt-text="Screenshot of potential promote connectivity errors." lightbox="./media/how-to-read-replicas-portal/failover-connectivity-psql.png":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/failover-connectivity-psql.png" alt-text="Screenshot of potential promote connectivity errors." lightbox="./media/how-to-read-replicas-portal/failover-connectivity-psql.png":::
 
 If no application is available to test directly, connectivity during promotion can be tested against the writer endpoint using psql and the `\watch` switch with a simple psql `select 1` command:
 
-```bash
-select 1; \watch
-```
+    ```bash
+    select 1; \watch
+    ```
 
 ## Add secondary read replica
 
@@ -219,10 +227,12 @@ Create a secondary read replica in a separate region to modify the reader virtua
 2.  On the server sidebar, under **Settings**, select **Replication**.
 
 3.  Select the ellipses and then select **Edit**.
-   :::image type="content" source="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png" alt-text="Screenshot of editing the virtual endpoint." lightbox="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png":::
+   
+    :::image type="content" source="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png" alt-text="Screenshot of editing the virtual endpoint." lightbox="./media/how-to-read-replicas-portal/edit-virtual-endpoint.png":::
 
 4.  In the dialog, select the new secondary replica.
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-secondary-endpoint.png" alt-text="Screenshot of selecting the secondary replica.":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/select-secondary-endpoint.png" alt-text="Screenshot of selecting the secondary replica.":::
 
 5.  Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
 
@@ -244,7 +254,8 @@ Rather than switchover to a replica, it's also possible to break the replication
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
 
 5.  For **Data sync**, ensure **Planned - sync data before promoting** is selected.
-   :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
 
@@ -254,7 +265,7 @@ You can delete a read replica similar to how you delete a standalone Azure Datab
 
 1.  In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica.png" alt-text="Screenshot of the replica Overview page, select to delete the replica.":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica.png" alt-text="Screenshot of the replica Overview page, select to delete the replica.":::
 
 You can also delete the read replica from the **Replication** window by following these steps:
 
@@ -264,7 +275,7 @@ You can also delete the read replica from the **Replication** window by followin
 
 4.  Select the read replica to delete and then select the ellipses. Select **Delete**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Screenshot of select the replica to delete." lightbox="./media/how-to-read-replicas-portal/delete-replica02.png":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Screenshot of select the replica to delete." lightbox="./media/how-to-read-replicas-portal/delete-replica02.png":::
 
 5.  Acknowledge **Delete** operation.
 
@@ -273,13 +284,16 @@ You can also delete the read replica from the **Replication** window by followin
 You can only delete the primary server once all read replicas have been deleted. Follow the instructions in the [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with the steps below.
 
 To delete a server from the Azure portal, follow these steps:
+
 1.  In the Azure portal, select your primary Azure Database for the PostgreSQL server.
 
 2.  Open the **Overview** page for the server and select **Delete**.
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary.png" alt-text="Screenshot of the server Overview page, select to delete the primary server." lightbox="./media/how-to-read-replicas-portal/delete-primary.png":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary.png" alt-text="Screenshot of the server Overview page, select to delete the primary server." lightbox="./media/how-to-read-replicas-portal/delete-primary.png":::
 
 3.  Enter the name of the primary server to delete. Select **Delete** to confirm the deletion of the primary server.
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Screenshot of confirming to delete the primary server.":::
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Screenshot of confirming to delete the primary server.":::
 
 ## Monitor a replica
 
@@ -292,8 +306,11 @@ Two metrics are available to monitor read replicas.
 The **Max Physical Replication Lag** metric shows the byte lag between the primary server and the most lagging replica.
 
 1.  In the Azure portal, select the primary server.
+
 2.  Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
+
     :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics page showing Max Physical Replication Lag metric." lightbox="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png":::
+
 3.  For your **Aggregation**, select **Max**.
 
 ### Read Replica Lag metric
@@ -304,7 +321,7 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 2.  Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Screenshot of the Metrics page showing Read Replica Lag metric." lightbox="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Screenshot of the Metrics page showing Read Replica Lag metric." lightbox="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png":::
 
 3.  For your **Aggregation**, select **Max**.
 
