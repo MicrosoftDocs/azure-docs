@@ -31,7 +31,7 @@ Use a search client that supports preview APIs on the query request. For REST, y
 
 | Client library | Versions |
 |----------|----------|
-| REST API | Versions 2020-06-30-Preview and later. The current version is [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/documents/search-post)|
+| REST API | Versions 2020-06-30-Preview and later. The current version is [2023-10-01-Preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true)|
 | Azure SDK for .NET | [version 11.5.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.2) | 
 | Azure SDK for Java |  [version 11.6.0-beta.5](https://central.sonatype.com/artifact/com.azure/azure-search-documents) |
 | Azure SDK for JavaScript | [version 11.3.0-beta.8](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8) |
