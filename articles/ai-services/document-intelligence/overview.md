@@ -256,6 +256,7 @@ Document Intelligence supports optional features that can be enabled and disable
 |prebuilt-tax.us.1098|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-tax.us.1098E|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-tax.us.1098T|✓| | |✓| | |O|O|✓|O|O|O|✓|
+|prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
 |{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
 |prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
@@ -402,6 +403,17 @@ You can use Document Intelligence to automate document processing in application
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
 |**prebuilt-tax.us.1098T**|Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+### US tax 1099 (and Variations) form
+
+:::image type="content" source="media/overview/analyze-1099.png" alt-text="Screenshot of US 1099 tax form analyzed in the Document Intelligence Studio.":::
+
+| Model ID |Description|Development options |
+|----------|--------------|-----------------|
+|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099 form variations.|&#9679; [**Document Intelligence Studio**]()</br>&#9679; [**REST API**]()
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
