@@ -33,7 +33,7 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 The Azure Backup service needs to connect to the Azure PostgreSQL Flexible server while taking each backup.  
 
-### Set of permissions needed for Azure PostgreSQL Flexible database backup
+### Permissions for backup
 
 For successful backup operations, the vault MSI needs the following permissions: 
 
@@ -44,4 +44,4 @@ For successful backup operations, the vault MSI needs the following permissions:
 
 ## Next steps
 
-[Azure Database for PostgreSQL -Flex backup](backup-azure-database-postgresql-flex.md).
+[Azure Database for PostgreSQL -Flex backup (preview)](backup-azure-database-postgresql-flex.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL- Flexible server (preview) support matrix
+title: Azure Database for PostgreSQL- Flexible server support matrix (preview)
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: conceptual
 ms.date: 11/06/2023
@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Azure Database for PostgreSQL- Flexible server (preview) support matrix
+# Support matrix for Azure Database for PostgreSQL- Flexible server (preview)
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Database for PostgreSQL- Flexible server. This article summarizes supported regions, scenarios, and the limitations.
 
@@ -21,11 +21,11 @@ Azure Database for PostgreSQL server backup (preview), currently supports East U
 
 PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to re-build the PostgreSQL flexible server. Customers can restore this data as a new PostgreSQL flexible server with DB native tools. 
 
-## Limitations
+## Limitation
 
 - Currently, backing up individual databases is not supported. You can only back up the entire server.
 
 
 ## Next steps
 
-- [Back up Azure Database for PostgreSQL -flex server (preview)](backup-azure-database-postgresql-flex.md)
+- [Back up Azure Database for PostgreSQL -flex server (preview)](backup-azure-database-postgresql-flex.md).
