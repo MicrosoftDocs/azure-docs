@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about how with Azure Machine Learning prompt flow, you can use variants to tune your prompt.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
@@ -12,9 +12,9 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Variants in Prompt flow
+# Variants in prompt flow
 
-With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the Prompt flow variants concept.
+With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the prompt flow variants concept.
 
 ## Variants
 
