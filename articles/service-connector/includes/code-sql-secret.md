@@ -6,7 +6,7 @@ ms.date: 10/26/2023
 ms.author: wchi
 ---
 
-### [.NET](#tab/dotnet)
+### [.NET](#tab/sql-secret-dotnet)
 1. Install dependencies.
     ```bash
     dotnet add package Microsoft.Data.SqlClient
@@ -24,7 +24,7 @@ ms.author: wchi
     connection.Open();
     ```
 
-### [Java](#tab/java)
+### [Java](#tab/sql-secret-java)
 
 Get the Azure SQL Database connection string from the environment variable added by Service Connector.
 
@@ -49,7 +49,7 @@ public class Main {
 }
 ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/sql-secret-spring)
 1. Add dependency in your 'pom.xml' file:
     ```xml
     <dependencyManagement>
@@ -67,7 +67,7 @@ public class Main {
 1. Set up the Spring application. The connection configurations are added to Spring Apps by Service Connector.
 
 
-### [Python](#tab/python)
+### [Python](#tab/sql-secret-python)
 
 1. Install dependencies.
     ```bash
@@ -90,7 +90,7 @@ public class Main {
     conn = pyodbc.connect(connString)
     ```
 
-### [Django](#tab/django)
+### [Django](#tab/sql-secret-django)
 1. Install dependencies.
    ```bash
    pip install django
@@ -122,7 +122,7 @@ public class Main {
     }
     ```
 
-### [Go](#tab/go)
+### [Go](#tab/sql-secret-go)
 
 1. Install dependency.
     ```bash
@@ -149,7 +149,7 @@ public class Main {
     log.Printf("Connected!\n")
     ```
 
-### [NodeJS](#tab/nodejs)
+### [NodeJS](#tab/sql-secret-nodejs)
 
 1. Install dependencies.
     ```bash
@@ -179,7 +179,7 @@ public class Main {
     this.poolconnection = await sql.connect(config);
     ```
 
-### [PHP](#tab/php)
+### [PHP](#tab/sql-secret-php)
 
 1. Download the Microsoft Drivers for PHP for SQL Server. For more information, check [Getting Started with the Microsoft Drivers for PHP for SQL Server](/sql/connect/php/getting-started-with-the-php-sql-driver).
 
@@ -201,7 +201,7 @@ public class Main {
     ?>
     ```
 
-### [Ruby](#tab/ruby)
+### [Ruby](#tab/sql-secret-ruby)
 1. Download Ruby Driver for SQL Server. For more information, check [Configure development environment for Ruby development](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
 1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector.
