@@ -55,4 +55,4 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
   curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
   ```
   Reference Link - [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller)
-- If DNS queries are not getting resolved to expected IP address while using [CoreDNS](azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configurecoredns) service running on child network level, please upgrade to Ubuntu 22.04 and re-install K3S. 
+- If DNS queries are not getting resolved to expected IP address while using [CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network/#configure-coredns) service running on child network level, please upgrade to Ubuntu 22.04 and re-install K3S. 
