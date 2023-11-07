@@ -14,9 +14,9 @@ ms.date: 10/25/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Using Azure IoT Layered Network service, you can configure an isolated network environment with physical or logical segmentation.
+To use Azure IoT Layered Network Management service, you can configure an isolated network environment with physical or logical segmentation.
 
-Each isolated layer that's level 3 and lower, requires you to include a DNS server.
+Each isolated layer that's level 3 and lower, requires you to configure a custom DNS.
 
 ## Configure isolated network with physical segmentation
 
@@ -44,6 +44,11 @@ The multiple levels of networks in this test setup are accomplished using subnet
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10.
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [configure the DNS server](#configure-the-dns-server). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
 - **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
+
+## Configure custom DNS
+A custom DNS is needed for level 3 and below. In an existing or production environment, please incorporate the DNS resolutions below into the DNS mechanism of your design. If you want to setup a test environment for Layered Network Management service and Azure IoT Operations, you can refer to one of the examples below.
+
+# [DNS Server](#tab/dnsserver)
 
 ## Configure the DNS server
 
@@ -146,6 +151,45 @@ A DNS server is only needed for levels 3 and below. This example uses a [dnsmasq
     sudo systemctl restart dnsmasq
     systemctl status dnsmasq
     ```
+
+# [CoreDNS](#tab/coredns)
+
+## Configure CoreDNS
+
+### Create configmap from level 4 Layered Network Management
+After the level 4 cluster and Layered Network Management are ready, perform the following steps.
+1. Confirm the IP address of Layered Network Management service with the following command:
+    ```bash
+    kubectl get services
+    ```
+    The output should look like the following. The IP address of the service is `20.81.111.118`.
+    ```
+    NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+    lnm-level4   LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
+    ```
+1. View the config maps with following command:
+    ```bash
+    kubectl get cm
+    ```
+    The output should look like the following:
+    ```
+    NAME                           DATA   AGE
+    aio-lnm-level4-config          1      50s
+    aio-lnm-level4-client-config   1      50s
+    ```
+1. Customize the `aio-lnm-level4-client-config`. This will be needed as part of the level 3 setup to forward traffic from the level 3 cluster to the top level Layered Network Management instance.
+    ```bash
+    # set the env var PARENT_IP_ADDR to the ip address of level 4 LNM instance.
+      export PARENT_IP_ADDR="20.81.111.118"
+    
+    # run the script to generate a config map yaml
+      kubectl get cm aio-lnm-level4-client-config -o yaml | yq eval '.metadata = {"name": "coredns-custom", "namespace": "kube-system"}' -| sed 's/PARENT_IP/'"$PARENT_IP_ADDR"'/' > configmap-custom-level4.yaml
+    ```
+    This step creates a file named `configmap-custom-level4.yaml`
+
+### Configure the level 3 CoreDNS of K3S
+
+---
 
 ## Related content
 
