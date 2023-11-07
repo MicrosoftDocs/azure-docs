@@ -1,5 +1,5 @@
 ---
-title: How to use streaming endpoints deployed from Prompt Flow
+title: How to use streaming endpoints deployed from prompt Flow
 titleSuffix: Azure Machine Learning
 description: Learn how use streaming when you consume the endpoints in Azure Machine Learning prompt flow.
 services: machine-learning
@@ -13,9 +13,9 @@ ms.reviewer: lagayhar
 ms.date: 11/02/2023
 ---
 
-# How to use streaming endpoints deployed from Prompt Flow
+# How to use streaming endpoints deployed from prompt Flow
 
-In Prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
+In prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
 
 When consuming the endpoint by sending a request, the default behavior is that the online endpoint will keep waiting until the whole response is ready, and then send it back to the client. This can cause a long delay for the client and a poor user experience.
 
@@ -98,7 +98,7 @@ To understand the streaming process, consider the following steps:
   - If `text/event-stream` isn't specified, the server then checks if `application/json` or `*/*` is specified in the `Accept` header:
     - In such cases, the server returns a response with a `Content-Type` of `application/json`, providing the data in JSON format.
   - If the `Accept` header specifies other media types, such as `text/html`:
-    - The server returns a `424` response with a PromptFlow runtime error code `UserError` and a runtime HTTP status `406`, indicating that the server can't fulfill the request with the requested data format.
+    - The server returns a `424` response with a prompt flow runtime error code `UserError` and a runtime HTTP status `406`, indicating that the server can't fulfill the request with the requested data format.
      To learn more, see [handle errors](#handle-errors).
 - Finally, the client checks the `Content-Type` response header. If it's set to `text/event-stream`, it indicates that the data is being streamed.
 
@@ -236,7 +236,7 @@ The chat then continues in a similar way.
 
 The client should check the HTTP response code first. See [HTTP status code table](../how-to-troubleshoot-online-endpoints.md#http-status-codes) for common error codes returned by online endpoints.
 
-If the response code is "424 Model Error", it means that the error is caused by the model’s code. The error response from a Prompt Flow model always follows this format:
+If the response code is "424 Model Error", it means that the error is caused by the model’s code. The error response from a prompt flow model always follows this format:
 
 ```json
 {
