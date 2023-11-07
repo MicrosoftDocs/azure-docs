@@ -9,7 +9,8 @@ metadata:
  
   ms.topic: hub-page
   ms.collection: collection
-  ms.prod: visual-studio-windows
+  ms.prod: visual-studio-family
+  ms.technology: vs-subscriptions
   ms.author: nicktrog
   author: ntrogh
   ms.date: 10/18/2023

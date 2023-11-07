@@ -4,7 +4,7 @@ description: This document provides details about the DICOM Conformance Statemen
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -15,7 +15,7 @@ ms.author: mmitrik
 > [!NOTE]
 > API version 2 is the latest API version and should be used in place of v1. See the [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md) for details.
 
-The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb™ Standard. Support includes:
+The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Standard. Support includes:
 
 * [Studies Service](#studies-service)
     * [Store (STOW-RS)](#store-stow-rs)
@@ -514,7 +514,7 @@ The query API returns one of the following status codes in the response:
 
 ### Delete
 
-This transaction isn't part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of Studies, Series, and Instances from the store.
+This transaction isn't part of the official DICOMwe Standard. It uses the DELETE method to remove representations of Studies, Series, and Instances from the store.
 
 | Method | Path                                                    | Description |
 | :----- | :------------------------------------------------------ | :---------- |
@@ -583,7 +583,7 @@ required to be present, required to not be present, required to be empty, or req
 found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
 > [!NOTE]
-> Although the reference table says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
+> Although the reference table says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb. SOP Instance UID should be present in the dataset if not in the URI.
 
 > [!NOTE]
 > All the conditional requirement codes including 1C and 2C are treated as optional.

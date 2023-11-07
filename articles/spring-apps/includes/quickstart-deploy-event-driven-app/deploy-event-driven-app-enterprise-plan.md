@@ -90,7 +90,7 @@ Use the following steps to connect your service instances:
 
 1. Configure the **Next: Authentication** tab with the following information:
 
-  - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+   - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option selected." lightbox="../../media/quickstart-deploy-event-driven-app/app-service-connector-authentication-enterprise.png":::
 

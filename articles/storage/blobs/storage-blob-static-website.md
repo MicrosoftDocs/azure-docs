@@ -1,10 +1,10 @@
 ---
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
-author: normesta
+author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.author: normesta
+ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 07/24/2023
 ms.custom:

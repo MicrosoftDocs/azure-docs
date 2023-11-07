@@ -1,14 +1,14 @@
 ---
-title: Move Azure VMs to new subscription or resource group
+title: Special cases to move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/31/2022 
+ms.date: 10/30/2023 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
-# Move virtual machines to resource group or subscription
+# Handling special cases when moving virtual machines to resource group or subscription
 
-This article describes how to move a virtual machine to a new resource group or Azure subscription. 
+This article describes special cases that require extra steps when moving a virtual machine to a new resource group or Azure subscription. If your virtual machine uses disk encryption, a Marketplace plan, or Azure Backup, you must use one of the workarounds described in this article. For all other scenarios, move the virtual machine with the standard operations for [Azure portal](../move-resource-group-and-subscription.md#use-the-portal), [Azure CLI](../move-resource-group-and-subscription.md#use-azure-cli), or [Azure PowerShell](../move-resource-group-and-subscription.md#use-azure-powershell). For Azure CLI, use the [az resource move](/cli/azure/resource#az-resource-move) command. For Azure PowerShell, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command.
 
 If you want to move a virtual machine to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 
@@ -44,7 +44,7 @@ Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1 -VolumeType a
 
 ## Virtual machines with Marketplace plans
 
-Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. To work around this limitation, you can de-provision the virtual machine in the current subscription, and deploy it again in the new subscription. The following steps help you recreate the virtual machine in the new subscription. However, they might not work for all scenarios. If the plan is no longer available in the Marketplace, these steps won't work.
+Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. To work around this limitation, you can deprovision the virtual machine in the current subscription, and deploy it again in the new subscription. The following steps help you recreate the virtual machine in the new subscription. However, they might not work for all scenarios. If the plan is no longer available in the Marketplace, these steps won't work.
 
 1. Get information about the plan.
 

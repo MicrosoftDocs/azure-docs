@@ -5,7 +5,8 @@ author: jenp
 ms.author: jenp
 ms.date: 10/18/2023
 ms.topic: how-to
-ms.prod: visual-studio-windows
+ms.prod: visual-studio-family
+ms.technology: vs-subscriptions
 ms.custom: devtestoffer
 ---
 
