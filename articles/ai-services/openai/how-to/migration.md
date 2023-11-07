@@ -239,8 +239,6 @@ completion = client.chat.completions.create(
 print(completion.model_dump_json(indent=2))
 ```
 
-
-
 ## Name changes
 
 > [!NOTE]
