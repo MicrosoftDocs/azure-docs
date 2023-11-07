@@ -236,6 +236,18 @@ If the guest OS isn't configured for hibernation, take the appropriate action to
 | VMHibernateFailed | Hibernating the VM 'hiber_vm_res_5' failed due to an internal error. Retry later. | Retry after 5mins. If it continues to fail after multiple retries, check if the guest is correctly configured to support hibernation or contact Azure support. |
 | VMHibernateNotSupported | The VM 'Z0000ZYJ000' doesn't support hibernation. Ensure that the VM is correctly configured to support hibernation. | Hibernating a VM immediately after boot isn't supported. Retry hibernating the VM after a few minutes. |
 
+## Azure extensions disabled on Debian images
+Azure extensions are currently disabled by default for Debian images (more details here: https://lists.debian.org/debian-cloud/2023/07/msg00037.html). If you wish to enable hibernation for Debian based VMs through the LinuxHibernationExtension, then you can re-enable support for VM extensions via cloud-init custom data:
+
+```bash
+#!/bin/sh
+sed -i -e 's/^Extensions\.Enabled =.* $/Extensions.Enabled=y/" /etc/waagent.conf
+```
+
+![Screenshot of the cloud init input field for new Linux VMs](./media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png)
+
+Alternatively, you can enable hibernation on the guest by [installing the hibernation-setup-tool](hibernate-resume.md#option-2-hibernation-setup-tool).
+
 ## Unable to resume a VM
 Starting a hibernated VM is similar to starting a stopped VM. For errors and troubleshooting steps related to starting a VM, refer to this guide
 
