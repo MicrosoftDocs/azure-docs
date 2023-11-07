@@ -76,11 +76,11 @@ To view the underlying key-values:
 
 1. In the **Operations** menu, open the **Configuration explorer**.
 
+    :::image type="content" source="media\manage-feature-flags\include-feature-flag-configuration-explorer.png" alt-text="Screenshot of the Azure platform. Include feature flags in Configuration explorer.":::
+
 1. Select **Manage view** > **Settings**.
 
 1. Select **Include feature flags in the configuration explorer** and **Apply**.
-
-    :::image type="content" source="media\manage-feature-flags\include-feature-flag-configuration-explorer.png" alt-text="Screenshot of the Azure platform. Include feature flags in Configuration explorer.":::
 
 Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
 
