@@ -4,9 +4,9 @@ description: Learn about pod level isolation via confidential containers on AKS
 services: container-service
 author: angarg05
 ms.topic: article
-ms.date: 11/-2/2023
+ms.date: 11/2/2023
 ms.author: ananyagarg
-ms.service: containers-on-aks
+ms.service: container-service
 ms.subservice: confidential-computing
 ms.custom: ignite-fall-2023
 ---

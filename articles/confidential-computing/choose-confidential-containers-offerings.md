@@ -15,7 +15,7 @@ This document is designed to help you guide through the process of selecting a c
 
 ## Azure Compute Decision Matrix
 
-Familiarize yourself with the overall [Azure Compute offerings](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree) to understand the broader context in which Azure Confidential Computing operates.
+Familiarize yourself with the overall [Azure Compute offerings](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) to understand the broader context in which Azure Confidential Computing operates.
 
 ## Introduction to Azure Confidential Computing
 
@@ -33,7 +33,7 @@ In confidential computing, memory isolation is a critical feature that safeguard
 
 > "Memory isolation is the ability to prevent unauthorized access to data in memory, even if the attacker has compromised the operating system or other privileged software. This is achieved by using hardware-based features to create a secure and isolated environment for confidential workload."
 
-# Choosing a Container offering on Azure Confidential Computing
+## Choosing a Container offering on Azure Confidential Computing
 
 Azure Confidential Computing offers various solutions for container deployment and management, each tailored for different levels of isolation and attestation capabilities.
 
@@ -78,7 +78,7 @@ You can find more information about the offering and our partner solutions [here
 
 You can find more details at [Getting started with Confidential Containers on ACI](../container-instances/container-instances-confidential-overview.md).
 
-# Learn more
+## Learn more
 
 > [Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
 > [Confidential Containers on Azure](./confidential-containers.md)
