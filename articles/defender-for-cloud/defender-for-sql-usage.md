@@ -39,19 +39,18 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 |----|----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected SQL versions:|SQL Server version: 2012, 2014, 2016, 2017, 2019, 2022 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>- On-premises SQL servers on Windows machines without Azure Arc<br>|
+|Protected SQL versions:|SQL Server version: 2012, 2014, 2016, 2017, 2019, 2022 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br><br>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Microsoft Azure operated by 21Vianet **(Advanced Threat Protection Only)**|
 
 ## Set up Microsoft Defender for SQL servers on machines
 
 The Defender for SQL server on machines plan requires either the Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) to prevent attacks and detect misconfigurations. The plan’s autoprovisioning process is automatically enabled with the plan and is responsible for the configuration of all of the agent components required for the plan to function. This includes, installation and configuration of MMA/AMA, workspace configuration and the installation of the plan’s VM extension/solution.
 
-Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) accordingly by releasing a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process to replace the Microsoft Monitoring Agent (MMA) process which is set to be deprecated. Learn more about the [AMA for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md) and how to migrate to it.
+Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) and released a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process to replace the Microsoft Monitoring Agent (MMA) process which is set to be deprecated. Learn more about the [AMA for SQL server on machines autoprovisioning process](defender-for-sql-autoprovisioning.md) and how to migrate to it.
 
 > [!NOTE]
-> During the **Azure Monitoring Agent for SQL Server on machines (Preview)**, customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes will be asked to [migrate to the AMA for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md).
-
-**To enable the plan**:
+> Customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes will be asked to [migrate to the AMA for SQL server on machines autoprovisioning process](defender-for-sql-autoprovisioning.md).
+**To enable the plan on a subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -80,6 +79,16 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
         - For customer using the current generally available autoprovisioning process, select **Edit configuration** for the **Log Analytics agent/Azure Monitor agent** component.
 
         - For customer using the preview of the autoprovisioning process, select **Edit configuration** for the **Azure Monitoring Agent for SQL server on machines (Preview)** component.
+
+**To enable the plan on a SQL VM/Arc-enabled SQL Server**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to your SQL VM/Arc-enabled SQL Server .
+
+1. In the SQL VM/Arc-enabled SQL Server menu, in the **Security**  section, select **Microsoft Defender for Cloud**.
+
+1. in the **Microsoft Defender for SQL server on machines** section click the **Enable** button.
 
 ## Explore and investigate security alerts
 
@@ -119,3 +128,5 @@ For related information, see these resources:
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.
+
+
