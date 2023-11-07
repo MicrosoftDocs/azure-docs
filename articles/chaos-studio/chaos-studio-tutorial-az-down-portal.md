@@ -1,5 +1,5 @@
 ---
-title: Use a chaos experiment template to take down VMSS availability zones with autoscale disabled
+title: Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
 description: Use the Azure portal to create an experiment from the AZ down experiment template.
 author: prasha-microsoft 
 ms.author: prashabora
@@ -9,7 +9,7 @@ ms.date: 09/27/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Use a chaos experiment template to take down VMSS availability zones with autoscale disabled
+# Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
 
 You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you take down an availability zone (with autoscale disabled) of a Virtual Machine Scale Sets instance using a pre-populated experiment template and Azure Chaos Studio.
 
@@ -65,13 +65,13 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the fault targets pane for autoscale, with the save button highlighted.](images/templates-azdownfaultonetarget.png)](images/templates-azdownfaultonetarget.png#lightbox)
 1. Within the **VMSS Shutdown (version 2.0)** fault, select **Edit**.
 
-   [![Screenshot that shows the experiment designer screen, with the edit button within the VMSS shutdown fault highlighted.](images/templates-azdownfaulttwoedit.png)](images/templates-azdownfaulttwoedit.png#lightbox)
+   [![Screenshot that shows the experiment designer screen, with the edit button within the Virtual Machine Scale Set shutdown fault highlighted.](images/templates-azdownfaulttwoedit.png)](images/templates-azdownfaulttwoedit.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
 
    [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/templates-azdownfaultonedetails.png)](images/templates-azdownfaultonedetails.png#lightbox)
 1. Select the virtual machine scale set resource that you want to use in the experiment. Select **Next: Scope**.
 
-   [![Screenshot that shows the fault targets pane for VMSS, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
+   [![Screenshot that shows the fault targets pane for Virtual Machine Scale Set, with the save button highlighted.](images/templates-azdownfaulttwotarget.png)](images/templates-azdownfaulttwotarget.png#lightbox)
 1. Select the zone(s) within your virtual machine scale set you would like to take down. Select **Save**.
 
    [![Screenshot that shows the scope pane, with the save button highlighted.](images/templates-az-down-scope.png)](images/templates-az-down-scope.png#lightbox)
