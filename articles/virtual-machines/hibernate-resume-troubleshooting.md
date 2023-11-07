@@ -183,7 +183,7 @@ Commonly seen issues:
 | Issue | Action |
 |--|--|
 | Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
-| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | Hibernation isn't supported with HVCI. Disabling HVCI should resolve the issue. |
+| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you are trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
 
 Logs needed for troubleshooting:
 
