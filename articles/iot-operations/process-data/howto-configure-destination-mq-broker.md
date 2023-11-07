@@ -48,6 +48,72 @@ Data format<sup>1</sup>: Use Data Processor's built-in serializer to serialize y
 
 Select `Raw` when you don't require serialization. Raw sends the data to the MQTT broker in its current format.
 
+## Sample configuration
+
+The following JSON example shows a complete MQ destination stage configuration that writes the entire message to the MQ `pipelineOutput` topic:
+
+```json
+{
+    "displayName": "MQ - 67e929",
+    "type": "output/mqtt@v1",
+    "viewOptions": {
+        "position": {
+            "x": 0,
+            "y": 992
+        }
+    },
+    "broker": "tls://aio-mq-dmqtt-frontend:8883",
+    "qos": 1,
+    "authentication": {
+        "type": "serviceAccountToken"
+    },
+    "topic": {
+        "type": "static",
+        "value": "pipelineOutput"
+    },
+    "format": {
+        "type": "json",
+        "path": "."
+    },
+    "userProperties": []
+}
+```
+
+The configuration defines that:
+
+- Authentication is done by using service account token.
+- The topic is a static string called `pipelineOutput`.
+- The output format is `JSON`.
+- The format path is `.` to ensure the entire data processor message is written to MQ. To write just the payload, change the path to ``.payload`.
+
+### Example
+
+The following example shows a sample input message to the MQ destination stage:
+
+```json
+{
+  "payload": {
+    "Batch": 102,
+    "CurrentTemperature": 7109,
+    "Customer": "Contoso",
+    "Equipment": "Boiler",
+    "IsSpare": true,
+    "LastKnownTemperature": 7109,
+    "Location": "Seattle",
+    "Pressure": 7109,
+    "Timestamp": "2023-08-10T00:54:58.6572007Z",
+    "assetName": "oven"
+  },
+  "qos": 0,
+  "systemProperties": {
+    "partitionId": 0,
+    "partitionKey": "quickstart",
+    "timestamp": "2023-11-06T23:42:51.004Z"
+  },
+  "topic": "quickstart"
+}
+```
+
 ## Related content
 
 - [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
