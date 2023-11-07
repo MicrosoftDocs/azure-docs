@@ -77,7 +77,8 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
    1. Select **Settings & monitoring**.
       - For customer using the new autoprovisioning process, select **Edit configuration** for the **Azure Monitoring Agent for SQL server on machines** component.
       - For customer using the previouse autoprovisioning process, select **Edit configuration** for the **Log Analytics agent/Azure Monitor agent** component.
-      **To enable the plan on a SQL VM/Arc-enabled SQL Server**:
+
+**To enable the plan on a SQL VM/Arc-enabled SQL Server**:
 
       1. Sign in to the [Azure portal](https://portal.azure.com).
 
