@@ -25,7 +25,7 @@ sections:
       - question: |
           Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
         answer: |
-          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it is important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
+          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it's important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
@@ -39,7 +39,7 @@ sections:
       - question: |
           Does Azure OpenAI support VNETs and Private Endpoints?
         answer: | 
-          Yes, as part of Azure AI services, Azure OpenAI supports VNETs and Private Endpoints. To learn more consult the [Azure AI services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context) 
+          Yes, as part of Azure AI services, Azure OpenAI supports VNETs and Private Endpoints. To learn more, consult the [Azure AI services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context) 
       - question: |
           Do the GPT-4 models currently support image input?
         answer: | 
@@ -47,7 +47,7 @@ sections:
       - question: |
           How do I apply for new use cases?
         answer: |
-          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you didn't originally apply for.
+          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Note that this is required anytime you would like to use the service for a new use case you didn't originally apply for.
       - question: |
           I'm trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
@@ -55,7 +55,7 @@ sections:
       - question: |
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
-          Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are extremely powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've mastered the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
+          Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've completed the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
       - question: |
           My guest account has been given access to an Azure OpenAI resource, but I'm unable to access that resource in the Azure OpenAI Studio. How do I enable access?
         answer: | 
@@ -73,7 +73,7 @@ sections:
           
           Alternatively if you're signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
       - question: |
-          When I ask GPT-4 what model it's running it tells me it's running GPT-3. Why does this happen?
+          When I ask GPT-4 which model it's running it tells me it's running GPT-3. Why does this happen?
         answer: | 
           Azure OpenAI models (including GPT-4) being unable to correctly identify what model is running is expected behavior. 
 
@@ -88,9 +88,9 @@ sections:
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
       
       - question: |
-          Where do I access pricing information for legacy models which are no longer available for new deployments? 
+          Where do I access pricing information for legacy models, which are no longer available for new deployments? 
         answer: | 
-          Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
+          Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models, consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
 
           
   - name: Getting access to Azure OpenAI Service
@@ -135,7 +135,7 @@ sections:
       - question: |
           How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio.  
         answer: |
-          In order to successfully access fine-tuning you need Cognitive Services OpenAI Contributor assigned. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
+          In order to successfully access fine-tuning, you need Cognitive Services OpenAI Contributor assigned. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information, please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
       - question: |
           What is the difference between a base model and a fine-tuned model?
         answer:
@@ -147,11 +147,11 @@ sections:
       - question: |
           What are the SLAs for API responses in Azure OpenAI?
         answer:
-          We don't have a defined API response time Service Level Agreement (SLA) at this time. For more information about the SLA for Azure OpenAI Service, consult the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
+          We don't have a defined API response time Service Level Agreement (SLA) at this time. For more information about the SLA for Azure OpenAI Service, see the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
-          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
+          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment is automatically deleted (and no further hosting charges are incurred for that deployment). The underlying customized model remains available and can be redeployed at any time. To learn more, check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
       - question: |
           How do I deploy a model with the REST API? 
         answer:
@@ -165,7 +165,7 @@ sections:
       - question: |
           Can I fine-tune the image capabilities in gpt-4?
         answer: |
-          No, we do not support fine-tuning the image capabilities of gpt-4 at this time.
+          No, we don't support fine-tuning the image capabilities of gpt-4 at this time.
       - question: |
           Can I use gpt-4 to generate images?
         answer: |
@@ -181,7 +181,7 @@ sections:
       - question: |
           Can I delete an image I uploaded?
         answer: |
-          No, we will delete the image for you automatically after it has been processed by the model.
+          No, we'll delete the image for you automatically after it has been processed by the model.
       - question: |
           Where can I learn more about the considerations of GPT-4 with Vision?
         answer: |
@@ -195,11 +195,11 @@ sections:
       - question: |
           Can GPT-4 with Vision understand image metadata?
         answer: |
-          No, the model does not receive image metadata.
+          No, the model doesn't receive image metadata.
       - question: |
           What happens if my image is unclear?
         answer: |
-          If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results may be less accurate. A good rule of thumb is that if an average human cannot see the info in an image at the resolutions used in low/high res mode, then the model cannot either.
+          If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results may be less accurate. A good rule of thumb is that if an average human can't see the info in an image at the resolutions used in low/high res mode, then the model can't either.
       - question: |
           What are the known limitations of GPT-4 with Vision?
         answer: |
@@ -208,7 +208,7 @@ sections:
           Scenario limitations:
           - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
           - Non-English: The model may not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
-          - Big text: Enlarge text within the image to improve readability, but avoid cropping important details.
+          - Large text: Enlarge text within the image to improve readability, but avoid cropping important details.
           - Rotation: The model may misinterpret rotated / upside-down text or images.
           - Visual elements: The model may struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
           - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
@@ -236,7 +236,7 @@ sections:
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
-          Your app code won't be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+          Your app code won't be overwritten when you update your app. The app is updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
   - name: Using your data
     questions:
       - question: |
@@ -254,15 +254,15 @@ sections:
       - question: |
           How much does it cost to use Azure OpenAI on your data?
         answer:
-          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
+          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no other cost for using the "your data" feature in the Azure AI Studio.
       - question: |
           How can I customize or automate the index creation process?
         answer:
-          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
+          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script creates an Azure Cognitive Search index with all the information needed to better use your data, with your documents broken down into manageable chunks. See the README file with the data preparation code for details on how to run it.
       - question: | 
           How can I update my index?
         answer:
-          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes), or upload more data to your Azure Blob Container and use it as your data source when you create a new index. The new index includes all of the data in your container.
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
@@ -270,7 +270,7 @@ sections:
       - question: |
           Is responsible AI supported by Azure OpenAI on your data?
         answer:
-          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
+          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for extra guidance on using Azure OpenAI on your data responsibly. 
       - question: |
           Is there a token limit on the system message? 
         answer: 
@@ -291,7 +291,7 @@ sections:
       - question: |
           How can I add vector embeddings when indexing my data?
         answer:
-          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This creates an Azure Cognitive Search index with vector embeddings.
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
