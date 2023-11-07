@@ -33,13 +33,13 @@ Complete the configuration using the following guidance:
 
 ### Limitations
 
-1. Protobuf Deserializer takes only one (1) protobuf definition file at a time. Imports to custom-made protobuf definition files are not supported.
+1. Protobuf Deserializer takes only one (1) protobuf definition file at a time. Imports to custom-made protobuf definition files aren't supported.
     For example:
     :::image type="content" source="./media/protobuf/one-proto-example.png" alt-text=" Screenshot showing how an example of a custom-made protobuf definition file." lightbox="./media/protobuf/one-proto-example.png" :::
 
     This protobuf definition file refers to another protobuf definition file in its imports. Because the protobuf deserializer would have only the current protobuf definition file and not know what carseat.proto is, it would be unable to deserialize correctly.
 
-2. Enums are not supported. If the protobuf definition file contains enums, then protobuf events deserialize, but the enum field is empty, leading to data loss.
+2. Enums aren't supported. If the protobuf definition file contains enums, then protobuf events deserialize, but the enum field is empty, leading to data loss.
 
 3. Maps in protobuf are currently not supported. Maps in protobuf results in an error about missing a string key.
 
@@ -51,7 +51,7 @@ Complete the configuration using the following guidance:
 
 5.	When sending messages that were serialized using Google.Protobuf, the prefix type should be set to base128 since that is the most cross-compatible type.
 
-6. Service Messages are not supported in the protobuf deserializers. Your job throws an exception if you attempt to use a service message.
+6. Service Messages aren't supported in the protobuf deserializers. Your job throws an exception if you attempt to use a service message.
 
 7. Current datatypes not supported: 
     * Any
