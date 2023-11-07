@@ -176,9 +176,14 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
-### Automatic web Instrumentation[Preview]
+### Browser SDK Loader
+
+> [!NOTE]
+> Available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
  Automatic web Instrumentation can be enabled for node server via JavaScript (Web) SDK Loader Script injection by configuration.
+
+<!-- This feature enables web instrumentation for node server. It automatically injects the [Browser SDK Loader Script](javascript-sdk.md?tabs=javascriptwebsdkloaderscript#add-the-javascript-code) into your application's HTML pages, including configuring the appropriate Connection String. -->
 
 ```javascript
 let appInsights = require("applicationinsights");
