@@ -14,6 +14,16 @@ ms.date: 08/30/2023
 
 This article lists significant updates and new features available in Azure Container Apps.
 
+### November 2023 
+
+| Feature | Description |
+| ------- | ------------ |
+| [GA: Landing zone accelerators](https://aka.ms/aca-lza) | Landing zone accelerators provide architectural guidance, reference architecture, reference implementations and automation packaged to deploy workload platforms on Azure at scale. |
+| [Public Preview: Dedicated GPU workload profiles](https://aka.ms/container-apps/gpu) | Azure Container Apps support GPU compute in their dedicated workload profiles to unlock machine learning computing for event driven workloads. |
+| [Public preview: Vector database add-ons](https://aka.ms/aca/addons-vector-dbs) | Azure Container Apps now provides add-ons for three of the most popular open source vector database variants, namely Qdrant, Milvus and Weaviate, to enable you to get started quickly and try out innovative use cases before going into production. |
+| [Public preview: Policy-driven resiliency](https://aka.ms/aca-resiliency) | The new resiliency feature enables you to seamlessly recover from service-to-service request and outbound dependency failures just by adding simple policies.  |
+| [Public preview: Code to cloud](https://aka.ms/aca/cloud-build) | With this feature, Azure Container Apps automatically builds and package the application code for deployment. |
+
 ### September 2023 
 
 | Feature | Description |
