@@ -17,6 +17,10 @@ In these samples, we add service-direct targets and capabilities for each [suppo
 > [!NOTE]
 > Each of these policies differs slightly, and you should consult the documentation of the Resource (e.g. Compute, Storage, etc.) you are using in addition to these below sample definitions to ensure you are setting everything ocrrectly for your specific scenario
 
+
+> [!NOTE]
+> Make sure the subscription you are using for the automated Azure policy deployment has the correct [RBAC permissions](../governance/policy/overview.md) to do this. 
+
 ## Azure Cache for Redis policy definition
 
 ```json
@@ -626,6 +630,10 @@ In these samples, we add service-direct targets and capabilities for each [suppo
   }
 }
 ```
+
+## Troubleshooting issues related to Azure Policy/RBAC
+Please visit [Troubleshoot errors with using Azure Policy](../governance/policy/troubleshoot/general.md) to do this. 
+
 
 ## Next steps
 
