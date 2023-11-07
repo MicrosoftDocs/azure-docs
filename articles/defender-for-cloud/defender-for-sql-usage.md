@@ -71,28 +71,24 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 1. Select **Save**.
 
 1. **(Optional)** Configure advanced autoprovisioning settings:
-
     1. Navigate to the **Environment settings** page.
 
-    1. Select **Settings & monitoring**.
+   1. Select **Settings & monitoring**.
+      - For customer using the new autoprovisioning process, select **Edit configuration** for the **Azure Monitoring Agent for SQL server on machines** component.
+      - For customer using the previouse autoprovisioning process, select **Edit configuration** for the **Log Analytics agent/Azure Monitor agent** component.
+      **To enable the plan on a SQL VM/Arc-enabled SQL Server**:
 
-        - For customer using the current generally available autoprovisioning process, select **Edit configuration** for the **Log Analytics agent/Azure Monitor agent** component.
+      1. Sign in to the [Azure portal](https://portal.azure.com).
 
-        - For customer using the preview of the autoprovisioning process, select **Edit configuration** for the **Azure Monitoring Agent for SQL server on machines (Preview)** component.
+      1. Navigate to your SQL VM/Arc-enabled SQL Server .
 
-**To enable the plan on a SQL VM/Arc-enabled SQL Server**:
+      1. In the SQL VM/Arc-enabled SQL Server menu, under the **Security**  section, select **Microsoft Defender for Cloud**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+      1. in the **Microsoft Defender for SQL server on machines** section click the **Enable** button.
 
-1. Navigate to your SQL VM/Arc-enabled SQL Server .
+      ## Explore and investigate security alerts
 
-1. In the SQL VM/Arc-enabled SQL Server menu, under the **Security**  section, select **Microsoft Defender for Cloud**.
-
-1. in the **Microsoft Defender for SQL server on machines** section click the **Enable** button.
-
-## Explore and investigate security alerts
-
-There are several ways to view Microsoft Defender for SQL alerts in Microsoft Defender for Cloud:
+      There are several ways to view Microsoft Defender for SQL alerts in Microsoft Defender for Cloud:
 
 - The Alerts page.
 
