@@ -13,7 +13,7 @@ content_well_notification:
 
 # Quickstart: Deploy a static website on Azure Storage using Terraform
 
-In this quickstart, you learn how to deploy an [Azure Storage account](https://www.terraform.io/docs/providers/azurerm/r/storage_account.html) with static website hosting enabled. As this feature is not natively supported throuhg the ARM SDK and hence Terraform, a local-provisioner step is used to enable it with the Azure CLI.
+In this quickstart, you learn how to deploy an [Azure Storage account](https://www.terraform.io/docs/providers/azurerm/r/storage_account.html) with static website hosting enabled. 
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
