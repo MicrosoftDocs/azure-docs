@@ -57,7 +57,7 @@ When using supported SDKs, you can enable SDK injection in configuration to auto
    | Language   
    |	:---	|
    | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | [Node.js](./nodejs.md#automatic-web-instrumentationpreview) |
+   | [Node.js](./nodejs.md#browser-sdk-loader) |
    | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
