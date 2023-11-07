@@ -60,7 +60,7 @@ The quality of the input images affects both the accuracy and the latency of the
 
 To achieve the optimal balance between accuracy and speed, follow these tips to optimize your input data. 
 - For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
-- For liveness detection, see tbd. 
+- For liveness detection, see the [tutorial](../Tutorials/liveness.md#select-a-good-reference-image). 
 
 #### Other file size tips
 
