@@ -45,10 +45,10 @@ apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: namespace: default
+  namespace: azure-iot-operations
 spec:
   listenerRef:
-    - "my-listener"
+    - "my-listener" # change to match your listener name as needed
   authorizationPolicies:
     enableCache: true
     rules:
@@ -131,19 +131,19 @@ For example, if a client has a certificate with subject `CN = smart-lock`, its u
 Authorization attributes for SATs are set as part of the Service Account annotations. For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
 
 ```bash
-kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=authz-sat
+kubectl annotate serviceaccount mqtt-client aio-mq-broker-auth/group=authz-sat
 ```
 
-Attribute annotations must begin with `azedge-broker-auth/` to distinguish them from other annotations.
+Attribute annotations must begin with `aio-mq-broker-auth/` to distinguish them from other annotations.
 
-As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principle, for example:
+As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: namespace: default
+  namespace: azure-iot-operations
 spec:
   listenerRef:
     - "az-mqtt-non-tls-listener"
@@ -165,18 +165,10 @@ spec:
 
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
 
-## Key-value Store
-
-Azure IoT MQ Broker provides a distributed key-value (KV) store that clients can use as a state store. The KV store can also be configured to be highly available.
-
-To set up authorization for clients that use the key-value store, give it:
-
-- Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
-- Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
 
 ## Update authorization
 
-Broker authorization resources can be update at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
+Broker authorization resources can be updated at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
 
 ```bash
 kubectl edit brokerauthorization my-authz-policies
@@ -191,7 +183,7 @@ apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "my-listener"
-  namespace: namespace: default
+  namespace: azure-iot-operations
 spec:
   brokerRef: "my-broker"
   authenticationEnabled: false
@@ -205,7 +197,7 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 ## Related content
 
-- About [BrokerListener resource](howto-brokerlistener.md)
+- About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

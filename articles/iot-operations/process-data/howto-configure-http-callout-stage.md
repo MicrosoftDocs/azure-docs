@@ -36,6 +36,11 @@ The HTTP call out stage JSON configuration defines the details of the stage. To 
 | Description | string | A user-friendly description of what the call out stage does.  | No |   | `Call ML endpoint 1` |
 | Method | string enum | The HTTP method.  | No | `POST` | `GET` |
 | URL | string | The HTTP URL. | Yes | - | `http://localhost:8080` |
+| Authentication | string | The authentication type to use. `None`/`Username/Password`/`Header`. | Yes | `None` | `None` |
+| Username | string | The username to use when `Authentication` is set to `Username/Password`. | No | - | `myusername` |
+| Secret | string | The [secret reference](../deploy/howto-manage-secrets.md) for the password to use when `Authentication` is set to `Username/Password`. | No | - | `mysecret` |
+| Header key | string | The header key to use when `Authentication` is set to `Header`. The value must be `authorization`. | No | `authorization` | `authorization` |
+| Secret | string | The [secret reference](../deploy/howto-manage-secrets.md) to use when `Authentication` is set to `Header`. | No | - | `mysecret` |
 | API Request&nbsp;>&nbsp;Data Format | string | The format the request body should be in and any serialization details.  | No | - | `JSON` |
 | API Request&nbsp;>&nbsp;Path | [Path](concept-configuration-patterns.md#path) | The [Path](concept-configuration-patterns.md#path) to the property in the incoming message to send as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.httpPayload` |
 | API request&nbsp;>&nbsp;Header&nbsp;>&nbsp;Key<sup>1</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The header key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |

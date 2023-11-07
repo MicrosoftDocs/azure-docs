@@ -111,6 +111,112 @@ Type<sup>4</sup>: The data processor writes to Microsoft Fabric by using the del
 
 To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
 
+## Sample configuration
+
+The following JSON example shows a complete Microsoft Fabric lakehouse destination stage configuration that writes the entire message to the `quickstart` table in the database`:
+
+```json
+{
+    "displayName": "Fabric Lakehouse - 520f54",
+    "type": "output/fabric@v1",
+    "viewOptions": {
+        "position": {
+            "x": 0,
+            "y": 784
+        }
+    },
+    "url": "https://msit-onelake.pbidedicated.windows.net",
+    "workspace": "workspaceId",
+    "lakehouse": "lakehouseId",
+    "table": "quickstart",
+    "columns": [
+        {
+            "name": "Timestamp",
+            "type": "timestamp",
+            "path": ".Timestamp"
+        },
+        {
+            "name": "AssetName",
+            "type": "string",
+            "path": ".assetname"
+        },
+        {
+            "name": "Customer",
+            "type": "string",
+            "path": ".Customer"
+        },
+        {
+            "name": "Batch",
+            "type": "integer",
+            "path": ".Batch"
+        },
+        {
+            "name": "CurrentTemperature",
+            "type": "float",
+            "path": ".CurrentTemperature"
+        },
+        {
+            "name": "LastKnownTemperature",
+            "type": "float",
+            "path": ".LastKnownTemperature"
+        },
+        {
+            "name": "Pressure",
+            "type": "float",
+            "path": ".Pressure"
+        },
+        {
+            "name": "IsSpare",
+            "type": "boolean",
+            "path": ".IsSpare"
+        }
+    ],
+    "authentication": {
+        "type": "servicePrincipal",
+        "tenantId": "tenantId",
+        "clientId": "clientId",
+        "clientSecret": "secretReference"
+    },
+    "batch": {
+        "time": "5s",
+        "path": ".payload"
+    }
+}
+```
+
+The configuration defines that:
+
+- Messages are batched for 5 seconds.
+- Uses the batch path `.payload` to locate the data for the columns.
+
+### Example
+
+The following example shows a sample input message to the Microsoft Fabric lakehouse destination stage:
+
+```json
+{
+  "payload": {
+    "Batch": 102,
+    "CurrentTemperature": 7109,
+    "Customer": "Contoso",
+    "Equipment": "Boiler",
+    "IsSpare": true,
+    "LastKnownTemperature": 7109,
+    "Location": "Seattle",
+    "Pressure": 7109,
+    "Timestamp": "2023-08-10T00:54:58.6572007Z",
+    "assetName": "oven"
+  },
+  "qos": 0,
+  "systemProperties": {
+    "partitionId": 0,
+    "partitionKey": "quickstart",
+    "timestamp": "2023-11-06T23:42:51.004Z"
+  },
+  "topic": "quickstart"
+}
+```
+
 ## Related content
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)

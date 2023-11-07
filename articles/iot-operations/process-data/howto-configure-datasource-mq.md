@@ -60,7 +60,42 @@ Data Processor doesn't reorder out-of-order data coming from the MQTT broker. If
 | Partition expression | The [jq expression](../process-data/concept-jq-expression.md) to use on the incoming message to compute the partition `ID` or partition `Key` | Required | `.topic` | `.topic` |
 | Number of partitions| The number of partitions in a Data Processor pipeline. | Required | `2` | `2` |
 
+Data Processor adds additional metadata to the incoming message. See [Data Processor message structure overview](concept-message-structure.md) to understand how to correctly specify the partitioning expression that runs on the incoming message. By default, the partitioning expression is set to `0` with the **Partition type** as `ID` to send all the incoming data to a single partition.
+
 For recommendations and to learn more, see [What is partitioning?](../process-data/concept-partitioning.md).
+
+## Sample configuration
+
+The following shows an example configuration for the stage:
+
+| Parameter | Value |
+| --------- | ----- |
+| Name | `input data` |
+| Broker | `tls://aio-mq-dmqtt-frontend:8883` |
+| Authentication | `Service Account Token (SAT)` |
+| Topic | `azure-iot-operations/data/opc.tcp/opc.tcp-1/#` |
+| Data format | `JSON` |
+
+This example shows the topic used in the [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md). This configuration then generates messages that look like the following example:
+
+```json
+{
+    "Timestamp": "2023-08-10T00:54:58.6572007Z", 
+    "MessageType": "ua-deltaframe",
+    "payload": {
+      "temperature": {
+        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
+        "Value": 7109
+      },
+      "Tag 10": {
+        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
+        "Value": 7109
+      }
+    },
+    "DataSetWriterName": "oven",
+    "SequenceNumber": 4660
+}
+```
 
 ## Related content
 

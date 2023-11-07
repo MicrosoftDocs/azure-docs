@@ -3,6 +3,7 @@ items:
     href: index.yml
     items:
     - name: Get started
+      expanded: true
       items:
       - name: Overview
         href: get-started/overview-iot-operations.md
@@ -62,14 +63,16 @@ items:
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
         - name: Configure an OPC PLC simulator
           href: manage-devices-assets/howto-configure-opc-plc-simulator.md
+        - name: Configure OPC UA authentication options
+          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview
         href: manage-mqtt-connectivity/overview-iot-mq.md
       - name: Configure availability and scale
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
-      - name: Secure communication using BrokerListener
-        href: manage-mqtt-connectivity/howto-brokerlistener.md
+      - name: Secure MQTT communication endpoints
+        href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
       - name: Configure automatic TLS
         href: manage-mqtt-connectivity/howto-configure-tls-auto.md
       - name: Configure manual TLS
@@ -80,8 +83,6 @@ items:
         href: manage-mqtt-connectivity/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-connectivity/howto-test-connection.md  
-      - name: Configure disk buffer
-        href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
       - name: Configure diagnostic settings
         href: manage-mqtt-connectivity/howto-configure-diagnostics.md
       - name: Manage secrets
