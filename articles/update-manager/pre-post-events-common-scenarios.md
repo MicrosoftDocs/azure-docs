@@ -4,6 +4,8 @@ description: An overview of common scenarios for pre and post events (preview), 
 ms.service: azure-update-manager
 ms.topic: conceptual
 ms.date: 11/06/2023
+author: SnehaSudhir 
+ms.author: sudhirsneha
 ---
 
 # Pre and Post events (preview) common scenarios
