@@ -18,26 +18,26 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 
 
 ## How to use PostgreSQL extensions
-Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allow-list these extensions for use. 
+Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allowlist these extensions for use. 
 
 Using the [Azure portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL - Flexible Server.
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `azure.extensions` parameter.
-   4. Select extensions you wish to allow-list.
+   4. Select extensions you wish to allowlist.
      :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
   
 Using [Azure CLI](/cli/azure/):
 
-   You can allow-list extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can allowlist extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
    ```
 
    Using [ARM Template](../../azure-resource-manager/templates/index.yml):
-   Example shown below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+   Example shown below allowlists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
 
@@ -114,7 +114,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
 
-After extensions are allow-listed and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+After extensions are allowlisted and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
 > [!NOTE]
 > Third party extensions offered in Azure Database for PostgreSQL - Flexible Server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
