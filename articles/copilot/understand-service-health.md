@@ -10,7 +10,7 @@ author: JnHs
 
 # Understand service health events and status using Microsoft Copilot for Azure (preview)
 
-You can ask Microsoft Copilot for Azure (preview) questions to get information from [Azure Service Health](/azure/service-health/overview). This provides a quick way to find out if there are any service health events impacting your Azure subscriptions. You can also find out more information about a known service health event.
+You can ask Microsoft Copilot for Azure (preview) questions to get information from [Azure Service Health](/azure/service-health/overview). This provides a quick way to find out if there are any service health events impacting your Azure subscriptions. You can also get more information about a known service health event.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
