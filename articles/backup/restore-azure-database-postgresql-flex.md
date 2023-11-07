@@ -39,4 +39,4 @@ You can restore a database to any Azure PostgreSQL server of a different or same
  
 ## Next steps
 
-[Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)
+[Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md).
