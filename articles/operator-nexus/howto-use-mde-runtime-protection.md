@@ -41,7 +41,7 @@ export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
 export CLUSTER_NAME="contoso-cluster"
 ```
 
-## Enabling & Disabling MDE Service on All Nodes
+## Enabling & disabling MDE service on all nodes
 To use the MDE runtime protection service on the Cluster, you need to make the cluster aware of it first. The Cluster is not aware of this functionality by default.
 To do this, execute the following command with `enforcement-level="Disabled"`.
 
