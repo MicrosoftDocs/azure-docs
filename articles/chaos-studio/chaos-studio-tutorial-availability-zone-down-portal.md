@@ -44,7 +44,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 
 1. In Chaos Studio, go to **Experiments** > **Create** > **New from template**.
 
-   [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/tutorial-aad-outage-create.png)](images/tutorial-aad-outage-create.png#lightbox)
+   [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/templates-az-down-create-from.png)](images/templates-az-down-create-from.png#lightbox)
 1. Select **Availability Zone Down**.
 
    [![Screenshot that shows the experiment templates screen, with the Availability Zone down template button highlighted.](images/templates-azdownselection.png)](images/templates-azdownselection.png#lightbox)
