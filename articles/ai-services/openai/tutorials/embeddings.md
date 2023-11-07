@@ -220,6 +220,8 @@ import tiktoken
 from openai import AzureOpenAI
 ```
 
+---
+
 Now we need to read our csv file and create a pandas DataFrame. After the initial DataFrame is created, we can view the contents of the table by running `df`.
 
 ```python
@@ -380,6 +382,7 @@ def generate_embeddings(text, model="text-embedding-ada-002"): # model = "deploy
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
 df_bills['ada_v2'] = df_bills["text"].apply(lambda x : generate_embeddings (x, model = 'text-embedding-ada-002')) # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+```
 
 ---
 
