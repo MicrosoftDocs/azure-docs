@@ -23,17 +23,18 @@ Azure IoT Akri enables you to detect and create `Assets` in the address space of
 
 - Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 - Ensure that Azure IoT Akri agent pod is properly configured by running the following code:
-  ```bash
-  kubectl get pods -n azure-iot-operations
-  ```
 
-You should see the agent and discovery handler pod running:
+    ```bash
+    kubectl get pods -n azure-iot-operations
+    ```
 
-  ```output
-  NAME                                             READY   STATUS    RESTARTS   AGE
-  aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17m
-  aio-akri-opcua-asset-discovery-daemonset-dwn2q   1/1     Running   0          8m28s
-  ```
+    You should see the agent and discovery handler pod running:
+    
+    ```output
+    NAME                                             READY   STATUS    RESTARTS   AGE
+    aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17m
+    aio-akri-opcua-asset-discovery-daemonset-dwn2q   1/1     Running   0          8m28s
+    ```
 
 ## Deploy the UPC UA discovery handler
 
@@ -62,18 +63,18 @@ To deploy the custom OPC UA discovery handler with asset detection, first you cr
     
     If you're using the simulated PLC server that was deployed with the Azure IoT Operations Quickstart, you don't need to change the `endpointUrl`. If you have your own OPC UA servers running or are using the simulated PLC servers deployed on Azure, add in your endpoint URL accordingly.
 
-```yaml
-apiVersion: akri.sh/v0
-kind: Configuration
-metadata:
-  name: aio-akri-opcua-asset
-spec:
-  discoveryHandler: 
-    name: opcua-asset
-    discoveryDetails: "opcuaDiscoveryMethod:\n  - asset:\n      endpointUrl: \"	opc.tcp://opcplc-000000:50000\"\n      useSecurity: false\n      autoAcceptUntrustedCertificates: true\n"
-  brokerProperties: {}
-  capacity: 1
-```
+    ```yaml
+    apiVersion: akri.sh/v0
+    kind: Configuration
+    metadata:
+      name: aio-akri-opcua-asset
+    spec:
+      discoveryHandler: 
+        name: opcua-asset
+        discoveryDetails: "opcuaDiscoveryMethod:\n  - asset:\n      endpointUrl: \"	opc.tcp://opcplc-000000:50000\"\n      useSecurity: false\n      autoAcceptUntrustedCertificates: true\n"
+      brokerProperties: {}
+      capacity: 1
+    ```
 
 
 2. Apply the YAML to configure Azure Iot Akri to discover the assets:
@@ -107,7 +108,7 @@ spec:
           => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
           Got discover request opcuaDiscoveryMethod:
             - asset:
-                endpointUrl: "opc.tcp://opcplc-000000.alice-springs:50000"
+                endpointUrl: "opc.tcp://opcplc-000000:50000"
                 useSecurity: false
                 autoAcceptUntrustedCertificates: true
            from ipv6:[::ffff:10.1.7.47]:39708
@@ -116,14 +117,14 @@ spec:
           Start asset discovery
     2023-06-07 12:49:20.242 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
           => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Discovering OPC UA endpoint opc.tcp://opcplc-000000.alice-springs:50000 using Asset Discovery
+          Discovering OPC UA endpoint opc.tcp://opcplc-000000:50000 using Asset Discovery
     ...
     2023-06-07 14:20:03.905 +00:00 info: OpcUa.Common.Dtdl.DtdlGenerator[6901]
           => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
           Created DTDL_2 model for boiler_1 with 35 telemetries in 0 ms
     2023-06-07 14:20:04.208 +00:00 info: OpcUa.AssetDiscovery.Akri.CustomResources.CustomResourcesManager[0]
           => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Generated 1 asset CRs from discoveryUrl opc.tcp://opcplc-000000.alice-springs:50000
+          Generated 1 asset CRs from discoveryUrl opc.tcp://opcplc-000000:50000
     2023-06-07 14:20:04.208 +00:00 info: OpcUa.Common.Client.OpcUaClient[1005]
           => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
           Session ns=8;i=1828048901 is closing
@@ -149,39 +150,6 @@ spec:
     ```
 
     You can inspect the instance custom resource by using an editor such as OpenLens, under `CustomResources/akri.sh/Instance`.
-
-    For example, the following snippet shows the JSON encoded result of the asset detection with the information of the observable variables of axis-1:
-
-    ```json
-      "spec": {
-        "name": "axis_1",
-        "description": "",
-        "dataPoints": [
-            {
-                "schemaPath": "dtmi:microsoft:e4i:axis_1:ActualPosition_6020;1",
-                "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6020",
-                "observabilityMode": "none"
-            },
-            {
-                "schemaPath": "dtmi:microsoft:e4i:axis_1:ActualAcceleration_6022;1",
-                "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6022",
-                "observabilityMode": "none"
-            },
-            {
-                "schemaPath": "dtmi:microsoft:e4i:axis_1:ActualSpeed_6024;1",
-                "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6024",
-                "observabilityMode": "none"
-            },
-            {
-                "schemaPath": "dtmi:microsoft:e4i:axis_1:Mass_6050;1",
-                "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6050",
-                "observabilityMode": "none"
-            }
-        ],
-        "sourceModule": "opc-ua-broker-opcplc-alice-springs-50000",
-        "type": "axis-1"
-      }
-    ```
 
     The OPC UA Connector supervisor watches for new Azure IoT Akri instance custom resources of type `opc-ua-asset`, and generates the initial asset types and asset custom resources for them. You can modify asset custom resources to add settings such as extending publishing for more data points, or to add OPC UA Broker observability settings.
 

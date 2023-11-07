@@ -18,9 +18,9 @@ ms.date: 10/24/2023
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more.  Azure IoT MQ Preview supports two of these building blocks:
 
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
-- State Management, powered by the [Azure IoT MQ State Store](concept-about-state-store.md)
+- State Management
 
-To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and E4K pluggable components.
+To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Features supported
 
@@ -128,13 +128,13 @@ Your application can authenticate to MQ using any of the [supported authenticati
 1. Create a Kubernetes service account:
 
     ```bash
-    kubectl create serviceaccount mqtt-client-token
+    kubectl create serviceaccount mqtt-client
     ```
 
-1. Ensure that the service account `mqtt-client-token` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `mqtt-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```bash
-    kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
+    kubectl annotate serviceaccount mqtt-client aio-mq-broker-auth/group=dapr-workload
     ```
 
 1. Create a ConfigMap containing the CA certificate chain used to valid the MQTT broker:
@@ -156,7 +156,7 @@ To create the yaml file, use the following component definitions:
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
 > | `dapr-workload`  | The Dapr application authorization attribute, a client id or username is not required due to [SAT annotations](../manage-mqtt-connectivity/howto-configure-authentication.md).        |
-> | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
+> | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the MQ state store.        |
 > | `response_topic`   |  The response topic for the MQ state store.       |
 
 1. Save the following yaml, which contains the component definitions, to a file named `aio-mq-authz.yaml`. 
@@ -247,7 +247,7 @@ To start, you create a yaml file that uses the following component definitions:
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
 > | `dapr-components-sockets`  | Referenced several times, which facilitates the communication between all parties.       |
-> | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
+> | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the MQ state store.        |
 
 1. Save the following yaml to a file named `dapr-app.yaml`:
 
@@ -264,7 +264,7 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-port: "6001"      # Required for
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
-      serviceAccountName: aio-mq-client
+      serviceAccountName: mqtt-client
 
       volumes:
         - name: dapr-unix-domain-socket
@@ -287,11 +287,11 @@ To start, you create a yaml file that uses the following component definitions:
       containers:
         # Container for the dapr quickstart application 
         - name: dapr-workload
-          image: alicesprings.azurecr.io/quickstart-sample:latest
+          image: ghcr.io/azure-samples/explore-iot-operations/quickstart-sample:latest
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
-          image: alicesprings.azurecr.io/dapr/mq-pubsub:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -302,7 +302,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
-          image: alicesprings.azurecr.io/dapr/mq-statestore:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -345,6 +345,14 @@ In the example used for this article, the application subscribes to the `orders`
     mosquitto_pub -h localhost -t "orders" -m '{"data": "{\"orderId\": 9, \"item\": \"item9\"}"}' -i "publisher1" -u client1 -P password
     ```
 
+    This will publish the following json to the `orders` topic:
+
+    ```json
+    {
+      "data": "{\"orderId\": 9, \"item\": \"item9\"}"
+    }
+    ```
+
 1. Back in the subscriber window, the message appears alongside Dapr tracing info:
 
     ```json
@@ -379,4 +387,4 @@ kubectl logs dapr-workload daprd
 
 ## Related content
 
-- [What is the Azure IoT MQ state store](concept-about-state-store.md)
+- [Develop highly available applications](concept-about-distributed-apps.md)

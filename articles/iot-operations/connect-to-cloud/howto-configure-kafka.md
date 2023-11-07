@@ -71,8 +71,8 @@ metadata:
 spec:
   image:
     pullPolicy: IfNotPresent
-    repository: e4kpreview.azurecr.io/kafka
-    tag: 0.1.0
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.1.0-preview
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
@@ -150,6 +150,8 @@ The authentication field supports different types of authentication methods, suc
 | sasl | The configuration for SASL authentication. Specify the `saslType` which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
 | x509 | The configuration for X509 authentication. Specify the `secretName` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
 | systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
+
+You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
 For Event Hubs, use plain SASL and `$ConnectionString` as the username and the full connection string as the password.
 

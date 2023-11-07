@@ -111,8 +111,8 @@ metadata:
   namespace: default
 spec:
   image:
-    repository: e4kpreview.azurecr.io/mqttbridge
-    tag: 0.1.0
+    repository: mcr.microsoft.com/azureiotoperations/mqttbridge
+    tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
@@ -137,6 +137,6 @@ spec:
 
 ## Related content
 
-- About [BrokerListener resource](concept-brokerlistener.md)
+- About [BrokerListener resource](howto-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)

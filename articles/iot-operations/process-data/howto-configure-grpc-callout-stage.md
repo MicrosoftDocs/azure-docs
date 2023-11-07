@@ -20,7 +20,6 @@ Use the _gRPC call out_ stage to call an external [gRPC](https://grpc.io/docs/wh
 - API calls are synchronous, the stage waits for the call to return before continuing with further pipeline processing.
 - Currently, the stage only supports the [Unary RPC type](https://grpc.io/docs/what-is-grpc/core-concepts/#unary-rpc).
 - gRPC call out can only be used with the [Protobuf](concept-supported-formats.md#protocol-buffers-data-format) format. You must use the [Protobuf](concept-supported-formats.md#protocol-buffers-data-format) with the gRPC call out stage.
-- Currently, you can't authenticate gRPC calls.
 
 ## Prerequisites
 
@@ -38,9 +37,13 @@ The gRPC call out stage JSON configuration defines the details of the stage. To 
 | ---- | ---- | ----------- | -------- | ------- | ------- |
 | Name           | string | A name to show in the Data Processor UI.  | Yes | -  | `MLCall2` |
 | Description    | string | A user-friendly description of what the call out stage does.  | No |   | `Call ML endpoint 2` |
-| Server address | String | The gRPC server address. | Yes | - | `https://localhost:1313` |
+| Server address | string | The gRPC server address. | Yes | - | `https://localhost:1313` |
 | RPC name       | string | The RPC name to call| Yes | - | `GetInsights` |
 | Descriptor<sup>1</sup>            | string | The base 64 encoded descriptor.  | Yes | - | `CuIFChxnb29nb` |
+| Authentication | string | The authentication type to use. `None`/`Metadata`. | Yes | `None` | `None` |
+| Metadata key   | string | The metadata key to use when `Authentication` is set to `Metadata`. | No | `authorization` | `authorization` |
+| Secret | string | The [secret reference](../deploy/howto-manage-secrets.md) to use when `Authentication` is set to `Metadata`. | No | - | `mysecret` |
+| Enable TLS | boolean | Whether to enable TLS. Data Processor currently supports TLS based authentication with public certificate.  | No | `false` | `true` |
 | API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the Data Processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Key<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Value<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata value to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |

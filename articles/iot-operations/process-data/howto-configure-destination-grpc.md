@@ -20,7 +20,6 @@ When you send data to a gRPC endpoint from a destination stage:
 
 - Currently, the stage only supports the [Unary RPC type](https://grpc.io/docs/what-is-grpc/core-concepts/#unary-rpc).
 - You can only use the [Protobuf](concept-supported-formats.md#protocol-buffers-data-format) format. You must use the [Protobuf](concept-supported-formats.md#protocol-buffers-data-format) with the gRPC call out stage.
-- Currently, you can't authenticate gRPC calls.
 - Because this stage is a pipeline destination, the response is discarded.
 
 ## Prerequisites
@@ -42,6 +41,9 @@ The gRPC destination stage JSON configuration defines the details of the stage. 
 | Server address | String | The gRPC server address | Yes | - | `https://localhost:1313` |
 | RPC name | string | The RPC name to call| Yes | - | `GetInsights` |
 | Descriptor<sup>1</sup> | String | The base 64 encoded descriptor | Yes | - | `CuIFChxnb29nb` |
+| Authentication | string | The authentication type to use. `None`/`Metadata`. | Yes | `None` | `None` |
+| Metadata key   | string | The metadata key to use when `Authentication` is set to `Metadata`. | No | `authorization` | `authorization` |
+| Secret | string | The [secret reference](../deploy/howto-manage-secrets.md) to use when `Authentication` is set to `Metadata`. | No | - | `mysecret` |
 | API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the Data Processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Key<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Value<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata value to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |

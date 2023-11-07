@@ -52,16 +52,16 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
     spec:
       authImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-authentication
-        tag: 0.1.0
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
+        tag: 0.1.0-preview
       brokerImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-pod
-        tag: 0.1.0
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
+        tag: 0.1.0-preview
       healthManagerImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-operator
-        tag: 0.1.0
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-operator
+        tag: 0.1.0-preview
       mode: distributed
       cardinality:
         frontend:
@@ -187,15 +187,15 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
     spec:
       authImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-authentication
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
         tag: 0.1.0
       brokerImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-pod
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
         tag: 0.1.0
       healthManagerImage:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/dmqtt-operator
+        repository: mcr.microsoft.com/azureiotoperations/dmqtt-operator
         tag: 0.1.0
       mode: distributed
       cardinality:
@@ -231,7 +231,7 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
     spec:
       image:
         pullPolicy: Always
-        repository: e4kpreview.azurecr.io/diagnostics-service
+        repository: mcr.microsoft.com/azureiotoperations/diagnostics-service
         tag: 0.1.0
       logFormat: "text"
     ```

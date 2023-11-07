@@ -16,7 +16,7 @@ ms.date: 10/02/2023
 
 Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
-For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials** as the password database.
+For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials**. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -82,7 +82,7 @@ The earlier example specifies custom, SAT, and [username-password authentication
 
 1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then Azure IoT MQ falls back to the remaining specified methods, with SAT being next.
 
-1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid according to the password database.
+1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid.
 
 If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 
@@ -155,7 +155,7 @@ The output shows the PBKDF2 password hash to copy:
 }
 ```
 
-Then, import the TOML file as a Kubernetes secret  called "credentials" using kubectl.
+Then, import the TOML file as a Kubernetes secret called "credentials" using kubectl.
 
 ```bash
 kubectl create secret generic credentials --from-file=passwords.toml=./clients.toml
@@ -179,11 +179,13 @@ spec:
 
 It might take a few minutes for the changes to take effect.
 
+You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+
 # [Certificate](#tab/cert)
 
 ## Prerequisites
 
-- Azure IoT MQ configured with [TLS enabled](concept-brokerlistener.md).
+- Azure IoT MQ configured with [TLS enabled](howto-brokerlistener.md).
 - [Step-CLI](https://smallstep.com/docs/step-cli/installation/)
 - Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some.
 - Familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates.
@@ -192,7 +194,7 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 
 ## Enable X.509 client authentication
 
-To enable X.509 client authentication, [TLS must first be enabled](concept-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
+To enable X.509 client authentication, [TLS must first be enabled](howto-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -458,7 +460,7 @@ spec:
 
 ## Related content
 
-- About [BrokerListener resource](concept-brokerlistener.md)
+- About [BrokerListener resource](howto-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

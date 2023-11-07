@@ -48,7 +48,7 @@ Complete the steps to [enable container insights](../../azure-monitor/containers
 ## Deploy dashboards to Grafana
 Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. Azure Managed Grafana is a fully managed Azure service operated and supported by Microsoft. Grafana helps you bring together metrics, logs and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.
 
-Azure IoT Operations provides a collection of dashboards designed to give you many of the visualizations you need to understand the health and performance of your Alice Springs deployment.
+Azure IoT Operations provides a collection of dashboards designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
 
 To deploy a custom curated dashboard to Azure Managed Grafana, complete the following steps:
 

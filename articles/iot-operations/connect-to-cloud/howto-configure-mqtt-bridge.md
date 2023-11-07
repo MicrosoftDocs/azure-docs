@@ -48,15 +48,15 @@ The MqttBridgeConnector resource defines the MQTT bridge connector that can comm
 The following example shows a minimal configuration for bridging to an Azure Event Grid MQTT broker. It uses system-assigned managed identity for authentication and TLS encryption.
 
 ```yaml
-apiVersion: e4kpreview.com/v1alpha4
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: MqttBridgeConnector
 metadata:
   name: "my-mqtt-bridge"
   namespace: <SAME NAMESPACE AS BROKER> 
 spec:
   image: 
-    repository: e4kpreview.azurecr.io/mqttbridge 
-    tag: 0.1.0
+    repository: mcr.microsoft.com/azureiotoperations/mqttbridge 
+    tag: 0.1.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
@@ -160,7 +160,7 @@ The `x509` field includes the following fields:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| secretName | Yes | The Kubernetes secret containing the client certificate and private key. |
+| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).|
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Azure IoT MQ's MQTT bridge can present a client X.509 certificate and negotiate the TLS communication. Use a Kubernetes secret to store the X.509 client certificate, private key and intermediate CA.
 
@@ -508,8 +508,8 @@ On your Kubernetes cluster:
    spec:
      protocol: v5
      image:
-       repository: e4kpreview.azurecr.io/mqttbridge
-       tag: 0.1.0
+       repository: mcr.microsoft.com/azureiotoperations/mqttbridge
+       tag: 0.1.0-preview
        pullPolicy: IfNotPresent
      bridgeInstances: 1
      remoteBrokerConnection:
