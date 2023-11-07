@@ -262,7 +262,7 @@ When a mapping relationship already exists between source and target elements, y
 
 1. On the map, select the line for the mapping that you created.
 
-1. Move your pointer over the selected line, and select the plus sign (**+**) that appears.
+1. Move your pointer over the selected line, and select the **Insert function** plus sign (**+**) that appears.
 
 1. From the functions list that opens, find and select the function that you want to use. 
 
