@@ -63,7 +63,7 @@ See the following sample request body:
 ```
 Open a command prompt window and run the cURL command.
 ### Interpret the API response
-You should see the text moderation results displayed as JSON data in the console output. For example:
+You should see the protected materials detection results displayed as JSON data in the console output. For example:
 ```json
 {
   "protectedMaterialAnalysis": {
@@ -75,5 +75,5 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **protectedMaterialAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. | String |
+| **protectedMaterialAnalysis**   | Each output class that the API predicts. | String |
 | **detected** | protected Material violations were detected or not.  | Boolean |
