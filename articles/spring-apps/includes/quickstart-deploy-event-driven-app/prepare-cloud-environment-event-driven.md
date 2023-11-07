@@ -30,15 +30,15 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 [!INCLUDE [provision-service-bus](provision-service-bus.md)]
 
-1. Select **Shared access policies** on the navigation menu, then select **RootManageSharedAccessKey**.
+1. Select **Shared access policies** on the navigation menu and then select **RootManageSharedAccessKey**.
 
 1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String** value, which is used to set up connections from the Spring app.
 
-1. Select **Queues** on the navigation menu, then select **Queue**.
+1. Select **Queues** on the navigation menu and then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name**, then select **Create**.
+1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
 
-1. Repeat the previous step, enter *upper-case* for **Name**, then select **Create**.
+1. Create another queue by repeating the previous step using *upper-case* for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 

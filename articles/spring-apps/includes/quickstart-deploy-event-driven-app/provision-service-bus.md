@@ -21,7 +21,7 @@ Use the following steps to create a Service Bus instance:
 
 1. On the **Service Bus** section, select **Create**.
 
-1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form.
+1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 
    | Setting                       | Suggested value                     | Description                                                                                                                                                                 |
    |-------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

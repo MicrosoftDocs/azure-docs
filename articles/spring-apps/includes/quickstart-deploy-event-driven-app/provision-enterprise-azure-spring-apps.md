@@ -4,13 +4,13 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 11/06/2023
 ---
 
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision Spring Apps instance for event-driven app.
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart-deploy-event-driven-app/provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](quickstart-deploy-event-driven-app/provision-enterprise-azure-spring-apps.md)]
 
 -->
 
