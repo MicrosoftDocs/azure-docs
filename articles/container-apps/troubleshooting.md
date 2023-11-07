@@ -14,13 +14,15 @@ zone_pivot_groups: azure-portal-console
 
 # Troubleshoot a container app
 
-Reviewing Azure Container Apps logs and configuration settings can reveal underlying problems if your container app isn't behaving correctly.
+Reviewing Azure Container Apps logs and configuration settings can reveal underlying issues if your container app isn't behaving correctly.
 
 ## Scenarios
 
-| Issue | Actions |
+The following table lists issues you might encounter while using Azure Container Apps, and the actions you can take to help resolve these issues.
+
+| Scenarios | Actions |
 |--|--|
-| All issues. | [View logs.](#view-logs)<br>[Use Diagnose and solve problems.](#use-diagnose-and-solve-problems) |
+| All scenarios. | [View logs.](#view-logs)<br>[Use Diagnose and solve problems.](#use-diagnose-and-solve-problems) |
 | You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image.](#verify-accessibility-of-container-image) |
 | After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
 | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
@@ -50,6 +52,7 @@ Your container app's console logs capture the app's `stdout` and `stderr` stream
 	```
 1. In the results pane at the bottom, make sure *Results* is selected. By default, the results are sorted by time in descending order. The time range defaults to **Last 24 hours**.
 1. Examine the *Log_s* column, which shows the console log output from your container app revision.
+1. Optionally, select the *Export* button, which allows you to view the logs as a .csv file, or in Excel or Power BI.
 
 You might also want to narrow your query to view your container app revision's output to `stdout` or `stderr`.
 
@@ -262,7 +265,31 @@ For more information, see [Networking in Azure Container Apps environment] (./ne
 
 ### Verify ingress is enabled
 
-Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is disabled, `az containerapp ingress show` returns nothing.
+Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is enabled, you can expect output like the following example:
+
+```json
+{
+  "allowInsecure": false,
+  "clientCertificateMode": null,
+  "corsPolicy": null,
+  "customDomains": null,
+  "exposedPort": 0,
+  "external": true,
+  "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
+  "ipSecurityRestrictions": null,
+  "stickySessions": null,
+  "targetPort": 3500,
+  "traffic": [
+    {
+      "revisionName": "<YOUR_REVISION_NAME>",
+      "weight": 100
+    },
+  ],
+  "transport": "Auto"
+}
+```
+
+If ingress is disabled, `az containerapp ingress show` returns nothing.
 
 # [Bash](#tab/bash)
 
@@ -284,13 +311,11 @@ az containerapp ingress show `
 
 You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
 
-If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
-
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp ingress enable \
-  --type <internal|external> \
+  --type <INTERNAL_OR_EXTERNAL> \
   --target-port <YOUR_TARGET_PORT> \
   --name <YOUR_CONTAINER_APP_NAME> \
   --resource-group <YOUR_RESOURCE_GROUP_NAME>
@@ -300,13 +325,41 @@ az containerapp ingress enable \
 
 ```powershell
 az containerapp ingress enable `
-  --type <internal|external> `
+  --type <INTERNAL_OR_EXTERNAL> `
   --target-port <YOUR_TARGET_PORT> `  
   --name <YOUR_CONTAINER_APP_NAME> `
   --resource-group <YOUR_RESOURCE_GROUP_NAME>
 ```
 
 ---
+
+You can expect output like the following example:
+
+```json
+Ingress enabled. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
+
+{
+  "allowInsecure": false,
+  "clientCertificateMode": null,
+  "corsPolicy": null,
+  "customDomains": null,
+  "exposedPort": 0,
+  "external": true,
+  "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
+  "ipSecurityRestrictions": null,
+  "stickySessions": null,
+  "targetPort": 3500,
+  "traffic": [
+    {
+      "latestRevision": true,
+      "weight": 100
+    }
+  ],
+  "transport": "Auto"
+}
+```
+
+If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
 
 ### Verify external ingress is allowed
 
