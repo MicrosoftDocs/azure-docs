@@ -74,7 +74,7 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : Not available during preview.
+Pricing Calculator: Not available during preview.
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
