@@ -8,7 +8,7 @@ ms.date: 11/01/2023
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
 
-This article describes how to update the SSH key on your AKS clusters or node pools.
+This article describes how to update the SSH key (preview) on your AKS clusters or node pools.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -17,7 +17,7 @@ This article describes how to update the SSH key on your AKS clusters or node po
 * You need the Azure CLI version 2.46.0 or later installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * This feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
 
-## Update SSH public key on an existing AKS cluster
+## Update SSH public key (preview) on an existing AKS cluster
 
 Use the [az aks update][az-aks-update] command to update the SSH public key on your cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 

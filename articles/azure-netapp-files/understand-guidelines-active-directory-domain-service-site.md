@@ -144,7 +144,7 @@ In addition to multiple domain controllers assigned to the AD DS site configured
 >[!NOTE]
 >It's essential that all the domain controllers and subnets assigned to the Azure NetApp Files AD DS site must be well connected (less than 10ms RTT latency) and reachable by the network interfaces used by the Azure NetApp Files volumes. 
 >
->If you're using using Standard network features, you should ensure that any User Defined Routes (UDRs) or Network Security Group (NSG) rules do not block Azure NetApp Files network communication with AD DS domain controllers assigned to the Azure NetApp Files AD DS site. 
+>If you're using Standard network features, you should ensure that any User Defined Routes (UDRs) or Network Security Group (NSG) rules do not block Azure NetApp Files network communication with AD DS domain controllers assigned to the Azure NetApp Files AD DS site. 
 >
 >If you're using Network Virtual Appliances or firewalls (such as Palo Alto Networks or Fortinet firewalls), they must be configured to not block network traffic between Azure NetApp Files and the AD DS domain controllers and subnets assigned to the Azure NetApp Files AD DS site.
 
