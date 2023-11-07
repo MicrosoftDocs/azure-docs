@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to create container apps environment.
 
-[!INCLUDE [prepare-container-apps-environment](includes/quickstart-deploy-event-driven-app/prepare-container-apps-environment.md)]
+[!INCLUDE [prepare-container-apps-environment](prepare-container-apps-environment.md)]
 
 -->
 
@@ -22,8 +22,6 @@ For clarity of structure, a separate markdown file is used to describe how to cr
    - **Plan**: **Consumption**
    - **Zone redundancy**: **Disabled**
 
-   :::image type="content" source="../../media/quickstart/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal that shows the Create Container Apps Environment with consumption plan selected." lightbox="../../media/quickstart/create-container-apps-environment.png":::
-
 1. Select **Create** to create the Container Apps Environment.
 
 ### [Dedicated workload](#tab/Dedicated-workload)
@@ -33,8 +31,6 @@ For clarity of structure, a separate markdown file is used to describe how to cr
    - **Environment name**: *myacaenv*
    - **Plan**: **(Preview) Consumption and Dedicated workload profiles**
    - **Zone redundancy**: **Disabled**
-
-   :::image type="content" source="../../media/quickstart/create-container-apps-environment-dedicated.png" alt-text="Screenshot of the Azure portal that shows the Create Container Apps Environment with dedicated workload plan selected." lightbox="../../media/quickstart/create-container-apps-environment-dedicated.png":::
 
 1. Select the **Workload profiles (Preview)** tab, and then select **Add workload profile** to add a workload profile.
 
