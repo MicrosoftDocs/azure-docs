@@ -42,7 +42,7 @@ This feature improves overall AP5GC software download time by reducing the size 
 This feature allows you to view UE level information in the Azure portal, including a list of UEs with high level information and a detailed view for each UE. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min.
 
 ### Per gNB metrics in Azure portal
-This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN & packet core metrics and troubleshoot.
+This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
 
 ### Combined 4G/5G on a single packet core
 This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
