@@ -26,8 +26,8 @@ for all of your learning & evaluation needs. Users can provision a single free D
 
 ## Getting started
 
-Follow this document to [create a new Azure Cosmos DB for MongoDB vCore](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/quickstart-portal) cluster and just select 'Free Tier' checkbox. 
-Alternatively, you can also use [Bicep template](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/quickstart-bicep?tabs=azure-cli) to provision the resource.
+Follow this document to [create a new Azure Cosmos DB for MongoDB vCore](quickstart-portal.md) cluster and just select 'Free Tier' checkbox. 
+Alternatively, you can also use [Bicep template](quickstart-bicep.md) to provision the resource.
 
 :::image type="content" source="media/how-to-scale-cluster/provision-freetier.jpg" alt-text="Screenshot of the freetier provisioning.":::
 
