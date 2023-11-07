@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/06/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -14,11 +14,9 @@ ms.date: 10/30/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu, Windows, and cloud environments.
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
-
-This article also includes guidance for setting up an environment by using WSL on your Windows machine. Use WSL for testing and development purposes only.
 
 ## Prerequisites
 
@@ -31,9 +29,19 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 ## Arc-enable your cluster
 
+This section provides steps to prepare and Arc-enable clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
+
+# [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+[!INCLUDE [prepare-aks-ee](../includes/prepare-aks-ee.md)]
+
+# [Ubuntu](#tab/ubuntu)
+
+[!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
+
 # [Codespaces](#tab/codespaces)
 
-For *exploration only*, use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster without installing anything on your local machine. We've prepared a pre-configured codespace with:
+Use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster without installing anything on your local machine. Use the **explore-iot-operations** codespace that is preconfigured with:
 
 - [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster
 - [Azure CLI](/cli/azure/install-azure-cli)
@@ -41,9 +49,7 @@ For *exploration only*, use GitHub Codespaces to try Azure IoT Operations on a K
 - Other useful tools like [Helm](https://helm.sh/) and [k9s](https://k9scli.io/)
 
 > [!IMPORTANT]
-> Codespaces are easy to setup quickly and tear down later, but they're not suitable for performance evaluation or scale testing. For those scenarios, use a validated environment in the other tabs.
->
-> Azure IoT Operations is currently in preview and not recommended for production use no matter the environment.
+> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
 
 To get started with your codespace:
 
@@ -51,11 +57,11 @@ To get started with your codespace:
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/explore-iot-operations?quickstart=1)
 
-1. Once the codespace is ready, click the menu button at the top left, then select **Open in VS Code Desktop**.
+1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
    ![Open VS Code desktop](./media/howto-prepare-cluster/open-in-vs-code-desktop.png)
 
-1. In the integrated terminal, log in to Azure. To prevent permission issues with conditional access policies later, you must use the interactive login method, which is why you're prompted to open VS Code desktop.
+1. In the integrated terminal, sign in to Azure. To prevent permission issues with conditional access policies later, you must use the interactive `login` method, which is why you're prompted to open VS Code desktop.
 
    ```azurecli
    az login
@@ -84,10 +90,6 @@ To get started with your codespace:
    ```azurecli
    az connectedk8s connect --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --location $REGION
    ```
-
-# [Ubuntu](#tab/ubuntu)
-
-[!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
 # [WSL Ubuntu](#tab/wsl-ubuntu)
 
@@ -123,10 +125,6 @@ To set up your WSL Ubuntu environment:
     ```
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
-
-# [AKS Edge Essentials](#tab/aks-edge-essentials)
-
-[!INCLUDE [prepare-aks-ee](../includes/prepare-aks-ee.md)]
 
 ---
 
