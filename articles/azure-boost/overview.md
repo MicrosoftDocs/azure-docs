@@ -58,7 +58,7 @@ Azure Boost delivers industry leading throughput performance at up to 12.5-GBps 
 
 By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 17-GBps throughput and 3.8M IOPS. Azure Boost SSDd are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
 
-:::image type="content" source="./media/boost-storage-local-nvme-vs-local-scsi-ssd.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::
+:::image type="content" source="./media/boost-storage-ssd-comparison.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::
 
 ## Security
 Azure Boost's security contains several components that work together to provide a secure environment for your virtual machines. Microsoft's in-house developed hardware and software systems provide a secure foundation for your cloud workloads. 
