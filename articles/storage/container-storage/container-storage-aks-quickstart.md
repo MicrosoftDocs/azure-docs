@@ -98,6 +98,9 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 
 You'll specify the storage pool type when you install Azure Container Storage.
 
+> [!NOTE]
+> For Azure Elastic SAN Preview and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
+
 ## Choose a VM type for your cluster
 
 If you intend to use Azure Elastic SAN Preview or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives. You'll specify the VM type when you create the cluster in the next section.
