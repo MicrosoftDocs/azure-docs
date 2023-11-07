@@ -54,6 +54,9 @@ Reduce costs and analysis effort by using data collection rules to [filter out a
 
 ## View table properties
 
+> [!NOTE]
+> The table name is case sensitive.
+
 # [Portal](#tab/azure-portal)
 
 To view and set table properties in the Azure portal:
@@ -136,9 +139,6 @@ To view table properties using PowerShell, run:
 ```powershell
 Invoke-AzRestMethod -Path "/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/microsoft.operationalinsights/workspaces/ContosoWorkspace/tables/Heartbeat?api-version=2021-12-01-preview" -Method GET 
 ```
-
-> [!NOTE]
-> The table name used in the `-Path` parameter is case sensitive.
 
 **Sample response**
 
