@@ -99,7 +99,7 @@ During the Public Preview phase, this section details enabling accelerated logs.
 
 1. Under the Settings sections, navigate to the **Compute + Storage** page. You can enable "Accelerated Logs" by selecting the checkbox under the Storage section.
 
-    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-enable.png" alt-text="Screenshot shows accelerated logs enable after server create." lightbox="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal_enable.png":::
+    :::image type="content" source="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-enable.png" alt-text="Screenshot shows accelerated logs enable after server create." lightbox="./media/concepts-accelerated-logs/accelerated-logs-mysql-portal-enable.png":::
 
 1. Select on Save and wait for the deployment process to be completed. Once you receive a successful deployment message, the feature is ready to be used.
 
