@@ -22,7 +22,7 @@ In this article, learn how to configure Azure Elastic SAN or delete an Elastic S
 
 The following prerequisites are required to continue.
 
-- Register for the preview by filling out the [form](aka.ms/AVSESANPreviewSignup).
+- Register for the preview by filling out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8FVh9RJVPdOk_mdTpp--pZUN0RKUklROEc4UE1RRFpRMkhNVFAySTM1TC4u).
 - Verify you have a Dev/Test SDDC set up in one of the following regions:
 	- East US
 	- East US 2
@@ -65,9 +65,23 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 After you receive confirmation that your subscription is allowlisted, you can use the Azure portal to add the Elastic SAN volume as a datastore in your SDDC. Use the following steps to add, connect, disconnect, and delete Elastic SAN.
 
+## Configure external storage address block
 
+Start by providing an IP block for deploying external storage. You can do this by navigating to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
 
+:::image type="content" source="media/elastic-san-configure-external-storage-address-block.png"alt-text="screenshot showing External storage address block tab." border="false"lightbox="media/elastic-san-configure-external-storage-address-block.png":::
 
+- The address block must be unique and not overlap with the /22 used to create your Azure VMware Solution private cloud or any other connected Azure virtual networks or on-premises network. 
+- The address block must fall within the following allowed network blocks: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. If you want to use a non-RFC 1918 address block, please submit a support request. 
+- The address block can't overlap any of the following restricted network blocks: 100.72.0.0/15 
+- The address block provided here will be used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, please submit a support request. 
+
+Once you've provided an External storage address block, you can connect to an Elastic SAN volume from the same page.
+
+## Connect Elastic SAN
+
+1. From your Azure VMware Solution private cloud, select **Storage**, then **+ Connect Elastic SAN**.
+2. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, 
 
 
 
