@@ -119,7 +119,6 @@ auth_mode: key
 > Items marked (preview) in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/23491583/e8c42689-d107-494b-8e89-5d1fb155ddb7)
 
 ---
 
