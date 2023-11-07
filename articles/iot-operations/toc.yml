@@ -15,34 +15,32 @@ items:
         href: get-started/quickstart-process-telemetry.md
       - name: Get insights from your data
         href: get-started/quickstart-get-insights.md
-    - name: Deploy
+    - name: Deploy Azure IoT Operations components
       items:
-      - name: Deploy Azure IoT Operations components
+      - name: Prepare a cluster
+        href: deploy-iot-ops/howto-prepare-cluster.md
+      - name: Deploy to a cluster
+        href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Manage secrets
+        href: deploy-iot-ops/howto-manage-secrets.md
+    - name: Deploy custom workloads
+      items:
+      - name: Overview
+        href: deploy-custom/overview-orchestrator.md
+        displayName: Deploy, Orchestrator
+      - name: Concepts
         items:
-        - name: Prepare a cluster
-          href: deploy/howto-prepare-cluster.md
-        - name: Deploy to a cluster
-          href: deploy/howto-deploy-iot-operations.md
-        - name: Manage secrets
-          href: deploy/howto-manage-secrets.md
-      - name: Deploy custom workloads
-        items:
-        - name: Overview
-          href: deploy/overview-orchestrator.md
-          displayName: Deploy, Orchestrator
-        - name: Concepts
-          items:
-          - name: Manifests
-            href: deploy/concept-manifests.md
-          - name: Providers and components
-            href: deploy/concept-providers.md
-        - name: Deploy K8s custom resources
-          href: deploy/howto-k8s.md
-        - name: Deploy Helm charts
-          href: deploy/howto-helm.md
-        - name: Troubleshoot
-          href: deploy/howto-troubleshoot-deployment.md
-          displayName: Deploy, Orchestrator
+        - name: Manifests
+          href: deploy-custom/concept-manifests.md
+        - name: Providers and components
+          href: deploy-custom/concept-providers.md
+      - name: Deploy K8s custom resources
+        href: deploy-custom/howto-k8s.md
+      - name: Deploy Helm charts
+        href: deploy-custom/howto-helm.md
+      - name: Troubleshoot
+        href: deploy-custom/howto-troubleshoot-deployment.md
+        displayName: Deploy, Orchestrator
     - name: Manage assets
       items:
       - name: Overview
@@ -171,18 +169,21 @@ items:
       items:
       - name: Overview
         href: manage-layered-network/overview-layered-network.md
+      - name: Deploy Azure IoT Operations in isolated network
+        href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
       - name: Deploy to an AKS cluster
         href: manage-layered-network/howto-deploy-aks-layered-network.md
-      - name: Create sample network environment
-        href: manage-layered-network/howto-configure-layered-network.md
-      - name: Configure L3 cluster
-        href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
-      - name: Configure L4 cluster
-        href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
       - name: Configure MQ in isolated network
         href: manage-layered-network/howto-configure-mq-layered-network.md
-      - name: Configure AKS Edge Essentials clusters
-        href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
+      - name: Concepts
+        items:
+        - name: Create sample network environment
+          href: manage-layered-network/howto-configure-layered-network.md
+        - name: Configure L4 cluster
+          href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
+        - name: Configure L3 cluster
+          href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+
     - name: Developer guide
       items:
       - name: About the MQ state store protocol 

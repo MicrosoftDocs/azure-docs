@@ -1,7 +1,7 @@
 ---
-title: Configure AKS Edge Essentials clusters in Azure IoT Layered Network Management
+title: Configure Layered Network Management service to enable Azure IoT Operations in an isolated network
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure AKS Edge Essentials clusters using Azure Arc in the ISA-95 network environment.
+description: Configure Layered Network Management service to enable Azure IoT Operations in an isolated network.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/30/2023
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure AKS Edge Essentials in Azure IoT Layered Network Management
+# Configure Layered Network Management service to enable Azure IoT Operations in an isolated network
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -68,7 +68,7 @@ Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the c
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-aks-edge-essentials-layered-network/iot-operations-level-3-cluster.png)
 
-Follow the steps in [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster. You need to follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy/howto-prepare-cluster.md) for enabling custom location support.
+Follow the steps in [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster. You need to follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) for enabling custom location support.
 
 ## Next steps
 

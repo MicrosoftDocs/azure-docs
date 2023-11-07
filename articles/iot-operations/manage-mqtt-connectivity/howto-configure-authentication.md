@@ -5,7 +5,7 @@ description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -16,29 +16,39 @@ ms.date: 10/02/2023
 
 Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
-For example, the following *BrokerAuthentication* resource enables *username and password* and *Service Access Token (SAT)* authentication for the listener named *my-listener*. The *username and password* method uses the secret **credentials**. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+## Default BrokerAuthentication resource
+
+Azure IoT Operations deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+
+```bash
+kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
+```
+
+The output shows the default BrokerAuthentication resource, with metadata removed for brevity:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata:
-  name: "my-authn-methods"
-  namespace: default
+  name: authn
+  namespace: azure-iot-operations
 spec:
   listenerRef:
-    - "my-listener"
+    - listener
   authenticationMethods:
-    - usernamePassword:
-        secretName: credentials
     - sat:
-        audiences: ["azedge-dmqtt"]
+        audiences: ["aio-mq"]
 ```
 
-A *BrokerListener* can be configured as follows:
+To change the configuration, modify the `authenticationMethods` setting in this BrokerAuthentication resource or create new brand new BrokerAuthentication resource with a different name. Then, deploy it using `kubectl apply`.
 
-* A *BrokerListener* can be linked to up to one BrokerAuthentication resource
-* A *BrokerAuthentication* resource can be linked to multiple *BrokerListener* resources
-* Each *BrokerAuthentication* resource can support multiple authentication methods at once
+## Relationship between BrokerListener and BrokerAuthentication
+
+BrokerListener and BrokerAuthentication are separate resources, but they're linked together using `listenerRef`. The following rules apply:
+
+* A BrokerListener can be linked to only one BrokerAuthentication
+* A BrokerAuthentication can be linked to multiple BrokerListeners
+* Each BrokerAuthentication can support multiple authentication methods at once
 
 ## Authentication flow
 
@@ -62,11 +72,11 @@ With multiple authentication methods, Azure IoT MQ has a fallback mechanism. For
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata: 
-  name: "my-authn-methods"
-  namespace: default
+  name: authn
+  namespace: azure-iot-operations
 spec:
   listenerRef:
-    - "my-listener" 
+    - listener
   authenticationMethods:
     - custom:
         # ...
@@ -88,26 +98,18 @@ If the custom authentication server is unavailable and all subsequent methods de
 
 ## Disable authentication
 
-For testing, disable authentication by changing it in the listener configuration.
+For testing, disable authentication by changing it in the [BrokerListener resource](howto-configure-brokerlistener.md).
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerListener
-metadata:
-  name: "my-listener"
-  namespace: default
 spec:
-  brokerRef: "my-broker"
   authenticationEnabled: false
-  authorizationEnabled: false
-  port: 1883
 ```
 
 ## Configure authentication method
 
-To learn more about each of the authentication options, see the following tab sections:
+To learn more about each of the authentication options, see the following sections:
 
-# [Username and password](#tab/userpass)
+## Username and password
 
 Each client has the following required properties:
 
@@ -121,7 +123,6 @@ For example, start with a `clients.toml` with identities and PBKDF2 encoded pass
 # Credential #1
 # username: client1
 # password: password
-# salt: "HqJwOCHweNk1pLryiu3RsA"
 [client1]
 password = "$pbkdf2-sha512$i=100000,l=64$HqJwOCHweNk1pLryiu3RsA$KVSvxKYcibIG5S5n55RvxKRTdAAfCUtBJoy5IuFzdSZyzkwvUcU+FPawEWFPn+06JyZsndfRTfpiEh+2eSJLkg"
 
@@ -132,7 +133,6 @@ site = "site1"
 # Credential #2
 # username: client2
 # password: password2
-# salt: "+H7jXzcEbq2kkyvpxtxePQ"
 [client2]
 password = "$pbkdf2-sha512$i=100000,l=64$+H7jXzcEbq2kkyvpxtxePQ$jTzW6fSesiuNRLMIkDDAzBEILk7iyyDZ3rjlEwQap4UJP4TaCR+EXQXNukO7qNJWlPPP8leNnJDCBgX/255Ezw"
 
@@ -141,7 +141,7 @@ floor = "floor2"
 site = "site1"
 ```
 
-To encode the password using PBKDF2, download and install the CLI tool to generate PBKDF2 password hashes from Windows, macOS or Linux machines.
+To encode the password using PBKDF2, download and install the [Azure IoT Operations CLI extension](../reference/about-iot-operations-cli.md), which includes the `az iot ops mq get-password-hash` command. It generates a PBKDF2 password hash from a password phrase using the SHA-512 algorithm and a 128-bit randomized salt.
 
 ```bash
 az iot ops mq get-password-hash --phrase TestPassword
@@ -155,35 +155,28 @@ The output shows the PBKDF2 password hash to copy:
 }
 ```
 
-Then, import the TOML file as a Kubernetes secret called "credentials" using kubectl.
+Then, save the file as `passwords.toml` and import it into a Kubernetes secret under that key.
 
 ```bash
-kubectl create secret generic credentials --from-file=passwords.toml=./clients.toml
+kubectl create secret generic passwords-db --from-file=passwords.toml -n azure-iot-operations
 ```
 
-Include a reference to the secret in the *BrokerAuthentication* custom resource:
+Include a reference to the secret in the *BrokerAuthentication* custom resource
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerAuthentication
-metadata:
-  name: "up-only"
-  namespace: default
 spec:
-  listenerRef:
-    - "my-listener"
   authenticationMethods:
     - usernamePassword:
-        secretName: credentials
+        secretName: passwords-db
 ```
 
 It might take a few minutes for the changes to take effect.
 
 You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
-# [Certificate](#tab/cert)
+## X.509 client certificate
 
-## Prerequisites
+### Prerequisites
 
 - Azure IoT MQ configured with [TLS enabled](howto-configure-brokerlistener.md).
 - [Step-CLI](https://smallstep.com/docs/step-cli/installation/)
@@ -192,44 +185,20 @@ You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubern
 
 Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs.
 
-## Enable X.509 client authentication
+### Import trusted client root CA certificate
 
-To enable X.509 client authentication, [TLS must first be enabled](howto-configure-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
-
-```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerAuthentication
-metadata:
-  name: "x509-auth-only"
-  namespace: default
-spec:
-  listenerRef:
-    - "my-secure-listener"
-  authenticationMethods:
-    - x509:
-        trustedClientCaCert: client-ca-configmap
-        attributes:
-          secretName: x509-attributes
-```
-
-### Required trusted root CA certificate
-
-> [!IMPORTANT]
-> When authentication method is set to X.509, a trusted root CA certificate **must** be specified for the broker to successfully deploy.
-
-To import a root certificate that can be used to validate client certificates, first import the certificate PEM, base 64 encoded, as a *configmap* under the key `client_ca.pem` exactly. Client certificates must be rooted in this CA for Azure IoT MQ to authenticate them.
+A trusted root CA certificate is required to validate the client certificate. To import a root certificate that can be used to validate client certificates, first import the certificate PEM as ConfigMap under the key `client_ca.pem`. Client certificates must be rooted in this CA for Azure IoT MQ to authenticate them.
 
 ```bash
-kubectl create configmap client-ca-configmap \
---from-file=client_ca.pem=my-root-file.pem
+kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
 ```
 
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
 ```console
-$ kubectl describe configmap client-ca-configmap
-Name:         client-ca-configmap
-Namespace:    default
+$ kubectl describe configmap client-ca
+Name:         client-ca
+Namespace:    azure-iot-operations
 
 Data
 ====
@@ -248,24 +217,39 @@ BinaryData
 
 ### Import certificate-to-attribute mapping
 
-To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret.
+To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret under the key `attributes.toml`. This file maps the subject name of the client certificate to the attributes that can be used in authorization policies. It's required even if you don't use authorization policies.
 
 ```bash
-kubectl create secret generic x509-attributes --from-file=./attributes.toml 
+kubectl create secret generic x509-attributes --from-file=attributes.toml 
 ```
 
-To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md).
+To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
 
-## Connect mosquitto client to Azure IoT MQ with X.509 client certificate
+Like with username-password authentication, you can use Azure Key Vault to manage this secret for instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+
+### Enable X.509 client authentication
+
+Finally, once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding `x509` as one of the authentication methods as part of a BrokerAuthentication resource linked to a TLS-enabled listener. For example:
+
+```yaml
+spec:
+  authenticationMethods:
+    - x509:
+        trustedClientCaCert: client-ca
+        attributes:
+          secretName: x509-attributes
+```
+
+### Connect mosquitto client to Azure IoT MQ with X.509 client certificate
 
 A client like mosquitto needs three files to be able to connect to Azure IoT MQ with TLS and X.509 client authentication. For example:
 
 ```bash
-mosquitto_pub -q 1 -t foo -d -V mqttv5 -m "42" -i thermostat \
+mosquitto_pub -q 1 -t hello -d -V mqttv5 -m world -i thermostat \
 -h "<IOT_MQ_EXTERNAL_IP>" \
 --cert thermostat_cert.pem \
 --key thermostat_key.pem \
---cafile trusted_and_inter.pem
+--cafile chain.pem
 ```
 
 In the example:
@@ -274,9 +258,9 @@ In the example:
 - The `--key` parameter specifies the client private key PEM file.
 - The third parameter `--cafile` is the most complex: the trusted certificate database, used for two purposes:
   - When mosquitto client connects to Azure IoT MQ over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
-  - When the Azure IoT MQ requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. Azure IoT MQ can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the database file needs to contain both the intermediate and root certificates.
+  - When the Azure IoT MQ requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. Azure IoT MQ can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the `cafile` must contain both the intermediate and root certificates.
 
-## Understand Azure IoT MQ X.509 client authentication flow
+### Understand Azure IoT MQ X.509 client authentication flow
 
 ![Diagram of the X.509 client authentication flow.](./media/howto-configure-authentication/x509-client-auth-flow.svg)
 
@@ -294,7 +278,7 @@ The following are the steps for client authentication flow:
 1. Authentication service returns decision to frontend broker.
 1. The frontend broker knows the client attributes and if it's allowed to connect. If so, then the MQTT connection is completed and the client can continue to send and receive MQTT packets determined by its authorization rules.
 
-# [Service Account Token](#tab/sat)
+## Kubernetes Service Account Tokens
 
 Kubernetes Service Account Tokens (SATs) are JSON Web Tokens associated with Kubernetes Service Accounts. Clients present SATs to the Azure IoT MQ MQTT broker to authenticate themselves.
 
@@ -306,56 +290,43 @@ Launched in Kubernetes 1.13, and becoming the default format in 1.21, bound toke
 * They adopt a standardized format: OpenID Connect (OIDC), with full OIDC Discovery, making it easier for service providers to accept them.
 * They're distributed to pods more securely, using a new Kubelet projected volume type.
 
-The broker verifies tokens using the [Kubernetes Token Review API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/).
+The broker verifies tokens using the [Kubernetes Token Review API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/). Enable Kubernetes `TokenRequestProjection` feature to specify `audiences` (default since 1.21). If this feature isn't enabled, SATs can't be used.
 
-## Enable Service Account Token (SAT) authentication
-
-Modify the `authenticationMethods` setting in a Broker Authentication resource to specify `sat` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the Azure IoT MQ's broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
-
-```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerAuthentication
-metadata:
-  name: "sat-only"
-  namespace: default
-spec:
-  listenerRef:
-    - "my-listener"
-  authenticationMethods:
-    - sat:
-        audiences: ["azedge-dmqtt"]
-```
-
-Enable the Kubernetes `TokenRequestProjection` feature to specify `audiences` (default since 1.21). If this feature isn't enabled, SATs can't be used.
-
-Apply your changes with either `kubectl apply`.
-
-## Create a service account
+### Create a service account
 
 To create SATs, first create a service account. The following command creates a service account called `mqtt-client`.
 
 ```bash
-kubectl create serviceaccount mqtt-client
+kubectl create serviceaccount mqtt-client -n azure-iot-operations
 ```
 
-## Add attributes for authorization
+### Add attributes for authorization
 
-Clients authentication via SAT must have their SATs annotated with attributes to be used with custom authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authentication.md).
+Clients authentication via SAT can optionally have their SATs annotated with attributes to be used with custom authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authentication.md).
 
-## Test SAT authentication
+### Enable Service Account Token (SAT) authentication
 
-SAT authentication might only be used from a pod in the same cluster as Azure IoT MQ. The following command creates a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `sat` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the Azure IoT MQ's broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
 
-The `serviceAccountName` field in the pod configuration must match the service account associated with the token being used.
+```yaml
+spec:
+  authenticationMethods:
+    - sat:
+        audiences: ["aio-mq", "my-audience"]
+```
 
-The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the D-MQTT broker's `authenticationMethods`.
+Apply your changes with `kubectl apply`. It might take a few minutes for the changes to take effect.
 
-```bash
-cat <<EOF | kubectl apply -f -
+### Test SAT authentication
+
+SAT authentication must be used from a client in the same cluster as Azure IoT MQ. The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
   name: mqtt-client
+  namespace: azure-iot-operations
 spec:
   serviceAccountName: mqtt-client
   containers:
@@ -371,15 +342,16 @@ spec:
       sources:
       - serviceAccountToken:
           path: mqtt-client-token
-          audience: azedge-dmqtt
+          audience: my-audience
           expirationSeconds: 86400
-EOF
 ```
+
+Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the BrokerAuthentication resource.
 
 Once the pod has been created, start a shell in the pod:
 
 ```bash
-kubectl exec --stdin --tty mqtt-client -- sh
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
 The token is mounted at the path specified in the configuration `/var/run/secrets/tokens` in the previous example. Retrieve the token and use it to authenticate.
@@ -387,76 +359,59 @@ The token is mounted at the path specified in the configuration `/var/run/secret
 ```bash
 token=$(cat /var/run/secrets/tokens/mqtt-client-token)
 
-mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t "test" -m "test" -u '$sat' -P "$token"
+mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t hello -m world -u '$sat' -P "$token"
 ```
 
-The MQTT username must be set to `$sat`. The MQTT password should be set to the SAT.
+The MQTT username must be set to `$sat`. The MQTT password must be set to the SAT itself.
 
-# [Custom](#tab/custom)
+## Custom authentication
 
-Extend client authentication beyond the provided authentication methods with custom authentication. It's *pluggable* since the service can be anything as long as it adheres to the API.
+Extend client authentication beyond the provided authentication methods with custom authentication. It's *pluggable* since the service can be anything as long as it adheres to the API. 
 
 When a client connects to Azure IoT MQ and custom authentication is enabled, Azure IoT MQ delegates the verification of client credentials to a custom authentication server with an HTTP request along with all credentials the client presents. The custom authentication server responds with approval or denial for the client with the client's [attributes for authorization](./howto-configure-authorization.md).
 
-| Feature | Supported |
-|---|:---:|
-| Custom authentication API and sample | ✅ |
-<!--| Additional client info (IP, port, TLS, MQTT version) | 🔜 |
-| Custom authorization API | 🔜 |-->
-
-## Create custom authentication service
+### Create custom authentication service
 
 The custom authentication server is implemented and deployed separately from Azure IoT MQ.
 
-### Example
+A sample custom authentication server and instructions are available on [GitHub](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/auth-server-template). Use this sample as a template can and starting point for implementing your own custom authentication logic.
 
-A sample custom authentication server and instructions are available on [GitHub](https://github.com/microsoft/e4k-playground/tree/main/samples/auth-server-template). Use this sample as a template can and starting point for implementing your own custom authentication logic.
-
-### API
+#### API
 
 The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication.
 
-### HTTPS with TLS encryption is required
+#### HTTPS with TLS encryption is required
 
 Azure IoT MQ sends requests containing sensitive client credentials to the custom authentication server. To protect these credentials, communication between Azure IoT MQ and custom authentication server must be encrypted with TLS.
 
 The custom authentication server must present a server certificate, and Azure IoT MQ must have a trusted root CA certificate for validating the server certificate. Optionally, the custom authentication server might require Azure IoT MQ to present a client certificate to authenticate itself.
 
-## Enable custom authentication on Azure IoT MQ
+### Enable custom authentication for a listener
 
 Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `custom` as a valid authentication method. Then, specify the parameters required to communicate with a custom authentication server.
 
 This example shows all possible parameters. The exact parameters required depend on each custom server's requirements.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerAuthentication
-metadata:
-  name: "custom-auth"
-  namespace: default
 spec:
-  listenerRef:
-    - "my-listener"
   authenticationMethods:
     - custom:
         # Endpoint for custom authentication requests. Required.
-        endpoint: "https://auth-server-template"
+        endpoint: https://auth-server-template
         # Trusted CA certificate for validating custom authentication server certificate.
         # Required unless the server certificate is publicly-rooted.
-        caCert: "custom-auth-ca"
+        caCert: custom-auth-ca
         # Authentication between Azure IoT MQ with the custom authentication server.
         # The broker may present X.509 credentials or no credentials to the server.
         auth:
           x509:
-            secretName: "custom-auth-client-cert"
-            namespace: "default"
+            secretName: custom-auth-client-cert
+            namespace: azure-iot-operations
         # Optional additional HTTP headers that the broker will send to the
         # custom authentication server.
         headers:
-          header_key: "header_value"
+          header_key: header_value
 ```
-
----
 
 ## Related content
 

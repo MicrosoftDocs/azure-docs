@@ -51,4 +51,4 @@ In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. Th
    .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
    ```
 
-When the script is completed, it brings up a K3s cluster on your machine.
+When the script is completed, it brings up an Arc-enabled K3s cluster on your machine.
