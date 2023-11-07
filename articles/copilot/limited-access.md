@@ -11,7 +11,7 @@ hideEdit: true
 
 # Limited access to Microsoft Copilot for Azure (preview)
 
-As part of Microsoft's commitment to responsible AI, we are designing and releasing Microsoft Copilot for Azure (preview) with the intention of protecting the rights of individuals and society and fostering transparent human-computer interaction. For this reason, we are currently limiting the access and use of Microsoft Copilot for Azure (preview).
+As part of Microsoft's commitment to responsible AI, we are currently limiting the access and use of Microsoft Copilot for Azure (preview).
 
 ## Registration process
 
