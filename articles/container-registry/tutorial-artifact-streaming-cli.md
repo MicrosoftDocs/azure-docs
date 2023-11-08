@@ -14,8 +14,7 @@ Start Artifact Streaming with a series of Azure CLI commands for pushing, import
 This article is part two in a four-part tutorial series. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Push/Import the image and generate the streaming artifact  - Azure CLI
-> * Deploy the image in Azure Kubernetes Service (AKS) - Azure CLI
+> * Push/Import the image and generate the streaming artifact  - Azure CLI.
 
 ## Prerequisites
 
