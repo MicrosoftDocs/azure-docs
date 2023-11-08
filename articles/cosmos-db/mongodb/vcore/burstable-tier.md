@@ -18,7 +18,7 @@ ms.date: 11/01/2023
 
 ## What is burstable SKU (M25)?
 
-Burstable tier offer an intelligent solution tailored for small database workloads. By providing minimal CPU performance during idle periods, these clusters optimize 
+Burstable tier offers an intelligent solution tailored for small database workloads. By providing minimal CPU performance during idle periods, these clusters optimize 
 resource utilization. However, the real brilliance lies in their ability to seamlessly scale up to full CPU power in response to increased traffic or workload demands. 
 This adaptability ensures peak performance precisely when it's needed, all while delivering substantial cost savings.
 
@@ -39,9 +39,9 @@ guide that offers step-by-step instructions on how to set up a Burstable Tier wi
 
 While the Burstable Cluster Tier offers unparalleled flexibility, it's crucial to be mindful of certain constraints:
 
-1. Supported disk sizes include 32GB, 64GB, and 128GB.
-2. High availability (HA) is not supported.
-3. Supports one shard only.
+* Supported disk sizes include 32GB, 64GB, and 128GB.
+* High availability (HA) is not supported.
+* Supports one shard only.
 
 ## Next steps
 
