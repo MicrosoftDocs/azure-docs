@@ -134,7 +134,7 @@ We recommend customers to use pre-migration validations in the following way:
 4) Start the migration using the **Validate and Migrate** option on the planned date and time.
 
 > [!NOTE]  
-> Pre-migration validations is enabled for flexible servers in North Europe region. It will be enabled for flexible servers in other Azure regions soon. This functionality is available only in Azure portal. Support for CLI will be introduced at a later point in time.
+> Pre-migration validations is enabled for flexible servers in North Europe and East US 2 regions. It will be enabled for flexible servers in other Azure regions soon. This functionality is available only in Azure portal. Support for CLI will be introduced at a later point in time.
 
 ## Migration of users/roles, ownerships and privileges
 Along with data migration, the tool automatically provides the following built-in capabilities:
