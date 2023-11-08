@@ -31,13 +31,9 @@ sections:
       - question: |
           Can I change default priority level of requests in Azure Cosmos DB account?
         answer: |
-          Yes, you can change the default priority level of requests for an Azure Cosmos DB account by raising a support request to Microsoft support.
+          Yes, you can change the default priority level of requests for an Azure Cosmos DB account using Azure CLI, Powershell or SDK.
       - question: |
-          How can I monitor behavior of low and high priority requests?
-        answer: |
-          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **Priority level** on the **TotalRequests (preview)** and **TotalRequestUnits (preview)** metrics. **Priority level** for high priority requests would be equal to **1** and for low priority requests equal to **2**.
-      - question: |
-          Does enabling priority based execution means to reserve a fraction of RU/s for high priority requests?
+          Does enabling priority based execution mean reserving a fraction of RU/s for high priority requests?
         answer: |
           No, there's no reservation of RU/s. The users can use all their provisioned RU/s irrespective of the priority of requests. 
       - question: |
