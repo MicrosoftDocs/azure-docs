@@ -1,7 +1,7 @@
 ---
-title: 'How to use tbd with Azure OpenAI Service'
+title: 'How to use blocklists with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to use tbd with Azure OpenAI Service
+description: Learn how to use blocklists with Azure OpenAI Service
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -133,7 +133,7 @@ The response code should be `200`.
 
 ### Analyze text with a blocklist
 
-Now you can test out your deployment that has the blocklist. The easiest way to do this is in the [Azure OpenAI Studio](https://oai.azure.com/portal/). If the the content was blocked either in prompt or completion, you should see an error message saying the content filtering system was triggered.
+Now you can test out your deployment that has the blocklist. The easiest way to do this is in the [Azure OpenAI Studio](https://oai.azure.com/portal/). If the content was blocked either in prompt or completion, you should see an error message saying the content filtering system was triggered.
 
 For instruction on calling the Azure OpenAI endpoints, visit the [Quickstart](/azure/ai-services/openai/quickstart). 
 

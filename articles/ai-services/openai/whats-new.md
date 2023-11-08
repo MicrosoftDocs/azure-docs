@@ -14,9 +14,6 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
-## November 2023
-
-TBD new Content filters
 ## October 2023
 
 ### New fine-tuning models (preview)
