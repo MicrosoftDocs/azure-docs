@@ -4,7 +4,7 @@ description: Encrypt your data with customer-managed keys (CMK) in the FHIR serv
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: concept
+ms.topic: how-to
 ms.date: 11/20/2023
 ms.author: kesheth
 ---

@@ -49,7 +49,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/configure-customer-managed-keys/key-vault-access-control.png":::
 
-3. On the Add role assignment page, select the **Key Vault Crypto Officer** role. 
+3. On the **Add role assignment** page, select the **Key Vault Crypto Officer** role. 
    
 4. Select **Next**.
 
