@@ -1,7 +1,7 @@
 ---
 title: "Enable Artifact Streaming- Azure CLI"
-description: "Artifact Streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
-ms.author: tejaswikolli-web
+description: "Enable Artifact Streaming in Azure Container Registry using Azure CLI commands to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
@@ -19,11 +19,10 @@ This article is part two in a four-part tutorial series. In this tutorial, you l
 
 ## Prerequisites
 
-> * Login to your Azure Account
-> * Set the Active Azure Subscription
-> * install CLI 2.54 and above version and az login to start the session
+> * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+
 >* You have Docker and the Azure CLI installed within the container, and the "rosanch.azurecr.io/cli:v3" image is correctly configured to provide the Azure CLI and necessary tools.
-> * You have an Azure Container Registry (ACR) instance with the Premium SKU. If you don't have an ACR instance, see [Create an Azure Container Registry](../quickstart-create-azure-container-registry.md).
+
 ## Push/Import the image and generate the streaming artifact  - Azure CLI
 
 Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure CLI (version 2.54.0 or above). To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -111,124 +110,13 @@ az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newt
 > Artifact Streaming can work across regions, regardless of whether geo-replication is enabled or not.
 > Artifact Streaming can work through a private endpoint and attach to it.
 
-1. Run `az aks create`` command to create an Azure Kubernetes Service (AKS) cluster. 
-    
-```azurecli-interactive
-    az aks create \
-      --resource-group my-streaming-test \
-      --name mystreamingtest \
-      --enable-aad \
-      --enable-azure-rbac \
-      --location "westus" \
-      --attach-acr mystreamingtest \
-      --enable-managed-identity \
-      --generate-ssh-keys \
-      --enable-cluster-autoscaler \
-      --min-count 3 \
-      --max-count 30 \
-      --aad-admin-group-object-ids ********-****-****-****-************ 
-```
-
-1. Set up the Kubernetes configuration for an Azure Kubernetes Service (AKS) cluster and then retrieve information about the nodes in the cluster. 
-
-```azurecli-interactive
-    az aks get-credentials -g my-streaming-test -n mystreamingtest
-    kubectl get nodes
-```
-
-1. Once your Kubernetes configuration is set up, you can use kubectl to get information about the nodes in your AKS cluster. 
-
-```azurecli-interactive
-    kubectl get nodes
-```
-
-1. The az aks command is not available right now. Temporarily use a daemonsets, enabling the streaming feature on Azure Kubernetes Service (AKS) nodes.
-
-```yml
-
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: enable-artifact-streaming
-spec:
-  selector:
-    matchLabels:
-      name: enable-artifact-streaming
-  template:
-    metadata:
-      labels:
-        name: enable-artifact-streaming
-    spec:
-      containers:
-      - name: enable-artifact-streaming
-        image: your-enabling-image:latest
-```
-
-1. Apply the DaemonSet manifest to your AKS cluster using the kubectl command:
-
-create the DaemonSet, and one pod will be scheduled on each node in your AKS cluster.
-
-```azurecli-interactive
-    kubectl apply -f enable-artifact-streaming.yaml
-```
-
-1. Monitor the progress of the DaemonSet by checking the pods status:
-
-```azurecli-interactive
-    kubectl get ds -o wide 
-
-```
-
-1. Create a YAML file (jupyter-spark.yml) that defines the Kubernetes Deployment for your application.
-
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: jupyter-spark
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: jupyter-spark
-  template:
-    metadata:
-      labels:
-        app: jupyter-spark
-    spec:
-      containers:
-      - name: jupyter-spark
-        image: your-registry/your-image:latest
-
-```
-
-1. Apply the YAML file to create the deployment.
-    
-    ```azurecli-interactive
-        kubectl apply -f jupyter-spark.yml
-    ```
-
-1. Check the status of the pods created by the deployment, use the following command to list and match the pods with the label app=jupyter-spark.
-
-    ```azurecli-interactive
-        kubectl get pods --selector=app=jupyter-spark
-    ```
-
-1. Run the `kubectl get pods --selector` command to extracts the imageID of the containers and verify that they are using the streaming artifact.
-
-    ```azurecli-interactive
-        kubectl get pods --selector=app=jupyter-spark -o jsonpath-as-json='{.items[*].status.containerStatuses[*].imageID}'
-
-    ```
-
-1. Check the condition message and start latency for a specific pod, use the following command. The `kubectl events` return information on events related to the specified pod, which can include messages about container streaming and start latency.
-
-    ```azurecli-interactive
-        kubectl events --field-selector involvedObject.name=<pod-name>
-    ```
-
+See, [Reduce image pull time with Artifact Streaming on AKS (Preview)](artifact-streaming.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Enable Artifact Streaming- Portal](tutorial-artifact-streaming-portal.md)
+
+<!-- LINKS - External -->
+[Install Azure CLI]: /cli/azure/install-azure-cli
+[Azure Cloud Shell]: /azure/cloud-shell/quickstart

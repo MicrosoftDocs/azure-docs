@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Artifact Streaming in Azure Container Registry (Preview)"
 description: "Artifact Streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
-ms.author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
@@ -22,7 +22,7 @@ Artifact Streaming is only available in the **Premium** SKU [service tiers](cont
 This article is part one in a four-part tutorial series. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->*  [Artifact Streaming(Preview)](tutorial-artifact-streaming.md)
+>*  [Artifact Streaming (Preview)](tutorial-artifact-streaming.md)
 > * [Artifact Streaming - Azure CLI](tutorial-artifact-streaming-cli.md)
 > * [Artifact Streaming - Azure Portal](tutorial-artifact-streaming-portal.md)
 > * [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)

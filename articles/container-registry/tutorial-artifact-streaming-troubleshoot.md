@@ -1,7 +1,7 @@
 ---
 title: "Troubleshoot Artifact Streaming"
-description: "Artifact Streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
-ms.author: tejaswikolli-web
+description: "Troubleshoot Artifact Streaming in Azure Container Registry to diagnose and resolve with managing, scaling, and deploying artifacts through containerized platforms."
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
@@ -10,7 +10,7 @@ ms.date: 10/31/2023
 
 # Troubleshoot Artifact Streaming
 
-The troubleshooting steps in this article can help you resolve common issues that you might encounter when using Artifact Streaming in Azure Container Registry (ACR). These steps and recommendations can help diagnose and resolve issues related to artifact streaming and AKS pod deployments, as well as provide insights into the underlying processes and logs for debugging purposes.
+The troubleshooting steps in this article can help you resolve common issues that you might encounter when using Artifact Streaming in Azure Container Registry (ACR). These steps and recommendations can help diagnose and resolve issues related to artifact streaming as well as provide insights into the underlying processes and logs for debugging purposes.
 
 This article is part four in a four-part tutorial series. In this tutorial, you learn how to:
 

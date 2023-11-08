@@ -1,7 +1,7 @@
 ---
 title: "Enable Artifact Streaming- Portal"
-description: "Artifact Streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
-ms.author: tejaswikolli-web
+description: "Enable Artifact Streaming is a feature in Azure Container Registry in Azure portal to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
