@@ -99,11 +99,6 @@ For example, run the [az acr artifact-streaming operation show] command to check
 az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
 ```
 
-## Deploy the images in Azure Kubernetes Service (AKS) - Azure CLI
-
->[!IMPORTANT]
->* Create an AKS cluster in the same region as the ACR registry and attach to it.
-
 >[!NOTE]
 > Artifact Streaming can work across regions, regardless of whether geo-replication is enabled or not.
 > Artifact Streaming can work through a private endpoint and attach to it.
