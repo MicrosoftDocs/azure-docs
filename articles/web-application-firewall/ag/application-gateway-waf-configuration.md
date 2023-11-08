@@ -37,7 +37,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this when you don't the exact values for a given match variable but want to make sure that request traffic still gets excluded from rules evaluation.
+- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
 
 When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
