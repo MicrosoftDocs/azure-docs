@@ -110,4 +110,4 @@ When using a key vault with a firewall to disable public access, the option to *
 
 [Configure customer-managed keys for the FHIR service](configure-customer-managed-keys.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

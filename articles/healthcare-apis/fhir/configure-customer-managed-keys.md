@@ -10,6 +10,19 @@ ms.author: kesheth
 ---
 
 # Configure customer-managed keys for the FHIR service
+
+With customer-managed keys (CMK), you can protect and control access to your organization's data using keys that you create and manage. 
+
+## Prerequisites
+
+- Make sure you're familiar with [Best practices for using customer-managed keys](customer-managed-keys.md).
+
+- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
+
+## Enable a managed identity for the FHIR service
+
+ You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
+
 #### System-assigned managed identity
 
 1. In the Azure portal, go to the FHIR instance. Select **Identity** from the left pane.
@@ -242,8 +255,8 @@ After you add the key, you need to update the FHIR service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
 
-When the deployment completes, the FHIR service data is encrypted with the key you provided.  You can verify the encryption settings from the Encryption page for the FHIR service.
+When the deployment completes, the FHIR service data is encrypted with the key you provided.  You can verify the encryption settings on the Encryption page for the FHIR service.
 
-:::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
+<!-- Insert screenshot -->
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
