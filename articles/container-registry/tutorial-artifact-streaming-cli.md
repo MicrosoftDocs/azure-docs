@@ -9,66 +9,33 @@ ms.date: 10/31/2023
 ---
 # Artifact Streaming - Azure CLI
 
-Enable Artifact Streaming with a series of Azure CLI commands for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These commands outline the process for creating a premium ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
+Start Artifact Streaming with a series of Azure CLI commands for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These commands outline the process for creating a *Premium* [SKU](container-registry-skus.md) ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
 
 This article is part two in a four-part tutorial series. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Push/Import the image and generate the streaming artifact  - Azure CLI
-> * Deploy the images in Azure Kubernetes Service (AKS) - Azure CLI
+> * Deploy the image in Azure Kubernetes Service (AKS) - Azure CLI
 
 ## Prerequisites
 
-> * Create a Directory and change your working directory to its location
-
-For example, create a directory named `mystreamingtest` and change your current working directory to that location.
-
-```bash
-mkdir mystreamingtest && cd mystreamingtest
-```
-
-> * Download and start the private CLI container
-
-For example, use Docker commands to run a container from the "rosanch.azurecr.io" registry with the image tag "cli:v3". It maps your current directory into the "/root" directory inside the container and starts an interactive session. Inside this container, you will run the subsequent commands.
-
-```bash
-docker run -v $(pwd):/root -it rosanch.azurecr.io/cli:v3
-```
-
 > * Login to your Azure Account
-
-For example, run the following Azure CLI commands to log in to your Azure account and set your subscription.
-
-```bash
-cd ~  # Change to your home directory
-az login  # This command will prompt you to log in to your Azure account
-```
-
 > * Set the Active Azure Subscription
-
-For example, run the following Azure CLI command to set your active subscription. You can replace "my subscription" with the name or ID of the Azure subscription you want to set as the active subscription.
-
-```bash
-az account set -n "my subscription"
-```
-
+> * install CLI 2.54 and above version and az login to start the session
 >* You have Docker and the Azure CLI installed within the container, and the "rosanch.azurecr.io/cli:v3" image is correctly configured to provide the Azure CLI and necessary tools.
-
->* Make sure to replace "my subscription" with your actual Azure subscription name or ID when setting the active subscription.
-
-
+> * You have an Azure Container Registry (ACR) instance with the Premium SKU. If you don't have an ACR instance, see [Create an Azure Container Registry](../quickstart-create-azure-container-registry.md).
 ## Push/Import the image and generate the streaming artifact  - Azure CLI
 
-Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure CLI (version 2.21.0 or later). To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure CLI (version 2.54.0 or above). To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Enable Artifact Streaming, by following these general steps:
 
 >[!NOTE]
-> If you already have a container registry, you can skip this step. If the user is on Basic of Standard SKUs, the following commands will fail. 
+> If you already have a premium container registry, you can skip this step. If the user is on Basic of Standard SKUs, the following commands will fail. 
 > The code is written in Azure CLI and can be executed in an interactive mode. 
 > Please note that the placeholders should be replaced with actual values before executing the command.
 
-1. Create a new Azure Container Registry (ACR) using the Premium SKU through:
+1. Create a new Azure Container Registry (ACR) using the premium SKU through:
 
 For example, run the [az group create] command to create an Azure Resource Group with name `my-streaming-test` in the West US region and then run the [az acr create] command to create a premium Azure Container Registry with name `mystreamingtest` in that resource group.
 
@@ -77,15 +44,7 @@ az group create -n my-streaming-test -l westus
 az acr create -n mystreamingtest -g my-streaming-test -l westus --sku premium
 ```
 
-1. Authenticate the Premium SKU registry through:
-
-For example, run [az acr login] command to authenticate the registry `mystreamingtest` through Azure CLI.
-    
-    ```azurecli-interactive
-    az acr login --name mystreamingtest
-    ```
-
-1. Push or Import an Image to the Registry through:
+1. Push or import an image to the registry through:
 
 For example, run the [az configure] command to configure the default ACR and [az acr import] command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
 
@@ -94,7 +53,7 @@ az configure --defaults acr="mystreamingtest"
 az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
 ```
 
-1. Create a Streaming Artifact from the Image
+1. Create a streaming Artifact from the Image
 
 Initiates the creation of a streaming artifact from the specified image.
 
@@ -104,19 +63,17 @@ For example, run the [az acr artifact-streaming create] commands to create a str
 az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
 ```
 
-1. Check the Conversion Status
+1. Verify the generated Artifact Streaming in the Azure portal.
 
-Check the status of the conversion operation using the operation ID provided in the output of the previous command. It will show the progress and status of the conversion.
-
-For example, run the command [az acr artifact-streaming operation show] to check the status of the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+For example, run the [az acr manifest list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
-az acr artifact-streaming operation show --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
+az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
 ```
 
-1. Cancel the Artifact Streaming Creation (if needed)
+1. Cancel the Artifact Streaming creation (if needed)
 
-Cancel the streaming artifact creation if the conversion hasn't finished yet. It will stop the operation.
+Cancel the streaming artifact creation if the conversion is not finished yet. It will stop the operation.
 
 For example, run the [az acr artifact-streaming operation cancel] command to cancel the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
@@ -124,14 +81,25 @@ For example, run the [az acr artifact-streaming operation cancel] command to can
 az acr artifact-streaming operation cancel --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
 ```
 
-1. Enable Auto-Conversion on the Repository
+1. Enable auto-conversion on the repository
 
-Enables auto-conversion on the repository so that any new pushed or imported images for the specified repository will automatically trigger the generation of streaming artifacts.
+Enables auto-conversion in the repository for newly pushed or imported images. When enabled, new images pushed into that repository will trigger the generation of streaming artifacts.
+
+>[!NOTE]
+Auto-conversion cannot work on existing images. You can enable auto-conversion only for newly pushed or imported images.
 
 For example, run the [az acr artifact-streaming update] command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
-az acr artifact-streaming update -n mystreamingtest --repository jupyter/all-spark-notebook --enable-streaming true
+az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming true
+```
+
+1. Verify the streaming conversion progress, after pushing a new image `jupyter/all-spark-notebook:newtag` to the above repository.
+
+For example, run the [az acr artifact-streaming operation show] command to check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
+
+```azurecli-interactive
+az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
 ```
 
 ## Deploy the images in Azure Kubernetes Service (AKS) - Azure CLI
@@ -158,7 +126,7 @@ az acr artifact-streaming update -n mystreamingtest --repository jupyter/all-spa
       --enable-cluster-autoscaler \
       --min-count 3 \
       --max-count 30 \
-      --aad-admin-group-object-ids c09e05e9-32d3-405b-8c8a-9f67caa39fc5
+      --aad-admin-group-object-ids ********-****-****-****-************ 
 ```
 
 1. Set up the Kubernetes configuration for an Azure Kubernetes Service (AKS) cluster and then retrieve information about the nodes in the cluster. 

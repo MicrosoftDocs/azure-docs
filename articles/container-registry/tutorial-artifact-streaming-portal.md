@@ -9,7 +9,7 @@ ms.date: 10/31/2023
 ---
 # Enable Artifact Streaming - Azure portal
 
-Enable Artifact Streaming with a series of Azure portal steps for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These steps outline the process for creating a premium ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
+Start Artifact Streaming with a series of Azure portal steps for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These steps outline the process for creating a *premium* [SKU](container-registry-skus.md) ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
 
 This article is part three in a four-part tutorial series. In this tutorial, you learn how to:
 
@@ -24,7 +24,7 @@ This article is part three in a four-part tutorial series. In this tutorial, you
 
 ## Push/Import the image and generate the streaming artifact - Azure portal
 
-Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure portal.
+Artifact Streaming is available in the *premium* [SKU](container-registry-skus.md) Azure Container Registry. To enable Artifact Streaming, update a registry using the Azure portal.
 
 1. Convert the image and create Artifact Streaming in Azure portal.
 

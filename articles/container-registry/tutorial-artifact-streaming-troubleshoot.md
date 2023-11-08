@@ -31,9 +31,18 @@ This article is part four in a four-part tutorial series. In this tutorial, you 
 * Issues with authentication, network latency, image retrieval, streaming operations, or other issues.
 * Issues with image pull or streaming,streaming artifacts configurations,image sources, and resource constraints.
 * Issues with ACR configurations or permissions.
-* Issues with ACR Mirror and Overlaybd driver logs.
 
 ## Conversion operation failed due to an unknown error
+
+| Error Code                  | Error Message                                                                     | Troubleshooting Info                                                                                                                                                                                                                                     |
+| --------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UNKNOWN_ERROR               | Conversion operation failed due to an unknown error.                              | Caused by an internal error. A retry may help but if unsucessful may need to contact support                                                                                                                                                             |
+| RESOURCE_NOT_FOUND          | Conversion operation failed because target resource was not found                 | The target image was not found in the registry. This may be caused by a typo in the image digest, the image may have been deleted or otherwise missing in the target region (replication consistency is not immediate for example)                       |
+| UNSUPPORTED_PLATFORM        | Conversion is not currently supported for image platform                          | Only linux/amd64 images are initially supported.                                                                                                                                                                                                         |
+| NO_SUPPORTED_PLATFORM_FOUND | Conversion is not currently supported for any of the image platforms in the index | Only linux/amd64 images are initially supported. No image with this platform was found in the target index                                                                                                                                               |
+| UNSUPPORTED_MEDIATYPE       | Conversion is not supported for the image MediaType                               | Conversion can only target images with mediatype: application/vnd.oci.image.manifest.v1+json, application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.v2+json or application/vnd.docker.distribution.manifest.list.v2+json |
+| UNSUPPORTED_ARTIFACT_TYPE   | Conversion is not supported for the image ArtifactType                            | Streaming Artifacts (Artifact type: application/vnd.azure.artifact.streaming.v1) cannot be converted again.                                                                                                                                              |
+| IMAGE_NOT_RUNNABLE          | Conversion is not supported for non-runnable images                               | Only linux/amd64 runnable images are initially supported                                                                                                                                                                                                 |
 
 If an artifact-streaming operation fails with the message "Conversion operation failed due to an unknown error," follow these steps to troubleshoot the issue:
 
@@ -46,6 +55,16 @@ KubernetesContainers
 | where PreciseTimeStamp > ago(2h)
 | where operationid == "f9bfc66a-1885-445c-b811-d9da8a946a2d"
 | project-reorder PreciseTimeStamp, correlationid, trace_id, http_request_method, vars_name, vars_digest, ContainerName, RegionStamp, msg, duration, Node, PodName, Tenant, http_request_useragent, http_response_status, service, message, Host, level 
+```
+
+1. Check the conversion status
+
+Check the status of the conversion operation using the operation ID provided in the output of the previous command. It will show the progress and status of the conversion.
+
+For example, run the command [az acr artifact-streaming operation show] to check the status of the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+
+```azurecli-interactive
+az acr artifact-streaming operation show --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
 ```
 
 ## Troubleshooting Failed AKS Pod Deployments
@@ -67,25 +86,10 @@ To troubleshoot this issue, you should check the following:
 
 ## Checking for "UpgradeIfStreamableDisabled" Pod Condition:
 
-If the AKS pod condition shows "UpgradeIfStreamableDisabled," check if the image is from an Azure Container Registry (azurecr.io).
+If the AKS pod condition shows "UpgradeIfStreamableDisabled," check if the image is from an Azure Container Registry.
 
 ## Using Digest Instead of Tag for Streaming Artifact:
 
 If you deploy the streaming artifact using digest instead of tag (eg, mystreamingtest.azurecr.io/jupyter/all-spark-notebook@sha256:4ef83ea6b0f7763c230e696709d8d8c398e21f65542db36e82961908bcf58d18), AKS pod event and condition message will not include streaming related information. However, you may still see fast container startup as the underlying container engine will still stream the image to AKS if it detects the actual image content is streamable. 
-
-To investigate issues further, you can run commands to inspect ACR Mirror and Overlaybd driver logs from a specific node in the AKS cluster. 
-
-```bash
-# Inspect acr_mirror and overlaybd driver logs from the node
-kubectl debug nodes/<the node name> -it --image ubuntu
-
-# Enter the host environment
-chroot /host
-
-# Access the logs
-journalctl -u acr-mirror  # View acr_mirror logs
-journalctl -u acr-nodemon  # View acr-nodemon logs
-more /var/log/overlaybd.log  # View overlaybd driver logs
-```
 
 ## Next steps
