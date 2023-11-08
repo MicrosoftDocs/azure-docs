@@ -1,6 +1,6 @@
 ---
 title: Confidential containers on Azure Kubernetes Service
-description: Learn about pod level isolation via confidential containers on AKS
+description: Learn about pod level isolation via confidential containers on Azure Kubernetes Service
 services: container-service
 author: angarg05
 ms.topic: article
@@ -10,7 +10,7 @@ ms.service: azure-kubernetes-service
 ms.custom: ignite-fall-2023
 ---
 
-# Confidential containers on AKS
+# Confidential containers on Azure Kubernetes Service
 With the growth in cloud-native application development, there's an increased need to protect the workloads running in cloud environments as well. Containerizing the workload forms a key component for this programming model, and then, protecting the container is paramount to running confidentially in the cloud. 
 
 :::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that make your cKubernetes container vulnerable.":::
