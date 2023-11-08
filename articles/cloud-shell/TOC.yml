@@ -7,7 +7,7 @@ items:
         href: features.md
   - name: Get started with Cloud Shell
     href: get-started.md
-  - name: How-to use Cloud Shell
+  - name: How to use Cloud Shell
     items:
       - name: Persist files in storage
         href: persisting-shell-storage.md
