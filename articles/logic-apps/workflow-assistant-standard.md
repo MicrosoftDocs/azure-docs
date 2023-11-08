@@ -104,7 +104,7 @@ The Azure Logic Apps team values your feedback and encourages you to share your 
 
 **Q**: Where can I learn about privacy and data protection for Azure?
 
-**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://azure.microsoft.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
+**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
 
 **Q**: What data does the workflow assistant collect?
 
