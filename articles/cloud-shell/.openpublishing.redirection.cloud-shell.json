@@ -59,6 +59,11 @@
             "source_path_from_root": "/articles/cloud-shell/security-baseline.md",
             "redirect_url": "/security/benchmark/azure/baselines/cloud-shell-security-baseline",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/index.md",
+            "redirect_url": "/azure/cloud-shell/overview",
+            "redirect_document_id": false
         }
     ]
 }

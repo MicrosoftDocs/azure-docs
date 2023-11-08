@@ -44,16 +44,16 @@ Cloud Shell is intended for interactive use cases. Cloud Shell sessions time out
 without interactive activity. As a result, any long-running non-interactive sessions are ended
 without warning.
 
+Cloud Shell is a free service for managing your Azure environment. It's not a general purpose
+computing platform. Excessive usage might be considered a breach of the Azure Terms of Service,
+which result in having your access to Cloud Shell blocked.
+
 ### How many concurrent sessions can I have open?
 
 Azure Cloud Shell has a limit of 20 concurrent users per tenant. Opening more than 20 simultaneous
 sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to have more than
 20 sessions open, such as for training sessions, contact Support to request a quota increase before
-your anticipated usage.
-
-Cloud Shell is a free service for managing your Azure environment. It's not a general purpose
-computing platform. Excessive usage might be considered in breach to the Azure Terms of Service and
-could lead to Cloud Shell access being blocked.
+your anticipated usage date.
 
 ### I created some files in Cloud Shell, but they're gone. What happened?
 
