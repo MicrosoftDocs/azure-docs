@@ -164,9 +164,9 @@ The requests JSON file uses the following properties for defining the load confi
 | ----- | ----- | ----- | ----- |
 | `loadType` | string | | Load pattern type. Supported values are: `linear`, `step`, and `spike`. |
 | `scenario` | string | | Reference to the request group, specified in the `scenarios` property. |
-| `virtualUsersPerEngine` | integer | | Number of virtual users per test engine instance. |
-| `durationInSeconds` | integer | | Total duration of the load test in seconds. |
-| `rampUpTimeInSeconds` | Linear, Step | integer | Duration in seconds to ramp up to the target number of virtual users. |
+| `virtualUsersPerEngine` | integer | All | Number of virtual users per test engine instance. |
+| `durationInSeconds` | integer | All | Total duration of the load test in seconds. |
+| `rampUpTimeInSeconds` | integer| Linear, Step | Duration in seconds to ramp up to the target number of virtual users. |
 | `rampUpSteps` | integer | Step | The number of steps to reach the target number of virtual users. |
 | `spikeMultiplier` | integer | Spike | The factor to multiply the number of target users with during the spike duration. |
 | `spikeHoldTimeInSeconds` | integer | Spike | Total duration in seconds to maintain the spike load. |
