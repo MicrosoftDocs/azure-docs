@@ -29,7 +29,7 @@ Document Intelligence **2023-10-31-preview**
 The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available for use! This preview API introduces new and updated capabilities:
 
 * [Read](concept-contract.md)
-  * Language Expansjion for Handwritting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
+  * Language Expansjion for Handwriting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
   * Cyber EO compliance.
 * [Layout](concept-layout.md)
   * Markdown output support.
