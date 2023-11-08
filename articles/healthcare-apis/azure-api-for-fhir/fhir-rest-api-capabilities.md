@@ -23,7 +23,7 @@ Azure API for FHIR supports create, conditional create, update, and conditional 
 
 Azure API for FHIR offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
-#### Delete can be performed for individual resource id or in bulk. To learn more on deleting resources in bulk, visit [$bulk-delete operation](../bulk-delete-operation.md).
+**Delete can be performed for individual resource id or in bulk. To learn more on deleting resources in bulk, visit [$bulk-delete operation](bulk-delete-operation.md).**
 
 ### Delete (Hard + Soft Delete)
 
