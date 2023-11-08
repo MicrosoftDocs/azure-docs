@@ -137,10 +137,10 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 >[!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. You can use the audit whitelist feature to set what operations *don't* create an audit record. 
+By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. To manage this, you could use whitelist to selectively include or exclude specific audit records.
 
 ### Cassandra 3.11
-The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
+In Cassandra 3.11, you can use the audit whitelist feature to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
 
 Examples:
 
@@ -169,16 +169,16 @@ Examples:
   cassandra@cqlsh> LIST ROLES;
   ```
 
-### Cassandra 4 and later versions
-In Cassandra 4 and later versions, you can configure your whitelist in Cassandra configuration. For detailed guidance on updating the Cassandra configuration, please refer to [Update Cassandra Configuration](https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/create-cluster-portal#update-cassandra-configuration). The available options are as follows:
+### Cassandra 4 and later
+In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance on updating the Cassandra configuration, please refer to [Update Cassandra Configuration](https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/create-cluster-portal#update-cassandra-configuration). The available options are as follows:
 ```
 audit_logging_options:
-  included_keyspaces: <Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces>
-  excluded_keyspaces: <Comma separated list of keyspaces to be excluded from audit log, default - excludes no keyspace except system, system_schema and system_virtual_schema>
-  included_categories: <Comma separated list of Audit Log Categories to be included in audit log, default - includes all categories>
-  excluded_categories: <Comma separated list of Audit Log Categories to be excluded from audit log, default - excludes no category>
-  included_users: <Comma separated list of users to be included in audit log, default - includes all users>
-  excluded_users: <Comma separated list of users to be excluded from audit log, default - excludes no user>
+    included_keyspaces: <Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces>
+    excluded_keyspaces: <Comma separated list of keyspaces to be excluded from audit log, default - excludes no keyspace except system, system_schema and system_virtual_schema>
+    included_categories: <Comma separated list of Audit Log Categories to be included in audit log, default - includes all categories>
+    excluded_categories: <Comma separated list of Audit Log Categories to be excluded from audit log, default - excludes no category>
+    included_users: <Comma separated list of users to be included in audit log, default - includes all users>
+    excluded_users: <Comma separated list of users to be excluded from audit log, default - excludes no user>
 ```
 
 List of available categories are: QUERY, DML, DDL, DCL, OTHER, AUTH, ERROR, PREPARE
