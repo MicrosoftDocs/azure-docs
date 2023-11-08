@@ -140,7 +140,7 @@ The **Logs and events** grouping captures the logs from the _ContainerLog_ or _C
 
 
 #### ContainerLogV2 schema  
-Azure Monitor Container Insights now provides a schema for container logs known as ContainerLogV2, which is the recommended option. Within this format, there are fields that facilitate common queries for viewing data related to AKS and Azure Arc-enabled Kubernetes clusters. The new fields are:
+Azure Monitor Container Insights provides a schema for container logs known as ContainerLogV2, which is the recommended option. This format includes the following fields to facilitate common queries for viewing data related to AKS and Azure Arc-enabled Kubernetes clusters:
 
 - ContainerName
 - PodName
