@@ -29,7 +29,7 @@ AKS generates the same kinds of monitoring data as other Azure resources that ar
 
 
 
- Source | Description |
+| Source | Description |
 |:---|:---|
 | Platform metrics | [Platform metrics](monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) or use them for [metric alerts](../azure-monitor/alerts/alerts-types.md#metric-alerts).  |
 | Prometheus metrics | [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) collects the Prometheus metrics into an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). Analyze them with dashboards in [Azure Managed Grafana](../managed-grafana/overview.md) and with [Prometheus alerts](../azure-monitor/alerts/prometheus-alerts.md). |
@@ -155,7 +155,7 @@ ContainerLogV2 is the recommended approach and is the default schema for custome
 Data visualization is an essential concept that makes it easier for system administrators and operational engineers to consume the collected information. Instead of looking at raw data, they can use visual representations, which quickly display the data and reveal trends that might be hidden when looking at raw data. You can use Grafana Dashboards or native Azure workbooks for data visualization.
 
 ### Azure Managed Grafana
-The most common way to analyze and present Prometheus data is with a Grafana Dashboard. Azure Managed Grafana includes [prebuilt dashboards](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) for monitoring Kubernetes clusters including several that present similar information as Container insights views.  There are also various community-created dashboards to visualize multiple aspects of a Kubernetes cluster from the metrics collected by Prometheus.
+The most common way to analyze and present Prometheus data is with a Grafana Dashboard. Azure Managed Grafana includes [prebuilt dashboards](../azure-monitor/visualize/grafana-plugin.md#use-out-of-the-box-dashboards) for monitoring Kubernetes clusters including several that present similar information as Container insights views.  There are also various community-created dashboards to visualize multiple aspects of a Kubernetes cluster from the metrics collected by Prometheus.
 
 :::image type="content" source="media/monitor-aks/grafana.png" alt-text="Screenshot of Grafana." lightbox="media/monitor-aks/grafana.png":::
 
@@ -194,7 +194,7 @@ The following table lists the recommended metric alert rules for AKS clusters. T
 ### Log based alerts
 [Log alerts](../azure-monitor/alerts/alerts-types.md#log-alerts) allow you to alert on your [data plane](#aks-data-planecontainer-insights-logs) and [control plane](#aks-control-planeresource-logs) logs. Run queries at predefined intervals and create an alert based on the results. You may check for the count of certain records or perform calculations based on numeric columns.  
 
-See [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md).
+See [How to create log alerts from Container Insights](../azure-monitor/containers/container-insights-log-alerts.md) and [How to query logs from Container Insights](../azure-monitor/containers/container-insights-log-query.md).
 [Log alerts](../azure-monitor/alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor in different scenarios:
 
 - [Result count](../azure-monitor/alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
