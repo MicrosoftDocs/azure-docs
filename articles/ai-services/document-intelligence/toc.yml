@@ -26,13 +26,13 @@ items:
   - name: Language support
     items:
       - name: Read Layout OCR models
-        displayName: language, locale, handwritten, handwriting, text, detect, detection
+        displayName: language, locale, handwritten, handwriting, text, detect, detection, general, document, printed
         href: language-support-ocr.md?view=doc-intel-4.0.0&preserve-view=true
       - name: Prebuilt models
-        displayName: locale, handwritten, handwriting, text, detect, detection
+        displayName: locale, handwritten, handwriting, text, detect, detection, printed
         href: language-support-prebuilt.md
       - name: Custom models
-        displayName: locale, handwritten, handwriting, text, detect, detection
+        displayName: locale, handwritten, handwriting, text, detect, detection, printed
         href: language-support-custom.md
   - name: Pricing
     displayName: cost, free, F0, tiers, standard, S0
