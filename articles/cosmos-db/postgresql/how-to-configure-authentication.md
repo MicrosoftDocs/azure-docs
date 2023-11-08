@@ -60,9 +60,8 @@ User need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Micr
 # [Azure CLI](#tab/cli)
 
 ```azurecli
-
 az ad sp update --id b4fa09d8-5da5-4352-83d9-05c2a44cf431 --set accountEnabled=true
-
+```
 ---
 
 ### Add Microsoft Entra admins to Azure Cosmos DB for PostgreSQL cluster
