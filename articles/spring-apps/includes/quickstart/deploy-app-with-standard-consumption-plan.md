@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with standard consumption plan.
 
-[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-standard-consumption-plan.md)]
 
 -->
 
@@ -62,7 +62,7 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-consumption-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-consumption-azure-portal](hello-prepare-cloud-environment-consumption-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -72,13 +72,13 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](provision-consumption-azure-spring-apps.md)]
+[!INCLUDE [provision-consumption-azure-spring-apps](provision-consumption-azure-spring-apps.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use the following steps to create the required resources:
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already signed in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you already signed in.
 
    ```bash
    azd auth login
@@ -118,31 +118,16 @@ Use the following steps to create the required resources:
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+[!INCLUDE [deploy-hello-app-azure-portal](deploy-hello-app-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
+[!INCLUDE [deploy-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
 
-1. Navigate to the *complete* directory, and then run the following command to configure the app in Azure Spring Apps:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
-   ```
-
-   The following list describes the command interactions:
-
-   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Input the app name**: Provide an app name. If you use the default project artifact ID, press <kbd>Enter</kbd> directly.
-   - **Expose public access for this app (boot-for-azure)?**: Press <kbd>y</kbd>.
-   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
-
-1. Use the following command to deploy the app:
+2. Use the following command to deploy the app:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:deploy
+   ./mvnw azure-spring-apps:deploy
    ```
 
    The following list describes the command interaction:
@@ -152,11 +137,12 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    After the command is executed, you can see from the following log messages that the deployment was successful:
 
    ```output
-   [INFO] Deployment(default) is successfully updated.
+   [INFO] Deployment(default) is successfully created
+   [INFO] Starting Spring App after deploying artifacts...
    [INFO] Deployment Status: Running
-   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:UNREGISTERED
+   [INFO]   InstanceName:demo--default-xxxxxxx-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
    [INFO] Getting public url of app(demo)...
-   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   [INFO] Application url: https://demo.<unique-identifier>.<region-name>.azurecontainerapps.io
    ```
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
