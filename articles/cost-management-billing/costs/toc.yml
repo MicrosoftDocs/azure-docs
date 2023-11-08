@@ -165,6 +165,8 @@
       href: enable-tag-inheritance.md
     - name: Split shared costs
       href: allocate-costs.md
+    - name: View Kubernetes costs
+      href: view-kubernetes-costs.md
   - name: Reference
     items:
     - name: Cost allocation rules API
