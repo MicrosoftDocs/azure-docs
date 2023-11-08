@@ -44,8 +44,8 @@ Artifact Streaming is currently in preview. The following limitations apply:
 
 Here are some benefits of enabling and using Artifact Streaming at registry level:
 
-1. Seamless and agile experience for software developers and system architects.
 1. Reduce image pull latency and fast container start up.
+1. Seamless and agile experience for software developers and system architects.
 1. Time and performance effective scaling mechanism to design, build, and deploy container applications and cloud solutions at high scale.
 1. Simplify the process of deploying containerized applications to multiple regions using a single container registry and streaming container images to multiple regions.
 1. Supercharging the process of deploying containerized platforms by simplifying the process of deploying and managing container images.
