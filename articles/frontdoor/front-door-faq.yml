@@ -246,7 +246,7 @@ sections:
 
           - Starting from September 25, 2023, we have updated the domain fronting blocking restrictions based on feedback from customers. Instead of blocking a request when the SNI and host headers don't match, we allow the mismatch as long as the two domains are added to the same subscription. You can use multiple domains for your applications without affecting the functionality, which Azure Front Door enables.
 
-          - Starting from November 8, 2023, we'll enforce domain fronting blocking on all existing domains.
+          - Starting from January 8, 2024, we'll enforce domain fronting blocking on all existing domains. It can one or two weeks for the enforcement to be effective in all regions from January 8, 2024.
 
           Once domain fronting gets blocked, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources block any HTTP/HTTPS requests that exhibit this behavior.
 
