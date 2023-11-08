@@ -76,8 +76,8 @@ The following are the current limitations and known issues with PowerShell runbo
   **Sample script**
   ```powershell-interactive
 
-  # Get information about module "Microsoft.Graph.Authenticaion"
-  $ModuleName = "Microsoft.Graph.Authenticaion"
+  # Get information about module "Microsoft.Graph.Authentication"
+  $ModuleName = "Microsoft.Graph.Authentication"
     
   $NewPath = "C:\usr\src\PSModules\$ModuleName"
   $OldPath = "C:\Modules\User\$ModuleName"
@@ -125,8 +125,8 @@ The following are the current limitations and known issues with PowerShell runbo
   **Sample script**
   ```powershell-interactive
 
-  # Get information about module "Microsoft.Graph.Authenticaion"
-  $ModuleName = "Microsoft.Graph.Authenticaion"
+  # Get information about module "Microsoft.Graph.Authentication"
+  $ModuleName = "Microsoft.Graph.Authentication"
     
   $NewPath = "C:\usr\src\PSModules\$ModuleName"
   $OldPath = "C:\Modules\User\$ModuleName"
@@ -184,8 +184,8 @@ The following are the current limitations and known issues with PowerShell runbo
   **Sample script**
   ```powershell-interactive
 
-  # Get information about module "Microsoft.Graph.Authenticaion"
-  $ModuleName = "Microsoft.Graph.Authenticaion"
+  # Get information about module "Microsoft.Graph.Authentication"
+  $ModuleName = "Microsoft.Graph.Authentication"
     
   $NewPath = "C:\usr\src\PSModules\$ModuleName"
   $OldPath = "C:\Modules\User\$ModuleName"
