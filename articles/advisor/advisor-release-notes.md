@@ -12,17 +12,17 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ### ZRS recommendations for Azure Disks
 
-Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Managed Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS Disks, which are resilient to zonal failures. Access these recommendations through the Advisor portal and APIs.
+Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Managed Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS disks, which are resilient to zonal failures. Access these recommendations through the Advisor portal and APIs.
 
 To learn more, visit [Use Azure Disks with Zone Redundant Storage for higher resiliency and availability](/azure/advisor/advisor-reference-reliability-recommendations#use-azure-disks-with-zone-redundant-storage-for-higher-resiliency-and-availability).
 
 ## October 2023
 
-### New version of Service Retirement Workbook
+### New version of Service Retirement workbook
 
-Azure Advisor now has a new version of the Service Retirement Workbook that includes three major changes:
+Azure Advisor now has a new version of the Service Retirement workbook that includes three major changes:
 
-* 10 new services are onboarded to the workbook. The Retirement Workbook now covers 40 services.
+* 10 new services are onboarded to the workbook. The Retirement workbook now covers 40 services.
 
 * Seven services that completed their retirement lifecycle are off boarded.
 
@@ -55,10 +55,10 @@ List of services off boarded from Workbook:
 | Virtual Machines | ND-Series |
 | Virtual Machines | Azure Dedicated Host SKUs (Dsv3-Type1, Esv3-Type1, Dsv3-Type2, Esv3-Type2) |
 
-**UX improvements**
+UX improvements:
 
 * Resource details grid: Now, the resource details are readily available by default, whereas previously, they were only visible after selecting a service.
-* Resource link: The Resource link now opens in a context pane, previously it opened in the same tab.
+* Resource link: The **Resource** link now opens in a context pane, previously it opened in the same tab.
 
 To learn more, visit [Prepare migration of your workloads impacted by service retirement](/azure/advisor/advisor-how-to-plan-migration-workloads-service-retirement).
 
@@ -66,27 +66,27 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 Azure Advisor now provides Service Health Alert recommendations with Azure Resource Graph (ARG) as a data source. These recommendations are offered for subscriptions with or without a configured service health alert and direct you to the Service Health page to take action.
 
-Azure Service Health alerts keep you informed about issues and advisories in four areas (Service issues, Planned maintenance, Security and Health advisories). These recommendations are crucial for incident preparedness and provide information on how to proactively prepare for unexpected incidents.
+Azure Service Health alerts keep you informed about issues and advisories in four areas (service issues, planned maintenance, security and health advisories). These recommendations are crucial for incident preparedness and provide information on how to proactively prepare for unexpected incidents.
 
 To learn more, visit [Service Health portal classic experience overview](/azure/service-health/service-health-overview).
 
 ## August 2023
 
-### Improved VM resiliency with Azure Advisor's Availability Zone recommendations
+### Improved VM resiliency with Azure Advisor's availability zone recommendations
 
-Azure Advisor now provides availability zone recommendations. According to the Well Architected Framework (WAF) guidelines, is zonal deployment is a best practice. By adopting zonal deployment recommendations, you can design your solutions to utilize zonal virtual machines (VMs), ensuring the isolation of your VMs from potential failures in other zones. With zonal deployment, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions.
+Azure Advisor now provides availability zone recommendations. Zonal deployment is a best practice, according to Well Architected Framework (WAF) guidelines. By adopting Advisor zonal deployment recommendations, you can design your solutions to utilize zonal virtual machines (VMs), ensuring the isolation of your VMs from potential failures in other zones. With zonal deployment, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions.
 
 To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Learn](/azure/advisor/advisor-reference-reliability-recommendations#compute).
 
 ## July 2023
 
-### Introducing Workload based recommendations management
+### Introducing workload based recommendations management
 
-Azure Adviser now offers the capability of grouping and/or filtering recommendations by workload. Workload definition is available to selected customers based on their support contract.
+Azure Adviser now offers the capability of grouping and/or filtering recommendations by workload. Workload creation is available to selected customers based on their support contract.
 
 If you're interested in the workloads filter, reach out to your account team for more information.
 
-### New cost optimization workbook template
+### New Cost Optimization workbook template
 
 Azure Advisor now has a new version of the Cost Optimization workbook template. The  Cost Optimization workbook offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated virtual machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
 
@@ -104,7 +104,7 @@ To learn more, visit [Reliability recommendations](/azure/advisor/advisor-refere
 
 ## May 2023
 
-### New reliability workbook template
+### New eliability workbook template
 
 Azure Advisor now has a Reliability workbook template. The new workbook helps you identify areas of improvement by checking configuration of selected Azure resources using the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) and documented best practices. You can use filters, subscription, resource group, and tags, to focus on resources that you care about most. Use the workbook recommendations to:
 
