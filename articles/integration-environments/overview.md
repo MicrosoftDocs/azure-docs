@@ -1,5 +1,5 @@
 ---
-title: What is Azure Integration Environments?
+title: Overview
 description: Centrally organize Azure resources for integration solutions. Model and map business processes to Azure resources. Collect business data from deployed solutions.
 ms.service: azure
 ms.topic: overview
