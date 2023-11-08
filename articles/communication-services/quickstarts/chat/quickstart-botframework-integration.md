@@ -351,7 +351,7 @@ namespace Microsoft.BotBuilderSamples.Bots
 ### Send an adaptive card
 
 > [!NOTE] 
-> Adaptive cards are only supported within Azure Communication Services use cases where all chat participants are ACS users, and not for Teams interoprability use cases.
+> Adaptive cards are only supported within Azure Communication Services use cases where all chat participants are Azure Communication Services users, and not for Teams interoprability use cases.
 
 You can send an adaptive card to the chat thread to increase engagement and efficiency. An adaptive card also helps you communicate with users in various ways. You can send an adaptive card from a bot by adding the card as a bot activity attachment.
 
