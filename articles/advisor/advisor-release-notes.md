@@ -1,5 +1,5 @@
 ---
-title: Release notes for Azure Advisor
+title: What's new in Azure Advisor
 description: A description of what's new and changed in Azure Advisor
 ms.topic: reference
 ms.date: 11/02/2023
@@ -12,7 +12,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ### ZRS recommendations for Azure Disks
 
-Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Managed Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS disks, which are resilient to zonal failures. Access these recommendations through the Advisor portal and APIs.
+Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Managed Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS disks. Access these recommendations through the Advisor portal and APIs.
 
 To learn more, visit [Use Azure Disks with Zone Redundant Storage for higher resiliency and availability](/azure/advisor/advisor-reference-reliability-recommendations#use-azure-disks-with-zone-redundant-storage-for-higher-resiliency-and-availability).
 
@@ -62,11 +62,11 @@ UX improvements:
 
 To learn more, visit [Prepare migration of your workloads impacted by service retirement](/azure/advisor/advisor-how-to-plan-migration-workloads-service-retirement).
 
-### Service Health Alert Recommendations
+### Service Health Alert recommendations
 
-Azure Advisor now provides Service Health Alert recommendations with Azure Resource Graph (ARG) as a data source. These recommendations are offered for subscriptions with or without a configured service health alert and direct you to the Service Health page to take action.
+Azure Advisor now provides Service Health Alert recommendations with Azure Resource Graph (ARG) as a data source. These recommendations surface for subscriptions in which no service health alert has been configured and help redirect you to the Service Health page to take an action. You can create and customize alerts based on the class of service health notification, affected subscriptions, services, and regions.
 
-Azure Service Health alerts keep you informed about issues and advisories in four areas (service issues, planned maintenance, security and health advisories). These recommendations are crucial for incident preparedness and provide information on how to proactively prepare for unexpected incidents.
+Azure Service Health alerts keep you informed about issues and advisories in four areas (Service issues, Planned maintenance, Security and Health advisories) and can be crucial for incident preparedness.
 
 To learn more, visit [Service Health portal classic experience overview](/azure/service-health/service-health-overview).
 
@@ -153,7 +153,9 @@ To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/
 
 ### VM/VMSS right-sizing recommendations with custom lookback period
 
-Azure Advisor is now providing Virtual Machine and Virtual Machine Scale Sets right-sizing recommendations with a custom lookback period through the **Commitments** option to improve the relevance of recommendations. The right sizing recommendations identify idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. With this latest update, you can adjust the default lookback period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level, which is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications).
+Azure Advisor is now providing Virtual Machine and Virtual Machine Scale Sets right-sizing recommendations with an adjustable lookback period through the **Commitments** option. You can improve the relevance of recommendations to make them more actionable, obtain in additional cost savings.
+
+The right sizing recommendations identify idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. With this latest update, you can adjust the default lookback period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level, which is especially useful when your workloads have biweekly or monthly peaks (such as with payroll applications).
 
 To learn more, visit [Optimize Virtual Machine (VM) or Virtual Machine Scale Set (VMSS) spend by resizing or shutting down underutilized instances](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
 
@@ -176,9 +178,9 @@ Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resiz
 
 ## October 2022
 
-### Advisor score across all Azure regions, General Availability
+### Advisor score on specific workloads, General Availability
 
-Advisor Score now supports the ability to report on specific workloads across regions using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
+Advisor Score now supports the ability to focus recommendations on specific workloads using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
 
 To learn more, visit [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
@@ -194,7 +196,7 @@ To learn more, visit [Azure Advisor for MySQL](/azure/mysql/single-server/concep
 
 ### Unlimited number of subscriptions
 
-Azure Advisor provides an unlimited set of subscriptions that you can use to focus on different aspects of your resources. It's easier now to get an overview of optimization opportunities available to your organization – no need to spend time and effort to apply filters and process subscription in batches.
+Azure Advisor now provides an unlimited number of subscriptions that you can use to focus on different aspects of your resources. Previously, the number of subscriptions was limited to 60. It's easier now to get an overview of optimization opportunities available to your organization without spending time and effort applying filters and processing subscriptions in batches.
 
 To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 
@@ -220,6 +222,6 @@ Improvements include:
 
 1. For better actionability, we updated recommendation criteria to include other SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, and more.
 
-![vm-right-sizing-recommendation](media/advisor-overview/advisor-vm-right-sizing.png)
+:::image type="content" source="media/advisor-overview/advisor-vm-right-sizing.png" alt-text="vm-right-sizing-recommendation.":::
 
 Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
