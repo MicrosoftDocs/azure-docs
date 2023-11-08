@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: bemabonsu
 zone_pivot_groups: cloud-location
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 # Create a Document Intelligence Logic Apps workflow
@@ -20,12 +20,12 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD004 -->
 <!-- markdownlint-disable MD032 -->
 :::moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]
 
 :::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 :::moniker-end
 
 :::moniker range=">=doc-intel-3.0.0"

@@ -7,9 +7,9 @@ manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
@@ -20,11 +20,11 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Document Intelligence SDK v3.0 (GA)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v30-v21.md)]
 
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
-## Supported languages
+## Supported programming languages
 
 Document Intelligence SDK supports the following languages and platforms:
 
@@ -39,10 +39,10 @@ Document Intelligence SDK supports the following languages and platforms:
 
 | Language| SDK version | API version | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
-|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (GA)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (GA)| v3.0:2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.1.x |  v2.1 (default)</br>v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
 |.NET/C#</br> Java</br> JavaScript</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-| Python| 3.2.x (GA) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
+| Python| 3.2.x (GA) | v3.0:2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
 | Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 | Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 
