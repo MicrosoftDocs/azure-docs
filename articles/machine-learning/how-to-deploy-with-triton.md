@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 06/10/2022
 ms.topic: how-to
-author: dem108
+author: tinaem
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview)
+# High-performance serving with Triton Inference Server
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
@@ -25,10 +25,8 @@ Triton is multi-framework, open-source software that is optimized for inference.
 In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
 > [!NOTE]
-> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
-> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint/deployment is still in preview_. 
+> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning. 
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
