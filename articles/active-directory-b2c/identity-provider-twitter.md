@@ -85,9 +85,7 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 ## Configure Twitter as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Twitter**.
 1. Enter a **Name**. For example, *Twitter*.
@@ -120,9 +118,7 @@ At this point, the Twitter identity provider has been set up, but it's not yet a
 You need to store the secret key that you previously recorded for Twitter app in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. On the left menu, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.

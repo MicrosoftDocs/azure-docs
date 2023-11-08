@@ -38,7 +38,7 @@ Uninstall extensions using the following steps:
 
 3. Search and select the vCenter you want to remove from Azure Arc.
 
-    ![Browse your VMware Inventory ](./media/browse-vmware-inventory.png)
+    :::image type="content" source="media/remove-vcenter-from-arc-vmware/browse-vmware-inventory.png" alt-text="Screenshot of where to browse your VMware Inventory from Azure portal." lightbox="media/remove-vcenter-from-arc-vmware/browse-vmware-inventory.png":::
 
 4. Select **Virtual machines** under **vCenter inventory**.
 
