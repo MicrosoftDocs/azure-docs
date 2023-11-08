@@ -1153,9 +1153,6 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 
 ::: zone pivot="csharp"
 
-> [!NOTE]
-> Support for Durable entities is currently in **preview** for the .NET-isolated worker. [Learn more.](durable-functions-dotnet-entities.md)
-
 #### [In-process](#tab/in-process)
 
 ```csharp
