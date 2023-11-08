@@ -60,7 +60,7 @@ For example, run the [az acr artifact-streaming create] commands to create a str
 az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
 ```
 
-1. Verify the generated Artifact Streaming in the Azure portal.
+1. Verify the generated Artifact Streaming in the Azure CLI.
 
 For example, run the [az acr manifest list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
