@@ -2,7 +2,7 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/02/2023
+ms.date: 11/08/2023
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
@@ -24,7 +24,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version 0.5.123 or later.
+- The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
 - The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later. This is required to generate a [security policy][confidential-containers-security-policy].
 
@@ -81,7 +81,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "KataCcIsola
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name KataCcIsolationPreview"
+az feature show --namespace "Microsoft.ContainerService" --name "KataCcIsolationPreview"
 ```
 
 When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
@@ -114,7 +114,7 @@ az provider register --namespace "Microsoft.ContainerService"
 3. Add a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux --node-vm-size <VM sizes capable of nested SNP VM> 
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku AzureLinux --node-vm-size <VM sizes capable of nested SNP VM> 
     ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -141,7 +141,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
    The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime KataCcIsolation
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku AzureLinux --node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime KataCcIsolation
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -252,7 +252,7 @@ For example, the app downloads the container image layers for each of the contai
 
 ## Complete the configuration
 
-1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
+1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey`. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
 
     ```bash
     go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
