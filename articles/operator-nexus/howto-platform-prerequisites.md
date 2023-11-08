@@ -234,8 +234,8 @@ Terminal Server has been deployed and configured as follows:
    - Syslog Primary: 172.27.255.210
    - Syslog Secondary: 172.27.255.211
    - SMTP Gateway IP address or FQDN: not set by operator during setup
-   - Email Sender Domain Name: not set by operator during setup
-   - Email Address(es) to be alerted: not set by operator during setup
+   - Email Sender Domain Name: domain name of the sender of the email (example.com)
+   - Email Address(es) to be alerted: List of emails where email alerts will be sent. (someone@example.com)
    - Proxy Server and Port: not set by operator during setup
    - Management: Virtual Interface
      - IP Address: 172.27.255.200
