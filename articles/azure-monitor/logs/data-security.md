@@ -128,8 +128,8 @@ Azure Log Analytics meets the following requirements:
 
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it's secured as is moves to Azure Monitor, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
-
-![Image of Azure Monitor Logs data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/data-security/log-analytics-data-security-diagram.png" lightbox="./media/data-security/log-analytics-data-security-diagram.png" alt-text="Image of Azure Monitor Logs data collection and security" border="false":::
 
 ### 1. Sign up for Azure Monitor and collect data
 For your organization to send data to Azure Monitor Logs, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:

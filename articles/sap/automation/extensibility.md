@@ -128,6 +128,8 @@ configuration_settings = {
   sapsys_gid           = "400"
 }
 
+```
+
 
 ## Adding custom repositories (Linux)
 
