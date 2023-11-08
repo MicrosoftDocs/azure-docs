@@ -21,8 +21,6 @@ This article is part two in a four-part tutorial series. In this tutorial, you l
 
 > * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
->* You have Docker and the Azure CLI installed within the container, and the "rosanch.azurecr.io/cli:v3" image is correctly configured to provide the Azure CLI and necessary tools.
-
 ## Push/Import the image and generate the streaming artifact  - Azure CLI
 
 Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure CLI (version 2.54.0 or above). To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
