@@ -1,9 +1,9 @@
 ---
 title: Azure Native Qumulo Scalable File Service for video editing
-description: In this article, learn about the use caseAzure Native Qumulo Scalable File Service for video editing.
+description: In this article, learn about the use case for Azure Native Qumulo Scalable File Service for video editing.
 
 ms.topic: overview
-ms.date: 11/13/2003
+ms.date: 11/15/2003
 
 ---
 
@@ -71,7 +71,7 @@ Here are some possible use cases:
 - Flexibility and Mobility:
   - Video editors can access their projects and tools from anywhere with an internet connection. Editors can access the video editing farm from various devices, including laptops, tablets, or thin clients, without compromising performance or security.
 
-### Scalability and Performance
+### Scalability and performance
 
 When planning a video editing solution using Qumulo and Adobe Premiere Pro, consider the following factors:
 
