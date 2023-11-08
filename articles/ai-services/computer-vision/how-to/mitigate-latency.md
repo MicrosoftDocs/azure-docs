@@ -33,7 +33,7 @@ This section describes how you can mitigate various causes of latency specific t
 
 ### Choose the appropriate region for your Face resource
 
-The network latency, the time it takes for information to travel from source (your application) to destination (your Azure resource), is strongly affected by the geographical distance between the application making requests and the Azure server responding to those requests. For example, if your Face resource is located in `EastUS`, it will have a faster response time for users in New York, and users in Asia will experience a longer delay. 
+The network latency, the time it takes for information to travel from source (your application) to destination (your Azure resource), is strongly affected by the geographical distance between the application making requests and the Azure server responding to those requests. For example, if your Face resource is located in `EastUS`, it has a faster response time for users in New York, and users in Asia experience a longer delay. 
 
 We recommend that you select a region that is closest to your users to minimize latency. If your users are distributed across the world, consider creating multiple resources in different regions and routing requests to the region nearest to your customers. Alternatively, you may choose a region that is near the geographic center of all your customers.
 
@@ -45,7 +45,7 @@ The Face service provides two ways to upload images for processing: uploading th
 var faces = await client.Face.DetectWithUrlAsync("https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name>");
 ```
 
-Be sure to use a storage account in the same region as the Face resource. This will reduce the latency of the connection between the Face service and the storage account.
+Be sure to use a storage account in the same region as the Face resource. This reduces the latency of the connection between the Face service and the storage account.
 
 ### Use optimal file sizes
 
@@ -56,7 +56,7 @@ If the image files you use are large, it affects the response time of the Face s
 
 #### The tradeoff between accuracy and network speed
 
-The quality of the input images affects both the accuracy and the latency of the Face service. Images with lower quality may result in erroneous results. Images of higher quality may enable more precise interpretations. However, images of higher quality also increase the network latency due to their larger file sizes. The service requires more time to receive the entire file from the client and to process it, in proportion to the file size. Note that above a certain level, further quality enhancements will not significantly improve the accuracy.
+The quality of the input images affects both the accuracy and the latency of the Face service. Images with lower quality may result in erroneous results. Images of higher quality may enable more precise interpretations. However, images of higher quality also increase the network latency due to their larger file sizes. The service requires more time to receive the entire file from the client and to process it, in proportion to the file size. Above a certain level, further quality enhancements won't significantly improve the accuracy.
 
 To achieve the optimal balance between accuracy and speed, follow these tips to optimize your input data. 
 - For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
@@ -65,7 +65,7 @@ To achieve the optimal balance between accuracy and speed, follow these tips to 
 #### Other file size tips
 
 Note the following additional tips:
-- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080 pixels.
+- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size increases processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080 pixels.
 - For face recognition, reducing the face size will only increase the speed if the image is smaller than 200x200 pixels.
 - The performance of the face detection methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
 
@@ -99,7 +99,7 @@ The errors `429` and `503` may occur on your Face API calls for various reasons.
 
 The following are other tips to ensure the reliability and high support of your application: 
 
-- Generate a unique GUID as the `client-request-id` HTTP request header and send it with each request. This will help Microsoft investigate any errors more easily if you need to report an issue with Microsoft. 
+- Generate a unique GUID as the `client-request-id` HTTP request header and send it with each request. This helps Microsoft investigate any errors more easily if you need to report an issue with Microsoft. 
     - Always record the `client-request-id` and the response you received when you encounter an unexpected response. If you need any assistance, provide this information to Microsoft Support, along with the Azure resource ID and the time period when the problem occurred.
 - Conduct a pilot test before you release your application into production. Ensure that your application can handle errors properly and effectively. 
 

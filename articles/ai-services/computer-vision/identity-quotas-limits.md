@@ -38,17 +38,17 @@ Standard (S0),</br>Enterprise (E0) | 10 transactions per second, and 200 TPS acr
 
 To increase rate limits and resource limits, you can submit a support request. However, for other quota limits, you need to switch to a higher pricing tier to increase those quotas. 
 
-Please [submit a support request](/azure/ai-services/cognitive-services-support-options?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and answer the following questions: 
+[Submit a support request](/azure/ai-services/cognitive-services-support-options?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and answer the following questions: 
 - The reason for requesting an increase in your current limits. 
 - Which of your subscriptions or resources are affected? 
 - What limits would you like to increase? (rate limits or resource limits) 
 - For rate limits increase: 
     - How much TPS (Transaction per second) would you like to increase? 
     - How often do you experience throttling? 
-    - Have you reviewed your call history to better anticipate your future requirements? To view your usage history, see the monitoring metrics on Azure portal. 
+    - Did you review your call history to better anticipate your future requirements? To view your usage history, see the monitoring metrics on Azure portal. 
 - For resource limits: 
     - How much resources limit do you want to increase? 
-    - How many Face resources do you currently have? Have you attempted to integrate your application with fewer Face resources? 
+    - How many Face resources do you currently have? Did you attempt to integrate your application with fewer Face resources? 
 
 ## Other limits
 
