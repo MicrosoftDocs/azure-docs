@@ -45,6 +45,8 @@ When your origin responds to a request with a `Range` header, it must respond in
 
 - **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a nonranged response. Ensure that the origin returns a response status code other than 206. For example, the origin might return a 200 OK response.
 
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported.
+
 ## File compression
 
 ::: zone pivot="front-door-standard-premium"
