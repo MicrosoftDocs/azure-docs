@@ -80,15 +80,15 @@ For example, you may want to add situation-specific information on your consent 
     The service provides image quality checks to help you make the choice of whether the image is of sufficient quality based on the above factors to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality and show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
 
 
-> [!div class="mx-imgBorder"]
-> ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
-
+    > [!div class="mx-imgBorder"]
+    > ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
+    
 1. The sample app offers functionality for deleting the user's information and the option to readd. You can enable or disable these operations based on your business requirement. 
 
-> [!div class="mx-imgBorder"]
-> ![profile management page](../media/enrollment-app/10-manage-2.jpg)
-
-To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
+    > [!div class="mx-imgBorder"]
+    > ![profile management page](../media/enrollment-app/10-manage-2.jpg)
+        
+    To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
 
 1. Configure your database to map each person with their ID
 

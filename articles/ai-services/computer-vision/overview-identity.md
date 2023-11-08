@@ -88,8 +88,8 @@ Concepts
 - [Abuse monitoring](concept-liveness-abuse-monitoring.md)
 
 Face liveness SDK reference docs:
-- (Java (Android))[https://aka.ms/liveness-sdk-java]
-- (Swift (iOS))[https://aka.ms/liveness-sdk-ios]
+- [Java (Android)](https://aka.ms/liveness-sdk-java)
+- [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
 
 ## Face recognition
 

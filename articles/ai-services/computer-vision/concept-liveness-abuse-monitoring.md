@@ -34,4 +34,4 @@ There are several components to Face liveness abuse monitoring:
 
 - [Learn more about understanding and mitigating risks associated with identity management](/azure/security/fundamentals/identity-management-overview)
 - [Learn more about how data is processed in connection with abuse monitoring](/legal/cognitive-services/face/data-privacy-security?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext)
-- [Learn more about supporting human judgement in your application system](/legal/cognitive-services/face/characteristics-and-limitations?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#design-the-system-to-support-human-judgment)
+- [Learn more about supporting human judgment in your application system](/legal/cognitive-services/face/characteristics-and-limitations?context=%2Fazure%2Fai-services%2Fcomputer-vision%2Fcontext%2Fcontext#design-the-system-to-support-human-judgment)

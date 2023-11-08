@@ -19,10 +19,11 @@ This article contains a reference and a detailed description of the quotas and l
 ## Extendable limits
 
 **Default rate limits**
+
 | **Pricing tier** | **Limit value** |
 | --- | --- |
 | Free (F0) | 20 transactions per minute |
-Standard (S0),</br>Enterprise (E0) | 10 transactions per second, and 200 TPS across all resources in a single region.</br>See the next section if you want to increase this limit. |
+| Standard (S0),</br>Enterprise (E0) | 10 transactions per second, and 200 TPS across all resources in a single region.</br>See the next section if you want to increase this limit. |
 
 
 **Default Face resource quantity limits**
