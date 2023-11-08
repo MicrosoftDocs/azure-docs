@@ -104,7 +104,7 @@ To learn more, visit [Reliability recommendations](/azure/advisor/advisor-refere
 
 ## May 2023
 
-### New eliability workbook template
+### New Reliability workbook template
 
 Azure Advisor now has a Reliability workbook template. The new workbook helps you identify areas of improvement by checking configuration of selected Azure resources using the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) and documented best practices. You can use filters, subscription, resource group, and tags, to focus on resources that you care about most. Use the workbook recommendations to:
 
