@@ -138,6 +138,10 @@ additionalContent:
         - title: Healthcare & Life Sciences blog
           summary: Insights, best practices, and innovations
           url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
+       # Card
+        - title: REST API for Azure Health Data Services
+          summary: Insights, best practices, and innovations
+          url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/?view=rest-healthcareapis-2022-06-01
     - title: Other services 
       items:
         # Card
