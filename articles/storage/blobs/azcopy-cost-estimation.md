@@ -196,73 +196,37 @@ This scenario is identical to the previous one except you are billed for network
 
 ## The cost to synchronize changes
 
-When you run the [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`).
+When you run the [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a source and destination endpoint. These endpoints can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. 
 
 > [!NOTE]
 > Blobs in the archive tier can be copied only to an online tier. Because all of these examples assume the same tier for source and destination, the archive tier is excluded from these tables. 
 
-### Cost to update a container with changes to a local file system
+### Cost to synchronize a container with a local file system
 
-AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) operation to find each blob at the destination. If the last modified time of a local blob is different than the last modified time of the blob in the container, then AzCopy performs the exact same tasks as described in the [Cost of uploading to the Blob Service endpoint](#cost-of-uploading-to-the-blob-service-endpoint) section in this article. 
+If you want to keep a container updated with changes to a local file system, then AzCopy performs the exact same tasks as described in the [Cost of uploading to the Blob Service endpoint](#cost-of-uploading-to-the-blob-service-endpoint) section in this article. Blobs are uploaded only if the last modified time of a local file is different than the last modified time of the blob in the container. Therefore, you are billed _write_ transactions only for blobs that are uploaded. 
 
-This table takes the total cost calculated in the [Cost of uploading to the Blob Service endpoint](#cost-of-uploading-to-the-blob-service-endpoint) section, and adds the cost of the listing operation. This example assumes that all 1000 blobs listed were modified and then copied. In most cases, only some smaller portion of the total number blobs would be modified and then copied. In your model, you can use a more realistic proportion of modified blobs to total blobs. 
-
-| Price factor                                            | Hot         | Cool         | Cold         |
-|---------------------------------------------------------|-------------|--------------|--------------|
-| Price of a single list operation (price/ 10,000)        | $0.0000055  | $0.0000055   | $0.0000065   |
-| **Cost of listing operations (1000 * operation price)** | **$0.0055** | **$0.0055**  | **$0.0065**  |
-| Cost to upload blobs (taken from previous example)      | $9.15       | $16.64       | $29.95       |
-| **Total cost (listing + write)**                        | **$9.1555** | **$16.6455** | **$29.9565** |
-
-### Cost to update a local file system with changes to a container
-
-AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) operation to find each blob at the destination. If the last modified time of a local blob is different than the last modified time of the blob in the container, then uses the [Get Blob](/rest/api/storageservices/get-blob) operation to download the blob to the local machine.
-
-The costs associated with this scenario are identical to those described in the [Cost of downloading from the Blob Service endpoint](#cost-of-downloading-from-the-blob-service-endpoint) section of this article. However, only blobs that have been modified are downloaded.
+If you want to keep a local file system updated with changes to a container, then AzCopy performs the exact same tasks as described in the [Cost of downloading from the Blob Service endpoint](#cost-of-downloading-from-the-blob-service-endpoint) section of this article. Blobs are downloaded only If the last modified time of a local blob is different than the last modified time of the blob in the container. Therefore, you are billed _read_ transactions only for blobs that are downloaded.
 
 ### Cost to synchronize containers
 
-AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) operation to find each blob at the source and each blob at the destination. If the last modified times of these blobs differ from one another, then AzCopy performs the exact same tasks as described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section in this article. 
+If you want to keep two containers synchronized, then AzCopy performs the exact same tasks as described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section in this article. A blob is copied only if the last modified time of a blob in the source container is different than the last modified time of a blob in the destination container. Therefore, you are billed _write_ and _read_ transactions only for blobs that are copied. 
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to list 1000 blobs in each container
+The [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command uses the [List Blobs](/rest/api/storageservices/list-blobs) operation on both source and destination accounts when synchronizing containers that exist in separate accounts. 
 
-The following table shows the cost to list the blobs in each container.
-
-| Price factor                                                                     | Hot        | Cool       | Cold       |
-|----------------------------------------------------------------------------------|------------|------------|------------|
-| Price of a single list operation (price/ 10,000)                                 | $0.0000055 | $0.0000055 | $0.0000065 |
-| Cost to list blobs in the source container (1000 * price of list operation)      | $0.0055    | $0.0055    | $0.0065    |
-| Cost to list blobs in the destination container (1000 * price of list operation) | $0.0055    | $0.0055    | $0.0065    |
-| **Total cost to list blobs in each container**                                   | **$0.011** | **$0.011** | **$0.013** |
-
-The following table shows the total cost of synchronizing changes for each scenario described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section. This table assumes that all 1000 blobs were modified and then copied. In your model, you can use a more realistic proportion of modified blobs to total blobs. 
-
-| Scenario                                                                | Hot     | Cool    | Cold    |
-|-------------------------------------------------------------------------|---------|---------|---------|
-| Synchronize containers in the same account (listing cost + copy costs)  | $3.541  | $0.0165 | $0.023  |
-| Synchronize containers in separate accounts (listing cost + copy costs) | $3.541  | $10.021 | $30.033 |
-| Synchronize containers in separate regions (listing cost + copy costs)  | $107.06 | $120.02 | $160.04 |
 
 ## Summary of calculations
 
 The following table contains all of the estimates presented in this article. All estimates are based on transferring **1000** blobs that are each **5 GiB** in size and use the sample prices listed in the next section.
 
-| Scenario                                                           | Hot     | Cool     | Cold     | Archive |
-|--------------------------------------------------------------------|---------|----------|----------|---------|
-| Upload blobs (Blob Service endpoint)                               | $3.53   | $6.41    | $11.54   | $3.53   |
-| Upload blobs (Data Lake Storage endpoint)                          | $9.15   | $16.64   | $29.95   | $18.30  |
-| Download blobs (Blob Service endpoint)                             | $0.01   | $5.01    | $15.02   | N/A     |
-| Download blobs (Data Lake Storage endpoint)                        | $0.73   | $11.67   | $46.65   | N/A     |
-| Copy blobs                                                         | $3.53   | $0.0055  | $0.01    | N/A     |
-| Copy blobs to another account                                      | $3.53   | $10.01   | $30.02   | N/A     |
-| Copy blobs to an account in another region                         | $103.53 | $110.01  | $130.02  | N/A     |
-| Update local file system with changes to a container<sup>1</sup>   | $9.1555 | $16.6455 | $29.9565 | N/A     |
-| Update a container with changes to a local file system<sup>1</sup> | $0.01   | $5.01    | $15.02   | N/A     |
-| Synchronize containers<sup>1</sup>                                 | $3.541  | $0.0165  | $0.023   | N/A     |
-| Synchronize containers in separate accounts<sup>1</sup>            | $3.541  | $10.021  | $30.033  | N/A     |
-| Synchronize containers in separate regions<sup>1</sup>             | $107.06 | $120.02  | $160.04  | N/A     |
-
-<sup>1</sup>    To keep the example simple, the estimate assumes that all 1000 blobs listed were modified and then copied. In most cases, only some smaller portion of the total number blobs would be modified and then copied. 
+| Scenario                                    | Hot      | Cool    | Cold    | Archive |
+|---------------------------------------------|----------|---------|---------|---------|
+| Upload blobs (Blob Service endpoint)        | $3.53    | $6.41   | $11.54  | $3.53   |
+| Upload blobs (Data Lake Storage endpoint)   | $9.16    | $16.65  | $29.98  | $18.32  |
+| Download blobs (Blob Service endpoint)      | $0.001   | $0.051  | $0.161  | N/A     |
+| Download blobs (Data Lake Storage endpoint) | $0.731   | $1.716  | $16.804 | N/A     |
+| Copy blobs                                  | $3.5309  | $0.0064 | $0.0110 | N/A     |
+| Copy blobs to another account               | $3.53134 | $0.0574 | $0.171  | N/A     |
+| Copy blobs to an account in another region  | $3.5513  | $0.0774 | $0.191  | N/A     |
 
 ## Sample prices
 
