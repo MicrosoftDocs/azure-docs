@@ -24,25 +24,6 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 > 
 > For more information, see [**Enable Continuous Availability**](azure-netapp-files-create-volumes-smb.md#continuous-availability).
 
-You should enable Continuous Availability for the following workloads/use cases only:
-
-* [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html)
-* [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), including [FSLogix ODFC containers](/fslogix/concepts-container-types#odfc-container)
-* [MSIX app attach with Azure Virtual Desktop](../virtual-desktop/create-netapp-files.md) with [Azure Virtual Desktop](../virtual-desktop/overview.md)
-    * When using MSIX applications with the `CIM FS` file format:
-        * The number of AVD session hosts shouldn't exceed 500.
-        * The number of MSIX applications shouldn't exceed 40.
-    * When using MSIX applications with the `VHDX` file format:
-        * The number of AVD session hosts shouldn't exceed 500.
-        * The number of MSIX applications shouldn't exceed 60.
-    * When using a combination of MSIX applications with both the `VHDX` and `CIM FS` file formats:
-        * The number of AVD session hosts shouldn't exceed 500.
-        * The number of MSIX applications using the `CIM FS` file format shouldn't exceed 24.
-        * The number of MSIX applications using the `VHDX` file format shouldn't exceed 24.
-* SQL Server
-    * Continuous Availability is currently supported on Windows SQL Server.
-    * Linux SQL Server is not currently supported.
-
 [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
  
 ## Steps
