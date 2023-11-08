@@ -445,4 +445,4 @@ This section shows the `Deleted` event generated when an Azure Storage account i
 [!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
-See [Subscribe to Azure Resource Notifications - Resources events](subscribe-to-resource-notifications-resources-events.md).
+See [Subscribe to Azure Resource Notifications - Resource Management events](subscribe-to-resource-notifications-resources-events.md).
