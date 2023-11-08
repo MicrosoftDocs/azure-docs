@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/31/2023
-ms.author: mattmcinnes
-ms.reviewer: jainan
+ms.author: jainan
+ms.reviewer: mattmcinnes
 ms.custom: 
 ---
 
@@ -37,7 +37,6 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | User VM Image isn't supported for a VM with Hibernation capability. | Use a platform image or Shared Gallery Image if you want to use the hibernation feature |
 | OperationNotAllowed | Referencing a Dedicated Host isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
-| OperationNotAllowed | Enabling/disabling hibernation on an existing VM requires the VM to be stopped (deallocated) first. | Stop-deallocate the VM, patch with VM to enable hibernation and then start the VM |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets Flex VMs |
 
@@ -183,7 +182,7 @@ Commonly seen issues:
 | Issue | Action |
 |--|--|
 | Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
-| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | Hibernation isn't supported with HVCI. Disabling HVCI should resolve the issue. |
+| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you are trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
 
 Logs needed for troubleshooting:
 
@@ -235,6 +234,18 @@ If the guest OS isn't configured for hibernation, take the appropriate action to
 | OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is enabled for hibernation. Enable the property additionalCapabilities.hibernationEnabled during VM creation, or after stopping and deallocating the VM. | Customer error. |
 | VMHibernateFailed | Hibernating the VM 'hiber_vm_res_5' failed due to an internal error. Retry later. | Retry after 5mins. If it continues to fail after multiple retries, check if the guest is correctly configured to support hibernation or contact Azure support. |
 | VMHibernateNotSupported | The VM 'Z0000ZYJ000' doesn't support hibernation. Ensure that the VM is correctly configured to support hibernation. | Hibernating a VM immediately after boot isn't supported. Retry hibernating the VM after a few minutes. |
+
+## Azure extensions disabled on Debian images
+Azure extensions are currently disabled by default for Debian images (more details here: https://lists.debian.org/debian-cloud/2023/07/msg00037.html). If you wish to enable hibernation for Debian based VMs through the LinuxHibernationExtension, then you can re-enable support for VM extensions via cloud-init custom data:
+
+```bash
+#!/bin/sh
+sed -i -e 's/^Extensions\.Enabled =.* $/Extensions.Enabled=y/" /etc/waagent.conf
+```
+
+:::image type="content" source="./media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png" alt-text="Screenshot of the cloud init input field for new Linux VMs.":::
+
+Alternatively, you can enable hibernation on the guest by [installing the hibernation-setup-tool](hibernate-resume.md#option-2-hibernation-setup-tool).
 
 ## Unable to resume a VM
 Starting a hibernated VM is similar to starting a stopped VM. For errors and troubleshooting steps related to starting a VM, refer to this guide

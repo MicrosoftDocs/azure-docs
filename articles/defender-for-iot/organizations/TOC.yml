@@ -19,6 +19,9 @@
   - name: Add an OT plan to your Azure subscription
     href: getting-started.md
     displayName: onboard
+  - name: Get started with Enterprise IoT security
+    href: eiot-defender-for-endpoint.md
+    displayName: onboard
 - name: Concepts
   items:
     - name: Defender for IoT system components
@@ -48,84 +51,82 @@
       displayName: Microsoft Sentinel, modernize SOC
     - name: Securing enterprise IoT devices
       href: concept-enterprise.md
-      displayName: Microsoft Defender for Endpoint, MDE
-- name: Deploy
+      displayName: Microsoft Defender for Endpoint, MDE, frequently asked questions
+- name: Deploy OT monitoring
   items:
-  - name: Deploy OT monitoring
+  - name: OT deployment path
+    href: ot-deploy/ot-deploy-path.md
+  - name: Plan and prepare for an OT deployment
+    items:    
+    - name: Plan your OT monitoring system
+      items:
+      - name: Overview
+        href: best-practices/plan-corporate-monitoring.md
+      - name: Azure connection methods
+        href: architecture-connections.md
+      - name: SSL/TLS certificate requirements
+        href: best-practices/certificate-requirements.md
+    - name: Prepare an OT site
+      items:
+      - name: Overview
+        href: best-practices/plan-prepare-deploy.md
+      - name: Defender for IoT and your network architecture
+        href: best-practices/understand-network-architecture.md
+      - name: Choose a traffic mirroring method
+        href: best-practices/traffic-mirroring-methods.md
+        displayName: SPAN port, TAP
+      - name: OT monitoring appliance catalog
+        items:
+        - name: Which appliances do I need?
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances
+          href: ot-pre-configured-appliances.md
+        - name: OT monitoring with virtual appliances
+          href: ot-virtual-appliances.md 
+      - name: Create SSL/TLS certificates
+        href: ot-deploy/create-ssl-certificates.md  
+  - name: Onboard OT sensors to Azure
+    href: onboard-sensors.md
+  - name: Site networking setup
     items:
-    - name: OT deployment path
-      href: ot-deploy/ot-deploy-path.md
-    - name: Plan and prepare for an OT deployment
-      items:    
-      - name: Plan your OT monitoring system
-        items:
-        - name: Overview
-          href: best-practices/plan-corporate-monitoring.md
-        - name: Azure connection methods
-          href: architecture-connections.md
-        - name: SSL/TLS certificate requirements
-          href: best-practices/certificate-requirements.md
-      - name: Prepare an OT site
-        items:
-        - name: Overview
-          href: best-practices/plan-prepare-deploy.md
-        - name: Defender for IoT and your network architecture
-          href: best-practices/understand-network-architecture.md
-        - name: Choose a traffic mirroring method
-          href: best-practices/traffic-mirroring-methods.md
-          displayName: SPAN port, TAP
-        - name: OT monitoring appliance catalog
-          items:
-          - name: Which appliances do I need?
-            href: ot-appliance-sizing.md
-          - name: Pre-configured appliances
-            href: ot-pre-configured-appliances.md
-          - name: OT monitoring with virtual appliances
-            href: ot-virtual-appliances.md 
-        - name: Create SSL/TLS certificates
-          href: ot-deploy/create-ssl-certificates.md  
-    - name: Onboard OT sensors to Azure
-      href: onboard-sensors.md
-    - name: Site networking setup
+    - name: Configure traffic mirroring
       items:
-      - name: Configure traffic mirroring
-        items:
-        - name: Overview
-          href: traffic-mirroring/traffic-mirroring-overview.md
-        - name: Configure a switch SPAN port
-          href: traffic-mirroring/configure-mirror-span.md
-        - name: Configure a remote SPAN (RSPAN)
-          href: traffic-mirroring/configure-mirror-rspan.md
-        - name: Configure active or passive aggregation (TAP)
-          href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
-        - name: Configure ERSPAN mirroring
-          href: traffic-mirroring/configure-mirror-erspan.md
-        - name: Configure mirroring with an ESXi vSwitch
-          href: traffic-mirroring/configure-mirror-esxi.md
-        - name: Configure mirroring with a Hyper-V vSwitch
-          href: traffic-mirroring/configure-mirror-hyper-v.md
-      - name: Provision for cloud management
-        href: ot-deploy/provision-cloud-management.md
-    - name: Deploy OT network sensors
-      items:
-      - name: Install sensor software
-        href: ot-deploy/install-software-ot-sensor.md
-      - name: Validate after installation
-        href: ot-deploy/post-install-validation-ot-software.md
-      - name: Configure initial settings and activate your sensor
-        href: ot-deploy/activate-deploy-sensor.md
-        displayName: SSL, TLS, certificate
-      - name: Configure proxy settings
-        href: connect-sensors.md
-    - name: Calibrate and fine-tune OT monitoring
-      items:
-      - name: Control OT traffic monitoring
-        href: how-to-control-what-traffic-is-monitored.md
-        displayName: VLAN, port name, subnets, DHCP
-      - name: Update detected device properties
-        href: ot-deploy/update-device-inventory.md
-      - name: Create a learned baseline of OT alerts
-        href: ot-deploy/create-learned-baseline.md
+      - name: Overview
+        href: traffic-mirroring/traffic-mirroring-overview.md
+      - name: Configure a switch SPAN port
+        href: traffic-mirroring/configure-mirror-span.md
+      - name: Configure a remote SPAN (RSPAN)
+        href: traffic-mirroring/configure-mirror-rspan.md
+      - name: Configure active or passive aggregation (TAP)
+        href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
+      - name: Configure ERSPAN mirroring
+        href: traffic-mirroring/configure-mirror-erspan.md
+      - name: Configure mirroring with an ESXi vSwitch
+        href: traffic-mirroring/configure-mirror-esxi.md
+      - name: Configure mirroring with a Hyper-V vSwitch
+        href: traffic-mirroring/configure-mirror-hyper-v.md
+    - name: Provision for cloud management
+      href: ot-deploy/provision-cloud-management.md
+  - name: Deploy OT network sensors
+    items:
+    - name: Install sensor software
+      href: ot-deploy/install-software-ot-sensor.md
+    - name: Validate after installation
+      href: ot-deploy/post-install-validation-ot-software.md
+    - name: Configure initial settings and activate your sensor
+      href: ot-deploy/activate-deploy-sensor.md
+      displayName: SSL, TLS, certificate
+    - name: Configure proxy settings
+      href: connect-sensors.md
+  - name: Calibrate and fine-tune OT monitoring
+    items:
+    - name: Control OT traffic monitoring
+      href: how-to-control-what-traffic-is-monitored.md
+      displayName: VLAN, port name, subnets, DHCP
+    - name: Update detected device properties
+      href: ot-deploy/update-device-inventory.md
+    - name: Create a learned baseline of OT alerts
+      href: ot-deploy/create-learned-baseline.md
   - name: Deploy air-gapped OT sensor management
     items:
     - name: Air-gapped management deployment path
@@ -141,13 +142,6 @@
     - name: Configure on-premises sites and zones
       href: ot-deploy/sites-and-zones-on-premises.md
       displayName: site, zone, Zero Trust
-  - name: Deploy Enterprise IoT monitoring
-    items:
-    - name: Enable Enterprise IoT security
-      href: eiot-defender-for-endpoint.md
-      displayName: onboard
-    - name: Enterprise IoT networks FAQ
-      href: faqs-eiot.md
 - name: Tutorials
   expanded: false
   items:
@@ -259,11 +253,11 @@
         href: tutorial-splunk.md
   - name: Maintain your Defender for IoT system
     items:
-    - name: Manage plans on your Azure subscription
+    - name: Manage billing plans
       items:
-      - name: Manage OT plans
+      - name: Manage OT licenses
         href: how-to-manage-subscriptions.md
-      - name: Manage Enterprise IoT plans
+      - name: Manage enterprise IoT security monitoring
         href: manage-subscriptions-enterprise.md
     - name: Manage sensors from the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
@@ -457,6 +451,8 @@
   items:
   - name: Frequently asked questions
     href: faqs-general.md
+  - name: Pricing page
+    href: https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing
   - name: Architecture icons
     href: /azure/architecture/icons/
   - name: Compliance resources
