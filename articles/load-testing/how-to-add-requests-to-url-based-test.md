@@ -82,7 +82,7 @@ Follow these steps to add an HTTP request to a URL-based load test:
 
 When you run your load test as part of a CI/CD workflow, such as GitHub Actions or Azure Pipelines, you provide the list of HTTP requests in a requests JSON file. In the [load test configuration YAML file](./reference-test-config-yaml.md), you reference the JSON file in the `testPlan` property.
 
-1. Create a JSON file to store the HTTP requests and paste the following code snippet in the file:
+1. Create a `requests.json` file to store the HTTP requests and paste the following code snippet in the file:
 
     ```json
     {
@@ -128,11 +128,12 @@ When you run your load test as part of a CI/CD workflow, such as GitHub Actions 
             "api-token": "my-token"
         },
         "body": "{\r\n  \"customer\": \"Contoso\",\r\n  \"items\": {\r\n\t  \"product_id\": 321,\r\n\t  \"count\": 50,\r\n\t  \"amount\": 245.95\r\n  }\r\n}",
-        "method": "POST"
+        "method": "POST",
+        "requestBodyFormat": "JSON"
     },
     ```
 
-1. Set the `testType` and `testPlan` settings in the load test configuration YAML file to reference the requests JSON file:
+1. Update the load test configuration YAML file and set the `testType` and `testPlan` settings:
 
     Make sure to set the `testType` property to `URL` to indicate that you're running a URL-based load test.
 

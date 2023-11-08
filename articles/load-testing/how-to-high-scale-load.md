@@ -72,9 +72,9 @@ Depending on the load pattern (`loadType`), you can specify different load param
 
 | Load pattern (`loadType`) | Parameters |
 |-|-|
-| Linear | `usersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds` |
-| Step | `usersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds`, `rampUpSteps` |
-| Spike | `usersPerEngine`, `durationInSeconds`, `spikeMultiplier`, `spikeHoldTimeInSeconds` |
+| Linear | `virtualUsersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds` |
+| Step | `virtualUsersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds`, `rampUpSteps` |
+| Spike | `virtualUsersPerEngine`, `durationInSeconds`, `spikeMultiplier`, `spikeHoldTimeInSeconds` |
 
 In the load test configuration YAML file, make sure to set the `testType` property to `URL` and set the `testPlan` property to reference the requests JSON file.
 
