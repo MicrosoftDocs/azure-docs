@@ -1,7 +1,7 @@
 ---
 title: OData geo-spatial function reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and reference documentation for using OData geo-spatial functions, geo.distance and geo.intersects, in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and reference documentation for using OData geo-spatial functions, geo.distance and geo.intersects, in Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -21,14 +21,14 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData geo-spatial functions in Azure Cognitive Search - `geo.distance` and `geo.intersects`
+# OData geo-spatial functions in Azure AI Search - `geo.distance` and `geo.intersects`
 
-Azure Cognitive Search supports geo-spatial queries in [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `geo.distance` and `geo.intersects` functions. The `geo.distance` function returns the distance in kilometers between two points, one being a field or range variable, and one being a constant passed as part of the filter. The `geo.intersects` function returns `true` if a given point is within a given polygon, where the point is a field or range variable and the polygon is specified as a constant passed as part of the filter.
+Azure AI Search supports geo-spatial queries in [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `geo.distance` and `geo.intersects` functions. The `geo.distance` function returns the distance in kilometers between two points, one being a field or range variable, and one being a constant passed as part of the filter. The `geo.intersects` function returns `true` if a given point is within a given polygon, where the point is a field or range variable and the polygon is specified as a constant passed as part of the filter.
 
 The `geo.distance` function can also be used in the [**$orderby** parameter](search-query-odata-orderby.md) to sort search results by distance from a given point. The syntax for `geo.distance` in **$orderby** is the same as it is in **$filter**. When using `geo.distance` in **$orderby**, the field to which it applies must be of type `Edm.GeographyPoint` and it must also be **sortable**.
 
 > [!NOTE]
-> When using `geo.distance` in the **$orderby** parameter, the field you pass to the function must contain only a single geo-point. In other words, it must be of type `Edm.GeographyPoint` and not `Collection(Edm.GeographyPoint)`. It is not possible to sort on collection fields in Azure Cognitive Search.
+> When using `geo.distance` in the **$orderby** parameter, the field you pass to the function must contain only a single geo-point. In other words, it must be of type `Edm.GeographyPoint` and not `Collection(Edm.GeographyPoint)`. It is not possible to sort on collection fields in Azure AI Search.
 
 ## Syntax
 
@@ -59,10 +59,10 @@ lon_lat_list ::= lon_lat(',' lon_lat)*
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 ### geo.distance
 
@@ -85,11 +85,11 @@ The polygon is a two-dimensional surface stored as a sequence of points defining
 
 For many geo-spatial query libraries formulating a query that includes the 180th meridian (near the dateline) is either off-limits or requires a workaround, such as splitting the polygon into two, one on either side of the meridian.
 
-In Azure Cognitive Search, geo-spatial queries that include 180-degree longitude will work as expected if the query shape is rectangular and your coordinates align to a grid layout along longitude and latitude (for example, `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`). Otherwise, for non-rectangular or unaligned shapes, consider the split polygon approach.  
+In Azure AI Search, geo-spatial queries that include 180-degree longitude will work as expected if the query shape is rectangular and your coordinates align to a grid layout along longitude and latitude (for example, `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`). Otherwise, for non-rectangular or unaligned shapes, consider the split polygon approach.  
 
 ### Geo-spatial functions and `null`
 
-Like all other non-collection fields in Azure Cognitive Search, fields of type `Edm.GeographyPoint` can contain `null` values. When Azure Cognitive Search evaluates `geo.intersects` for a field that is `null`, the result will always be `false`. The behavior of `geo.distance` in this case depends on the context:
+Like all other non-collection fields in Azure AI Search, fields of type `Edm.GeographyPoint` can contain `null` values. When Azure AI Search evaluates `geo.intersects` for a field that is `null`, the result will always be `false`. The behavior of `geo.distance` in this case depends on the context:
 
 - In filters, `geo.distance` of a `null` field results in `null`. This means the document will not match because `null` compared to any non-null value evaluates to `false`.
 - When sorting results using **$orderby**, `geo.distance` of a `null` field results in the maximum possible distance. Documents with such a field will sort lower than all others when the sort direction `asc` is used (the default), and higher than all others when the direction is `desc`.
@@ -126,7 +126,7 @@ Sort hotels in descending order by `search.score` and `rating`, and then in asce
 
 ## Next steps  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

@@ -1,7 +1,7 @@
 ---
 title: Language detection cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an AI enrichment pipeline in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an AI enrichment pipeline in Azure AI Search.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
@@ -25,7 +25,7 @@ See [supported languages](../ai-services/language-service/language-detection/lan
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the language detection skill, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the language detection skill, you can use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -33,8 +33,8 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
+| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it can't [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling language detection. It defaults to the latest available when not specified. We recommend you don't specify this value unless it's necessary. |
 
 ## Skill inputs
 
@@ -43,15 +43,15 @@ Parameters are case-sensitive.
 | Inputs	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). |
+| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it can't [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). |
 
 ## Skill outputs
 
 | Output Name	 | Description |
 |--------------------|-------------|
 | `languageCode` | The ISO 6391 language code for the language identified. For example, "en". |
-| `languageName` | The name of language. For example "English". |
-| `score` | A value between 0 and 1. The likelihood that language is correctly identified. The score may be lower than 1 if the sentence has mixed languages.  |
+| `languageName` | The name of language. For example, "English". |
+| `score` | A value between 0 and 1. The likelihood that language is correctly identified. The score can be lower than 1 if the sentence has mixed languages.  |
 
 ## Sample definition
 

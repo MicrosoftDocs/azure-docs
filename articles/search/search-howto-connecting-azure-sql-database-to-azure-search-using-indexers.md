@@ -1,7 +1,7 @@
 ---
 title: Azure SQL indexer
-titleSuffix: Azure Cognitive Search
-description: Set up a search indexer to index data stored in Azure SQL Database for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Set up a search indexer to index data stored in Azure SQL Database for full text search in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,9 @@ ms.topic: how-to
 ms.date: 07/31/2023
 ---
 
-# How to index data from Azure SQL in Azure Cognitive Search
+# How to index data from Azure SQL in Azure AI Search
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure AI Search. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Azure SQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. 
 
@@ -32,9 +32,9 @@ This article also provides:
 
   Use a table if your data is large or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
+  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new table just for ingestion into your Azure AI Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
 
-+ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
++ Read permissions. Azure AI Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
 To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md). 
 
@@ -53,7 +53,7 @@ The data source definition specifies the data to index, credentials, and policie
 
     {
         "name" : "myazuresqldatasource",
-        "description" : "A database for testing Azure Cognitive Search indexes.",
+        "description" : "A database for testing Azure AI Search indexes.",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { 
@@ -67,7 +67,7 @@ The data source definition specifies the data to index, credentials, and policie
     }
    ```
 
-1. Provide a unique name for the data source that follows Azure Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules).
+1. Provide a unique name for the data source that follows Azure AI Search [naming conventions](/rest/api/searchservice/naming-rules).
 
 1. Set "type" to `"azuresql"` (required).
 
@@ -118,13 +118,13 @@ In a [search index](search-what-is-an-index.md), add fields that correspond to t
 
 ### Mapping data types
 
-| SQL data type | Cognitive Search field types | Notes |
+| SQL data type | Azure AI Search field types | Notes |
 | ------------- | -------------------------------- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search doesn't support converting decimal types into `Edm.Double` because doing so would lose precision |
+| smallmoney, money decimal numeric |Edm.String |Azure AI Search doesn't support converting decimal types into `Edm.Double` because doing so would lose precision |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(`Edm.String`) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
@@ -361,7 +361,7 @@ You can also disable the `ORDER BY [High Water Mark Column]` clause. However, th
 
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
 
-If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
+If the rows are physically removed from the table, Azure AI Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
@@ -384,21 +384,21 @@ If you're setting up a soft delete policy from the Azure portal, don't add quote
 
 **Q: Can I index Always Encrypted columns?**
 
-No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Cognitive Search indexers.
+No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Azure AI Search indexers.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 
-Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure Cognitive Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Yes. However, you need to allow your search service to connect to your database. For more information, see [Configure a connection from an Azure AI Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/connector-azure-search.md).
+Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure AI Search index using Azure Data Factory](../data-factory/connector-azure-search.md).
 
 **Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 
 It depends. For full indexing of a table or view, you can use a secondary replica. 
 
-For incremental indexing, Azure Cognitive Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
+For incremental indexing, Azure AI Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
 
 On read-only replicas, SQL Database doesn't support integrated change tracking. Therefore, you must use High Water Mark policy. 
 
@@ -412,6 +412,6 @@ If you attempt to use rowversion on a read-only replica, you'll see the followin
 
 It's not recommended. Only **rowversion** allows for reliable data synchronization. However, depending on your application logic, it may be safe if:
 
-+ You can ensure that when the indexer runs, there are no outstanding transactions on the table that’s being indexed (for example, all table updates happen as a batch on a schedule, and the Azure Cognitive Search indexer schedule is set to avoid overlapping with the table update schedule).  
++ You can ensure that when the indexer runs, there are no outstanding transactions on the table that’s being indexed (for example, all table updates happen as a batch on a schedule, and the Azure AI Search indexer schedule is set to avoid overlapping with the table update schedule).  
 
 + You periodically do a full reindex to pick up any missed rows.

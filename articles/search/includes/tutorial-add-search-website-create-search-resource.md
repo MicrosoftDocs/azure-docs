@@ -76,7 +76,7 @@ You must have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/p
    Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
-1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas. The following statement uses the "cognitive-search-demo-rg" resource group created in a previous step and specifies the "free" tier. If your Azure subscription already has a free search service, specify a billable tier such as "basic" instead. For more information about this cmdlet, see [Manage your Azure Cognitive Search service with PowerShell](/azure/search/search-manage-powershell).
+1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas. The following statement uses the "cognitive-search-demo-rg" resource group created in a previous step and specifies the "free" tier. If your Azure subscription already has a free search service, specify a billable tier such as "basic" instead. For more information about this cmdlet, see [Manage your Azure AI Search service with PowerShell](/azure/search/search-manage-powershell).
 
    ```powershell
    New-AzSearchService -ResourceGroupName "cognitive-search-demo-rg"  -Name "my-cog-search-demo-svc" -Sku "free" -Location "West US" -PartitionCount 1 -ReplicaCount 1 -HostingMode Default
@@ -94,6 +94,6 @@ You must have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/p
    Get-AzSearchAdminKeyPair -ResourceGroupName "cognitive-search-demo-rg" -ServiceName "my-cog-search-demo-svc"
    ```
 
-You now have a Cognitive Search resource and keys used for authenticating requests on connections to the endpoint.
+You now have an Azure AI Search resource and keys used for authenticating requests on connections to the endpoint.
 
 ---

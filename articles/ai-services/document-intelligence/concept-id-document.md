@@ -6,22 +6,31 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom: references.regions
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence ID document model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -46,7 +55,7 @@ Document Intelligence can analyze and extract information from government-issued
 
 ## Identity document processing
 
-Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document is processing an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document processing is an important step in any business operation that requires proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -74,22 +83,40 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ## Development options
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v3.0 and later versions support the following tools:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-idDocument**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-idDocument**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-idDocument**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**ID document model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**ID document model**|&bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</br>&bullet;  [**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</br>&bullet;  [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet;  [**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)|
 ::: moniker-end
 
 ## Input requirements
@@ -116,7 +143,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 

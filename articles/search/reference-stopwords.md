@@ -1,6 +1,6 @@
 ---
 title: Stopwords
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Reference documentation containing the stopwords list of the Microsoft language analyzers. 
 
 manager: nitinme
@@ -14,9 +14,9 @@ ms.date: 05/16/2022
 
 # Stopwords reference (Microsoft analyzers)
 
-When text is indexed into Azure Cognitive Search, it's processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopwords are non-essential words such as "the" or "an" that can be removed without compromising the lexical integrity of your content. 
+When text is indexed into Azure AI Search, it's processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopwords are non-essential words such as "the" or "an" that can be removed without compromising the lexical integrity of your content. 
 
-Stopword removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure Cognitive Search.
+Stopword removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure AI Search.
 
 This article lists the stopwords used by the Microsoft analyzer for each language. 
 
@@ -222,5 +222,5 @@ For the stopword list for Lucene analyzers, see the [Apache Lucene source code o
 + [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md)
 + [Add language analyzers to string fields](index-add-language-analyzers.md)
 + [Add custom analyzers to string fields](index-add-custom-analyzers.md)
-+ [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
++ [Full text search in Azure AI Search](search-lucene-query-architecture.md)
++ [Analyzers for text processing in Azure AI Search](search-analyzers.md)

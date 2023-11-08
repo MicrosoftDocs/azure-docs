@@ -1,7 +1,7 @@
 ---
 title: Text Translation cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. 
+titleSuffix: Azure AI Search
+description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure AI Search. 
 
 manager: nitinme
 author: careyjmac
@@ -17,7 +17,7 @@ The **Text Translation** skill evaluates text and, for each record, returns the 
 
 This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to a single language before indexing for search by translating it.  It's also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
 
-The [Translator Text API v3.0](../ai-services/translator/reference/v3-0-reference.md) is a non-regional Cognitive Service, meaning that your data isn't guaranteed to stay in the same region as your Azure Cognitive Search or attached Azure AI services resource.
+The [Translator Text API v3.0](../ai-services/translator/reference/v3-0-reference.md) is a non-regional Azure AI service, meaning that your data isn't guaranteed to stay in the same region as your Azure AI Search or attached Azure AI services resource.
 
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).

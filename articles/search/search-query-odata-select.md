@@ -1,7 +1,7 @@
 ---
 title: OData select reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and language reference for explicit selection of fields to return in the search results of Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and language reference for explicit selection of fields to return in the search results of Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 07/18/2022
 ---
 
-# OData $select syntax in Azure Cognitive Search
+# OData $select syntax in Azure AI Search
 
-In Azure Cognitive Search, the **$select** parameter specifies which fields to include in search results. This article describes the OData syntax of **$select** and provides examples.
+In Azure AI Search, the **$select** parameter specifies which fields to include in search results. This article describes the OData syntax of **$select** and provides examples.
 
-Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about search result composition, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+Field path construction and constants are described in the [OData language overview in Azure AI Search](query-odata-filter-orderby-syntax.md). For more information about search result composition, see [How to work with search results in Azure AI Search](search-pagination-page-layout.md).
 
 ## Syntax
 
@@ -32,10 +32,10 @@ field_path ::= identifier('/'identifier)*
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 The **$select** parameter comes in two forms:
 
@@ -101,7 +101,7 @@ An example result might look like this:
 
 ## Next steps  
 
-- [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [How to work with search results in Azure AI Search](search-pagination-page-layout.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

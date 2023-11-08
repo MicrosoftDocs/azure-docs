@@ -26,3 +26,5 @@ items:
     href: ./nginx/index.yml
   - name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service
     href: ./palo-alto/index.yml
+  - name: Apache Airflow on Astro - An Azure Native ISV Service
+    href: ./astronomer/index.yml

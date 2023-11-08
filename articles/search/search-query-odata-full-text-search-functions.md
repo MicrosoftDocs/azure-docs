@@ -1,7 +1,7 @@
 ---
 title: OData full-text search function reference
-titleSuffix: Azure Cognitive Search
-description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -21,9 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData full-text search functions in Azure Cognitive Search - `search.ismatch` and `search.ismatchscoring`
+# OData full-text search functions in Azure AI Search - `search.ismatch` and `search.ismatchscoring`
 
-Azure Cognitive Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](/rest/api/searchservice/search-documents).
+Azure AI Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
 > The `search.ismatch` and `search.ismatchscoring` functions are only supported in filters in the [Search API](/rest/api/searchservice/search-documents). They are not supported in the [Suggest](/rest/api/searchservice/suggestions) or [Autocomplete](/rest/api/searchservice/autocomplete) APIs.
@@ -49,10 +49,10 @@ search_mode ::= "'any'" | "'all'"
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 ### search.ismatch
 
@@ -76,7 +76,7 @@ All the above parameters are equivalent to the corresponding [search request par
 The `search.ismatch` function returns a value of type `Edm.Boolean`, which allows you to compose it with other filter sub-expressions using the Boolean [logical operators](search-query-odata-logical-operators.md).
 
 > [!NOTE]
-> Azure Cognitive Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Troubleshooting collection filters in Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why this limitation exists, see [Understanding collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+> Azure AI Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Troubleshooting collection filters in Azure AI Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why this limitation exists, see [Understanding collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 
 
 ### search.ismatchscoring
@@ -131,7 +131,7 @@ Find documents that have a word that starts with the letters "lux" in the Descri
 
 ## Next steps  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

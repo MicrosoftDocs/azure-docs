@@ -1,6 +1,6 @@
 ---
 title: "Add search to web sites (JavaScript tutorial)"
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Technical overview and setup for adding search to a website and deploying to an Azure Static Web Apps. 
 manager: nitinme
 author: diberry
@@ -14,9 +14,9 @@ ms.devlang: javascript
 
 # 1 - Overview of adding search to a website
 
-In this Azure Cognitive Search tutorial, create a web app that searches through a catalog of books, and then deploy the website to an Azure Static Web Apps resource. 
+In this Azure AI Search tutorial, create a web app that searches through a catalog of books, and then deploy the website to an Azure Static Web Apps resource. 
 
-This tutorial is for JavaScript developers who want to create a frontend client app that includes search interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure Cognitive Search for indexing and query workflows on the backend.
+This tutorial is for JavaScript developers who want to create a frontend client app that includes search interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure AI Search for indexing and query workflows on the backend.
 
 Source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) GitHub repository.
 
@@ -31,7 +31,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
 |Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/client)|
-|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using JavaScript SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api)|
+|Server|Azure Function app (business layer) - calls the Azure AI Search API using JavaScript SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api)|
 |Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/bulk-insert)|
 
 ## Set up your development environment

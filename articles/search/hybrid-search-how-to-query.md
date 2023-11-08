@@ -1,50 +1,49 @@
 ---
 title: Hybrid query how-to
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to build queries for hybrid search.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 11/01/2023
 ---
 
-# Create a hybrid query in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+# Create a hybrid query in Azure AI Search
 
 Hybrid search consists of keyword queries and vector queries in a single search request. 
 
-The response includes the top results ordered by search score. Both vector queries and free text queries are assigned an initial search score from their respecitive scoring or similarity algorithms. Those scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set. 
+The response includes the top results ordered by search score. Both vector queries and free text queries are assigned an initial search score from their respective scoring or similarity algorithms. Those scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set. 
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that doesn't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + A search index containing vector and non-vector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post), Search Explorer in the Azure portal, or packages in the Azure SDKs that have been updated to use this feature.
 
-+ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
++ (Optional) If you want to also use [semantic ranking](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-## Limitations
+## Tips
 
-Cognitive Search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
+The stable version (**2023-11-01**) of vector search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an external embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
 
-All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
+The preview version (**2023-10-01-Preview**) of vector search adds [integrated vectorization](vector-search-integrated-vectorization.md). If you want to explore this feature, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to get built-in embedding of query strings.
+
+All results are returned in plain text, including vectors in fields marked as `retrievable`. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
 ## Hybrid query request
 
 A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-Hybrid queries are useful because they add support for all query capabilities, including orderby and [semantic search](semantic-how-to-query-request.md). For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for all query capabilities, including orderby and [semantic ranking](semantic-how-to-query-request.md). For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
 The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate hybrid query configurations.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -70,7 +69,7 @@ api-key: {{admin-api-key}}
 This example adds a filter, which is applied to the "filterable" nonvector fields of the search index.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -95,10 +94,10 @@ api-key: {{admin-api-key}}
 
 ## Semantic hybrid search
 
-Assuming that you've [enabled semantic search](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
+Assuming that you've [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -131,7 +130,7 @@ api-key: {{admin-api-key}}
 Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -193,7 +192,7 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 ### Ranking
 
-Multiple sets are created for hybrid queries, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Ranking of results is computed by Reciprocal Rank Fusion (RRF).
+Multiple sets are created for hybrid queries, with or without the optional [semantic reranking](semantic-search-overview.md). Ranking of results is computed by Reciprocal Rank Fusion (RRF).
 
 In this section, compare the responses between single vector search and simple hybrid search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF is this case, produce scores that have different magnitudes. This behavior is by design. RRF scores can appear quite low, even with a high similarity match. Lower scores are a characteristic of the RRF algorithm. In a hybrid query with RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
 
@@ -202,8 +201,8 @@ In this section, compare the responses between single vector search and simple h
 ```json
 {
     "@search.score": 0.8851871,
-    "title": "Azure Cognitive Search",
-    "content": "Azure Cognitive Search is a fully managed search-as-a-service that enables you to build rich search experiences for your applications. It provides features like full-text search, faceted navigation, and filters. Azure Cognitive Search supports various data sources, such as Azure SQL Database, Azure Blob Storage, and Azure Cosmos DB. You can use Azure Cognitive Search to index your data, create custom scoring profiles, and integrate with other Azure services. It also integrates with other Azure services, such as Azure Cognitive Services and Azure Machine Learning.",
+    "title": "Azure AI Search",
+    "content": "Azure AI Search is a fully managed search-as-a-service that enables you to build rich search experiences for your applications. It provides features like full-text search, faceted navigation, and filters. Azure AI Search supports various data sources, such as Azure SQL Database, Azure Blob Storage, and Azure Cosmos DB. You can use Azure AI Search to index your data, create custom scoring profiles, and integrate with other Azure services. It also integrates with other Azure services, such as Azure Cognitive Services and Azure Machine Learning.",
     "category": "AI + Machine Learning"
 },
 ```
@@ -213,8 +212,8 @@ In this section, compare the responses between single vector search and simple h
 ```json
 {
     "@search.score": 0.03333333507180214,
-    "title": "Azure Cognitive Search",
-    "content": "Azure Cognitive Search is a fully managed search-as-a-service that enables you to build rich search experiences for your applications. It provides features like full-text search, faceted navigation, and filters. Azure Cognitive Search supports various data sources, such as Azure SQL Database, Azure Blob Storage, and Azure Cosmos DB. You can use Azure Cognitive Search to index your data, create custom scoring profiles, and integrate with other Azure services. It also integrates with other Azure services, such as Azure Cognitive Services and Azure Machine Learning.",
+    "title": "Azure AI Search",
+    "content": "Azure AI Search is a fully managed search-as-a-service that enables you to build rich search experiences for your applications. It provides features like full-text search, faceted navigation, and filters. Azure AI Search supports various data sources, such as Azure SQL Database, Azure Blob Storage, and Azure Cosmos DB. You can use Azure AI Search to index your data, create custom scoring profiles, and integrate with other Azure services. It also integrates with other Azure services, such as Azure Cognitive Services and Azure Machine Learning.",
     "category": "AI + Machine Learning"
 },
 ```

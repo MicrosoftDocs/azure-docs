@@ -1,7 +1,7 @@
 ---
 title: Create an indexer
-titleSuffix: Azure Cognitive Search
-description: Configure an indexer to automate data import and indexing from Azure data sources into a search index in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Configure an indexer to automate data import and indexing from Azure data sources into a search index in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.date: 10/05/2023
 ---
 
-# Create an indexer in Azure Cognitive Search
+# Create an indexer in Azure AI Search
 
-Use an indexer to automate data import and indexing in Azure Cognitive Search. An indexer is a named object on a search service that connects to an external Azure data source, reads data, and passes it to a search engine for indexing. Using indexers significantly reduces the quantity and complexity of the code you need to write if you're using a supported data source. 
+Use an indexer to automate data import and indexing in Azure AI Search. An indexer is a named object on a search service that connects to an external Azure data source, reads data, and passes it to a search engine for indexing. Using indexers significantly reduces the quantity and complexity of the code you need to write if you're using a supported data source. 
 
 Indexers support two workflows:
 
 + Text-based indexing, extract strings and metadata from textual content for full text search scenarios.
 
-+ Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
++ Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Azure AI Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
 
@@ -99,7 +99,7 @@ Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of t
 }
 ```
 
-AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
+AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure AI Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
 
 ## Prepare external data
 
@@ -116,7 +116,7 @@ Remember that you only need to pull in searchable and filterable data:
 + Searchable data is text.
 + Filterable data is alphanumeric.
 
-Cognitive Search can't search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, large text can be broken down and analyzed by natural language models to find structure or relevant information, generating new content that you can add to a search document.
+Azure AI Search can't search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, large text can be broken down and analyzed by natural language models to find structure or relevant information, generating new content that you can add to a search document.
 
 Given that indexers don't fix data problems, other forms of data cleansing or manipulation might be needed. For more information, you should refer to the product documentation of your [Azure database product](../index.yml?product=databases).
 
@@ -191,7 +191,7 @@ There are numerous tutorials and examples that demonstrate REST clients for crea
 
 ### [**.NET SDK**](#tab/indexer-csharp)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them provide a **SearchIndexerClient** that has methods for creating indexers and related objects, including skillsets.
+For Azure AI Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them provide a **SearchIndexerClient** that has methods for creating indexers and related objects, including skillsets.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|
@@ -228,7 +228,7 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure Cognitive Search](search-howto-index-changed-deleted-blobs.md).
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure AI Search](search-howto-index-changed-deleted-blobs.md).
 
 + Cloud database technologies provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You need to specify in the data source definition which policy is used:
 
