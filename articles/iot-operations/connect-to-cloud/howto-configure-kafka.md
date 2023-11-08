@@ -14,60 +14,113 @@ ms.date: 10/31/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-A cloud connector pushes messages from local Azure IoT MQ's MQTT broker to a cloud endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), it's compatible with some restrictions.
+The Kafka connector pushes messages from Azure IoT MQ's MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
-## What's supported
-
-| Feature | Supported |
-| --- | --- |
-| Sink to Kafka deployment or Azure Event Hubs's Kafka endpoint | Supported |
-| Bidirectional communication | Supported |
-| Checkpointing offset in Kafka | Supported |
-| Stops sending messages when offline | Supported |
-| High availability | Supported |
-| Ability to preserve MQTT topic information | Supported |
-| Wildcard subscription support on MQTT | Supported |
-| Store and forward when reconnect | Supported |
-| Kafka topic with >1 partitions | Supported |
-| Managed identity auth for Event Hubs | Supported |
-| Support for payload > 1 MB | Supported |
 
 ## Configure Event Hubs connector via Kafka endpoint
 
 By default, the connector isn't installed with Azure IoT MQ. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hubs through its Kafka endpoint.
 
+
 1. [Create an Event Hubs namespace](/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 1. [Create an event hub](/azure/event-hubs/event-hubs-create#create-an-event-hub) for each Kafka topic.
 
-1. [Get the connection string to the namespace](/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-namespace). Scoping the connection string to the namespace as opposed to individual event hubs allows IoT MQ to send and receive messages from multiple different event hubs (thus Kafka topics).
 
-1. Create a Kubernetes secret with the full connection string as the password.
+## Grant the connector access to the Event Hubs namespace
 
-    ```bash
-    kubectl create secret generic cs-secret \
-        --from-literal=username='$ConnectionString' \
-        --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY_NAME>;SharedAccessKey=<KEY>'
-    ```
+Granting IoT MQ Arc extension access to an Event Hubs namespace is the most convenient way to establish a secure connection from IoT MQ's Kakfa connector to Event Hubs. 
 
-1. Create a YAML file that defines the [KafkaConnector](#kafkaconnector) resource. You can use the YAML provided as an example, but make sure to change the `endpoint` to match your event hub.
+Save the following Bicep template to a file and apply it with the Azure CLI after setting the valid parameters for your environment:
 
-1. Create a YAML file to define the [KafkaConnectorTopicMap](#kafkaconnectortopicmap) resource. 
+> [!NOTE]
+> The Bicep template assumes the Arc connnected cluster and the Event Hubs namespace are in the same resource group, adjust the template if your environment is different. 
 
-1. Apply the *KafkaConnector* and *KafkaConnectorTopicMap* resources to your Kubernetes cluster using `kubectl apply -f kafka-connector.yaml`.
+```bicep
+@description('Location for cloud resources')
+param mqExtensionName string = 'mq'
+param clusterName string = 'clusterName'
+param eventHubNamespaceName string = 'default'
+
+resource connectedCluster 'Microsoft.Kubernetes/connectedClusters@2021-10-01' existing = {
+  name: clusterName
+}
+
+resource mqExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' existing = {
+  name: mqExtensionName
+  scope: connectedCluster
+}
+
+resource ehNamespace 'Microsoft.EventHub/namespaces@2021-11-01' existing = {
+  name: eventHubNamespaceName
+}
+
+// Role assignment for Event Hubs Data Receiver role
+resource roleAssignmentDataReceiver 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(ehNamespace.id, mqExtension.id, '7f951dda-4ed3-4680-a7ca-43fe172d538d')
+  scope: ehNamespace
+  properties: {
+     // ID for Event Hubs Data Receiver role is a638d3c7-ab3a-418d-83e6-5f17a39d4fde
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', 'a638d3c7-ab3a-418d-83e6-5f17a39d4fde') 
+    principalId: mqExtension.identity.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+
+// Role assignment for Event Hubs Data Sender role
+resource roleAssignmentDataSender 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(ehNamespace.id, mqExtension.id, '69b88ce2-a752-421f-bd8b-e230189e1d63')
+  scope: ehNamespace
+  properties: {
+    // ID for Event Hubs Data Sender role is 2b629674-e913-4c01-ae53-ef4638d8f975
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', '2b629674-e913-4c01-ae53-ef4638d8f975') 
+    principalId: mqExtension.identity.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
+
+```azcli
+# Set the required environment variables
+
+# Resource group for resources
+RESOURCE_GROUP=xxx
+
+# Bicep template files name
+TEMPLATE_FILE_NAME=xxx
+
+# MQ Arc extension name
+MQ_EXTENSION_NAME=xxx
+
+# Arc connected cluster name
+CLUSTER_NAME=xxx
+
+# Event Hubs namespace name
+EVENTHUB_NAMESPACE=xxx
+
+
+az deployment group create \
+      --name assign-RBAC-roles \
+      --resource-group $RESOURCE_GROUP \
+      --template-file $TEMPLATE_FILE_NAME \
+      --parameters mqExtensionName=$MQ_EXTENSION_NAME \
+      --parameters clusterName=$CLUSTER_NAME \
+      --parameters eventHubNamespaceName=$EVENTHUB_NAMESPACE
+```
+
 
 ## KafkaConnector
 
 The *KafkaConnector* custom resource (CR) allows you to configure a Kafka connector that can communicate a Kafka host and Event Hubs. The Kafka connector can transfer data between MQTT topics and Kafka topics, using the Event Hubs as a Kafka-compatible endpoint.
 
-The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using SASL plain authentication:
+The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using IoT MQ's Azure identity, it assumes other MQ resources were installed using the quickstart:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnector
 metadata:
   name: my-eh-connector
-  namespace: <SAME NAMESPACE AS BROKER> # For example "default"
+  namespace: azure-iot-operations # same as one used for other MQ resources
 spec:
   image:
     pullPolicy: IfNotPresent
@@ -76,26 +129,24 @@ spec:
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
-    # Port 9093 is Event Hub's Kakfa endpoint
-    # Supports bootstrap server syntax
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
     endpoint: <NAMESPACE>.servicebus.windows.net:9093
     tls:
       tlsEnabled: true
-      # caConfigMap: not-required-for-eh
     authentication:
       enabled: true
       authType:
-        sasl:
-          saslType: plain
-          token:
-            secretName: cs-secret
-  ## Uncomment to customize local broker connection
-  # localBrokerConnection:
-  #   endpoint: "aio-mq-dmqtt-frontend:1883"
-  #   tls:
-  #     tlsEnabled: false
-  #   authentication:
-  #     kubernetes: {}
+        systemAssignedManagedIdentity:
+          # plugin in your Event Hubs namespace name
+          audience: "https://<EVENTHUBS_NAMESPACE>.servicebus.windows.net" 
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
 ```
 
 The following table describes the fields in the KafkaConnector CR:
@@ -147,7 +198,7 @@ The authentication field supports different types of authentication methods, suc
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| sasl | The configuration for SASL authentication. Specify the `saslType` which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
+| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
 | x509 | The configuration for X509 authentication. Specify the `secretName` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
 | systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
 
@@ -218,7 +269,7 @@ spec:
     # Pull from kafka topic "sending-event-hub" and publish to MQTT topic "heater-commands"
     - kafkaToMqtt:
         name: "route2"
-        consumerGroupId: e4kconnector
+        consumerGroupId: mqConnector
         kafkaTopic: sending-event-hub
         mqttTopic: heater-commands
         qos: 0
@@ -243,9 +294,9 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | none | No compression or batching is applied. *none* is the default value if no compression is specified. |
-| gzip | GZIP compression and batching is applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
-| snappy | Snappy compression and batching is applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| lz4 | LZ4 compression and batching is applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
+| snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
+| lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
 
 ### Batching
 
@@ -349,7 +400,7 @@ In this example, messages from Kafka topic *sending-event-hub** are published to
 
 ### Event hub name must match Kafka topic
 
-Each individual event hub not the namespace must be named exactly the same as the intended Kafka topic specified in the routes. Also, the connection string `EntityPath` must match if connection string is scoped to one Event Hubs. This requirement is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
+Each individual event hub not the namespace must be named exactly the same as the intended Kafka topic specified in the routes. Also, the connection string `EntityPath` must match if connection string is scoped to one event hub. This requirement is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
 
 ### Kafka consumer group offsets
 
