@@ -92,7 +92,7 @@ The Azure Logic Apps team values your feedback and encourages you to share your 
 
 **Q**: Is the workflow assistant available in all Azure regions and languages?
 
-**A**: The workflow assistant is available in all Azure regions where Standard workflows in Azure Logic Apps is available, but currently supports only English for queries, prompts, and responses.
+**A**: The workflow assistant is available in all Azure regions where Standard workflows and single-tenant Azure Logic Apps are available. However, the assistant currently supports only English for queries, prompts, and responses.
 
 **Q**: Can the workflow assistant answer questions about any topic?
 
@@ -116,7 +116,7 @@ The Azure Logic Apps team values your feedback and encourages you to share your 
 
 **Q**: Does Azure Logic Apps own the workflows suggested by the workflow assistant? 
 
-**A**: The workflow assistant doesn't own the workflow suggestions that the assistant provides to you nor the workflows that you build based on these suggestions. You own and are responsible for the workflows that you create using the workflow assistant's help.
+**A**: The workflow assistant doesn't own the workflow suggestions that the assistant provides to you nor the workflows that you build based on these suggestions. You own and manage the workflows that you create using the workflow assistant's help.
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
