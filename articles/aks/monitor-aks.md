@@ -23,7 +23,7 @@ When you have critical applications and business processes relying on Azure reso
 
  ## Monitoring data 
 
-AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) collect other data and enable other analysis options as shown in the following diagram and table. (Placeholder_1: image to be changed to a newer version made by Brian and his team. )
+AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) collect other data and enable other analysis options as shown in the following diagram and table. 
 
 :::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from AKS." lightbox="media/monitor-aks/aks-monitor-data.png" border="false":::
 
