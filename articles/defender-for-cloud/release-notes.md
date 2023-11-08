@@ -71,7 +71,7 @@ Container image scan powered by MDVM now also incur charges as per [plan pricing
 > [!NOTE]
 > Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once.
 
-The below Qualys recommendations for Containers Vulnerability Assessment will be renamed and will continue to be availible for customers that enabled Defender for Containers on any of their subscriptions prior to November 15. New customers onboarding to Defender for Containers after November 15 will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management.
+The below Qualys recommendations for Containers Vulnerability Assessment were renamed and will continue to be available for customers that enabled Defender for Containers on any of their subscriptions prior to November 15. New customers onboarding Defender for Containers after November 15, will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management.
 
 |Current recommendation name|New recommendation name|Description|Assessment key|
 |--|--|--|--|
