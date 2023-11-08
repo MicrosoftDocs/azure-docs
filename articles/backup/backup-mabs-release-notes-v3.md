@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 11/07/2023
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -11,6 +11,10 @@ ms.author: v-abhmallick
 # Release notes for Microsoft Azure Backup Server
 
 This article provides the known issues and workarounds for Microsoft Azure Backup Server (MABS) V3.
+
+## MABS V4 UR1 known issues and workarounds
+
+No known issues.
 
 ## MABS V4 known issues and workarounds 
 
@@ -77,7 +81,7 @@ If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual
 
 9. Start MSDPM service.
 
-### After installing UR1, the MABS reports aren't updated with new RDL files
+### After you install UR1, the MABS reports aren't updated with new RDL files
 
 **Description**: With UR1, the MABS report formatting issue is fixed with updated RDL files. The new RDL files aren't automatically replaced with existing files.
 
