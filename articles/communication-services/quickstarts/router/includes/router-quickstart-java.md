@@ -80,9 +80,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 
 ```java
 // Get a connection string to our Azure Communication Services resource.
-String connectionString = "your_connection_string";
-JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString(connectionString).buildClient();
-JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(connectionString).buildClient();
+JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString("your_connection_string").buildClient();
+JobRouterClient routerClient = new JobRouterClientBuilder().connectionString("your_connection_string").buildClient();
 ```
 
 ## Create a distribution policy
@@ -113,7 +112,7 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
     .setPriority(1)
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
+        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new RouterValue(10)))));
 ```
 
 ## Create a worker
@@ -123,9 +122,9 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```java
 RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
-        .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
-        .setLabels(Map.of("Some-Skill", new LabelValue(11)))
-        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration(1))));
+        .setQueues(List.of(queue.getId()))
+        .setLabels(Map.of("Some-Skill", new RouterValue(11)))
+        .setChannels(List.of(new RouterChannel("voice", 1))));
 ```
 
 ## Receive an offer
@@ -155,7 +154,7 @@ System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJo
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJob(new CompleteJobOptions(accept.getJobId(), accept.getAssignmentId()));
+routerClient.completeJob(accept.getJobId(), accept.getAssignmentId());
 System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
@@ -164,8 +163,7 @@ System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.get
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```java
-routerClient.closeJob(new CloseJobOptions(accept.getJobId(), accept.getAssignmentId())
-    .setDispositionCode("Resolved"));
+routerClient.closeJob(accept.getJobId(), accept.getAssignmentId(), new CloseJobOptions().setDispositionCode("Resolved"));
 System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
 ```
 
