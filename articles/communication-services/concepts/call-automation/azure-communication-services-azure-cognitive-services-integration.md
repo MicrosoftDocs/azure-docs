@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Communication Services to Azure AI services
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for connecting ACS to Azure AI services.
+description: Provides a how-to guide for connecting Azure Communication Services to Azure AI services.
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
