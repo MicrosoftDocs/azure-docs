@@ -12,8 +12,8 @@ ms.author: abbyweisberg
 Grids or tables are a common way to present data to users. You can individually style the columns of grids in workbooks to provide a rich UI for your reports. While a plain table shows data, it's hard to read and insights won't always be apparent. Styling the grid can help make it easier to read and interpret the data.
 
 The following example shows a grid that combines icons, heatmaps, and spark bars to present complex information. The workbook also provides sorting, a search box, and a go-to-analytics button.
-<!-- convertborder later -->
-:::image type="content" source="./media/workbooks-grid-visualizations/grid.png" lightbox="./media/workbooks-grid-visualizations/grid.png" alt-text="Screenshot that shows a log-based grid." border="false":::
+<!-- convertborder later; applied Learn formatting border because the border created manually is thin. -->
+:::image type="content" source="./media/workbooks-grid-visualizations/grid.png" lightbox="./media/workbooks-grid-visualizations/grid.png" alt-text="Screenshot that shows a log-based grid.":::
 
 ## Add a log-based grid
 
