@@ -24,10 +24,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ## November 2023
 
-**Document Intelligence v4.0 (Preview.1)
+Document Intelligence **2023-10-31-preview**
 
-The Document Intelligence version 4.0 Preview.1 API is now available for use! The API version corresponds to ```2023-10-31-Preview```.
-This preview API introduces new and updated capabilities:
+The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available for use! This preview API introduces new and updated capabilities:
 
 * [Read](concept-contract.md)
   * Language Expansjion for Handwritting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
