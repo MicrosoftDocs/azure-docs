@@ -19,7 +19,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## **November 2023**
 **Bulk delete capability now available**
-`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../azure-api-for-fhir/bulk-delete-operation.md).
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](azure-api-for-fhir/bulk-delete-operation.md).
 
 Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
 
