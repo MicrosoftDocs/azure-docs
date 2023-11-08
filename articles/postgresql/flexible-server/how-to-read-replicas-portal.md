@@ -37,7 +37,7 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 2.  On the **Overview** dialog, note the PostgreSQL version (ex `15.4`). Also, note the region your primary is deployed to (ex., `East US`).
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-settings.png" alt-text="Review primary settings." lightbox="./media/how-to-read-replicas-portal/primary-settings.png":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-settings.png" alt-text="Screenshot of review primary settings." lightbox="./media/how-to-read-replicas-portal/primary-settings.png":::
 
 3.  On the server sidebar, under **Settings**, select **Compute + storage**.
 
