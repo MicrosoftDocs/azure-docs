@@ -82,15 +82,15 @@ This section contains the parameters related to the Azure infrastructure.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                                                                                  | Type       |
 > | ---------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
+> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks by using customer-provided keys. | Optional   |
 > | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.             |            |
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                       |            |
 > | `resource_offset`                              | Provides an offset for resource naming.                                                      | Optional   |
-> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations.                        | Optional   |
+> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations                         | Optional   |
 > | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                   | Optional   |
-> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.                    | Optional   |
-> | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).                   | Optional   |
-> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   |
+> | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                  | Optional   |
+> | `user_assigned_identity_id                     | User assigned identity to assign to the virtual machines                                     | Optional   |
 
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
 
@@ -153,7 +153,6 @@ See [High-availability configuration](configure-system.md#high-availability-conf
 > | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with ANF pinning. |
 > | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
 > | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
-
 
 
 
@@ -447,12 +446,12 @@ This section contains the parameters related to the cluster configuration.
 > | `database_cluster_disk_size`                   | The size of the shared disk for the Database cluster.                          | Optional   |
 > | `database_cluster_type`                        | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
 > | `fencing_role_name`                            | Specifies the Azure role assignment to assign to enable fencing.               | Optional   |
+> | `idle_timeout_scs_ers`                         | Sets the idle timeout setting for the SCS and ERS loadbalancer.                | Optional   |
 > | `scs_cluster_disk_lun`                         | Specifies the The LUN of the shared disk for the Central Services cluster.     | Optional   |
 > | `scs_cluster_disk_size`                        | The size of the shared disk for the Central Services cluster.                  | Optional   |
 > | `scs_cluster_type`                             | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
-> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.      | Optional   |
+> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.                    | Optional   |
 > | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).     | Optional   |
-> | `idle_timeout_scs_ers`                         | Sets the idle timeout setting for the SCS and ERS loadbalancer.                | Optional   |
 
 > [!NOTE]
 > The highly available central services deployment requires using a shared file system for `sap_mnt`. You can use Azure Files or Azure NetApp Files by using the `NFS_provider` attribute. The default is Azure Files. To use Azure NetApp Files, set the `NFS_provider` attribute to `ANF`.
