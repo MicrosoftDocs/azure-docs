@@ -16,7 +16,7 @@ With the growth in cloud-native application development, there's an increased ne
 :::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that make your cKubernetes container vulnerable.":::
 
 
-Confidential containers on AKS enable container level isolation in your Kubernetes workloads. It's an addition to Azure suite of confidential computing products, and uses the AMD SEV-SNP memory encryption to protect your containers at runtime. 
+Confidential containers on Azure Kubernetes Service (AKS) enable container level isolation in your Kubernetes workloads. It's an addition to Azure suite of confidential computing products, and uses the AMD SEV-SNP memory encryption to protect your containers at runtime.
 Confidential containers are attractive for deployment scenarios that involve sensitive data (for instance, personal data or any data with strong security needed for regulatory compliance).
 
 ## What makes a container confidential?
