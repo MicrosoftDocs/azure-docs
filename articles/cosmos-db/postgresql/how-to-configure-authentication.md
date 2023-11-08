@@ -41,7 +41,7 @@ Once done proceed with [configuring Microsoft Entra authentication](#configure-a
 
 ## Configure Microsoft Entra authentication
 
-### Pre-requisites
+### Prerequisites
 
 User need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Microsoft Entra tenant.
 
