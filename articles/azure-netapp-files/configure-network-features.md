@@ -99,7 +99,7 @@ This feature currently doesn't support SDK.
 > ANFStdToBasicNetworkFeaturesRevert Microsoft.NetApp Registered
 > ```
 >
-> If you revert, considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
+> If you revert, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
 
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
