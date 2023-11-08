@@ -43,6 +43,8 @@ items:
       href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
+    - name: Image provenance
+      href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
     - name: Model versions
