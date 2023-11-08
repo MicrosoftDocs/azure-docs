@@ -68,6 +68,38 @@ You can also use the Azure CLI to assign a public endpoint with the following co
 az spring api-portal update --assign-endpoint
 ```
 
+## Configure API try-out feature
+This section describes how to enable or disable API try-out feature for API portal. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
+
+> [!NOTE]
+> API try-out feature is enabled by default.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable API try-out feature using the Azure portal:
+
+1. Navigate to your service resource, and then select **API portal**.
+1. Select **Configuration**.
+1. Select or unselect the **Enable API try-out**, and then select **Save**.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable API try-out feature:
+
+```azurecli
+az spring api-portal update --enabled-api-try-out \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring api-portal update --enabled-api-try-out false \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
+
 ## Configure API routing with OpenAPI Spec on Spring Cloud Gateway for Tanzu
 
 This section describes how to view and try out APIs with schema definitions in API portal. Use the following steps to configure API routing with an OpenAPI spec URL on Spring Cloud Gateway for Tanzu.
