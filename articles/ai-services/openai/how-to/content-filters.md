@@ -35,7 +35,7 @@ The configurability feature is available in preview and allows customers to adju
 
 Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
 
-For jailbreak and protected material text and code models, the configurability feature allows customers to turn the models on and off. The models are by default off and can be turned on per your scenario. 
+For jailbreak models, the configurability feature allows customers to turn the models on and off. The models are by default off and can be turned on per your scenario. 
 
 
 |Filter category  |Default setting  |Applied to prompt or completion?  |Description  |
