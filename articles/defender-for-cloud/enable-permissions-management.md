@@ -21,11 +21,11 @@ You can find new recommendations under the **All recommendations** tab.
 
 ## Preview Prerequisites
 
-| **Aspect**                                              | **Details**                                                  |
-| ------------------------------------------------------- | ------------------------------------------------------------ |
+| **Aspect**                                      | **Details**                                                  |
+| ----------------------------------------------- | ------------------------------------------------------------ |
 | Required / preferred environmental requirements | Defender CSPM                                                |
-| Required roles and permissions                        |  **AWS  \ GCP** <br> Security  Admin <br>  Application.ReadWrite.All     **Azure** <br>  Security  Admin <br>  Microsoft.Authorization/roleAssignments/write |
-| Clouds                                             | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure, AWS  and GCP commercial clouds      <br>   :::image type="icon" source="./media/icons/no-icon.png"::: Nation/Sovereign (US Gov, China Gov, Other  Gov) |
+| Required roles and permissions                  | **AWS  \ GCP** <br>Security Admin <br>Application.ReadWrite.All<br><br>**Azure** <br>Security Admin <br>Microsoft.Authorization/roleAssignments/write |
+| Clouds                                          | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure, AWS  and GCP commercial clouds      <br>   :::image type="icon" source="./media/icons/no-icon.png"::: Nation/Sovereign (US Gov, China Gov, Other  Gov) |
 
 ## Enable Permissions Management for Azure
 
