@@ -1,6 +1,6 @@
 ---
-title: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server -Preview
-description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server -Preview
+title: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server
+description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server
 author: mulander
 ms.author: adamwolk
 ms.date: 11/01/2023
@@ -9,7 +9,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL Flexible Server Azure AI Extension -Preview
+# Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
