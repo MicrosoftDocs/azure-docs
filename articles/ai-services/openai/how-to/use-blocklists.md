@@ -12,7 +12,7 @@ ms.author: pafarley
 keywords: 
 ---
 
-# Use a blocklist
+# Use a blocklist in Azure OpenAI
 
 The configurable content filters are sufficient for most content moderation needs. However, you may need to filter terms specific to your use case. 
 
