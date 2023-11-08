@@ -21,7 +21,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 **Image tag**: `v1.25.0_2023-11-14`
 
-For complete release version information, review [Version log](version-log.md#october-10-2023).
+For complete release version information, review [Version log](version-log.md#november-14-2023).
 
 ## October 10, 2023
 
