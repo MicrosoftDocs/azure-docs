@@ -1,4 +1,12 @@
+---
+title: Configure gRPC on App Service
+description: Configure gRPC with your application
+author: jefmarti
+ms.topic: how-to
+ms.date: 11/10/2023
+ms.author: jefmarti
 
+---
 
 # Configure gRPC on App Service
 
