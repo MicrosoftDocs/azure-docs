@@ -71,6 +71,8 @@ landingContent:
             url: update-tle.md  
           - text: Receive real-time antenna telemetry
             url: receive-real-time-telemetry.md
+          - text: Prepare for launch
+            url: prepare-for-launch.md
           - text: Use Azure Resource Graph to view contacts
             url: resource-graph-samples.md
           
