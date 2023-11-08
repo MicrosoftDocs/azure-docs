@@ -458,7 +458,7 @@ while (conflictFeed.HasMoreResults)
 
 ### <a id="read-from-conflict-feed-javav2"></a>Java SDKs
 
-# [Async Java V4 SDK](#tab/v4async)
+# [Java V4 SDK](#tab/v4async)
 
 [Java V4 SDK](sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
 
