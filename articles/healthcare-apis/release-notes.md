@@ -26,6 +26,7 @@ This article provides details about the features and enhancements made to Azure 
 
 **Bulk delete capability now available**
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../fhir-bulk-delete-operation.md)
+
 Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
 
 ## September 2023
