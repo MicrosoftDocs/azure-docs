@@ -31,9 +31,9 @@ Azure Boost contains several features that can improve the performance and secur
 - **Performance:** With Azure Boost offloading storage and networking, CPU resources are freed up for increased virtualization performance. Resources that would normally be used for these essential background tasks are now available to the guest VM. Learn more about [Azure Boost Performance](../../articles/azure-boost/overview.md#performance).
 
 ## Networking
-The [Microsoft Azure Network Adapter (MANA)](../../articles/virtual-network/accelerated-networking-mana-overview.md) is installed in every Azure Boost compatible host. This network interface card (NIC) includes the latest hardware acceleration features and provides competitive performance with a consistent driver interface. This custom hardware and software implementation ensures optimal networking performance, tailored specifically for Azure's demands. MANA's features are designed to enhance your networking experience with: 
+The next generation of Azure Boost will introduce the [Microsoft Azure Network Adapter (MANA)](../../articles/virtual-network/accelerated-networking-mana-overview.md). This network interface card (NIC) includes the latest hardware acceleration features and provides competitive performance with a consistent driver interface. This custom hardware and software implementation ensures optimal networking performance, tailored specifically for Azure's demands. MANA's features are designed to enhance your networking experience with: 
 - **Over 200-Gbps of network bandwidth:**
-Custom hardware and software drivers facilitating faster and more efficient data transfers. 
+Custom hardware and software drivers facilitating faster and more efficient data transfers. Starting up to 200Gbps network bandwidth with increases in the future.
 
 - **High network availability and stability:** 
 With an active/active network connection to the Top of Rack (ToR) switch, Azure Boost ensures your network is always up and running at the highest possible performance.  
