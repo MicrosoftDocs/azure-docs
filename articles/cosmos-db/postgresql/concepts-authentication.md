@@ -1,5 +1,5 @@
 ---
-title: Active Directory authentication - Azure Cosmos DB for PostgreSQL
+title: PostgreSQL and Microsoft Entra ID authentication - Azure Cosmos DB for PostgreSQL
 description: Learn about the concepts of native PostgreSQL and Microsoft Entra ID authentication with Azure Cosmos DB for PostgreSQL
 author: niklarin
 ms.author: nlarin
@@ -92,10 +92,10 @@ Microsoft Entra ID authentication supports the following methods of connecting t
 - Microsoft Entra ID Password
 - Microsoft Entra ID integrated
 - Microsoft Entra ID Universal with MFA
-- Using Active Directory Application certificates or client secrets
+- Using Microsoft Entra ID Application certificates or client secrets
 - Managed Identity
 
-Once you've authenticated against the Active Directory, you then retrieve a token. This token is your password for logging in.
+Once you've authenticated against the Microsoft Entra ID, you then retrieve a token. This token is your password for logging in.
 
 ### Other considerations
 

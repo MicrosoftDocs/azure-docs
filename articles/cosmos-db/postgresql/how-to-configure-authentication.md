@@ -50,11 +50,11 @@ Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Mic
 
 # [Azure portal](#tab/portal)
 
-1. Search for 'Microsoft Entra ID' in Azure portal.
+1. Search for 'Microsoft Entra ID' in [Azure portal](https://portal.azure.com/).
 1. Open 'Microsoft Entra ID' service.
-1. In the **Overview** section on the **Overview** page of Microsoft Entra ID service, search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
+1. On the **Overview** page of Microsoft Entra ID service in the **Overview** section , search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
 1. Choose 'Azure Cosmos DB for PostgreSQL AAD Authentication' enterprise application in the search results.
-1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose 'Properties' page.
+1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose **Properties** page.
 1. Set **Enabled for users to sign-in?** to **Yes** and save the change.
 
 # [Azure CLI](#tab/cli)
@@ -181,7 +181,7 @@ To connect by using a Microsoft Entra ID token with PgAdmin, follow these steps:
 1. Enter your server details on the **Connection** tab and save.
     1. Make sure a valid Microsoft Entra ID user is specified in **Username**.
 1. From the pgAdmin **Object** menu, select **Connect Server**.
-1. Enter the Active Directory token password when you're prompted.
+1. Enter the Microsoft Entra ID token password when you're prompted.
 
 Here are some essential considerations when you're connecting:
 
