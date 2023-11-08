@@ -14,8 +14,6 @@ In this article, you learn how to migrate a SQL Server Always On Availability Gr
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of Always On SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-architecture.png":::
 
-## Tested configurations
-
 Microsoft SQL Server (2019 and 2022) was tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware. The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
 
 ## Prerequisites
@@ -30,13 +28,14 @@ These are the prerequisites to migrating your SQL Server instance to Azure VMwar
 - Ensure that all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration.
-VMWare HCX over VPN, due to its limited bandwidth, is typically suited for workloads that can sustain longer periods of downtime (such as non-production environments). 
 
-For any of the following scenarios, ExpressRoute connectivity is recommended for a migration:
+With VMWare HCX over VPN, due to its limited bandwidth it is typically suited for workloads that can sustain longer periods of downtime (such as non-production environments).
+
+For any of the following, ExpressRoute connectivity is recommended for a migration:
 
 - Production environments
 - Workloads with large database sizes
-- Any case where there is a need to minimize downtime
+- Scenarios in which there is a need to minimize downtime the ExpressRoute connectivity is recommended for the migration.
 
 Further downtime considerations are discussed in the next section.
 
