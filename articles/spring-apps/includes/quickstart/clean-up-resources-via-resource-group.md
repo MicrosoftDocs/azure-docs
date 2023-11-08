@@ -9,7 +9,7 @@ ms.date: 08/11/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to clean up Azure resource via resource group.
 
-[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
 -->
 

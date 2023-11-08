@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 10/16/2023
+ms.date: 11/02/2023
 ms.author: anfdocs
 ---
 
@@ -26,6 +26,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
 
     It no longer requires registration when you edit the network features option of existing volumes from Basic to Standard network features.
+
+## November 2023
+
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#supported-regions) in select US Gov regions
+  
+    Azure NetApp Files now supports [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal) in US Gov Arizona and US Gov Virginia regions. Azure NetApp Files datastores for Azure VMware Solution provide the ability to scale storage independently of compute and can go beyond the limits of the local instance storage provided by vSAN reducing total cost of ownership.
 
 ## October 2023
 

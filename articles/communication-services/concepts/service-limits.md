@@ -67,12 +67,15 @@ When sending or receiving a high volume of messages, you might receive a ```429`
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Message units per minute|
-|---------|-----|-------------|-------------------|-------------------------|
-|Send Message|Per Number|60|200|200|
+|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|---|--|-------------|-------------------|-------------------------|
+|Send Message|Toll-Free|Per Number|60|200|200|
+|Send Message|Short Code |Per Number|60|6000|6000|
+|Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
