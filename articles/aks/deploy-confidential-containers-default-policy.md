@@ -97,10 +97,10 @@ az provider register --namespace "Microsoft.ContainerService"
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the Confidential Containers feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
     * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
 
-   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+   The following example updates the cluster named *myAKSCluster* and creates a single system node pool in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myAKSCluster--kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --node-vm-size Standard_DC4as_cc_v5 --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
@@ -111,10 +111,10 @@ az provider register --namespace "Microsoft.ContainerService"
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Add a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
+3. Add a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku AzureLinux --node-vm-size <VM sizes capable of nested SNP VM> 
+    az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 
     ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -138,10 +138,10 @@ Use the following command to enable Confidential Containers (preview) by creatin
      * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
-   The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
+   The following example adds a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku AzureLinux --node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime KataCcIsolation
+    az aks nodepool add --resource-group myResourceGroup --name nodepool2 –-cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --workload-runtime KataCcIsolation
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -153,6 +153,38 @@ Use the following command to enable Confidential Containers (preview) by creatin
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+3. When the cluster is ready, get the cluster credentials using the [az aks get-credentials][az-aks-get-credentials] command.
+
+    ```azurecli-interactive
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
+
+## Pod manifest to test kata-cc runtime
+
+The following is an example manifest YAML of a pod which consists of a container running busybox using the kata-cc runtime. This example is used later to create a pod and test functionality.
+
+1. Create a file named *busybox.yaml*, and copy in the following manifest.
+
+    ```yml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      labels:
+        run: busybox
+      name: busybox-cc
+    spec:
+      containers:
+      - image: docker.io/library/busybox:latest
+        name: busybox
+      runtimeClassName: kata-cc-isolation
+    ```
+
+2. Create the pod with the `kubectl apply` command, as shown in the following example:
+
+    ```bash
+    kubectl apply -f busybox.yaml
+    ```
 
 ## Configure container
 
@@ -321,6 +353,7 @@ kubectl delete pod pod-name
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
 [az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [aks-intro]: intro-kubernetes.md
 [overview-confidential-containers]: confidential-containers-overview.md
 [azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
