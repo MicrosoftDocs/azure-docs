@@ -3,10 +3,10 @@ title: Chat concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Chat concepts.
 author: kperla97
-manager: sundraman
+manager: darmour
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 07/18/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -22,7 +22,7 @@ The Chat APIs provide an **auto-scaling** service for persistently stored text a
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
 - **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
 - **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the background, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end users of new threads and messages.
-- **Bot Extensibility** - It is easy to add Azure bots to the Chat service with [Azure AI Bot integration](../../quickstarts/chat/quickstart-botframework-integration.md).
+- **Bot Extensibility** - It is easy to add Azure bots to the Chat service with [Azure Bot integration](../../quickstarts/chat/quickstart-botframework-integration.md).
 
 
 ## Chat overview
@@ -62,13 +62,12 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 ## Build intelligent, AI powered chat experiences
 
-You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
+You can use Azure AI services with the Chat service to build use cases like:
 
-- Enable users to chat with each other in different languages.
-- Configure a bot to run on [one or more](../../../bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&source=recommendations) channels 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Genrate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
 - Add a [PVA bot](../../../power-platform/release-plan/2023wave2/power-virtual-agents/bring-bot-framework-bot-power-virtual-agents) in a Azure Communication Services Chat channel with an Azure Bot and a [relay bot](../../../power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
+- Configure a bot to run on [one or more](../../../bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&source=recommendations) social channels along side the Chat channel.
 
 :::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
 
