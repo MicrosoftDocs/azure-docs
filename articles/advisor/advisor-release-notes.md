@@ -96,7 +96,7 @@ To learn more, visit [Understand and optimize your Azure costs using the Cost Op
 
 ### Recommendation reminders for an upcoming event
 
-Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in Azure Event Management (AEM) programs are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event. To learn more about Azure Event Management, visit [Enhanced Solutions](/unifiedsupport/enhanced-solutions).
+Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in Azure Event Management (AEM) programs are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event. To learn more about Azure Event Management, visit [Enhanced Solutions](https://aka.ms/unifiedsupport/enhanced-solutions).
 
 The event notifications are displayed when you visit Advisor or manage resources critical for an upcoming event. The reminders are displayed for events happening within the next 12 months and only for the subscriptions linked to an event. The notification includes a call to action to review outstanding recommendations for reliability, security, performance, and operational excellence.
 
