@@ -1,8 +1,8 @@
 ---
 title: Review security recommendations
-description: This document walks you through how to identify security recommendations that will help you improve your security posture.
+description: This document walks you through how to identify security recommendations that help you improve your security posture.
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/08/2023
 ---
 
 # Review security recommendations
@@ -18,7 +18,7 @@ For supported recommendations, the top toolbar shows any or all of the following
 - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
 - **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
 
-The left side of the screen shows the following:
+The left side of the screen shows the:
 
 - **Risk level** - Critical, High, Medium, Low
 - **Resource** - the resource that is affected
@@ -30,17 +30,17 @@ The left side of the screen shows the following:
 - **Last change date** - The date this recommendation last had a change
 - **Owner** - The person assigned to this recommendation
 - **Due date** - The assigned date the recommendation must be resolved by
-- **Risk factors** - Environmental factors of the resource affected by the recommendation, which influence the exploitability and the business impact of the underlying security issue. For example, Internet exposure, sensitive data, lateral movement potential and more.
+- **Risk factors** - Environmental factors of the resource affected by the recommendation, which influences the exploitability and the business effect of the underlying security issue. For example, Internet exposure, sensitive data, lateral movement potential and more.
 - **Findings by severity** - The total findings by severity
 - **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
 
-The right side of the screen shows the following:
+The right side of the screen shows the:
 
 - **Take action**
     - **Remediate** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources
     - **Assign owner and set due date** - Gives you the option to assign an owner and due date
     - **Exempt** - Exempt the entire recommendation, or disable specific findings using disable rules
-    - **Workflow automation** - Set a logic app which you would like to trigger with this security recommendation
+    - **Workflow automation** - Set a logic app, which you would like to trigger with this security recommendation
     
 - **Graph** - Allows you to view and investigate all context that is used for risk prioritization, including attack paths. Learn how to [identify and manage attack paths](how-to-manage-attack-path.md).
 
@@ -55,7 +55,7 @@ The right side of the screen shows the following:
 
 ## Find recommendations that can improve your security posture
 
-To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
+To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most effect on your score, or the ones that you were assigned to implement.
 
 **To get to the list of recommendations**:
 
@@ -68,15 +68,15 @@ You can search for specific recommendations by name. Use the search box and filt
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Security posture management improvements](episode-four.md)
 
-## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
+## Finding recommendations with high effect on your secure score<a name="monitor-recommendations"></a>
 
-Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that you've implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
+Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that were implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
 
 The list of recommendations shows the **Potential score increase** that you can achieve when you remediate all of the recommendations in the security control.
 
 **To find recommendations that can improve your secure score**:
 
-1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
+1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that increase your secure score.
 
     You can also use the search box and filters above the list of recommendations to find specific recommendations.
 
@@ -130,13 +130,13 @@ ARG is designed to provide efficient resource exploration with the ability to qu
 
 Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference Defender for Cloud data with other resource properties.
 
-For example, this recommendation details page shows several affected resource:
+For example, this recommendation details page shows several affected resources:
 
-:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="The Open Query button on the recommendation details page." lightbox="media/review-security-recommendations/open-query.png":::
+:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="Screenshot of the Open Query button on the recommendation details page." lightbox="media/review-security-recommendations/open-query.png":::
 
-When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources and their for this recommendation:
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources for this recommendation:
 
-:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot." lightbox="media/review-security-recommendations/run-query.png":::
+:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Screenshot of the Azure Resource Graph Explorer, which shows the results for the recommendation shown in the previous screenshot." lightbox="media/review-security-recommendations/run-query.png":::
 
 ## Download recommendations to a CSV report
 
@@ -150,11 +150,11 @@ To download a CSV report of your recommendations:
 
     :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download C S V report from.":::
 
-You'll know the report is being prepared when the pop-up appears.
+You know the report is being prepared when the pop-up appears.
 
 :::image type="content" source="media/review-security-recommendations/preparing-report.png" alt-text="Screenshot of pop-up indicating report being prepared.":::
 
-When the report is ready, you'll be notified by a second pop-up.
+When the report is ready, a second pop-up appears.
 
 :::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot of pop-up indicating your downloaded completed.":::
 
