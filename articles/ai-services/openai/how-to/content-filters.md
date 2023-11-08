@@ -77,8 +77,6 @@ The following steps show how to set up a customized content filtering configurat
 
 1. To turn the optional models on, you can select any of the checkboxes at the left hand side. When each of the optional models is turned on, you can indicate whether the model should Annotate or Filter.
 
-    :::image type="content" source="../media/content-filters/additional-models.jpg" alt-text="Screenshot of portal with additional model options.":::
-
 1. Selecting Annotate will run the respective model and return annotations via API response, but it will not filter content. In addition to annotations, you can also choose to filter content by switching the Filter toggle to on. 
 
 1. You can create multiple content filtering configurations as per your requirements.
