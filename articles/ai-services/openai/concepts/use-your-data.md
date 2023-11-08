@@ -61,13 +61,13 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Ingesting your data
 
-# [Azure AI Search](#tab/ai-search)
+# [Azure Cognitive Search](#tab/ai-search)
 
 > [!TIP]
 > For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
 
-There are two different sources of data that you can use with Azure AI Search. 
+There are two different sources of data that you can use with Azure Cognitive Search. 
 * Blobs in an Azure storage container that you provide
 * Local files uploaded using the Azure OpenAI Studio
 
@@ -181,7 +181,7 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
-## Virtual network support & private endpoint support (Azure AI search only)
+## Virtual network support & private endpoint support (Azure Cognitive Search only)
 
 See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure Cognitive Search index**. 
 
@@ -255,7 +255,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 
 
-## Document-level access control (Azure AI Search only)
+## Document-level access control (Azure Cognitive Search only)
 
 Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
 
@@ -307,7 +307,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
-## Schedule automatic index refreshes (Azure AI Search only)
+## Schedule automatic index refreshes (Azure Cognitive Search only)
 
 To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
