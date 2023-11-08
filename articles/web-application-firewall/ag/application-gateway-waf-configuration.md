@@ -106,7 +106,8 @@ The below table shows some examples of how you might structure your exclusion fo
 | Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
 | Cookie | RequestCookieValues | EqualsAny | N/A | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
 
-Note: If you are creating an exclusion using the "selectorMatchOperator" "EqualsAny" anything you put in the Selector field will get converted to "*" by the backend when the exclusion is created.
+> [!NOTE]
+> If you create an exclusion using the selectorMatchOperator `EqualsAny`, anything you put in the selector field gets converted to "*" by the backend when the exclusion is created.
 
 ## Exclusion scopes
 
