@@ -77,4 +77,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/other)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure Files. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure File Storage. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).

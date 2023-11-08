@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022
 
 # Integrate Azure Files with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Files to other cloud services using Service Connector. You might still be able to connect to Azure Files in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure File Storage to other cloud services using Service Connector. You might still be able to connect to Azure File Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute service
 
@@ -36,7 +36,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure Files. For each example below, replace the placeholder texts `<account-name>`, `<account-key>`, `<storage-account-name>` and `<storage-account-key>` with your own account name, account key, storage account name, and storage account key. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to Azure File Storage. For each example below, replace the placeholder texts `<account-name>`, `<account-key>`, `<storage-account-name>` and `<storage-account-key>` with your own account name, account key, storage account name, and storage account key. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### Connection string
 
@@ -58,7 +58,7 @@ Use the connection details below to connect compute services to Azure Files. For
 | AZURE_STORAGEFILE_CONNECTIONSTRING | File storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 #### Sample code 
-Refer to the steps and code below to connect to Azure App Configuration using an account key.
+Refer to the steps and code below to connect to Azure File Storage using an account key.
 [!INCLUDE [code sample for azure files](./includes/code-file-secret.md)]
 
 ## Next steps
