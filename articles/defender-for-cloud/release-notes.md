@@ -32,6 +32,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 15 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
 | November 15 | [General Availability release of GCP support in Defender CSPM](#general-availability-release-of-gcp-support-in-defender-cspm) |
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
+| November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
 ### Defender for Cloud is now integrated with Microsoft 365 Defender
@@ -140,6 +141,18 @@ The data security dashboard is now available in General Availability (GA) as par
 The data security dashboard allows you to view your organization's data estate, risks to sensitive data, and insights about your data resources.
 
 Learn more about the [data security dashboard](data-aware-security-dashboard-overview.md).
+
+### General Availability release of sensitive data discovery for databases
+
+November 15, 2023
+
+Sensitive data discovery for managed databases starting with Azure SQL databases and AWS RDS instances (all RDBMS flavors) is now generally available and allows for the automatic discovery of critical databases that contain sensitive data.
+
+To enable this feature across all supported datastores on your environments, you need to enable `Sensitive data discovery` in Defender CSPM. Learn [how to enable sensitive data discovery in Defender CSPM](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan).
+
+You can also learn how [sensitive data discovery is used in data-aware security posture](concept-data-security-posture.md).
+
+Public Preview announcement: [New expanded visibility into multicloud data security in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-expanded-visibility-into-multicloud-data-security-in/ba-p/3913010).
 
 ### New version of the recommendation to find missing system updates is now GA
 
