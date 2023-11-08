@@ -148,7 +148,10 @@ Your application can authenticate to MQ using any of the [supported authenticati
 
 ## Set up authorization policy between the workload and MQ
 
-To configure authorization policies to the MQ DMQTT broker, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
+To configure authorization policies to Azure IoT MQ, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
+
+> [!TIP]
+> If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to allow MQTT topics.
 
 To create the yaml file, use the following component definitions:
 
@@ -162,41 +165,41 @@ To create the yaml file, use the following component definitions:
 1. Save the following yaml, which contains the component definitions, to a file named `aio-mq-authz.yaml`. 
 
     ```yml
-    apiVersion: mq.iotoperations.azure.com/v1alpha4
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: BrokerAuthorization
     metadata:
-      name: "my-authz-policies"
-      namespace: default
+      name: my-authz-policies
+      namespace: azure-iot-operations
     spec:
       listenerRef:
-        - "tls-listener-manual"
+        - my-listener # change to match your listener name as needed
       authorizationPolicies:
         enableCache: false
         rules:
           - principals:
               attributes:
-                - group: "dapr-workload"
+                - group: dapr-workload
             brokerResources:
               - method: Connect
               - method: Publish
                 topics:
                   - "odd-numbered-orders"
-                  - "$store/{principal.clientId}/#"
+                  - "$services/statestore/#"
               - method: Subscribe
                 topics:
-                  - "response_topic/{principal.clientId}/#"
+                  - "clients/{principal.clientId}/services/statestore/#"
                   - "orders"
           - principals:
               clientids:
-                - "publisher1"
+                - "publisher"
             brokerResources:
               - method: Connect
               - method: Publish
                 topics:
-                  - "orders"              
+                  - "orders"
           - principals:
               clientids:
-                - "client2"
+                - "client"
             brokerResources:
               - method: Connect
               - method: Subscribe
@@ -213,7 +216,7 @@ To create the yaml file, use the following component definitions:
 ## Creating a Dapr application
 
 > [!TIP]
-> For convenience, we have published a quickstart sample to a container registry at `alicesprings.azurecr.io/quickstart-sample`. You can use this container to follow along even if you haven't built your own image and you can view the [source code here](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dapr-quickstart-go).
+> For convenience, we have published a quickstart sample to a container registry at `ghcr.io/azure-samples/explore-iot-operations/quickstart-sample`. You can use this container to follow along even if you haven't built your own image and you can view the [source code here](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dapr-quickstart-go).
 
 ### Building the application
 
@@ -291,7 +294,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:0.1.0-preview
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -302,7 +305,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:latest
+          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:0.1.0-preview
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -336,13 +339,13 @@ In the example used for this article, the application subscribes to the `orders`
 1. To start a subscriber in the odd number orders topic, run the following command and leave it running in your terminal:
 
     ```bash
-    mosquitto_sub -h localhost -t "odd-numbered-orders" -u client2 -P password2 -i client2
+    mosquitto_sub -h localhost -i "client" -t "odd-numbered-orders"
     ```
 
 1. In a new terminal window, publish one message with an odd number order (9) to the orders topic, as shown in the following command:
 
     ```bash
-    mosquitto_pub -h localhost -t "orders" -m '{"data": "{\"orderId\": 9, \"item\": \"item9\"}"}' -i "publisher1" -u client1 -P password
+    mosquitto_pub -h localhost -i "publisher" -t "orders" -m '{"data": "{\"orderId\": 9, \"item\": \"item9\"}"}'
     ```
 
     This will publish the following json to the `orders` topic:
