@@ -43,7 +43,7 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 ```
 
-If you're using the `azure.storage.blob.aio` package, add the following `import` statements instead:
+You can also work with data resources asynchronously using the `azure.storage.blob.aio` library. If you're using `azure.storage.blob.aio`, add the following `import` statements instead:
 
 ```python
 import asyncio
@@ -52,9 +52,22 @@ from azure.identity.aio import DefaultAzureCredential
 from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
 ```
 
+To learn about using asynchronous libraries in your project, see [Asynchronous programming](#tab/asynchronous-programming).
+
 Blob client library information:
 - [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
 - [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio): Contains the primary classes that you can use to operate on the service, containers, and blobs asynchronously.
+
+## Asynchronous programming
+
+The Azure Blob Storage client library for Python supports both synchronous and asynchronous APIs. The asynchronous APIs are based on Python's [asyncio](https://docs.python.org/3/library/asyncio.html) library and require Python 3.5 or later. Follow these steps to use the asynchronous APIs:
+
+- Install an async transport, such as [aiohttp](https://pypi.org/project/aiohttp/), using the `pip install` command. You can install `aiohttp` using an optional dependency install command:
+    ```console
+    pip install azure-storage-blob[aio]
+    ```
+- Import from the `azure.storage.blob.aio` library. To learn more, see [Set up your project](#set-up-your-project).
+- Create a client object using `async with`. To learn more, see the async examples in [Authorize access and connect to Blob Storage](#authorize-access-and-connect-to-blob-storage).
 
 ## Authorize access and connect to Blob Storage
 
