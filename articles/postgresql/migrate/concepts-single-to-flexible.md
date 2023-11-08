@@ -147,8 +147,8 @@ Along with data migration, the tool automatically provides the following built-i
 
 ## Limitations
 
-- You can have only one active migration or validation to your flexible server.
-- The source and target server must be in the same Azure region. Cross region migrations are enabled only for servers in China regions.
+- You can have only one active migration or validation to your Flexible server.
+- The source and target server must be in the same Azure region. Cross region migrations are enabled only for servers in India, China and UAE as Flexible server may not be available in all regions within these geographies.
 - The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details and firewall rules.
 - The migration tool shows the number of tables copied from source to target server. You need to manually validate the data in target server post migration.
 - The tool only migrates user databases and not system databases like template_0, template_1, azure_sys and azure_maintenance.
