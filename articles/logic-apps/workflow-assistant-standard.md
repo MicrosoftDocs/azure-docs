@@ -22,7 +22,7 @@ The workflow assistant provides a chat interface that helps you answer questions
 
 Only Standard workflows include the workflow assistant. You can open the workflow assistant from an existing workflow or a new workflow. 
 
-1. In the [Azure portal](https://azure.portal.com), open your Standard logic app and a workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and a workflow in the designer.
 
 1. On the workflow menu, select **Assistant**, which opens the **Workflow assistant** pane.
 
