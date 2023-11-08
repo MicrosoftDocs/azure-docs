@@ -13,7 +13,7 @@ Grids or tables are a common way to present data to users. You can individually 
 
 The following example shows a grid that combines icons, heatmaps, and spark bars to present complex information. The workbook also provides sorting, a search box, and a go-to-analytics button.
 
-[![Screenshot that shows a log-based grid.](./media/workbooks-grid-visualizations/grid.png)](./media/workbooks-grid-visualizations/grid.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/grid.png" lightbox="./media/workbooks-grid-visualizations/grid.png" alt-text="Screenshot that shows a log-based grid.":::
 
 ## Add a log-based grid
 
@@ -24,7 +24,7 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 1. Set **Visualization** to **Grid**.
 1. Set parameters like time range, size, color palette, and legend, if needed.
 
-[![Screenshot that shows a log-based grid query.](./media/workbooks-grid-visualizations/grid-query.png)](./media/workbooks-grid-visualizations/grid-query.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/grid-query.png" lightbox="./media/workbooks-grid-visualizations/grid-query.png" alt-text="Screenshot that shows a log-based grid query.":::
 
 ## Log chart parameters
 
@@ -49,16 +49,16 @@ requests
 | order by Requests desc
 ```
 
-[![Screenshot that shows a log-based grid in edit mode.](./media/workbooks-grid-visualizations/log-chart-simple-grid.png)](./media/workbooks-grid-visualizations/log-chart-simple-grid.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-simple-grid.png" lightbox="./media/workbooks-grid-visualizations/log-chart-simple-grid.png" alt-text="Screenshot that shows a log-based grid in edit mode.":::
 
 ## Grid styling
 
 Columns styled as heatmaps:
 
-[![Screenshot that shows a log-based grid with columns styled as heatmaps.](./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png)](./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-heatmap.png" alt-text="Screenshot that shows a log-based grid with columns styled as heatmaps.":::
 
 Columns styled as bars:
-[![Screenshot that shows a log-based grid with columns styled as bars.](./media/workbooks-grid-visualizations/log-chart-grid-bar.png)](./media/workbooks-grid-visualizations/log-chart-grid-bar.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-bar.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-bar.png" alt-text="Screenshot that shows a log-based grid with columns styled as bars.":::
 
 ### Style a grid column
 
@@ -68,7 +68,7 @@ Columns styled as bars:
 
 The following example shows the **Requests** column styled as a bar:
 
-[![Screenshot that shows a log-based grid with the Requests column styled as a bar.](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png)](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png" alt-text="Screenshot that shows a log-based grid with the Requests column styled as a bar.":::
 
 This option usually takes you to some other view with context coming from the cell, or it might open a URL.
 
@@ -101,7 +101,7 @@ When you've specified that a column is set to the date/time renderer, you can sp
 
 You can customize the width of any column in the grid by using the **Custom Column Width** field in **Column Settings**.
 
-![Screenshot that shows column settings with the Custom Column Width field indicated in a red box.](./media/workbooks-grid-visualizations/custom-column-width-setting.png)
+:::image type="content" source="./media/workbooks-grid-visualizations/custom-column-width-setting.png" lightbox="./media/workbooks-grid-visualizations/custom-column-width-setting.png" alt-text="Screenshot that shows column settings with the Custom Column Width field indicated in a red box.":::
 
 If the field is left blank, the width is automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch," which is an abbreviation for "characters."
 
@@ -139,7 +139,7 @@ requests
 | order by Requests desc
 ```
 
-[![Screenshot that shows a log-based grid with a bar underneath and a spark line.](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png)](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png" alt-text="Screenshot that shows a log-based grid with a bar underneath and a spark line.":::
 
 ### Heatmap with shared scales and custom formatting
 
@@ -151,7 +151,7 @@ requests
 | order by Requests desc
 ```
 
-[![Screenshot that shows a log-based grid with a heatmap that has a shared scale across columns.](./media/workbooks-grid-visualizations/log-chart-grid-shared-scale.png)](./media/workbooks-grid-visualizations/log-chart-grid-shared-scale.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-shared-scale.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-shared-scale.png" alt-text="Screenshot that shows a log-based grid with a heatmap that has a shared scale across columns.":::
 
 In the preceding example, a shared palette in green or red and a scale are used to color the columns **Mean**, **Median**, **p80**, **p95**, and **p99**. A separate palette in blue is used for the **Requests** column.
 
@@ -164,7 +164,7 @@ To get a shared scale:
 
 The new multi-column setting applies its settings to include a shared scale.
 
-[![Screenshot that shows a log-based grid setting to get a shared scale across columns.](./media/workbooks-grid-visualizations/log-chart-grid-shared-scale-settings.png)](./media/workbooks-grid-visualizations/log-chart-grid-shared-scale-settings.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-shared-scale-settings.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-shared-scale-settings.png" alt-text="Screenshot that shows a log-based grid setting to get a shared scale across columns.":::
 
 ### Icons to represent status
 
@@ -177,7 +177,7 @@ requests
 | project Status = case(p95 > 5000, 'critical', p95 > 1000, 'error', 'success'), name, p95
 ```
 
-[![Screenshot that shows a log-based grid with a heatmap that has a shared scale across columns using the preceding query.](./media/workbooks-grid-visualizations/log-chart-grid-icons.png)](./media/workbooks-grid-visualizations/log-chart-grid-icons.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/log-chart-grid-icons.png" lightbox="./media/workbooks-grid-visualizations/log-chart-grid-icons.png" alt-text="Screenshot that shows a log-based grid with a heatmap that has a shared scale across columns using the preceding query.":::
 
 Supported icon names:
 
@@ -225,13 +225,13 @@ The fractional unit, abbreviated as "fr," is a commonly used dynamic unit of mea
 
 The following screenshot shows a table with eight columns that are 1fr width each and all are equal widths. As the window size changes, the width of each column changes proportionally.
 
-[![Screenshot that shows columns in a grid with a column-width value of 1fr each.](./media/workbooks-grid-visualizations/custom-column-width-fr.png)](./media/workbooks-grid-visualizations/custom-column-width-fr.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/custom-column-width-fr.png" lightbox="./media/workbooks-grid-visualizations/custom-column-width-fr.png" alt-text="Screenshot that shows columns in a grid with a column-width value of 1fr each.":::
 
 The following image shows the same table, except the first column is set to 50% width. This setting dynamically sets the column to half of the total grid width. Resizing the window continues to retain the 50% width unless the window size gets too small. These dynamic columns have a minimum width based on their contents. 
 
 The remaining 50% of the grid is divided up by the eight total fractional units. The **Kind** column is set to 2fr, so it takes up one-fourth of the remaining space. Because the other columns are 1fr each, they each take up one-eighth of the right half of the grid.
 
-[![Screenshot that shows columns in a grid with one column-width value of 50% and the rest as 1fr each.](./media/workbooks-grid-visualizations/custom-column-width-fr2.png)](./media/workbooks-grid-visualizations/custom-column-width-fr2.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/custom-column-width-fr2.png" lightbox="./media/workbooks-grid-visualizations/custom-column-width-fr2.png" alt-text="Screenshot that shows columns in a grid with one column-width value of 50% and the rest as 1fr each.":::
 
 Combining fr, %, px, and ch widths is possible and works similarly to the previous examples. The widths that are set by the static units (ch and px) are hard constants that won't change even if the window or resolution is changed.
 
@@ -239,7 +239,7 @@ The columns set by % take up their percentage based on the total grid width. Thi
 
 The columns set with fr split up the remaining grid space based on the number of fractional units they're allotted.
 
-[![Screenshot that shows columns in a grid with an assortment of different width units used.](./media/workbooks-grid-visualizations/custom-column-width-fr3.png)](./media/workbooks-grid-visualizations/custom-column-width-fr3.png#lightbox)
+:::image type="content" source="./media/workbooks-grid-visualizations/custom-column-width-fr3.png" lightbox="./media/workbooks-grid-visualizations/custom-column-width-fr3.png" alt-text="Screenshot that shows columns in a grid with an assortment of different width units used.":::
 
 ## Next steps
 

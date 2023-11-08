@@ -26,7 +26,7 @@ Values from resource pickers can come from the workbook context, static list, or
     1. **Include only resource types**: `Application Insights`
 1. Select **Save** to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter by using workbook resources.](./media/workbooks-resources/resource-create.png)
+   :::image type="content" source="./media/workbooks-resources/resource-create.png" lightbox="./media/workbooks-resources/resource-create.png" alt-text="Screenshot that shows the creation of a resource parameter by using workbook resources.":::
 
 ## Create an Azure Resource Graph resource parameter
 
@@ -49,7 +49,7 @@ Values from resource pickers can come from the workbook context, static list, or
 
 1. Select **Save** to create the parameter.
 
-   ![Screenshot that shows the creation of a resource parameter by using Azure Resource Graph.](./media/workbooks-resources/resource-query.png)
+   :::image type="content" source="./media/workbooks-resources/resource-query.png" lightbox="./media/workbooks-resources/resource-query.png" alt-text="Screenshot that shows the creation of a resource parameter by using Azure Resource Graph.":::
 
 > [!NOTE]
 > Azure Resource Graph isn't yet available in all clouds. Ensure that it's supported in your target cloud if you choose this approach.
@@ -93,7 +93,7 @@ For more information on Azure Resource Graph, see [What is Azure Resource Graph?
 
 1. Run the query to see the results.
 
-   ![Screenshot that shows a resource parameter referenced in a query control.](./media/workbooks-resources/resource-reference.png)
+   :::image type="content" source="./media/workbooks-resources/resource-reference.png" lightbox="./media/workbooks-resources/resource-reference.png" alt-text="Screenshot that shows a resource parameter referenced in a query control.":::
 
 This approach can be used to bind resources to other controls like metrics.
 

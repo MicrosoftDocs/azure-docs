@@ -14,7 +14,7 @@ Azure Workbooks honeycomb visualizations provide high-density views of metrics o
 
 The following image shows the CPU utilization of virtual machines across two subscriptions. Each cell represents a virtual machine. The color/label represents its average CPU utilization. Red cells are hot machines. The virtual machines are clustered by subscription.
 
-[![Screenshot that shows the CPU utilization of virtual machines across two subscriptions.](.\media\workbooks-honey-comb\cpu-example.png)](.\media\workbooks-honey-comb\cpu-example.png#lightbox)
+:::image type="content" source=".\media\workbooks-honey-comb\cpu-example.png" lightbox=".\media\workbooks-honey-comb\cpu-example.png" alt-text="Screenshot that shows the CPU utilization of virtual machines across two subscriptions.":::
 
 ## Add a honeycomb
 
@@ -59,7 +59,7 @@ The following image shows the CPU utilization of virtual machines across two sub
 
 1. Select **Save and Close** at the bottom of the pane.
 
-[![Screenshot that shows query control, graph settings, and honeycomb with the preceding query and settings.](.\media\workbooks-honey-comb\available-memory.png)](.\media\workbooks-honey-comb\available-memory.png#lightbox)
+:::image type="content" source=".\media\workbooks-honey-comb\available-memory.png" lightbox=".\media\workbooks-honey-comb\available-memory.png" alt-text="Screenshot that shows query control, graph settings, and honeycomb with the preceding query and settings.":::
 
 ## Honeycomb layout settings
 

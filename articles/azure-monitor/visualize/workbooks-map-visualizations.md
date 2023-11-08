@@ -16,7 +16,7 @@ The following screenshot shows the total transactions and end-to-end latency for
 
 At first glance, the number of transactions in the **West US** region is small compared to the **East US** region. But the end-to-end latency for the **West US** region is higher than the **East US** region. This information provides initial insight that something is amiss for **West US**.
 
-![Screenshot that shows an Azure location map.](./media/workbooks-map-visualizations/map-performance-example.png)
+:::image type="content" source="./media/workbooks-map-visualizations/map-performance-example.png" lightbox="./media/workbooks-map-visualizations/map-performance-example.png" alt-text="Screenshot that shows an Azure location map.":::
 
 ## Add a map
 
@@ -44,7 +44,7 @@ A map can be visualized if the underlying data or metrics have:
 1. All the settings will be autopopulated. For custom settings, select **Map Settings** to open the settings pane.
 1. The following screenshot of the map visualization shows storage accounts for each Azure region for the selected subscription.
 
-![Screenshot that shows an Azure location map with the preceding query.](./media/workbooks-map-visualizations/map-azure-location-example.png)
+:::image type="content" source="./media/workbooks-map-visualizations/map-azure-location-example.png" lightbox="./media/workbooks-map-visualizations/map-azure-location-example.png" alt-text="Screenshot that shows an Azure location map with the preceding query.":::
 
 ### Use an Azure resource
 
@@ -57,13 +57,13 @@ A map can be visualized if the underlying data or metrics have:
     1. **Metric**: `Transactions`
     1. **Aggregation**: `Sum`
 
-    ![Screenshot that shows a transaction metric.](./media/workbooks-map-visualizations/map-transaction-metric.png)
+    :::image type="content" source="./media/workbooks-map-visualizations/map-transaction-metric.png" lightbox="./media/workbooks-map-visualizations/map-transaction-metric.png" alt-text="Screenshot that shows a transaction metric.":::
 1. Select **Add Metric** and add the **Success E2E Latency** metric.
     1. **Namespace**: `Account`
     1. **Metric**: `Success E2E Latency`
     1. **Aggregation**: `Average`
 
-    ![Screenshot that shows a success end-to-end latency metric.](./media/workbooks-map-visualizations/map-e2e-latency-metric.png)
+    :::image type="content" source="./media/workbooks-map-visualizations/map-e2e-latency-metric.png" lightbox="./media/workbooks-map-visualizations/map-e2e-latency-metric.png" alt-text="Screenshot that shows a success end-to-end latency metric.":::
 1. Set **Size** to `Large`.
 1. Set **Visualization** to `Map`.
 1. In **Map Settings**, set:
@@ -113,7 +113,7 @@ A map can be visualized if the underlying data or metrics have:
 
 The following map visualization shows users for each latitude and longitude location with the selected label for metrics.
 
-![Screenshot that shows a map visualization that shows users for each latitude and longitude location with the selected label for metrics.](./media/workbooks-map-visualizations/map-latitude-longitude-example.png)
+:::image type="content" source="./media/workbooks-map-visualizations/map-latitude-longitude-example.png" lightbox="./media/workbooks-map-visualizations/map-latitude-longitude-example.png" alt-text="Screenshot that shows a map visualization that shows users for each latitude and longitude location with the selected label for metrics.":::
 
 ## Map settings
 

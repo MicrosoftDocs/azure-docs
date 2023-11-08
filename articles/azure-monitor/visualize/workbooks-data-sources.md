@@ -106,7 +106,7 @@ The following example combines alerting data with Log Analytics VM performance d
 
 Watch this tutorial on using the merge control to combine Resource Graph and Log Analytics data:
 
-[![Combining data from different sources in workbooks](https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg)](https://www.youtube.com/watch?v=7nWP_YRzxHg "Video showing how to combine data from different sources in workbooks.")
+:::image type="content" source="https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg" lightbox="https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg" alt-text="Combining data from different sources in workbooks":::
 
 Workbooks support these merges:
 
