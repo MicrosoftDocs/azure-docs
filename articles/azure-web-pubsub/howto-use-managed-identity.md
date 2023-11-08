@@ -74,7 +74,7 @@ You can easily set access validation for a function app without code changes by 
 1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
 1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
 
-   :::image type="content" source="media/howto-use-managed-identity/function-aad.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
+   :::image type="content" source="media/howto-use-managed-identity/function-entra.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
 1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
 
