@@ -42,11 +42,11 @@ Workbook tiles support showing items like a title, subtitle, large text, icons, 
     1. In **Bottom**, set:
         * **Use column**: `appName`
 1. Select the **Save and Close** button at the bottom of the pane.
-
+<!-- convertborder later; applied Learn formatting border because the border created manually is thin. -->
 :::image type="content" source="./media/workbooks-tile-visualizations/tile-settings.png" lightbox="./media/workbooks-tile-visualizations/tile-settings.png" alt-text="Screenshot that shows a tile summary view with query and tile settings.":::
 
 The tiles in read mode:
-
+<!-- convertborder later; applied Learn formatting border because the border created manually is thin. -->
 :::image type="content" source="./media/workbooks-tile-visualizations/tiles-read-mode.png" lightbox="./media/workbooks-tile-visualizations/tiles-read-mode.png" alt-text="Screenshot that shows a tile summary view in read mode.":::
 
 ## Spark lines in tiles
