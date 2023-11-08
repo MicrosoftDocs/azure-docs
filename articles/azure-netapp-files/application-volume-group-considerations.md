@@ -51,11 +51,11 @@ To avoid this situation, you should create an availability set per database and 
 > [!IMPORTANT]
 > If you had requested Azure NetApp Files SAP HANA volume pinning before the application volume group was available, you should remove the pinning for your subscription. Existing pinning for a subscription might result in inconsistent deployment of volumes, as application volume group volumes are deployed based on the PPG while other volumes are still deployed based on existing pinning.
 
-### Relationship between AVset, VM, PPG, and Azure NetApp Files volumes 
+### Relationship between availability set, VM, PPG, and Azure NetApp Files volumes 
 
-A PPG needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to AVG to search for Azure NetApp Files resources in the same location for volume creation. This approach works only when at least ONE VM in the PPG is started and kept running. Typically, you should add your database servers to this PPG.
+A PPG needs to have at least one VM assigned to it, either directly or via an availability set. The purpose of the PPG is to extract the exact location of a VM and pass this information to AVG to search for Azure NetApp Files resources in the same location for volume creation. This approach works only when at least ONE VM in the PPG is started and kept running. Typically, you should add your database servers to this PPG.
 
-PPGs have the side effect that, if all VMs are shut down, a following restart of VMs does NOT guarantee that they would start in the same location as before. To prevent this situation from happening, it is strongly recommended to use an AVset that has all VMs and the PPG associated to it, and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs are not moving if restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available.
+PPGs have the side effect that, if all VMs are shut down, a following restart of VMs does NOT guarantee that they would start in the same location as before. To prevent this situation from happening, it is strongly recommended to use an availability set that has all VMs and the PPG associated to it, and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs are not moving if restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available.
 
 When using a PPG without a pinned availability set, a PPG would lose its anchor if all virtual machines in that PPG are stopped. When the virtual machines are restarted, they might be started in a different location, which can result in a latency increase because the volumes created with the application volume group won't be moved.
 
