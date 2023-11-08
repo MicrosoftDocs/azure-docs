@@ -52,7 +52,7 @@ Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Mic
 
 1. Search for 'Microsoft Entra ID' in [Azure portal](https://portal.azure.com/).
 1. Open 'Microsoft Entra ID' service.
-1. On the **Overview** page of Microsoft Entra ID service in the **Overview** section , search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
+1. On the **Overview** page of Microsoft Entra ID service in the **Overview** section, search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
 1. Choose 'Azure Cosmos DB for PostgreSQL AAD Authentication' enterprise application in the search results.
 1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose **Properties** page.
 1. Set **Enabled for users to sign-in?** to **Yes** and save the change.
