@@ -45,7 +45,7 @@ items:
       href: how-to-data-source-plugins-managed-identity.md
     - name: Modify access permissions to Azure Monitor
       href: how-to-permissions.md
-    - name: Connect Azure Monitor workspaces
+    - name: Add an Azure Monitor workspace
       href: how-to-connect-azure-monitor-workspace.md
     - name: Enable Grafana Enterprise
       href: how-to-grafana-enterprise.md

@@ -1,6 +1,6 @@
 ---
-title: Connect an Azure Monitor workspace to Azure Managed Grafana
-description: Learn how to connect an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data.
+title: Add an Azure Monitor workspace to Azure Managed Grafana
+description: Learn how to add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data.
 ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
@@ -8,9 +8,9 @@ ms.author: malev
 ms.date: 11/07/2023
 --- 
 
-# Connect an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data
+# Add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data
 
-In this guide, learn how to connect an Azure Monitor workspace to Grafana directly from an Azure Managed Grafana workspace. This feature is designed to provide a quick way to collect Prometheus metrics stored in an Azure Monitor workspace.
+In this guide, learn how to connect an Azure Monitor workspace to Grafana directly from an Azure Managed Grafana workspace. This feature is designed to provide a quick way to collect Prometheus metrics stored in an Azure Monitor workspace and enables you to monitor your Azure Kubernetes Service (AKS) clusters in Grafana.
 
 > [!IMPORTANT]
 > The integration of Azure Monitor workspaces within Azure Managed Grafana workspaces is currently in PREVIEW.
@@ -22,7 +22,7 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 - An Azure Managed Grafana instance in the Standard tier. [Create a new instance](quickstart-managed-grafana-portal.md) if you don't have one.
 - An [Azure Monitor workspace with Prometheus data](../azure-monitor/containers/prometheus-metrics-enable.md).
 
-## Connect an Azure Monitor workspace to an Azure Managed Grafana workspace
+## Add an Azure Monitor workspace to an Azure Managed Grafana workspace
 
 1. Open your Azure Managed Grafana workspace.
 1. In the left menu, select **Integrations** > **Azure Monitor workspaces (Preview**).
@@ -41,7 +41,7 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 
 When you added the Azure Monitor workspace to Azure Managed Grafana in the previous step, Azure added a new Prometheus data source to Grafana.
 
-To get a dashboard with AKS metrics, either use one of the prebuilt dashboards or build a brand new one.
+To get a dashboard with Prometheus metrics, either use one of the prebuilt dashboards or build a brand new one.
 
 ### Use a prebuilt dashboard
 
@@ -70,7 +70,7 @@ The following screenshot shows some of the panels from the "Kubernetes / Compute
 
 :::image type="content" source="media\monitor-integration\prometheus-prebuilt-dashboard.png" alt-text="Screenshot of prebuilt dashboard showing Prometheus metrics.":::
 
-Edit the dashboard as desired. For more information about editing a dashboard, go to [Edit a panel](./how-to-create-dashboard.md#edit-a-dashboard-panel).
+Edit the dashboard as desired. For more information about editing a dashboard, read [Edit a dashboard panel](./how-to-create-dashboard.md#edit-a-dashboard-panel).
 
 ### Create a new dashboard
 
@@ -87,10 +87,10 @@ To build a brand new dashboard with Prometheus metrics:
 
     :::image type="content" source="media\monitor-integration\new-dashboard.png" alt-text="Screenshot the Grafana UI, showing a new dashboard displaying Prometheus data.":::
 
-   > [!TIP]
-   > If you're unable to get Prometheus data in your dashboard, check if your Azure Monitor workspace is collecting Prometheus data. Go to [Troubleshoot collection of Prometheus metrics in Azure Monitor](../azure-monitor/containers/prometheus-metrics-troubleshoot.md) for more information.
+    For more information about editing a dashboard, read [Edit a dashboard panel](./how-to-create-dashboard.md#edit-a-dashboard-panel).
 
-For more information about editing a dashboard, go to [Edit a panel](./how-to-create-dashboard.md#edit-a-dashboard-panel).
+> [!TIP]
+> If you're unable to get Prometheus data in your dashboard, check if your Azure Monitor workspace is collecting Prometheus data. Go to [Troubleshoot collection of Prometheus metrics in Azure Monitor](../azure-monitor/containers/prometheus-metrics-troubleshoot.md) for more information.
 
 To learn more about Azure Monitor managed service for Prometheus, read the [Azure Monitor managed service for Prometheus guide](../azure-monitor/essentials/prometheus-metrics-overview.md).
 
