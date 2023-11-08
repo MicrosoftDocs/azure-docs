@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -68,15 +68,52 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 1. Select **Select**.
 
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command and run it on your development machine.
+1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command.
 
-1. After successfully running the `az iot ops init` command on your cluster, select **Review + Create**.
+   :::image type="content" source="../get-started/media/quickstart-deploy/install-extension-automation-2.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+
+1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
+
+   ```azurecli
+   az login
+   ```
+
+   > [!NOTE]
+   > If you're using Github Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   >
+   > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
+   > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+
+1. Run the copied `az iot ops init` command on your development machine.
+
+1. Return to the Azure portal and select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
 #### [GitHub Actions](#tab/github)
 
 Use GitHub Actions to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+
+Before you begin deploying, use the `az iot ops init` command to configure your cluster with a secrets store and a service principal so that it can connect securely to cloud resources.
+
+1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
+
+   ```azurecli
+   az login
+   ```
+
+1. Run the `az iot ops init` command to do the following:
+
+   * Create a key vault in your resource group.
+   * Set up a service principal to give your cluster access to the key vault.
+   * Configure TLS certificates.
+   * Configure a secrets store on your cluster that connects to the key vault.
+
+   ```azurecli-interactive
+   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id <KEYVAULT_RESOURCE_ID> --no-deploy
+   ```
+
+Now, you can deploy Azure IoT Operations to your cluster.
 
 1. On GitHub, fork the [azure-iot-operations repo](https://github.com/azure/azure-iot-operations).
 
@@ -145,14 +182,14 @@ Use GitHub Actions to deploy Azure IoT Operations components to your Arc-enabled
 
 Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-Log in to Azure CLI. To prevent potential permission issues later, log in interactively with a browser here even if you've already logged in before.
+Sign in to Azure CLI. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
 
 ```azurecli-interactive
 az login
 ```
 
 > [!NOTE]
-> When you use a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+> If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
 >
 > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
 > * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
