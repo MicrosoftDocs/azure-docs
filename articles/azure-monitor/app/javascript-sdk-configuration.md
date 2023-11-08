@@ -151,8 +151,7 @@ You can upload source maps to your Azure Blob Storage container with the same fo
 
 If you're using Azure Pipelines to continuously build and deploy your application, add an [Azure file copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/javascript-sdk-configuration/azure-file-copy.png" lightbox="./media/javascript-sdk-configuration/azure-file-copy.png" alt-text="Screenshot that shows adding an Azure file copy task to your pipeline to upload your source maps to Azure Blob Storage.":::
+:::image type="content" source="./media/javascript-sdk-configuration/azure-file-copy.png" lightbox="./media/javascript-sdk-configuration/azure-file-copy.png" alt-text="Screenshot that shows adding an Azure file copy task to your pipeline to upload your source maps to Azure Blob Storage.":::
 
 #### Configure your Application Insights resource with a source map storage account
 
