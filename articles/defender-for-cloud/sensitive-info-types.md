@@ -9,10 +9,12 @@ ms.date: 11/01/2023
 
 # Sensitive information types supported by Microsoft Defender for Cloud
 
-This article lists all sensitive information types supported by Microsoft Defender for Cloud (a subset of what's supported in Microsoft Purview). The following table links to each sensitive information type's description and whether the sensitive information type is scanned by default. The [sensitivity settings page](data-sensitivity-settings.md) allows you to modify the default settings. 
+This article lists all sensitive information types supported by Microsoft Defender for Cloud (a subset of what's supported in Microsoft Purview). The following table links to each sensitive information type's description and whether the sensitive information type is scanned by default. The [sensitivity settings page](data-sensitivity-settings.md) allows you to modify the default settings.
 
 > [!NOTE]
 > Custom information types from Microsoft Purview aren't scanned by default.
+
+## Sensitive information types
 
 | Sensitive information type name | Is default in [sensitivity settings](concept-data-security-posture.md#data-sensitivity-settings)? |
 |----------------|----------------|

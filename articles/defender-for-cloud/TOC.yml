@@ -224,7 +224,7 @@
     - name: Data security dashboard
       href: data-aware-security-dashboard-overview.md
     - name: Supported sensitive data information types
-      href: sensitive-info-types-supported-by-mdc.md   
+      href: sensitive-info-types.md   
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
