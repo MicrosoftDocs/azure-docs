@@ -79,6 +79,8 @@ Use the environment variable names and application properties listed below to co
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------|
 | AZURE_REDIS_CONNECTIONSTRING      | node-redis connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
+---
+
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cache for Redis using a connection string.
