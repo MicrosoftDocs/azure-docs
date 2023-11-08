@@ -18,13 +18,6 @@ The liveness detection solution successfully defends against a variety of spoof 
 
 [!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * [All tutorials include a list summarizing the steps to completion]
-> * [Each of these bullet points align to a key H2]
-> * [Use these green checkboxes in a tutorial]
-
 
 ## Prerequisites
 
