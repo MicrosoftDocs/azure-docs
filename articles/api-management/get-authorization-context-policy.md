@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Get authorization context
 
-Use the `get-authorization-context` policy to get the authorization context of a specified [API credential](-overview.md) (focrmerly called an *authorization*) configured in the API Management instance. 
+Use the `get-authorization-context` policy to get the authorization context of a specified [API credential](credentials-overview.md) (formerly called an *authorization*) configured in the API Management instance. 
 
 The policy fetches and stores authorization and refresh tokens from the configured credential provider.  
 

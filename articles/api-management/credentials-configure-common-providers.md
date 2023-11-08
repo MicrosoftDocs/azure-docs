@@ -70,7 +70,7 @@ A generic provider allows you to use your own OAuth 2.0 identity provider based 
 
 API Management supports several providers for popular SaaS offerings, such as GitHub. You can select from a list of these providers in the Azure portal when you create a credential.
 
-:::image type="content" source="media/authorizations-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
+:::image type="content" source="media/credentials-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
 
 **Supported grant types**: authorization code, client credentials (depends on provider)
 

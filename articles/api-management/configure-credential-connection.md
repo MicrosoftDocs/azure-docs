@@ -29,14 +29,14 @@ In this article, you learn how to add a credential connection to an existing pro
     :::image type="content" source="media/configure-credential-connection/select-provider.png" alt-text="Screenshot of selecting a credential provider in the portal.":::
 1. In the provider window, select ** **Overview > + Create connection**.
 
-    :::image type="content" source="media/configure-credential-connection/create-credentials.png" alt-text="Screenshot of creating a connection in the portal.":::
+    :::image type="content" source="media/configure-credential-connection/create-credential.png" alt-text="Screenshot of creating a connection in the portal.":::
 1. On the **Connection** tab, complete the steps for your connection:
     1. Enter a **Connection name**, then select **Save**. 
     1. Under **Step 2: Login to your connection** (for credentials code grant type), complete the steps to login to the credential provider to allow access. 
     1. Under **Step 3: Determine who will have access to this connection (Access policy)**, select **+ Add** and assign access to the Microsoft Entra service principals, users, or identities that can use the credential. Select **Complete**.
 1. The new connection appears in the list of connections, and shows a status of **Connected**.
 
-    :::image type="content" source="media/configure-credential-connection/list-credentialss.png" alt-text="Screenshot of list of credential connections in the portal.":::
+    :::image type="content" source="media/configure-credential-connection/list-credentials.png" alt-text="Screenshot of list of credential connections in the portal.":::
 
 If you want to create another connection for the credential provider, complete the preceding steps.
 

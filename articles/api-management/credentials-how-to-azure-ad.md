@@ -78,6 +78,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |**Authorization URL** | `https://graph.microsoft.com` |
     |**Client ID**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
+    | **Resource URL** | Resource to get the credential for. |    
     |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common* |
     |**Scopes**     |    Optional for Microsoft Entra identity provider. Automatically configured from Microsoft Entra app's API permissions.      |
 
@@ -150,7 +151,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     ```
 The preceding policy definition consists of two parts:
 
-* The [get-credential-context](get-credential-context-policy.md) policy fetches an credential token by referencing the credential provider and credential that were created earlier. 
+* The [get-authorization-context](get-authorization-context-policy.md) policy fetches an credential token by referencing the credential provider and credential that were created earlier. 
 * The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched credential token.
 
 ## Step 5: Test the API 
