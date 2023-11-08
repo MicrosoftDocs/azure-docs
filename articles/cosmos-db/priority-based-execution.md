@@ -132,7 +132,7 @@ When Priority-based execution is enabled for a Cosmos DB account, all requests i
 > [!NOTE]
 >This client-side configuration is specific to the concerned user's Data explorer view only and won't affect other users' Data explorer priority level or the default priority level of the Cosmos DB account.
 
-:::image type="content" source="media/priority-based-execution/priority-based-execution-data-explorer-conf.png" alt-text="Screenshot of Priority-based execution feature in the Features page in an Azure Cosmos DB account.":::
+:::image type="content" source="media/priority-based-execution/priority-based-execution-data-explorer-conf.png" alt-text="Screenshot of priority levels in Data explorer of an Azure Cosmos DB account.":::
 
 
 ## Limitations
