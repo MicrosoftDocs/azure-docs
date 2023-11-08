@@ -83,7 +83,7 @@ az acr artifact-streaming operation cancel --repository jupyter/all-spark-notebo
 Enables auto-conversion in the repository for newly pushed or imported images. When enabled, new images pushed into that repository will trigger the generation of streaming artifacts.
 
 >[!NOTE]
-Auto-conversion cannot work on existing images. You can enable auto-conversion only for newly pushed or imported images.
+Auto-conversion does not apply to existing images. Existing images can be manually converted.
 
 For example, run the [az acr artifact-streaming update] command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
 
