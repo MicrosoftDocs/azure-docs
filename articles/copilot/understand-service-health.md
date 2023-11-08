@@ -23,11 +23,10 @@ Here are a few examples of the kinds of prompts you can use to get service healt
 - "Can you tell me more about this tracking ID {0}?"
 - "Is the event with tracking ID {0} still active?"
 - "What is the status of the event with tracking ID {0}"
-- "Is there any upcoming planned maintenance"
 
 ## Examples
 
-You can ask "Is there any Azure outage ongoing?" After Microsoft Copilot for Azure (preview) responds, you can follow up with additional questions such as "Are there any planned maintenance activities?"
+You can ask "Is there any Azure outage ongoing?" In this example, no outages or service health issues are found. If there are service health issues impacting your account, you can ask further questions to get more information.
 
 :::image type="content" source="media/understand-service-health/azure-service-health-outage-planned-maintenance.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about service issues and planned maintenance.":::
 

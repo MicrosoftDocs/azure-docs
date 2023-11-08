@@ -12,7 +12,9 @@ author: JnHs
 
 Microsoft Copilot for Azure (preview) can author [Azure API Management policies](/azure/api-management/api-management-howto-policies) based on your requirements. By using Microsoft Copilot for Azure (preview), you can create policies quickly, even if you're not sure what code you need. This can be especially helpful when creating complex policies with many requirements.
 
-To get help authoring API Management policies, start from the **Design** tab of an API you previously imported to your API Management instance. Be sure to use the [code editor view](/azure/api-management/set-edit-policies?tabs=editor#configure-policy-in-the-portal). Ask Microsoft Copilot for Azure (preview) to generate policy definitions for you, then copy the results right into the editor, making any desired changes. You can also ask questions to understand the different available options or what a certain part of the policy means.
+To get help authoring API Management policies, start from the **Design** tab of an API you previously imported to your API Management instance. Be sure to use the [code editor view](/azure/api-management/set-edit-policies?tabs=editor#configure-policy-in-the-portal). Ask Microsoft Copilot for Azure (preview) to generate policy definitions for you, then copy the results right into the editor, making any desired changes. You can also ask questions to understand the different options or change the provided policy.
+
+When you're working with API Management policies, you can also select a portion of the policy, right-click, and then select **Explain**. This will open Microsoft Copilot for Azure (preview) and paste your selection with a prompt to explain how that part of the policy works.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -34,7 +36,7 @@ In this example, a policy is generated based on the prompt "Generate a policy to
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-remove-header.png" lightbox="media/author-api-management-policies/api-management-policy-remove-header.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a policy to remove a header.":::
 
-When you have questions about a certain policy element, you can get more information by copying a section of the policy and asking Microsoft Copilot for Azure (preview) to explain more. Microsoft Copilot for Azure (preview) understands the context of your question in relation to an API Management policy and explains how the code works, adding details when helpful about best practices and behaviors.  You can ask about one element (such as in this example asking about `<on-error> <base /> </on-error>`) or about a larger, more complex section of your policy.
+When you have questions about a certain policy element, you can get more information by selecting a section of the policy, right-clicking, and selecting **Explain**. Alternately, you can type your question asking Microsoft Copilot for Azure (preview) to explain more. Microsoft Copilot for Azure (preview) explains how the code works, adding details when helpful about best practices and behaviors. You can ask about one element (such as in this example asking about `<on-error> <base /> </on-error>`) or about a larger, more complex section of your policy.
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-explain.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about a specific API Management policy.":::
 
