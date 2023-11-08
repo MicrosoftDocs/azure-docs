@@ -217,6 +217,8 @@
     href: rate-limit.md
   - name: Migrate to a new circuit
     href: circuit-migration.md
+  - name: Migrate to an AZ gateway
+    href: gateway-migration.md
   - name: Moving from classic to Resource Manager
     items:
     - name: Move a circuit from classic to Resource Manager
