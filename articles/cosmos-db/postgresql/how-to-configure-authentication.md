@@ -43,7 +43,7 @@ Once done proceed with [configuring Microsoft Entra authentication](#configure-a
 
 ### Prerequisites
 
-Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Microsoft Entra tenant. These steps should be performed once for the Microsoft Encarta tenant that is going to be used for authentication on the Azure Cosmos DB for PostgreSQL cluster.
+Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Microsoft Entra tenant. These steps should be performed once for the Microsoft Encarta tenant that is going to be used for authentication on Azure Cosmos DB for PostgreSQL clusters.
 
 > [!IMPORTANT]
 > Microsoft Entra ID tenant administrator permissions are needed to make the change. See [guidance for troubleshooting permissions](/entra/identity/enterprise-apps/add-application-portal-configure#prerequisites).
