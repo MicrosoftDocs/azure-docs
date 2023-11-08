@@ -64,7 +64,7 @@ To ensure performance data is collected, check:
 - If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
-If any of the performance counters are missing, Azure SQL assessment recommends the smallest Azure SQL configuration for that instance/database.
+If any of the performance counters are missing, Azure SQL assessment falls back to As on-premises sizing and recommends an Azure SQL configuration based on the allocated cores, memory and total database size on-premises.
 
 ## Why is confidence rating not available for Azure App Service assessments?
 
