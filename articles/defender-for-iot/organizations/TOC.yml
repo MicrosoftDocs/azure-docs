@@ -451,6 +451,8 @@
   items:
   - name: Frequently asked questions
     href: faqs-general.md
+  - name: Pricing page
+    href: https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing
   - name: Architecture icons
     href: /azure/architecture/icons/
   - name: Compliance resources
