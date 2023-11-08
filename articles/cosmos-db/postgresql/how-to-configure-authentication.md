@@ -46,16 +46,16 @@ Once done proceed with [configuring Microsoft Entra authentication](#configure-a
 User need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Microsoft Entra tenant.
 
 > [!IMPORTANT]
-> Azure account needs to be Microsoft Entra ID tenant administrator or have appropriate permissions to make the change. See [guidance for troubleshooting permissions](/entra/identity/enterprise-apps/add-application-portal-configure#prerequisites).
+> Microsoft Entra ID tenant administrator permissions are needed to make the change. See [guidance for troubleshooting permissions](/entra/identity/enterprise-apps/add-application-portal-configure#prerequisites).
 
 # [Azure portal](#tab/portal)
 
 1. Search for 'Microsoft Entra ID' in Azure portal.
 1. Open 'Microsoft Entra ID' service.
-1. In the 'Overview' section on the 'Overview' page of Microsoft Entra ID service search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
+1. In the **Overview** section on the **Overview** page of Microsoft Entra ID service search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
 1. Choose 'Azure Cosmos DB for PostgreSQL AAD Authentication' enterprise application in the search results.
 1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose 'Properties' page.
-1. Set 'Enabled for users to sign-in?' to 'Yes' and save the change.
+1. Set **Enabled for users to sign-in?** to **Yes** and save the change.
 
 # [Azure CLI](#tab/cli)
 
