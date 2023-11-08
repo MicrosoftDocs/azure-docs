@@ -257,7 +257,7 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 #### Servers to SQL Server on Azure VM configuration
 For *All servers to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-performance-based).
 
-### Confidence ratings (Performance-based)
+### Confidence ratings
 Each Azure SQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
 - The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the SQL instances and databases, which include:
