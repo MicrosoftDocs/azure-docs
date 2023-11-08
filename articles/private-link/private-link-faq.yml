@@ -89,7 +89,7 @@ sections:
       - question: |
           Do private endpoints support ICMP traffic?
         answer: |
-          TCP and UDP traffic are only supported for a private endpoint. For more information, see [Private Link limitations](./private-link-service-overview.md#limitations).
+          Only TCP and UDP traffic are supported for a private endpoint. For more information, see [Private Link limitations](./private-link-service-overview.md#limitations).
           
   - name: Private Link Service
     questions:
