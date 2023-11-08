@@ -22,7 +22,7 @@ The Chat APIs provide an **auto-scaling** service for persistently stored text a
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
 - **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
 - **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the background, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end users of new threads and messages.
-- **Service & Bot Extensibility** - REST APIs and server SDKs allow services to send and receive messages. It is easy to add bots with [Azure Bot Framework integration](../../quickstarts/chat/quickstart-botframework-integration.md).
+- **Bot Extensibility** - It is easy to add Azure bots to the Chat service with [Azure AI Bot integration](../../quickstarts/chat/quickstart-botframework-integration.md).
 
 
 ## Chat overview
