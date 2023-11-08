@@ -52,7 +52,7 @@ Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Mic
 
 1. Search for 'Microsoft Entra ID' in Azure portal.
 1. Open 'Microsoft Entra ID' service.
-1. In the **Overview** section on the **Overview** page of Microsoft Entra ID service search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
+1. In the **Overview** section on the **Overview** page of Microsoft Entra ID service, search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
 1. Choose 'Azure Cosmos DB for PostgreSQL AAD Authentication' enterprise application in the search results.
 1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose 'Properties' page.
 1. Set **Enabled for users to sign-in?** to **Yes** and save the change.
@@ -89,7 +89,7 @@ The native PostgreSQL user is created on the coordinator node of the cluster, an
 
 Microsoft Entra ID integration works with standard PostgreSQL client tools like **psql**, which aren't Microsoft Entra ID aware and support only specifying the username and password when you're connecting to PostgreSQL. In such cases, the Microsoft Entra ID token is passed as the password.
 
-We've tested the following clients:
+We tested the following clients:
 
 - **psql command line**: Use the `PGPASSWORD` variable to pass the token.
 - **Other libpq-based clients**: Examples include common application frameworks and object-relational mappers (ORMs).

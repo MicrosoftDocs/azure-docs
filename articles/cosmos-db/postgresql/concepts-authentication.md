@@ -50,7 +50,7 @@ Permissions for the `citus` role:
   superusers.
 * Read all pg\_stat\_\* views and use various statistics-related
   extensions--even views or extensions normally visible only to superusers.
-* Execute monitoring functions that may take ACCESS SHARE locks on tables,
+* Execute monitoring functions that might take ACCESS SHARE locks on tables,
   potentially for a long time.
 * [Create PostgreSQL extensions](reference-extensions.md).
 
@@ -105,7 +105,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 > [!NOTE]  
 > Login with the deleted Microsoft Entra ID user can still be done till the token expires (up to 90 minutes from token issuing).  If you also remove the user from Azure Cosmos DB for PostgreSQL cluster this access will be revoked immediately.
 
-- Azure Cosmos DB for PostgreSQL matches access tokens to the database role using the user’s unique Microsoft Entra ID user ID, as opposed to using the username. If a Microsoft Entra ID user is deleted and a new user is created with the same name, Azure Cosmos DB for PostgreSQL considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID identificator and a new user is added with the same name the new user would be unable to connect with the existing role.
+- Azure Cosmos DB for PostgreSQL matches access tokens to the database role using the user’s unique Microsoft Entra ID user ID, as opposed to using the username. If a Microsoft Entra ID user is deleted and a new user is created with the same name, Azure Cosmos DB for PostgreSQL considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and a new user is added with the same name the new user would be unable to connect with the existing role.
 
 ## Next steps
 
