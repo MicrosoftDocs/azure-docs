@@ -110,8 +110,6 @@ az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newt
 > Artifact Streaming can work across regions, regardless of whether geo-replication is enabled or not.
 > Artifact Streaming can work through a private endpoint and attach to it.
 
-See, [Reduce image pull time with Artifact Streaming on AKS (Preview)](artifact-streaming.md)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
