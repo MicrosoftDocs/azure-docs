@@ -172,31 +172,31 @@ This section has two steps:
 
     #### Assign a key vault access policy
 
-1. Run the following command to **assign a key vault access policy** to the VM's **system-assigned managed identity** that you copied above (substitute actual names for the `<placeholders>`):
+    1. Run the following command to **assign a key vault access policy** to the VM's **system-assigned managed identity** that you copied above (substitute actual names for the `<placeholders>`):
 
-    ```azurecli
-    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
-    ```
+        ```azurecli
+        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
+        ```
 
-    This policy will allow the VM to list, read, and write secrets from/to the key vault.
+        This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
     # [Registered application](#tab/registered-application)
 
     #### Assign a key vault access policy
 
-1. Run the following command to **assign a key vault access policy** to the **registered application identity** that you copied above (substitute actual names or values for the `<placeholders>`):
+    1. Run the following command to **assign a key vault access policy** to the **registered application identity** that you copied above (substitute actual names or values for the `<placeholders>`):
 
-    ```azurecli
-    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
-    ```
+        ```azurecli
+        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
+        ```
 
-    For example:
+        For example:
 
-    ```azurecli
-    az keyvault set-policy -n Contoso-keyvault -g Contoso-resourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
-    ```
+        ```azurecli
+        az keyvault set-policy -n Contoso-keyvault -g Contoso-resourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
+        ```
 
-    This policy will allow the VM to list, read, and write secrets from/to the key vault.
+        This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
     ---
 
