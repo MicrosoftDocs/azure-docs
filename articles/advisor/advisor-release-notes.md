@@ -12,7 +12,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ### ZRS recommendations for Azure Disks
 
-Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS Disks, which are resilient to zonal failures. Access these recommendations through the Advisor portal and APIs.
+Azure Advisor now has Zone Redundant Storage (ZRS) recommendations for Azure Managed Disks. Disks with ZRS provide synchronous replication of data across three availability zones in a region, enabling disks to tolerate zonal failures without causing disruptions to your application. By adopting this recommendation, you can now design your solutions to utilize ZRS Disks, which are resilient to zonal failures. Access these recommendations through the Advisor portal and APIs.
 
 To learn more, visit [Use Azure Disks with Zone Redundant Storage for higher resiliency and availability](/azure/advisor/advisor-reference-reliability-recommendations#use-azure-disks-with-zone-redundant-storage-for-higher-resiliency-and-availability).
 
@@ -82,13 +82,13 @@ To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Le
 
 ### Introducing Workload based recommendations management
 
-Azure Adviser now provides a workloads recommendation filter. Workloads recommendations, and the workloads recommendation filter, are available to selected customers based on their support contract.
+Azure Adviser now offers the capability of grouping and/or filtering recommendations by workload. Workload definition is available to selected customers based on their support contract.
 
 If you're interested in the workloads filter, reach out to your account team for more information.
 
 ### New cost optimization workbook template
 
-Azure Advisor now has a new version of the Cost Optimization workbook template. The  Cost Optimization workbook offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated Virtual Machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
+Azure Advisor now has a new version of the Cost Optimization workbook template. The  Cost Optimization workbook offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated virtual machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
 
 To learn more, visit [Understand and optimize your Azure costs using the Cost Optimization workbook](/azure/advisor/advisor-cost-optimization-workbook).
 
@@ -96,7 +96,7 @@ To learn more, visit [Understand and optimize your Azure costs using the Cost Op
 
 ### Recommendation reminders for an upcoming event
 
-Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in Azure Event Management (AEM) and HiPri programs are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event. 
+Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in Azure Event Management (AEM) programs are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event. To learn more about Azure Event Management, visit [Enhanced Solutions](/unifiedsupport/enhanced-solutions).
 
 The event notifications are displayed when you visit Advisor or manage resources critical for an upcoming event. The reminders are displayed for events happening within the next 12 months and only for the subscriptions linked to an event. The notification includes a call to action to review outstanding recommendations for reliability, security, performance, and operational excellence.
 
@@ -106,7 +106,7 @@ To learn more, visit [Reliability recommendations](/azure/advisor/advisor-refere
 
 ### New reliability workbook template
 
-Azure Advisor now has a new version of the Reliability workbook template. The new workbook helps you identify areas of improvement by checking configuration of selected Azure resources using the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) and documented best practices. You can use filters, subscription, resource group, and tags, to focus on resources that you care about most. Use the workbook recommendations to:
+Azure Advisor now has a Reliability workbook template. The new workbook helps you identify areas of improvement by checking configuration of selected Azure resources using the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) and documented best practices. You can use filters, subscription, resource group, and tags, to focus on resources that you care about most. Use the workbook recommendations to:
 
 * Optimize your workload.
 
@@ -147,7 +147,7 @@ To learn more, visit [Configure periodic summary for recommendations](/azure/adv
 
 ### Postpone/dismiss a recommendation for multiple resources
 
-Azure Advisor now provides the option to postpone or dismiss multiple resources at once. To prioritize and act on  recommendations for the workloads you care about the most, you can filter and then act on the resulting list. To reduce noise, you now can postpone recommendations you want to revisit later and dismiss recommendations that are less relevant with a single-click **Postpone/dismiss** operation for after selecting multiple resources.
+Azure Advisor now provides the option to postpone or dismiss multiple resources at once. Once you open a recommendations details page with a list of recommendations and associated resources, select the relevant resources and choose **Postpone** or **Dismiss** in the command bar at the top of the page.
 
 To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/view-recommendations#dismissing-and-postponing-recommendations)
 
@@ -176,11 +176,9 @@ Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resiz
 
 ## October 2022
 
-### Advisor score across all Azure regions
+### Advisor score across all Azure regions, General Availability
 
-Advisor Score now supports the ability to report on specific workloads across regions using resource tag filters in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments.
-
-Azure Advisor score offers you a way to prioritize the most impactful Advisor recommendations to optimize your deployments using the Azure Well-Architected Framework. Advisor displays your category scores and your overall Advisor score as percentages. A score of 100% in any category means all your resources, assessed by Advisor, follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources, assessed by Advisor, follows Advisor recommendations.
+Advisor Score now supports the ability to report on specific workloads across regions using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
 
 To learn more, visit [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
