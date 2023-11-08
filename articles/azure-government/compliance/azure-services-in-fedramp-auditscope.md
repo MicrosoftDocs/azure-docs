@@ -373,7 +373,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [HDInsight](../../hdinsight/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [HPC Cache](../../hpc-cache/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Import/Export](../../import-export/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Key Vault](../../key-vault/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Lighthouse](../../lighthouse/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -418,7 +418,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Fabric](../../service-fabric/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
