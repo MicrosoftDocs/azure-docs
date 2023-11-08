@@ -1,6 +1,6 @@
 ---
 title: Create authorization with GitHub API - Azure API Management | Microsoft Docs
-description: Learn how to create and use an authorization to the GitHub API in Azure API Management. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
+description: Learn how to create and use a credential to the GitHub API in Azure API Management. An API credential manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -9,15 +9,15 @@ ms.date: 04/10/2023
 ms.author: danlep
 ---
 
-# Create an authorization with the GitHub API
+# Create a credential to the GitHub API
 
-In this article, you learn how to create an [authorization](authorizations-overview.md) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type is used in this example.
+In this article, you learn how to create an [API credential](credentials-overview.md) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type is used in this example.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Register an application in GitHub
-> * Configure an authorization in API Management.
+> * Configure a credential in API Management.
 > * Authorize with GitHub and configure access policies.
 > * Create an API in API Management and configure a policy.
 > * Test your GitHub API in API Management
@@ -25,7 +25,7 @@ You learn how to:
 ## Prerequisites
 
 - A GitHub account is required.
- A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
+- A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
 - Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance. 
 
 ## Step 1: Register an application in GitHub
@@ -34,41 +34,40 @@ You learn how to:
 1. In your account profile, go to **Settings > Developer Settings > OAuth Apps > New OAuth app**. 
 
     
-    :::image type="content" source="media/authorizations-how-to-github/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
+    :::image type="content" source="media/credentials-how-to-github/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
     1. Enter an **Application name** and **Homepage URL** for the application. For this example, you can supply a placeholder URL such as `http://localhost`.
     1. Optionally, add an **Application description**.
-    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management instance where you will configure the authorization provider.  
+    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management instance where you will configure the credential provider.  
 1. Select **Register application**.
 1. On the **General** page, copy the **Client ID**, which you'll use in Step 2.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in Step 2. 
 
-    :::image type="content" source="media/authorizations-how-to-github/generate-secret.png" alt-text="Screenshot showing how to get client ID and client secret for the application in GitHub.":::
+    :::image type="content" source="media/credentials-how-to-github/generate-secret.png" alt-text="Screenshot showing how to get client ID and client secret for the application in GitHub.":::
 
-## Step 2: Configure an authorization in API Management
+## Step 2: Configure a credential in API Management
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
-1. On the left menu, select **Authorizations** > **+ Create**.
+1. On the left menu, select **Credential manager** > **+ Create**.
     
-    :::image type="content" source="media/authorizations-how-to-azure-ad/create-authorization.png" alt-text="Screenshot of creating an API Management authorization in the Azure portal.":::    
-1. On the **Create authorization** page, enter the following settings, and select **Create**:
+    :::image type="content" source="media/credentials-how-to-azure-ad/create-authorization.png" alt-text="Screenshot of creating an API Management credential in the Azure portal.":::    
+1. On the **Create credential provider** page, enter the following settings, and select **Create**:
     
     |Settings  |Value  |
     |---------|---------|
-    |**Provider name**     |  A name of your choice, such as *github-01*       |
+    |**Credential provider name**     |  A name of your choice, such as *github-01*       |
     |**Identity provider**     |   Select **GitHub**      |
     |**Grant type**     | Select **Authorization code**        |
     |**Client ID**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
     |**Scope**     |    For this example, set the scope to *User*      |
-    |**Authorization name**    | A name of your choice, such as *github-auth-01*        |
 
-1. After the authorization provider and authorization are created, select **Next**.
+1. Select **Create**.
 
 ## Step 3: Authorize with GitHub and configure access policies
 
 1. On the **Login** tab, select **Login with GitHub**. Before the authorization will work, it needs to be authorized at GitHub.
 
-    :::image type="content" source="media/authorizations-how-to-github/authorize-with-github.png" alt-text="Screenshot of logging into the GitHub authorization from the portal.":::  
+    :::image type="content" source="media/credentials-how-to-github/authorize-with-github.png" alt-text="Screenshot of logging into the GitHub authorization from the portal.":::  
 
 1. If prompted, sign in to your GitHub account.
 1. Select **Authorize** so that the application can access the signed-in user’s account. 
@@ -79,7 +78,7 @@ You learn how to:
 
 1. For this example, select **API Management service `<service name>`**, and then click "+ Add members". You should see your access policy in the Members table below.
 
-    :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
+    :::image type="content" source="media/credentials-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
 1. Select **Complete**.
 
      
@@ -102,7 +101,7 @@ You learn how to:
     |**Display name**     | *getauthdata*        |
     |**URL** for GET    |  /user |
 
-    :::image type="content" source="media/authorizations-how-to-github/add-operation.png" alt-text="Screenshot of adding a getauthdata operation to the API in the portal."::: 
+    :::image type="content" source="media/credentials-how-to-github/add-operation.png" alt-text="Screenshot of adding a getauthdata operation to the API in the portal."::: 
 
 1. Follow the preceding steps to add another operation with the following settings.
 
@@ -149,7 +148,7 @@ The preceding policy definition consists of three parts:
 1. On the **Test** tab, select one operation that you configured.
 1. Select **Send**. 
     
-    :::image type="content" source="media/authorizations-how-to-github/test-api.png" alt-text="Screenshot of testing the API successfully in the portal.":::
+    :::image type="content" source="media/credentials-how-to-github/test-api.png" alt-text="Screenshot of testing the API successfully in the portal.":::
 
     A successful response returns user data from the GitHub API.
 

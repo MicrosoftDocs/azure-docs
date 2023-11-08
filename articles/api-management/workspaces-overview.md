@@ -134,7 +134,7 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Validating client certificates 
 
-* Using the authorizations feature 
+* Using the API credentials (formerly called authorizations) feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
    

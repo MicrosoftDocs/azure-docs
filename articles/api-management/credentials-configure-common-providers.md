@@ -1,6 +1,6 @@
 ---
-title: Configure authorization providers - Azure API Management | Microsoft Docs
-description: Learn how to configure common identity providers for authorizations in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
+title: Configure credential providers - Azure API Management | Microsoft Docs
+description: Learn how to configure common identity providers for API credentials in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider. A credential manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -9,22 +9,22 @@ ms.date: 02/07/2023
 ms.author: danlep
 ---
 
-# Configure identity providers for API authorizations
+# Configure identity providers for API credentials
 
-In this article, you learn about configuring identity providers for [authorizations](authorizations-overview.md) in your API Management instance. Settings for the following common providers are shown:
+In this article, you learn about configuring identity providers for [credentials](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
 * Microsoft Entra provider
 * Generic OAuth 2.0 provider
 
-You add identity provider settings when configuring an authorization in your API Management instance. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
+You add identity provider settings when configuring a credential in your API Management instance. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
 
-* [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
+* [Create a credential with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
 ## Prerequisites
 
 To configure any of the supported providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
 
-* If you're creating an authorization that uses the authorization code grant type, configure a **Redirect URL** (sometimes called Authorization Callback URL or a similar name) in the app. For the value, enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
+* If you're creating a credential provider that uses the authorization code grant type, configure a **Redirect URL** (sometimes called Authorization Callback URL or a similar name) in the app. For the value, enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
 
 * Depending on your scenario, configure app settings such as scopes (API permissions).
     
@@ -36,15 +36,13 @@ To configure any of the supported providers in API Management, first configure a
 
 ## Microsoft Entra provider
 
-Authorizations support the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+API credentials support the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
 
 * **Supported grant types**: authorization code, client credentials
 
 > [!NOTE]
->  Currently, the Microsoft Entra authorization provider supports only the Azure AD v1.0 endpoints.
+>  Currently, the Microsoft Entra credential provider supports only the Azure AD v1.0 endpoints.
  
-
-<a name='azure-ad-provider-settings'></a>
 
 ### Microsoft Entra provider settings
     
@@ -53,7 +51,7 @@ Authorizations support the Microsoft Entra identity provider, which is the ident
 
 ## Generic OAuth 2.0 providers
 
-Authorizations support two generic providers:
+API credentials support two generic providers:
 * Generic OAuth 2.0
 * Generic OAuth 2.0 with PKCE 
 
@@ -70,7 +68,7 @@ A generic provider allows you to use your own OAuth 2.0 identity provider based 
 
 ## Other identity providers
 
-API Management supports several providers for popular SaaS offerings, such as GitHub. You can select from a list of these providers in the Azure portal when you create an authorization.
+API Management supports several providers for popular SaaS offerings, such as GitHub. You can select from a list of these providers in the Azure portal when you create a credential.
 
 :::image type="content" source="media/authorizations-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
 
@@ -78,7 +76,7 @@ API Management supports several providers for popular SaaS offerings, such as Gi
 
 Required settings for these providers differ from provider to provider but are similar to those for the [generic OAuth 2.0 providers](#generic-oauth-20-providers). Consult the developer documentation for each provider.
 
-## Next steps
+## Related content
 
-* Learn more about [authorizations](authorizations-overview.md) in API Management.
+* Learn more about [credentials](credentials-overview.md) in API Management.
 * Create an authorization for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
