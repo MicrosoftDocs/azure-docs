@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can create an Azure Database for PostgreSQL server in one of three pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that you can provision, the amount of memory per vCore, and the storage technology that's used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
+You can create an Azure Database for PostgreSQL server in one of three pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tier is calculated based on the compute, memory, and storage you provision.  A server can have one or many databases.
 
 | Resource/Tier | Burstable | General Purpose | Memory Optimized |
 | :--- | :--- | :--- | :--- |
@@ -92,8 +92,8 @@ Storage is available in the following fixed sizes:
 | 16 TiB | 18,000 |
 | 32 TiB | 20,000 |
 
-Your VM type also constrains IOPS. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a few vCores.
 
+Your VM type also have IOPS limits. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a few vCores.
 You can add storage capacity during and after the creation of the server.
 
 > [!NOTE]  
@@ -207,15 +207,15 @@ As an illustration, take a server with a storage capacity of 2 TiB (greater than
 
 Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads because it automatically detects low-storage conditions and scales up the storage accordingly.
 
-The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity won't be triggered, even if storage autogrow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
+The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity will not be triggered, even if storage auto-grow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
 
 Remember that storage can only be scaled up, not down.
 
-## Limitations
+## Limitations and Considerations
 
 - Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
   
-- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. Customers moving from lower disk size to 4096 GiB or higher will lose disk caching ability.
+- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching isn't supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB can't take advantage of Host Caching. Customers moving from lower disk size to 4096 Gib or higher will not get disk caching ability.
 
   This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
@@ -225,6 +225,49 @@ Remember that storage can only be scaled up, not down.
 
 > [!NOTE]  
 > Storage auto-grow never triggers an offline increase.
+
+## Premium SSD v2 (preview)
+
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
+
+### Differences between Premium SSD and Premium SSD v2
+
+Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a Premium SSD v2 to any supported size you prefer, and make granular adjustments (1-GiB increments) as per your workload requirements. Premium SSD v2 doesn't support host caching but still provides significantly lower latency that Premium SSD. Premium SSD v2 capacities range from 1 GiB to 64 TiBs.
+
+The following table provides a comparison of the five disk types to help you decide which to use.
+
+|                        |  Premium SSD v2 | Premium SSD | 
+| -------                | ----------------| ----------- | 
+| **Disk type**          | SSD             | SSD         |
+| **Scenario**           | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | 
+| **Max disk size**      | 65,536 GiB      |32,767 GiB   |
+| **Max throughput**     | 1,200 MB/s      | 900 MB/s    | 
+| **Max IOPS**           | 80,000          | 20,000      |
+| **Usable as OS Disk?** |  NO             | Yes         |     
+
+Premium SSD v2 offers up to 32 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+
+#### Premium SSD v2 IOPS
+
+All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
+
+#### Premium SSD v2 throughput
+
+All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
+
+> [!NOTE]
+> Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
+
+
+#### Premium SSD v2 early preview limitations
+
+- Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
+
+- During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, Storage Auto-grow features. These features will be supported soon on Premium SSD V2.
+
+- During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
+
+- You can enable Premium SSD V2 only for newly created servers. Support for existing servers is coming soon.
 
 ## IOPS (preview)
 
@@ -237,9 +280,6 @@ The minimum and maximum IOPS are determined by the selected compute size. To lea
 
 Learn how to [scale up or down IOPS](how-to-scale-compute-storage-portal.md).
 
-## Backup
-
-The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. To learn more about backups, see [Backup and restore in Azure Database for PostgreSQL - Flexible Server](concepts-backup-restore.md).
 
 ## Scale resources
 
@@ -250,11 +290,30 @@ After you create your server, you can independently change the vCores, the compu
 
 When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back.
 
-The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage doesn't require a server restart in most cases.
+
+The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restart typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage does not require a server restart in most cases.
 
 To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
 Changing the backup retention period is an online operation.
+
+## Near-zero downtime scaling 
+
+Near Zero Downtime Scaling is a feature designed to minimize downtime when modifying storage and compute tiers. If you modify the number of vCores or change the compute tier, the server undergoes a restart to apply the new configuration. During this transition to the new server, no new connections can be established. This process with regular scaling could take anywhere from 2 to 10 minutes. However, with the new Near Zero Downtime Scaling feature this duration has been reduced to less than 30 seconds. This significant decrease in downtime greatly improves the overall availability of your flexible server workloads.
+
+Near Zero Downtime Feature is enabled across all public regions and **no customer action is required** to use this capability. This feature works by deploying a new virtual machine (VM) with the updated configuration. Once the new VM is ready, it seamlessly transitions, shutting down the old server and replacing it with the updated VM, ensuring minimal downtime. Importantly, this feature doesn't add any additional cost and you won't be charged for the new server. Instead you're billed for the new updated server once the scaling process is complete. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers.
+
+> [!NOTE]
+>  Near Zero Downtime Scaling process is the default operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near zero downtime scaling.
+
+#### Limitations 
+
+- Near Zero Downtime Scaling will not work if there are regional capacity constraints or quota limits on customer subscriptions.
+
+- Near Zero Downtime Scaling doesn't work for replica server but supports the source server. For replica server it will automatically go through regular scaling process.
+
+- Near Zero Downtime Scaling will not work if a VNET injected Server with delegated subnet does not have sufficient usable IP addresses. If you have a standalone server, one additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
+
 
 ## Price
 
