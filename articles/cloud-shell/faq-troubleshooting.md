@@ -112,7 +112,7 @@ command that requires elevated permissions.
 
 ## Managing Cloud Shell
 
-### Managing personal data
+### Manage personal data
 
 Microsoft Azure takes your personal data seriously. The Azure Cloud Shell service stores information
 about your Cloud Shell storage and your terminal preferences. You can view this information using
@@ -150,7 +150,7 @@ Use the following steps to delete your user settings.
 1. Select **Reset user settings** from the menu.
 1. Select the **Reset** button to confirm the action.
 
-### Disabling Cloud Shell in a locked down network environment
+### Disable Cloud Shell in a locked down network environment
 
 - **Details**: Administrators might wish to disable access to Cloud Shell for their users. Cloud
   Shell depends on access to the `ux.console.azure.com` domain, which can be denied, stopping any
