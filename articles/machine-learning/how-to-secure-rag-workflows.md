@@ -75,4 +75,4 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 
 ## Next Steps
 
-- [Secure your Prompt Flow](./prompt-flow/how-to-secure-prompt-flow.md)
+- [Secure your prompt flow](./prompt-flow/how-to-secure-prompt-flow.md)

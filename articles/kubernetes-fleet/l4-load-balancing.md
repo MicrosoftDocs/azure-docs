@@ -21,7 +21,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
+* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md)
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
