@@ -1,7 +1,7 @@
 ---
 title: OData search.in function reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and reference documentation for using the search.in function in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and reference documentation for using the search.in function in Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData `search.in` function in Azure Cognitive Search
+# OData `search.in` function in Azure AI Search
 
 A common scenario in [OData filter expressions](query-odata-filter-orderby-syntax.md) is to check whether a single field in each document is equal to one of many possible values. For example, this is how some applications implement [security trimming](search-security-trimming-for-azure-search.md) -- by checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query. One way to write a query like this is to use the [`eq`](search-query-odata-comparison-operators.md) and [`or`](search-query-odata-logical-operators.md) operators:
 
@@ -39,7 +39,7 @@ However, there is a shorter way to write this, using the `search.in` function:
 > Besides being shorter and easier to read, using `search.in` also provides [performance benefits](#bkmk_performance) and avoids certain [size limitations of filters](search-query-odata-filter.md#bkmk_limits) when there are hundreds or even thousands of values to include in the filter. For this reason, we strongly recommend using `search.in` instead of a more complex disjunction of equality expressions.
 
 > [!NOTE]
-> Version 4.01 of the OData standard has recently introduced the [`in` operator](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), which has similar behavior as the `search.in` function in Azure Cognitive Search. However, Azure Cognitive Search does not support this operator, so you must use the `search.in` function instead.
+> Version 4.01 of the OData standard has recently introduced the [`in` operator](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), which has similar behavior as the `search.in` function in Azure AI Search. However, Azure AI Search does not support this operator, so you must use the `search.in` function instead.
 
 ## Syntax
 
@@ -55,10 +55,10 @@ search_in_call ::=
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 The `search.in` function tests whether a given string field or range variable is equal to one of a given list of values. Equality between the variable and each value in the list is determined in a case-sensitive fashion, the same way as for the `eq` operator. Therefore an expression like `search.in(myfield, 'a, b, c')` is equivalent to `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, except that `search.in` will yield much better performance.
 
@@ -115,7 +115,7 @@ Find all hotels without the tag 'motel' or 'cabin':
 
 ## Next steps  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

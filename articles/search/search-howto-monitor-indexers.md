@@ -1,7 +1,7 @@
 ---
 title: Monitor indexer status and results
-titleSuffix: Azure Cognitive Search
-description: Monitor the status, progress, and results of Azure Cognitive Search indexers in the Azure portal, using the REST API, or the .NET SDK.
+titleSuffix: Azure AI Search
+description: Monitor the status, progress, and results of Azure AI Search indexers in the Azure portal, using the REST API, or the .NET SDK.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/15/2022
 ---
 
-# Monitor indexer status and results in Azure Cognitive Search
+# Monitor indexer status and results in Azure AI Search
 
 You can monitor indexer processing in the Azure portal, or programmatically through REST calls or an Azure SDK. In addition to status about the indexer itself, you can review start and end times, and detailed errors and warnings from a particular run.
 
@@ -49,7 +49,7 @@ For more information about investigating indexer errors and warnings, see [Index
 
 ## Monitor with Azure Monitoring Metrics
 
-Cognitive Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](../azure-monitor/alerts/alerts-metric-overview.md). 
+Azure AI Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](../azure-monitor/alerts/alerts-metric-overview.md). 
 
 Metric views can be filtered or split up by a set of predefined dimensions.
 
@@ -118,7 +118,7 @@ For more information about status codes and indexer monitoring data, see [Get In
 
 ## Monitor using .NET
 
-Using the Azure Cognitive Search .NET SDK, the following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
+Using the Azure AI Search .NET SDK, the following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 
 ```csharp
 static void CheckIndexerStatus(SearchIndexerClient indexerClient, SearchIndexer indexer)

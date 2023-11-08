@@ -1,7 +1,7 @@
 ---
 title: Upgrade REST API versions
-titleSuffix: Azure Cognitive Search
-description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
+titleSuffix: Azure AI Search
+description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure AI Search service REST API version.
 
 manager: nitinme
 author: bevloh
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/03/2022
 ---
 
-# Upgrade to the latest REST API in Azure Cognitive Search
+# Upgrade to the latest REST API in Azure AI Search
 
 If you're using an earlier version of the [**Search REST API**](/rest/api/searchservice/), this article will help you upgrade your application to the newest generally available API version, **2020-06-30**.
 
@@ -78,11 +78,11 @@ The error structure for indexer execution previously had a `status` element. Thi
 
 #### Indexer data source API no longer returns connection strings
 
-From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure Cognitive Search returned **201** followed by the OData response, which contained the connection string in plain text.
+From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure AI Search returned **201** followed by the OData response, which contained the connection string in plain text.
 
 #### Named Entity Recognition cognitive skill is now discontinued
 
-If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call will fail. Replacement functionality is [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
+If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call will fail. Replacement functionality is [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 ### Upgrading complex types
 
@@ -92,7 +92,7 @@ API version 2019-05-06 added formal support for complex types. If your code impl
 
 + There's a new limit starting in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If you find yourself in this situation, you'll need to reduce the number of complex collection elements per document before reindexing your data.
 
-For more information, see [Service limits for Azure Cognitive Search](search-limits-quotas-capacity.md).
+For more information, see [Service limits for Azure AI Search](search-limits-quotas-capacity.md).
 
 #### How to upgrade an old complex type structure
 

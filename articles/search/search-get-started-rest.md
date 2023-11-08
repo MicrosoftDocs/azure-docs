@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a search index using REST APIs'
-titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman.
+titleSuffix: Azure AI Search
+description: In this REST API quickstart, learn how to call the Azure AI Search REST APIs using Postman.
 zone_pivot_groups: URL-test-interface-rest-apis
 manager: nitinme
 author: HeidiSteen
@@ -13,9 +13,9 @@ ms.date: 01/27/2023
 ms.custom: mode-api
 ---
 
-# Quickstart: Create an Azure Cognitive Search index using REST APIs
+# Quickstart: Create an Azure AI Search index using REST APIs
 
-This article explains how to formulate requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and a REST client for sending and receiving requests. 
+This article explains how to formulate requests interactively using the [Azure AI Search REST APIs](/rest/api/searchservice) and a REST client for sending and receiving requests. 
 
 The article uses the Postman app. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
 
@@ -23,13 +23,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-+ [Postman app](https://www.postman.com/downloads/), used for sending requests to Azure Cognitive Search.
++ [Postman app](https://www.postman.com/downloads/), used for sending requests to Azure AI Search.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure AI Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -39,7 +39,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Connect to Azure Cognitive Search
+## Connect to Azure AI Search
 
 Connection information is specified in the URI endpoint. Collection variables are used to represent the search service name and API keys. A typical URI in this quickstart looks like this:
 
@@ -49,7 +49,7 @@ https://{{service-name}}.search.windows.net/indexes/hotels-quickstart?api-versio
 
 Notice the HTTPS prefix, the name of the service (variable, the name of an object (in this case, the name of an index in the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required.
 
-Request header composition includes two elements: `Content-Type` and the `api-key` used to authenticate to Azure Cognitive Search. The `api-key` is specified as variable, and it's also required.
+Request header composition includes two elements: `Content-Type` and the `api-key` used to authenticate to Azure AI Search. The `api-key` is specified as variable, and it's also required.
 
 For the requests to succeed, you'll need to provide the service name and api-key as collection variables.
 
@@ -61,7 +61,7 @@ For the requests to succeed, you'll need to provide the service name and api-key
 
 ## 1 - Create an index
 
-In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this task. 
+In Azure AI Search, you usually create the index before loading it with data. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this task. 
 
 The URL is extended to include the `hotels-quickstart` index name.
 
@@ -113,7 +113,7 @@ When you submit this request, you should get an HTTP 201 response, indicating th
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+Creating the index and populating the index are separate steps. In Azure AI Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
 
 The URL is extended to include the `docs` collections and `index` operation.
 

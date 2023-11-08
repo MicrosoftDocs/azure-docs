@@ -1,6 +1,6 @@
 ---
 title: "Explore code (Python tutorial)"
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Understand the Python SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
 manager: nitinme
 author: diberry
@@ -22,12 +22,12 @@ The application is available:
 
 ## Azure SDK azure-search-documents
 
-The Function app uses the Azure SDK for Cognitive Search:
+The Function app uses the Azure SDK for Azure AI Search:
 
 * [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
 * [Reference Documentation](/python/api/azure-search-documents)
 
-The Function app authenticates through the SDK to the cloud-based Cognitive Search API using your resource name, API key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
+The Function app authenticates through the SDK to the cloud-based Azure AI Search API using your resource name, API key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
 ## Configure secrets in a configuration file
 

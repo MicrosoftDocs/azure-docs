@@ -1,7 +1,7 @@
 ---
 title: Search over plain text blobs
-titleSuffix: Azure Cognitive Search
-description: Configure a search indexer to extract plain text from Azure blobs for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Configure a search indexer to extract plain text from Azure blobs for full text search in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/13/2022
 ---
 
-# How to index plain text blobs and files in Azure Cognitive Search
+# How to index plain text blobs and files in Azure AI Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
@@ -74,6 +74,6 @@ api-key: [admin key]
 
 ## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [Indexers in Azure AI Search](search-indexer-overview.md)
 + [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Blob indexing overview](search-blob-storage-integration.md)

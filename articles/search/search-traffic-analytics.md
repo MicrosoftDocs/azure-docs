@@ -1,7 +1,7 @@
 ---
 title: Telemetry for search traffic analytics
-titleSuffix: Azure Cognitive Search
-description: Enable search traffic analytics for Azure Cognitive Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
+titleSuffix: Azure AI Search
+description: Enable search traffic analytics for Azure AI Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Collect telemetry data for search traffic analytics
 
-Search traffic analytics is a pattern for collecting telemetry about user interactions with your Azure Cognitive Search application, such as user-initiated click events and keyboard inputs. Using this information, you can determine the effectiveness of your search solution, including popular search terms, clickthrough rate, and which query inputs yield zero results.
+Search traffic analytics is a pattern for collecting telemetry about user interactions with your Azure AI Search application, such as user-initiated click events and keyboard inputs. Using this information, you can determine the effectiveness of your search solution, including popular search terms, clickthrough rate, and which query inputs yield zero results.
 
 This pattern takes a dependency on [Application Insights](../azure-monitor/app/app-insights-overview.md) (a feature of [Azure Monitor](../azure-monitor/index.yml)) to collect user data. It requires that you add instrumentation to your client code, as described in this article. Finally, you will need a reporting mechanism to analyze the data. We recommend Power BI, but you can use the Application Dashboard or any tool that connects to Application Insights.
 
@@ -33,7 +33,7 @@ By linking search and click events with a correlation ID, you'll gain a deeper u
 
 ## Add search traffic analytics
 
-In the [portal](https://portal.azure.com) page for your Azure Cognitive Search service, open the Search Traffic Analytics page to access a cheat sheet for following this telemetry pattern. From this page, you can select or create an Application Insights resource, get the instrumentation key, copy snippets that you can adapt for your solution, and download a Power BI report that's built over the schema reflected in the pattern.
+In the [portal](https://portal.azure.com) page for your Azure AI Search service, open the Search Traffic Analytics page to access a cheat sheet for following this telemetry pattern. From this page, you can select or create an Application Insights resource, get the instrumentation key, copy snippets that you can adapt for your solution, and download a Power BI report that's built over the schema reflected in the pattern.
 
 ![Search Traffic Analytics page in the portal](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Search Traffic Analytics page in the portal")
 
@@ -86,9 +86,9 @@ To create an object that sends events to Application Insights by using the JavaS
 
 ### Step 2: Request a Search ID for correlation
 
-To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure Cognitive Search provides you with a search ID when you request it with an HTTP header.
+To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure AI Search provides you with a search ID when you request it with an HTTP header.
 
-Having the search ID allows correlation of the metrics emitted by Azure Cognitive Search for the request itself, with the custom metrics you are logging in Application Insights.
+Having the search ID allows correlation of the metrics emitted by Azure AI Search for the request itself, with the custom metrics you are logging in Application Insights.
 
 **Use C# (newer v11 SDK)**
 
@@ -230,7 +230,7 @@ appInsights.trackEvent("Click", {
 
 After you have instrumented your app and verified your application is correctly connected to Application Insights, you download a predefined report template to analyze data in Power BI desktop. The report contains predefined charts and tables useful for analyzing the additional data captured for search traffic analytics.
 
-1. In the Azure Cognitive Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
+1. In the Azure AI Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
 
 1. On the **Search traffic analytics** page, in step 3, click **Get Power BI Desktop** to install Power BI.
 
@@ -253,7 +253,7 @@ Metrics included the following items:
 
 The following screenshot shows what a built-in report might look like if you have used all of the schema elements.
 
-![Power BI dashboard for Azure Cognitive Search](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Power BI dashboard for Azure Cognitive Search")
+![Power BI dashboard for Azure AI Search](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Power BI dashboard for Azure AI Search")
 
 ## Next steps
 

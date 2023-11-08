@@ -1,6 +1,6 @@
 ---
 title: "Load an index (.NET tutorial)" 
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with .NET.
 manager: nitinme
 author: diberry
@@ -19,13 +19,13 @@ Continue to build your search-enabled website by following these steps:
 * Create a new index
 * Import data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
 
-## Create an Azure Cognitive Search resource
+## Create an Azure AI Search resource
 
 [!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The script uses the Azure SDK for Azure AI Search:
 
 * [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 * [Reference Documentation](/dotnet/api/overview/azure/search)

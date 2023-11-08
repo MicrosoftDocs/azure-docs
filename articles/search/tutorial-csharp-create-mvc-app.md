@@ -1,7 +1,7 @@
 ---
 title: Add search to ASP.NET Core MVC
-titleSuffix: Azure Cognitive Search
-description: In this Azure Cognitive Search tutorial, learn how to add search to an ASP.NET Core (Model-View-Controller) application.
+titleSuffix: Azure AI Search
+description: In this Azure AI Search tutorial, learn how to add search to an ASP.NET Core (Model-View-Controller) application.
 
 manager: nitinme
 author: HeidiSteen
@@ -28,7 +28,7 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Azure Cognitive Search](search-create-service-portal.md) <sup>1</sup> 
++ [Azure AI Search](search-create-service-portal.md) <sup>1</sup> 
 + [Hotel samples index](search-get-started-portal.md) <sup>2</sup>
 
 <sup>1</sup> The search service can be any tier, but it must have public network access for this tutorial. 
@@ -437,7 +437,7 @@ A filter always executes first, followed by a query assuming one is specified.
 
 1. Select **Search** to run an empty query. The filter criteria returns 18 documents instead of the original 50.
 
-For more information about filter expressions, see [Filters in Azure Cognitive Search](search-filters.md) and [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md).
+For more information about filter expressions, see [Filters in Azure AI Search](search-filters.md) and [OData $filter syntax in Azure AI Search](search-query-odata-filter.md).
 
 ## Sort results
 
@@ -473,7 +473,7 @@ In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated"
 
 1. Run the application. Results are sorted by "Rating" in descending order.
 
-For more information about sorting, see [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md).
+For more information about sorting, see [OData $orderby syntax in Azure AI Search](search-query-odata-orderby.md).
 
 <!-- ## Relevance tuning
 

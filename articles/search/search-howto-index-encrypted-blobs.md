@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Index encrypted blobs'
-titleSuffix: Azure Cognitive Search
-description: Learn how to index and extract text from encrypted documents in Azure Blob Storage with Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn how to index and extract text from encrypted documents in Azure Blob Storage with Azure AI Search.
 
 manager: nitinme
 author: careyjmac
@@ -13,9 +13,9 @@ ms.date: 01/28/2022
 
 ---
 
-# Tutorial: Index and enrich encrypted blobs for full-text search in Azure Cognitive Search
+# Tutorial: Index and enrich encrypted blobs for full-text search in Azure AI Search
 
-This tutorial shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted with a customer-managed key in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+This tutorial shows you how to use [Azure AI Search](search-what-is-azure-search.md) to index documents that have been previously encrypted with a customer-managed key in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 Normally, an indexer can't extract content from encrypted files because it doesn't have access to the customer-managed encryption key in [Azure Key Vault](../key-vault/general/overview.md). However, by leveraging the [DecryptBlobFile custom skill](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile), followed by the [Document Extraction skill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then extract content from them. This unlocks the ability to index and enrich these documents without compromising the encryption status of your stored documents.
 
@@ -31,13 +31,13 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
-+ [Azure Cognitive Search](search-create-service-portal.md) on any tier or region.
++ [Azure AI Search](search-create-service-portal.md) on any tier or region.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/), Standard performance (general-purpose v2)
 
 + Blobs encrypted with a customer-managed key. See [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) if you need to create sample data.
 
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure AI Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
 + [Postman app](https://www.postman.com/downloads/)
 
@@ -52,7 +52,7 @@ Custom skill deployment creates an Azure Function app and an Azure Storage accou
 
 This example uses the sample [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) project from the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. In this section, you will deploy the skill to an Azure Function so that it can be used in a skillset. A built-in deployment script creates an Azure Function resource named starting with **psdbf-function-app-** and loads the skill. You'll be prompted to provide a subscription and resource group. Be sure to choose the same subscription that your Azure Key Vault instance lives in.
 
-Operationally, the DecryptBlobFile skill takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. Recall that DecryptBlobFile needs the encryption key to perform the decryption. As part of setup, you'll also create an access policy that grants DecryptBlobFile function access to the encryption key in Azure Key Vault.
+Operationally, the DecryptBlobFile skill takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure AI Search expects. Recall that DecryptBlobFile needs the encryption key to perform the decryption. As part of setup, you'll also create an access policy that grants DecryptBlobFile function access to the encryption key in Azure Key Vault.
 
 1. Click the **Deploy to Azure** button found on the [DecryptBlobFile landing page](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile#deployment), which will open the provided Resource Manager template within the Azure portal.
 
@@ -98,7 +98,7 @@ You should have an Azure Function app that contains the decryption logic and an 
 
     :::image type="content" source="media/indexing-encrypted-blob-files/function-host-key.png" alt-text="Screenshot of the App Keys page of the Azure Function app." border="true":::
 
-### Get an admin api-key and URL for Azure Cognitive Search
+### Get an admin api-key and URL for Azure AI Search
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -132,8 +132,8 @@ Install and set up Postman.
 
     | Variable    | Where to get it |
     |-------------|-----------------|
-    | `admin-key` | On the **Keys** page of the Azure Cognitive Search service.  |
-    | `search-service-name` | The name of the Azure Cognitive Search service. The URL is `https://{{search-service-name}}.search.windows.net`. |
+    | `admin-key` | On the **Keys** page of the Azure AI Search service.  |
+    | `search-service-name` | The name of the Azure AI Search service. The URL is `https://{{search-service-name}}.search.windows.net`. |
     | `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. |
     | `storage-container-name` | The name of the blob container that has the encrypted files to be indexed. |
     | `function-uri` |  In the Azure Function under **Essentials** on the main page. |
@@ -148,7 +148,7 @@ Install and set up Postman.
 
 In this section, you'll issue four HTTP requests:
 
-+ **PUT request to create the index**: This search index holds the data that Azure Cognitive Search uses and returns.
++ **PUT request to create the index**: This search index holds the data that Azure AI Search uses and returns.
 
 + **POST request to create the data source**: This data source specifies the connection to your storage account containing the encrypted blob files. 
 
@@ -166,7 +166,7 @@ If you are using the Free tier, the following message is expected: `"Could not e
 
 ## 4 - Search
 
-After indexer execution is finished, you can run some queries to verify that the data has been successfully decrypted and indexed. Navigate to your Azure Cognitive Search service in the portal, and use the [search explorer](search-explorer.md) to run queries over the indexed data.
+After indexer execution is finished, you can run some queries to verify that the data has been successfully decrypted and indexed. Navigate to your Azure AI Search service in the portal, and use the [search explorer](search-explorer.md) to run queries over the indexed data.
 
 ## Clean up resources
 
@@ -178,4 +178,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 Now that you have successfully indexed encrypted files, you can [iterate on this pipeline by adding more cognitive skills](cognitive-search-defining-skillset.md). This will allow you to enrich and gain additional insights to your data.
 
-If you are working with doubly encrypted data, you might want to investigate the index encryption features available in Azure Cognitive Search. Although the indexer needs decrypted data for indexing purposes, once the index exists, it can be encrypted in a search index using a customer-managed key. This will ensure that your data is always encrypted when at rest. For more information, see [Configure customer-managed keys for data encryption in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+If you are working with doubly encrypted data, you might want to investigate the index encryption features available in Azure AI Search. Although the indexer needs decrypted data for indexing purposes, once the index exists, it can be encrypted in a search index using a customer-managed key. This will ensure that your data is always encrypted when at rest. For more information, see [Configure customer-managed keys for data encryption in Azure AI Search](search-security-manage-encryption-keys.md).

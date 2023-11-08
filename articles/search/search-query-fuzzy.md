@@ -1,6 +1,6 @@
 ---
 title: Fuzzy search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search auto-corrects a misspelled term or typo on the query.
 
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 04/20/2023
 ---
 # Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input string. Fuzzy search scans for terms having a similar composition. Expanding search to cover near-matches has the effect of autocorrecting a typo when the discrepancy is just a few misplaced characters. 
+Azure AI Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input string. Fuzzy search scans for terms having a similar composition. Expanding search to cover near-matches has the effect of autocorrecting a typo when the discrepancy is just a few misplaced characters. 
 
 ## What is fuzzy search?
 
@@ -24,7 +24,7 @@ For a term like "university", the graph might have "unversty, universty, univers
 
 A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric. It's described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
-In Azure Cognitive Search:
+In Azure AI Search:
 
 + Fuzzy query applies to whole terms. Phrases aren't supported directly but you can specify a fuzzy match on each term of a multi-part phrase through AND constructions. For example, `search=dr~ AND cleanin~`.  This query expression finds matches on "dry cleaning".
 
@@ -140,7 +140,7 @@ The point of this expanded example is to illustrate the clarity that hit highlig
 
 ## See also
 
-+ [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
++ [How full text search works in Azure AI Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
 + [How to query in .NET](./search-get-started-text.md)
 + [How to query in REST](./search-get-started-powershell.md)
