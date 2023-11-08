@@ -1,8 +1,8 @@
 ---
 title: Object and resource lifetime
 description: Explains lifetime management for different types
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: conceptual
 ---
