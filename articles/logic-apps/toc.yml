@@ -88,7 +88,7 @@ items:
     - name: About the Standard workflow designer
       href: designer-overview.md
     - name: Workflow assistant for Standard workflows
-      href: workflow-assistant-standard.m
+      href: workflow-assistant-standard.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
