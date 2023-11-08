@@ -161,5 +161,5 @@ In this quickstart, you learned how to use the Face client library for .NET to d
 > [!div class="nextstepaction"]
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
-* [What is the Face service?](../../overview.md)
+* [What is the Face service?](../../overview-identity.md)
 * More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).
