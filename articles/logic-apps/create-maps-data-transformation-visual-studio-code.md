@@ -65,7 +65,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 1. In the **Azure** pane, under the **Data Mapper** section, select **Create new data map**.
 
-   ![Screenshot showing Visual Studio Code with Data Mapper extension installed, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
+   ![Screenshot showing Visual Studio Code with Data Mapper tool, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
 
 1. Provide a name for your data map.
 
@@ -220,7 +220,7 @@ The example in this section transforms the source element type from String type 
 
 1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
 
-   This example selects the **To date** function.
+   This example selects the **To date** function. You can also find and select any custom functions in the same way.
 
    ![Screenshot showing the selected function named To date.](media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png)
 
