@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > This feature is currently in Public Preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
+In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 > [!TIP]
 > To learn about how the MedTech service transforms and persists device message data into the FHIR service see, [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
@@ -77,7 +77,7 @@ For this troubleshooting example, we're using a test device message that is [mes
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-select-test-device-message-manual.png" alt-text="Screenshot of the Mapping debugger and Select a file box." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-select-test-device-message-manual.png":::
 
-3. Copy/paste or type the test device message into the **Upload test device message** box. The **Validation** box may still be *red* if the either of the mappings has an error/warning. As long as **No errors** is *green*, the test device message is valid with the provided device and FHIR destination mappings. 
+3. Copy/paste or type the test device message into the **Upload test device message** box. The **Validation** box can still be *red* if the either of the mappings has an error/warning. As long as **No errors** is *green*, the test device message is valid with the provided device and FHIR destination mappings. 
 
    > [!NOTE]
    >The Mapping debugger also displays [enrichments](../../iot-hub/iot-hub-message-enrichments-overview.md) performed on the test device message if it has been [messaged routed](../../iot-hub/iot-hub-devguide-messages-d2c.md) from an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) (for example: the addition of the **Body**, **Properties**, and **SystemProperties** elements).   
@@ -86,7 +86,7 @@ For this troubleshooting example, we're using a test device message that is [mes
 
    Select the **X** in the right corner to close the **Upload test device message** box.
 
-4. Once a valid test device message is uploaded, the **View normalized message** and **View FHIR observation** buttons become available so that you may view the sample outputs of the normalization and FHIR transformation stages. These sample outputs can be used to validate your device and FHIR destination mappings are properly configured for processing device messages according to your requirements.
+4. Once a valid test device message is uploaded, the **View normalized message** and **View FHIR observation** buttons become available so that you can view the sample outputs of the normalization and FHIR transformation stages. These sample outputs can be used to validate your device and FHIR destination mappings are properly configured for processing device messages according to your requirements.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png" alt-text="Screenshot View normalized message and View FHIR observation available." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-normalized-and-FHIR-selections-available.png":::
 
