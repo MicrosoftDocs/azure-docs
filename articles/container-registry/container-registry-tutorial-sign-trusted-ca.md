@@ -36,9 +36,9 @@ In this article:
 
 ## Prerequisites
 
-> * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
-> * Create or use an [Azure Key Vault.](../key-vault/general/quick-create-cli.md)
-> * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
+* Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
+* Create or use an [Azure Key Vault.](../key-vault/general/quick-create-cli.md)
+* Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 > [!NOTE]
 > We recommend creating a new Azure Key Vault for storing certificates only.
@@ -206,7 +206,7 @@ To import the certificate:
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --certificate-permissions get --object-id $USER_ID
    ```
 
-4. Get the Key ID for a certificate. A certificate in AKV can have multiple versions, the following command get the Key Id for the latest version of the `$CERT_NAME` certificate.
+4. Get the Key ID for a certificate. A certificate in AKV can have multiple versions, the following command gets the Key ID for the latest version of the `$CERT_NAME` certificate.
 
    ```bash
    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
