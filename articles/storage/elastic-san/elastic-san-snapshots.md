@@ -4,7 +4,7 @@ description: Learn about snapshots for Azure Elastic SAN Preview, including how 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/08/2023
 ms.author: rogarana
 ---
 
@@ -30,17 +30,15 @@ Some Windows applications, like SQL Server, provide a coordinated backup mechani
 
 ## Create a volume snapshot
 
-# [Portal](#tab/azure-portal)
+You can create snapshots of your volumes snapshots using the Azure portal, the Azure PowerShell module, or the Azure CLI.
 
-You can create volume snapshots in the Azure portal.
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your elastic SAN, select volume snapshots.
 1. Select create a snapshot, then fill in the fields.
 
 # [PowerShell](#tab/azure-powershell)
-
-You can use the Azure PowerShell module to create an incremental snapshot of an elastic SAN volume.
 
 ```azurepowershell
 $vgname = ""
@@ -57,8 +55,6 @@ $snapshot = New-AzElasticSanVolumeSnapshot -ResourceGroupName $rgname -ElasticSa
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to create an incremental snapshot of an elastic SAN volume.
-
 ```azurecli
 az elastic-san volume snapshot create -g "rg" -e "san_name" -v "vg_name" -n "snapshot_name" --creation-data '{source-id:"volume_id"}'
 ```
@@ -67,9 +63,9 @@ az elastic-san volume snapshot create -g "rg" -e "san_name" -v "vg_name" -n "sna
 
 ## Create a volume from a volume snapshot
 
-# [Portal](#tab/azure-portal)
+You can use snapshots of elastic SAN volumes to create new volumes using the Azure portal, the Azure PowerShell module, or the Azure CLI. You can't use snapshots to change the state of existing volumes.
 
-You can use the following steps to create volumes from existing volume snapshots.
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your elastic SAN and select **Volumes**.
 1. Select **+ Create volume** and fill out the details.
@@ -78,16 +74,12 @@ You can use the following steps to create volumes from existing volume snapshots
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the following command to create a volume from an existing volume snapshot.
-
 ```azurepowershell
 # create a volume with a snapshot id 
 New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -VolumeGroupName $vgname -Name $volname2 -CreationDataSourceId $snapshot.Id -SizeGiB 1
 ```
 
 # [Azure CLI](#tab/azure-cli)
-
-You can use the following command to create a volume from an existing volume snapshot.
 
 ```azurecli
 az elastic-san volume create -g "rg" -e "san_name" -v "vg_name" -n "volume_name_2" --size-gib 2 --creation-data '{source-id:"snapshot_id",create-source:VolumeSnapshot}'
@@ -96,6 +88,8 @@ az elastic-san volume create -g "rg" -e "san_name" -v "vg_name" -n "volume_name_
 ---
 
 ## Create a volume from a managed disk snapshot
+
+You can use snapshots of managed disks to create new elastic SAN volumes using the Azure portal, the Azure PowerShell module, or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -120,13 +114,13 @@ az elastic-san volume create -g "rg" -e "san_name" -v "vg_name" -n "volume_name_
 
 ## Delete volume snapshots
 
+You can use the Azure portal, Azure PowerShell module, or Azure CLI to delete individual snapshots. Currently, you can't delete more than an individual snapshot at a time.
+
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your elastic SAN and select **Volume snapshots**.
 1. Select a volume group, then select the snapshot you'd like to delete.
 1. Select delete.
-
-To delete more than one snapshot, repeat these steps. You can't currently delete more than a single snapshot at a time.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -149,21 +143,12 @@ az elastic-san volume snapshot delete -g "rg" -e "san_name" -v "vg_name" -n "sna
 
 Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
 
-# [Portal](#tab/azure-portal)
+Currently, you can only export snapshots using the Azure portal. The Azure PowerShell module and the Azure CLI can't be used to export snapshots.
 
 1. Navigate to your elastic SAN and select **Volume snapshots**.
 1. Select a volume group, then select the snapshot you'd like to export.
 1. Select Export and fill out the details, then select **Export**.
 
-# [PowerShell](#tab/azure-powershell)
-
-Exporting a snapshot isn't currently supported with the Azure PowerShell module. Use the Azure portal to export a snapshot.
-
-# [Azure CLI](#tab/azure-cli)
-
-Exporting a snapshot isn't currently supported with the Azure CLI. Use the Azure portal to export a snapshot.
-
----
 
 ## Create volumes from disk snapshots
 
