@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 10/08/2023
 ---
 
-# Subscribe to Azure Resource Manager events - Resources system topic (Preview)
+# Subscribe to Azure Resource Management events in Event Grid (Preview)
 This article explains the steps needed to subscribe to events published by Azure Resource Notifications - Resources. For detailed information about these events, see [Azure Resource Notifications - Resources events](event-schema-resources.md).
 
 ## Create Resources system topic
