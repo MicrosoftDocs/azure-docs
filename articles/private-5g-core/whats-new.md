@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 09/21/2023
+ms.date: 11/07/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -27,24 +27,25 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Type:** New release
 
-**Date available:** October XX, 2023
+**Date available:** October 7, 2023
 
 The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
 
 ### Optional N2/N3/S1/N6 gateway
-This feature makes the N2, N3 and N6 gateways as optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to the customers to use AP5GC without gateways if there's direct connectivity available with RAN and/or DN.
+This feature makes the N2, N3 and N6 gateways optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to use AP5GC without gateways if there's direct connectivity available with the RAN and/or DN.
 
-### Improved Software Download Time
-This feature improves overall AP5GC Software download time by reducing the size of underlying software packages, with overall size of the software image reduced by around 40%.
+### Improved software download time
+This feature improves overall AP5GC software download time by reducing the size of underlying software packages. The overall size of the software image is reduced by around 40%.
 
-### Per-UE information in Azure portal + API
-This feature enables the customer to view UE level information in the Azure portal, which includes UE list with high level information and a detailed view for each UE. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min.
+### Per-UE information in Azure portal and API
+This feature allows you to view UE-level information in the Azure portal, including a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
 
 ### Per gNB metrics in Azure portal
-This feature categorizes a few metrics based on RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed to customer via Azure monitor under PCCP and PCDP resources. These metrics shall be used to correlate the RAN & Packet Core metrics and troubleshoot.
+This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
 
 ### Combined 4G/5G on a single packet core
-This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network Site. Customers can deploy a RAN network with both 4G and 5G radios and to connect to a single packet core.
+This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
+
 
 ## September 2023
 ### Packet core 2308
