@@ -15,11 +15,11 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't yet ready production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This cloud platform helps you organize, manage, and track Azure resources related to your integration solutions. In Azure, an integration environment reduces complexity by providing a central place for you to organize deployed Azure resources into logical application groups.
+This platform helps you organize, manage, and track Azure resources related to your integration solutions. In Azure, an integration environment reduces complexity by providing a central place to organize deployed Azure resources into logical application groups.
 
-For your stakeholders, this environment gives you a way to add business context about the resources in your application groups by modeling the business processes implemented by these resources. For each business process stage, you define the key business data to capture from the deployed resources, and map each stage and properties to actual resources and data. This "single pane of view" offers a more streamlined and friendlier experience for managing and tracking the resources that support your integration solutions.
+For your stakeholders, this environment gives you a way to add business context about your application groups by modeling the business processes and stages implemented by the resources in these groups. For each business process stage, you define the key business data properties to track in your deployed resources. You then map your business stages and properties to actual resources and data sources. This "single pane of view" offers a more streamlined and friendlier experience for managing and tracking the resources that support your integration solutions, rather than managing separate resource types in Azure.
 
-In this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
+For this release, an integration environment offers the following capabilities in the Azure portal as a unified experience:
 
 - [Central organization and management](#central-resource)
 
