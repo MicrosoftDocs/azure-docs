@@ -484,6 +484,20 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: functions-hosting-plan
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: consumption-plan
+    title: Consumption plan
+  - id: premium-plan
+    title: Premium plan
+  - id: dedicated-plan
+    title: Dedicated plan
+  - id: container-apps
+    title: Container Apps
+  - id: azure-arc
+    title: Azure Arc
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -1653,6 +1667,14 @@ groups:
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
+- id: acs-smtp-sending-method
+  title: SMTP Sending Method
+  prompt: Choose a sending method
+  pivots:
+  - id: smtp-method-smtpclient
+    title: C# SmtpClient
+  - id: smtp-method-powershell
+    title: Windows PowerShell
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -2337,6 +2359,15 @@ groups:
     title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+# Owner: karler
+- id: spring-apps-enterprise-or-consumption-plan-selection
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
+  pivots:
+    - id: sc-enterprise
+      title: Enterprise
+    - id: sc-consumption-plan
+      title: Standard consumption and dedicated (Preview)
 # Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan

@@ -72,9 +72,11 @@ To register an existing SAP system in Azure Center for SAP solutions:
    | ------------------------| --------------------------------------------------- |
    | East US | East US |
    | East US 2 | East US 2|
-   | South Central US | East US 2 |
-   | Central US | East US 2|
-   | West US 2 | West US 3 |
+   | North Central US | South Central US |
+   | South Central US | South Central US |
+   | Central US | South Central US |
+   | West US | West US 3 |
+   | West US 2 | West US 2 |
    | West US 3 | West US 3 |
    | West Europe | West Europe |
    | North Europe | North Europe |
@@ -83,13 +85,18 @@ To register an existing SAP system in Azure Center for SAP solutions:
    | East Asia | East Asia |
    | Southeast Asia | East Asia |
    | Central India | Central India |
+   | Canada Central | Canada Central |
+   | Brazil South | Brazil South |
+   | UK South | UK South |
+   | Germany West Central | Germany West Central |
+   | Sweden Central | Sweden Central |
 
    - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
    - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
    - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you do not specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
    - **ManagedRgStorageAccountName** is used to specify the name of the Storage Account which is deployed into the managed resource group. This storage account is unique for each SAP system (SID) you register. ACSS service sets a default name using '{SID}{random string}' naming convention. 
 
-2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
+3. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
 
    ```powershell
    Get-AzWorkloadsSapVirtualInstance -ResourceGroupName TestRG -Name L46
