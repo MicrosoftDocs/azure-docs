@@ -64,12 +64,14 @@ After you create a business process for an application group in an integration e
 
 ## Map a business process stage
 
-After you previously defined the business properties to capture, map the stage to an operation and the data that you want to capture in a Standard logic app workflow.
+After you define the business properties to capture, map the stage to an operation and the data that you want to capture in a Standard logic app workflow.
 
 > [!NOTE]
 >
 > You can't start mapping if your application group doesn't contain 
 > any Standard logic app resources, workflows, and operations.
+
+### Map stage to logic app workflow operation
 
 1. On the **Edit stage** pane, select **Show data source**.
 
@@ -81,89 +83,96 @@ After you previously defined the business properties to capture, map the stage t
 
 1. Under the **Action** box, select **Select an action to map to the stage**.
 
-   The Standard logic app workflow designer in Azure Logic Apps opens in read-only mode. To the designer's right side, a pane shows the following items:
-   
-   - The **Workflow position** box reflects the currently selected operation.
-
-   - The **Properties** section shows the business properties that you previously specified.
-
-   - The **Business ID** box specifies the actual value for mapping to the business identifier that you previously specified. This identifier represents a unique value for a specific transaction such as an order number, case number, or ticket number that exists across all your business stages.
-   
-     This example uses the identifier named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing.
-
 1. On the read-only workflow designer, select the operation that you want to map.
 
-   In the right-side pane, the **Workflow position** box changes to show the selected operation.
+   The Standard logic app workflow designer in Azure Logic Apps opens in read-only mode. To the designer's right side, a pane shows the following items:
 
-1. In the **Properties** section, follow these steps to map each property's value to the output from an operation in the workflow.
+   | Item | Description |
+   |------|-------------|
+   | **Workflow position** | Shows the currently selected operation in the Standard logic app workflow. |
+   | **Properties** | Shows the business properties that you previously specified. |
+   | **Business ID** | Specifies the actual value for mapping to the business identifier that you previously specified. This identifier represents a unique value for a specific transaction such as an order number, case number, or ticket number that exists across all your business stages. <br><br>This example uses the identifier named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. |
 
-   1. For each property to map, select inside the property value box.
+   :::image type="content" source="media/map-business-process-workflow/open-read-only-workflow-designer.png" alt-text="Screenshot shows read-only Standard workflow designer and opened pane with selected workflow operation, business properties, and business ID." lightbox="media/map-business-process-workflow/open-read-only-workflow-designer.png":::
 
-   1. To view the available outputs, select the dynamic value content list option (lightning icon).
+1. Continue on to map your business properties to operation outputs.
 
-      The dynamic content list opens and shows the available operations and outputs that you can select. This list shows only those operations and the outputs that precede the currently selected operation.
+### Map business properties to operation outputs
 
-   1. In the dynamic content list, under the operation that you want, review the available outputs.
-   
-   1. If you find the output that you want, choose one of the following options:
+In the **Properties** section, follow these steps to map each property's value to the output from an operation in the workflow.
 
-      - If you can use the output as provided, select that output, and then select **Add**.
+1. For each property to map, select inside the property value box, and then select the dynamic content option (lightning icon):
 
-      - If you have to convert the output into another format or value, you can build an expression that uses functions to produce the necessary result.
+   :::image type="content" source="media/map-business-process-workflow/map-first-property.png" alt-text="Screenshot shows read-only Standard workflow designer, Properties section, and first property edit box with dynamic content option selected." lightbox="media/map-business-process-workflow/map-first-property.png":::
 
-        1. To close the dynamic content list, select outside the property value box.
+   The dynamic content list opens and shows the available operations and their outputs. This list shows only those operations and the outputs that precede the currently selected operation.
 
-        1. Select inside the property value box again.
+1. Choose one of the following options:
 
-        1. To open the expression editor, select the formula icon.
+   - If you can use the output as provided, select that output.
 
-        1. From the [**Function** list](../logic-apps/workflow-definition-language-functions-reference.md), select the function to start your expression.
+     :::image type="content" source="media/map-business-process-workflow/first-property-value-select-output.png" alt-text="Screenshot shows open dynamic content list for first property with output selected." lightbox="media/map-business-process-workflow/first-property-value-select-output.png":::
 
-        1. To include the operation's output in your expression, next the **Function** list label, select **Dynamic content**, and select the output that you want.
+   - If you have to convert the output into another format or value, you can build an expression that uses the provided functions to produce the necessary result.
 
-        1. When you're done, select **Add**.
+     1. To close the dynamic content list, select inside the property value box.
 
-           Your expression resolves to a token and appears in the property value box.
+     1. Now select the expression editor option (formula icon):
 
-   1. Repeat the preceding steps as necessary for each property.
+        :::image type="content" source="media/map-business-process-workflow/open-expression-editor.png" alt-text="Screenshot shows selected option to open expression editor for first property." lightbox="media/map-business-process-workflow/open-expression-editor.png":::
 
-1. To specify the value to use for the previously specified business identifier, follow these steps:
+        The expression editor editor opens and shows the functions that you can use to build an expression:
 
-   1. Select inside the **Business ID** box.
+        :::image type="content" source="media/map-business-process-workflow/first-property-value-expression-editor.png" alt-text="Screenshot shows open expression editor for first property with functions to select." lightbox="media/map-business-process-workflow/first-property-value-expression-editor.png":::
 
-   1. To view the available outputs, select the dynamic value content list option (lightning icon).
+     1. From the [**Function** list](../logic-apps/workflow-definition-language-functions-reference.md), select the function to start your expression.
 
-      The dynamic content list opens and shows the available operations and outputs that you can select. This list shows only those operations and the outputs that precede the currently selected operation.
+     1. To include the operation's output in your expression, next the **Function** list label, select **Dynamic content**, and select the output that you want.
 
-   1. In the dynamic content list, under the operation that you want, review the available outputs.
-   
-   1. If you find the output that you want, choose one of the following options:
+     1. When you're done with your expression, select **Add**.
 
-      - If you can use the output as provided, select that output, and then select **Add**.
+        Your expression resolves to a token and appears in the property value box.
 
-      - If you have to convert the output into another format or value, you can build an expression that uses functions to produce the necessary result. Follow the earlier steps for building such an expression.
+1. For each property, repeat the preceding steps as necessary.
 
-      > [!NOTE]
-      >
-      > Make sure to select a value that's available in each workflow.
+1. Continue on to map the business identifier to an operation output.
 
-1. When you're done, select **Continue**.
+### Map business identifier to an operation output
 
-   After you finish mapping a stage, the platform sends the selected information to your database in Azure Data Explorer and returns you to the **Edit stage** pane.
+In the **Business identifier** section, follow these steps to map the previously defined business identifier to an operation output.
 
-   The following example shows a complete mapped stage:
+1. Select inside the **Business ID** box, and then select the dynamic content option (lightning icon).
 
-   :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows opened pane for Edit stage, and complete mapping to workflow operation, business properties, and business identifier.":::
+1. Choose one of the following options:
+
+   - If you can use the output as provided, select that output.
+
+     > [!NOTE]
+     >
+     > Make sure to select a value that exists in each business process stage, 
+     > which means in each workflow that you map to each business stage.
+
+   - If you have to convert the output into another format or value, you can build an expression that uses the provided functions to produce the necessary result. Follow the earlier steps for building such an expression.
+
+1. When you're done, select **Continue**, which returns you to the **Edit stage** pane.
+
+   After you finish mapping an operation to a business stage, the platform sends the selected information to your database in Azure Data Explorer.
 
 1. On the **Edit stage** pane, select **Save**.
 
-1. Make sure to save your changes often. On the process designer toolbar, select **Save**.
+The following example shows a completely mapped business process stage:
 
-1. Select another business stage and repeat the previous steps to map that stage.
+:::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows opened pane for Edit stage, and complete mapping to workflow operation, business properties, and business identifier.":::
 
-1. When you're done, save your business process one more time.
+## Finish mapping your business process
 
-Now, you're ready to deploy your business process and tracking profile.
+1. Repeat the steps to [map a business process stage](#map-stage) as necessary.
+
+1. Save the changes to your business process often. On the process designer toolbar, select **Save**.
+
+1. When you finish, save your business process one more time.
+
+Now, deploy your business process and tracking profile.
 
 ## Next steps
 

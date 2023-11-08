@@ -82,7 +82,9 @@ When your workflows run, they populate the properties that you specified.
 
 ## Limitations and known issues
 
-- Business process tracking and deployment are currently available only in the Azure portal. No capability currently exists to export and import tracking profiles.
+- Business process modeling, tracking, and deployment are currently available only in the Azure portal. No capability currently exists to export and import tracking profiles.
+
+- This preview release currently doesn't include application monitoring.
 
 - Stateless workflows in a Standard logic app resource currently aren't supported for business process tracking.
 
@@ -91,8 +93,6 @@ When your workflows run, they populate the properties that you specified.
 - This preview release is currently optimized for speed.
 
   If you have feedback about workload performance, use the product feedback link to share your input and results from representative loads to help improve this aspect.
-
-- This preview release currently doesn't include application monitoring.
 
 ## Next steps
 
