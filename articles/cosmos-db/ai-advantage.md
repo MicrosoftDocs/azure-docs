@@ -12,6 +12,8 @@ ms.date: 11/08/2023
 
 # Try Azure Cosmos DB free with Azure AI Advantage
 
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+
 Azure offers a full, integrated stack purpose-built for AI-powered applications. If you build your AI application stack on Azure using Azure Cosmos DB, your design can lead to solutions that get to market faster, experience lower latency, and have comprehensive built-in security.
 
 There are many benefits when using Azure Cosmos DB and Azure AI together:
@@ -26,7 +28,8 @@ There are many benefits when using Azure Cosmos DB and Azure AI together:
 
 The Azure AI Advantage offer is for existing Azure AI and GitHub Copilot customers who want to use Azure Cosmos DB as part of their solution stack. With this offer, you get:
 
-- 40,000 RU/s of Azure Cosmos DB throughput for 90 days.
+- Free 40,000 RU/s of Azure Cosmos DB throughput for 90 days.
+
 - Funding to implement a new AI application using Azure Cosmos DB and/or Azure Kubernetes Service. For more information, speak to your Microsoft representative.
 
 ## Get started
@@ -47,12 +50,29 @@ Get started with this offer by ensuring that you have the prerequisite services 
 
     - GitHub Copilot
 
-1. Create a new Azure Cosmos DB account.
+1. Create a new Azure Cosmos DB account using one of the following APIs:
+
+    - API for NoSQL
+
+    - API for MongoDB RU
+
+    - API for Apache Cassandra
+
+    - API for Apache Gremlin
+
+    - API for Table
+
+    > [!IMPORTANT]
+    > The Azure Cosmos DB account must have been created within 30 days of registering for the offer.
 
 1. Register for the Azure AI Advantage offer: <https://aka.ms/AzureAIAdvantageSignupForm>
 
-1. The team will review your registration and will follow-up via e-mail.
+1. The team reviews your registration and follows up via e-mail.
 
 ## After the offer
 
 After 90 days, your Azure Cosmos DB account will continue to run at [standard pricing rates](https://azure.microsoft.com/pricing/details/cosmos-db/).
+
+## Related content
+
+- [Build & modernize AI application reference architecture](https://github.com/Azure/Build-Modern-AI-Apps)
