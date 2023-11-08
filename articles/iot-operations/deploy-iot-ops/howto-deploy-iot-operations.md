@@ -110,7 +110,7 @@ Before you begin deploying, use the `az iot ops init` command to configure your 
    * Configure a secrets store on your cluster that connects to the key vault.
 
    ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id <KEYVAULT_RESOURCE_ID> --no-deploy
+   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id) --no-deploy
    ```
 
 Now, you can deploy Azure IoT Operations to your cluster.
@@ -203,7 +203,7 @@ Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does 
 * Deploys the Azure IoT Operations resources.
 
 ```azurecli-interactive
-az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id <KEYVAULT_RESOURCE_ID>
+az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id)
 ```
 
 Use optional flags to customize the `az iot ops init` command. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init). For example:
