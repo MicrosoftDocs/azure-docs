@@ -286,6 +286,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 See the liveness SDK reference to learn about other options in the liveness APIs.
 
-- (Java (Android))[https://aka.ms/liveness-sdk-java]
-- (Swift (iOS))[https://aka.ms/liveness-sdk-ios]
+- [Java (Android)](https://aka.ms/liveness-sdk-java)
+- [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
 
