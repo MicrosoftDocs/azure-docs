@@ -1,6 +1,6 @@
 ---
-title: Subscribe to Azure Resource Notifications - Resources events
-description: This article explains how to subscribe to events published by Azure Resource Notifications - Resources. 
+title: Subscribe to Azure Resource Notifications - Resource Management events
+description: This article explains how to subscribe to Azure Resource Notifications - Azure Resource Management events.
 ms.topic: how-to
 ms.date: 10/08/2023
 ---
