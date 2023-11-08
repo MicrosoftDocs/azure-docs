@@ -27,28 +27,37 @@ The Azure Virtual Desktop solution with Azure Native Qumulo file storage is depl
 
 Azure Native Qumulo for with Azure Virtual desktop is a solution that is distributed across two separate Azure regions in an active-active configuration.
 
-:::image type="content" source="media/qumulo-virtual-desktop/solution-architecture-qumulo-avd.png" alt-text="Conceptual diagram that shows the solution architecture Azure virtual desktop with Qumulo.":::
+:::image type="content" source="media/qumulo-virtual-desktop/solution-architecture-qumulo-avd.png" alt-text="Conceptual diagram that shows the solution architecture Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/solution-architecture-qumulo-avd-2.png":::
 
 ### Solution workflow
 
 1. Users can access the solution from any location, whether on-premises or remote, through RDP using any compatible client.
+
 1. Authentication services are provided by Microsoft Entra ID.
+
 1. Once authenticated, each user is connected to an available virtual desktop machine through Nerdio Connection Manager.
+
 1. As part of the desktop login process, FSLogix Profile Containers connect each AVD user to their assigned profile on the ANQ storage
+
 1. Application-tier services and client software can be deployed either through application streaming or as part of the base AVD image.
+
 1. AVD resource pools, desktop images, applications and service monitoring are managed by Nerdio Manager.
+
 1. The ANQ service used in the solution is deployed in Qumulo’s Azure tenant.
+
 1. Access to the ANQ service is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
     > [!NOTE]
     >  Qumulo has no access to any of your data on any ANQ instance.
+
 1. All user profiles on the ANQ service instance in each Azure region are replicated to the ANQ service instance in the other Azure region through Qumulo Continuous Replication service.
+
 1. In the event of an AVD service interruption in one Azure region, all AVD services, including AVD resource pools, Nerdio connection and resource management, FSLogix Profile management, and user profiles on the ANQ service instance fail over to the designated secondary Azure region.
 
 ### Process workflow
 
 The process flow for Azure Native Qumulo for with Azure Virtual desktop is depicted here:
 
-:::image type="content" source="media/qumulo-virtual-desktop/process-workflow-qumulo-avd.png" alt-text="Conceptual diagram that shows the process workflow for Azure virtual desktop with Qumulo.":::
+:::image type="content" source="media/qumulo-virtual-desktop/process-workflow-qumulo-avd.png" alt-text="Conceptual diagram that shows the process workflow for Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/process-workflow-qumulo-avd-2.png":::
 
 ## Components
 
