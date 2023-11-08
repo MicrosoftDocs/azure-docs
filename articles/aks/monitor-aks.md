@@ -65,7 +65,7 @@ Metrics play an important role in cluster monitoring, identifying issues, and op
 
 :::image type="content" source="media/monitor-aks/prometheus.png" alt-text="Screenshot of enabling Managed Prometheus for existing cluster." lightbox="media/monitor-aks/prometheus.png":::
 
-> - [List of default platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics)
+- [List of default platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics)
 > - [List of default Prometheus metrics](../azure-monitor/containers/prometheus-metrics-scrape-default.md)
 
 ## Logs
