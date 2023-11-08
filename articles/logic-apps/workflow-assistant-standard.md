@@ -1,14 +1,14 @@
 ---
 title: Workflow assistant for Standard logic app workflows
-description: Learn about the workflow assistant for Standard workflows in Azure Logic Apps.
+description: Learn how the workflow assistant helps you with Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2023
 ---
 
-# About the workflow assistant for Standard workflows in Azure Logic Apps (preview)
+# Get help with Standard workflows using the workflow assistant in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -16,9 +16,9 @@ ms.date: 11/15/2023
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The workflow assistant provides a chat interface that helps you answer questions about Standard workflows in Azure Logic Apps. You can use the assistant to describe an existing workflow or ask for specific answers from within your workflow's context. Available directly within the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
+The workflow assistant provides a chat interface that helps you answer questions about Standard workflows in single-tenant Azure Logic Apps. You can use the assistant to describe an existing workflow or ask for specific answers from within your workflow's context. Available directly within the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
 
-## Open the workflow assistant (Standard workflows)
+## Open the workflow assistant
 
 Only Standard workflows include the workflow assistant. You can open the workflow assistant from an existing workflow or a new workflow. 
 
@@ -120,7 +120,7 @@ The Azure Logic Apps team values your feedback and encourages you to share your 
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
-**A**: [Azure Open AI Service](../ai-services/openai/overview.md) is an enterprise-ready AI technology powered that's for your business processes and your business data to meet security and privacy requirements.
+**A**: [Azure Open AI Service](../ai-services/openai/overview.md) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
 
 [ChatGPT](https://openai.com/blog/chatgpt) is built by [Open AI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
 
