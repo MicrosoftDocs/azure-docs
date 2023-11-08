@@ -2,49 +2,53 @@
 title: PACS Vendor Neutral archive and Azure Native Qumulo Scalable File Service
 description: How to use PACS Vendor Neutral archive with Azure Native Qumulo Scalable File Service.
 
-ms.topic: conceptual 
-ms.date: 10/31/2023
+ms.topic: overview 
+ms.date: 11/15/2023
 
 ---
 
-# Use a picture archiving and communication system (PACS) vendor neutral archive with Azure Native Qumulo
+# What is Azure Native Qumulo for picture archiving and communication system vendor neutral archive?
 
-This article describes the baseline architecture for deploying a Picture Archiving and Communication System Vendor-Neutral Archive (PACS VNA), using file storage services provided by Azure Native Qumulo. A VNA solution provides a means for healthcare providers to store, use, and archive medical images and other data from one or more vendor-specific PACS  platforms. A VNA solution backed by Azure Native Qumulo for file storage provides cost effective storage solution with exabyte-plus data scalability and throughput elasticity.
+Azure Native Qumulo (ANQ) Scalable File Service can provide a picture archiving and communication system (PACS) with a vendor neutral archive (VNA) as a solution for healthcare providers. Healthcare providers can then store, use, and archive medical images and other data from one or more vendor-specific PACS platforms.
 
-|Benefits of a PACS VNA solution with Azure Native Qumulo|Details|
-|---------|---------|
-|Scalability |A single ANQ instance can scale to exabyte size and beyond in a single namespace.|
-|Cost efficiency |Customers pay only for the capacity and throughput they use, while they use it.|
-|Performance |ANQ higher throughput and lower latency for most workloads.|
-|Global reach |ANQ can be deployed in one or more Azure regions worldwide, enabling low-latency access to users anywhere/everywhere.|
-|Cross-organizational collaboration |VNA data hosted on Azure is potentially accessible to a broader cohort of healthcare providers, research institutions, and other organizations with a shared interest in better healthcare outcomes made possible by VNA image analysis.|
+This article describes the baseline architecture for deploying a Picture Archiving and Communication System Vendor-Neutral Archive (PACS VNA), using file storage services provided by Azure Native Qumulo. The ANQ backed PACS VNA provides a cost effective storage solution with exabyte-plus data scalability and throughput elasticity.
 
 ## Hybrid architecture
 
-This hybrid solution consists of an on-premises PACS solution, paired with one or more imaging modalities (e.g., CT / MRI scanners, ultrasound and X-ray devices) and connected to an on-prem Qumulo cluster. The Azure-based portion of the solution comprises one or more VNA application servers, deployed in the customer’s Azure tenant and connected via VNet injection to the ANQ instance, which is hosted in Qumulo’s Azure tenant.
+This hybrid solution consists of an on-premises PACS solution, paired with one or more imaging modalities (for example, CT / MRI scanners, ultrasound and X-ray devices) and connected to an on-premises Qumulo cluster. The Azure-based portion of the solution comprises one or more VNA application servers, deployed in the customer’s Azure tenant and connected through VNet injection to the ANQ instance, which is hosted in Qumulo’s Azure tenant.
 
-NOTE: Qumulo has no access to customer data on any ANQ deployment.
+> [!NOTE]
+> Qumulo has no access to your data on any ANQ deployment.
 
-### Solution Architecture
+## Solution architecture
 
-1. Access between the customer’s on-prem resources and application and data services on Azure is provided through either an Azure VPN Gateway instance or via ExpressRoute connection.
-1. Application-tier services are deployed to a virtual network in the customer’s own Azure tenant.
-1. The ANQ service  used in the solution is deployed in Qumulo’s Azure tenant.
-1. Access to the ANQ cluster is enabled via VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
+Here's the basic architectur for ANQ PACS VNA:
+
+Access between the customer’s on-premises resources and application and data services on Azure is provided through either an Azure VPN Gateway instance or through ExpressRoute connection.
+
+Application-tier services are deployed to a virtual network in the customer’s own Azure tenant.
+
+The ANQ service  used in the solution is deployed in Qumulo’s Azure tenant.
+
+Access to the ANQ cluster is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
 
 :::image type="content" source="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs.png" alt-text="solution architecture for pacs using Qumulo.":::
 
-### Solution Workflow
+### Solution workflow
 
-1. All data in the solution originates on-prem in the form of image files, generated by the customer’s imaging modalities and ingested into the customer’s PACS solution, where they are used for patient treatment and medical case management.
-1. The process of moving image data from the customer’s proprietary on-prem PACS solution to an Azure-based VNA environment begins with the export of image files from the PACS platform to an on-premises Qumulo cluster.
-1. From there, the image files (formatted using the DICOM image standard) are migrated to an Azure Native Qumulo instance using Qumulo’s replication engine.
-1. Access to the VNA imagery is enabled through one or more VNA server virtual machines in the customer’s Azure tenant, connected via either SMB or NFS to the ANQ deployment. Note: ANQ can share the same data in the same namespace via SMB, NFS and object protocols. . With ANQ, there is no need to manage duplicate datasets for Windows vs. Linux clients.
-1. VNA imagery can be viewed via any DICOM-compatible Universal VNA Viewer client, located either on-premises or remotely.
+Here's the basic workflow for Azure Native Qumulo PACS VNA:
 
-#### Process Flow
+1. All data in the solution originates on-premises in the form of image files, generated by the customer’s imaging modalities and ingested into the customer’s PACS solution, where they are used for patient treatment and medical case management.
+1. The process of moving image data from the customer’s proprietary on-premises PACS solution to an Azure-based VNA environment begins with the export of image files from the PACS platform to an on-premises Qumulo cluster.
+1. From there, the image files, formatted using the DICOM image standard, are migrated to an Azure Native Qumulo instance using Qumulo’s replication engine.
+1. Access to the VNA imagery is enabled through one or more VNA server virtual machines in the customer’s Azure tenant, connected through either SMB or NFS to the ANQ deployment. Note: ANQ can share the same data in the same namespace through SMB, NFS and object protocols. . With ANQ, there is no need to manage duplicate datasets for Windows vs. Linux clients.
+1. VNA imagery can be viewed through any DICOM-compatible Universal VNA Viewer client, located either on-premises or remotely.
 
-:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="process flow for pacs using Qumulo.":::
+### Process flow
+
+The process flow for Azure Native Qumulo for PACS VNA is depicted here:
+
+:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="Conceptual diagram that shows process flow for pacs using Qumulo.":::
 
 ## Components
 
@@ -64,57 +68,67 @@ Enterprises planning an Azure-based PACS VNA solution using Qumulo should includ
 ### Potential use cases
 
 This architecture applies to healthcare providers and other healthcare organizations whose PACS data needs to be accessible beyond the originating PACS application.
-Potential use cases:
+
+Your enterprise can use this solution if you are looking to satisfy any or all of the following applicable scenarios.
 
 - Healthcare providers that use multiple imaging applications and use a standardized imagery format to improve clinical workflows and continuity of care between different systems.
+
 - Healthcare and life-sciences organizations that conduct research or analysis using medical imagery from multiple sources, whether for short-term or long-term studies that span decades of required archive storage
+
 - Healthcare and life-science organizations that share documents and imagery with outside providers and organizations.
 
-### Scalability and Performance
+### Scalability and performance
 
 Enterprise architects and other stakeholders should ensure that their solution addresses the following scalability and performance factors:
 
-- Capacity and growth: a physical Qumulo cluster can easily be expanded to add capacity as needed; however, for best performance, the on-prem cluster should be sized with sufficient capacity to support 3-6 months’ of data intake and retention for both the PACS and VNA datasets.
-- Performance and throughput : The on-premises Qumulo cluster(s) should be configured to support the intake of data from the PACS application(s) while simultaneously replicating VNA data to the ANQ target.The ANQ service should be able to receive incoming replication traffic from the solution’s on-prem Qumulo cluster(s) while concurrently supporting all data requests from the customer’s VNA Application Server.
+- Capacity and growth:
+  - a physical Qumulo cluster can be expanded to add capacity as needed. However, for best performance, the on-premises cluster should be sized with sufficient capacity to support 3-6 months of data intake and retention for both the PACS and VNA datasets.
+
+- Performance and throughput:
+  - The on-premises Qumulo clusters should be configured to support the intake of data from the PACS application(s) while simultaneously replicating VNA data to the ANQ target. The ANQ service should be able to receive incoming replication traffic from the solution’s on-premises Qumulo clusters while concurrently supporting all data requests from the customer’s VNA Application Server.
 
 ### Security
 
-Although each ANQ service instance is hosted in Qumulo’s own Azure tenant, access to the data on the cluster is restricted to the virtual network interfaces that connect via VNet injection to a subnet in the customer’s Azure tenant. All ANQ deployments are inherently HIPAA compliant, and Qumulo has no access to any customer data hosted on an ANQ cluster.
+Although each ANQ service instance is hosted in Qumulo’s own Azure tenant, access to the data on the cluster is restricted to the virtual network interfaces that connect through VNet injection to a subnet in the customer’s Azure tenant. All ANQ deployments are inherently HIPAA compliant, and Qumulo has no access to any customer data hosted on an ANQ cluster.
 
-All data at rest on any Qumulo cluster, whether on-prem or ANQ-based, is automatically encrypted using a FIPS 140-2 compliant software algorithm. Qumulo also supports encryption over the wire for all SMB and NFSv4.1 clients.
+All data at rest on any Qumulo cluster, whether on-premises or ANQ-based, is automatically encrypted using a FIPS 140-2 compliant software algorithm. Qumulo also supports encryption over the wire for all SMB and NFSv4.1 clients.
 
 For all other aspects of the solution, customers are responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
 
 ### Cost optimization
 
-Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the Overview of the cost optimization pillar page.
+Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, see the Overview of the cost optimization pillar page.
 
-- Azure Native Qumulo gives you a choice of multiple capacity-to-throughput options to meet your specific workload needs. As the workload increases, the service automatically adds more bandwidth as needed. ANQ adds throughput capability in 1GB/s increments up to a maximum of 4GB/s. As with ANQ storage capacity, you pay only for what you use while you use it.
+- Azure Native Qumulo gives you a choice of multiple capacity-to-throughput options to meet your specific workload needs. As the workload increases, the service automatically adds more bandwidth as needed. ANQ adds throughput capability in 1GB/s increments up to a maximum of 4GB/s. With ANQ storage capacity, you pay only for what you use while you use it.
+
 - Refer to your preferred VNA server vendor’s solution documentation for specific guidance on virtual machine sizing and performance to meet the required performance for the solution.
 
 ### Availability
 
 Different organizations can have different availability and recoverability requirements even for the same application. The term availability refers to the solution’s ability to continuously deliver the service at the level of performance for which it was built.
 
-#### Data and storage availability
+### Data and storage availability
 
-The ANQ deployment includes built-in redundancy at the data level to provide data resiliency. To protect the data against accidental deletion, corruption, malware or other cyberattack, ANQ includes the ability to take immutable snapshots at any level within the file system to create point-in-time, read-only copies of your data.
+The ANQ deployment includes built-in redundancy at the data level to provide data resiliency. To protect the data against accidental deletion, corruption, malware or other cyber attack, ANQ includes the ability to take immutable snapshots at any level within the file system to create point-in-time, read-only copies of your data.
 
-While the solution leverages Qumulo’s replication engine between the on-prem cluster and the ANQ target, its purpose is to move data from an on-prem source to an Azure-based target rather than as a means of data protection.
+While the solution uses Qumulo’s replication engine between the on-premises cluster and the ANQ target, its purpose is to move data from an on-premises source to an Azure-based target rather than as a means of data protection.
 
-Both ANQ and the on-prem Qumulo cluster also support any file-based backup solution to enable external data protection.
+Both ANQ and the on-premises Qumulo cluster also support any file-based backup solution to enable external data protection.
 Resource Tier Availability
+
 For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s own documentation.
 
-#### Resource Tier Availability
+### Resource Tier Availability
 
 For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s own documentation
 
 ## Deploy this scenario
 
-- To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
+- To deploy Azure Native Qumulo Scalable File Service, see [our website](https://qumulo.com/product/azure/).
+
 - For more information regarding the replication options on Qumulo, see [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
-- For more information regarding inbound and outbound networking, [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
+
+- For more information regarding inbound and outbound networking, see [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 
 ## Next steps
 
