@@ -2,7 +2,7 @@
 title: Trusted Internet Connections guidance
 description: Learn about Trusted Internet Connections (TIC) guidance for Azure IaaS and PaaS services
 author: anaharris-ms
-ms.author: anaharris-ms
+ms.author: anaharris 
 ms.service: azure-government
 ms.topic: article
 recommendations: false
