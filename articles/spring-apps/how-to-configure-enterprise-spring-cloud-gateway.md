@@ -388,7 +388,7 @@ The following list shows the options available for Autoscale demand management:
 * The **Manual scale** option maintains a fixed instance count. You can scale out to a maximum of 10 instances. This value changes the number of separate running instances of the Spring Cloud Gateway.
 * The **Custom autoscale** option scales on any schedule, based on any metrics.
 
-On the Azure portal, choose how you want to scale. The following figure shows the **Custom autoscale** option and mode settings:
+On the Azure portal, choose how you want to scale. The following screenshot shows the **Custom autoscale** option and mode settings:
 
 :::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted.":::
 
