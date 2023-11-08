@@ -37,11 +37,13 @@ Get started with this offer by ensuring that you have the prerequisite services 
 
 1. Ensure that you previously used one of the qualifying services in your subscription:
 
-    - Azure AI services (including Azure OpenAI Service)
+    - Azure AI Services
 
-    - Azure Machine Learning
+        - Azure OpenAI Service
 
-    - Azure AI Search
+        - Azure Machine Learning
+
+        - Azure AI Search
 
     - GitHub Copilot
 
