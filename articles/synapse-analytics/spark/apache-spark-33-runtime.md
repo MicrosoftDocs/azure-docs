@@ -41,7 +41,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 ## Libraries
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.3.
 
-### Scala and Java libraries
+### Scala and Java default libraries
+
 | Library                                         | Version                          |        Library                         | Version                         |        Library                                     | Version                               |
 |-------------------------------------------------|----------------------------------|----------------------------------------|---------------------------------|----------------------------------------------------|---------------------------------------|
 | activation                                      |     1.1.1                        | httpclient5                            |     5.1.3                       | opencsv                                            | 2.3                                   |
