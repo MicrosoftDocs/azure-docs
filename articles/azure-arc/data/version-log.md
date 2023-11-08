@@ -16,6 +16,7 @@ ms.topic: conceptual
 # Version log
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
+
 ## November 14, 2023
 
 |Component|Value|
