@@ -1,5 +1,5 @@
 ---
-title: Confidential containers on AKS
+title: Confidential containers on Azure Kubernetes Service
 description: Learn about pod level isolation via confidential containers on AKS
 services: container-service
 author: angarg05
