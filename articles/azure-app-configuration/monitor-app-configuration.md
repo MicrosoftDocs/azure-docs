@@ -95,7 +95,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ## Analyzing metrics
 
-You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For App Configuration, the following metrics are collected: 
+You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For App Configuration, the following metrics are collected: 
 
 * Http Incoming Request Count 
 * Http Incoming Request Duration 
@@ -149,7 +149,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
-        | summarize requestCount= count() by ClientIPAddress
+        | summarize requestCount=sum(HitCount) by ClientIPAddress
         | order by requestCount desc 
     ```
 
@@ -157,7 +157,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
-        | summarize requestCount=count() by StatusCode
+        | summarize requestCount=sum(HitCount) by StatusCode
         | order by requestCount desc 
         | render piechart 
     ```
@@ -167,7 +167,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     AACHttpRequest
         | where TimeGenerated > ago(14d)
         | extend Day = startofday(TimeGenerated)
-        | summarize requestcount=count() by Day
+        | summarize requestcount=sum(HitCount) by Day
         | order by Day desc  
     ```
 
@@ -178,7 +178,7 @@ The following table lists common and recommended alert rules for App C
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Rate Limit on Http Requests | Status Code = 429  | The configuration store has exceeded the [hourly request quota](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
+|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [request quota usage](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard tier store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
 
 
 

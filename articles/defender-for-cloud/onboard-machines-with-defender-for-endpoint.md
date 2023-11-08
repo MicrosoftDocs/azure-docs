@@ -49,7 +49,7 @@ Before you begin:
 
 :::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
 
-You've now successfully enabled direct onboarding on your tenant. After you enable it for the first time, it may take up to 24 hours to see your non-Azure servers in your designated subscription.
+You've now successfully enabled direct onboarding on your tenant. After you enable it for the first time, it might take up to 24 hours to see your non-Azure servers in your designated subscription.
 
 ### Deploying Defender for Endpoint on your servers
 
@@ -61,7 +61,7 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 
 - **Multi-cloud support**: You can directly onboard VMs in AWS and GCP using the Defender for Endpoint agent. However, if you plan to simultaneously connect your AWS or GCP account to Defender for Servers using multicloud connectors, it's currently still recommended to deploy Azure Arc.
 
-- **Simultaneous onboarding limited support**: Defender for Cloud makes a best effort to correlate servers onboarded using multiple billing methods. However, in certain server deployment use cases, there may be limitations where Defender for Cloud is unable to correlate your machines. This may result in overcharges on certain devices if direct onboarding is also enabled on your tenant.
+- **Simultaneous onboarding limited support**: Defender for Cloud makes a best effort to correlate servers onboarded using multiple billing methods. However, in certain server deployment use cases, there might be limitations where Defender for Cloud is unable to correlate your machines. This might result in overcharges on certain devices if direct onboarding is also enabled on your tenant.
 
   The following are deployment use cases currently with this limitation when used with direct onboarding of your tenant:
 

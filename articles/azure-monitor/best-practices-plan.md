@@ -13,36 +13,32 @@ This article is part of the scenario [Recommendations for configuring Azure Moni
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor), which is part of the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/). That guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes. This article refers to sections of that guide that are relevant to particular planning steps.
 ## Understand Azure Monitor costs
-Minimizing costs is a core goal of your monitoring strategy. Some data collection and features in Azure Monitor have no cost. However, others have costs based on their particular configuration, amount of data collected, or frequency that they're run. The articles in this scenario identify any recommendations that include a cost, but you should be familiar with Azure Monitor pricing as you design your implementation for cost optimization. See the following pages for details and guidance on Azure Monitor pricing:
+A core goal of your monitoring strategy will be minimizing costs. Some data collection and features in Azure Monitor have no cost while other have costs based on their particular configuration, amount of data collected, or frequency that they're run. The articles in this scenario identify any recommendations that include a cost, but you should be familiar with Azure Monitor pricing as you design your implementation for cost optimization. See the following for details and guidance on Azure Monitor pricing:
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
+- [Azure Monitor cost and usage](cost-usage.md)
+- [Cost optimization in Azure Monitor](best-practices-cost.md)
 
 
 ## Define strategy
 Before you design and implement any monitoring solution, you should establish a monitoring strategy so that you understand the goals and requirements of your plan. The strategy defines your particular requirements, the configuration that best meets those requirements, and processes to use the monitoring environment to maximize your applications' performance and reliability. The configuration options that you choose for Azure Monitor should be consistent with your strategy.
 
-See [Cloud monitoring guide: Formulate a monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) for many factors that you should consider when developing a monitoring strategy. You should also refer to [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview) for assistance with comparing completely cloud based monitoring with a hybrid model. 
+See [Cloud monitoring guide: Formulate a monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) for a number of factors that you should consider when developing a monitoring strategy. You should also refer to [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview), which assist in comparing completely cloud based monitoring with a hybrid model. 
 
 ## Gather required information
 Before you determine the details of your implementation, you should gather information required to define those details. The following sections described information typically required for a complete implementation of Azure Monitor.
 
  ### What needs to be monitored?
- You don't need to necessarily configure complete monitoring for all of your cloud resources but instead focus on your critical applications and the components they depend on. This focus will not only reduce your monitoring costs but also reduce the complexity of your monitoring environment. See [Cloud monitoring guide: Collect the right data](/azure/cloud-adoption-framework/manage/monitor/data-collection) for guidance on defining the data that you require.
+ You won't necessarily configure complete monitoring for all of your cloud resources but instead focus on your critical applications and the components they depend on. This not only reduces your monitoring costs but also reduce the complexity of your monitoring environment. See [Cloud monitoring guide: Collect the right data](/azure/cloud-adoption-framework/manage/monitor/data-collection) for guidance on defining the data that you require.
 
 ### Who needs to have access and be notified
-As you configure your monitoring environment, you need to determine the folllowing:
-
-- Which users should have access to monitoring data
-- Which users need to be notified when an issue is detected
-
-These users may be application and resource owners, or you may have a centralized monitoring team. This information determines how you configure permissions for data access and notifications for alerts. You may also require custom workbooks to present particular sets of information to different users.
+As you configure your monitoring environment, you need to determine which users should have access to monitoring data and which users need to be notified when an issue is detected. These may be application and resource owners, or you may have a centralized monitoring team. This information determines how you configure permissions for data access and notifications for alerts. You may also require custom workbooks to present particular sets of information to different users.
 
 ### Service level agreements 
 Your organization may have SLAs that define your commitments for performance and uptime of your applications. These SLAs may determine how you need to configure time sensitive features of Azure Monitor such as alerts. You also need to understand [data latency in Azure Monitor](logs/data-ingestion-time.md) since this affects the responsiveness of monitoring scenarios and your ability to meet SLAs.
 
 ## Identify monitoring services and products
-Azure Monitor is designed to address Health and Status monitoring. A complete monitoring solution typically involves multiple Azure services and potentially other products. Other monitoring objectives, which may require more solutions, are described in the Cloud Monitoring Guide in [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements). 
+Azure Monitor is designed to address Health and Status monitoring. A complete monitoring solution typically involves multiple Azure services and potentially other products. Other monitoring objectives, which may require additional solutions, are described in the Cloud Monitoring Guide in [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements). 
 
 The following sections describe other services and products that you may use with Azure Monitor. This scenario currently doesn't include guidance on implementing these solutions so you should refer to their documentation.
 

@@ -76,15 +76,15 @@ For enrichments configuration instructions, go to [Enrichment CLI configuration]
 
 
 ## MQTT message routing behavior
-While routing MQTT messages to namespace topics or custom topics, Event Grid provides durable delivery as it tries to deliver each message **at least once**  immediately. If there's a failure, Event Grid either retries delivery or drops the message that was meant to be routed. Event Grid doesn't guarantee order for event delivery, so subscribers might receive them out of order. 
+While routing MQTT messages to custom topics, Event Grid provides durable delivery as it tries to deliver each message **at least once**  immediately. If there's a failure, Event Grid either retries delivery or drops the message that was meant to be routed. Event Grid doesn't guarantee order for event delivery, so subscribers might receive them out of order. 
 
 The following table describes the behavior of MQTT message routing based on different errors.
 
 | Error| Error description | Behavior |
 | --------------| -----------|-----------|
-| TopicNotFoundError | The custom topic that is configured to receive all the MQTT routed messages was deleted. This error doesn't apply for namespace topics since they can't be deleted if they're used as the destination for MQTT routed messages. | Event Grid drops the MQTT message that was meant to be routed.|
-| AuthenticationError | The EventGrid Data Sender role for the custom topic configured as the destination for MQTT routed messages was deleted. This error doesn't apply for namespace topics since they don't need a permission to route MQTT messages.   | Event Grid drops the MQTT message that was meant to be routed.|
-| TooManyRequests | The number of MQTT routed messages per second exceeds the limit of the destination (namespace topic or custom topic) for MQTT routed messages. | Event Grid retries to route the MQTT message.|
+| TopicNotFoundError | The custom topic that is configured to receive all the MQTT routed messages was deleted. | Event Grid drops the MQTT message that was meant to be routed.|
+| AuthenticationError | The EventGrid Data Sender role for the custom topic configured as the destination for MQTT routed messages was deleted.   | Event Grid drops the MQTT message that was meant to be routed.|
+| TooManyRequests | The number of MQTT routed messages per second exceeds the publish limit for the custom topic. | Event Grid retries to route the MQTT message.|
 | ServiceError |  An unexpected server error for a server's operational reason.  | Event Grid retries to route the MQTT message.|
  
 During retries, Event Grid uses an exponential backoff retry policy for MQTT message routing. Event Grid retries delivery on the following schedule on a best effort basis:
