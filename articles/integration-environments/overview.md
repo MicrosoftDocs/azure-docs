@@ -73,7 +73,7 @@ You create an integration environment, which includes an application group that 
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process modeling in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-For each business process stage, you specify the key business data properties that your organization wants to capture. You then map each stage to the corresponding operation in a Standard logic app workflow and map the properties to operation outputs that provide the necessary data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
+For each business process stage, you specify the key business data properties that your organization wants to track. You then map each stage to the corresponding operation in a Standard logic app workflow and map the properties to operation outputs that provide the necessary data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture. For example, on the following page, you map the business properties from the **Create_ticket** stage to operation outputs in a Standard logic app workflow:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
