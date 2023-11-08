@@ -49,7 +49,9 @@ Get started with this offer by ensuring that you have the prerequisite services 
 
 1. Create a new Azure Cosmos DB account.
 
-1. [Register for the Azure AI Advantage offer](https://aka.ms/AzureAIAdvantageSignupForm)
+1. Register for the Azure AI Advantage offer: <https://aka.ms/AzureAIAdvantageSignupForm>
+
+1. The team will review your registration and will follow-up via e-mail.
 
 ## After the offer
 
