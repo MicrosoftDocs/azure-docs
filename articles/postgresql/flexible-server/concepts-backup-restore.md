@@ -170,23 +170,20 @@ After you restore the database, you can perform the following tasks to get your 
  
 ## Long-term retention (preview)
 
-Azure Backup and Azure PostgreSQL Services have come together to build an enterprise-class long term backup solution for Azure Database for PostgreSQL Flexible servers that retains backups for up to 10 years.  You can use long term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL that offers retention up to 35 days. The automated backups are physical backups, which are suited for operational recoveries especially when you want to restore from the latest backups. Long term backups helps you with your compliance needs and are more granular in nature and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
+Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL Flexible servers that retain backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL, which offers retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
 
-- Customer controlled scheduled and on-demand backups at the individual database level.
 
-- Central monitoring of all operations and jobs.
+-	Customer-controlled scheduled and on-demand backups at the individual database level.
+-	Central monitoring of all operations and jobs.
+- Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
+- Using pg_dump allows greater flexibility in restoring data across different database versions.
+-	Azure backup vaults support immutability and soft delete (preview) features, protecting your data.
 
-- Backups are stored in separate security and fault domains. If the source server or subscription is compromised in any circumstances, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
-
-- Use of pg_dump allows greater flexibility in restoring data, including the ability to restore across different database versions.
-
-- Azure backup vaults supports immutability and soft delete (preview) features, providing an added layer of protection for your data.
-- 
 #### Limitations and Considerations
 
-- During early preview, Long Term Retention is available only in East US1, West Europe and Central India regions. Support for other regions is coming soon.
+- During the early preview, Long Term Retention is available only in East US1, West Europe, and Central India regions. Support for other regions is coming soon.
+- In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
 
-- In preview, LTR restore is currently available as **RestoreasFiles** to storage accounts. **RestoreasServer** capability will be added in future.
 
 
 ## Frequently asked questions
