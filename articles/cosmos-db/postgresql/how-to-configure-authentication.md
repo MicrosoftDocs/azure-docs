@@ -14,7 +14,7 @@ ms.date: 11/06/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT]
-> Microsoft Entra ID authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
+> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended
 > for production workloads. Certain features might not be supported or might have constrained
 > capabilities.
@@ -25,7 +25,7 @@ In this article, you configure authentication methods for Azure Cosmos DB for Po
 
 An Azure Cosmos DB for PostgreSQL cluster is created with one built-in native PostgreSQL role named 'citus'. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
-You can also configure Microsoft Entra ID authentication for Azure Cosmos DB for PostgreSQL. You can enable Microsoft Entra ID authentication in addition or instead of the native PostgreSQL authentication on your cluster. You can change authentication methods enabled on cluster at any point after the cluster is provisioned. When Microsoft Entra ID authentication is enabled, you can add multiple Microsoft Entra ID users to an Azure Cosmos DB for PostgreSQL cluster and make any of them administrators. Microsoft Entra ID user can be a user or a service principal.
+You can also configure Microsoft Entra ID (formerly Azure Active Directory) authentication for Azure Cosmos DB for PostgreSQL. You can enable Microsoft Entra ID authentication in addition or instead of the native PostgreSQL authentication on your cluster. You can change authentication methods enabled on cluster at any point after the cluster is provisioned. When Microsoft Entra ID authentication is enabled, you can add multiple Microsoft Entra ID users to an Azure Cosmos DB for PostgreSQL cluster and make any of them administrators. Microsoft Entra ID user can be a user or a service principal.
 
 ## Choose authentication method
 You need to use Azure portal to configure authentication methods on an Azure Cosmos DB for PostgreSQL cluster.
