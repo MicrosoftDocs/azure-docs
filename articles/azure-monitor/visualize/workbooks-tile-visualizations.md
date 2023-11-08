@@ -92,8 +92,8 @@ The tiles in read mode:
         * **Color palette**: `Green to Red`
         * **Minimum value**: `0`
 1. Select **Save and Close** at the bottom of the pane.
-
-:::image type="content" source="./media/workbooks-tile-visualizations/spark-line.png" lightbox="./media/workbooks-tile-visualizations/spark-line.png" alt-text="Screenshot that shows tile visualization with a spark line.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-tile-visualizations/spark-line.png" lightbox="./media/workbooks-tile-visualizations/spark-line.png" alt-text="Screenshot that shows tile visualization with a spark line." border="false":::
 
 ## Tile sizes
 
@@ -102,18 +102,18 @@ You have an option to set the tile width in the tile settings:
 * `fixed` (default)
 
     The default behavior of tiles is to be the same fixed width, approximately 160 pixels wide, plus the space around the tiles.
-
-    :::image type="content" source="./media/workbooks-tile-visualizations/tiles-fixed.png" lightbox="./media/workbooks-tile-visualizations/tiles-fixed.png" alt-text="Screenshot that shows fixed-width tiles.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-tile-visualizations/tiles-fixed.png" lightbox="./media/workbooks-tile-visualizations/tiles-fixed.png" alt-text="Screenshot that shows fixed-width tiles." border="false":::
 * `auto`
 
     Each title shrinks or grows to fit their contents. The tiles are limited to the width of the tiles' view (no horizontal scrolling).
-
-    :::image type="content" source="./media/workbooks-tile-visualizations/tiles-auto.png" lightbox="./media/workbooks-tile-visualizations/tiles-auto.png" alt-text="Screenshot that shows auto-width tiles.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-tile-visualizations/tiles-auto.png" lightbox="./media/workbooks-tile-visualizations/tiles-auto.png" alt-text="Screenshot that shows auto-width tiles." border="false":::
 * `full size`
 
     Each title is always the full width of the tiles' view, with one title per line.
-
-     :::image type="content" source="./media/workbooks-tile-visualizations/tiles-full.png" lightbox="./media/workbooks-tile-visualizations/tiles-full.png" alt-text="Screenshot that shows full-size-width tiles.":::
+     <!-- convertborder later -->
+     :::image type="content" source="./media/workbooks-tile-visualizations/tiles-full.png" lightbox="./media/workbooks-tile-visualizations/tiles-full.png" alt-text="Screenshot that shows full-size-width tiles." border="false":::
 
 ## Next steps
 
