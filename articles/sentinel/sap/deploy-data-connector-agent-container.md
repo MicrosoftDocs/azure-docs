@@ -70,7 +70,7 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 
 - **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
-- If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container), though this is not preferred.
+- If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](reference-systemconfig.md), though this is not preferred.
 
 ## Prerequisites
 
@@ -78,7 +78,8 @@ Before you deploy the data connector agent, make sure you have done the followin
 
 - Follow the [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
-- Set up a Key Vault, using either a [managed identity](deploy-data-connector-agent-container.md?tabs=managed-identity#create-key-vault) or a [registered application](deploy-data-connector-agent-container.md?tabs=registered-application#create-key-vault). Make sure you have the necessary permissions.
+- Set up a Key Vault, using either a [managed identity](deploy-data-connector-agent-container.md?tabs=managed-identity#create-key-vault) or a [registered application](deploy-data-connector-agent-container.md?tabs=registered-application#create-key-vault). Make sure you have the necessary permissions. 
+    - If your circumstances do not allow for using Azure Key Vault, create a [**configuration file**](reference-systemconfig.md) to use instead.
 - For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
 
 ## Deploy the data connector agent container
@@ -153,7 +154,6 @@ This section has two steps:
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
-
 ---
 
 #### Create Key Vault
@@ -168,9 +168,9 @@ This section has two steps:
 
 1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you assign the key vault access policy and run the deployment script in the coming steps.
 
-# [Managed identity](#tab/managed-identity)
+    # [Managed identity](#tab/managed-identity)
 
-#### Assign a key vault access policy
+    #### Assign a key vault access policy
 
 1. Run the following command to **assign a key vault access policy** to the VM's **system-assigned managed identity** that you copied above (substitute actual names for the `<placeholders>`):
 
@@ -180,13 +180,9 @@ This section has two steps:
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
-1. **Sign in to the newly created machine** with a user with sudo privileges.
+    # [Registered application](#tab/registered-application)
 
-1. **Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine on which you want to install the agent.
-
-# [Registered application](#tab/registered-application)
-
-#### Assign a key vault access policy
+    #### Assign a key vault access policy
 
 1. Run the following command to **assign a key vault access policy** to the **registered application identity** that you copied above (substitute actual names or values for the `<placeholders>`):
 
@@ -202,7 +198,7 @@ This section has two steps:
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
----
+    ---
 
 # [Configuration file](#tab/config-file)
 
@@ -285,6 +281,10 @@ This section has two steps:
 ### Deploy the data connector agent
 
 Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems.
+
+1. **Sign in to the newly created VM** on which you are installing the agent, as a user with sudo privileges.
+
+1. **Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
 # [Azure portal](#tab/azure-portal/managed-identity)
 
