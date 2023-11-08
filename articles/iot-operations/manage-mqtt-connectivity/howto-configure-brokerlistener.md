@@ -43,11 +43,14 @@ To inspect the listener, run:
 kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
-The output should look like this, with metadata removed for brevity:
+The output should look like this, with most metadata removed for brevity:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
+metadata:
+  name: listener
+  namespace: azure-iot-operations
 spec:
   brokerRef: broker
   authenticationEnabled: true
