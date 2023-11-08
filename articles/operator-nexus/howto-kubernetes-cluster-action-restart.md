@@ -44,7 +44,7 @@ To use this command, you need to understand the various options for specifying t
 - `--subscription` - is an optional argument that specifies the subscription that the resource group is located in. If you have multiple subscriptions, you have to specify which one to use.
 
 
-Sample output is as followed:
+Here is an example of the output that the 'restart-node' generates,
 
 ```json
 {
