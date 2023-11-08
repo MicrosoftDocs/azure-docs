@@ -26,20 +26,20 @@ Now that your web app is created, you'll need to do the following before deployi
 >NOTE: If you are deploying a .NET gRPC app to App Service with Visual Studio, skip to step 3.  Visual Studio will set the HTTP version and HTTP 2.0 Proxy configuration for you. 
 
 #### 1. Enable HTTP version
-The first setting you'll need to configure is the HTTP version
+The first setting you need to configure is the HTTP version
 1. Navigate to **Configuration** under **Settings** in the left pane of your web app
 2. Click on the **General Settings** tab and scroll down to **Platform settings**
 3. Go to the **HTTP version** drop-down and select **2.0**
 4. Click **save**
 
-This will restart your application and configure the front end to allow clients to make HTTP/2 calls.
+This restarts your application and configure the front end to allow clients to make HTTP/2 calls.
 
 #### 2. Enable HTTP 2.0 Proxy
 Next, you'll need to configure the HTTP 2.0 Proxy:
 1. Under the same **Platform settings** section, find the **HTTP 2.0 Proxy** setting and select **gRPC Only**.
 2. Click **save**
 
-Once turned on, this setting will configure your site to be forwarded HTTP/2 requests.
+Once turned on, this setting configures your site to be forwarded HTTP/2 requests.
 
 #### 3. Add HTTP20_ONLY_PORT application setting
 App Service requires an application setting that specifically listens for HTTP/2 traffic.
@@ -68,10 +68,10 @@ Currently gRPC is a Linux only feature.  Support for Windows is coming in 2024 f
 gRPC is supported for each language that supports gRPC.  
 
 ### Client Certificates
-HTTP/2 enabled on App Service does not currently support client certificates.  Client certificates will need to be ignored when using gRPC.
+HTTP/2 enabled on App Service doesn't currently support client certificates.  Client certificates will need to be ignored when using gRPC.
 
 ### Secure calls
 gRPC must make secure HTTP calls to App Service.  You cannot make insecure calls.
 
 ### Activity Timeout
-gRPC requests on App Service have a timeout request limit.  gRPC requests will timeout after 20 minutes of inactivity.  
+gRPC requests on App Service have a timeout request limit.  gRPC requests will time out after 20 minutes of inactivity.  
