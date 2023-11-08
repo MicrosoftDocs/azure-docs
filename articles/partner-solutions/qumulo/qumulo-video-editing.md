@@ -3,7 +3,7 @@ title: Azure Native Qumulo Scalable File Service for video editing
 description: In this article, learn about the use case for Azure Native Qumulo Scalable File Service for video editing.
 
 ms.topic: overview
-ms.date: 11/15/2003
+ms.date: 11/15/2023
 
 ---
 

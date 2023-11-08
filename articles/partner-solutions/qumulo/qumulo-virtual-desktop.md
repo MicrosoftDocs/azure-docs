@@ -38,13 +38,13 @@ Azure Native Qumulo for with Azure Virtual desktop is a solution that is distrib
 1. Application-tier services and client software can be deployed either through application streaming or as part of the base AVD image.
 1. AVD resource pools, desktop images, applications and service monitoring are managed by Nerdio Manager.
 1. The ANQ service used in the solution is deployed in Qumulo’s Azure tenant.
-1. Access to the ANQ service is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant. 
+1. Access to the ANQ service is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
     > [!NOTE]
     >  Qumulo has no access to any of your data on any ANQ instance.
 1. All user profiles on the ANQ service instance in each Azure region are replicated to the ANQ service instance in the other Azure region through Qumulo Continuous Replication service.
 1. In the event of an AVD service interruption in one Azure region, all AVD services, including AVD resource pools, Nerdio connection and resource management, FSLogix Profile management, and user profiles on the ANQ service instance fail over to the designated secondary Azure region.
 
-### Process Workflow
+### Process workflow
 
 The process flow for Azure Native Qumulo for with Azure Virtual desktop is depicted here:
 
@@ -71,35 +71,35 @@ When planning a highly-available Azure Virtual Desktop solution that uses Azure 
 
 Your enterprise can use this solution if you are looking to satisfy any or all of the following applicable scenarios.
 
-- Remote end users: 
+- Remote end users:
   - Enterprises that employ a globally distributed workforce can use a multi-region AVD deployment to minimize latency when accessing enterprise resources from anywhere in the world.
 
-- Workforce elasticity: 
-  - An AVD solution delivers corporate desktop services quickly and reliably, even to end users whose client hardware is not up to corporate or enterprise standards. ANQ with AVD allows organizations to bring a large number of workers online quickly. For example: 
-    - for seasonal help, 
+- Workforce elasticity:
+  - An AVD solution delivers corporate desktop services quickly and reliably, even to end users whose client hardware is not up to corporate or enterprise standards. ANQ with AVD allows organizations to bring a large number of workers online quickly. For example:
+    - for seasonal help,
     - as part of a merger and acquisition process
     - in response to external events that have shuttered physical facilities and sent users home.
 
-- Desktop image management: 
+- Desktop image management:
   - The use of ephemeral desktops that are created right before a user connects, and then destroyed when the user logs off a few hours later, means that the process of updating operating system versions and images, can be rolled out across an entire enterprise within days by updating the relevant base image and redeploying to a new resource pool.
 
-- Software management: 
+- Software management:
   - AVD also simplifies the process of deploying new enterprise software applications, maintaining licensing compliance on existing software agreements, and preventing the installation of unauthorized software by rogue users.
 
-- Security and compliance: 
+- Security and compliance:
   - In heavily-regulated environments, such as healthcare, government, education, or the financial sector, an AVD solution can be configured through policy to enhance compliance with relevant corporate standards, as well as any applicable legal and regulatory requirements. These policies and standards can be difficult to enforce on physical client hardware, for example preventing data theft through USB drive, or deactivating enterprise antivirus/monitoring tools.
 
 ### Scalability and performance
 
 When planning a high-availability AVD solution designed to provide desktop services to a large number of geographically-dispersed users, consider the following factors for capacity and design:
 
-- Capacity and growth: 
+- Capacity and growth:
   - the ANQ service instance can be scaled as needed in response to an increased user count or to a higher space allocation per user. Your enterprises can improve the overall TCO of the solution by not over-provisioning file capacity before it’s needed.
-- Performance: 
+- Performance:
   - The overall architecture of the solution anticipates the possibility of a failover event, in which users and desktops from both regions are suddenly dependent on a single region for both data and compute services. The solution should include a rapid-response plan for increasing available resources within the solution’s designated recovery-time objective (RTO) to ensure acceptable performance.
-- Throughput: 
+- Throughput:
   - ANQ can scale throughput as needed to meet heavier short-term performance needs, for example, burst processing, or a high number of concurrent user logins. The overall solution design should include the ability to add capacity and throughput in response to changing needs.
-- Latency: 
+- Latency:
   - When assigning users to one region or the other, the user’s location relative to one region’s access point as compared to location of the others should be a key factor.
 
 ### Security
@@ -115,6 +115,7 @@ Since this solution provides user-facing services, antivirus, anti-malware, and 
 Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar page](/azure/well-architected/cost/overview).
 
 - Azure Native Qumulo is available in multiple tiers, giving you a choice of multiple capacity-to-throughput options to meet your specific workload needs.
+
 - Different users within the solution might have different requirements for the overall availability and performance of their virtual machines. If so, consider a tiered approach that ensures all workers have what they need for optimal productivity.
 
 ### Availability
@@ -136,8 +137,11 @@ For specific information about the availability and recovery options for the AVD
 ## Deployment
 
 - To deploy Azure Native Qumulo Scalable File Service, see [our website](https://qumulo.com/product/azure/).
+
 - For more information regarding the deployment of Azure Virtual Desktop, visit the [Azure Virtual Desktop](/azure/virtual-desktop/) documentation page.
+
 - For more information regarding FSLogix, see [FSLogix](/fslogix/).
+
 - To learn more about the use of Nerdio Manager for Enterprises or Managed Service Providers, see [Nerdio](https://getnerdio.com/) website.
 
 ## Next steps
