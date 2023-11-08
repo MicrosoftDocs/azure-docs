@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 02/10/2023
+ms.date: 10/12/2023
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -248,48 +248,6 @@ At this stage, the disk encryption set and key vault statuses are changed to *Co
 > [!NOTE]
 > After you've committed the move, the resource status changes to *Delete source pending*.
 
-
-## Move the source resource group 
-
-Before you can prepare and move VMs, the VM resource group must be present in the target region. 
-
-### Prepare to move the source resource group
-
-During the preparation process, Resource Mover generates Azure Resource Manager (ARM) templates from the resource group settings. The resources inside the resource group are unaffected.
-
-To prepare to move the source resource group, do the following:
-
-1. In the **Across regions** tab, select the source resource group, and select **Prepare**.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Screenshot of the 'Prepare' button on the 'Prepare resources' pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
-
-1. In **Prepare resources**, select **Prepare**.
-
-> [!NOTE]
-> After you've prepared the move, the resource group status changes to *Initiate move pending*. 
-
- 
-### Move the source resource group
-
-**Begin moving the source resource group by doing the following:**
-
-1. On the **Across regions** pane, select the resource group, and select **Initiate move**.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Screenshot of the 'Initiate move' button on the 'Across regions' pane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
-
-1. On the **Move resources** pane, select **Initiate move**. The resource group status changes to *Initiate move in progress*.   
-1. After you initiate the move, the target resource group is created, based on the generated ARM template. The source resource group status changes to *Commit move pending*.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Screenshot of the 'Move resources' pane showing the resource group status changed to 'Commit move pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
-
-**To commit the move and finish the process, do the following:**
-
-1. On the **Across regions** pane, select the resource group, and select **Commit move**.
-1. On the **Move Resources** pane, select **Commit**.
-
-> [!NOTE]
-> After you've committed the move, the source resource group status changes to *Delete source pending*.
-> :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to 'Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## Prepare resources to move
 

@@ -58,7 +58,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 - Get Application ID of Managed Identity
 
-    Go to Azure Active Directory, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
+    Go to Microsoft Entra ID, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
 
 ### Step3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
 

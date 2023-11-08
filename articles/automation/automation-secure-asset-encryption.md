@@ -53,7 +53,7 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 
 - An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there's accidental deletion.
 - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
-- The Automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
+- The Automation account and the key vault can be in different subscriptions but need to be in the same Microsoft Entra tenant.
 - When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Generate and assign a new system-assigned identity for an Automation account

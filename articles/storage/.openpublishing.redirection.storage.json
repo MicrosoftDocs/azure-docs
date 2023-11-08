@@ -121,6 +121,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/static-website-content-delivery-network.md",
+            "redirect_url": "/azure/cdn/cdn-create-a-storage-account-with-cdn",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/storage-use-azcopy-troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot",
             "redirect_document_id": false

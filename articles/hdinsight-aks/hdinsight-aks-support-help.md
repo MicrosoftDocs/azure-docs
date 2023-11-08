@@ -38,7 +38,7 @@ The following table lists the tags for HDInsight on AKS and related services:
 | [Azure storage accounts](/azure/storage/common/storage-account-overview) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
 | [Azure Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
 | [Azure RBAC](/azure/role-based-access-control/overview) | [azure-rbac](/answers/topics/azure-rbac.html)|
-| [Azure Active Directory](/azure/active-directory/fundamentals/whatis) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
+| [Microsoft Entra ID](/azure/active-directory/fundamentals/whatis) | [Microsoft Entra ID](/answers/topics/azure-active-directory.html)|
 | [Azure Virtual Network](/azure/virtual-network/network-overview) | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
 
 ## Create an Azure support request

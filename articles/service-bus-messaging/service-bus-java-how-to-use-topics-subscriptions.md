@@ -489,10 +489,6 @@ See the following documentation and samples:
 - [Samples on GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
-
+<!-- Local links -->
 [Azure SDK for Java]: /java/api/overview/azure/
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
-[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

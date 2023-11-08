@@ -11,7 +11,7 @@ ms.custom: subject-rbac-steps
 > [!NOTE]
 > Managed identity support for Azure Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize managed identity.
 
-Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The Azure platform manages the identity and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (Azure AD), see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The Azure platform manages the identity and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 

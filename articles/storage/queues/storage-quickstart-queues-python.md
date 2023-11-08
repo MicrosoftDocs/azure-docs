@@ -74,7 +74,7 @@ pip install azure-storage-queue azure-identity
     ```python
     import os, uuid
     from azure.identity import DefaultAzureCredential
-    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
+    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage, BinaryBase64DecodePolicy, BinaryBase64EncodePolicy
 
     try:
         print("Azure Queue storage - Python quickstart sample")

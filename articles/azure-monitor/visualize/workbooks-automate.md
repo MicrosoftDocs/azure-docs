@@ -29,8 +29,8 @@ Two types of workbook resources can be managed programmatically:
 1. Switch the workbook to edit mode by selecting **Edit**.
 1. Open the **Advanced Editor** by using the **</>** button on the toolbar.
 1. Ensure you're on the **Gallery Template** tab.
-
-    ![Screenshot that shows the Gallery Template tab.](./media/workbooks-automate/gallery-template.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-automate/gallery-template.png" lightbox="./media/workbooks-automate/gallery-template.png" alt-text="Screenshot that shows the Gallery Template tab." border="false":::
 
 1. Copy the JSON in the gallery template to the clipboard.
 1. The following sample ARM template deploys a workbook template to the Azure Monitor workbook gallery. Paste the JSON you copied in place of `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. For a reference ARM template that creates a workbook template, see [this GitHub repository](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
@@ -106,7 +106,7 @@ Two types of workbook resources can be managed programmatically:
 | Usage in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
 | Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
 | Workbooks in resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
-| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| Workbooks in Microsoft Entra ID            | `microsoft.aadiam/tenant`                           | `workbook`    |
 | VM Insights in virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
 | VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
@@ -117,8 +117,8 @@ Two types of workbook resources can be managed programmatically:
 1. Open the **Advanced Editor** by selecting **</>**.
 1. In the editor, switch **Template Type** to **ARM template**.
 1. The ARM template for creating shows up in the editor. Copy the content and use as-is or merge it with a larger template that also deploys the target resource.
-
-    ![Screenshot that shows how to get the ARM template from within the workbook UI.](./media/workbooks-automate/programmatic-template.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-automate/programmatic-template.png" lightbox="./media/workbooks-automate/programmatic-template.png" alt-text="Screenshot that shows how to get the ARM template from within the workbook UI." border="false":::
 
 ## Sample ARM template
 This template shows how to deploy a workbook that displays `Hello World!`.

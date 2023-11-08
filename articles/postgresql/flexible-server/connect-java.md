@@ -20,9 +20,9 @@ This article demonstrates creating a sample application that uses Java and [JDBC
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the PostgreSQL authentication.
+In this article, we'll include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the PostgreSQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you'll need to manage the rotation of the passwords by yourself.
 
@@ -54,11 +54,11 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server, which should be unique across Azure.
 - `<YOUR_DATABASE_NAME>`: The database name of the PostgreSQL server, which should be unique within Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
-- `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`: The username of your PostgreSQL database server. Make ensure the username is a valid user in your Azure AD tenant.
+- `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`: The username of your PostgreSQL database server. Make ensure the username is a valid user in your Microsoft Entra tenant.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 > [!IMPORTANT]
-> When setting `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`, the username must already exist in your Azure AD tenant or you will be unable to create an Azure AD user in your database.
+> When setting `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`, the username must already exist in your Microsoft Entra tenant or you will be unable to create a Microsoft Entra user in your database.
 
 ### [Password](#tab/password)
 
@@ -123,10 +123,10 @@ az postgres flexible-server create \
     --output tsv
 ```
 
-To set up an Azure AD administrator after creating the server, follow the steps in [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
+To set up a Microsoft Entra administrator after creating the server, follow the steps in [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 > [!IMPORTANT]
-> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. You can create multiple Azure AD administrators per PostgreSQL Flexible Server.
+> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. You can create multiple Microsoft Entra administrators per PostgreSQL Flexible Server.
 
 #### [Password](#tab/password)
 
@@ -206,7 +206,7 @@ az postgres flexible-server db create \
 Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
-> You can read more detailed information about managing PostgreSQL users in [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
+> You can read more detailed information about managing PostgreSQL users in [Manage Microsoft Entra users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -218,7 +218,7 @@ select * from pgaadauth_create_principal('$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME',
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
@@ -241,7 +241,7 @@ GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_NON_ADMIN_
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_ADMIN_USERNAME dbname=$AZ_DATABASE_NAME port=5432 password=$AZ_POSTGRESQL_ADMIN_PASSWORD sslmode=require" < create_user.sql

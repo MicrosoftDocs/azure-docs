@@ -23,7 +23,7 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     Learn more about [roles in Microsoft Sentinel](roles.md).
 
-- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
+- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Microsoft Entra tenant. Regular (non-guest) users have this role assigned by default.
 
 ## Navigate and triage incidents
 

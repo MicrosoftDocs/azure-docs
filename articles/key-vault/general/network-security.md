@@ -22,7 +22,7 @@ This section will cover the different ways that an Azure Key Vault firewall can 
 
 ### Key Vault Firewall Disabled (Default)
 
-By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. This configuration doesn't mean that any user will be able to perform operations on your key vault. The key vault still restricts access to secrets, keys, and certificates stored in key vault by requiring Azure Active Directory authentication and access policy permissions. To understand key vault authentication in more detail, see [Authentication in Azure Key Vault](authentication.md). For more information, see [Access Azure Key Vault behind a firewall](access-behind-firewall.md).
+By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. This configuration doesn't mean that any user will be able to perform operations on your key vault. The key vault still restricts access to secrets, keys, and certificates stored in key vault by requiring Microsoft Entra authentication and access policy permissions. To understand key vault authentication in more detail, see [Authentication in Azure Key Vault](authentication.md). For more information, see [Access Azure Key Vault behind a firewall](access-behind-firewall.md).
 
 ### Key Vault Firewall Enabled (Trusted Services Only)
 

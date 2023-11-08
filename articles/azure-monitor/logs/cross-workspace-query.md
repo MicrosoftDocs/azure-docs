@@ -2,8 +2,8 @@
 title: Query across resources with Azure Monitor  | Microsoft Docs
 description: This article describes how you can query against resources from multiple workspaces and an Application Insights app in your subscription.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 05/30/2023
 
 ---
@@ -12,7 +12,7 @@ ms.date: 05/30/2023
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This capability provides you with a systemwide view of your data.
 
-If you manage subscriptions in other Azure Active Directory (Azure AD) tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
+If you manage subscriptions in other Microsoft Entra tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
 There are two methods to query data that's stored in multiple workspaces and apps:
 
@@ -30,6 +30,7 @@ There are two methods to query data that's stored in multiple workspaces and app
 ## Cross-resource query limits
 
 * The number of Application Insights components and Log Analytics workspaces that you can include in a single query is limited to 100.
+* Querying across a large number of resources can substantially slow down the query.
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Gather identifiers for Log Analytics workspaces](?tabs=workspace-identifier#gather-identifiers-for-log-analytics-workspaces-and-application-insights-resources) for examples.
 

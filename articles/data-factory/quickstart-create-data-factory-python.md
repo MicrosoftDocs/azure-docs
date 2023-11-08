@@ -14,9 +14,6 @@ ms.custom: seo-python-october2019, devx-track-python, mode-api
 
 # Quickstart: Create a data factory and pipeline using Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,7 +33,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
+* [An application in Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 

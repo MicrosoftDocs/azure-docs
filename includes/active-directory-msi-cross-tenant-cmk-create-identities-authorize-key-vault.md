@@ -25,14 +25,14 @@ The following steps are performed by the service provider in the service provide
 
 #### The service provider creates a new multi-tenant app registration
 
-You can either create a new multi-tenant Azure AD application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the application ID (client ID) of the application.
+You can either create a new multi-tenant Microsoft Entra application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the application ID (client ID) of the application.
 
 To create a new registration:
 
-1. Search for **Azure Active Directory** in the search box. Locate and select the **Azure Active Directory** extension.
+1. Search for **Microsoft Entra ID** in the search box. Locate and select the **Microsoft Entra ID** extension.
 1. Select **Manage > App registrations** from the left pane.
 1. Select **+ New registration**.
-1. Provide the name for the application registration and select *Account in any organizational directory (Any Azure AD directory – Multitenant)*.
+1. Provide the name for the application registration and select *Account in any organizational directory (Any Microsoft Entra directory – Multitenant)*.
 1. Select **Register**.
 1. Note the **ApplicationId/ClientId** of the application.
 
@@ -56,7 +56,7 @@ Create a user-assigned managed identity to be used as a federated identity crede
 
 Configure a user-assigned managed identity as a federated identity credential on the application, so that it can impersonate the identity of the application.
 
-1. Navigate to **Azure Active Directory > App registrations > your application**.
+1. Navigate to **Microsoft Entra ID > App registrations > your application**.
 2. Select **Certificates & secrets**.
 3. Select **Federated credentials**.
 

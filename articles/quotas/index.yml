@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What are Azure Quotas?
             url: quotas-overview.md
+          - text: How to Monitor and get Alerts for Usages
+            url: monitoring-alerting.md
          
   # Card
   - title: View quotas and request increases
@@ -37,6 +39,8 @@ landingContent:
             url: regional-quota-requests.md
           - text: Increase spot vCPU quotas
             url: spot-quota.md
+          - text: Monitoring & Alerting - How-to-Guide
+            url: how-to-guide-monitoring-alerting.md
 
   # Card
   - title: API Reference

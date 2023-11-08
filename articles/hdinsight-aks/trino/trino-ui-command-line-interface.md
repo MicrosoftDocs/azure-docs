@@ -3,17 +3,17 @@ title: Trino CLI
 description: Using Trino via CLI
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Trino CLI
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-The Trino CLI provides a terminal-based, interactive shell for running queries.
+The Trino CLI for HDInsight on AKS provides a terminal-based, interactive shell for running queries.
 
 ## Install on Windows
-For Windows, the Trino CLI is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell. When installing for Windows Subsystem for Linux (WSL), see [Install on Linux](#install-on-linux).
+For Windows, the Trino CLI for HDInsight on AKS is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell. When installing for Windows Subsystem for Linux (WSL), see [Install on Linux](#install-on-linux).
 
 ### Requirements
 
@@ -23,7 +23,7 @@ For Windows, the Trino CLI is installed via an MSI, which gives you access to th
 
 ### Install or update
 
-The MSI package is used for installing or updating the HDInsight on AKS Trino CLI on Windows.
+The MSI package is used for installing or updating the Trino CLI for HDInsight on AKS on Windows.
 
 Download and install the latest release of the Trino CLI. When the installer asks if it can make changes to your computer, click the "Yes" box. After the installation is complete, you'll need to close and reopen any active Windows Command Prompt or PowerShell windows to use the Trino CLI.
 
@@ -131,7 +131,7 @@ rm -r $HOME/lib/trino-cli
 ```
 
 ## Authentication
-Trino CLI supports various methods of Azure Active Directory authentication using command line parameters. The following table describes the important parameters and authentication methods, for more information, see [Authentication](./trino-authentication.md).
+Trino CLI supports various methods of Microsoft Entra authentication using command line parameters. The following table describes the important parameters and authentication methods, for more information, see [Authentication](./trino-authentication.md).
 
 Parameters description available in CLI as well:
 ```bash
@@ -142,10 +142,10 @@ trino-cli --help
 |----|----|----|----|
 |auth|Name of authentication method|No|Determines how user credentials are provided. If not specified, uses `AzureDefault`.|
 |azure-client|Client ID|Yes for `AzureClientSecret, AzureClientCertificate`.|Client ID of service principal/application.|
-|azure-tenant|Tenant ID|Yes for `AzureClientSecret, AzureClientCertificate`.|Azure Active Directory Tenant ID.|
+|azure-tenant|Tenant ID|Yes for `AzureClientSecret, AzureClientCertificate`.|Microsoft Entra tenant ID.|
 |azure-certificate-path|File path to certificate|Yes for `AzureClientCertificate`.|Path to pfx/pem file with certificate.|
 |azure-use-token-cache|Use token cache or not|No|If provided, access token is cached and reused in `AzureDefault, AzureInteractive, AzureDeviceCode` modes.|
-|azure-scope|Token scope|No|Azure Active Directory scope string to request a token with.|
+|azure-scope|Token scope|No|Microsoft Entra scope string to request a token with.|
 |use-device-code|Use device code method or not|No|Equivalent to `--auth AzureDeviceCode`.|
 |password|Client secret for service principal|Yes for `AzureClientSecret`.|Secret/password for service principal when using `AzureClientSecret` mode.|
 |access-token|JWT access token|No|If access token obtained externally, can be provided using this parameter. In this case, `auth` parameter isn't allowed.|

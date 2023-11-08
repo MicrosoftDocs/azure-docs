@@ -25,7 +25,7 @@ The Customer-managed keys (CMKs) feature supports the following key types. See t
 
 ## Topology
 
-The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a key vault to deliver the customer-managed key.
+The following diagram shows how Azure VMware Solution uses Microsoft Entra ID and a key vault to deliver the customer-managed key.
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png":::
 
@@ -120,7 +120,7 @@ A customer can enable CMK encryption for a specified CMK key version to supply t
 
 ## Enable CMK with system-assigned identity
 
-System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity on Azure resource. The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
+System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity on Azure resource. The managed identity is authenticated with Microsoft Entra ID, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
 > Ensure that key vault is in the same region as the Azure VMware Solution private cloud.

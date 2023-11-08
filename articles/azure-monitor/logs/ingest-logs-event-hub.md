@@ -33,7 +33,7 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need these resou
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster) or to have a [commitment tier](../logs/cost-logs.md#commitment-tiers).
 - [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) that permits public network access. Private Link and Network Security Perimeters (NSP) are currently not supported.
-- [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+- [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/create-diagnostic-settings.md).
 
 ## Supported regions
 
@@ -443,7 +443,7 @@ To stop ingesting data from the event hub, [delete all data collection rule asso
 
 ## Known issues and limitations
 
-- If you transfer a subscription between Azure AD directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
+- If you transfer a subscription between Microsoft Entra directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
 - You can ingest messages of up to 64 KB from Event Hubs to Azure Monitor Logs.
 
 ## Next steps
@@ -453,5 +453,3 @@ Learn more about to:
 - [Create a custom table](../logs/create-custom-table.md#create-a-custom-table).
 - [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Update an existing data collection rule](../essentials/data-collection-rule-edit.md).
-
-

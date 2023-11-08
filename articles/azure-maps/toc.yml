@@ -137,6 +137,8 @@ items:
       href: how-to-view-api-usage.md
   - name: Creator Indoor Maps
     items:
+    - name: Create indoor map with the onboarding tool
+      href: creator-onboarding-tool.md
     - name: Manage Creator
       href: how-to-manage-creator.md
     - name: Drawing package guide
@@ -485,20 +487,6 @@ items:
             href: /rest/api/maps/v2/tileset
           - name: WFS
             href: /rest/api/maps/v2/wfs
-      - name: V20220901Preview
-        items:
-        - name: Dataset
-          href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
-          href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
-          href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
-          href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/v20220901preview/wayfinding
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
@@ -519,6 +507,8 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Drawing Tools module
+        href: release-notes-drawing-tools-module.md
       - name: Spatial IO module
         href: release-notes-spatial-module.md
   - name: Resource Manager template

@@ -19,7 +19,7 @@ For more information, see [Introduction to Azure Data Lake Storage Gen2](/azure/
 
 ## Managed identities for secure file access
 
-Azure HDInsight on AKS uses managed identities (MSI) to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identity is a feature of Azure Active Directory that provides Azure services with a set of automatically managed credentials. These credentials can be used to authenticate to any service that supports Active Directory authentication. Moreover, managed identities don't require you to store credentials in code or configuration files. 
+Azure HDInsight on AKS uses managed identities (MSI) to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identity is a feature of Microsoft Entra ID that provides Azure services with a set of automatically managed credentials. These credentials can be used to authenticate to any service that supports Active Directory authentication. Moreover, managed identities don't require you to store credentials in code or configuration files. 
 
 In Azure HDInsight on AKS, once you select a managed identity and storage during cluster creation, the managed identity can seamlessly work with storage for data management, provided the **Storage Blob Data Owner** role is assigned to the user-assigned MSI. 
 

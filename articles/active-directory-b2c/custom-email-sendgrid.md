@@ -45,8 +45,7 @@ Be sure to complete the section in which you [create a SendGrid API key](https:/
 Next, store the SendGrid API key in an Azure AD B2C policy key for your policies to reference.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
@@ -365,7 +364,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="SendOtp">
-      <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+      <DisplayName>Use SendGrid's email API to send the code to the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>

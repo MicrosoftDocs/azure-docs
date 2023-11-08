@@ -12,18 +12,12 @@ ms.topic: how-to
 
 # Configure a managed identity for a dev center
 
-A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Microsoft Entra authentication. Azure Deployment Environments uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
+In this article, you learn how to add and configure a managed identity for your Azure Deployments Environments dev center to enable secure deployment for development teams.
 
-The managed identity that's attached to a dev center should be [assigned the Owner role in the deployment subscriptions](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) for each environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities that are set up for the environment type to deploy on behalf of the user.
+Azure Deployment Environments uses managed identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created. A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Microsoft Entra authentication.
+
+The managed identity that's attached to a dev center should be [assigned both the Contributor role and the User Access Administrator in the deployment subscriptions](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) for each environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities that are set up for the environment type to deploy on behalf of the user.
 The managed identity that's attached to a dev center also is used to add to a [catalog](how-to-configure-catalog.md) and access [environment definitions](configure-environment-definition.md) in the catalog.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
->
-> - Add a managed identity to your dev center
-> - Assign a subscription role assignment to a managed identity
-> - Grant access to a key vault secret for a managed identity
 
 ## Add a managed identity
 
@@ -65,22 +59,31 @@ As a security best practice, if you choose to use user-assigned identities, use 
 
 ## Assign a subscription role assignment to the managed identity
 
-The identity that's attached to the dev center should be assigned the Owner role for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
+The identity that's attached to the dev center should be assigned the Contributor and User Access Administrator roles for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
 
 ### Add a role assignment to a system-assigned managed identity
 
-1. In the Azure portal, go to your dev center.
+1. In the Azure portal, navigate to your dev center.
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
   
     :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot that shows the Azure role assignment for system-assigned identity.":::
 
-1. On **Azure role assignments**, select **Add role assignment (Preview)**, and then enter or select the following information:
+1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Contributor|
 
-    1. For **Scope**, select **Subscription**.
-    1. For **Subscription**, select the subscription in which to use the managed identity.
-    1. For **Role**, select **Owner**.
-    1. Select **Save**.
+1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 ### Add a role assignment to a user-assigned managed identity
 
@@ -88,16 +91,25 @@ The identity that's attached to the dev center should be assigned the Owner role
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **User assigned**, select the identity.
 1. On the left menu, select **Azure role assignments**.
-1. On **Azure role assignments**, select **Add role assignment (Preview)**, and then enter or select the following information:
+1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Contributor|
 
-    1. For **Scope**, select **Subscription**.
-    1. For **Subscription**, select the subscription in which to use the managed identity.
-    1. For **Role**, select **Owner**.
-    1. Select **Save**.
+1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 ## Grant the managed identity access to the key vault secret
 
-You can set up your key vault to use either a [key vault access policy'](../key-vault/general/assign-access-policy.md) or [Azure role-based access control](../key-vault/general/rbac-guide.md).
+You can set up your key vault to use either a [key vault access policy](../key-vault/general/assign-access-policy.md) or [Azure role-based access control](../key-vault/general/rbac-guide.md).
 
 > [!NOTE]
 > Before you can add a repository as a catalog, you must grant the managed identity access to the key vault secret that contains the repository's personal access token.

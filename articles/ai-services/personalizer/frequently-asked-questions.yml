@@ -113,7 +113,7 @@ sections:
       - question: |
           What API authentication protocols does Personalizer support?
         answer: |
-          Personalizer APIs use Azure Active Directory (Azure AD), which supports a variety of [authentication and synchronization protocols](../../active-directory/fundamentals/auth-sync-overview.md). 
+          Personalizer APIs use Microsoft Entra ID, which supports a variety of [authentication and synchronization protocols](../../active-directory/fundamentals/auth-sync-overview.md). 
       
       - question: |
           The API key for my loop has been compromised. What can I do?

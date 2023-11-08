@@ -110,7 +110,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 ### Auto-delete on idle
 
-[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there's traffic on the queue. The minimum duration is 5 minutes.
+[Auto-delete on idle](/dotnet/api/azure.messaging.servicebus.administration.queueproperties.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there's traffic on the queue. The minimum duration is 5 minutes.
 
 ### Duplicate detection
 

@@ -484,6 +484,20 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: functions-hosting-plan
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: consumption-plan
+    title: Consumption plan
+  - id: premium-plan
+    title: Premium plan
+  - id: dedicated-plan
+    title: Dedicated plan
+  - id: container-apps
+    title: Container Apps
+  - id: azure-arc
+    title: Azure Arc
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -748,6 +762,10 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
@@ -1117,6 +1135,15 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+# Owner: msangapu
+- id: app-service-portal-azd
+  title: App Service deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-developer-cli
+    title: Azure Developer CLI
 - id: app-service-platform-windows-linux-sphere-rtos
   #CBroad
   title: App Service platform
@@ -1632,6 +1659,22 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
+- id: acs-dev-environment-vs-vscode
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+- id: acs-smtp-sending-method
+  title: SMTP Sending Method
+  prompt: Choose a sending method
+  pivots:
+  - id: smtp-method-smtpclient
+    title: C# SmtpClient
+  - id: smtp-method-powershell
+    title: Windows PowerShell
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -1815,6 +1858,10 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript 
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go 
   - id: rest-api
     title: REST
 # Owner: pafarley
@@ -2313,6 +2360,15 @@ groups:
   - id: sc-standard
     title: Basic/Standard
 # Owner: karler
+- id: spring-apps-enterprise-or-consumption-plan-selection
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
+  pivots:
+    - id: sc-enterprise
+      title: Enterprise
+    - id: sc-consumption-plan
+      title: Standard consumption and dedicated (Preview)
+# Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
@@ -2638,6 +2694,16 @@ groups:
     title: MSIX app attach
   - id: app-attach
     title: App attach (preview)
+- id: azure-virtual-desktop-windows-client-troubleshoot
+  title: Remote Desktop client for Windows troubleshoot
+  prompt: "Choose the product you're connecting to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Dev Box
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -2743,3 +2809,12 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: sidandrews
+- id: azure-cosmos-db-quickstart-path
+  title: Azure Cosmos DB Quickstart paths
+  prompt: Choose a development environment
+  pivots:
+  - id: azd
+    title: Azure Developer CLI
+  - id: local
+    title: Local
