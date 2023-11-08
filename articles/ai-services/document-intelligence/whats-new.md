@@ -30,24 +30,24 @@ The Document Intelligence version 4.0 Preview.1 API is now available for use! Th
 This preview API introduces new and updated capabilities:
 
 * [Read](concept-contract.md)
-  * Language Expansjion for Handwrititng: Russian(RU), Arabic(AR), Thai(TH)
-  * Cyber EO compliance
+  * Language Expansjion for Handwritting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
+  * Cyber EO compliance.
 * [Layout](concept-layout.md)
-  *Markdown output support
-  *Table extraction improvments.
+  * Markdown output support.
+  * Table extraction improvements.
 * [Reciept Prebuilt](concept-receipt.md)
-  *Now extracts currencuy for all price related fields.
+  * Now extracts currency for all price-related fields.
 * [Health Insurance Card Prebuilt](concept-health-insurance-card.md)
-  *New field support for Medicare and Medicade information.
+  * New field support for Medicare and Medicade information.
 * [US Tax Document Prebuilts](concept-tax-document.md)
-  *New 1099 tax model. Supports base 1099 form and the following variations: A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB​.
+  * New 1099 tax model. Supports base 1099 form and the following variations: A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB​.
 * [Invoice Prebuilt](concept-invoice.md)
-  *Support for KVK field
-  *Support for Bpay field
-  *Numerous field refinments
+  * Support for KVK field.
+  * Support for Bpay field.
+  * Numerous field refinments
 * [Custom Classification](concept-custom-classifier.md)
-  *Support for multi language documents
-  *New page splitting options: auto-split, always split by page, no split.
+  * Support for multi-language documents.
+  * New page splitting options: auto-split, always split by page, no split.
   
 
 >[!NOTE]
