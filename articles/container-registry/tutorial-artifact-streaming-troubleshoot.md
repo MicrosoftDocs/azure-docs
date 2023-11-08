@@ -46,17 +46,6 @@ This article is part four in a four-part tutorial series. In this tutorial, you 
 
 If an artifact-streaming operation fails with the message "Conversion operation failed due to an unknown error," follow these steps to troubleshoot the issue:
 
-1. Search Kusto logs by operation ID.
-1. Access the Kusto logs at the provided URL 
-1. Use a query to filter logs by the specified operation ID.
-
-```kusto
-KubernetesContainers
-| where PreciseTimeStamp > ago(2h)
-| where operationid == "f9bfc66a-1885-445c-b811-d9da8a946a2d"
-| project-reorder PreciseTimeStamp, correlationid, trace_id, http_request_method, vars_name, vars_digest, ContainerName, RegionStamp, msg, duration, Node, PodName, Tenant, http_request_useragent, http_response_status, service, message, Host, level 
-```
-
 1. Check the conversion status
 
 Check the status of the conversion operation using the operation ID provided in the output of the previous command. It will show the progress and status of the conversion.
