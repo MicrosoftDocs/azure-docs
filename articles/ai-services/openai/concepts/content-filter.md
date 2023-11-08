@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 09/15/2023
+ms.date: 11/06/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
@@ -58,7 +58,7 @@ The default content filtering configuration is set to filter at the medium sever
 | High              | If approved<sup>\*</sup>| If approved<sup>\*</sup> | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered. Requires approval<sup>\*</sup>.|
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
 
-<sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
+<sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review:  Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu)
 
 Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
 
@@ -294,11 +294,10 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
-# [Python](#tab/python)
+# [OpenAI Python 0.28.1](#tab/python)
 
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -387,7 +386,6 @@ print(response)
 The following code snippet shows how to retrieve annotations when content was filtered:
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -414,6 +412,29 @@ except openai.error.InvalidRequestError as e:
         for category, details in content_filter_result.items():
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2023-10-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    )
+
+response = client.completions.create(
+    model="gpt-35-turbo-instruct", # model = "deployment_name".
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+)
+
+print(response.model_dump_json(indent=2))
 ```
 
 # [JavaScript](#tab/javascrit)
@@ -532,7 +553,9 @@ As part of your application design, consider the following best practices to del
 ## Next steps
 
 - Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-- Apply for modified content filters via [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu).
+- Apply for modified content filters via [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu).
 - Azure OpenAI content filtering is powered by [Azure AI Content Safety](https://azure.microsoft.com/products/cognitive-services/ai-content-safety).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context).
 - Learn more about how data is processed in connection with content filtering and abuse monitoring: [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).
+
+

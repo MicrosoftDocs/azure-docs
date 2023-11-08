@@ -30,7 +30,7 @@ CICS systems were one of the first mission-critical systems that run on mainfram
 
 The following diagram shows how the CICS connector interacts with an IBM mainframe system:
 
-:::image type="content" source="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png" alt-text="Conceptual diagram shows how the CICS Program Call connector works with IBM mainframe system.":::
+:::image type="content" source="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png" alt-text="Conceptual diagram shows how the CICS Program Call connector works with IBM mainframe system." lightbox="media/integrate-cics-apps-ibm-mainframe/cics-connector-overview.png":::
 
 To extend these hybrid cloud scenarios, the CICS connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the mainframe and the workflow. The HIS Designer converts that information into metadata that the CICS connector uses when running an action in your workflow.
 
@@ -104,7 +104,7 @@ Later in this guide, when you add a **CICS Program Call** connector action to yo
 
    This example continues with the **Request** trigger named **When a HTTP request is received**.
 
-   :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger.":::
+   :::image type="content" source="media/integrate-cics-apps-ibm-mainframe/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-cics-apps-ibm-mainframe/request-trigger.png":::
 
 1. To add a CICS connector action, [follow these general steps to add the **CICS Program Call** built-in connector action named **Call a CICS Program**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
@@ -127,7 +127,7 @@ Later in this guide, when you add a **CICS Program Call** connector action to yo
 
    For example:
 
-   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/cics-connection.png" alt-text="Screenshot shows CICS action's connection properties.":::
+   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/cics-connection.png" alt-text="Screenshot shows CICS action's connection properties." lightbox="./media/integrate-cics-apps-ibm-mainframe/cics-connection.png":::
 
 1. When you're done, select **Create New**.
 
@@ -147,7 +147,7 @@ Later in this guide, when you add a **CICS Program Call** connector action to yo
 
    **Select advanced parameters**
 
-   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot shows CICS action with all parameters.":::
+   :::image type="content" source="./media/integrate-cics-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot shows CICS action with all parameters." lightbox="./media/integrate-cics-apps-ibm-mainframe/action-advanced-parameters.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 

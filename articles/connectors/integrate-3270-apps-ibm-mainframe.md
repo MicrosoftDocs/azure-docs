@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 tags: connectors
 ---
 
@@ -155,7 +155,7 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
    For example:
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and IBM 3270 connection properties.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and IBM 3270 connection properties." lightbox="./media/integrate-3270-apps-ibm-mainframe/connection-properties-standard.png":::
 
 1. When you're done, select **Create New**.
 
@@ -171,15 +171,15 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
    **Select the HIDX file**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected HIDX file.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected HIDX file." lightbox="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-standard.png":::
 
    **Select the method**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected method.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected method." lightbox="./media/integrate-3270-apps-ibm-mainframe/select-method-standard.png":::
 
    **Select the parameters**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and more parameters.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and more parameters." lightbox="./media/integrate-3270-apps-ibm-mainframe/add-parameters-standard.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
@@ -210,7 +210,7 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
    For example:
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and IBM 3270 connection properties.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and IBM 3270 connection properties." lightbox="./media/integrate-3270-apps-ibm-mainframe/connection-properties-consumption.png":::
 
 1. When you're done, select **Create**.
 
@@ -226,15 +226,15 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
    **Select the HIDX file**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected HIDX file.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected HIDX file." lightbox="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-consumption.png":::
 
    **Select the method**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected method.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected method." lightbox="./media/integrate-3270-apps-ibm-mainframe/select-method-consumption.png":::
 
    **Select the parameters**
 
-   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected parameters.":::
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected parameters." lightbox="./media/integrate-3270-apps-ibm-mainframe/add-parameters-consumption.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 

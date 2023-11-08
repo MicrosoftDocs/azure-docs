@@ -54,9 +54,7 @@ When using the ROPC flow, consider the following:
 ##  Create a resource owner user flow
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the **global administrator** of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**, and select **New user flow**.
 1. Select **Sign in using resource owner password credentials (ROPC)**.
