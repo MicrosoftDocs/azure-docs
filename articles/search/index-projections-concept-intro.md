@@ -90,7 +90,7 @@ REST API version `2023-10-01-Preview` can be used to create index projections th
 
 ### [**.NET**](#tab/kstore-csharp)
 
-For .NET developers, use the [IndexProjections Class](//dotnet/api/azure.search.documents.indexes.models.searchindexerskillset.indexprojections?view=azure-dotnet-preview#azure-search-documents-indexes-models-searchindexerskillset-indexprojections&preserve-view=true) in the Azure.Search.Documents client library.
+For .NET developers, use the [IndexProjections Class](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset.indexprojections?view=azure-dotnet-preview#azure-search-documents-indexes-models-searchindexerskillset-indexprojections&preserve-view=true) in the Azure.Search.Documents client library.
 
 ---
 
