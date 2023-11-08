@@ -191,7 +191,9 @@ The following table lists the recommended metric alert rules for AKS clusters. T
 | Memory Working Set Percentage > 100 | Fires when the average working set across all nodes exceeds the threshold. |
 
 ### Log based alerts
+[Log alerts](../azure-monitor/alerts/alerts-types.md#log-alerts) allow you to alert on your [data plane](#aks-data-planecontainer-insights-logs) and [control plane](#aks-control-planeresource-logs) logs. Run queries at predefined intervals and create an alert based on the results. You may check for the count of certain records or perform calculations based on numeric columns.  
 
+See [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md).
 [Log alerts](../azure-monitor/alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor in different scenarios:
 
 - [Result count](../azure-monitor/alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
