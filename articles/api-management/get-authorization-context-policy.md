@@ -40,7 +40,7 @@ The policy fetches and stores authorization and refresh tokens from the configur
 | authorization-id | The authorization resource identifier. Policy expressions are allowed. | Yes | N/A  |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). Policy expressions are allowed.  | Yes | N/A  |
 | identity-type | Type of identity to check against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute.<br/><br/>Policy expressions are allowed.  | No | `managed` |
-| identity | An Azure AD JWT bearer token to check against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID<br/><br/>Policy expressions are allowed.  | No |  N/A |
+| identity | A Microsoft Entra JWT bearer token to check against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID<br/><br/>Policy expressions are allowed.  | No |  N/A |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If you set the value to `false`, and the policy configuration includes an `on-error` section, the error is available in the `context.LastError` property.<br/><br/>Policy expressions are allowed.   | No | `false` |
 
 ### Authorization object
@@ -68,7 +68,7 @@ class Authorization
 
 ### Usage notes
 
-* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#step-3---access-policy) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
+* Configure `identity-type=jwt` when the [access policy](authorizations-overview.md#step-3-access-policy) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
 
 ## Examples
 

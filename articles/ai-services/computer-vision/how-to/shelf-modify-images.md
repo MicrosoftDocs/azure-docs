@@ -4,21 +4,20 @@ titleSuffix: Azure AI services
 description: Use the stitching and rectification APIs to prepare organic photos of retail shelves for accurate image analysis.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: ginle
 ms.custom: references_regions, build-2023
 ---
 
-# Prepare images for Product Recognition
+# Shelf Image Composition (preview)
 
 Part of the Product Recognition workflow involves fixing and modifying the input images so the service can perform correctly. 
 
-This guide shows you how to use the Stitching API to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras.
+This guide shows you how to use the **Stitching API** to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras.
 
-This guide also shows you how to use the Rectification API to correct for perspective distortion when you stitch together different images.
+This guide also shows you how to use the **Rectification API** to correct for perspective distortion when you stitch together different images.
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -44,7 +43,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
             {
             'url':'<your_url_string>'
@@ -83,7 +82,7 @@ To correct the perspective distortion in the composite image, follow these steps
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
       'url': '<your_url_string>',
       'controlPoints': {
         'topLeft': {

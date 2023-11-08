@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 06/29/2023
+ms.date: 08/15/2023
 ---
 
 # Enable agentless scanning for VMs
@@ -82,6 +82,24 @@ If you have Defender for Servers P2 already enabled and agentless scanning is tu
 1. Select **Update**.
 
 After you enable agentless scanning, software inventory and vulnerability information are updated automatically in Defender for Cloud.
+
+## Enable agentless scanning in GCP
+
+1. From Defender for Cloud's menu, select **Environment settings**. 
+1. Select the relevant project or organization. 
+1. For either the Defender Cloud Security Posture Management (CSPM) or Defender for Servers P2 plan, select  **Settings**. 
+
+    :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-plan.png" alt-text="Screenshot that shows where to select the plan for GCP projects." lightbox="media/enable-agentless-scanning-vms/gcp-select-plan.png":::
+
+1. In the settings pane, turn on  **Agentless scanning**.
+
+    :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-agentless.png" alt-text="Screenshot that shows where to select agentless scanning." lightbox="media/enable-agentless-scanning-vms/gcp-select-agentless.png":::
+
+1. Select **Save and Next: Configure Access**. 
+1. Copy the onboarding script.
+1. Run the onboarding script in the GCP organization/project scope (GCP portal or gcloud CLI).
+1. Select  **Next: Review and generate**. 
+1. Select  **Update**. 
 
 ## Exclude machines from scanning
 

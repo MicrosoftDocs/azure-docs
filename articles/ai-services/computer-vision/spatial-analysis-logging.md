@@ -5,8 +5,7 @@ description: Spatial Analysis provides each container with a common configuratio
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley
@@ -21,7 +20,7 @@ Spatial Analysis includes a set of features to monitor the health of the system 
 
 To enable a visualization of AI Insight events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine or Azure VM. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
 
-If your device is a local desktop machine or Azure GPU VM (with remote desktop enabled), then then you can switch to `.debug` version of any operation and visualize the output.
+If your device is a local desktop machine or Azure GPU VM (with remote desktop enabled), then you can switch to `.debug` version of any operation and visualize the output.
 
 1.  Open the desktop either locally or by using a remote desktop client on the host computer running Spatial Analysis. 
 2.  In the terminal run `xhost +`

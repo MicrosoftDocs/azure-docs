@@ -25,29 +25,26 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Ccsharp#install-the-azure-functions-core-tools)
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 18. Node.js version 14 is also supported.
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cnode#install-the-azure-functions-core-tools). 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpython#install-the-azure-functions-core-tools) 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [PowerShell](#tab/powershell)
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpowershell#install-the-azure-functions-core-tools) 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 + PowerShell 7 requires version 1.2.5 of the connectedk8s Azure CLI extension, or a later version. It also requires version 0.1.3 of the appservice-kube Azure CLI extension, or a later version. Make sure you install the correct version of both of these extensions as you complete this quickstart article.
 
 ---
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 

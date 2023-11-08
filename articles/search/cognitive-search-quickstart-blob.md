@@ -61,7 +61,7 @@ You're now ready to move on the Import data wizard.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command." border="true":::
 
-### Step 1 - Create a data source
+### Step 1: Create a data source
 
 1. In **Connect to your data**, choose **Azure Blob Storage**.
 
@@ -79,7 +79,7 @@ If you get "Error detecting index schema from data source", the indexer that's p
 | Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
 | Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
-### Step 2 - Add cognitive skills
+### Step 2: Add cognitive skills
 
 Next, configure AI enrichment to invoke OCR, image analysis, and natural language processing. 
 
@@ -97,7 +97,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Continue to the next page.
 
-### Step 3 - Configure the index
+### Step 3: Configure the index
 
 An index contains your searchable content and the **Import data** wizard can usually create the schema for you by sampling the data source. In this step, review the generated schema and potentially revise any settings. Below is the default schema created for the demo Blob data set.
 
@@ -115,7 +115,7 @@ Marking a field as **Retrievable** doesn't mean that the field *must* be present
   
 Continue to the next page.
 
-### Step 4 - Configure the indexer
+### Step 4: Configure the indexer
 
 The indexer drives the indexing process. It specifies the data source name, a target index, and frequency of execution. The **Import data** wizard creates several objects, including an indexer that you can reset and run repeatedly.
 

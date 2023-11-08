@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 11/03/2022
+ ms.date: 09/11/2023
  ms.author: duau
  ms.custom: include file
 ---
@@ -33,3 +33,4 @@ This table applies to both the Resource Manager and classic deployment models.
 > [!IMPORTANT]
 > * Application performance depends on multiple factors, such as end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, the control plane and data path capacity of the gateway is reduced.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
+> * ExpressRoute supports a maximum TCP and UDP packet size of 1400 bytes. Packet size larger than 1400 bytes will get fragmented.

@@ -46,7 +46,7 @@ After the failover group is provisioned, you can view it in Azure portal.
 
 :::image type="content" source="media/managed-instance-disaster-recovery-portal/failover-group-overview.png" alt-text="Screenshot of Azure portal failover group.":::
 
-## Fail over
+## Failover
 
 In the disaster recovery configuration, only one of the instances in the failover group is primary. You can fail over from the portal to migrate the primary role to the other instance in your failover group. To fail over:
 
@@ -67,6 +67,17 @@ To set the synchronization mode:
    :::image type="content" source="media/managed-instance-disaster-recovery-portal/edit-synchronization.png" alt-text="Screenshot of the Edit Configuration control.":::
 
 1. Under **Edit configuration**, select your desired mode, and select **Apply**.
+
+## Monitor failover group status in the portal
+
+After you use the portal to change a failover group, the portal automatically reports the status as the change is applied. Changes that the portal reports include:
+
+- Add failover group
+- Edit failover group configuration
+- Start failover
+- Delete failover group
+
+After you initiate the change, the portal automatically refreshes the status every two minutes. The portal automatically refreshes for two minutes. 
 
 ## Delete failover group
 

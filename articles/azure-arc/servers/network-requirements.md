@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 11/15/2022
+ms.date: 11/01/2023
 ms.topic: conceptual 
 ---
 
@@ -14,6 +14,10 @@ This topic describes the networking requirements for using the Connected Machine
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 [!INCLUDE [network-requirements](./includes/network-requirements.md)]
+
+## Subset of endpoints for ESU only
+
+[!INCLUDE [esu-network-requirements](./includes/esu-network-requirements.md)]
 
 ## Next steps
 

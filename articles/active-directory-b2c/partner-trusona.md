@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you'll learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+In this sample tutorial, you'll learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -39,7 +39,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"
@@ -81,7 +81,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
     > [!NOTE]
     >1. The Trusona portal supports self-service registration. Upon registering you will be assigned to a Trusona account with read-only rights.  Afterwards, Trusona will assign you to the correct account and elevate your rights to read-write based upon your organization’s access control policy for portal users.
-    >2. Azure Active Directory’s initial domain name is used as the client redirect host.
+    >2. Microsoft Entra ID’s initial domain name is used as the client redirect host.
 
     [![Screenshot shows Trusona Authentication Cloud portal settings.](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png)](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png#lightbox)
 
@@ -91,8 +91,7 @@ Before your applications can interact with Azure AD B2C, they must be registered
 To register a web application in your Azure AD B2C tenant, use our new unified app registration experience. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *jwt ms*.
@@ -125,9 +124,7 @@ If you register this app and configure it with `https://jwt.ms/` app for testing
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 
@@ -212,9 +209,7 @@ Store the client secret that you previously generated in [step 1](#step-1-onboar
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 
@@ -460,12 +455,7 @@ In the following example, for the `Trusona Authentication Cloud` user journey, t
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 
 1. Under Policies, select **Identity Experience Framework**.

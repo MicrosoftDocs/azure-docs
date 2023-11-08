@@ -93,7 +93,7 @@ landingContent:
             url: documentation-government-get-started-connect-to-storage.md
           - text: Develop with Azure AI services
             url: documentation-government-cognitiveservices.md
-          - text: Integrate Azure AD authentication
+          - text: Integrate Microsoft Entra authentication
             url: documentation-government-aad-auth-qs.md
           - text: Develop with SQL Server Management Studio
             url: documentation-government-connect-ssms.md

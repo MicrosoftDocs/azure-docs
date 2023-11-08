@@ -5,10 +5,9 @@ description: Get reference documentation for Speech to text REST API.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 11/29/2022
+ms.date: 09/15/2023
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -19,7 +18,12 @@ ms.custom: devx-track-csharp
 Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
+> Speech to text REST API v3.2 is available in preview. 
+> [Speech to text REST API](rest-speech-to-text.md) v3.1 is generally available. 
+> Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
+
+> [!div class="nextstepaction"]
+> [See the Speech to text REST API v3.2 (preview) specification](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/Speech/SpeechToText/preview/v3.2-preview.1)
 
 > [!div class="nextstepaction"]
 > [See the Speech to text REST API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)

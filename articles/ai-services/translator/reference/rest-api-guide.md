@@ -5,16 +5,15 @@ description: View a list of with links to the Text Translation REST APIs.
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/18/2023
 ms.author: lajanuar
 ---
 
 # Text Translation REST API
 
-Text Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Text Translation API translates text between language pairs across all [supported languages and dialects](../../language-support.md). The available methods are listed in the table below:
+Text Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Text Translation API translates text between language pairs across all [supported languages and dialects](../../language-support.md). The available methods are listed in the following table:
 
 | Request| Method| Description|
 |---------|--------------|---------|

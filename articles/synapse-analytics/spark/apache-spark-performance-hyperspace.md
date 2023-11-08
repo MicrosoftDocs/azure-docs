@@ -31,7 +31,7 @@ This document is also available in notebook form, for [Python](https://github.co
 ## Setup
 
 >[!Note]
-> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 2.4 (EOLA), Azure Synapse Runtime for Apache Spark 3.1 (EOLA), and Azure Synapse Runtime for Apache Spark 3.2 (GA). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3.
+> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (EOLA), and Azure Synapse Runtime for Apache Spark 3.2 (EOLA). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 

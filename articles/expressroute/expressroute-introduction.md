@@ -114,6 +114,8 @@ You can purchase ExpressRoute circuits for a wide range of bandwidths. The suppo
 * 5 Gbps
 * 10 Gbps
 
+The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops.
+
 ### Dynamic scaling of bandwidth
 
 You can increase the ExpressRoute circuit bandwidth without having to tear down your connections. For more information, see [Modifying an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify).

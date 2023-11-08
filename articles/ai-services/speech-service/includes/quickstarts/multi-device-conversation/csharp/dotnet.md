@@ -2,8 +2,7 @@
 services: cognitive-services
 author: ralphe
 manager: cpoulain
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe

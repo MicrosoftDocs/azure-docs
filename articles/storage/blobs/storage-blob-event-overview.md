@@ -5,7 +5,7 @@ author: normesta
 ms.author: normesta
 ms.date: 02/15/2023
 ms.topic: conceptual
-ms.service: storage
+ms.service: azure-blob-storage
 ms.reviewer: dineshm
 ---
 

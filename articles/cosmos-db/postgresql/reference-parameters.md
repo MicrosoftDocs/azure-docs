@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 06/06/2023
+ms.date: 10/01/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL server parameters
@@ -24,7 +24,7 @@ all worker nodes, or just for the coordinator node.
 
 > [!NOTE]
 >
-> Clusters running older versions of [the Citus extension](./reference-versions.md#citus-and-other-extension-versions) may not
+> Clusters running older versions of [the Citus extension](./reference-versions.md#citus-and-other-extension-versions) might not
 > offer all the parameters listed below.
 
 ### General configuration
@@ -56,7 +56,7 @@ Azure Cosmos DB for PostgreSQL thus validates the version of the code and that o
 extension match, and errors out if they don\'t.
 
 This value defaults to true, and is effective on the coordinator. In
-rare cases, complex upgrade processes may require setting this parameter
+rare cases, complex upgrade processes might require setting this parameter
 to false, thus disabling the check.
 
 #### citus.log\_distributed\_deadlock\_detection (boolean)
@@ -150,6 +150,12 @@ Allow new [local tables](concepts-nodes.md#type-3-local-tables) to be accessed
 by queries on worker nodes. Adds all newly created tables to Citus metadata
 when enabled. The default value is 'false'.
 
+#### citus.rebalancer\_by\_disk\_size\_base\_cost (integer)
+
+Using the by_disk_size rebalance strategy each shard group gets this cost in bytes added to its actual disk size. This value is used to avoid creating a bad balance when there’s little data in some of the shards. The assumption is that even empty shards have some cost, because of parallelism and because empty shard groups are likely to grow in the future.
+
+The default value is `100MB`.
+
 ### Query Statistics
 
 #### citus.stat\_statements\_purge\_interval (integer)
@@ -170,7 +176,7 @@ runtime.
 #### citus.stat_statements_max (integer)
 
 The maximum number of rows to store in `citus_stat_statements`. Defaults to
-50000, and may be changed to any value in the range 1000 - 10000000. Each row requires 140 bytes of storage, so setting `stat_statements_max` to its
+50000, and can be changed to any value in the range 1000 - 10000000. Each row requires 140 bytes of storage, so setting `stat_statements_max` to its
 maximum value of 10M would consume 1.4 GB of memory.
 
 Changing this GUC doesn't take effect until PostgreSQL is restarted.
@@ -178,12 +184,15 @@ Changing this GUC doesn't take effect until PostgreSQL is restarted.
 #### citus.stat_statements_track (enum)
 
 Recording statistics for `citus_stat_statements` requires extra CPU resources.
-When the database is experiencing load, the administrator may wish to disable
-statement tracking. The `citus.stat_statements_track` GUC can turn tracking on
-and off.
+When the database is experiencing load, the administrator can disable
+statement tracking by setting `citus.stat_statements_track` to `none`.
 
 * **all:** (default) Track all statements.
 * **none:** Disable tracking.
+
+#### citus.stat\_tenants\_untracked\_sample\_rate
+
+Sampling rate for new tenants in `citus_stat_tenants`. The rate can be of range between `0.0` and `1.0`. Default is `1.0` meaning 100% of untracked tenant queries are sampled. Setting it to a lower value means that already tracked tenants have 100% queries sampled, but tenants that are currently untracked are sampled only at the provided rate.
 
 ### Data Loading
 
@@ -208,7 +217,7 @@ case by choosing between the following commit protocols:
     should be increased on all the workers, typically to the same value
     as max\_connections.
 -   **1pc:** The transactions in which COPY is performed on the shard
-    placements is committed in a single round. Data may be lost if a
+    placements is committed in a single round. Data might be lost if a
     commit fails after COPY succeeds on all placements (rare).
 
 #### citus.shard\_replication\_factor (integer)
@@ -216,8 +225,7 @@ case by choosing between the following commit protocols:
 Sets the replication factor for shards that is, the number of nodes on which
 shards are placed, and defaults to 1. This parameter can be set at run-time
 and is effective on the coordinator. The ideal value for this parameter depends
-on the size of the cluster and rate of node failure.  For example, you may want
-to increase this replication factor if you run large clusters and observe node
+on the size of the cluster and rate of node failure.  For example, you can increase this replication factor if you run large clusters and observe node
 failures on a more frequent basis.
 
 ### Planner Configuration
@@ -280,7 +288,7 @@ SELECT * FROM citus_table JOIN postgres_table USING (x) WHERE citus_table.x = 10
 #### citus.limit\_clause\_row\_fetch\_count (integer)
 
 Sets the number of rows to fetch per task for limit clause optimization.
-In some cases, select queries with limit clauses may need to fetch all
+In some cases, select queries with limit clauses might need to fetch all
 rows from each task to generate results. In those cases, and where an
 approximation would produce meaningful results, this configuration value
 sets the number of rows to fetch from each shard. Limit approximations
@@ -303,7 +311,7 @@ and is effective on the coordinator.
 > This GUC is applicable only when
 > [shard_replication_factor](reference-parameters.md#citusshard_replication_factor-integer)
 > is greater than one, or for queries against
-> [reference_tables](concepts-distributed-data.md#type-2-reference-tables).
+> [reference_tables](concepts-nodes.md#type-2-reference-tables).
 
 Sets the policy to use when assigning tasks to workers. The coordinator
 assigns tasks to workers based on shard locations. This configuration
@@ -326,6 +334,14 @@ be used.
 This parameter can be set at run-time and is effective on the
 coordinator.
 
+#### citus.enable\_non\_colocated\_router\_query\_pushdown (boolean)
+
+Enables router planner for the queries that reference non-colocated distributed tables.
+
+The router planner is only enabled for queries that reference colocated distributed tables because otherwise shards might not be on the same node. Enabling this flag allows optimization for queries that reference such tables, but the query might not work after rebalancing the shards or altering the shard count of those tables.
+
+The default is `off`.
+
 ### Intermediate Data Transfer
 
 #### citus.max\_intermediate\_result\_size (integer)
@@ -335,6 +351,14 @@ to be pushed down to worker nodes for execution, and for complex
 subqueries. The default is 1 GB, and a value of -1 means no limit.
 Queries exceeding the limit are canceled and produce an error
 message.
+
+### DDL
+
+#### citus.enable\_schema\_based\_sharding 
+
+With the parameter set to `ON`, all created schemas are distributed by default. Distributed schemas are automatically associated with individual colocation groups such that the tables created in those schemas are converted to colocated distributed tables without a shard key. This setting can be modified for individual sessions.
+
+For an example of using this GUC, see [how to design for microservice](tutorial-design-database-microservices.md).
 
 ### Executor Configuration
 
@@ -387,7 +411,7 @@ This parameter can be set at run-time and is effective on the coordinator.
 ##### citus.multi\_task\_query\_log\_level (enum) {#multi_task_logging}
 
 Sets a log-level for any query that generates more than one task (that is,
-which hits more than one shard). Logging is useful during a multi-tenant
+which hits more than one shard). Logging is useful during a multitenant
 application migration, as you can choose to error or warn for such queries, to
 find them and add a tenant\_id filter to them. This parameter can be set at
 runtime and is effective on the coordinator. The default value for this
@@ -404,7 +428,7 @@ The supported values for this enum are:
 -   **warning:** Logs statement at WARNING severity level.
 -   **error:** Logs statement at ERROR severity level.
 
-It may be useful to use `error` during development testing,
+It could be useful to use `error` during development testing,
 and a lower log-level like `log` during actual production deployment.
 Choosing `log` will cause multi-task queries to appear in the database
 logs with the query itself shown after \"STATEMENT.\"
@@ -443,7 +467,7 @@ The supported values are:
 * **immediate:** raises error in transactions where parallel operations like
   create\_distributed\_table happen before an attempted CREATE TYPE.
 * **automatic:** defer creation of types when sharing a transaction with a
-  parallel operation on distributed tables. There may be some inconsistency
+  parallel operation on distributed tables. There might be some inconsistency
   between which database objects exist on different nodes.
 * **deferred:** return to pre-11.0 behavior, which is like automatic but with
   other subtle corner cases. We recommend the automatic setting over deferred,
@@ -481,9 +505,7 @@ amounts of data. Examples are when many rows are requested, the rows have
 many columns, or they use wide types such as `hll` from the postgresql-hll
 extension.
 
-The default value is true for Postgres versions 14 and higher. For Postgres
-versions 13 and lower the default is false, which means all results are encoded
-and transferred in text format.
+The default value is `true`. When set to `false`, all results are encoded and transferred in text format.
 
 ##### citus.max_adaptive_executor_pool_size (integer)
 
@@ -579,7 +601,7 @@ hence update their status regularly.
 The task tracker executor on the coordinator synchronously assigns tasks in
 batches to the daemon on the workers. This parameter sets the maximum number of
 tasks to assign in a single batch. Choosing a larger batch size allows for
-faster task assignment. However, if the number of workers is large, then it may
+faster task assignment. However, if the number of workers is large, then it might
 take longer for all workers to get tasks.  This parameter can be set at runtime
 and is effective on the coordinator.
 
@@ -613,7 +635,7 @@ distributed query. In most cases, the explain output is similar across
 tasks. Occasionally, some of the tasks are planned differently or have much
 higher execution times. In those cases, it can be useful to enable this
 parameter, after which the EXPLAIN output includes all tasks. Explaining
-all tasks may cause the EXPLAIN to take longer.
+all tasks might cause the EXPLAIN to take longer.
 
 ##### citus.explain_analyze_sort_method (enum)
 
@@ -747,7 +769,7 @@ The following [managed PgBouncer](./concepts-connection-pool.md) parameters can 
 * [min_wal_size](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE) - Sets the minimum size to shrink the WAL to
 * [operator_precedence_warning](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING) - Emits a warning for constructs that changed meaning since PostgreSQL 9.4
 * [parallel_setup_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-SETUP-COST) - Sets the planner's estimate of the cost of starting up worker processes for parallel query
-* [parallel_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-TUPLE-COST) - Sets the planner's estimate of the cost of passing each tuple (row) from worker to master backend
+* [parallel_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-TUPLE-COST) - Sets the planner's estimate of the cost of passing each tuple (row) from worker to main backend
 * [pg_stat_statements.save](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Saves pg_stat_statements statistics across server shutdowns
 * [pg_stat_statements.track](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Selects which statements are tracked by pg_stat_statements
 * [pg_stat_statements.track_utility](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Selects whether utility commands are tracked by pg_stat_statements

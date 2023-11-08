@@ -4,7 +4,7 @@ description: Increase the performance of Azure Premium SSDs and Standard SSD/HDD
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 03/14/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,7 +43,7 @@ region=desiredRegion
 sku=desiredSKU
 #Size must be 513 or larger
 size=513
-az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region –performance-plus true 
+az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region --performance-plus true 
 
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```

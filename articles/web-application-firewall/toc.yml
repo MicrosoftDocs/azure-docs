@@ -62,6 +62,8 @@
       href: ./ag/waf-engine.md
     - name: Sensitive Data Protection
       href: ./ag/waf-sensitive-data-protection.md
+    - name: Rate limiting
+      href: ./ag/rate-limiting-overview.md
     - name: Best practices
       href: ./ag/best-practices.md
     - name: FAQ
@@ -136,6 +138,8 @@
        href: ./ag/application-gateway-waf-metrics.md
      - name: Mask sensitive data
        href: ./ag/waf-sensitive-data-protection-configure.md
+     - name: Create rate limiting rules
+       href: ./ag/rate-limiting-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
@@ -160,8 +164,12 @@
     href: ./shared/manage-policies.md
   - name: Protect APIs hosted in APIM using Web Application Firewall
     href: ./afds/protect-api-hosted-apim-by-waf.md
+  - name: Protect Azure OpenAI using Azure Web Application Firewall
+    href: ./afds/protect-azure-open-ai.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
+  - name: Automated detection and response
+    href: ./afds/automated-detection-response-with-sentinel.md
   - name: Troubleshoot
     items:
      - name: Application Gateway

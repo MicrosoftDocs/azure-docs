@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for existing managed disks us
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 05/23/2023
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---

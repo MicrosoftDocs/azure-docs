@@ -5,13 +5,14 @@ description: With exploration, Personalizer is able to continuously deliver good
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 08/28/2022
 ---
 
 # Exploration
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 With exploration, Personalizer is able to continuously deliver good results, even as user behavior changes.
 

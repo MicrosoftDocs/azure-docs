@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/06/2022
@@ -35,4 +34,4 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile <path-to-parameters-file>
 ```
 
-See the ARM template documentation for information on [deploying templates](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) and [parameter files](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
+See the ARM template documentation for information on [deploying templates](../../../../azure-resource-manager/templates/deploy-powershell.md#json-parameter-files) and [parameter files](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).

@@ -7,8 +7,8 @@ manager: nitinme
 ms.author: jboback
 author: jboback
 displayName: chat history, history, chat logs, logs
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021

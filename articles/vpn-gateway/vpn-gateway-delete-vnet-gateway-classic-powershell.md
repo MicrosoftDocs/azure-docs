@@ -6,14 +6,17 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 10/31/2023
 ms.author: cherylmc
 ---
 # Delete a virtual network gateway using PowerShell (classic)
 
-This article helps you delete a VPN gateway in the classic (legacy) deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you're no longer using.
+This article helps you delete a VPN gateway in the classic (legacy) deployment model by using PowerShell. After the virtual network gateway is deleted, modify the network configuration file to remove elements that you're no longer using.
 
-The steps in this article apply to the classic deployment model and don't apply to the current deployment model, Resource Manager. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-delete-vnet-gateway-powershell.md).
+The steps in this article apply to the classic deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-delete-vnet-gateway-powershell.md)**.
+
+> [!IMPORTANT]
+> [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
 ## <a name="connect"></a>Step 1: Connect to Azure
 
@@ -42,7 +45,7 @@ In this example, the network configuration file is exported to C:\AzureNet.
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses isn't visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **'VirtualNetworkSite name ='**. Use the names in the network configuration file when running your PowerShell cmdlets.
+Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses isn't visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, might have a longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **'VirtualNetworkSite name ='**. Use the names in the network configuration file when running your PowerShell cmdlets.
 
 ## <a name="delete"></a>Step 3: Delete the virtual network gateway
 
@@ -66,7 +69,7 @@ When you delete a virtual network gateway, the cmdlet doesn't modify the network
 
 ### <a name="lnsref"></a>Local Network Site References
 
-To remove site reference information, make configuration changes to **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Removing a local site reference triggers Azure to delete a tunnel. Depending on the configuration that you created, you may not have a **LocalNetworkSiteRef** listed.
+To remove site reference information, make configuration changes to **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Removing a local site reference triggers Azure to delete a tunnel. Depending on the configuration that you created, you might not have a **LocalNetworkSiteRef** listed.
 
 ```
 <Gateway>

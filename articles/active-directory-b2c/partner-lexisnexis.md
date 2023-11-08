@@ -28,7 +28,8 @@ ThreatMetrix risk analysis attributes:
 
 To get started, you'll need:
 
-- An Azure AD subscription 
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
@@ -68,7 +69,7 @@ The following architecture diagram shows the implementation.
 To deploy the API code to an Azure service, go to [/samples/ThreatMetrix/Api](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api). You can publish the code from Visual Studio.
 
 >[!NOTE]
->You'll need deployed service URL to configure Azure AD.
+>You'll need deployed service URL to configure Microsoft Entra ID.
 
 ### Configure the API
 

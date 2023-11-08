@@ -39,7 +39,9 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
 ### Chat Data 
-Azure Communication Services stores chat messages for 90 days. Chat thread participants can use `ListMessages` to view  message history for a particular thread.  However, the API does not return messages once the 90 day period has passed. Users that are removed from a chat thread are able to view previous message history for 90 days but cannot send or receive new messages. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
+
+In 2024, new functionality will be introduced where customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected.
 
 For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
@@ -47,7 +49,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - The maximum number of participants allowed in a chat thread is 250.
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features are not supported.
-- For Teams Interop scenarios, it is the number of ACS users, not Teams users that must be below 20 for read receipts and typing indicator features to be supported.
+- For Teams Interop scenarios, it is the number of Azure Communication Services users, not Teams users that must be below 20 for read receipts and typing indicator features to be supported.
 
 ## Chat architecture
 

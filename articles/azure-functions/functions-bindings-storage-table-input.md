@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 11/11/2022
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Tables input bindings for Azure Functions
@@ -14,20 +14,24 @@ Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
    
+# [In-process model](#tab/in-process)
+
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see examples for the mode and version. 
@@ -396,11 +400,31 @@ public Person[] get(
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+The following example shows a table input binding that uses a queue trigger to read a single table row. The binding specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
+
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableInput1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
 ::: zone pivot="programming-language-javascript"  
 
-The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
+# [Model v4](#tab/nodejs-v4)
 
-The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableInput1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 ```json
 {
@@ -436,6 +460,8 @@ module.exports = async function (context, myQueueItem) {
     context.log('Person entity name: ' + context.bindings.personEntity.Name);
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -545,7 +571,20 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-input).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. | 
+|**RowKey** | Optional. The row key of the table entity to read. | 
+| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
 
@@ -586,19 +625,6 @@ public static void Run(
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Isolated process](#tab/isolated-process)
-
-In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
-
-| Attribute property |Description|
-|---------|---------|
-| **TableName** | The name of the table.| 
-| **PartitionKey** |Optional. The partition key of the table entity to read. | 
-|**RowKey** | Optional. The row key of the table entity to read. | 
-| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
-|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
-
 ---
 
 ::: zone-end  
@@ -618,7 +644,43 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |**[connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+## Configuration
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `input.table()` method.
+
+| Property | Description |
+|---------|----------------------|
+|**tableName** | The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**tableName** |  The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -646,14 +708,14 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see usage details for the mode and version. 
@@ -696,9 +758,17 @@ Functions version 1.x doesn't support isolated worker process.
 ::: zone pivot="programming-language-java"
 The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
-::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+# [Model v4](#tab/nodejs-v4)
+
+Get the input row data by using `context.extraInputs.get()`.
+
+# [Model v3](#tab/nodejs-v3)
+
+Get the input row data by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+---
+::: zone-end
 ::: zone pivot="programming-language-powershell"  
 Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. 
 ::: zone-end  

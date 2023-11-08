@@ -113,9 +113,11 @@ Some features of conditions are still in preview. The following table lists the 
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/blobs/storage-auth-abac.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
 | Use [custom security attributes on a principal](conditions-format.md#principal-attributes) in a condition | Preview | November 2021 |
 
-## Conditions and Azure AD PIM
+<a name='conditions-and-azure-ad-pim'></a>
 
-You can also add conditions to eligible role assignments using Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources. With Azure AD PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Azure AD PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Azure AD PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+## Conditions and Microsoft Entra PIM
+
+You can also add conditions to eligible role assignments using Microsoft Entra Privileged Identity Management (Microsoft Entra PIM) for Azure resources. With Microsoft Entra PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Microsoft Entra PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Microsoft Entra PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## Terminology
 
@@ -141,7 +143,7 @@ Here are some of the limits for conditions.
 
 Here are the known issues with conditions:
 
-- If you are using Azure AD Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
+- If you are using Microsoft Entra Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
 
 ## Next steps
 

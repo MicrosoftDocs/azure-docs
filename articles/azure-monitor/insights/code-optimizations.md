@@ -25,7 +25,7 @@ With Code Optimizations, you can:
 
 ## Demo video
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eu1P_vLTZO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> [!VIDEO https://www.youtube-nocookie.com/embed/eu1P_vLTZO0]
 
 ## Requirements for using Code Optimizations
 
@@ -53,7 +53,7 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 
 ## Cost
 
-While Code Optimizations incurs no extra costs, you may encounter [indirect costs associated with Application Insights](/azure/azure-monitor/faq#is-it-free-). 
+While Code Optimizations incurs no extra costs, you may encounter [indirect costs associated with Application Insights](../best-practices-cost.md#is-application-insights-free). 
 
 ## Supported regions
 

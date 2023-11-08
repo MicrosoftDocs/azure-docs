@@ -43,7 +43,7 @@ Images are either standalone binary files or embedded in documents (PDF, RTF, an
 
 Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. There are three main tasks related to retrieving images from a blob container:
 
-+ Enable access to content in the container. If you're using a full access connection string that includes a key, the key gives you permission to the content. Alternatively, you can [authenticate using Azure Active Directory (Azure AD)](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
++ Enable access to content in the container. If you're using a full access connection string that includes a key, the key gives you permission to the content. Alternatively, you can [authenticate using Microsoft Entra ID](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
 + [Create a data source](search-howto-indexing-azure-blob-storage.md) of type "azureblob" that connects to the blob container storing your files.
 
@@ -564,7 +564,7 @@ The [Azure Search Python samples](https://github.com/Azure-Samples/azure-search-
 
 ### Passing images to custom skills
 
-For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
+For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The following skillset is from a sample.
 
 The following skillset takes the normalized image (obtained during document cracking), and outputs slices of the image.
 
@@ -644,4 +644,3 @@ def base64EncodeImage(image):
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
-+ [How to pass images to custom skills](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

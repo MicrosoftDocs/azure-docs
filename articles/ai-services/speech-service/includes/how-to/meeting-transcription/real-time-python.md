@@ -1,6 +1,6 @@
 ---
 author: jyotsna-ravi
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/11/2022
 ms.author: jyravi
@@ -29,7 +29,7 @@ from scipy.io.wavfile import read
 import json
 
 speech_key, service_region = "your-subscription-key", "your-region"
-endpoint = "https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
+endpoint = f"https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
 
 #Enrollment audio for each speaker. In this example, two speaker enrollment audio files are added.
 enrollment_audio_speaker1 = "enrollment-audio-speaker1.wav"
@@ -86,11 +86,12 @@ from scipy.io import wavfile
 speech_key, service_region="your-subscription-key","your-region"
 meetingfilename= "audio-file-to-transcribe.wav" # 8 channel, 16 bits, 16kHz audio
 
-def meeting_transcription_differentiate_speakers():
+def meeting_transcription():
     
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    speech_config.set_property_by_name("MeetingTranscriptionInRoomAndOnline", "true")
-    speech_config.set_property_by_name("DifferentiateGuestSpeakers", "true")
+    speech_config.set_property_by_name("ConversationTranscriptionInRoomAndOnline", "true")
+    # If you want to differentiate speakers without providing voice samples, uncomment the following line.
+    # speech_config.set_property_by_name("DifferentiateGuestSpeakers", "true")
 
     channels = 8
     bits_per_sample = 16
@@ -99,7 +100,7 @@ def meeting_transcription_differentiate_speakers():
     wave_format = speechsdk.audio.AudioStreamFormat(samples_per_second, bits_per_sample, channels)
     stream = speechsdk.audio.PushAudioInputStream(stream_format=wave_format)
     audio_config = speechsdk.audio.AudioConfig(stream=stream)
-    
+
     transcriber = speechsdk.transcription.MeetingTranscriber(audio_config)
 
     meeting_id = str(uuid.uuid4())

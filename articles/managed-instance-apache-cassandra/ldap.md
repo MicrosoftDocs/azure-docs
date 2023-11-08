@@ -128,6 +128,6 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 
 ## Next steps
 
-* [LDAP authentication with Azure Active Directory](../active-directory/fundamentals/auth-ldap.md)
+* [LDAP authentication with Microsoft Entra ID](../active-directory/fundamentals/auth-ldap.md)
 * [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
 * [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)

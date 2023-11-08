@@ -5,8 +5,7 @@ description: Learn about how to upload data to test or train a Custom Speech mod
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: eur

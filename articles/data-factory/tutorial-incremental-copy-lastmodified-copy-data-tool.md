@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool

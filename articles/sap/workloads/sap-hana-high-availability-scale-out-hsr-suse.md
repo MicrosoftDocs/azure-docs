@@ -7,6 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 07/11/2023
 ms.author: radeltch
 ---
@@ -942,7 +943,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
    3. Next, create the HANA instance resource.
 
       > [!NOTE]
-      > This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+      > This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
       ```bash
       sudo crm configure primitive rsc_SAPHana_HN1_HDB03 ocf:suse:SAPHanaController \
@@ -1029,7 +1030,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 ## Test SAP HANA failover
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 1. Before you start a test, check the cluster and SAP HANA system replication status.
 

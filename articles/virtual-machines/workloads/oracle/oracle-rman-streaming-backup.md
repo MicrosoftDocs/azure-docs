@@ -1,5 +1,5 @@
 ---
-title: Stream database backups using Oracle Recovery Manager | Microsoft Docs
+title: Stream database backups using Oracle Recovery Manager
 description: Streaming database backups using Oracle Recovery Manager (RMAN). 
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -52,16 +52,16 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 | **Type** | **Tier** | **Docs** | **Mount protocol for VM** | **Support model** | **Prices** | **Notes** |
 |---|---|---|---|---|---|---|
-| **Managed disk** | Standard HDD | [Introduction to Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
-| **Managed disk** | Standard SSD | [Introduction to Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
-| **Managed disk** | Premium SSD | [Introduction to Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
-| **Managed disk** | Premium SSD v2 | [Introduction to Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
-| **Managed disk** | UltraDisk | [Introduction to Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
-| **Azure blob** | Block blobs | [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](https://learn.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=linux) | NFS v3.0 | Microsoft | [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) | 2 |
-| **Azure** **blobfuse** | v1 | [How to mount Azure Blob Storage as a file system with BlobFuse v1](https://learn.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux?tabs=RHEL) | Fuse | Open source/Github | n/a | 3, 5, 6 |
-| **Azure** **blobfuse** | v2 | [What is BlobFuse? - BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is) | Fuse | Open source/Github | n/a | 3, 5, 6 |
-| **Azure Files** | Standard | [What is Azure Files?](https://learn.microsoft.com/azure/storage/files/storage-files-introduction) | SMB/CIFS | Microsoft | [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) | 4, 6 |
-| **Azure Files** | Premium | [What is Azure Files?](https://learn.microsoft.com//azure/storage/files/storage-files-introduction) | SMB/CIFS, NFS v4.1 | Microsoft | [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) | 4, 7 |
+| **Managed disk** | Standard HDD | [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
+| **Managed disk** | Standard SSD | [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
+| **Managed disk** | Premium SSD | [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
+| **Managed disk** | Premium SSD v2 | [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
+| **Managed disk** | UltraDisk | [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview) | SCSI | Microsoft | [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) | 1 |
+| **Azure blob** | Block blobs | [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=linux) | NFS v3.0 | Microsoft | [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) | 2 |
+| **Azure** **blobfuse** | v1 | [How to mount Azure Blob Storage as a file system with BlobFuse v1](/azure/storage/blobs/storage-how-to-mount-container-linux?tabs=RHEL) | Fuse | Open source/GitHub | n/a | 3, 5, 6 |
+| **Azure** **blobfuse** | v2 | [What is BlobFuse? - BlobFuse2](/azure/storage/blobs/blobfuse2-what-is) | Fuse | Open source/GitHub | n/a | 3, 5, 6 |
+| **Azure Files** | Standard | [What is Azure Files?](/azure/storage/files/storage-files-introduction) | SMB/CIFS | Microsoft | [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) | 4, 6 |
+| **Azure Files** | Premium | [What is Azure Files?](/azure/storage/files/storage-files-introduction) | SMB/CIFS, NFS v4.1 | Microsoft | [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) | 4, 7 |
 | **Azure NetApp Files** | Standard | [Azure NetApp Files ](https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/) | SMB/CIFS, NFS v3.0, NFS v4.1 | Microsoft/NetApp | [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) | 4, 8, 11 |
 | **Azure NetApp Files** | Premium | [Azure NetApp Files ](https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/) | SMB/CIFS, NFS v3.0, NFS v4.1 | Microsoft/NetApp | [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) | 4, 9, 11 |
 | **Azure NetApp Files** | Ultra | [Azure NetApp Files](https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/) | SMB/CIFS, NFS v3.0, NFS v4.1 | Microsoft/NetApp | [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/)  | 4, 10, 11 |
@@ -71,7 +71,7 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 <sup>1</sup> Restricted by device-level and cumulative VM-level I/O limits on IOPS and I/O throughput.
 
 - device limits are specified in the pricing documentation. 
-- cumulative limits for VM sizes are specified in the documentation [Sizes for virtual machines in Azure](https://learn.microsoft.com/azure/virtual-machines/sizes)
+- cumulative limits for VM sizes are specified in the documentation [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes)
 
 <sup>2 </sup>Choose _hierarchical storage_ in 1<sup>st</sup> drop-down, then _blob only_ in the 2<sup>nd</sup> drop-down.
 
@@ -98,6 +98,3 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 ## Next steps
 [Storage options for oracle on Azure VMs](oracle-storage.md)
-
-
-

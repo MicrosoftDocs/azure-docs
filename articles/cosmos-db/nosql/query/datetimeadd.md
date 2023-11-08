@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -66,7 +66,7 @@ The following example adds various values (one year, one month, one day, one hou
     | **Microsecond** | `microsecond`, `mcs` |
     | **Nanosecond** | `nanosecond`, `ns` |
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`DateTimeBin`](datetimebin.md)

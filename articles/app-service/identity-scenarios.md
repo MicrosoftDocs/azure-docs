@@ -1,21 +1,22 @@
 ---
 title: 'App Service authentication recommendations'
-description: There are several different authentication solutions available for web apps or web APIs hosted on App Service. This article provides recommendations on which auth solution(s) can be used for specific scenarios such as quickly and simply limiting access to your web app, custom authorization, and incremental consent.  
+description: Learn about the different authentication options available for web apps or web APIs hosted on App Service. This article provides recommendations on which auth solution(s) can be used for specific scenarios such as quickly and simply limiting access to your web app, custom authorization, and incremental consent.  Learn about the benefits and drawbacks of using built-in authentication versus code implementation of authentication.
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 10/31/2023
+ms.custom: AppServiceIdentity
 ---
 # Authentication scenarios and recommendations
 
-If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication solutions, their benefits and drawbacks, and which authentication solution to use for specific scenarios.
+If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication options, their benefits and drawbacks, and which authentication solution to use for specific scenarios.  
 
 ## Authentication solutions
 
 - **Azure App Service built-in authentication** - Allows you to sign users in and access data by writing minimal or no code in your web app, RESTful API, or mobile back end. It’s built directly into the platform and doesn’t require any particular language, library, security expertise, or even any code to use.
-- **Microsoft Authentication Library (MSAL)** - Enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. Available for multiple supported platforms and frameworks, these are general purpose libraries that can be used in various hosted environments. Developers can also integrate with multiple sign-in providers, like Azure AD, Facebook, Google, Twitter.
-- **Microsoft.Identity.Web** - A higher-level library wrapping MSAL.NET, it provides a set of ASP.NET Core abstractions that simplify adding authentication support to web apps and web APIs integrating with the Microsoft identity platform.  It provides a single-surface API convenience layer that ties together ASP.NET Core, its authentication middleware, and MSAL.NET. This library can be used in apps in various hosted environments. You can integrate with multiple sign-in providers, like Azure AD, Facebook, Google, Twitter.
+- **Microsoft Authentication Library (MSAL)** - Enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. Available for multiple supported platforms and frameworks, these are general purpose libraries that can be used in various hosted environments. Developers can also integrate with multiple sign-in providers, like Microsoft Entra ID, Facebook, Google, Twitter.
+- **Microsoft.Identity.Web** - A higher-level library wrapping MSAL.NET, it provides a set of ASP.NET Core abstractions that simplify adding authentication support to web apps and web APIs integrating with the Microsoft identity platform.  It provides a single-surface API convenience layer that ties together ASP.NET Core, its authentication middleware, and MSAL.NET. This library can be used in apps in various hosted environments. You can integrate with multiple sign-in providers, like Microsoft Entra ID, Facebook, Google, Twitter.
 
 ## Scenario recommendations
 
@@ -37,7 +38,7 @@ The following table lists authentication scenarios and the authentication soluti
 | Even if you can use a code solution, would you rather *not* use libraries? Don't want the maintenance burden?  | ✅ | ❌ | ❌ |
 | Does your web app need to provide incremental consent?  | ❌ | ✅ | ✅ |
 | Do you need conditional access in your web app? | ❌ | ❌ | ✅ |
-| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ❌ | ✅ | ✅ |
+| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ✅  | ✅ | ✅ |
 | Need custom authorization logic or info about the signed-in user? | ❌ | ✅ | ✅ |
 | Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
 | You have an ASP.NET Core app? | ✅ | ❌ | ✅ |

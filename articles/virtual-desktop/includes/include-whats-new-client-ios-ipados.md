@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/22/2023
+ms.date: 09/18/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.0         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.0         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.1         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.1         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.1
+
+*Date published: September 5th, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for displaying sessions on an external monitor. You can use this new feature with iPad and iPhone using AirPlay or a physical cable.
+- Added support for location redirection. To use this feature, you need access to your device location, and your session hosts must be running Windows 11 or later.
 
 ## Updates for version 10.5.0
 

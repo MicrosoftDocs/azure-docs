@@ -3,12 +3,12 @@ title: Create, change, or delete an Azure public IP address
 titleSuffix: Azure Virtual Network
 description:  Manage public IP addresses. Learn how a public IP address is a resource with configurable settings.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 05/28/2023
-ms.author: allensu
 ms.custom: FY23 content-maintenance
 ---
 

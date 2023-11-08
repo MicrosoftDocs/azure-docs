@@ -3,7 +3,7 @@ title: References for DICOM service - Azure Health Data Services
 description: This reference provides related resources for the DICOM service.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 06/03/2022
 ms.author: mmitrik
@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # DICOM service open-source projects
 
-This article describes our open-source projects on GitHub that provide source code and instructions to connect DICOM service with other tools, services, and products. 
+This article describes our open-source projects on GitHub that provide source code and instructions to connect DICOM&reg; service with other tools, services, and products. 
 
 ## DICOM service GitHub projects
 
@@ -41,22 +41,14 @@ This article describes our open-source projects on GitHub that provide source co
 
 ### Using the DICOM service with the OHIF viewer
 
-* [Azure DICOM service with OHIF viewer](https://github.com/microsoft/dicom-ohif): The [OHIF viewer](https://ohif.org/) is an open-source, non-diagnostic DICOM viewer that uses DICOMweb APIs to find and render DICOM images.  This project provides the guidance and sample templates for deploying the OHIF viewer and configuring it to integrate with the DICOM service.  
+* [Azure DICOM service with OHIF viewer](https://github.com/microsoft/dicom-ohif): The [OHIF viewer](https://ohif.org/) is an open-source, nondiagnostic DICOM viewer that uses DICOMweb APIs to find and render DICOM images.  This project provides the guidance and sample templates for deploying the OHIF viewer and configuring it to integrate with the DICOM service.  
 
 ### Medical imaging network demo environment
-* [Medical Imaging Network Demo Environment](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/dicom-demo-env#readme): This hands-on lab / demo highlights how an organization with existing on-prem radiology infrastructure can take the first steps to intelligently moving their data to the cloud, without disruptions to the current workflow.
+* [Medical Imaging Network Demo Environment](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/dicom-demo-env#readme): This hands-on lab / demo highlights how an organization with existing on-premises radiology infrastructure can take the first steps to intelligently moving their data to the cloud, without disruptions to the current workflow.
 
 
 ## Next steps
 
-For more information about using the DICOM service, see
+[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
-
-For more information about DICOM cast, see
-
->[!div class="nextstepaction"]
->[DICOM cast overview](dicom-cast-overview.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

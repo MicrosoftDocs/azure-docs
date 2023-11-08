@@ -6,7 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 05/23/2023
+ms.date: 10/16/2023
+ms.custom: engagement-fy24
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs
@@ -44,6 +45,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 **UEFI boot** | Supported. UEFI-based machines will be migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Ultra disk** | Ultra disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
 **Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
@@ -62,7 +64,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2022, and complies with the support requirements. 
+If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).

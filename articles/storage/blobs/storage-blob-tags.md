@@ -6,13 +6,15 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 03/28/2022
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Use blob index tags to manage and find data with .NET
+
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
 
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 

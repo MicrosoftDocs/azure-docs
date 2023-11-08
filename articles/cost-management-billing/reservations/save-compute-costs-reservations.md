@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 09/12/2023
 ms.author: banders
 ---
 
@@ -88,7 +88,8 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Azure Files reserved capacity** - A reservation covers storage capacity for Azure Files. Reservations for hot and cool tiers don't cover bandwidth or transaction rates.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
 - **Azure Data Factory data flows** - A reservation covers integration runtime cost for the compute type and number of cores that you buy.
-- **SQL Database reserved vCore** - Covers both SQL Managed Instance and SQL Database Elastic Pool/single database. Only the compute costs are included with a reservation. The SQL license is billed separately.
+- **SQL Database reserved vCore** - Covers SQL Database, both elastic pools and single databases. Only the compute costs are included with a reservation. The SQL license is billed separately.
+- **SQL Managed Instance reserved vCore** - Covers SQL Managed Instance. Only the compute costs are included with a reservation. The SQL license is billed separately.
 - **Azure Synapse Analytics** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
 - **Azure Databricks** - A reservation covers only the DBU usage. Other charges, such as compute, storage, and networking, are applied separately.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.

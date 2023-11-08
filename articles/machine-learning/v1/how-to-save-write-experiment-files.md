@@ -37,7 +37,9 @@ For this reason, we recommend:
 
 ### Storage limits of experiment snapshots
 
-For experiments, Azure Machine Learning automatically makes an experiment snapshot of your code based on the directory you suggest when you configure the job. This has a total limit of 300 MB and/or 2000 files. If you exceed this limit, you'll see the following error:
+For experiments, Azure Machine Learning automatically makes an experiment snapshot of your code based on the directory you suggest when you configure the job. For a pipeline, the directory is configured for each step.
+
+This has a total limit of 300 MB and/or 2000 files. If you exceed this limit, you'll see the following error:
 
 ```Python
 While attempting to take snapshot of .

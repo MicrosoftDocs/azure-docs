@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to create and manage a project in the Azure AI Translator Custom Translator.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: how-to

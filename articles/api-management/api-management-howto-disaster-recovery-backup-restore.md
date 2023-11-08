@@ -214,7 +214,7 @@ $apiManagementResourceGroup="apimresourcegroup";
 $storageAccountName="backupstorageaccount";
 $storageResourceGroup="storageresourcegroup";
 $containerName="backups";
-$blobName="ContosoBackup.apimbackup;
+$blobName="ContosoBackup.apimbackup"
 ```
 
 ### Access using storage access key

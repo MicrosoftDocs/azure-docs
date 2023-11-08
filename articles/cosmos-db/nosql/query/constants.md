@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -91,7 +91,7 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
     | **``\t``** | tab | ``U+0009`` |
     | **``\uXXXX``** | A Unicode character defined by four hexadecimal digits. | ``U+XXXX`` |
 
-## Next steps
+## Related content
 
 - [Subqueries](subquery.md)
 - [Keywords](keywords.md)

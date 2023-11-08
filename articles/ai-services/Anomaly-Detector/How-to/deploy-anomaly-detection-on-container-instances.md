@@ -5,8 +5,7 @@ description: Deploy the Anomaly Detector container to an Azure Container Instanc
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/01/2020
@@ -14,6 +13,8 @@ ms.author: mbullwin
 ---
 
 # Deploy an Anomaly Detector univariate container to Azure Container Instances
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector-container-howto.md) container to Azure [Container Instances](../../../container-instances/index.yml). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 

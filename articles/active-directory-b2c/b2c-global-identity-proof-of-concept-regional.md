@@ -185,7 +185,7 @@ The **ValidationTechnicalProfiles** will perform the following logic:
 
 1. Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
 
-    * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using an Azure AD bearer token.
+    * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using a Microsoft Entra bearer token.
 
 1. Verify if the user already exists in the user-region mapping via your secured external REST API endpoint:
     * This API call is made before all sign-up's, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
@@ -287,7 +287,7 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
 
 1. Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
 
-    * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using an Azure AD bearer token.
+    * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using a Microsoft Entra bearer token.
 
 1. Look up the user-region mapping via your secured external REST API endpoint
     * This API call is made before all sign-up's, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
@@ -481,4 +481,3 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
 - [Build a global identity solution with region-based approach](b2c-global-identity-region-based-design.md)
 
 - [Azure AD B2C global identity proof of concept funnel-based configuration](b2c-global-identity-proof-of-concept-funnel.md)
-

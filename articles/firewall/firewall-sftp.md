@@ -37,7 +37,7 @@ This article requires the latest Azure PowerShell modules. Run `Get-Module -List
 First, set up some variables to use in the deployment. Replace the values with your own.
 
 > [!TIP]
-> You can use Azure Active Directory to find your user principal name.
+> You can use Microsoft Entra ID to find your user principal name.
 
 ```azurepowershell
 $rg = "<resource-group-name>"
@@ -252,4 +252,5 @@ Remove-AzResourceGroup -Name $rg -Force
 
 ## Next steps
 
+- [Deploy Azure Firewall to inspect traffic to a private endpoint](https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575)
 - [Azure Firewall FTP support](ftp-support.md)

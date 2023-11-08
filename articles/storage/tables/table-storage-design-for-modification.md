@@ -3,8 +3,8 @@ title: Design Azure Table storage for data modification
 description: Design tables for data modification in Azure Table storage. Optimize insert, update, and delete operations. Ensure consistency in your stored entities.
 services: storage
 ms.service: azure-table-storage
-author: tamram
-ms.author: tamram
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
 ---

@@ -7,13 +7,15 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 05/23/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Download a blob with .NET
+
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
 
 This article shows how to download a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
 

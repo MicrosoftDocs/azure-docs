@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -20,9 +19,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-1-migration-guide.md).
 
-> [!NOTE]
-> The ```2023-07-31``` (GA) version of the general document model adds support for **normalized keys**.
-
 ## General document features
 
 * The general document model is a pretrained model; it doesn't require labels or training.
@@ -30,8 +26,6 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 * A single API extracts key-value pairs, selection marks, text, tables, and structure from documents.
 
 * The general document model supports structured, semi-structured, and unstructured documents.
-
-* Key names are spans of text within the document that are associated with a value. With the ```2023-07-31```(GA) API version, key names are normalized where applicable.
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
 
@@ -72,11 +66,11 @@ You need the following resources:
 
 1. On the Document Intelligence Studio home page, select **General documents**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Screenshot of analyze general document menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)

@@ -191,4 +191,4 @@ For more information on related tools, see the following pages:
 
 - [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
 - [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
--  View common question about [asset inventory](faq-defender-for-servers.yml)
+- View common question about [asset inventory](faq-defender-for-servers.yml)

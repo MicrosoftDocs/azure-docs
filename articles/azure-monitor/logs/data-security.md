@@ -30,7 +30,7 @@ To ensure the security of data in transit to Azure Monitor, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents can't communicate over at least TLS 1.2 you won't be able to send data to Azure Monitor Logs. 
 
-We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absolutely necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
+We recommend you do NOT explicit set your agent to only use TLS 1.2 unless necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you might miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
 
 ### Platform-specific guidance
 
@@ -47,7 +47,7 @@ After your data is ingested by Azure Monitor, the data is kept logically separat
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When customer data is removed, no physical drives are destroyed.  
+As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft retains your data per the terms of the agreement.  When customer data is removed, no physical drives are destroyed.  
 
 The following table lists some of the available solutions and provides examples of the type of data they collect.
 
@@ -79,9 +79,9 @@ Azure Monitor has an incident management process that all Microsoft services adh
 * Use a shared responsibility model where a portion of security responsibility belongs to Microsoft and a portion belongs to the customer
 * Manage Azure security incidents:
   * Start an investigation upon detection of an incident
-  * Assess the impact and severity of an incident by an on-call incident response team member. Based on evidence, the assessment may or may not result in further escalation to the security response team.
-  * Diagnose an incident by security response experts to conduct the technical or forensic investigation, identify containment, mitigation, and workaround strategies. If the security team believes that customer data may have become exposed to an unlawful or unauthorized individual, parallel execution of the Customer Incident Notification process begins in parallel.  
-  * Stabilize and recover from the incident. The incident response team creates a recovery plan to mitigate the issue. Crisis containment steps such as quarantining impacted systems may occur immediately and in parallel with diagnosis. Longer term mitigations may be planned which occur after the immediate risk has passed.  
+  * Assess the impact and severity of an incident by an on-call incident response team member. Based on evidence, the assessment might or might not result in further escalation to the security response team.
+  * Diagnose an incident by security response experts to conduct the technical or forensic investigation, identify containment, mitigation, and work around strategies. If the security team believes that customer data could have become exposed to an unlawful or unauthorized individual, parallel execution of the Customer Incident Notification process begins in parallel.  
+  * Stabilize and recover from the incident. The incident response team creates a recovery plan to mitigate the issue. Crisis containment steps such as quarantining impacted systems can occur immediately and in parallel with diagnosis. Longer term mitigations can be planned which occur after the immediate risk has passed.  
   * Close the incident and conduct a post-mortem. The incident response team creates a post-mortem that outlines the details of the incident, with the intention to revise policies, procedures, and processes to prevent a recurrence of the event.
 * Notify customers of security incidents:
   * Determine the scope of impacted customers and to provide anybody who is impacted as detailed a notice as possible
@@ -93,7 +93,7 @@ Azure Monitor has an incident management process that all Microsoft services adh
   * Operators working on the Microsoft Azure service have addition training obligations surrounding their access to sensitive systems hosting customer data.
   * Microsoft security response personnel receive specialized training for their roles
 
-While very rare, Microsoft will notify each customer within one day if significant loss of any customer data occurs. 
+While rare, Microsoft notifies each customer within one day if significant loss of any customer data occurs. 
 
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
@@ -111,7 +111,7 @@ The Log Analytics software development and service team are actively working wit
 ## Certifications and attestations
 Azure Log Analytics meets the following requirements:
 
-* [ISO/IEC 27001](https://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27001](https://www.iso.org/standard/27001)
 * [ISO/IEC 27018:2014](https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
@@ -128,8 +128,8 @@ Azure Log Analytics meets the following requirements:
 
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it's secured as is moves to Azure Monitor, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
-
-![Image of Azure Monitor Logs data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/data-security/log-analytics-data-security-diagram.png" lightbox="./media/data-security/log-analytics-data-security-diagram.png" alt-text="Image of Azure Monitor Logs data collection and security" border="false":::
 
 ### 1. Sign up for Azure Monitor and collect data
 For your organization to send data to Azure Monitor Logs, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:
@@ -156,10 +156,10 @@ With any agent reporting to an Operations Manager management group that is integ
 
 The Windows or management server agent cached data is protected by the operating system's credential store. If the service cannot process the data after two hours, the agents will queue the data. If the queue becomes full, the agent starts dropping data types, starting with performance data. The agent queue limit is a registry key so you can modify it, if necessary. Collected data is compressed and sent to the service, bypassing the Operations Manager management group databases, so it does not add any load to them. After the collected data is sent, it is removed from the cache.
 
-As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/) and [Does my agent traffic use my Azure ExpressRoute connection?](#does-my-agent-traffic-use-my-azure-expressroute-connection).
 
 ### 3. The Azure Monitor service receives and processes data
-The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
+The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hubs in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
 
 The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS), or zone-redundant storage (ZRS) in [supported regions](../logs/availability-zones.md). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
@@ -174,7 +174,7 @@ You can use these additional security features to further secure your Azure Moni
 - [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
 - [Private/customer-managed storage](./private-storage.md) - Manage your personally encrypted storage account and tell Azure Monitor to use it to store monitoring data 
 - [Private Link networking](./private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
-- [Azure customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+- [Azure Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
 
 ## Tamper-proofing and immutability 
 
@@ -182,6 +182,13 @@ Azure Monitor is an append-only data platform, but includes provisions to delete
 
 To fully tamper-proof your monitoring solution, we recommend you [export your data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does my agent traffic use my Azure ExpressRoute connection?
+
+Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic.
 
 ## Next steps
 * [See the different kinds of data that you can collect in Azure Monitor](../monitor-reference.md).

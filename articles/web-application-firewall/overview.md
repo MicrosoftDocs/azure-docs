@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/10/2022
+ms.date: 08/23/2023
 ms.author: victorh
 ms.topic: overview
 ---

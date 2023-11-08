@@ -5,8 +5,7 @@ description: Learn how to do batch speech to text (speech recognition), batch te
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 09/16/2022
 ms.author: eur

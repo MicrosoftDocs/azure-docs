@@ -19,7 +19,7 @@ oc edit dns.operator/default
  
 This will launch an editor and you can replace `spec: {}` with:
  
- ```yaml
+```yaml
 spec:
   servers:
   - forwardPlugin:

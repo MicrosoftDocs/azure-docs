@@ -1,8 +1,7 @@
 ---
 title: Manage projects - question answering
 description: Custom question answering allows you to manage projects by providing access to the project settings and content.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
@@ -17,7 +16,7 @@ Question answering allows you to manage your projects by providing access to the
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource.
+> * A [Language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Microsoft Entra ID, Subscription, and language resource name you selected when you created the resource.
 
 ## Create a project
 

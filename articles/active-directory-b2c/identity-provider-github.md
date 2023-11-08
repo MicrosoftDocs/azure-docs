@@ -39,7 +39,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a GitHub OAuth application
 
-To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [GitHub Developer](https://github.com/settings/developers) portal. For more information, see [Creating an OAuth App](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app). If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
+To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [GitHub Developer](https://github.com/settings/developers) portal. For more information, see [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app). If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://github.com/).
 
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) with your GitHub credentials.
 1. Select **OAuth Apps** and then select **New OAuth App**.
@@ -53,8 +53,7 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 ## Configure GitHub as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **GitHub (Preview)**.
 1. Enter a **Name**. For example, *GitHub*.
@@ -87,8 +86,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.

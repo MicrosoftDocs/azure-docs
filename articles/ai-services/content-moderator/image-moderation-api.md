@@ -5,8 +5,7 @@ description: Use Content Moderator's machine-assisted image moderation to modera
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: pafarley

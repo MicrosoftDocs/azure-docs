@@ -2,8 +2,8 @@
 title: Create a map with Azure Maps
 titleSuffix: Microsoft Azure Maps
 description: Find out how to add maps to web pages by using the Azure Maps Web SDK. Learn about options for animation, style, the camera, services, and user interactions.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -22,10 +22,7 @@ You can also load multiple maps on the same page, for sample code that demonstra
 :::image type="content" source="./media/map-create/multiple-maps.png"alt-text="A screenshot that shows the snap grid on map.":::
 
 <!-------------------------------------------
-<iframe height="500" scrolling="no" title="Basic map load" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>Basic map load</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------->
 > [!TIP]
 > You can use the same or different authentication and language settings when using multiple maps on the same page.
@@ -40,10 +37,7 @@ renderWorldCopies: false
 ```
 
 <!-------------------------------------------
-<iframe height="500" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------->
 
 ## Map options
@@ -87,8 +81,7 @@ map.setCamera({
 Map properties, such as center and zoom level, are part of the [CameraOptions] properties.
 
 <!---------------------------------------------------
-<iframe height='500' scrolling='no' title='Create a map via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` </a>by Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 <a id="setCameraBoundsOptions"></a>
@@ -107,8 +100,7 @@ map.setCamera({
 In the following code, a [Map object] is constructed via `new atlas.Map()`. Map properties such as `CameraBoundsOptions` can be defined via [setCamera] function of the Map class. Bounds and padding properties are set using `setCamera`.
 
 <!----
-<iframe height='500' scrolling='no' title='Create a map via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Create a map via `CameraBoundsOptions` </a>by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----->
 
 ### Animate map view
@@ -132,8 +124,8 @@ In the following code, the first code block creates a map and sets the enter and
  <head>
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
   
   
     <script type="text/javascript">
@@ -190,8 +182,7 @@ In the following code, the first code block creates a map and sets the enter and
 :::image type="content" source="./media/map-create/animate-maps.png"alt-text="A screenshot showing a map with a button labeled Animate Maps that when pressed, causes the map to zoom in or out.":::
 
 <!------------------------------------------------------------
-<iframe height='500' scrolling='no' title='Animate Map View' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------------------------------>
 
 ## Request transforms

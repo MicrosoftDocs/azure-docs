@@ -1,6 +1,6 @@
 ---
-title: Override HTTP behavior with Azure CDN - Verizon Premium rules engine
-description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN from Verizon Premium, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
+title: Override HTTP behavior with Azure CDN - Edgio Premium rules engine
+description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN from Edgio Premium, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
 author: duongau
 
@@ -11,7 +11,7 @@ ms.author: duau
 
 ---
 
-# Override HTTP behavior using the Azure CDN from Verizon Premium rules engine
+# Override HTTP behavior using the Azure CDN from Edgio Premium rules engine
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -33,7 +33,7 @@ To access the rules engine, you must first select **Manage** from the top of the
     
     Select the **ADN** tab, then select **Rules Engine**.
     
-    ADN is a term used by Verizon to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA.
+    ADN is a term used by Edgio to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA.
 
     :::image type="content" source="./media/cdn-rules-engine/cdn-dsa-rules-engine.png" alt-text="Screenshot of rules engine for DSA.":::
 

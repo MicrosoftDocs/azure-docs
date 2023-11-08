@@ -182,7 +182,7 @@ The steps of creating a VNet-to-VNet connection with an IPsec/IKE policy are sim
 
 See [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more detailed steps for creating a VNet-to-VNet connection.
 
-### Step 1 - Create the second virtual network and VPN gateway
+### Step 1: Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
 
@@ -227,7 +227,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 It can take about 45 minutes or more to create the VPN gateway.
 
-### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
+### Step 2: Create a VNet-toVNet connection with the IPsec/IKE policy
 
 Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection may have timed out. If so, re-connect and state the necessary variables again.
 

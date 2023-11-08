@@ -5,8 +5,7 @@ description: Learn about how to train your model for Custom Named Entity Recogni
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 05/06/2022
 ms.author: aahi

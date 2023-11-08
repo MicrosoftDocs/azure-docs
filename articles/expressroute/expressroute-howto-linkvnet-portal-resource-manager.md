@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure portal'
+title: 'Tutorial: Link a virtual network to an ExpressRoute circuit - Azure portal'
 description: This tutorial shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/18/2022
+ms.date: 08/31/2023
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
+
 # Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
@@ -18,7 +19,9 @@ ms.custom: seodec18, template-tutorial
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This tutorial helps you create a connection to link a virtual network (VNet) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
+This tutorial helps you create a connection to link a virtual network (virtual network) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -35,19 +38,19 @@ In this tutorial, you learn how to:
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider.
   * Ensure that you have Azure private peering configured for your circuit. See the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md) article for peering and routing instructions.
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType `ExpressRoute`, not VPN.
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit.
 
-* A single VNet can be linked to up to 16 ExpressRoute circuits. Use the following process to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
+* A single virtual network can be linked to up to 16 ExpressRoute circuits. Use the following process to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 
-* If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on will also allow you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+* If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on also allows you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
-* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
+* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add more address spaces, up to 1,000, to the local or peered virtual networks.
 
 * Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
-## Connect a VNet to a circuit - same subscription
+## Connect a virtual network to a circuit - same subscription
 
 > [!NOTE]
 > BGP configuration information will not appear if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
@@ -75,7 +78,7 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Connection object screenshot":::
 
-## Connect a VNet to a circuit - different subscription
+## Connect a virtual network to a circuit - different subscription
 
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
@@ -196,12 +199,12 @@ FastPath support for virtual network peering is now in Public preview. Enrollmen
 > [!NOTE] 
 > Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
 > If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
+> 1. Enroll in the FastPath preview feature with the Azure PowerShell command.
 > 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 
-You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
+You can delete a connection and unlink your virtual network to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Delete connection":::
 
@@ -209,7 +212,7 @@ You can delete a connection and unlink your VNet to an ExpressRoute circuit by s
 
 In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
+To learn how to configure, route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)

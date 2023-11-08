@@ -5,8 +5,7 @@ description: This article will show you how to configure the various options for
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: how-to
 ms.date: 01/06/2022
 ms.author: rwaller

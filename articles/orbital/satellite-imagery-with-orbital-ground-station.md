@@ -11,6 +11,9 @@ ms.custom: template-overview
 
 # Tutorial: Process Aqua satellite data using NASA-provided tools
 
+> [!NOTE]
+> NASA has deprecated support of the DRL software used to process Aqua satellite imagery. Please see: [DRL Current Status](https://directreadout.sci.gsfc.nasa.gov/home.html). Steps 2, 3, and 4 of this tutorial are no longer relevant but presented for informational purposes only.
+
 This article is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The article also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
 Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. 
@@ -34,7 +37,7 @@ Execute steps listed in [Tutorial: Downlink data from NASA's Aqua public satelli
 The above tutorial provides a walkthrough for scheduling a contact with Aqua and collecting the direct broadcast data on an Azure VM.
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-public-satellite-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)

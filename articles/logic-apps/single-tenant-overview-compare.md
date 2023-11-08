@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 10/30/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -251,7 +251,7 @@ A **Standard** workflow can use many of the same built-in connectors as a Consum
 
 For example, a Standard workflow has both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, SQL Server, and others. Although a Consumption workflow doesn't have these same built-in connector versions, other built-in connectors such as Azure API Management, Azure App Services, and Batch, are available.
 
-In single-tenant Azure Logic Apps, [built-in connectors with specific attributes are informally known as *service providers*](../connectors/built-in.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime. For more information, review the [built-in connector list for Standard logic app workflows](../connectors/built-in.md#built-in-connectors).
+In single-tenant Azure Logic Apps, [built-in connectors with specific attributes are informally known as *service providers*](../connectors/built-in.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime. For more information, review the [built-in connector list for Standard logic app workflows](../connectors/built-in.md#built-in-connectors).
 
 <a name="limited-unavailable-unsupported"></a>
 
@@ -290,9 +290,11 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
   
     * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
+    * A Standard logic app workflow can have only one trigger and doesn't support multiple triggers.
+
 * **Authentication**: The following authentication types are currently unavailable for **Standard** workflows:
 
-  * Azure Active Directory Open Authentication (Azure AD OAuth) for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+  * Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
 
   * Managed identity authentication: Both system-assigned and user-assigned managed identity support is available. By default, the system-assigned managed identity is automatically enabled. However, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't currently support selecting user-assigned managed identities for authentication.
 
@@ -301,6 +303,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+
+* **Back up and restore for workflow run history**: **Standard** logic apps currently don't support back up and restore for workflow run history.
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 

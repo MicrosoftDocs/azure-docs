@@ -3,8 +3,8 @@ title: "Quickstart: QnA Maker client library for Java"
 description: This quickstart shows how to get started with the QnA Maker client library for Java.
 author: v-jaswel
 manager: chrhoder
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe

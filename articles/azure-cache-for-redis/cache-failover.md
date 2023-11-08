@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 09/29/2023
 ms.custom: engagement-fy23
 
 ---
@@ -114,12 +114,12 @@ Refer to these design patterns to build resilient clients, especially the circui
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
 
-Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
+Additionally, we recommend that you [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
 
 For more information, see [Connection resilience](cache-best-practices-connection.md).
 
-## Next steps
+## Related content
 
-- [Schedule updates](cache-administration.md#schedule-updates) for your cache.
-- Test application resiliency by using a [reboot](cache-administration.md#reboot).
-- [Configure](cache-configure.md#memory-policies) memory reservations and policies.
+- [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates)
+- Test application resiliency by using a [reboot](cache-administration.md#reboot)
+- [Configure](cache-configure.md#memory-policies) memory reservations and policies

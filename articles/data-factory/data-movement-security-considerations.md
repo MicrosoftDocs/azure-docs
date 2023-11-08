@@ -12,9 +12,6 @@ ms.date: 02/01/2023
 
 # Security considerations for data movement in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
->
-> * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Current version](data-movement-security-considerations.md)
 
  [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

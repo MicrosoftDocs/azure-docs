@@ -6,8 +6,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 07/19/2023
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+ms.date: 08/24/2023
+#CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 
 ---
 
@@ -18,10 +18,11 @@ This tutorial shows how to implement basic triggers with Azure Cache for Redis a
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up the necessary tools.
-> * Configure and connect to a cache.
-> * Create an Azure function and deploy code to it.
-> * Confirm the logging of triggers.
+>
+> - Set up the necessary tools.
+> - Configure and connect to a cache.
+> - Create an Azure function and deploy code to it.
+> - Confirm the logging of triggers.
 
 ## Prerequisites
 
@@ -49,6 +50,8 @@ Creating the cache can take a few minutes. You can move to the next section whil
 1. Create a new local folder on your computer to hold the project that you're building. This tutorial uses _RedisAzureFunctionDemo_ as an example.
 
 1. On the **Azure** tab, create a new function app by selecting the lightning bolt icon in the upper right of the **Workspace** tab.
+
+1. Select **Create function...**.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot that shows the icon for adding a new function from VS Code.":::
 
@@ -81,9 +84,11 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 1. Go to your cache in the Azure portal, and then:
 
    1. On the resource menu, select **Advanced settings**.
+
    1. Scroll down to the **notify-keyspace-events** box and enter **KEA**.
 
       **KEA** is a configuration string that enables keyspace notifications for all keys and events. For more information on keyspace configuration strings, see the [Redis documentation](https://redis.io/docs/manual/keyspace-notifications/).
+
    1. Select **Save** at the top of the window.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
@@ -217,6 +222,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 1. Create a new Azure function:
 
    1. Go back to the **Azure** tab and expand your subscription.
+
    1. Right-click **Function App**, and then select **Create Function App in Azure (Advanced)**.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of selections for creating a function app in VS Code.":::
@@ -265,7 +271,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
     :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
 
-## Next step
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-> [!div class="nextstepaction"]
-> [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
+## Related content
+
+- [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
+- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)

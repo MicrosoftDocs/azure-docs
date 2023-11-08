@@ -482,7 +482,7 @@ az vm create \
     --location eastus \
     --availability-set myAvailabilitySet \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

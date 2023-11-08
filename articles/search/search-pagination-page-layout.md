@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/31/2023
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -17,8 +17,9 @@ This article explains how to work with a query response in Azure Cognitive Searc
 
 Parameters on the query determine:
 
-+ Selection of fields within results
++ Field selection
 + Count of matches found in the index for the query
++ Paging results
 + Number of results in the response (up to 50, by default)
 + Sort order
 + Highlighting of terms within a result, matching on either the whole or partial term in the body
@@ -66,9 +67,9 @@ Count won't be affected by routine maintenance or other workloads on the search 
 
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
+By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
 
-To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
+To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the GET query request, or `top` and `skip` to the POST query request. The following list explains the logic.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
@@ -78,7 +79,7 @@ The results of paginated queries aren't guaranteed to be stable if the underlyin
 
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
-```text
+```json
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
@@ -87,19 +88,61 @@ Following is an example of how you might get duplicates. Assume an index with fo
 
 Now assume you want results returned two at a time, ordered by rating. You would execute this query to get the first page of results: `$top=2&$skip=0&$orderby=rating desc`, producing the following results:
 
-```text
+```json
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
 
 On the service, assume a fifth document is added to the index in between query calls: `{ "id": "5", "rating": 4 }`.  Shortly thereafter, you execute a query to fetch the second page: `$top=2&$skip=2&$orderby=rating desc`, and get these results:
 
-```text
+```json
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
 
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
+
+### Paging through a large number of results
+
+Using `$top` and `$skip` allows a search query to page through 100,000 results, but what if results are larger than 100,000? To page through a response this large, use a [sort order](search-query-odata-orderby.md) and [range filter](search-query-odata-comparison-operators.md) as a workaround for `$skip`. 
+
+In this workaround, sort and filter are applied to a document ID field or another field that is unique for each document. The unique field must have `filterable` and `sortable` attribution in the search index.
+
+1. Issue a query to return a full page of sorted results.
+
+    ```http
+    POST /indexes/good-books/docs/search?api-version=2020-06-30
+        {  
+          "search": "divine secrets",
+          "top": 50,
+          "orderby": "id asc"
+        }
+    ```
+
+1. Choose the last result returned by the search query. An example result with only an "id" value is shown here.
+
+    ```json
+    {
+        "id": "50"
+    }
+    ```
+
+1. Use that "id" value in a range query to fetch the next page of results. This "id" field should have unique values, otherwise pagination may include duplicate results.
+
+    ```http
+    POST /indexes/good-books/docs/search?api-version=2020-06-30
+        {  
+          "search": "divine secrets",
+          "top": 50,
+          "orderby": "id asc",
+          "filter": "id ge 50"
+        }
+    ```
+
+1. Pagination ends when the query returns zero results.
+
+> [!NOTE]
+> The "filterable" and "sortable" attributes can only be enabled when a field is first added to an index, they cannot be enabled on an existing field.
 
 ## Ordering results
 
@@ -155,7 +198,7 @@ Hit highlighting instructions are provided on the [query request](/rest/api/sear
 
 ### Requirements for hit highlighting
 
-+ Fields must be Edm.String or Collection(Edm.String)
++ Fields must be `Edm.String` or `Collection(Edm.String)`
 + Fields must be attributed at **searchable**
 
 ### Specify highlighting in the request
@@ -230,6 +273,7 @@ Within a highlighted field, formatting is applied to whole terms. For example, o
         "original_title": "Grave Secrets",
         "title": "Grave Secrets (Temperance Brennan, #5)"
     }
+]
 ```
 
 ### Phrase search highlighting
@@ -248,7 +292,7 @@ POST /indexes/good-books/docs/search?api-version=2020-06-30
     }
 ```
 
-Because the criteria now specifies both terms, only one match is found in the search index. The response to the above query looks like this:
+Because the criteria now has both terms, only one match is found in the search index. The response to the above query looks like this:
 
 ```json
 {

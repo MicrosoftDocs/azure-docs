@@ -160,6 +160,20 @@ To configure your load test to split input CSV files:
 
 ---
 
+## Troubleshooting
+
+### Test status is failed and test log has `File {my-filename} must exist and be readable`
+
+When the load test completes with the Failed status, you can [download the test logs](./how-to-troubleshoot-failing-test.md#download-apache-jmeter-worker-logs).
+
+When you receive an error message `File {my-filename} must exist and be readable` in the test log, this means that the input CSV file couldn't be found when running the JMeter script.
+
+Azure Load Testing stores all input files alongside the JMeter script. When you reference the input CSV file in the JMeter script, make sure *not* to include the file path, but only use the filename.
+
+The following code snippet shows an extract of a JMeter file that uses a `CSVDataSet` element to read the input file. Notice that the `filename` doesn't include the file path.
+
+:::code language="xml" source="~/azure-load-testing-samples/jmeter-read-csv/read-from-csv.jmx" range="30-41" highlight="2":::
+
 ## Next steps
 
 - Learn how to [Set up a high-scale load test](./how-to-high-scale-load.md).

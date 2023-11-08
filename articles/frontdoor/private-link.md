@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 [Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.
 
-Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure App Service or Azure Storage. Private Link removes the need for your origin to be accessed publicly.
+Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure Web App or Azure Storage. Private Link removes the need for your origin to be accessed publicly.
 
 :::image type="content" source="./media/private-link/front-door-private-endpoint-architecture.png" alt-text="Diagram of Azure Front Door with Private Link enabled.":::
 
@@ -101,12 +101,15 @@ Azure Front Door private link is available in the following regions:
 | East US 2 | UK South | | East Asia |
 | South Central US | West Europe | | |
 | West US 3 | Sweden Central | | |
+| US Gov Arizona |||
+| US Gov Texas |||
+
 
 ## Limitations
 
 Origin support for direct private endpoint connectivity is currently limited to:
-* Storage (Azure Blobs)
-* App Services 
+* Blob Storage
+* Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 
@@ -115,7 +118,7 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 
 ## Next steps
 
-* Learn how to [connect Azure Front Door Premium to a App Service origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md).
+* Learn how to [connect Azure Front Door Premium to a Web App origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md).
 * Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md).
 * Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).

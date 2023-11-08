@@ -14,6 +14,8 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Hat OpenShift, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -51,17 +53,19 @@ The following content is an example that was copied from the Red Hat console por
 
 Save the secret to a file so you can use it later.
 
-## Create an Azure Active Directory service principal from the Azure portal
+<a name='create-an-azure-active-directory-service-principal-from-the-azure-portal'></a>
 
-The Azure Marketplace offer you're going to use in this article requires an Azure Active Directory (Azure AD) service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, with no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
+## Create a Microsoft Entra service principal from the Azure portal
+
+The Azure Marketplace offer you're going to use in this article requires a Microsoft Entra service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, with no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
 
 Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
 > [!NOTE]
-> You must have sufficient permissions to register an application with your Azure AD tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
 1. Sign in to your Azure account through the [Azure portal](https://portal.azure.com/).
-1. Select **Azure Active Directory**.
+1. Select **Microsoft Entra ID**.
 1. Select **App registrations**.
 1. Select **New registration**.
 1. Name the application, for example "liberty-on-aro-app". Select a supported account type, which determines who can use the application. After setting the values, select **Register**, as shown in the following screenshot. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
@@ -79,7 +83,7 @@ Use the following steps to deploy a service principal and get its Application (c
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
    1. After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later.
 
-You've now created your Azure AD application, service principal, and client secret.
+You've now created your Microsoft Entra application, service principal, and client secret.
 
 ## Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift
 
@@ -109,9 +113,9 @@ The following steps show you how to fill out the **ARO** pane shown in the follo
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create an Azure Active Directory Service Principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
+1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
 
-1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create an Azure Active Directory Service Principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
+1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
 
 The following steps show you how to fill out the **Operator and application** pane shown in the following screenshot, and start the deployment.
 

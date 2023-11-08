@@ -10,7 +10,7 @@ ms.author: kesheth
 ---
 
 
-# Selectable search parameter capability 
+# Selectable search parameter capability  
 Searching for resources is fundamental to FHIR. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. As the FHIR service in Azure health data services is provisioned, inbuilt search parameters are enabled by default. During the ingestion of data in the FHIR service, specific properties from FHIR resources are extracted and indexed with these search parameters. This is done to perform efficient searches. 
 
 The selectable search parameter functionality allows you to enable or disable inbuilt search parameters.  This functionality helps you to store more resources in allocated storage space and have performance improvements, by enabling only needed search parameters.

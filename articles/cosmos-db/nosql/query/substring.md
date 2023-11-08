@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -50,7 +50,7 @@ The following example returns substrings with various lengths and starting posit
 - `numeric_expr_1` positions are zero-based, therefore a value of `0` starts from the first character of `string_expr`.
 - A value of `0` or less for `numeric_expr_2` results in empty string.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`StringEquals`](stringequals.md)

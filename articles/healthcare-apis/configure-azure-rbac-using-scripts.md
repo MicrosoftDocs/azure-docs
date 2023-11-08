@@ -2,12 +2,12 @@
 title: Grant permissions to users and client applications using CLI and REST API - Azure Health Data Services
 description: This article describes how to grant permissions to users and client applications using CLI and REST API.
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Configure Azure RBAC role using Azure CLI and REST API
@@ -96,10 +96,10 @@ The API requires the following values:
 - Scope for Azure Health Data Services to which you grant access permissions. It includes subscription ID, resource group name, and the FHIR or DICOM service instance name.
 - Role definition ID for roles such as "FHIR Data Contributor" or "DICOM Data Owner". Use `az role definition list --name "<role name>"` to list the role definition IDs.
 - Service principal ID for the user or the client application.
-- Azure AD access token to the [management resource](https://management.azure.com/), not Azure Health Data Services. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
+- Microsoft Entra access token to the `https://management.azure.com/`, not Azure Health Data Services. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
 - For Azure Health Data Services, the scope includes workspace name and FHIR/DICOM service instance name.
 
-```
+```rest
 ### Create a role assignment - Azure Health Data Services (DICOM)
 @roleassignmentid=xxx
 @roleapiversion=2021-04-01
@@ -126,7 +126,7 @@ Accept: application/json
 
 For Azure API for FHIR, the scope is defined slightly differently as it supports the FHIR service only, and no workspace name is required.
 
-```
+```rest
 ### Create a role assignment - Azure API for FHIR
 @roleassignmentid=xxx
 @roleapiversion=2021-04-01
@@ -157,7 +157,7 @@ Optionally, you can get a list of Azure Health Data Services services, or Azure 
 
 For Azure Health Data Services, specify the subscription ID, resource group name, workspace name, FHIR or DICOM services, and the API version.
 
-```
+```rest
 ### Get Azure Health Data Services DICOM services
 @apiversion=2021-06-01
 @subscriptionid=xxx
@@ -173,7 +173,7 @@ Accept: application/json
 
 For Azure API for FHIR, specify the subscription ID and the API version.
  
-```
+```rest
 ### Get a list of Azure API for FHIR services
 @apiversion=2021-06-01
 @subscriptionid=xxx

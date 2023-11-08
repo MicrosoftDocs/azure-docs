@@ -33,7 +33,7 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 ## Prerequisites
 
 * All prerequisites from [configure kubenet networking](configure-kubenet.md) apply.
-* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended to take advantage of the [out-of-tree cloud controller manager][aks-out-of-tree], which is the default on v1.22 and up.
+* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended.
 * If using Azure Resource Manager templates, schema version 2021-10-01 is required.
 
 ## Overview of dual-stack networking in Kubernetes
@@ -46,6 +46,9 @@ AKS configures the required supporting services for dual-stack networking. This 
 * IPv4 and IPv6 node and pod addresses.
 * Outbound rules for both IPv4 and IPv6 traffic.
 * Load balancer setup for IPv4 and IPv6 services.
+
+> [!NOTE]
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.  
 
 ## Deploying a dual-stack cluster
 
@@ -295,7 +298,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 ## Expose the workload via a `LoadBalancer` type service
 
 > [!IMPORTANT]
-> There are currently **two limitations** pertaining to IPv6 services in AKS. These are both preview limitations and work is underway to remove them.
+> There are currently **two limitations** pertaining to IPv6 services in AKS.
 >
 > 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
 > 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
@@ -417,6 +420,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
 
 <!-- LINKS - Internal -->
+[outbound-type]: ./egress-outboundtype.md
 [deploy-arm-template]: ../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [kubenet]: ./configure-kubenet.md

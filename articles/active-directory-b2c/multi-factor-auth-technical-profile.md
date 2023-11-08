@@ -1,7 +1,7 @@
 ---
-title: Azure AD MFA technical profiles in custom policies
+title: Microsoft Entra multifactor authentication technical profiles in custom policies
 titleSuffix: Azure AD B2C
-description: Custom policy reference for Azure AD Multi-Factor Authentication (MFA) technical profiles in Azure AD B2C.
+description: Custom policy reference for Microsoft Entra multifactor authentication technical profiles in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Define an Azure AD MFA technical profile in an Azure AD B2C custom policy
+# Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy
 
 Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using a verification code, or verifying a Time-based One-time Password (TOTP) code.
 
@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-The following example shows an Azure AD MFA technical profile:
+The following example shows a Microsoft Entra multifactor authentication technical profile:
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -38,10 +38,10 @@ The following example shows an Azure AD MFA technical profile:
 
 ## Verify phone mode
 
-In the verify phone mode, the technical profile generates and sends a code to a phone number, and then verifies the code. The Azure AD MFA technical profile may also return an error message.  The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page. The technical profile:
+In the verify phone mode, the technical profile generates and sends a code to a phone number, and then verifies the code. The Microsoft Entra multifactor authentication technical profile may also return an error message.  The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page. The technical profile:
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
-- Uses the Azure AD MFA service to generate and send a code to a phone number, and then verifies the code.  
+- Uses the Microsoft Entra multifactor authentication service to generate and send a code to a phone number, and then verifies the code.  
 - Validates a phone number via text messages.
 
 The technical profile provides methods to [send the verification code](#send-sms) via SMS text message, and [verify the code](#verify-code). The following screenshot shows the phone verifier flow.
@@ -54,7 +54,7 @@ To verify a phone, the first step generates a code and sends it to the phone num
 
 #### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 
 | ClaimReferenceId | Required | Description |
@@ -66,7 +66,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD MFA. Y
 
 #### Output claims
 
-The Azure AD MFA protocol provider doesn't return any output claims, so there's no need to specify output claims.
+The Microsoft Entra multifactor authentication protocol provider doesn't return any output claims, so there's no need to specify output claims.
 
 #### Metadata
 
@@ -89,7 +89,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 #### Example: send an SMS
 
-The following example shows an Azure AD MFA technical profile that is used to send a code via SMS.
+The following example shows a Microsoft Entra multifactor authentication technical profile that is used to send a code via SMS.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -115,7 +115,7 @@ The verify code step verifies a code sent to the user. The following options can
 
 #### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | 
@@ -124,7 +124,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD MFA. Y
 
 #### Output claims
 
-The Azure AD MFA protocol provider doesn't return any output claims, so there's no need to specify output claims. 
+The Microsoft Entra multifactor authentication protocol provider doesn't return any output claims, so there's no need to specify output claims. 
 
 #### Metadata
 
@@ -147,7 +147,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 #### Example: verify a code
 
-The following example shows an Azure AD MFA technical profile used to verify the code.
+The following example shows a Microsoft Entra multifactor authentication technical profile used to verify the code.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">
@@ -174,7 +174,7 @@ For subsequent sign-ins, use the [Get available devices](#get-available-devices)
 The technical profile:
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, with the [TOTP display controls](display-control-time-based-one-time-password.md).
-- Uses the Azure AD MFA service to validate the TOTP code.  
+- Uses the Microsoft Entra multifactor authentication service to validate the TOTP code.  
 - Checks if a user has already enrolled their device.
 
 The following screenshot shows a TOTP enrollment and verification flow. It starts by checking the number of available devices. If the number of available devices is zero, the user goes through the enrollment orchestration step. Otherwise, the user goes through the verification orchestration step.  
@@ -188,7 +188,7 @@ The get available device mode checks the number of devices available for the use
 
 #### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | 
@@ -197,7 +197,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD MFA. Y
 
 #### Output claims
 
-The output claims element contains a list of claims to return from Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The output claims element contains a list of claims to return from Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
@@ -213,7 +213,7 @@ The Metadata element contains the following attribute.
 
 #### Example: Get available devices
 
-The following example shows an Azure AD MFA technical profile used to get the number of available devices.
+The following example shows a Microsoft Entra multifactor authentication technical profile used to get the number of available devices.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-GetAvailableDevices">
@@ -237,7 +237,7 @@ The begin verify TOTP starts the verification process. This validation technical
 
 #### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | 
@@ -247,7 +247,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD MFA. Y
 
 #### Output claims
 
-The Azure AD MFA protocol provider doesn't return any output claims, so there's no need to specify output claims.
+The Microsoft Entra multifactor authentication protocol provider doesn't return any output claims, so there's no need to specify output claims.
 
 #### Metadata
 
@@ -259,7 +259,7 @@ The Metadata element contains the following attribute.
 
 #### Example: Begin verify TOTP
 
-The following example shows an Azure AD MFA technical profile used to begin the TOTP verification process.
+The following example shows a Microsoft Entra multifactor authentication technical profile used to begin the TOTP verification process.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-BeginVerifyOTP">
@@ -282,7 +282,7 @@ The verify TOTP method verifies a TOTP code. This validation technical profile i
 
 #### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+The **InputClaims** element contains a list of claims to send to Microsoft Entra multifactor authentication. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | 
@@ -290,7 +290,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD MFA. Y
 
 #### Output claims
 
-The Azure AD MFA protocol provider doesn't return any output claims, so there's no need to specify output claims.
+The Microsoft Entra multifactor authentication protocol provider doesn't return any output claims, so there's no need to specify output claims.
 
 #### Metadata
 
@@ -302,7 +302,7 @@ The Metadata element contains the following attribute.
 
 #### Example: Verify TOTP
 
-The following example shows an Azure AD MFA technical profile used to verify a TOTP code.
+The following example shows a Microsoft Entra multifactor authentication technical profile used to verify a TOTP code.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifyOTP">

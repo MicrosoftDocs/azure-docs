@@ -5,13 +5,16 @@ description: Learn how to create a classic Point-to-Site VPN Gateway connection 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 10/31/2023
 ms.author: cherylmc
 
 ---
 # Configure a Point-to-Site connection by using certificate authentication (classic)
 
-This article shows you how to create a VNet with a Point-to-Site connection using the classic (legacy) deployment model. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+This article shows you how to create a VNet with a Point-to-Site connection using the classic (legacy) deployment model. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. These instructions are for the classic deployment model. You can no longer create a gateway using the classic deployment model. See the [Resource Manager version of this article](vpn-gateway-howto-point-to-site-resource-manager-portal.md) instead.
+
+> [!IMPORTANT]
+> [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
 You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
 
@@ -56,7 +59,7 @@ Before you begin, verify that you have an Azure subscription. If you don't alrea
 
 ## <a name="vnet"></a>Create a virtual network
 
-If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks.
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that might overlap with other networks.
 
 [!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
@@ -77,7 +80,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
    * **Size:** The size is the gateway SKU for your virtual network gateway. In the Azure portal, the default SKU is **Default**. For more information about gateway SKUs, see [About VPN gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
    * **Routing Type:** You must select **Dynamic** for a point-to-site configuration. Static routing won't work.
    * **Gateway subnet:** This field is already autofilled. You can't change the name. If you try to change the name using PowerShell or any other means, the gateway won't work properly.
-   * **Address range (CIDR block):** While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you may want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your VPN gateway to not function as expected.
+   * **Address range (CIDR block):** While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you might want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet might cause your VPN gateway to not function as expected.
 1. Select **Review + create** to validate your settings.
 1. Once validation passes, select **Create**. A VPN gateway can take up to 45 minutes to complete, depending on the gateway SKU that you select.
 
@@ -105,7 +108,7 @@ After the gateway has been created, upload the .cer file (which contains the pub
 1. Select **Upload**.
 1. On the **Upload a certificate** pane, select the folder icon and navigate to the certificate you want to upload.
 1. Select **Upload**.
-1. After the certificate has uploaded successfully, you can view it on the Manage certificate page. You may need to select **Refresh** to view the certificate you just uploaded.
+1. After the certificate has uploaded successfully, you can view it on the Manage certificate page. You might need to select **Refresh** to view the certificate you just uploaded.
 
 ## Configure the client
 
@@ -195,7 +198,7 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 1. In **Thumbprint**, paste the certificate thumbprint as one continuous line of text, with no spaces.
 1. Select **+ Add to list** to add the thumbprint to the certificate revocation list (CRL).
 
-After updating has completed, the certificate can no longer be used to connect. Clients that try to connect by using this certificate receive a message saying that the certificate is no longer valid.
+After updating completes, the certificate can no longer be used to connect. Clients that try to connect by using this certificate receive a message saying that the certificate is no longer valid.
 
 ## <a name="faq"></a>FAQ
 

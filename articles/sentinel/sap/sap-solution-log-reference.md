@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - data reference
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 05/24/2023
@@ -333,7 +333,7 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 | The "SAP User Config" watchlist | SearchKey | Search Key |
 | The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
 | The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User's Microsoft Azure Active Directory (Azure AD) Object ID | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
 | The "SAP User Config" watchlist | User Identifier | AD User Identifier |
 | The "SAP User Config" watchlist | User on-premises Sid |  |
 | The "SAP User Config" watchlist | User Principal Name |  |
@@ -374,7 +374,7 @@ For a full history of user activity, run a custom KQL query against the SAPAudit
 |  | User | The SAP user |
 | SAP tables ADR6 and USR21 | Email | Taken from user's master data | OSS, DDIC  
 | SAP table USR02 | UserType | string of tags assigned to user | RunObsoleteProgOK  
-| SAP table USR02 | Timezone | Azure AD Object ID |
+| SAP table USR02 | Timezone | Microsoft Entra Object ID |
 | SAP table USR02 | LockedStatus | AD User Identifier |
 | SAP audit log | LastSeen | A timestamp | last audit event observed for the user  
 | SAP audit log | LastSeenDaysAgo | days passed since LastSeen |
