@@ -31,7 +31,7 @@ Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidenti
 | &nbsp; | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only)** |
 |--|--|--|--|--|
 | Encryption at rest (OS and data disks) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | 
-| Temp disk encryption | &#10060; | &#x2705; | &#x2705; | &#10060; |
+| Temp disk encryption | &#10060; | &#x2705; Only supported with platform managed key | &#x2705; | &#10060; |
 | Encryption of caches | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Data flows encrypted between Compute and Storage | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Customer control of keys | &#x2705; When configured with DES | &#x2705; When configured with DES | &#x2705; When configured with KEK | &#x2705; When configured with DES |
