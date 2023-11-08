@@ -1,28 +1,15 @@
 ---
 title: Configure customer-managed keys (CMK) for the FHIR service in Azure Health Data Services
 description: Use customer-managed keys (CMK) to encrypt data in the FHIR service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
-author: kshetki
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023
-ms.author: kshetki
+ms.author: kesheth
 ---
 
 # Configure customer-managed keys for the FHIR service
-
-With customer-managed keys (CMK), you can protect and control access to your organization's data using keys that you create and manage. 
-
-## Prerequisites
-
-- Make sure you're familiar with [Best practices for using customer-managed keys](customer-managed-keys.md).
-
-- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
-
-## Enable a managed identity for the FHIR service
-
- You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
-
 #### System-assigned managed identity
 
 1. In the Azure portal, go to the FHIR instance. Select **Identity** from the left pane.

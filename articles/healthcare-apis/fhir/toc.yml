@@ -29,7 +29,7 @@ items:
     - name: Using Bicep
       href: fhir-service-bicep.md
     - name: Using ARM template
-      href: fhir-service-resaource-manager-template.md
+      href: fhir-service-resource-manager-template.md
 - name: Interoperability and patient access
   expanded: true
   items:
