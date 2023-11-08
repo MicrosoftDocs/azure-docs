@@ -19,50 +19,74 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-          - text: What's new
+          - text: What's new?
             url: concept-whats-new.md
-  - title: Create an instance
+  
+  - title: Get started
     linkLists:
       - linkListType: get-started
         links:
-          - text: Azure portal
+          - text: Create an instance in the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Azure CLI
+          - text: Create an instance in the Azure CLI
             url: quickstart-managed-grafana-cli.md
-  - title: Configure Azure Managed Grafana
+  
+  - title: Manage dashboards
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure data sources with Managed Identity
+          - text: Manage data sources
             url: how-to-data-source-plugins-managed-identity.md
-          - text: Call Grafana APIs programmatically
-            url: how-to-api-calls.md
-          - text: Enable zone redundancy
-            url: how-to-enable-zone-redundancy.md
-          - text: Set up authentication and permissions
-            url: how-to-authentication-permissions.md
+          - text: Manage plugins
+            url: how-to-manage-plugins.md
           - text: Create a dashboard
             url: how-to-create-dashboard.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
-          - text: Configure SMTP settings
-            url: how-to-smtp-settings.md
-  - title: Manage Azure Managed Grafana
+          - text: Use reporting and image rendering
+            url: how-to-use-reporting-and-image-rendering.md
+  
+  - title: Manage access and networking
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Modify access to Azure Monitor
-            url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
+          - text: Use Microsoft Entra groups
+            url: how-to-sync-teams-with-azure-ad-groups.md
+          - text: Set up authentication and permissions
+            url: how-to-authentication-permissions.md
+          - text: Modify access to Azure Monitor
+            url: how-to-permissions.md
+          - text: Connect to a data source privately
+            url: how-to-connect-to-data-source-privately.md
+          - text: Set up private access
+            url: how-to-set-up-private-access.md
+          - text: Call Grafana APIs programmatically
+            url: how-to-api-calls.md
+
+  - title: Set up Grafana monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Monitor an instance
             url: how-to-monitor-managed-grafana-workspace.md
+          - text: Configure SMTP settings
+            url: how-to-smtp-settings.md
+
+  - title: Manage availability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Service reliability
+            url: high-availability.md
+          - text: Zone redundancy
+            url: how-to-enable-zone-redundancy.md
+
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
-          - text: Service reliability
-            url: high-availability.md
           - text: Control plane APIs
             url: /rest/api/managed-grafana
           - text: Data plane APIs
