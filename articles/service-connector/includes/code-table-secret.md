@@ -13,7 +13,7 @@ ms.author: wchi
     dotnet add package Azure.Data.Tables
     ```
 
-1. Get the table storage connection string from the environment variable added by Service Connector.
+1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
 
     ```csharp
     using Azure.Data.Tables;
@@ -72,4 +72,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/other)
-For other languages, you can use the table storage account URL and other properties that Service Connector sets to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
+For other languages, you can use the Azure Table Storage account URL and other properties that Service Connector sets to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
