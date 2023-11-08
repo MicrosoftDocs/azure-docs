@@ -25,7 +25,7 @@ When you have critical applications and business processes relying on Azure reso
 
 AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) collect other data and enable other analysis options as shown in the following diagram and table. 
 
-:::image type="content" source="media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from AKS." lightbox="media/monitor-aks/aks-monitor-data.png" border="false":::
+:::image type="content" source="media/monitor-aks/aks-monitor-data_v2.png" alt-text="Diagram of collection of monitoring data from AKS." lightbox="media/monitor-aks/aks-monitor-data_v2.png" border="false":::
 
 
 
@@ -36,6 +36,7 @@ AKS generates the same kinds of monitoring data as other Azure resources that ar
 | Activity logs | [Activity log](monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Send the [Activity log to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with your other log data. |
 | Resource logs | [Control plane logs](monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. [Create a diagnostic setting](../azure-monitor/essentials/create-diagnostic-settings.md) to send them to [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) where you can analyze and alert on them with log queries in [Log Analytics](../azure-monitor/logs/log-analytics-overview.md). |
 | Container insights | Container insights collects various logs and performance data from a cluster including stdout/stderr streams and stores them in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) and [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). Analyze this data with views and workbooks included with Container insights or with [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).  |
+![image](https://github.com/xuhongl/azure-docs-pr/assets/16740771/d7bf89a8-a9be-45c4-9570-97cc8a602f09)
 
 
 ## Monitoring overview page in Azure portal
@@ -151,7 +152,7 @@ ContainerLogV2 is the recommended approach and is the default schema for custome
 
 ## Visualization
 
-Data visualization is an essential tool to convey information to system administrators and platform monitoring engineers more effectively than reading raw data. It helps people understand the metrics' significance in seconds and allows them to see crucial trends eventually masked by summary metrics. Cluster metrics in Prometheus format collected by Container Insights or Azure Monitor managed service for Prometheus can be visualized using Grafana Dashboards or native Azure workbooks.
+Data visualization is an essential concept that makes it easier for system administrators and operational engineers to consume the collected information. Instead of looking at raw data, they can use visual representations, which quickly display the data and reveal trends that might be hidden when looking at raw data. You can use Grafana Dashboards or native Azure workbooks for data visualization.
 
 ### Azure Managed Grafana
 The most common way to analyze and present Prometheus data is with a Grafana Dashboard. Azure Managed Grafana includes [prebuilt dashboards](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) for monitoring Kubernetes clusters including several that present similar information as Container insights views.  There are also various community-created dashboards to visualize multiple aspects of a Kubernetes cluster from the metrics collected by Prometheus.
