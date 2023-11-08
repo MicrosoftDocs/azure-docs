@@ -27,11 +27,11 @@ The JavaScript App Configuration provider is a library running on top of the [Az
 
 Add the following key-values to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-| Key            | Value                                  | Label       | Content type       |
-|----------------|----------------------------------------|-------------|--------------------|
-| *message*      | *Message from Azure App Configuration* | Leave empty | Leave empty        |
-| *app.greeting* | *Hello World*                          | Leave empty | Leave empty        |
-| *app.json*     | *{"myKey":"myValue"}*                  | Leave empty | *application/json* |
+| Key            | Value                                  | Content type       |
+|----------------|----------------------------------------|--------------------|
+| *message*      | *Message from Azure App Configuration* | Leave empty        |
+| *app.greeting* | *Hello World*                          | Leave empty        |
+| *app.json*     | *{"myKey":"myValue"}*                  | *application/json* |
 
 ## Setting up the Node.js app
 
@@ -72,7 +72,7 @@ Add the following key-values to the App Configuration store. For more informatio
         const jsonObject = settings.get("app.json");
         console.log(jsonObject.myKey);  // Output: myValue
 
-        // Sample 2: Connect to Azure App Configuration using a connection string and "app." as trimmed key prefix.
+        // Sample 2: Load all key-values with null label and trim "app." prefix from all keys.
         settings = await load(connectionString, {
           trimKeyPrefixes: ["app."]
         });
@@ -80,7 +80,7 @@ Add the following key-values to the App Configuration store. For more informatio
         // From the keys with trimmed prefixes, find a key with "greeting" and print its value.
         console.log(settings.get("greeting")); // Output: Hello World
 
-        // Sample 3: Connect to Azure App Configuration using SettingSelector.
+        // Sample 3: Load all keys starting with "app." prefix and null label.
         settings = await load(connectionString, {
           selectors: [{
             keyFilter: "app.*"
