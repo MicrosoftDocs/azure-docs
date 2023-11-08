@@ -36,13 +36,13 @@ This article is part four in a four-part tutorial series. In this tutorial, you 
 
 | Error Code                  | Error Message                                                                     | Troubleshooting Info                                                                                                                                                                                                                                     |
 | --------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| UNKNOWN_ERROR               | Conversion operation failed due to an unknown error.                              | Caused by an internal error. A retry may help but if unsucessful may need to contact support.                                                                                                                                                             |
-| RESOURCE_NOT_FOUND          | Conversion operation failed because target resource was not found.                 | The target image was not found in the registry. This may be caused by a typo in the image digest, the image may have been deleted or otherwise missing in the target region (replication consistency is not immediate for example).                       |
+| UNKNOWN_ERROR               | Conversion operation failed due to an unknown error.                              | Caused by an internal error. A retry helps here. If retry is unsuccessful contact support.                                                                                                                                                             |
+| RESOURCE_NOT_FOUND          | Conversion operation failed because target resource isn't found.                 | If the target image isn't found in the registry. Verify typos in the image digest, if the image is deleted, or missing in the target region (replication consistency is not immediate for example)                      |
 | UNSUPPORTED_PLATFORM        | Conversion is not currently supported for image platform.                          | Only linux/amd64 images are initially supported.                                                                                                                                                                                                         |
-| NO_SUPPORTED_PLATFORM_FOUND | Conversion is not currently supported for any of the image platforms in the index. | Only linux/amd64 images are initially supported. No image with this platform was found in the target index.                                                                                                                                               |
-| UNSUPPORTED_MEDIATYPE       | Conversion is not supported for the image MediaType.                               | Conversion can only target images with mediatype: application/vnd.oci.image.manifest.v1+json, application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.v2+json or application/vnd.docker.distribution.manifest.list.v2+json |
-| UNSUPPORTED_ARTIFACT_TYPE   | Conversion is not supported for the image ArtifactType.                            | Streaming Artifacts (Artifact type: application/vnd.azure.artifact.streaming.v1) cannot be converted again.                                                                                                                                              |
-| IMAGE_NOT_RUNNABLE          | Conversion is not supported for non-runnable images.                               | Only linux/amd64 runnable images are initially supported.                                                                                                                                                                                                 |
+| NO_SUPPORTED_PLATFORM_FOUND | Conversion is not currently supported for any of the image platforms in the index. | Only linux/amd64 images are initially supported. No image with this platform is found in the target index.                                                                                                                                               |
+| UNSUPPORTED_MEDIATYPE       | Conversion is not supported for the image MediaType.                               | Conversion can only target images with media type: application/vnd.oci.image.manifest.v1+json, application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.v2+json or application/vnd.docker.distribution.manifest.list.v2+json |
+| UNSUPPORTED_ARTIFACT_TYPE   | Conversion isn't supported for the image ArtifactType.                            | Streaming Artifacts (Artifact type: application/vnd.azure.artifact.streaming.v1) can't be converted again.                                                                                                                                              |
+| IMAGE_NOT_RUNNABLE          | Conversion isn't supported for nonrunnable images.                               | Only linux/amd64 runnable images are initially supported.                                                                                                                                                                                                 |
 
 ## Troubleshooting Failed AKS Pod Deployments
 
@@ -58,7 +58,7 @@ unexpected status from HEAD request to http://localhost:8578/v2/jupyter/all-spar
 
 To troubleshoot this issue, you should check the following:
 
-1. Verify if the AKS have permissions to access the container registry `mystreamingtest.azurecr.io`
+1. Verify if the AKS has permissions to access the container registry `mystreamingtest.azurecr.io`
 1. Ensure that the container registry `mystreamingtest.azurecr.io` is accessible and properly attached to AKS.
 
 ## Checking for "UpgradeIfStreamableDisabled" Pod Condition:
@@ -67,6 +67,6 @@ If the AKS pod condition shows "UpgradeIfStreamableDisabled," check if the image
 
 ## Using Digest Instead of Tag for Streaming Artifact:
 
-If you deploy the streaming artifact using digest instead of tag (eg, mystreamingtest.azurecr.io/jupyter/all-spark-notebook@sha256:4ef83ea6b0f7763c230e696709d8d8c398e21f65542db36e82961908bcf58d18), AKS pod event and condition message will not include streaming related information. However, you may still see fast container startup as the underlying container engine will still stream the image to AKS if it detects the actual image content is streamable. 
+If you deploy the streaming artifact using digest instead of tag (for example, mystreamingtest.azurecr.io/jupyter/all-spark-notebook@sha256:4ef83ea6b0f7763c230e696709d8d8c398e21f65542db36e82961908bcf58d18), AKS pod event and condition message won't include streaming related information. However, you see fast container startup as the underlying container engine. This engine stream the image to AKS if it detects the actual image content is streamable. 
 
 ## Next steps
