@@ -121,7 +121,7 @@ In the **Properties** section, follow these steps to map each property's value t
 
         :::image type="content" source="media/map-business-process-workflow/open-expression-editor.png" alt-text="Screenshot shows selected option to open expression editor for first property." lightbox="media/map-business-process-workflow/open-expression-editor.png":::
 
-        The expression editor editor opens and shows the functions that you can use to build an expression:
+        The expression editor opens and shows the functions that you can use to build an expression:
 
         :::image type="content" source="media/map-business-process-workflow/first-property-value-expression-editor.png" alt-text="Screenshot shows open expression editor for first property with functions to select." lightbox="media/map-business-process-workflow/first-property-value-expression-editor.png":::
 

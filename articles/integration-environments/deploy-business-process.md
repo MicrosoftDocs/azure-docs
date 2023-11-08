@@ -77,7 +77,7 @@ After the associated Standard logic app workflows run and emit the data that you
 
    The **Transactions** page shows any records that your solution tracked. 
 
-   :::image type="content" source="media/deploy-business-process/transactions-page.png" alt-text="Screenshot shows transactions page for business processeses." lightbox="media/deploy-business-process/transactions-page.png":::
+   :::image type="content" source="media/deploy-business-process/transactions-page.png" alt-text="Screenshot shows transactions page for business processes." lightbox="media/deploy-business-process/transactions-page.png":::
 
 1. Sort the records based on **Business identifier**, **Time executed**, or **Business process**. 
 
