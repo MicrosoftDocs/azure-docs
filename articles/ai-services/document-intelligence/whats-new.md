@@ -34,6 +34,8 @@ The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.
 * [Layout](concept-layout.md)
   * Markdown output support.
   * Table extraction improvements.
+  * Starting with Document Intelligence 2023-10-31-preview, the general document model (prebuilt-document) is deprecated. Going forward, to extract key-value pairs from documents, use the 
+    Layout model with the optional query string parameter `features=keyValuePairs` enabled.		
 * [Reciept Prebuilt](concept-receipt.md)
   * Now extracts currency for all price-related fields.
 * [Health Insurance Card Prebuilt](concept-health-insurance-card.md)
