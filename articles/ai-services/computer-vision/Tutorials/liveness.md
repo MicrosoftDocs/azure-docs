@@ -21,9 +21,9 @@ The liveness detection solution successfully defends against a variety of spoof 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * [All tutorials include a list summarizing the steps to completion]
-> * [Each of these bullet points align to a key H2]
-> * [Use these green checkboxes in a tutorial]
+> * All tutorials include a list summarizing the steps to completion
+> * Each of these bullet points align to a key H2
+> * Use these green checkboxes in a tutorial
 
 
 ## Prerequisites
@@ -293,6 +293,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 See the liveness SDK reference to learn about other options in the liveness APIs.
 
-- (Java (Android))[https://aka.ms/liveness-sdk-java]
-- (Swift (iOS))[https://aka.ms/liveness-sdk-ios]
+- (Java (Android)[https://aka.ms/liveness-sdk-java]
+- (Swift (iOS)[https://aka.ms/liveness-sdk-ios]
 
