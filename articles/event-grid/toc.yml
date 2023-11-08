@@ -165,7 +165,7 @@ items:
         - name: Enable managed identity for namespace
           href: event-grid-namespace-managed-identity.md
         - name: Authenticate publishing clients using Microsoft Entra ID
-          href: authenticate-with-active-directory-namespaces.md
+          href: authenticate-with-entra-id-namespaces.md
         - name: Forward events to Event Grid namespace topic
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
