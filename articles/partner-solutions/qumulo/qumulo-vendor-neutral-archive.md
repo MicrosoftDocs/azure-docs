@@ -32,7 +32,7 @@ The ANQ service  used in the solution is deployed in Qumulo’s Azure tenant.
 
 Access to the ANQ cluster is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
 
-:::image type="content" source="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs.png" alt-text="solution architecture for pacs using Qumulo.":::
+:::image type="content" source="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs.png" alt-text="Conceptual diagram that shows the solution architecture for pacs using Qumulo.":::
 
 ### Solution workflow
 
@@ -48,7 +48,7 @@ Here's the basic workflow for Azure Native Qumulo PACS VNA:
 
 The process flow for Azure Native Qumulo for PACS VNA is depicted here:
 
-:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="Conceptual diagram that shows process flow for pacs using Qumulo.":::
+:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="Conceptual diagram that shows the process flow for picture archiving and communication system with a vendor neutral archive using Qumulo.":::
 
 ## Components
 
@@ -116,7 +116,7 @@ While the solution uses Qumulo’s replication engine between the on-premises cl
 Both ANQ and the on-premises Qumulo cluster also support any file-based backup solution to enable external data protection.
 Resource Tier Availability
 
-For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s own documentation.
+For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s documentation.
 
 ### Resource Tier Availability
 
