@@ -26,6 +26,14 @@ This article is part three in a four-part tutorial series. In this tutorial, you
 
 Artifact Streaming is available in the *premium* [SKU](container-registry-skus.md) Azure Container Registry. To enable Artifact Streaming, update a registry using the Azure portal.
 
+Follow the steps to create artifact streaming in the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to your Azure Container Registry. 
+
+1. In the side **Menu**, under the **Services**, select **Repositories**.
+
+1. Select the latest imported image.
+
 1. Convert the image and create Artifact Streaming in Azure portal.
 
     :::image type="content" source="./media/container-registry-artifact-streaming/01-create-artifact-streaming.png" alt-text="Screenshot for Create Artifact Streaming.":::
