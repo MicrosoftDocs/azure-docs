@@ -15,9 +15,9 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't yet ready production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This cloud platform helps you organize, manage, and track Azure resources related to your integration solutions. In Azure, an integration environment reduces complexity by providing a central place for you to organize existing Azure resources into logical application groups.
+This cloud platform helps you organize, manage, and track Azure resources related to your integration solutions. In Azure, an integration environment reduces complexity by providing a central place for you to organize deployed Azure resources into logical application groups.
 
-For your stakeholders, this environment gives you a way to add business context about your application groups by modeling the business processes implemented by resources in these groups. For each business process stage, you define the key business data to capture from resources already in deployment, and map each stage to actual specific resources. This "single pane of view" offers a more streamlined and friendlier experience for managing and tracking the resources that support your integration solutions.
+For your stakeholders, this environment gives you a way to add business context about the resources in your application groups by modeling the business processes implemented by these resources. For each business process stage, you define the key business data to capture from the deployed resources, and map each stage and properties to actual resources and data. This "single pane of view" offers a more streamlined and friendlier experience for managing and tracking the resources that support your integration solutions.
 
 In this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
 
@@ -29,11 +29,14 @@ In this release, an integration environment offers the following capabilities as
 
 ## Central organization and management
 
-Your integration environment provides a common location in Azure for you to find, organize, manage, and track Azure resources associated with your integration solutions. In this environment, you create and use application groups to logically break down your environment even further. For example, an environment might have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
+Your integration environment provides a common location in Azure for you to organize, manage, and track Azure resources that implement your integration solutions. In this environment, you create and use application groups to logically break down your environment even further. For example, an environment might have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
 
 This model offers the flexibility for your organization to use integration environments based on your organization's conventions, standards, and principles. For example, some organizations might create integration environments based on business units or teams such as Finance, Marketing, Operations, Corporate Services, and so on. Others might create integration environments based on their infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility for your organization's needs.
 
-For example, suppose you're an integration developer at a power company. You create an integration environment with application groups to organize Azure resources for the business scenarios to open a new customer account and resolve a customer ticket for a power outage:
+For example, suppose you're an integration developer at a power company. You create an integration environment and  application groups for the Azure resources that implement the following scenarios:
+
+- Open a new customer account.
+- Resolve a customer ticket for a power outage.
 
 :::image type="content" source="media/overview/integration-environment.png" alt-text="Screenshot shows Azure portal, integration environment resource, and application groups." lightbox="media/overview/integration-environment.png":::
 
@@ -60,25 +63,23 @@ For more information about other Azure resource types planned for support, see t
 > In this release, business process modeling and tracking is available only 
 > for Standard logic app resources and their workflows in Azure Logic Apps.
 
-Your integration environment provides a way for you to add business context about the transactions processed by Azure resources associated with your integration solutions. To describe this context, you define business processes and their stages using the process designer, and then map each stage to actual Azure resources. For your stakeholders, you can define key business data to capture and track as that data moves through the deployed resources. When you're done, you deploy each business process as a separate Azure resource along with a tracking profile that Azure adds to deployed resources. That way, you don't have to embed any tracking information in your resources and can decouple business process modeling from your implementation.
+Your integration environment provides a way to add business context about the Azure resources that implement your integration solutions. To visually describe this context, you model the business processes and their stages using the process designer, and then map each stage to the actual resources. For your stakeholders, you can define the key business data to capture and track as that data moves through the deployed resources. When you're done, you deploy each business process as a separate Azure resource along with a tracking profile that Azure adds to your resources. That way, you decouple the business process model from your implementation and don't have to embed any tracking information in your solutions.
 
-For example, suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
+For example, suppose you're an integration developer at a power company. You manage a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-You already have an integration environment that includes an application group that logically organizes Azure resources for this business scenario. To expose some of this underlying information to stakeholders, you can visually model the business processes and stages supported by resources in the application group by using the process designer, for example:
+You create an integration environment, which includes an application group that logically organizes Azure resources for this business scenario. To share some underlying information with stakeholders, you visually model the business processes and stages implemented by the application group using the process designer, for example:
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process modeling in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-For each business process stage, you define or specify the key business data properties to capture. You then map the stage to a matching operation in a Standard logic app workflow and map the properties to outputs that provide the matching data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
+For each business process stage, you specify the key business data properties that your organization wants to capture. You then map each stage to the corresponding operation in a Standard logic app workflow and map the properties to operation outputs that provide the necessary data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and dynamic content token for the data that you want to capture, for example:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-When you're done, your stage and business properties are mapped to the matching Standard logic app workflow, operation, and source data:
+When you're done, your business process stage and properties map to the corresponding Standard logic app workflow, operation, and source data. When your workflows run, they populate the specified business properties.
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
-
-When your workflows run, they populate the properties that you specified.
 
 ## Limitations and known issues
 
