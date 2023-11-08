@@ -38,7 +38,7 @@ Some monitoring of Azure resources is available automatically with no configurat
 
 The following table shows the configuration steps required to collect all available data from your Azure resources. It also shows at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The following sections describe each step in further detail.
 
-[![Diagram that shows deploying Azure resource monitoring.](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
+:::image type="content" source="media/best-practices-data-collection/best-practices-azure-resources.png" lightbox="media/best-practices-data-collection/best-practices-azure-resources.png" alt-text="Diagram that shows deploying Azure resource monitoring.":::
 
 ### Collect tenant and subscription logs
 
