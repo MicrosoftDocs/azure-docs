@@ -1,0 +1,1 @@
+- Subscription owner - A confidential ledger can only be created by users who have _Owner_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before continuing with this quickstart.
