@@ -31,12 +31,12 @@ AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to up
 
 The following table calculates the number of write operations required to upload these blobs. 
 
-| Calculation | Value
-|---|---|
-| Number of MiB in 5 GiB | 5,120 |
-| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640 |
-| PutBlockList operations per blob | 1 |
-| **Total write operations (1,000 * 641)** | **641,000** |
+| Calculation                                            | Value       |
+|--------------------------------------------------------|-------------|
+| Number of MiB in 5 GiB                                 | 5,120       |
+| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640         |
+| PutBlockList operations per blob                       | 1           |
+| **Total write operations (1,000 * 641)**               | **641,000** |
 
 > [!TIP]
 > You can reduce the number of operations by configuring AzCopy to use a larger block size.  
@@ -56,27 +56,30 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ### Cost of uploading to the Data Lake Storage endpoint
 
-If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is nonconfigurable. 
+If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is not configurable.
 
-AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block, which is billed as a write operation. After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
+AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
+
+AzCopy uploads each block by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `append`. After the final block is uploaded, AzCopy commits those blocks by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `flush`. Both operations are billed as write operations. After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
 
 The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
 | Number of MiB in 5 GiB | 5,120 |
-| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
-| **Total write operations (1,000 * 1,280)** | **1,280,000** |
+| Path - Update (append) operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
+| Path - Update (flush) operations per blob | 1 |
+| **Total write operations (1,000 * 1,281)** | **1,281,00** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs
 
 | Price factor                                               | Hot         | Cool         | Cold         | Archive      |
 |------------------------------------------------------------|-------------|--------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013  | $0.0000234  | $0.0000143  |
-| **Cost of write operations (1,280,000 * operation price)** | **$9.15** | **$16.64** | **$29.95** | **$18.3** |
+| Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013    | $0.0000234   | $0.0000143   |
+| **Cost of write operations (1,281,000 * operation price)** | **$9.1592** | **$16.6530** | **$29.9754** | **$18.3183** |
 | Price of a single other operations (price / 10,000)        | $0.00000044 | $0.00000044  | $0.00000052  | $0.00000044  |
 | **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0005**  | **$0.0004**  |
-| **Total cost (write + other operations)**                  | **$9.15**   | **$16.64**   | **$29.95**   | **$18.30**   |
+| **Total cost (write + other operations)**                  | **$9.16**   | **$16.65**   | **$29.98**   | **$18.32**   |
 
 ## The cost to download
 
@@ -106,33 +109,34 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ### Cost of downloading from the Data Lake Storage endpoint
 
-If you download blobs by using the Data Lake Storage endpoint, AzCopy reads each blob in 4-MiB blocks. This value is nonconfigurable. 
+If you download blobs from the Data Lake Storage endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation which is billed as an _All other operations_ operation, and then downloads each block (4 MiB in size) by using the [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) operation. Each [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) call is billed as a read operation. 
 
-AzCopy uses the [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) and [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
+If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
 
 The following table calculates the number of write operations required to upload the blobs. 
 
-| Calculation | Value
-|---|---|
-| Number of MiB in 5 GiB | 5,120 |
-| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
-| Total read operations (1000* 1,280) | **1,280,000** |
+| Calculation                                                 | Value         |
+|-------------------------------------------------------------|---------------|
+| Number of MiB in 5 GiB                                      | 5,120         |
+| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
+| Total read operations (1000* 1,280)                         | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
 > [!NOTE]
 > This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-| Price factor                                                   | Hot         | Cool        | Cold         |
-|----------------------------------------------------------------|-------------|-------------|--------------|
-| Price of a single read operation (price / 10,000)              | $0.00000057 | $0.0000013  | $0.000013    |
-| **Cost of read operations (1,280,000 * operation price)**      | **$0.73**   | **$1.66**   | **$16.64**   |
-| Price of a single iterative read operation (price / 10,000)    | $0.00000715 | $0.00000715 | $0.00000845  |
-| **Cost of iterative read operations (1000 * operation price)** | **$0.0072** | **$0.0072** | **$0.00845** |
-| Price of data retrieval (per GiB)                              | Free        | $0.01       | $0.03        |
-| **Cost of data retrieval (1000 * operation price)**            | **$0.00**   | **$10.00**  | **$30.00**   |
-| **Total cost (read + iterative read + retrieval)**             | **$0.73**   | **$11.67**  | **$46.65**   |
-
+| Price factor                                              | Hot            | Cool           | Cold           |
+|-----------------------------------------------------------|----------------|----------------|----------------|
+| Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
+| **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000055** | **$0.0000065** |
+| Price of a single other operations (price / 10,000)       | $0.00000044    | $0.00000044    | $0.00000052    |
+| **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
+| Price of a single read operation (price / 10,000)         | $0.00000057    | $0.00000130    | $0.00001300    |
+| **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
+| Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
+| **Cost of data retrieval (5 * operation price)**          | **$0.00**      | **$0.05**      | **$0.15**      |
+| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$1.716**     | **$16.804**    |
 
 
 ## The cost to copy between containers
