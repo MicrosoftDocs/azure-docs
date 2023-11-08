@@ -44,18 +44,6 @@ This article is part four in a four-part tutorial series. In this tutorial, you 
 | UNSUPPORTED_ARTIFACT_TYPE   | Conversion is not supported for the image ArtifactType.                            | Streaming Artifacts (Artifact type: application/vnd.azure.artifact.streaming.v1) cannot be converted again.                                                                                                                                              |
 | IMAGE_NOT_RUNNABLE          | Conversion is not supported for non-runnable images.                               | Only linux/amd64 runnable images are initially supported.                                                                                                                                                                                                 |
 
-If an artifact-streaming operation fails with the message "Conversion operation failed due to an unknown error," follow these steps to troubleshoot the issue:
-
-1. Check the conversion status
-
-Check the status of the conversion operation using the operation ID provided in the output of the previous command. It will show the progress and status of the conversion.
-
-For example, run the command [az acr artifact-streaming operation show] to check the status of the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
-
-```azurecli-interactive
-az acr artifact-streaming operation show --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
-```
-
 ## Troubleshooting Failed AKS Pod Deployments
 
 If AKS pod deployment fails with an error related to image pulling, like the following example
