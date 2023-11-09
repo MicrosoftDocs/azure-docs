@@ -281,6 +281,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configure packet captures 
       href: packet-capture.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot VPN Gateway

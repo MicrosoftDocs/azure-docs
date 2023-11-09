@@ -3,7 +3,7 @@ title: Overview of the MedTech service FHIR destination mapping - Azure Health D
 description: Learn about the MedTech service FHIR destination mapping.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: jasteppe
@@ -11,10 +11,7 @@ ms.author: jasteppe
 
 # Overview of the MedTech service FHIR destination mapping
 
-> [!NOTE] 
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-This article provides an overview of the MedTech service FHIR destination mapping.
+This article provides an overview of the MedTech service FHIR&reg; destination mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. The [device mapping](overview-of-device-mapping.md) is the first type and controls mapping values in the device data sent to the MedTech service to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls how the normalized data is mapped to [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
@@ -54,7 +51,7 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 CodeValueFhir is currently the only template supported in the FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [String](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
 > [!IMPORTANT]
-> The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
+> The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 |Element|Description|Required| 
 |:------|:----------|:-------|
@@ -231,31 +228,14 @@ The resulting FHIR Observation will look like this after the transformation stag
 
 ## Next steps
 
-In this article, you've been provided an overview of the MedTech service FHIR destination mapping. 
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-For an overview of the MedTech service device mapping, see
+[How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
 
-> [!div class="nextstepaction"] 
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+[How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
 
-To learn how to use CalculatedContent with the MedTech service device mapping, see
+[How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-> [!div class="nextstepaction"] 
-> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-To learn how to use IotJsonPathContent with the MedTech service device mapping, see
-
-> [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
-
-To learn how to use custom functions with the MedTech service device mapping, see
-
-> [!div class="nextstepaction"] 
-> [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
