@@ -311,6 +311,8 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 1. Under **Create a collector agent** on the right, define the agent details:
 
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
+
     - Enter the **Agent name**. The agent name can include these characters: 
         - a-z
         - A-Z 
@@ -331,8 +333,6 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
     - To authenticate to your key vault using a registered application, select **Application Identity**. You must have the registered application (application identity) set up ahead of time, as mentioned in the [prerequisites](#prerequisites).
-
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
