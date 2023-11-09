@@ -141,7 +141,6 @@ Changing the Network Features for an Azure NetApp Files Volume may also impact t
 1. Select the **Change network features**. ***Do **not** select Save.***
 1. Record the paths of the affected volumes then select **Cancel**. 
 
-
 :::image type="content" source="../media/azure-netapp-files/affected-volumes-network-features.png" alt-text="Screenshot of volumes affected by change network features." lightbox="../media/azure-netapp-files/affected-volumes-network-features.png":::
 
 All Terraform templates that define these volumes need to be updated, meaning you need to find the Terraform templates that define these volumes. The templates representing the affected volumes may not be in the same Terraform module.
@@ -149,15 +148,12 @@ All Terraform templates that define these volumes need to be updated, meaning yo
 >[!IMPORTANT]
 >With the exception of the single volume you know is managed by Terraform, additional affected volumes below may not be managed by Terraform. An additional volume that is listed as being in the same network sibling set does not mean that this additional volume is managed by Terraform.
 
-Be certain that for all affected volumes listed that are managed by Terraform, you perform the steps in the next section to update their terraform template files. Any affected volumes that are managed by Terraform, but their templates not updated as is demonstrated in the following section, may be destroyed by Terraform upon running “terraform apply”.
+#### Modify the affected volumes’ templates
 
->[!IMPORTANT]
-> As a safety precaution, execute `terraform plan` before executing `terraform apply`. The command `terraform plan` allows you to create a “plan” file, which contains the changes to your remote resources. This plan allows you to know if any of your affected volumes will be destroyed by running `terraform apply`.
+You must modify the templates for each affected volume managed by Terraform that you discovered. Failing to update the template may destroy the volume or result in data loss. 
 
 >[!IMPORTANT]
 >Depending on your volume’s lifecycle configuration block settings in your Terraform template, your volume may be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform and which are not.
-
-#### Modify the affected volumes’ templates
 
 1. Locate the affected Terraform-managed volumes templates.
 1. Add the `ignore_changes = [network_features]` to the volume's `lifecycle` configuration block. If the `lifecycle` block does not exist in that volume’s configuration, add it.
@@ -183,6 +179,9 @@ Use the Azure portal to update the volumes' network features from Basic to Stand
 1. In the terminal, run `terraform plan` to view any potential changes. The output should indicate that the infrastructure matches the configuration with a message reading "No changes. Your infrastructure matches the configuration."
 
     :::image type="content" source="../media/azure-netapp-files/terraform-plan-output.png" alt-text="Screenshot of terraform plan output." lightbox="../media/azure-netapp-files/terraform-plan-output.png":::
+
+    >[!IMPORTANT]
+    > As a safety precaution, execute `terraform plan` before executing `terraform apply`. The command `terraform plan` allows you to create a “plan” file, which contains the changes to your remote resources. This plan allows you to know if any of your affected volumes will be destroyed by running `terraform apply`.
 
 1. Run `terraform apply` to update the `terraform.tfstate` file.
 
