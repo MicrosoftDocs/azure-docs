@@ -80,7 +80,8 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Confidential compute encryption type**, select the type of encryption to use. 
     
-    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM. 
+    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM.
+    1. If you want to encrypt your VM's temp disk, please refer to the [following documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 
