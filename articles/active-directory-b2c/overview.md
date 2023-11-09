@@ -6,12 +6,12 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/26/2022
+ms.date: 08/11/2023
 ms.custom: engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
 
-# Customer intent: As an IT admin or developer, I need to understand what Azure AD B2C is and how it can help me build a customer-facing application.
+# Customer intent: As a technical or non-technical customer, I need to understand at a high level what Azure AD B2C is and how it can help me build a customer-facing application.
 
 ---
 
