@@ -22,7 +22,7 @@ The Layered Network Management architecture requires DNS configuration on the le
 
 
 ## Prerequisites
-These prerequisites are only for deploying the Layered Network Management independently and Arc-enable the child level cluster. For the scenario of enabling Azure IoT Operations in an isolated network, there will be other prerequisites.
+These prerequisites are only for deploying the Layered Network Management independently and Arc-enable the child level cluster. The prerequisites for enabling Azure IoT Operations in an isolated network is documented in a different page.
 
 - An [AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli)
 - An Azure Linux Ubuntu **22.04.3 LTS** VM
@@ -157,7 +157,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 
 ## Prepare the level 3 cluster
 In level 3, you will create a K3S kubernetes cluster on a Linux VM. For convenience of setting up the cluster, you can create the Azure Linux Ubuntu 22.04.3 LTS VM with internet access and enabled ssh from your jumpbox.
-> In a more realistic scenario which starts the setup in isolated network, you shall prepare the machine with the pre-built image for your solution or the [Air-Gap Install](https://docs.k3s.io/installation/airgap) approach of K3S.
+> In a more realistic scenario which starts the setup in isolated network, you can prepare the machine with the pre-built image for your solution or the [Air-Gap Install](https://docs.k3s.io/installation/airgap) approach of K3S.
 
 1. On the Linux VM, install and configure K3S using the following commands:
 
