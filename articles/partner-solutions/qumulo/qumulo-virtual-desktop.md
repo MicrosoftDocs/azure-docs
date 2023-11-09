@@ -9,19 +9,19 @@ ms.date: 11/15/2023
 
 # What is Azure Native Qumulo Scalable File Service with a virtual desktop?
 
-Azure Native Qumulo (ANQ) allows users to use Azure Virtual Desktop (AVD) services to on-premises and remote users. This article describes a solution that is distributed across two separate Azure regions in an active-active configuration. ANQ and AVD can also be deployed to a single region if high availability is not required.
+Azure Native Qumulo (ANQ) allows users to use Azure Virtual Desktop (AVD) services to on-premises and remote users. This article describes a solution that is distributed across two separate Azure regions in an active-active configuration. ANQ and AVD can also be deployed to a single region if high availability isn't required.
 
-Remote workers require secure access to critical resources and data from anywhere. A remote desktop solution can offer high security and a low total cost of ownership. Users can experience short login times and better overall user productivity when using AVD with ANQ. This solution combines multi-region deployments with failover capabilities for both regions.
+Remote workers require secure access to critical resources and data from anywhere. A remote desktop solution can offer high security and a low total cost of ownership. Users can experience short sign in times and better overall user productivity when using AVD with ANQ. This solution combines multi-region deployments with failover capabilities for both regions.
 
 The benefits you provide with this deployment model include:
 
 - low latency for users, regardless of location
 - high-availability
-- support for remote users, even in the event of an Azure region outage
+- support for remote users, even if there's an Azure region outage
 
 ## Architecture
 
-The Azure Virtual Desktop solution with Azure Native Qumulo file storage is deployed across two separate regions on Azure. Remote desktop services are provided by Azure Virtual Desktop combined with Nerdio Enterprise Manager for connection services, AVD resource pool and desktop image management. User authentication services are delivered using Azure Active Directory / Microsoft Entra ID. User profile connections are managed by FSLogix, and profile storage is provided by the ANQ service instance, and accessed through SMB, as shown in the following diagram(s).
+The Azure Virtual Desktop solution with Azure Native Qumulo file storage is deployed across two separate regions on Azure. Remote desktop services are provided by Azure Virtual Desktop combined with Nerdio Enterprise Manager for connection services, AVD resource pool and desktop image management. User authentication services are delivered using  Microsoft Entra ID. User profile connections are managed by FSLogix, and profile storage is provided by the ANQ service instance, and accessed through SMB, as shown in the following diagram(s).
 
 ## Solution architecture
 
@@ -37,7 +37,7 @@ Azure Native Qumulo for with Azure Virtual desktop is a solution that is distrib
 
 1. Once authenticated, each user is connected to an available virtual desktop machine through Nerdio Connection Manager.
 
-1. As part of the desktop login process, FSLogix Profile Containers connect each AVD user to their assigned profile on the ANQ storage
+1. As part of the desktop sign in process, FSLogix Profile Containers connect each AVD user to their assigned profile on the ANQ storage
 
 1. Application-tier services and client software can be deployed either through application streaming or as part of the base AVD image.
 
@@ -45,13 +45,13 @@ Azure Native Qumulo for with Azure Virtual desktop is a solution that is distrib
 
 1. The ANQ service used in the solution is deployed in Qumulo’s Azure tenant.
 
-1. Access to the ANQ service is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
+1. Access to the ANQ service is enabled through virtual network (VNet) injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
     > [!NOTE]
     >  Qumulo has no access to any of your data on any ANQ instance.
 
 1. All user profiles on the ANQ service instance in each Azure region are replicated to the ANQ service instance in the other Azure region through Qumulo Continuous Replication service.
 
-1. In the event of an AVD service interruption in one Azure region, all AVD services, including AVD resource pools, Nerdio connection and resource management, FSLogix Profile management, and user profiles on the ANQ service instance fail over to the designated secondary Azure region.
+1. If there's an AVD service interruption in one Azure region, all AVD services, including AVD resource pools, Nerdio connection and resource management, FSLogix Profile management, and user profiles on the ANQ service instance failover to the designated secondary Azure region.
 
 ### Process workflow
 
@@ -64,43 +64,43 @@ The process flow for Azure Native Qumulo for with Azure Virtual desktop is depic
 The solution architecture comprises the following components:
 
 - [Azure Native Qumulo (ANQ)](https://qumulo.com/azure) to host the individual VHD-based profiles of each desktop user. In this solution, a separate ANQ instance has been deployed in each region.
-- [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above), configured to replicate user profile data from each region’s local ANQ service instance to the ANQ instance in the other region, ensuring that user profile services are available in the event of a regional failover.
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview), deployed in two Azure regions, with a separate pool of users assigned to each region’s AVD resources as their primary site, and each region set up as the secondary site for the other region in the event of a regional service interruption.
+- [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above), configured to replicate user profile data from each region’s local ANQ service instance to the ANQ instance in the other region, ensuring that user profile services are available if there's a regional failover.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview), deployed in two Azure regions, with a separate pool of users assigned to each region’s AVD resources as their primary site, and each region set up as the secondary site for the other region if there's a regional service interruption.
 - [Nerdio Manager](https://getnerdio.com/nerdio-manager-for-enterprise/) to manage the AVD-related services: resource pools, connectivity, security, desktop images, applications, and service monitoring.
-- [FSLogix Profile](/fslogix/overview-what-is-fslogix) [Containers](/fslogix/concepts-container-types#profile-container) to connect each AVD user to their assigned profile on the ANQ storage as part of the login process.
-- [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) (formerly Azure Active Directory) to provide user authentication and manage access to Azure-based resources.
+- [FSLogix Profile](/fslogix/overview-what-is-fslogix) [Containers](/fslogix/concepts-container-types#profile-container) to connect each AVD user to their assigned profile on the ANQ storage as part of the sign-in process.
+- [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) to provide user authentication and manage access to Azure-based resources.
 - [Azure Virtual Networking](/azure/virtual-network/virtual-networks-overview)
 - [VNet Injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network?tabs=azure-portal) to connect each region’s ANQ instance to the customer’s own Azure subscription resources.
 
 ## Considerations
 
-When planning a highly-available Azure Virtual Desktop solution that uses Azure Native Qumulo deployment for desktop profile storage, consider these factors in your planning and design processes.
+When planning a highly available Azure Virtual Desktop solution that uses Azure Native Qumulo deployment for desktop profile storage, consider these factors in your planning and design processes.
 
 ### Potential use cases
 
-Your enterprise can use this solution if you are looking to satisfy any or all of the following applicable scenarios.
+Your enterprise can use this solution if you're looking to satisfy any or all of the following applicable scenarios.
 
 - Remote end users:
   - Enterprises that employ a globally distributed workforce can use a multi-region AVD deployment to minimize latency when accessing enterprise resources from anywhere in the world.
 
 - Workforce elasticity:
-  - An AVD solution delivers corporate desktop services quickly and reliably, even to end users whose client hardware is not up to corporate or enterprise standards. ANQ with AVD allows organizations to bring a large number of workers online quickly. For example:
+  - An AVD solution delivers corporate desktop services quickly and reliably, even to end users whose client hardware isn't up to corporate or enterprise standards. ANQ with AVD allows organizations to bring a large number of workers online quickly. For example:
     - for seasonal help,
     - as part of a merger and acquisition process
     - in response to external events that have shuttered physical facilities and sent users home.
 
 - Desktop image management:
-  - The use of ephemeral desktops that are created right before a user connects, and then destroyed when the user logs off a few hours later, means that the process of updating operating system versions and images, can be rolled out across an entire enterprise within days by updating the relevant base image and redeploying to a new resource pool.
+  - The use of ephemeral desktops that are created right before a user connects, and then destroyed when the user sign out a few hours later, means that the process of updating operating system versions and images, can be rolled out across an entire enterprise within days by updating the relevant base image and redeploying to a new resource pool.
 
 - Software management:
   - AVD also simplifies the process of deploying new enterprise software applications, maintaining licensing compliance on existing software agreements, and preventing the installation of unauthorized software by rogue users.
 
 - Security and compliance:
-  - In heavily-regulated environments, such as healthcare, government, education, or the financial sector, an AVD solution can be configured through policy to enhance compliance with relevant corporate standards, as well as any applicable legal and regulatory requirements. These policies and standards can be difficult to enforce on physical client hardware, for example preventing data theft through USB drive, or deactivating enterprise antivirus/monitoring tools.
+  - In heavily regulated environments, such as healthcare, government, education, or the financial sector, an AVD solution can be configured through policy to enhance compliance with relevant corporate standards, and any applicable legal and regulatory requirements. These policies and standards can be difficult to enforce on physical client hardware, for example preventing data theft through USB drive, or deactivating enterprise antivirus/monitoring tools.
 
 ### Scalability and performance
 
-When planning a high-availability AVD solution designed to provide desktop services to a large number of geographically-dispersed users, consider the following factors for capacity and design:
+When planning a high-availability AVD solution designed to provide desktop services to a large number of geographically dispersed users, consider the following factors for capacity and design:
 
 - Capacity and growth:
   - the ANQ service instance can be scaled as needed in response to an increased user count or to a higher space allocation per user. Your enterprises can improve the overall TCO of the solution by not over-provisioning file capacity before it’s needed.
@@ -109,7 +109,7 @@ When planning a high-availability AVD solution designed to provide desktop servi
 - Throughput:
   - ANQ can scale throughput as needed to meet heavier short-term performance needs, for example, burst processing, or a high number of concurrent user logins. The overall solution design should include the ability to add capacity and throughput in response to changing needs.
 - Latency:
-  - When assigning users to one region or the other, the user’s location relative to one region’s access point as compared to location of the others should be a key factor.
+  - A user’s location relative to one region’s access point as compared to location of the others should be a key factor when you assign users to one region or the other.
 
 ### Security
 
@@ -141,7 +141,7 @@ ANQ also supports any file-based backup solution to enable external data protect
 
 ### Resource Tier Availability
 
-For specific information about the availability and recovery options for the AVD service layer, for Nerdio Enterprise Manager, and for FSLogix, please consult the relevant documentation for each.
+For specific information about the availability and recovery options for the AVD service layer, for Nerdio Enterprise Manager, and for FSLogix, consult the relevant documentation for each.
 
 ## Deployment
 
