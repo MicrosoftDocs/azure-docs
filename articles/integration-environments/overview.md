@@ -5,19 +5,21 @@ ms.service: azure
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023
-# CustomerIntent: As an integration developer, I want an easier way to logically organize, manage, and track Azure resources that implement my organization's integration solutions. As a business analyst or business SME, I want a way to visualize my organization's business processes and map them to the actual resources that implement those use cases. For our stakeholders, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
+# CustomerIntent: As a developer with a solution that has multiple or different Azure resources that integrate various services and systems, I want an easier way to logically organize, manage, and track Azure resources that implement my organization's integration solutions. As a business analyst or business SME, I want a way to visualize my organization's business processes and map them to the actual resources that implement those use cases. For our stakeholders, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
 # What is Azure Integration Environments? (preview)
 
 > [!IMPORTANT]
 >
-> This capability is in public preview and isn't yet ready production use. For more information, see the 
+> This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This platform helps you organize, manage, and track Azure resources related to your integration solutions. In Azure, an integration environment reduces complexity by providing a central place to organize deployed Azure resources into logical application groups.
+As a developer, if you work on solutions to integrate services and systems that are in the cloud, on premises, or both, you can have multiple or different resources in Azure to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
 
-For your stakeholders, this environment gives you a way to add business context about your application groups by modeling the business processes and stages implemented by the resources in these groups. For each business process stage, you define the key business data properties to track in your deployed resources. You then map your business stages and properties to actual resources and data sources. This "single pane of view" offers a more streamlined and friendlier experience for managing and tracking the resources that support your integration solutions, rather than managing separate resource types in Azure.
+Azure Integration Environments helps reduce this complexity by providing a central place in Azure where you can organize and manage the Azure resources for your solutions by creating *integration environments*. For example, you might create integration environments based on business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further break down your environment and organize resources by logical function or purpose. For example, you might create application groups for specific purposes such as order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
+
+If you're a business analyst or SME, an integration environment gives you a way to add business context about each application group by modeling the business processes and stages that are implemented by the Azure resources in each group. For each business process stage, you can define the key business data properties to track in deployed resources. You then map your business stages and properties to actual resources in Azure and data sources.
 
 For this release, an integration environment offers the following capabilities in the Azure portal as a unified experience:
 
