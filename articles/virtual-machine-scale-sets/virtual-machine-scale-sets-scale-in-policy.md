@@ -84,6 +84,10 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### Azure PowerShell
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a resource group, then create a new scale set with scale-in policy set as *OldestVM*.
 
 ```azurepowershell-interactive
@@ -96,6 +100,10 @@ New-AzVmss `
 ```
 
 ### Azure CLI 2.0
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 The following example adds a scale-in policy while creating a new scale set. First create a resource group, then create a new scale set with scale-in policy as *OldestVM*. 
 
