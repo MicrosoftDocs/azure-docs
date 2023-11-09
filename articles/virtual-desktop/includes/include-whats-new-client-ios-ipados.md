@@ -79,7 +79,7 @@ In this release, we've removed the global prompt for camera and microphone acces
 We also fixed some bugs and added some small additional features:
 
 - Integrated privacy statement compliance flows for select geographical regions.
-- Added functionality to delete all Azure VIrtual Desktop workspaces and associated keychain items.
+- Added functionality to delete all Azure Virtual Desktop workspaces and associated keychain items.
 - Worked around an iOS 16 change that broke Korean language input.
 - Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
 
