@@ -252,7 +252,7 @@ All annotations are optional. If the annotation isn't specified, the default val
 ### Pod labels
 
 > [!NOTE]
-> For applications using workload identity, it's required to add the label `azure.workload.identity/use: "true"` to the pod spec for AKS to move workload identity to a *Fail Close* scenario to provide a consistent and reliable behavior for pods that need to use workload identity. Otherwise the pods fail after their restarted.
+> For applications using workload identity, it's required to add the label `azure.workload.identity/use: "true"` to the pod spec for AKS to move workload identity to a *Fail Close* scenario to provide a consistent and reliable behavior for pods that need to use workload identity. Otherwise the pods fail after they are restarted.
 
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
