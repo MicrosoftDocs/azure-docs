@@ -164,7 +164,7 @@ result = evaluate(
         "y_test":"groundtruth" #column of data providing ground truth answer, optional for default metrics
         },
     output_path="./myevalresults", #optional: save output artifacts to local folder path 
-    tracking=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
+    tracking_uri=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
 )
 ```
 
@@ -191,7 +191,7 @@ result = evaluate(
         "y_test":"groundtruth" #column of data providing ground truth answer, optional for default metrics
         },
     output_path="./myevalresults", #optional: save evaluation results .jsonl to local folder path 
-    tracking=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
+    tracking_uri=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
 )
 ```
 

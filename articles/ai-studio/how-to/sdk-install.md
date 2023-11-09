@@ -22,9 +22,6 @@ In this article, you'll learn how to get started with the Azure AI SDK for gener
 
 ## Install the SDK into an existing development environment
 
-> [!WARNING]
-> The Azure AI Generative SDK packages are experimental, require careful installation to avoid dependency issues, and will update frequently. These packages have not yet been thoroughly tested outside of the development container image, which uses Python 3.10 running on Debian 12.
-
 ### Install Python
 
 First, install Python 3.10 or higher, create a virtual environment or conda environment, and install your packages into that virtual or conda environment. DO NOT install the Generative AI SDK into your global python installation. You should always use a virtual or conda environment when installing python packages, otherwise you can break your system install of Python.
