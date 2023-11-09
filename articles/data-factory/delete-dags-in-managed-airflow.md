@@ -1,5 +1,5 @@
 ---
-title: Delete files in Managed Airflow.
+title: Delete files in Managed Airflow
 description: This document explains how to delete files in Managed Airflow.
 author: nabhishek
 ms.author: abnarain
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/01/2023
 ---
 
-# Delete files in Managed Airflow.
+# Delete files in Managed Airflow
 
 This guide will walk you through the steps to delete DAG files in Managed Airflow environment.  
 
@@ -27,15 +27,19 @@ While using Git-sync feature, deleting DAGs in Managed Airflow is not possible b
 ### Delete DAGs
 
 1. Let’s say you want to delete the DAG named ``Tutorial.py`` as shown in the image below. 
-    :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot shows the dag to be deleted.":::
+    
+    :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot shows the DAG to be deleted.":::
 
 1. Click on ellipsis icon -> Click on Delete DAG Button.
+    
     :::image type="content" source="media/airflow-import-delete-dags/delete-dag-button.png" alt-text="Screenshot shows the delete button.":::
 
 1. Fill out the name of your Dag file. 
-    :::image type="content" source="media/airflow-import-delete-dags/dag-filename-input.png" alt-text="Screenshot shows the dag filename.":::
+    
+    :::image type="content" source="media/airflow-import-delete-dags/dag-filename-input.png" alt-text="Screenshot shows the DAG filename.":::
 
 1. Click Delete Button.
    
 1. Successfully deleted file. 
+    
     :::image type="content" source="media/airflow-import-delete-dags/dag-delete-success.png" alt-text="Screenshot shows successful DAG deletion.":::

@@ -18,7 +18,7 @@ ms.date: 10/20/2023
 Managed Airflow in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows. 
 To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage or via Github repository. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
 
-## Create a Managed Airflow environment. 
+## Create a Managed Airflow environment
 Refer to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
 
 ## Import DAGs
@@ -26,7 +26,7 @@ Managed Airflow provides two distinct methods for loading DAGs from python sourc
 
 - **Git Sync:** This service allows you to synchronize your GitHub repository with Managed Airflow, enabling you to import DAGs directly from your GitHub repository. Refer to: [Sync a Github repository in Managed Airflow](airflow-sync-github-repository.md)
 
-- **Blob Storage:** With this approach, you can upload your DAG files to a designated directory within a blob storage account that is linked to your Azure Data Factory. Subsequently, you import the file paths of these DAGs in Managed Airflow. Refer to: [Import Dags using Azure Blob Storage](airflow-import-dags-using-blob-storage.md)
+- **Blob Storage:** With this approach, you can upload your DAG files to a designated directory within a blob storage account that is linked to your Azure Data Factory. Subsequently, you import the file paths of these DAGs in Managed Airflow. Refer to: [Import Dags using Azure Blob Storage](airflow-import-dags-blob-storage.md)
 
 ## Remove DAGs from the Airflow environment
 

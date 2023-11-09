@@ -9,7 +9,7 @@ ms.author: abnarain
 ms.date: 10/20/2023
 ---
 
-# Import Dags using Azure Blob Storage
+# Import DAGs using Azure Blob Storage
 
 This guide will give you step by step instructions on how to import DAGs into Managed Airflow using Azure Blob storage.
 
