@@ -1,6 +1,6 @@
 ---
 title: Authorize REST API in Azure IoT Central
-description: How to authenticate and authorize IoT Central REST API calls by using bearer tokens or or an IoT Central API token.
+description: How to authenticate and authorize IoT Central REST API calls by using bearer tokens or an IoT Central API token.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/25/2022

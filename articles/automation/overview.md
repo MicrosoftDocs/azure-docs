@@ -40,7 +40,7 @@ Configuration Management in Azure Automation is supported by two capabilities:
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking/overview.md).
+[Change Tracking and Inventory](change-tracking/overview.md) combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. Change Tracking & Inventory is now supported with the Azure Monitoring Agent version. [Learn more](change-tracking/overview-monitoring-agent.md).
 
 ### Azure Automation State Configuration
 
@@ -101,9 +101,9 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
     - Subscription management.
     - Start-stop resources to save cost.
 * **Monitoring & integrate** with 1st party (through Azure Monitor) or 3rd party external systems.
-    - Ensure resource creation\deletion operations is captured to SQL. 
+    - Ensure resource creation\deletion operations are captured to SQL. 
     - Send resource usage data to web API.
-    - Send monitoring data to ServiceNow, Event Hub, New Relic and so on.
+    - Send monitoring data to ServiceNow, Event Hubs, New Relic and so on.
     - Collect and store information about Azure resources. 
     - Perform SQL monitoring checks & reporting.
     - Check website availability. 
@@ -116,7 +116,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
 
 
-Depending on your requirements, one or more of the following Azure services integrate with or compliment Azure Automation to help fullfil them:
+Depending on your requirements, one or more of the following Azure services integrate with or complement Azure Automation to help fulfill them:
 
 * [Azure Arc-enabled servers](../azure-arc/servers/overview.md) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
 * [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md) can initiate an Automation runbook when an alert is raised.
