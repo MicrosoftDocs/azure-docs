@@ -447,6 +447,9 @@
       - name: Decompiler cleanup
         displayName: linter
         href: linter-rule-decompiler-cleanup.md
+      - name: Max asserts
+        displayName: linter
+        href: linter-rule-max-asserts.md
       - name: Max outputs
         displayName: linter
         href: linter-rule-max-outputs.md
