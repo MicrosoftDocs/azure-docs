@@ -43,12 +43,12 @@ Create a new file `index.js` where you'll add the code for this quickstart.
 
 ### Install the packages
 
-You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-job-router) or above.
+You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0](https://www.npmjs.com/package/@azure-rest/communication-job-router) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
-npm install @azure/communication-job-router --save
+npm install @azure-rest/communication-job-router --save
 ```
 
 ### Set up the app framework

@@ -34,7 +34,7 @@ mkdir jobrouter-quickstart && cd jobrouter-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0b1](https://pypi.org/project/azure-communication-jobrouter) or above.
+You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-jobrouter) or above.
 
 From a console prompt, execute the following command:
 
@@ -50,7 +50,9 @@ Create a new file called `router-quickstart.py` and add the basic program struct
 import time
 from azure.communication.jobrouter import (
     JobRouterClient,
-    JobRouterAdministrationClient,
+    JobRouterAdministrationClient
+)
+from azure.communication.jobrouter.models import (
     DistributionPolicy,
     LongestIdleMode,
     RouterQueue,

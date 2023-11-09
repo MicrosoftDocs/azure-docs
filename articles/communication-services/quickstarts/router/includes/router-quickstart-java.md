@@ -36,13 +36,46 @@ mvn archetype:generate -DgroupId=com.communication.jobrouter.quickstart -Dartifa
 
 ### Include the package
 
-You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0-beta.1/jar) or above.
+You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0/jar) or above.
+
+#### Include the BOM file
+
+Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
+To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+and then include the direct dependency in the dependencies section without the version tag.
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-jobrouter</artifactId>
+  </dependency>
+</dependencies>
+```
+
+#### Include direct dependency
+If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-jobrouter</artifactId>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
