@@ -164,7 +164,8 @@ Once you have the file prepared, go to the next step&mdash;[Deploy the data conn
 
 #### Create Key Vault
 
-1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step:
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`):  
+    (If you'll be using an existing key vault, ignore this step.)
 
     ```azurecli
     az keyvault create \
@@ -182,9 +183,9 @@ Once you have the file prepared, go to the next step&mdash;[Deploy the data conn
 
     Run this command to assign the access policy to your VM's **system-assigned managed identity**:
 
-        ```azurecli
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
-        ```
+    ```azurecli
+    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
+    ```
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
@@ -192,97 +193,20 @@ Once you have the file prepared, go to the next step&mdash;[Deploy the data conn
 
     Run this command to assign the access policy to a **registered application identity**:
 
-        ```azurecli
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
-        ```
+    ```azurecli
+    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
+    ```
 
-        For example:
+    For example:
 
-        ```azurecli
-        az keyvault set-policy -n Contoso-keyvault -g Contoso-resourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
-        ```
+    ```azurecli
+    az keyvault set-policy -n Contoso-keyvault -g Contoso-resourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
+    ```
 
-        This policy will allow the VM to list, read, and write secrets from/to the key vault.
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
     ---
 
-# [Configuration file](#tab/config-file)
-
-1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
-
-1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
-
-    ```bash
-    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
-    chmod +x ./sapcon-sentinel-kickstart.sh
-    ```
-    
-1. **Run the script**:
-
-    ```bash
-    ./sapcon-sentinel-kickstart.sh --keymode cfgf
-    ```
-
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
-
-1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
-
-    ```bash
-    The process has been successfully completed, thank you!
-    ```
-
-   Note the Docker container name in the script output. You'll use it in the next step.
-
-1. Run the following command to **configure the Docker container to start automatically**.
-
-    ```bash
-    docker update --restart unless-stopped <container-name>
-    ```
-
-    To view a list of the available containers use the command: `docker ps -a`.
-
-# [Manual deployment](#tab/deploy-manually)
-
-1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
-
-1. Install [Docker](https://www.docker.com/) on the VM, following the [recommended deployment steps](https://docs.docker.com/engine/install/) for the chosen operating system.
-
-1. Use the following commands (replacing `<SID>` with the name of the SAP instance) to create a folder to store the container configuration and metadata, and to download a sample systemconfig.ini file into that folder.
-
-   ```bash
-   sid=<SID>
-   mkdir -p /opt/sapcon/$sid
-   cd /opt/sapcon/$sid
-   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
-
-   ```
-
-1. Edit the systemconfig.ini file to [configure the relevant settings](reference-systemconfig.md).
-
-1. Run the following commands (replacing `<SID>` with the name of the SAP instance) to retrieve the latest container image, create a new container, and configure it to start automatically.
-
-   ```bash
-   sid=<SID>
-   docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
-   docker create --restart unless-stopped --name my-container mcr.microsoft.com/azure-sentinel/solutions/sapcon   
-   ```
-
-1. Run the following command to copy the SDK into the container. Replace `<SID>` with the name of the SAP instance and `<sdkfilename>` with full filename of the SAP NetWeaver SDK.
-
-   ```bash
-   sdkfile=<sdkfilename> 
-   sid=<SID>
-   docker cp $sdkfile sapcon-$sid:/sapcon-app/inst/
-   ```
-
-1. Run the following command (replacing `<SID>` with the name of the SAP instance) to start the container.
-
-   ```bash
-   sid=<SID>
-   docker start sapcon-$sid
-   ```
-
----
 
 ### Deploy the data connector agent
 
@@ -354,8 +278,6 @@ Create a new agent through the Azure portal, authenticating with a managed ident
     The table displays the agent name and health status for agents you deploy via the UI only.   
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
-
-
 
 # [Azure portal](#tab/azure-portal/registered-application)
 
@@ -456,9 +378,6 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-
-
-
 # [Command line](#tab/command-line/registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra registered application:
@@ -474,6 +393,41 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     ```bash
     ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
+    ```
+
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+
+1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
+
+    ```bash
+    The process has been successfully completed, thank you!
+    ```
+
+   Note the Docker container name in the script output. You'll use it in the next step.
+
+1. Run the following command to **configure the Docker container to start automatically**.
+
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
+
+    To view a list of the available containers use the command: `docker ps -a`.
+
+# [Command line](#tab/command-line/config-file)
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
+
+1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
+
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
+    chmod +x ./sapcon-sentinel-kickstart.sh
+    ```
+    
+1. **Run the script**:
+
+    ```bash
+    ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
