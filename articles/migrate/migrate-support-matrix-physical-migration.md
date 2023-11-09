@@ -55,7 +55,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 **NFS** | NFS volumes mounted as volumes on the machines won't be replicated.
 **ReiserFS** | Not supported.
 **iSCSI targets** | Machines with iSCSI targets aren't supported for agentless migration.
-**Multipath IO** | Not supported.
+**Multipath IO** | Supported for Windows servers with Microsoft or vendor-specific Device Specifc Module (DSM) installed.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **PV drivers / XenServer tools** | Not supported.
