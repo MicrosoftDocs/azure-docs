@@ -1,41 +1,41 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Migrate - Application and Code Assessment Toolkit FAQ
-  description: Answers to frequently asked questions about Azure Migrate - Application and Code Assessment Toolkit.
+  title: Azure Migrate - Application and Code Assessment FAQ
+  description: Answers to frequently asked questions about Azure Migrate - Application and Code Assessment .
   author: yenchiho
   ms.service: automanage
   ms.workload: Application Innovation
   ms.topic: faq
   ms.date: 11/01/2023
   ms.author: yenchiho
-title: Frequently asked questions about Azure Migrate-Application and Code Assessment Toolkit
+title: Frequently asked questions about Azure Migrate-Application and Code Assessment 
 summary: |
-  This article provides answers to some of the most common questions about [Azure Migrate-Application and Code Assessment Toolkit](overview-about.md).
+  This article provides answers to some of the most common questions about [Azure Migrate-Application and Code Assessment](overview-about.md).
   
   If your Azure issue isn't addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
   
 
 sections:
-  - name: Azure Migrate - Application and Code Assessment Toolkit
+  - name: Azure Migrate - Application and Code Assessment
     questions:
       - question: |
-          What’s Azure Migrate - Application and Code Assessment Toolkit?
+          What’s Azure Migrate - Application and Code Assessment?
         answer: |
-          Azure Migrate - Application and Code Assessment Toolkit for .NET and Java is a free to use 1P Microsoft created tool. The tool focuses on code and application analysis and recommendations for planning and improves confidence in running business-critical solutions in the cloud through a developer-oriented assessment experience of source code, with prioritized recommendations and reference examples to adjust code and configuration to run well in the cloud, aligned with industry-proven practices to build reliable, modern, and innovative applications on Azure.
+          Azure Migrate - Application and Code Assessment  for .NET and Java is a free to use 1P Microsoft created tool. The tool focuses on code and application analysis and recommendations for planning and improves confidence in running business-critical solutions in the cloud through a developer-oriented assessment experience of source code, with prioritized recommendations and reference examples to adjust code and configuration to run well in the cloud, aligned with industry-proven practices to build reliable, modern, and innovative applications on Azure.
           
       - question: |
-          What scenarios should I use Azure Migrate - Application and Code Assessment Toolkit?
+          What scenarios should I use Azure Migrate - Application and Code Assessment?
         answer: |
-          For scenarios that require deeper analysis of the application and migration guidance, several other dimensions such as source code, application configuration and dependency analysis become necessary. Azure Migrate - Application and Code Assessment Toolkit for .NET and Java helps you do full source code level scanning, application scanning and produces a comprehensive report for your migration needs.
+          For scenarios that require deeper analysis of the application and migration guidance, several other dimensions such as source code, application configuration and dependency analysis become necessary. Azure Migrate - Application and Code Assessment  for .NET and Java helps you do full source code level scanning, application scanning and produces a comprehensive report for your migration needs.
       
       - question: |
-          When should I use Azure Migrate - Application and Code Assessment Toolkit? 
+          When should I use Azure Migrate - Application and Code Assessment? 
         answer: |
-          If you manage the application development projects and have access to your source code written in .NET and Java, while wanting to move to Azure and learn about how to replatform your applications to be cloud ready, Azure Migrate - Application and Code Assessment Toolkit for .NET and Java can help you generate deep analysis with dependencies clearly layed out with a dashboard telling you what are the mandatory changes that needs to be applied for it to run on Azure. 
+          If you manage the application development projects and have access to your source code written in .NET and Java, while wanting to move to Azure and learn about how to replatform your applications to be cloud ready, Azure Migrate - Application and Code Assessment  for .NET and Java can help you generate deep analysis with dependencies clearly layed out with a dashboard telling you what are the mandatory changes that needs to be applied for it to run on Azure. 
       
       - question: |
-          Do I need to pay to use Azure Migrate - Application and Code Assessment Toolkit?
+          Do I need to pay to use Azure Migrate - Application and Code Assessment?
         answer: |
           No it's a free service. You can download it via aka.ms/AppCAT
 
@@ -54,7 +54,7 @@ additionalContent: |
 
   ## Next steps
   
-  Try Azure Migrate - Application and Code Assessment Toolkit today.
+  Try Azure Migrate - Application and Code Assessment today.
 
   > [!div class="nextstepaction"]
   > aka.ms/AppCAT
