@@ -129,7 +129,7 @@ All Azure Machine Learning environments already have MLflow installed for you, s
 
 1. Create a `conda.yaml` file with the dependencies you need:
 
-    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yaml" highlight="7-8" range="1-12":::
+    :::code language="yaml" source="~/azureml-examples-main/sdk/python/using-mlflow/deploy/environment/conda.yaml" highlight="7-8" range="1-12":::
     
 1. Reference the environment in the job you're using.
 
