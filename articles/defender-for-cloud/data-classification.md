@@ -42,7 +42,7 @@ When the Defender Cloud Security Posture Management CSPM plan is enabled, you ca
 
 With Defender for APIs and data sensitivity integration into API security alerts, you can prioritize API security incidents involving sensitive data exposure. For more information, see [Defender for APIs alerts](defender-for-apis-introduction.md#detecting-threats).
 
-In the alert's extended properties, you can find sensitivity scanning findings for **API endpoints**:
+In the alert's extended properties, you can find sensitivity scanning findings for the sensitivity context:
 
 - **Sensitivity scanning time UTC**: when the last scan was performed.
 - **Top sensitivity label**: the most sensitive label found in the API endpoint.
