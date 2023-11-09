@@ -33,7 +33,7 @@ If there are no entries in the list of attack paths, you can still test this fea
         az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001
         ```
 
-    1.  Create a new AKS cluster and integrate with an existing ACR:
+    1.  If you don't have an AKS cluster, you can use the below command create a new AKS cluster:
 
         ```
         az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
