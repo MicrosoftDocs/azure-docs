@@ -15,9 +15,9 @@ You can provide AzCopy with authorization credentials by using Microsoft Entra I
 
 Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
 
-You can authorize security principals by using AzCopy, Azure CLI, or Azure PowerShell. To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
+To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
 
-If you authorize with AzCopy, you'll provide credentials and AzCopy will obtain an OAuth token by using those credentials. If you sign with Azure CLI or Azure PowerShell, then AzCopy can use the OAuth token obtained by those tools to authorize operations. This article provides guidance for all three of these options.
+AzCopy retrieves the OAuth token by using the credentials that you provide. Alternatively, AzCopy can use the OAuth token of an active Azure CLI or Azure PowerShell session.
 
 For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
 
@@ -302,7 +302,9 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 ## Authorize using Azure CLI
 
-If you've already signed with Azure CLI, then AzCopy can use the OAuth token obtained by the Azure CLI. To use the OAuth token of an active Azure CLI session, type the following command, and then press the ENTER key.
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AzCLI
@@ -312,7 +314,9 @@ For more information about how to sign in with the Azure CLI, see [Sign in with 
 
 ## Authorize using Azure PowerShell
 
-If you've already signed with Azure PowerShell, then AzCopy can use the OAuth token obtained by the Azure PowerShell. To use the OAuth token of an active Azure PowerShell session, type the following command, and then press the ENTER key.
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=PSCREDS
