@@ -349,6 +349,7 @@ The following list is of reasons you might run into this error when using either
 * [Invalid template function specification](#invalid-template-function-specification)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model](#unable-to-download-user-model)
+* [MLFlow model format with private network is unsupported](#mlflow-model-format-with-private-network-is-unsupported)
 
 
 The following list is of reasons you might run into this error only when using Kubernetes online endpoint:
@@ -447,6 +448,10 @@ You can also check if the blobs are present in the workspace storage account.
   You can't see logs from the storage initializer in the studio. Use the Azure CLI or Python SDK (see each tab for details). 
 
   ---
+
+#### MLFlow model format with private network is unsupported
+
+At this time, the private network feature cannot be used in conjunction with an MLFlow model format.
 
 #### Resource requests greater than limits
 
