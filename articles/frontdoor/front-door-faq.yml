@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
   title: "Azure Front Door - Frequently asked questions"
-  description: This page provides answers to frequently asked questions about Azure Front Door
+  description: This page provides answers to frequently asked questions about Azure Front Door.
   author: duongau
   ms.author: duau
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 09/21/2023
+  ms.date: 11/08/2023
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -43,9 +43,9 @@ sections:
         answer: |
           Application Gateway behind Front Door is useful in these situations:
 
-          - You want to balance the traffic not only globally, but also within your VNET. Front Door can only do path-based load balancing at the global level, but Application Gateway can do it within your VNET.
+          - You want to balance the traffic not only globally, but also within your virtual network. Front Door can only do path-based load balancing at the global level, but Application Gateway can do it within your virtual network.
           - You need Connection Draining, which Front Door doesn't support. Application Gateway can enable Connection Draining for your VMs or containers.
-          - You want to offload all the TLS/SSL processing and use only HTTP requests in your VNET. Application Gateway behind Front Door can achieve this setup.
+          - You want to offload all the TLS/SSL processing and use only HTTP requests in your virtual network. Application Gateway behind Front Door can achieve this setup.
           - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
           
       - question: |
@@ -131,7 +131,7 @@ sections:
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
-          Yes. For more details, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
 
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
@@ -246,7 +246,7 @@ sections:
 
           - Starting from September 25, 2023, we have updated the domain fronting blocking restrictions based on feedback from customers. Instead of blocking a request when the SNI and host headers don't match, we allow the mismatch as long as the two domains are added to the same subscription. You can use multiple domains for your applications without affecting the functionality, which Azure Front Door enables.
 
-          - Starting from November 8, 2023, we'll enforce domain fronting blocking on all existing domains.
+          - Starting from January 8, 2024, we'll enforce domain fronting blocking on all existing domains. It can take one or two weeks from January 8, 2024 for the enforcement to be effective in all regions.
 
           Once domain fronting gets blocked, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources block any HTTP/HTTPS requests that exhibit this behavior.
 
@@ -287,7 +287,7 @@ sections:
       - question: |
           What are the steps to access the audit logs for Azure Front Door?
         answer:  |
-          To access the audit logs of Azure Front Door, you need to visit the portal. Select your Front Door from the menu page and click on **Activity Log**. The Activity Log provides you with the records of your Azure Front Door’s operations.
+          To access the audit logs of Azure Front Door, you need to visit the portal. Select your Front Door from the menu page and select on **Activity Log**. The Activity Log provides you with the records of your Azure Front Door’s operations.
 
       - question: |
           How can I configure alerts for Azure Front Door?
