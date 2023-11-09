@@ -1,7 +1,7 @@
 ---
 title: Azure Files indexer (preview)
-titleSuffix: Azure Cognitive Search
-description: Set up an Azure Files indexer to automate indexing of file shares in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Set up an Azure Files indexer to automate indexing of file shares in Azure AI Search.
 manager: nitinme
 author: mattmsft
 ms.author: magottei
@@ -15,7 +15,7 @@ ms.date: 09/07/2022
 > [!IMPORTANT] 
 > Azure Files indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to create the indexer data source.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Files and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your files in a single share. Output is a search index with searchable content and metadata stored in individual fields.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Files and makes it searchable in Azure AI Search. Inputs to the indexer are your files in a single share. Output is a search index with searchable content and metadata stored in individual fields.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -51,7 +51,7 @@ Textual content of a document is extracted into a string field named "content". 
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview for "type": `"azurefile"`.
+1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or later for "type": `"azurefile"`.
 
     ```json
     {
@@ -135,7 +135,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     + **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
     + **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
     + **metadata_storage_content_type** (`Edm.String`) - content type as specified by the code you used to upload the file. For example, `application/octet-stream`.
-    + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure Cognitive Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
+    + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure AI Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
     + **metadata_storage_size** (`Edm.Int64`) - file size in bytes.
     + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
     + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't be stored for later use as it might expire.
@@ -169,7 +169,7 @@ Once the index and data source have been created, you're ready to create the ind
 
 1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all files in the file share are retrieved.
 
-   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
+   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure AI Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 

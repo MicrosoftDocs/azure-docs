@@ -1,7 +1,7 @@
 ---
 title: Skillset concepts
-titleSuffix: Azure Cognitive Search
-description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
+titleSuffix: Azure AI Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure AI Search. Learn important concepts and details about skillset composition.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/08/2023
 ---
 
-# Skillset concepts in Azure Cognitive Search
+# Skillset concepts in Azure AI Search
 
 This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [AI enrichment](cognitive-search-concept-intro.md).
 
-A skillset is a reusable resource in Azure Cognitive Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable resource in Azure AI Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
 The following diagram illustrates the basic data flow of skillset execution. 
 

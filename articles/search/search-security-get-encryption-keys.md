@@ -1,6 +1,6 @@
 ---
 title: Find encryption key information
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Retrieve the encryption key name and version used in an index or synonym map so that you can manage the key in Azure Key Vault.
 
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 09/09/2022
 
 # Find encrypted objects and information
 
-In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used in Azure Key Vault, use the REST API or an Azure SDK to retrieve the **encryptionKey** property from the object definition in your search service.
+In Azure AI Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used in Azure Key Vault, use the REST API or an Azure SDK to retrieve the **encryptionKey** property from the object definition in your search service.
 
 Objects that aren't encrypted with a customer-managed key will have an empty **encryptionKey** property. Otherwise, you might see a definition similar to the following example.
 
@@ -100,4 +100,4 @@ For more information about using Azure Key or configuring customer managed encry
 
 + [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md)
 
-+ [Configure customer-managed keys for data encryption in Azure Cognitive Search](search-security-manage-encryption-keys.md)
++ [Configure customer-managed keys for data encryption in Azure AI Search](search-security-manage-encryption-keys.md)

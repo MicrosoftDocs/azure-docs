@@ -1870,7 +1870,7 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Studio
+    title: Studio (DALL-E 3)
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1880,11 +1880,11 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-python
-    title: Python
+    title: Python (DALL-E 3)
   - id: programming-language-powershell
     title: PowerShell
   - id: rest-api
-    title: REST
+    title: REST (DALL-E 3)
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

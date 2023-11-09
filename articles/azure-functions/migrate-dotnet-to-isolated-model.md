@@ -47,7 +47,9 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 6 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
+> **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
+
+This guide doesn't present specific examples for .NET 7 or .NET 6. If you need to target these versions, you can adapt the .NET 8 examples.
 
 ## Prepare for migration
 
@@ -98,19 +100,11 @@ The following example is a `.csproj` project file that uses .NET 6 on version 4.
 
 Use one of the following procedures to update this XML file to run in the isolated worker model:
 
-# [.NET 6](#tab/net6-isolated)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated](../../includes/functions-dotnet-migrate-project-v4-isolated.md)]
-
-# [.NET 7](#tab/net7)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
-
 # [.NET 8](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
@@ -126,9 +120,11 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 When migrating to run in an isolated worker process, you must add a `Program.cs` file to your project with the following contents:
 
-# [.NET 6 / .NET 7 / .NET 8](#tab/net6-isolated+net7+net8)
+# [.NET 8](#tab/net8)
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
@@ -142,7 +138,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 ```csharp
 using Microsoft.Extensions.Hosting;
@@ -229,7 +225,7 @@ When you [changed your package references in a previous step](#package-reference
 
 1. Move output bindings out of the function parameter list. If you have just one output binding, you can apply this to the return type of the function. If you have multiple outputs, create a new class with properties for each output, and apply the attributes to those properties. To learn more, see [Multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings).
 
-1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you may need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
+1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you might need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
 1. If your function includes an `IBinder` parameter, remove it. Replace the functionality with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
@@ -285,7 +281,7 @@ namespace Company.Function
 
 An HTTP trigger for the migrated version might like the following example:
 
-# [.NET 6 / .NET 7 / .NET 8](#tab/net6-isolated+net7+net8)
+# [.NET 8](#tab/net8)
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -316,7 +312,7 @@ namespace Company.Function
 }
 ```
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;

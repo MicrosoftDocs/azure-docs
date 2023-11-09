@@ -22,7 +22,8 @@ The following sections provide you with a quick guide to the default quotas and 
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region per Azure subscription | 30 |
-| Default DALL-E quota limits | 2 concurrent requests |
+| Default DALL-E 2 quota limits | 2 concurrent requests |
+| Default DALL-E 3 quota limits| 2 capacity units (12 requests per minute)|
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
 | Max fine-tuned model deployments | 2 |
 | Total number of training jobs per resource | 100 |

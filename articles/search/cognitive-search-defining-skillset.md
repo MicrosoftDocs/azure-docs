@@ -1,7 +1,7 @@
 ---
 title: Create a skillset
-titleSuffix: Azure Cognitive Search
-description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/14/2022
 ---
 
-# Create a skillset in Azure Cognitive Search
+# Create a skillset in Azure AI Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
@@ -42,7 +42,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description":"An Azure AI services resource in the same region as Azure Cognitive Search",
+      "description":"An Azure AI services resource in the same region as Azure AI Search",
       "key":"<Your-Cognitive-Services-Multiservice-Key>"
    },
    "knowledgeStore":{

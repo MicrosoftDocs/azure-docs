@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: '>=doc-intel-3.0.0'
@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Best practices: generating labeled datasets
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
 
 Custom models (template and neural) require a labeled dataset of at least five documents to train a model. The quality of the labeled dataset affects the accuracy of the trained model. This guide helps you learn more about generating a model with high accuracy by assembling a diverse dataset and provides best practices for labeling your documents.
 
@@ -39,7 +39,7 @@ A labeled dataset consists of several files:
 
 * Here, we explore how to create a balanced data set and select the right documents to label. This process sets you on the path to higher quality models.</br></br>
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
+  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
 
 ## Create a balanced dataset
 
@@ -122,7 +122,10 @@ Tabular fields are also useful when extracting repeating information within a do
   > [!div class="nextstepaction"]
   > [Custom neural models](concept-custom-neural.md)
 
-* View the REST API:
+* View the REST APIs:
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v3.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+    > [Document Intelligence API v4.0:2023-10-31-preview](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)
+
+    > [!div class="nextstepaction"]
+    > [Document Intelligence API v3.1:2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)

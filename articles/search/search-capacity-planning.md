@@ -1,7 +1,7 @@
 ---
 title:  Estimate capacity for query and index workloads
-titleSuffix: Azure Cognitive Search
-description: Adjust partition and replica computer resources in Azure Cognitive Search, where each resource is priced in billable search units.
+titleSuffix: Azure AI Search
+description: Adjust partition and replica computer resources in Azure AI Search, where each resource is priced in billable search units.
 
 manager: nitinme
 author: HeidiSteen
@@ -15,7 +15,7 @@ ms.date: 03/15/2023
 
 Before you [create a search service](search-create-service-portal.md) and lock in a specific [pricing tier](search-sku-tier.md), take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-In Azure Cognitive Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
+In Azure AI Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
 Partitions are units of storage. Each new search service starts with one each, but you can adjust each unit independently to accommodate fluctuating workloads. Adding either unit is [billable](search-sku-manage-costs.md#billable-events).
 
 The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
@@ -27,7 +27,7 @@ When scaling a search service, you can choose from the following tools and appro
 + [Azure portal](#adjust-capacity)
 + [Azure PowerShell](search-manage-powershell.md)
 + [Azure CLI](/cli/azure/search)
-+ [Management REST API](/rest/api/searchmanagement/2022-09-01/services)
++ [Management REST API](/rest/api/searchmanagement)
 
 ## Concepts: search units, replicas, partitions, shards
 
@@ -35,10 +35,10 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 
 | Concept  | Definition|
 |----------|-----------|
-|*Search unit* | A single increment of total available capacity (36 units). It's also the billing unit for an Azure Cognitive Search service. A minimum of one unit is required to run the service.|
+|*Search unit* | A single increment of total available capacity (36 units). It's also the billing unit for an Azure AI Search service. A minimum of one unit is required to run the service.|
 |*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
-|*Shard* | A chunk of an index. Azure Cognitive Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
+|*Shard* | A chunk of an index. Azure AI Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
 The following diagram shows the relationship between replicas, partitions, shards, and search units. It shows an example of how a single index is spanned across four search units in a service with two replicas and two partitions. Each of the four search units stores only half of the shards of the index. The search units in the left column store the first half of the shards, comprising the first partition, while those in the right column store the second half of the shards, comprising the second partition. Since there are two replicas, there are two copies of each index shard. The search units in the top row store one copy, comprising the first replica, while those in the bottom row store another copy, comprising the second replica.
 
@@ -46,7 +46,7 @@ The following diagram shows the relationship between replicas, partitions, shard
 
 The diagram above is only one example. Many combinations of partitions and replicas are possible, up to a maximum of 36 total search units.
 
-In Cognitive Search, shard management is an implementation detail and nonconfigurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
+In Azure AI Search, shard management is an implementation detail and nonconfigurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
 
 + Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it's most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
 
@@ -102,7 +102,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
    There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
 
 > [!NOTE]
-> Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual search document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
+> Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual search document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure AI Search](search-limits-quotas-capacity.md).
 >
 
 **Query volume considerations**
@@ -137,7 +137,7 @@ Some guidelines for determining whether to add capacity include:
 + The frequency of HTTP 503 errors is increasing
 + Large query volumes are expected
 
-As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. Each replica is a copy of your index, allowing the service to load balance requests against multiple copies. All load balancing and replication of an index is managed by Azure Cognitive Search and you can alter the number of replicas allocated for your service at any time. You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replica allocation can be made either from the [Azure portal](search-create-service-portal.md) or one of the programmatic options.
+As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. Each replica is a copy of your index, allowing the service to load balance requests against multiple copies. All load balancing and replication of an index is managed by Azure AI Search and you can alter the number of replicas allocated for your service at any time. You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replica allocation can be made either from the [Azure portal](search-create-service-portal.md) or one of the programmatic options.
 
 Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read/write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
 
@@ -175,7 +175,7 @@ Finally, larger indexes take longer to query. As such, you might find that every
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Status message in the portal" border="true":::
 
 > [!NOTE]
-> After a service is provisioned, it cannot be upgraded to a higher tier. You must create a search service at the new tier and reload your indexes. See [Create an Azure Cognitive Search service in the portal](search-create-service-portal.md) for help with service provisioning.
+> After a service is provisioned, it cannot be upgraded to a higher tier. You must create a search service at the new tier and reload your indexes. See [Create an Azure AI Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 
 ## How scale requests are handled
 
@@ -196,9 +196,9 @@ The error message "Service update operations aren't allowed at this time because
 
 Resolve this error by checking service status to verify provisioning status:
 
-1. Use the [Management REST API](/rest/api/searchmanagement/2022-09-01/services), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
-1. Call [Get Service (REST)](/rest/api/searchmanagement/2022-09-01/services/get) or equivalent for PowerShell or the CLI.
-1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/2022-09-01/services/get#provisioningstate)
+1. Use the [Management REST API](/rest/api/searchmanagement), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
+1. Call [Get Service (REST)](/rest/api/searchmanagement/services/get) or equivalent for PowerShell or the CLI.
+1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/services/get#provisioningstate)
 
 If status is "Provisioning", wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There's no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
 
@@ -225,7 +225,7 @@ All Standard and Storage Optimized search services can assume the following comb
 SUs, pricing, and capacity are explained in detail on the Azure website. For more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). Azure Cognitive Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Cognitive Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). Azure AI Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure AI Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 >
 
 ## Next steps

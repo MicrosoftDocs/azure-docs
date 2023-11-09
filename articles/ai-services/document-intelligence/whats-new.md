@@ -6,10 +6,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -19,9 +18,38 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # What's new in Azure AI Document Intelligence
 
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
+
+## November 2023
+
+Document Intelligence **2023-10-31-preview**
+
+The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available for use! This preview API introduces new and updated capabilities:
+
+* [Read](concept-contract.md)
+  * Language Expansjion for Handwriting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
+  * Cyber EO compliance.
+* [Layout](concept-layout.md)
+  * Markdown output support.
+  * Table extraction improvements.
+  * Starting with Document Intelligence 2023-10-31-preview, the general document model (prebuilt-document) is deprecated. Going forward, to extract key-value pairs from documents, use the 
+    `prebuilt-layout` model with the optional query string parameter `features=keyValuePairs` enabled.		
+* [Reciept Prebuilt](concept-receipt.md)
+  * Now extracts currency for all price-related fields.
+* [Health Insurance Card Prebuilt](concept-health-insurance-card.md)
+  * New field support for Medicare and Medicade information.
+* [US Tax Document Prebuilts](concept-tax-document.md)
+  * New 1099 tax model. Supports base 1099 form and the following variations: A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB​.
+* [Invoice Prebuilt](concept-invoice.md)
+  * Support for KVK field.
+  * Support for Bpay field.
+  * Numerous field refinments
+* [Custom Classification](concept-custom-classifier.md)
+  * Support for multi-language documents.
+  * New page splitting options: auto-split, always split by page, no split.
+  
 
 >[!NOTE]
 > With the 2022-08-31 API general availability (GA) release, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview, the 2022-01-30-preview or he 2022-06-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-1-migration-guide.md).

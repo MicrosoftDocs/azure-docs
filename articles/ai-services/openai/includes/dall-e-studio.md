@@ -14,9 +14,20 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 ## Prerequisites
 
+#### [DALL-E 3](#tab/dalle3)
+
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in the `SwedenCentral` region.
+- Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+#### [DALL-E 2](#tab/dalle2)
+
+- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
+- An Azure OpenAI resource created in the `EastUS` region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+---
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
@@ -25,7 +36,15 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 Browse to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs.
+#### [DALL-E 3](#tab/dalle3)
+
+From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs. Select **Settings** near the top of the page and confirm that the **Deployment** dropdown has your DALL-E 3 deployment selected.
+
+#### [DALL-E 2](#tab/dalle2)
+
+From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs. Select **Settings** near the top of the page and confirm that the **Deployment** dropdown has the default **DALL-E 2** choice selected.
+
+---
 
 ## Try out image generation
 
@@ -49,3 +68,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 * Learn more in this [Azure OpenAI overview](../overview.md).
 * Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* See the [API reference](../reference.md#image-generation)

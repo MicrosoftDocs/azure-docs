@@ -1,21 +1,21 @@
 ---
 title: Chunk documents in vector search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn strategies for chunking PDFs, HTML files, and other large documents for vectors and search indexing and query workloads.
 
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 10/30/2023
 ---
 
-# Chunking large documents for vector search solutions in Cognitive Search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+# Chunking large documents for vector search solutions in Azure AI Search
 
 This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models. 
+
+> [!NOTE]
+> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external library that performs data chunking. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded data chunking. Integrated vectorization takes a dependency on indexers, skillsets, and the Text Split skill. 
 
 ## Why is chunking important?
 
@@ -23,7 +23,7 @@ The models used to generate embedding vectors have maximum limits on the text fr
 
 ## How chunking fits into the workflow
 
-Because there isn't a native chunking capability in either Cognitive Search or Azure OpenAI, if you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. Some libraries that provide chunking include:
+Because there isn't a native chunking capability in either Azure AI Search or Azure OpenAI, if you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. Some libraries that provide chunking include:
 
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
@@ -117,14 +117,12 @@ mountains. /n You can both ski in winter and swim in summer.
 
 ## Try it out: Chunking and vector embedding generation sample
 
-A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/ai-services/openai/) embedding models. This sample uses a [Cognitive Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
+A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/ai-services/openai/) embedding models. This sample uses a [Azure AI Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
 
-This sample is built on LangChain, Azure OpenAI, and Azure Cognitive Search.
+This sample is built on LangChain, Azure OpenAI, and Azure AI Search.
 
 ## See also
 
 + [Understanding embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
 + [Learn how to generate embeddings](/azure/ai-services/openai/how-to/embeddings?tabs=console)
 + [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings?tabs=command-line)
-
-

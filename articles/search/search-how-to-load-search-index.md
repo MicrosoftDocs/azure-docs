@@ -1,6 +1,6 @@
 ---
 title: Load a search index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Import and refresh data in a search index using the portal, REST APIs, or an Azure SDK.
 
 manager: nitinme
@@ -11,9 +11,9 @@ ms.topic: how-to
 ms.date: 10/21/2022
 ---
 
-# Load data into a search index in Azure Cognitive Search
+# Load data into a search index in Azure AI Search
 
-This article explains how to import, refresh, and manage content in a predefined search index. In Azure Cognitive Search, a [search index is created first](search-how-to-create-search-index.md), with data import following as a second step. The exception is Import Data wizard, which creates and loads an index in one workflow.
+This article explains how to import, refresh, and manage content in a predefined search index. In Azure AI Search, a [search index is created first](search-how-to-create-search-index.md), with data import following as a second step. The exception is Import Data wizard, which creates and loads an index in one workflow.
 
 A search service imports and indexes text in JSON, used in full text search or knowledge mining scenarios. Text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content).
 
@@ -33,7 +33,7 @@ Using Azure portal, the sole means for loading an index is an indexer or running
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create and populate a search index. You can follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create and populate a search index. You can follow this link to review the workflow: [Quickstart: Create an Azure AI Search index in the Azure portal](search-get-started-portal.md).
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
@@ -83,7 +83,7 @@ When the document key or ID is new, **null** becomes the value for any field tha
 
 ### [**.NET SDK (C#)**](#tab/importcsharp)
 
-Azure Cognitive Search supports the following APIs for simple and bulk document uploads into an index:
+Azure AI Search supports the following APIs for simple and bulk document uploads into an index:
 
 + [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction)
 + [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
@@ -100,7 +100,7 @@ There are several samples that illustrate indexing in context of simple and larg
 
 ## Delete orphan documents
 
-Azure Cognitive Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. In a search service, documents are unrelated so deleting one will have no impact on the rest of the index.
+Azure AI Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. In a search service, documents are unrelated so deleting one will have no impact on the rest of the index.
 
 1. Identify which field is the document key. In the portal, you can view the fields of each index. Document keys are string fields and are denoted with a key icon to make them easier to spot.
 

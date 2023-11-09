@@ -1,7 +1,7 @@
 ---
 title: C# tutorial indexing Azure SQL data
-titleSuffix: Azure Cognitive Search
-description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Tutorial: Index Azure SQL data using the .NET SDK
 
-Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure Cognitive Search. 
+Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure AI Search. 
 
 This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
 
@@ -41,11 +41,11 @@ Source code for this tutorial is in the [DotNetHowToIndexer](https://github.com/
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, and Azure SQL Database as an external data source. If possible, create both services in the same region and resource group for proximity and manageability. In practice, Azure SQL Database can be in any region.
+This tutorial uses Azure AI Search for indexing and queries, and Azure SQL Database as an external data source. If possible, create both services in the same region and resource group for proximity and manageability. In practice, Azure SQL Database can be in any region.
 
 ### Start with Azure SQL Database
 
-In this step, create an external data source on Azure SQL Database that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample download to create the dataset in Azure SQL Database. Azure Cognitive Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
+In this step, create an external data source on Azure SQL Database that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample download to create the dataset in Azure SQL Database. Azure AI Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
 
 If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at step 4.
 
@@ -93,13 +93,13 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 You'll need this connection string in the next exercise, setting up your environment.
 
-### Azure Cognitive Search
+### Azure AI Search
 
-The next component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+The next component is Azure AI Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-### Get an admin api-key and URL for Azure Cognitive Search
+### Get an admin api-key and URL for Azure AI Search
 
-API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+API calls require the service URL and an access key. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -153,7 +153,7 @@ A schema can also include other elements, including scoring profiles for boostin
 
 The main program includes logic for creating [an indexer client](/dotnet/api/azure.search.documents.indexes.models.searchindexer), an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#CaptureChangedRows) for using the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#CaptureChangedRows) for using the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure AI Search index.
 
 ```csharp
 Console.WriteLine("Creating data source...");
@@ -259,7 +259,7 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure AI Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 

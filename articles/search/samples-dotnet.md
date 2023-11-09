@@ -1,7 +1,7 @@
 ---
 title: .NET samples
-titleSuffix: Azure Cognitive Search
-description: Find Azure Cognitive Search demo C# code samples that use the .NET client libraries.
+titleSuffix: Azure AI Search
+description: Find Azure AI Search demo C# code samples that use the .NET client libraries.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 08/02/2023
 ---
 
-# C# samples for Azure Cognitive Search
+# C# samples for Azure AI Search
 
-Learn about the C# code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/dotnet/api/overview/azure/search) for the [**Azure SDK for .NET**](/dotnet/azure/), which you can explore through the following links.
+Learn about the C# code samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Azure AI Search client library**](/dotnet/api/overview/azure/search) for the [**Azure SDK for .NET**](/dotnet/azure/), which you can explore through the following links.
 
 | Target | Link |
 |--------|------|
@@ -40,7 +40,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 
 ## Doc samples
 
-Code samples from the Cognitive Search team demonstrate features and workflows. All of the following samples are referenced in tutorials, quickstarts, and how-to articles that explain the code in detail. You can find these samples in [**Azure-Samples/azure-search-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) and in [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started/) on GitHub.
+Code samples from the Azure AI Search team demonstrate features and workflows. All of the following samples are referenced in tutorials, quickstarts, and how-to articles that explain the code in detail. You can find these samples in [**Azure-Samples/azure-search-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) and in [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started/) on GitHub.
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
@@ -73,16 +73,16 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [Covid-19 search app](https://github.com/liamca/covid19search/blob/master/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
+| [Covid-19 search app](https://github.com/liamca/covid19search/blob/master/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Azure AI Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
 | [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files/blob/master/README.md) | [AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Azure AI Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure Cognitive Search to create, load, and query an index. |
+| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
 | [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services) |  [azure-search-dotnet-scale](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Issue a single query across multiple search services and combine the results into a single page.  |
 | [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/check-storage-usage/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Invokes an Azure function that checks search service storage on a schedule. |
 | [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/export-data/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that partitions and export a large index. |

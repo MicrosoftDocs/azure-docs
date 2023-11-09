@@ -88,6 +88,8 @@
         href: flexible-server/concepts-limitations.md
       - name: Storage IOPS
         href: flexible-server/concepts-storage-iops.md
+      - name: Accelerated Logs
+        href: flexible-server/concepts-accelerated-logs.md    
     - name: Networking
       items:
       - name: Networking concepts

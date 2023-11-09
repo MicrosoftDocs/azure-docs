@@ -1,7 +1,7 @@
 ---
 title: Synonyms C# example
-titleSuffix: Azure Cognitive Search
-description: In this C# example, learn how to add the synonyms feature to an index in Azure Cognitive Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
+titleSuffix: Azure AI Search
+description: In this C# example, learn how to add the synonyms feature to an index in Azure AI Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,11 +12,11 @@ ms.date: 06/16/2022
 ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
-# Example: Add synonyms for Azure Cognitive Search in C#
+# Example: Add synonyms for Azure AI Search in C#
 
 Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle". 
 
-In Azure Cognitive Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index.
+In Azure AI Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index.
 
 In this example, you will learn how to:
 
@@ -26,7 +26,7 @@ In this example, you will learn how to:
 
 You can query a synonym-enabled field as you would normally. There is no additional query syntax required to access synonyms.
 
-You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Cognitive Search does a lookup in a synonym map, if one is specified on fields used in the query.
+You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure AI Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
 > Synonyms can be created programmatically, but not in the portal.
@@ -36,10 +36,10 @@ You can create multiple synonym maps, post them as a service-wide resource avail
 Tutorial requirements include the following:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Cognitive Search service](search-create-service-portal.md)
+* [Azure AI Search service](search-create-service-portal.md)
 * [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-If you are unfamiliar with the .NET client library, see [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md).
+If you are unfamiliar with the .NET client library, see [How to use Azure AI Search in .NET](search-howto-dotnet-sdk.md).
 
 ## Sample code
 
@@ -164,11 +164,11 @@ Adding synonyms completely changes the search experience. In this example, the o
 
 ## Clean up resources
 
-The fastest way to clean up after an example is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Cognitive Search service.
+The fastest way to clean up after an example is by deleting the resource group containing the Azure AI Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure AI Search service.
 
 ## Next steps
 
 This example demonstrated the synonyms feature in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](/dotnet/api/overview/azure/search.documents-readme) and [REST API](/rest/api/searchservice/) reference documentation.
 
 > [!div class="nextstepaction"]
-> [How to use synonyms in Azure Cognitive Search](search-synonyms.md)
+> [How to use synonyms in Azure AI Search](search-synonyms.md)

@@ -1,7 +1,7 @@
 ---
 title: Indexer connection to SQL Managed Instances
-titleSuffix: Azure Cognitive Search
-description: Enable public endpoint to allow connections to SQL Managed Instances from an indexer on Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Enable public endpoint to allow connections to SQL Managed Instances from an indexer on Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,16 +13,16 @@ ms.date: 07/31/2023
 
 # Indexer connections to Azure SQL Managed Instance through a public endpoint
 
-Indexers in Azure Cognitive Search connect to external data sources over a public endpoint. If you're setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for a connection to a SQL managed instance, follow the steps in this article to ensure the public endpoint is set up correctly. 
+Indexers in Azure AI Search connect to external data sources over a public endpoint. If you're setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for a connection to a SQL managed instance, follow the steps in this article to ensure the public endpoint is set up correctly. 
 
 Alternatively, if the managed instance is behind a firewall, [create a shared private link](search-indexer-how-to-access-private-sql.md) instead.
 
 > [!NOTE]
-> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Azure AI Search indexers.
 
 ## Enable a public endpoint
 
-This article highlights just the steps for an indexer connection in Cognitive Search. If you want more background, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) instead.
+This article highlights just the steps for an indexer connection in Azure AI Search. If you want more background, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) instead.
 
 1. For a new SQL Managed Instance, create the resource with the **Enable public endpoint** option selected.
 
