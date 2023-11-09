@@ -1,5 +1,5 @@
 ---
-title: Quickstart for using Azure App Configuration in Azure Kubernetes Service (preview) | Microsoft Docs
+title: Quickstart for using Azure App Configuration in Azure Kubernetes Service | Microsoft Docs
 description: "In this quickstart, create an Azure Kubernetes Service with an ASP.NET core web app workload and use the Azure App Configuration Kubernetes Provider to load key-values from App Configuration store."
 services: azure-app-configuration
 author: junbchen
@@ -12,7 +12,7 @@ ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
-# Quickstart: Use Azure App Configuration in Azure Kubernetes Service (preview)
+# Quickstart: Use Azure App Configuration in Azure Kubernetes Service
 
 In Kubernetes, you set up pods to consume configuration from ConfigMaps. It lets you decouple configuration from your container images, making your applications easily portable. [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about) can construct ConfigMaps and Secrets from your key-values and Key Vault references in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
 
