@@ -106,31 +106,34 @@ On the rule group  **Details** tab:
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-details.png" alt-text="Screenshot that shows configuration of Prometheus rule group details.":::
 
 #### Configure the rules in the group 
-1. On the rule group **Rules** tab you can see the list of recording rules and alert rules in the group.
-2. You can add rules up to the limit of 20 rules in a single group.
-3. Rules are evaluated in the order they appear in the group. You can change the order of rules using the **move up** and **move down** options.
-1. To add a new recording rule:
-   * Select **+ Add recording rule** to open the **Create a recording rule** pane.
-   * Enter the **Name** of the rule. This name is the name of the metric created by the rule.
-   * Enter the PromQL **Expression** for the rule.
-   * Select if the rule is to be enabled when created.
-   * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the metric created by the rule.
-   * Select **Create** to add the new rule to the rule list.
+* On the rule group **Rules** tab you can see the list of recording rules and alert rules in the group.
+* You can add rules up to the limit of 20 rules in a single group.
+* Rules are evaluated in the order they appear in the group. You can change the order of rules using the **move up** and **move down** options.
+
+* To add a new recording rule:
+  
+1. Select **+ Add recording rule** to open the **Create a recording rule** pane.
+2. Enter the **Name** of the rule. This name is the name of the metric created by the rule.
+3. Enter the PromQL **Expression** for the rule.
+4. Select if the rule is to be enabled when created.
+5. You can enter optional **Labels** key/value pairs for the rule. These labels are added to the metric created by the rule.
+6. Select **Create** to add the new rule to the rule list.
   
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-recording.png" alt-text="Screenshot that shows configuration of Prometheus rule group recording rule.":::
 
-1. To add a new alert rule:
-   * Select **+ Add alert rule** to open the "Create an alert rule" pane.
-   * Select the **Severity** of alerts fired by this rule.
-   * Enter the **Name** of the rule. This name is the name of alerts fired by the rule.
-   * Enter the PromQL **Expression** for the rule.
-   * Select the **For** value for the period between the alert expression first becomes true and until the alert is fired.
-   * You can enter optional **Annotations** key/value pairs for the rule. These annotations are added to alerts fired by the rule.
-   * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the alerts fired by the rule.
-   * Select the [action groups](../alerts/action-groups.md) that the rule triggers.
-   * Select **Automatically resolve alert** to automatically resolve alerts if the rule condition is no longer true during the **Time to auto-resolve** period.
-   * Select if the rule is to be enabled when created.
-   * Select **Create** to add the new rule to the rule list.
+* To add a new alert rule:
+  
+1. Select **+ Add alert rule** to open the "Create an alert rule" pane.
+2. Select the **Severity** of alerts fired by this rule.
+3. Enter the **Name** of the rule. This name is the name of alerts fired by the rule.
+4. Enter the PromQL **Expression** for the rule.
+5. Select the **For** value for the period between the alert expression first becomes true and until the alert is fired.
+6. You can enter optional **Annotations** key/value pairs for the rule. These annotations are added to alerts fired by the rule.
+7. You can enter optional **Labels** key/value pairs for the rule. These labels are added to the alerts fired by the rule.
+8. Select the [action groups](../alerts/action-groups.md) that the rule triggers.
+9. Select **Automatically resolve alert** to automatically resolve alerts if the rule condition is no longer true during the **Time to auto-resolve** period.
+10. Select if the rule is to be enabled when created.
+11. Select **Create** to add the new rule to the rule list.
   
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert.png" alt-text="Screenshot that shows configuration of Prometheus rule group alert rule.":::
 
