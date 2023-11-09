@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Azure Cognitive Search documentation # < 60 chars
+title: Azure AI Search documentation # < 60 chars
 summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
-  title: Azure Cognitive Search documentation
+  title: Azure AI Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service
@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 03/02/2021
+  ms.date: 11/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -19,17 +19,19 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Cognitive Search
+  - title: About AI Search
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cognitive Search?
+          - text: What is Azure AI Search?
             url: search-what-is-azure-search.md
-          - text: What is vector search?
+          - text: Vector search
             url: vector-search-overview.md
+          - text: Integrated vectorization (preview)
+            url: vector-search-integrated-vectorization.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
-          - text: What is semantic search?
+          - text: Semantic ranking
             url: semantic-search-overview.md
       - linkListType: learn
         links:
@@ -45,6 +47,8 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create a search index
             url: search-get-started-portal.md
+          - text: Create a vector index
+            url: search-get-started-vector.md
           - text: Create a demo app
             url: search-create-app-portal.md
           - text: Create a skillset
@@ -105,6 +109,8 @@ landingContent:
         links:
           - text: Query types and composition
             url: search-query-overview.md
+          - text: Query vector data
+            url: vector-search-how-to-query.md
           - text: Simple syntax (default)
             url: query-simple-syntax.md
           - text: Full Lucene syntax

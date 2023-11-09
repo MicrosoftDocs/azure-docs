@@ -1,7 +1,7 @@
 ---
 title: Full-text query how-to
-titleSuffix: Azure Cognitive Search
-description: Learn how to construct a query request for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn how to construct a query request for full text search in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 10/09/2023
 ---
 
-# Create a full-text query in Azure Cognitive Search
+# Create a full-text query in Azure AI Search
 
 If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
@@ -23,7 +23,7 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 ## Example of a full text query request
 
-In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index, with parameters that both inform query execution and shape the response coming back. 
+In Azure AI Search, a query is a read-only request against the docs collection of a single search index, with parameters that both inform query execution and shape the response coming back. 
 
 A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
 
@@ -123,7 +123,7 @@ The following Azure SDKs provide a **SearchClient** that has methods for formula
 
 ## Choose a query type: simple | full
 
-If your query is full text search, a query parser is used to process any text that's passed as search terms and phrases. Azure Cognitive Search offers two query parsers. 
+If your query is full text search, a query parser is used to process any text that's passed as search terms and phrases. Azure AI Search offers two query parsers. 
 
 + The simple parser understands the [simple query syntax](query-simple-syntax.md). This parser was selected as the default for its speed and effectiveness in free form text queries. The syntax supports common search operators (AND, OR, NOT) for term and phrase searches, and prefix (`*`) search (as in "sea*" for Seattle and Seaside). A general recommendation is to try the simple parser first, and then move on to full parser if application requirements call for more powerful queries.
 

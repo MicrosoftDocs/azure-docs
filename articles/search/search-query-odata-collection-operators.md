@@ -1,7 +1,7 @@
 ---
 title: OData collection operator reference
-titleSuffix: Azure Cognitive Search
-description: When creating filter expressions in Azure Cognitive Search queries, use "any" and "all" operators in lambda expressions when the filter is on a collection or complex collection field.  
+titleSuffix: Azure AI Search
+description: When creating filter expressions in Azure AI Search queries, use "any" and "all" operators in lambda expressions when the filter is on a collection or complex collection field.  
 
 manager: nitinme
 author: bevloh
@@ -12,9 +12,9 @@ ms.date: 02/07/2023
 
 ---
 
-# OData collection operators in Azure Cognitive Search - `any` and `all`
+# OData collection operators in Azure AI Search - `any` and `all`
 
-When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Cognitive Search, it's often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
+When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure AI Search, it's often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
 
 ## Syntax
 
@@ -34,10 +34,10 @@ lambda_expression ::= identifier ':' boolean_expression
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 There are three forms of expression that filter collections.
 
@@ -84,13 +84,13 @@ rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 
 Not every feature of filter expressions is available inside the body of a lambda expression. The limitations differ depending on the data type of the collection field that you want to filter. The following table summarizes the limitations.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure AI Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 
 ## Next steps  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Gremlin indexer
-titleSuffix: Azure Cognitive Search
-description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure Cognitive Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
+titleSuffix: Azure AI Search
+description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
 
 author: mgottein 
 ms.author: magottei
@@ -13,22 +13,22 @@ ms.topic: how-to
 ms.date: 01/18/2023
 ---
 
-# Import data from Azure Cosmos DB for Apache Gremlin for queries in Azure Cognitive Search
+# Import data from Azure Cosmos DB for Apache Gremlin for queries in Azure AI Search
 
 > [!IMPORTANT]
 > The Azure Cosmos DB for Apache Gremlin indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for Apache Gremlin](../cosmos-db/gremlin/introduction.md) and makes it searchable in Azure Cognitive Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for Apache Gremlin](../cosmos-db/gremlin/introduction.md) and makes it searchable in Azure AI Search.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure AI Search indexing](search-what-is-an-index.md) are different operations. Indexing in Azure AI Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
 + [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-+ An [Azure Cosmos DB account, database, container, and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, container, and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
@@ -75,7 +75,7 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. 
 
-   The "query" property is optional. By default the Azure Cognitive Search indexer for Azure Cosmos DB for Apache Gremlin makes every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
+   The "query" property is optional. By default the Azure AI Search indexer for Azure Cosmos DB for Apache Gremlin makes every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
 
@@ -142,13 +142,13 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
      }
    ```
 
-1. Create a document key field ("key": true). For partitioned collections, the default document key is the Azure Cosmos DB `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names can’t start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values are Base64 encoded. 
+1. Create a document key field ("key": true). For partitioned collections, the default document key is the Azure Cosmos DB `_rid` property, which Azure AI Search automatically renames to `rid` because field names can’t start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure AI Search keys. For this reason, the `_rid` values are Base64 encoded. 
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
 ### Mapping data types
 
-| JSON data type | Cognitive Search field types |
+| JSON data type | Azure AI Search field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
@@ -311,7 +311,7 @@ The Azure Cosmos DB for Apache Gremlin indexer will automatically map a couple p
 
 1. The indexer will map `_id` to an `id` field in the index if it exists.
 
-1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. Azure Cognitive Search Azure Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
+1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. Azure AI Search Azure Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
 
 ```http
     {
@@ -376,6 +376,6 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 
 + To learn more about Azure Cosmos DB for Apache Gremlin, see the [Introduction to Azure Cosmos DB: Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph-introduction.md).
 
-+ For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
++ For more information about Azure AI Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
 
 + To learn about network configuration for indexers, see the [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).

@@ -10,7 +10,7 @@ ms.author: geguirgu
 # Filtering of MQTT Routed Messages
 You can use the Event Grid Subscription’s filtering capability to filter the routed MQTT messages.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Topic filtering
 

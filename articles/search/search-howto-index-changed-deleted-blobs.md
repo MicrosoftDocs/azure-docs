@@ -1,6 +1,6 @@
 ---
 title: Changed and deleted blobs
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Indexers that index from Azure Storage can pick up new and changed content automatically. This article describes the strategies.
 author: gmndrg
 ms.author: gimondra
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/09/2022
 ---
 
-# Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
+# Change and delete detection using indexers for Azure Storage in Azure AI Search
 
 After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For indexed content that originates from Azure Storage, change detection occurs automatically because indexers keep track of the last update using the built-in timestamps on objects and files in Azure Storage.
 
@@ -33,14 +33,14 @@ There are two ways to implement a soft delete strategy:
 
 ## Native blob soft delete (preview)
 
-For this deletion detection approach, Cognitive Search depends on the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature in Azure Blob Storage to determine whether blobs have transitioned to a soft deleted state. When blobs are detected in this state, a search indexer uses this information to remove the corresponding document from the index.
+For this deletion detection approach, Azure AI Search depends on the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature in Azure Blob Storage to determine whether blobs have transitioned to a soft deleted state. When blobs are detected in this state, a search indexer uses this information to remove the corresponding document from the index.
 
 > [!IMPORTANT]
 > Support for native blob soft delete is in preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](./search-api-preview.md) provides this feature. There's currently no .NET SDK support.
 
 ### Requirements for native soft delete
 
-+ Blobs must be in an Azure Blob Storage container. The Cognitive Search native blob soft delete policy isn't supported for blobs in ADLS Gen2.
++ Blobs must be in an Azure Blob Storage container. The Azure AI Search native blob soft delete policy isn't supported for blobs in ADLS Gen2.
 
 + [Enable soft delete for blobs](../storage/blobs/soft-delete-blob-enable.md).
 
@@ -54,15 +54,15 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
 ### Configure native soft delete
 
-In Blob storage, when enabling soft delete per the requirements, set the retention policy to a value that's much higher than your indexer interval schedule. If there's an issue running the indexer, or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure Cognitive Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
+In Blob storage, when enabling soft delete per the requirements, set the retention policy to a value that's much higher than your indexer interval schedule. If there's an issue running the indexer, or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure AI Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
 
-In Cognitive Search, set a native blob soft deletion detection policy on the data source. You can do this either from the Azure portal or by using preview REST API (`api-version=2020-06-30-Preview`). The following instructions explain how to set the delete detection policy in Azure portal or through REST APIs.
+In Azure AI Search, set a native blob soft deletion detection policy on the data source. You can do this either from the Azure portal or by using preview REST API (`api-version=2020-06-30-Preview`). The following instructions explain how to set the delete detection policy in Azure portal or through REST APIs.
 
 ### [**Azure portal**](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the Cognitive Search service Overview page, go to **New Data Source**, a visual editor for specifying a data source definition. 
+1. On the Azure AI Search service Overview page, go to **New Data Source**, a visual editor for specifying a data source definition. 
 
    The following screenshot shows where you can find this feature in the portal. 
 
@@ -107,11 +107,11 @@ To make sure that an undeleted blob is reindexed, you'll need to update the blob
 
 This method uses custom metadata to indicate whether a search document should be removed from the index. It requires two separate actions: deleting the search document from the index, followed by file deletion in Azure Storage.
 
-There are steps to follow in both Azure Storage and Cognitive Search, but there are no other feature dependencies. 
+There are steps to follow in both Azure Storage and Azure AI Search, but there are no other feature dependencies. 
 
 1. In Azure Storage, add a custom metadata key-value pair to the file to indicate the file is flagged for deletion. For example, you could name the property "IsDeleted", set to false. When you want to delete the file, change it to true.
 
-1. In Azure Cognitive Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
+1. In Azure AI Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
     ```http
     PUT https://[service name].search.windows.net/datasources/file-datasource?api-version=2020-06-30
@@ -142,6 +142,6 @@ You can reverse a soft-delete if the original source file still physically exist
 
 ## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [Indexers in Azure AI Search](search-indexer-overview.md)
 + [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Blob indexing overview](search-blob-storage-integration.md)

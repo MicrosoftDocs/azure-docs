@@ -1,19 +1,16 @@
 ---
 title: Hybrid search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes concepts and architecture of hybrid query processing and document retrieval. Hybrid queries combine vector search and full text search.
 
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/01/2023
 ---
 
-# Hybrid search using vectors and full text in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Hybrid search uses the [vector features](vector-search-overview.md) currently in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Hybrid search using vectors and full text in Azure AI Search
 
 Hybrid search is a combination of full text and vector queries that execute against a search index that contains both searchable plain text content and generated embeddings. For query purposes, hybrid search is:
 
@@ -21,22 +18,22 @@ Hybrid search is a combination of full text and vector queries that execute agai
 + Executing in parallel
 + With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
-This article explains the concepts, benefits, and limitations of hybrid search.
+This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#why-choose-hybrid-search) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
 
 ## How does hybrid search work?
 
-In Azure Cognitive Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
+In Azure AI Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
 
 Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query response provides just one result set, using RRF to determine which matches are included.
 
 ## Structure of a hybrid query
 
-Hybrid search is predicated on having a search index that contains fields of various [data types](/rest/api/searchservice/supported-data-types), including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text or image, audio, and video. You can use almost all query capabilities in Cognitive Search with a vector query, except for client-side interactions such as autocomplete and suggestions.
+Hybrid search is predicated on having a search index that contains fields of various [data types](/rest/api/searchservice/supported-data-types), including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text or image, audio, and video. You can use almost all query capabilities in Azure AI Search with a vector query, except for client-side interactions such as autocomplete and suggestions.
 
 A representative hybrid query might be as follows (notice the vector is trimmed for brevity):
 
 ```http
-POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-07-01-Preview
+POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-11-01
   content-type: application/JSON
 {
     "count": true,
@@ -121,11 +118,15 @@ A response from the above query might look like this:
 }
 ```
 
-## Benefits
+## Why choose hybrid search?
 
-Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
+Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's conceptually similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, with the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
 
 Benchmark testing on real-world and benchmark datasets indicates that hybrid retrieval with semantic ranking offers significant benefits in search relevance.
+
+The following video explains how hybrid retrieval gives you optimal grounding data for generating useful AI responses.
+
+> [!VIDEO https://www.youtube.com/embed/Xwx1DJ0OqCk]
 
 ## See also
 

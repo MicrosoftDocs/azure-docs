@@ -1,7 +1,7 @@
 ---
 title: Index blobs containing multiple documents  
-titleSuffix: Azure Cognitive Search
-description: Crawl Azure blobs for text content using the Azure Cognitive Search Blob indexer, where each blob might yield one or more search index documents.
+titleSuffix: Azure AI Search
+description: Crawl Azure blobs for text content using the Azure AI Search Blob indexer, where each blob might yield one or more search index documents.
 
 manager: nitinme
 author: arv100kri
@@ -24,11 +24,11 @@ To address this problem, the blob indexer generates an `AzureSearch_DocumentKey`
 
 ## One-to-many document key
 
-Each document that shows up in an Azure Cognitive Search index is uniquely identified by a document key. 
+Each document that shows up in an Azure AI Search index is uniquely identified by a document key. 
 
 When no parsing mode is specified, and if there's no [explicit field mapping](search-indexer-field-mappings.md) in the indexer definition for the search document key, the blob indexer automatically maps the `metadata_storage_path property` as the document key. This mapping ensures that each blob appears as a distinct search document, and it saves you the step of having to create this field mapping yourself (normally, only fields having identical names and types are automatically mapped).
 
-When using any of the parsing modes, one blob maps to "many" search documents, making a document key solely based on blob metadata unsuitable. To overcome this constraint, Azure Cognitive Search is capable of generating a "one-to-many" document key for each individual entity extracted from a blob. This property is named AzureSearch_DocumentKey and is added to each individual entity extracted from the blob. The value of this property is guaranteed to be unique for each individual entity across blobs and the entities will show up as separate search documents.
+When using any of the parsing modes, one blob maps to "many" search documents, making a document key solely based on blob metadata unsuitable. To overcome this constraint, Azure AI Search is capable of generating a "one-to-many" document key for each individual entity extracted from a blob. This property is named AzureSearch_DocumentKey and is added to each individual entity extracted from the blob. The value of this property is guaranteed to be unique for each individual entity across blobs and the entities will show up as separate search documents.
 
 By default, when no explicit field mappings for the key index field are specified, the `AzureSearch_DocumentKey` is mapped to it, using the `base64Encode` field-mapping function.
 
@@ -138,7 +138,7 @@ Similar to the previous example, this mapping won't result in four documents sho
 
 ## Next steps
 
-If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob content types, review the following articles.
+If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure AI Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob content types, review the following articles.
 
 > [!div class="nextstepaction"]
 > [Indexing  CSV blobs](search-howto-index-csv-blobs.md)

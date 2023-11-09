@@ -79,4 +79,10 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+  # Card 10
+    - title: Astro
+      imageSrc: ./media/index/astronomer.svg
+      links:
+        - url: ./astronomer/astronomer-overview.md
+          text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
 

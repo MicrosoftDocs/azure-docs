@@ -9,6 +9,8 @@ ms.date: 04/28/2023
 # Monitor data reference for Azure Event Grid's push event delivery
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's push delivery. 
 
+[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
+
 ## Metrics
 
 ### Microsoft.EventGrid/domains  

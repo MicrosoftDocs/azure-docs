@@ -1,6 +1,6 @@
 ---
 title: Monitor queries
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in resource logs.
 
 manager: nitinme
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/27/2023
 ---
 
-# Monitor query requests in Azure Cognitive Search
+# Monitor query requests in Azure AI Search
 
 This article explains how to measure query performance and volume using built-in metrics and resource logging. It also explains how to get the query strings entered by application users.
 
@@ -184,4 +184,4 @@ If you specified an email notification, you will receive an email from "Microsof
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)
+> [Monitor operations and activity in Azure AI Search](monitor-azure-cognitive-search.md)

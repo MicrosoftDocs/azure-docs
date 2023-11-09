@@ -25710,6 +25710,10 @@
             "source_path_from_root": "/articles/operator-service-manager/overview.md",
 	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         }
     ]
 }

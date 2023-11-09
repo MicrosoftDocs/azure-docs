@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Storage
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity
 author: gmndrg
 ms.author: gimondra
