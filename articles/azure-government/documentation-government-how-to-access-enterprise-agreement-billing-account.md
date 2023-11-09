@@ -118,7 +118,7 @@ Step 6 - Select the agreement boxes and then select **Submit**.
 
 Step 7 - After the tenant is created successfully, the contact email address receives a confirmation email that includes user credentials.
 
-Step 8 - The user credentials must be associated with as EA role, such as a Partner administrator, to access Cost Management + Billing. An existing Partner administrator that has access to the Azure Government portal can assign EA roles to new user credential. If you can't add the EA role, you can submit a support request. For more information, see [Add a partner administrator](../cost-management-billing/manage/ea-billing-administration-partners.md#add-a-partner-administrator).
+Step 8 - The user credentials must be associated with as EA role, such as a Partner administrator, to access Cost Management + Billing. An existing Partner administrator that has access to the Azure Government portal can assign EA roles to the new user credential. If you can't add the EA role, you can submit a support request. For more information, see [Add a partner administrator](../cost-management-billing/manage/ea-billing-administration-partners.md#add-a-partner-administrator).
 
 ## Next steps
 
