@@ -39,7 +39,7 @@ guide that offers step-by-step instructions on how to set up a Burstable Tier wi
 
 While the Burstable Cluster Tier offers unparalleled flexibility, it's crucial to be mindful of certain constraints:
 
-* Supported disk sizes include 32GB, 64GB, and 128GB.
+* Supported disk sizes include 32GB, 64GB, and 128GB. 
 * High availability (HA) is not supported.
 * Supports one shard only.
 
