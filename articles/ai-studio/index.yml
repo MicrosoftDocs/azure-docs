@@ -38,6 +38,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Hear and speak with chat in the playground
+            url: quickstarts/hear-speak-playground.md
           - text: Generate product name ideas
             url: quickstarts/playground-completions.md
           - text: Moderate text and images
