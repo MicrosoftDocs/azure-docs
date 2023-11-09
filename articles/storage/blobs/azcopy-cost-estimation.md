@@ -29,8 +29,6 @@ If you upload data to the Blob Service endpoint, then by default, AzCopy uploads
 
 AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as _write_ operations. 
 
-After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
-
 The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation                                            | Value       |
@@ -43,15 +41,17 @@ The following table calculates the number of write operations required to upload
 > [!TIP]
 > You can reduce the number of operations by configuring AzCopy to use a larger block size.  
 
+After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
+
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs.
 
-| Price factor                                             | Hot         | Cool        | Cold         | Archive     |
-|----------------------------------------------------------|-------------|-------------|--------------|-------------|
-| Price of a single write operation (price / 10,000)       | $0.0000055  | $0.00001    | $0.000018    | $0.00001    |
-| **Cost of write operations (641,000 * operation price)** | **$3.5255** | **$6.4100** | **$11.5380** | **$3.5255** |
-| Price of a single other operations (price / 10,000)      | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044 |
-| **Cost to get blob properties (1000 * operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.0004** |
-| **Total cost (write + other operations)**                | **$3.53**   | **$6.41**   | **$11.54**   | **$3.53**   |
+| Price factor                                                     | Hot         | Cool        | Cold         | Archive     |
+|------------------------------------------------------------------|-------------|-------------|--------------|-------------|
+| Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.00001    |
+| **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$3.5255** |
+| Price of a single _other_ operation (price / 10,000)             | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044 |
+| **Cost to get blob properties (1000 * _other_ operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.0004** |
+| **Total cost (write + properties)**                          | **$3.53**   | **$6.41**   | **$11.54**   | **$3.53**   |
 
 > [!NOTE]
 > If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation.  
@@ -62,8 +62,6 @@ If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each b
 
 AzCopy uploads each block by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `append`. After the final block is uploaded, AzCopy commits those blocks by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `flush`. Both operations are billed as _write_ operations. 
 
-After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
-
 The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
@@ -73,15 +71,17 @@ The following table calculates the number of write operations required to upload
 | Path - Update (flush) operations per blob | 1 |
 | **Total write operations (1,000 * 1,281)** | **1,281,00** |
 
+After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
+
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs
 
 | Price factor                                               | Hot         | Cool         | Cold         | Archive      |
 |------------------------------------------------------------|-------------|--------------|--------------|--------------|
 | Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013    | $0.0000234   | $0.0000143   |
 | **Cost of write operations (1,281,000 * operation price)** | **$9.1592** | **$16.6530** | **$29.9754** | **$18.3183** |
-| Price of a single other operations (price / 10,000)        | $0.00000044 | $0.00000044  | $0.00000052  | $0.00000044  |
+| Price of a single _other_ operation (price / 10,000)       | $0.00000044 | $0.00000044  | $0.00000052  | $0.00000044  |
 | **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0005**  | **$0.0004**  |
-| **Total cost (write + other operations)**                  | **$9.16**   | **$16.65**   | **$29.98**   | **$18.32**   |
+| **Total cost (write + properties)**                    | **$9.16**   | **$16.65**   | **$29.98**   | **$18.32**   |
 
 ## The cost to download
 
@@ -104,7 +104,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 |----------------------------------------------------------|----------------|----------------|----------------|
 | Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
 | Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
 | **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
@@ -138,7 +138,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 |-----------------------------------------------------------|----------------|----------------|----------------|
 | Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)       | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation (price / 10,000)       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
 | Price of a single read operation (price / 10,000)         | $0.00000057    | $0.00000130    | $0.00001300    |
 | **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
@@ -303,3 +303,4 @@ The following table shows the operations that are used by each AzCopy command. T
 
 - [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)
 - [Map each REST operation to a price](map-rest-apis-transaction-categories.md)
+- [Get started with AzCopy](../common/storage-use-azcopy-v10.md)

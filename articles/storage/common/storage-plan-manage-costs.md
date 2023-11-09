@@ -35,12 +35,17 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > - To view an Excel template which can help you to itemize the amount of storage and number of operations required by your workloads, see [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/). 
-   > 
-   >   You can use that information as input to the Azure pricing calculator.
-   >
-   > - For more information about how to estimate the cost of archiving data that is rarely used, see [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
+### Supportive tools and guides
+
+The following resources can also help you forecast the cost of using Azure Blob Storage:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+
+- [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md)
 
 ## Understand the full billing model for Azure Blob Storage
 
