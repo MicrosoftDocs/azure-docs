@@ -25,8 +25,7 @@ Triton is multi-framework, open-source software that is optimized for inference.
 In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
 > [!NOTE]
-> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
-> * Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [https://www.nvidia.com/en-us/data-center/nvidia-ai-enterprise-on-azure-ml/](https://www.nvidia.com/en-us/data-center/nvidia-ai-enterprise-on-azure-ml/).
+> Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [https://www.nvidia.com/en-us/data-center/nvidia-ai-enterprise-on-azure-ml/](https://www.nvidia.com/en-us/data-center/nvidia-ai-enterprise-on-azure-ml/).
 
 ## Prerequisites
 
