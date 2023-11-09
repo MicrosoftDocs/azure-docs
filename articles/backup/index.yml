@@ -10,7 +10,8 @@ metadata:
   ms.topic: landing-page 
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 11/02/2023
+  ms.date: 11/14/2023
+
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -69,7 +70,7 @@ landingContent:
             url: multi-user-authorization-concept.md?tabs=backup-vault
           - text: Enhanced soft delete
             url: backup-azure-enhanced-soft-delete-about.md
-          - text: Azure Kubernetes Service backup (preview)
+          - text: Azure Kubernetes Service backup
             url: azure-kubernetes-service-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM
             url: selective-disk-backup-restore.md

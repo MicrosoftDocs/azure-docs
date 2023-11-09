@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Troubleshoot Azure Kubernetes Service backup and restore (preview)
+# Troubleshoot Azure Kubernetes Service backup and restore
 
 This article provides troubleshooting steps that help you resolve Azure Kubernetes Service (AKS) backup, restore, and management errors.
 
@@ -114,4 +114,4 @@ This error appears due to absence of these FQDN rules because of which configura
 
 ## Next steps
 
-- [About Azure Kubernetes Service (AKS) backup (preview)](azure-kubernetes-service-backup-overview.md)
+- [About Azure Kubernetes Service (AKS) backup](azure-kubernetes-service-backup-overview.md)

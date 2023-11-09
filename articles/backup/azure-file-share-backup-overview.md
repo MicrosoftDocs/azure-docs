@@ -68,7 +68,6 @@ The following diagram explains the lifecycle of the lease acquired by Azure Back
 
 :::image type="content" source="./media/azure-file-share-backup-overview/backup-lease-lifecycle-diagram.png" alt-text="Diagram explaining the lifecycle of the lease acquired by Azure Backup." border="false":::
 
-
 ## Next steps
 
 * Learn how to [Back up Azure file shares](backup-afs.md)

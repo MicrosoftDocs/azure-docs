@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Kubernetes Service using Azure CLI (preview) 
+# Back up Azure Kubernetes Service using Azure CLI 
 
 This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI.
 
@@ -309,6 +309,6 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureKubernetesS
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using Azure CLI (preview)](azure-kubernetes-service-cluster-restore-using-cli.md)
-- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
-- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
+- [Restore Azure Kubernetes Service cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+- [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
