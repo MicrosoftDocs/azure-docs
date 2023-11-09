@@ -39,9 +39,9 @@ With customer-managed keys (CMK), you can protect and control access to your org
 
 For steps to add a user-assigned managed identity, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 
-## Assign the Key Vault Crypto Officer role
+## Assign the Key Vault Crypto Service Encryption User role
 
-The system-assigned managed identity needs the [Key Vault Crypto Officer](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
+The system-assigned managed identity needs the [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
 
 1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
 
@@ -49,7 +49,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/configure-customer-managed-keys/key-vault-access-control.png":::
 
-3. On the Add role assignment page, select the **Key Vault Crypto Officer** role. 
+3. On the Add role assignment page, select the **Key Vault Crypto Service Encryption User** role. 
    
 4. Select **Next**.
 
@@ -237,7 +237,7 @@ After you add the key, you need to update the DICOM service with the key URL.
             "properties": {
                 "encryption": {
                     "customerManagedKeyEncryption": {
-                        "keyEncryptionKeyUrl": "[concat(reference(resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))).vaultUri, 'keys/', parameters('keyName'))]"
+                        "keyEncryptionKeyUrl": "[reference(resourceId('Microsoft.KeyVault/vaults/keys', parameters('keyVaultName'), parameters('keyName'))).keyUriWithVersion]"
                     }
                 }
             }
