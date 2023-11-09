@@ -154,6 +154,12 @@ This section has two steps:
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
+# [Configuration file](#tab/config-file)
+
+Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, you can use a configuration file instead. See the [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023) or the [Systemconfig.json file reference](reference-systemconfig-json.md) (for versions deployed June 22 or later).
+
+Once you have the file prepared, go to the next step&mdash;[Deploy the data connector agent](#deploy-the-data-connector-agent).
+
 ---
 
 #### Create Key Vault
@@ -168,23 +174,23 @@ This section has two steps:
 
 1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you assign the key vault access policy and run the deployment script in the coming steps.
 
+#### Assign a key vault access policy
+
+1. Run the following command to **assign a key vault access policy** to the identity that you created and copied above (substitute actual names for the `<placeholders>`). Choose the appropriate tab for the type of identity you created to see the relevant command.
+
     # [Managed identity](#tab/managed-identity)
 
-    #### Assign a key vault access policy
-
-    1. Run the following command to **assign a key vault access policy** to the VM's **system-assigned managed identity** that you copied above (substitute actual names for the `<placeholders>`):
+    Run this command to assign the access policy to your VM's **system-assigned managed identity**:
 
         ```azurecli
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
         ```
 
-        This policy will allow the VM to list, read, and write secrets from/to the key vault.
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
     # [Registered application](#tab/registered-application)
 
-    #### Assign a key vault access policy
-
-    1. Run the following command to **assign a key vault access policy** to the **registered application identity** that you copied above (substitute actual names or values for the `<placeholders>`):
+    Run this command to assign the access policy to a **registered application identity**:
 
         ```azurecli
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
