@@ -20,13 +20,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 ## 2023-11-13
-  + **azureml-automl-core**
+  + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**
     +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
-  + **azureml-automl-runtime**
-    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
-  + **azureml-contrib-automl-dnn-forecasting**
-    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
-  + **azureml-core**
+  + **azureml-core, azureml-pipeline-core, azureml-pipeline-steps**
     + [team name] -> AzureML-Pipeline [Put release notes here] -> Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
   + **azureml-interpret**
     + updated azureml-interpret package to interpret-community 0.30.*
@@ -34,16 +30,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + feat: Add `AZUREML_BLOB_MAX_SINGLE_PUT_SIZE` to control the size in bytes of upload chunks. Lowering this from the default (`64*1024*1024` i.e 64MB) can remedy issues where write operations fail due to time outs.
     + Support for uploading and downloading models from AzureML registries is currently experimental
     + Adding support for users that want to download or upload model from AML registries
-  + **azureml-pipeline-core**
-    + [team name] -> AzureML-Pipeline [Put release notes here] -> Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
-  + **azureml-pipeline-steps**
-    + [team name] -> AzureML-Pipeline [Put release notes here] -> Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
-  + **azureml-train-automl-client**
-    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
-  + **azureml-train-automl-runtime**
-    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
-  + **azureml-training-tabular**
-    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
 
 ## 2023-08-21
 
