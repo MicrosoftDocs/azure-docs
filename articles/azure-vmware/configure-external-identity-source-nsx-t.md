@@ -15,18 +15,18 @@ In this article, you will learn how to configure an external identity source for
 
 ## Prerequisites 
 
-•	A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. </br>
-•	A network path from your Active Directory server to the management network of Azure VMware solution where NSX-T is deployed. </br>
-•	Best practice: Two domain controllers located in Azure in the same region as the Azure VMware Solution SDDC. </br>
-•	Active Directory Domain Controller(s) with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
+-	A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. </br>
+-	A network path from your Active Directory server to the management network of Azure VMware solution where NSX-T is deployed. </br>
+-	Best practice: Two domain controllers located in Azure in the same region as the Azure VMware Solution SDDC. </br>
+-	Active Directory Domain Controller(s) with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
 
 
 
 >[!Note] 
-> Self-sign certificates are not recommended for production environments!
+> Self-sign certificates are not recommended for production environments.
     
-•	An account with Administrator permissions</br>
-•	The Azure VMware Solution DNS zones and DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
+-	An account with Administrator permissions</br>
+-	The Azure VMware Solution DNS zones and DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
 
 
 >[!NOTE] 
