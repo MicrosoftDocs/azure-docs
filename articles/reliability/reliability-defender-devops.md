@@ -10,7 +10,7 @@ ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
 ---
 
-# Reliability in Defender for DevOps
+# Reliability in Microsoft Defender for Cloud for DevOps security
 
 This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](../defender-for-cloud/defender-for-devops-introduction.md), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
