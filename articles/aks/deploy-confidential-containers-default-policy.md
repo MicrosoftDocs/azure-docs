@@ -2,15 +2,13 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/08/2023
+ms.date: 11/09/2023
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
 # Deploy an AKS cluster with Confidential Containers and a default policy
 
-In this article, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster and configure Confidential Containers (preview) with a default security policy. You'll then deploy an application as a Confidential container.
-
-AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [introduction to AKS][aks-intro] and the [overview of AKS Confidential Containers][overview-confidential-containers].
+In this article, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster and configure Confidential Containers (preview) with a default security policy. You'll then deploy an application as a Confidential container. To learn more, read the [overview of AKS Confidential Containers][overview-confidential-containers].
 
 In general, getting started with AKS Confidential Containers involves the following steps.
 
@@ -100,7 +98,7 @@ az provider register --namespace "Microsoft.ContainerService"
    The following example updates the cluster named *myAKSCluster* and creates a single system node pool in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myAKSCluster--kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --node-vm-size Standard_DC4as_cc_v5 --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --node-vm-size Standard_DC4as_cc_v5 --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
@@ -180,7 +178,7 @@ The following is an example manifest YAML of a pod which consists of a container
       runtimeClassName: kata-cc-isolation
     ```
 
-2. Create the pod with the `kubectl apply` command, as shown in the following example:
+2. Create the pod with the [`kubectl apply`][kubectl-appy] command, as shown in the following example:
 
     ```bash
     kubectl apply -f busybox.yaml
@@ -196,125 +194,84 @@ To configure the workload identity, perform the following steps described in the
 * Create a managed identity
 * Create Kubernetes service account
 * Establish federated identity credential
+* Deploy the sample quickstart pod application
 
-1. Set an access policy for the managed identity to access the Key Vault secret using the following commands.
+1. After completing the steps to configure a workload identity, create a runtime class resource by copying the following YAML manifest and saving it as `kata-cc-runtime.yaml`.
 
-    ```azurecli-interactive
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
+    ```yml
+    kind: RuntimeClass
+    apiVersion: node.k8s.io/v1
+    metadata:
+      name: kata-cc-isolation1
+      labels:
+        addonmanager.kubernetes.io/mode: "Reconcile"
+    handler: kata-cc
+    overhead:
+      podFixed:
+        memory: "2Gi"
+        # cpu: "250m"
+    scheduling:
+      nodeSelector:
+        kubernetes.azure.com/kata-cc-isolation: "true"
     ```
 
-    ```azurecli-interactive
-    az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
+1. Enable the cluster autoscaler feature on the cluster using the [`az aks update`][az-aks-update] commamd and scale the cluster with three nodes.
+
+   ```azurecli-interactive
+   az aks update --resource-group myResourceGroup --name myAKSCluster --enable-cluster-autoscaler --min-count 1 --max-count 3
+   ```
+
+1. Deploy the runtime class resource by running the ['kubectl apply'][kubectl-apply] command.
+
+    ```bash
+    kubectl apply -f kata-cc-runtime.yaml
     ```
 
-1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`.
-
-   >[!IMPORTANT]
-   > While you can use your own deployment YAML manifest, it's important you review and understand the [considerations][confidential-containers-considerations] with this preview before proceeding.
+1. Create a stress deployment spec by copying the following YAML manifest and saving it as `stressdeployment.yaml`. It creates a ReplicaSet to bring up four pods with the stress-ng tool.
 
     ```yml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: nginx-deployment
+      name: normal-deployment
       labels:
-        azure.workload.identity/use: "true"
+        app: normal-stress
     spec:
-      runtimeClassName: kata-cc-isolation
-      serviceAccountName: workload-identity-sa
+      replicas: 4
       selector:
         matchLabels:
-          app: nginx
-      replicas: 1
+          app: normal-stress
       template:
         metadata:
+          name: normal-stress
           labels:
-            app: nginx
+            app: normal-stress
         spec:
-          labels:
-            azure.workload.identity/use: "true"
-          serviceAccountName: workload-identity-sa
+          runtimeClassName: kata-cc-isolation1
           containers:
-          - name: nginx
-            image: nginx:1.14.2
+          - name: normal-stress-ctr
+            image: polinux/stress
             resources:
+              # requests:
+              #  memory: "20M"
               limits:
-                memory: "512Mi"
-                cpu: "60m"
-            ports:
-            - containerPort: 80
-          - name: SecretKeyRelease
-            image: <tbd>/aasp:1
-            command:
-              - "/skr.sh"
-            env: 
-              - name: SkrSideCarArgs
-                value: ewogICAiY2VydGNhY2hlIjogewogICAgICAiZW5kcG9pbnQiOiAiYW1lcmljYXMuYWNjY2FjaGUuYXp1cmUubmV0IiwKICAgICAgInRlZV90eXBlIjogIlNldlNucFZNIiwKICAgICAgImFwaV92ZXJzaW9uIjogImFwaS12ZXJzaW9uPTIwMjAtMTAtMTUtcHJldmlldyIKICAgfSAgICAgIAp9
-            resources:
-              limits:
-                memory: "512Mi"
-                cpu: "60m"
+                cpu: 200m
+                memory: "100M"
+            command: ["stress"]
+            args: ["--cpu","1", "--vm", "1", "--vm-bytes", "50M", "--vm-hang", "1"]
     ```
 
-## Create the security policy
-
-The Security Policy document describes all the calls to agent’s ttrpc APIs that are expected for creating and managing a Confidential pod. The *genpolicy* application/tool can be used to generate the policy data for the pod, together with the common rules and the default values, in a Rego format text document.
-
-The main input to genpolicy is a standard Kubernetes (K8s) YAML file that is provided by you. The genpolicy tool supports automatic Policy generation based on Kubernetes DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
-
-```bash
-az confcom katapolicygen -y my-pod.yaml
-```
-
-To see other command line options, run the command with the `--help` argument.
-
-On successful execution, genpolicy creates the Policy document, encodes it in *base64* format, and adds it to the YAML file as an annotation. Similar to:
-
-```output
-io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
-```
-
-To print information about the actions undertaken by the application while it computes the Policy, set genpolicy’s `RUST_LOG` environment variable by running the following command:
-
-```bash
-RUST_LOG=info az confcom katapolicygen -y my-pod.yaml 
-```
-
-For example, the app downloads the container image layers for each of the containers specified by the input YAML file. It calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
-
-## Complete the configuration
-
-1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey`. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
+1. Create the stress deployment containers by running the [`kubectl-apply`][kubectl-apply] command.
 
     ```bash
-    go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
+    kubectl apply -f stressdeployment.yaml
     ```
 
-   After successful import, you should see something similar to the following example output:
-
-    ```output
-    [34 71 33 117 113 25 191 84 199 236 137 166 201 103 83 20 203 233 66 236 121 110 223 2 122 99 106 20 22 212 49 224]
-    https://accmhsm.managedhsm.azure.net/keys/doc-sample-key-release/8659****0cdff08
-    {"version":"0.2","anyOf":[{"authority":"https://sharedeus2.eus2.test.attest.azure.net","allOf":[{"claim":"x-ms-sevsnpvm-hostdata","equals":"aaa7***7cc09d"},{"claim":"x-ms-compliance-status","equals":"azure-compliant-uvm"},{"claim":"x-ms-sevsnpvm-is-debuggable","equals":"false"}]}]}
-    ```
-
-1. Run the following commands to verify the key was successfully imported:
-
-    ```azurecli-interactive
-    az account set --subscription "Subscription ID"
-    ```
-
-   ```azurecli-interactive
-   az keyvault key list --hsm-name <Name of HSM> -o table
-   ```
-
-1. Deploy the application by running the following command:
+1. Verify all pods are running and Kata-cc containers' resource request can trigger Kata-cc node pool auto scale using the [kubectl scale][kubectl-scale] command.
 
     ```bash
-    kubectl apply -f myapplication
+    kubectl scale deployment normal-deployment --replicas=10
     ```
-
-1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command. (Run command to view secrets to verify it's working from the pod).
 
 ## Cleanup
 
@@ -337,6 +294,8 @@ kubectl delete pod pod-name
 <!-- EXTERNAL LINKS -->
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 
 <!-- INTERNAL LINKS -->
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
@@ -354,7 +313,7 @@ kubectl delete pod pod-name
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[aks-intro]: intro-kubernetes.md
+[az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
 [overview-confidential-containers]: confidential-containers-overview.md
 [azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
 [create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
