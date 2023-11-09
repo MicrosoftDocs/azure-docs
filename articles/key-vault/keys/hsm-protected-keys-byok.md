@@ -165,7 +165,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE]
-> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is not supported.
+> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is supported.
 >
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 

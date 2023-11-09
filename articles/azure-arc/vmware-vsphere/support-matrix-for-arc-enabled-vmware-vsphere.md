@@ -2,17 +2,17 @@
 title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 
-# Support matrix for Azure Arc-enabled VMware vSphere (preview)
+# Support matrix for Azure Arc-enabled VMware vSphere
 
-This article documents the prerequisites and support requirements for using [Azure Arc-enabled VMware vSphere (preview)](overview.md) to manage your VMware vSphere VMs through Azure Arc.
+This article documents the prerequisites and support requirements for using [Azure Arc-enabled VMware vSphere](overview.md) to manage your VMware vSphere VMs through Azure Arc.
 
-To use Arc-enabled VMware vSphere, you must deploy an Azure Arc resource bridge (preview) in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
+To use Arc-enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
 ## VMware vSphere requirements
 
@@ -20,10 +20,10 @@ The following requirements must be met in order to use Azure Arc-enabled VMware 
 
 ### Supported vCenter Server versions
 
-Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7, 7 and 8.
+Azure Arc-enabled VMware vSphere works with vCenter Server versions 7 and 8.
 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it's not recommended to use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it's not recommended to use Arc-enabled VMware vSphere with it at this point.
 
 ### Required vSphere account privileges
 
@@ -32,7 +32,7 @@ You need a vSphere account that can:
 - Read all inventory.
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc resource bridge (preview) VM.
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
 
 ### Resource bridge resource requirements
 

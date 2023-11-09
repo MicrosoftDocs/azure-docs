@@ -1,0 +1,47 @@
+- name: Azure Operator Insights documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator Insights?
+    href: overview.md
+  - name: Azure Operator Insights FAQ
+    href: operator-insights-faq.yml
+- name: Quickstart
+  expanded: false
+  items:
+  - name: Create an Azure Operator Insights Data Product
+    href: data-product-create.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Managed identity
+    href: managed-identity.md
+  - name: Data quality and data monitoring
+    href: concept-data-quality-monitoring.md
+  - name: Data types
+    href: concept-data-types.md
+  - name: Data visualization
+    href: concept-data-visualization.md 
+  - name: MCC Data Product
+    href: concept-mcc-data-product.md
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
+    href: purview-setup.md
+  - name: Use Azure Operator Insights Data Product dashboards
+    href: dashboards-use.md
+  - name: Query data in the Azure Operator Insights Data Product
+    href: data-query.md
+  - name: Deploy Ingestion Agents for MCC protobuf EDRs
+    expanded: true
+    items:
+    - name: Create and configure MCC EDR Ingestion Agents
+      href: how-to-install-mcc-edr-agent.md
+    - name: Manage MCC EDR Ingestion Agents
+      href: how-to-manage-mcc-edr-agent.md
+    - name: Monitor and troubleshoot MCC EDR Ingestion Agents
+      href: troubleshoot-mcc-edr-agent.md
+    - name: MCC EDR Ingestion Agent Configuration Reference
+      href: mcc-edr-agent-configuration.md

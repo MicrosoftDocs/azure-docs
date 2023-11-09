@@ -102,4 +102,4 @@ az spring show \
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../azure-monitor/usage-estimated-costs.md)
+- [Azure Monitor cost and usage](../azure-monitor/cost-usage.md)

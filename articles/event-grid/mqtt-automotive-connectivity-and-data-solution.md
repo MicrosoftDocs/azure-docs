@@ -46,7 +46,7 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
     1. **Provisioning** information for vehicles and devices.
     1. Initial vehicle **data collection** configuration based on market and business considerations.
     1. Storage of initial **user consent** settings based on vehicle options and user acceptance.
-1. The vehicle publishes telemetry and events messages through an MQTT client with defined topics to the **Event Grid** *MQTT Broker* in the *vehicle messaging services*.
+1. The vehicle publishes telemetry and events messages through an MQTT client with defined topics to the **Azure Event Grid’s MQTT broker feature** in the *vehicle messaging services*.
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
     1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
@@ -101,11 +101,11 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. This may include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
-1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT Broker*.
-1. The *device registration* application creates the device identity in **Event Grid**.
-1. The factory system triggers the device to establish a connection to the **Event Grid** *MQTT Data Broker* for the first time.
+1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT broker*.
+1. The *device registration* application creates the device identity with MQTT broker.
+1. The factory system triggers the device to establish a connection to the *MQTT broker* for the first time.
     1. The MQTT broker authenticates the device using the *CA Root Certificate* and extracts the client information.
-1. The *MQTT broker* manages authorization for allowed topics using the **Event Grid** local registry.
+1. The *MQTT broker* manages authorization for allowed topics using the local registry.
 1. In case of part replacement, the OEM **Dealer System** can trigger the registration of a new device.
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 1. The **application scale unit** subscribes applications to messages of interest. The common service handles subscription to the **vehicle messaging scale unit** components.
 1. The vehicle uses the **device management service** to discover its assignment to a vehicle messaging scale unit.
 1. If necessary, the vehicle is provisioned using the [Vehicle and device Provisioning](#vehicle-and-device-provisioning) workflow.
-1. The vehicle publishes a message to the **Event Grid** *MQTT broker*.
+1. The vehicle publishes a message to the *MQTT broker*.
 1. **Event Grid** routes the message using the subscription information.
     1. For messages that don't require processing and claims check, it's routed to an ingress hub on the corresponding application scale unit.
     1. Messages that require processing are routed to the [D2C processing logic](#vehicle-to-cloud-messages) for decoding and authorization (user consent).
 1. Applications consume events from their **app ingress** event hubs instance.
 1. Applications publish messages for the vehicle.
-    1. Messages that don't require more processing are published to the **Event Grid** *MQTT Broker*.
+    1. Messages that don't require more processing are published to the *MQTT broker*.
     1. Messages that require more processing, workflow control and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hubs instance.
 
 ### Components

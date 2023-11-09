@@ -304,14 +304,16 @@ pfazure run show-metrics --name <evaluation_run_name>
 ```python
 pf.get_metrics("evaluation_run_name")
 ```
-
 ---
+
+> [!IMPORTANT]
+> For more information, you can refer to [the Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html).
 
 ## Iterative development from fine-tuning
 
 ### Local development and testing
 
-During iterative development, as you refine and fine-tune your flow or prompts, you might find it beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
+During iterative development, as you refine and fine-tune your flow or prompts, it could be beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
 
 #### Prompt flow VS Code extension
 
@@ -451,3 +453,4 @@ By following this best practice, teams can create a seamless, efficient, and pro
 ## Next steps
 
 - [Set up end-to-end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flow.md)
+- [Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html)

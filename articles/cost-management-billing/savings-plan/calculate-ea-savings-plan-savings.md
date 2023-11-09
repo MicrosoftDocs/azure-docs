@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 10/25/2023
 ms.author: banders
 ---
 
@@ -18,7 +18,9 @@ This article helps Enterprise Agreement (EA) users manually calculate their savi
 > [!NOTE]
 > The prices shown in this article are for example purposes only.
 
-This article is specific to EA users. Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. However, the MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. Other resources in the file do. For more information, see [Download usage for your Microsoft Customer Agreement](../savings-plan/utilization-cost-reports.md).
+This article is specific to EA users. 
+
+However, Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. The MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. You can get unit prices from your [MCA price sheet](download-savings-plan-price-sheet.md#download-mca-price-sheet).
 
 ## Required permissions
 

@@ -512,6 +512,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure

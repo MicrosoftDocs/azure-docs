@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 09/11/2023
+ms.date: 11/01/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -57,6 +57,27 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
 * OpenShift relies on the ability to automatically tag Azure resources. If you have configured a tagging policy, do not apply more than 10 user-defined tags to resources in the managed resource group.
 
+
+## Incident management
+
+An incident is an event that results in a degradation or outage Azure Red Hat OpenShift services. An incident can be raised by a customer or Customer Experience and Engagement (CEE) member through a [support case](openshift-service-definitions.md#support), directly by the centralized monitoring and alerting system, or directly by a member of the ARO Site Reliability Engineer (SRE) team.
+
+Depending on the impact on the service and customer, the incident is categorized in terms of severity.
+
+The general workflow of how a new incident is managed is described below:
+
+1. An SRE first responder is alerted to a new incident and begins an initial investigation.
+
+1. After the initial investigation, the incident is assigned an incident lead, who coordinates the recovery efforts.
+
+1. The incident lead manages all communication and coordination around recovery, including any relevant notifications or support case updates.
+
+1. The incident is recovered.
+
+1. The incident is documented and a root cause analysis (RCA) is performed within 5 business days of the incident.
+
+1. An RCA draft document is shared with the customer within 7 business days of the incident.
+
 ## Supported virtual machine sizes
 
 Azure Red Hat OpenShift 4 supports node instances on the following virtual machine sizes:
@@ -80,7 +101,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv5|Standard_D8as_v5|8|32|
 |Dasv5|Standard_D16as_v5|16|64|
 |Dasv5|Standard_D32as_v5|32|128|
-|Easv4|Standard_E4as_v4|4|32|
 |Easv4|Standard_E8as_v4|8|64|
 |Easv4|Standard_E16as_v4|16|128|
 |Easv4|Standard_E20as_v4|20|160|
@@ -136,7 +156,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv5|Standard_D32as_v5|32|128|
 |Dasv5|Standard_D64as_v5|64|256|
 |Dasv5|Standard_D96as_v5|96|384|
-|Dsv2|Standard_D2s_v3|2|8|
 |Dsv3|Standard_D4s_v3|4|16|
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
@@ -177,7 +196,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
-|Esv4|Standard_E2s_v4|2|16|
 |Esv4|Standard_E4s_v4|4|32|
 |Esv4|Standard_E8s_v4|8|64|
 |Esv4|Standard_E16s_v4|16|128|
@@ -185,7 +203,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv4|Standard_E32s_v4|32|256|
 |Esv4|Standard_E48s_v4|48|384|
 |Esv4|Standard_E64s_v4|64|504|
-|Esv5|Standard_E2s_v5|2|16|
 |Esv5|Standard_E4s_v5|4|32|
 |Esv5|Standard_E8s_v5|8|64|
 |Esv5|Standard_E16s_v5|16|128|
