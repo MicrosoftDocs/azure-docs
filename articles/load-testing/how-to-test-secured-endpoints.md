@@ -141,7 +141,7 @@ You can now retrieve the secret value in the JMeter script by using the `GetSecr
 
 1. Update the JMeter sampler component to pass the secret in the request.
 
-    For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
+    For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header by adding an `HTTP Header Manager`:
 
     :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter.":::
 
