@@ -16,7 +16,7 @@ The REST APIs throttling in Azure Data Manager for Agriculture allows more consi
 Throttling limits are flexible and are contingent on selected SKU and the specific capabilities of the product being used. At present, we support two distinct SKUs: **Standard** (recommended) and **Basic** (suitable for prototyping requirements). These limits operate within three different time windows (per 1 minute, per 5 minutes, and per 1 month) to safeguard against sudden surges in traffic.
 
 
-#  Classification of APIs
+##  Classification of APIs
 
 We categorize all our APIs into three main parts for better understanding:
 - **Write operations** - Comprising APIs utilizing REST API methods like `PATCH`, `POST`, and `DELETE` for altering data.
@@ -29,20 +29,20 @@ Operation |	Units cost for each request|
 ----------| -------------------------- |
 Write	| 5 |
 Read|	1 <sup>1</sup>|
-Long running job [Solution inference] (/rest/api/data-manager-for-agri/#solution-and-model-inferences) | 5 |
-Long running job [Farm operation] (/rest/api/data-manager-for-agri/#solution-and-model-inferences) | 5 |
-Long running job [Image rasterize] (/rest/api/data-manager-for-agri/#weather) | 2 |
-Long running job (Cascade delete) | 2 |
-Long running job [Weather ingestion] (/rest/api/data-manager-for-agri/#weather) | 1 |
-Long running job [Satellite ingestion] (/rest/api/data-manager-for-agri/#satellite) | 1 |
+Long running job [Solution inference](/rest/api/data-manager-for-agri/#solution-and-model-inferences) | 5 |
+Long running job [Farm operation](/rest/api/data-manager-for-agri/#farm-operation-job) | 5 |
+Long running job [Image rasterize](/rest/api/data-manager-for-agri/#image-rasterize-job) | 2 |
+Long running job (Cascade delete of an entity) | 2 |
+Long running job [Weather ingestion](/rest/api/data-manager-for-agri/#weather) | 1 |
+Long running job [Satellite ingestion](/rest/api/data-manager-for-agri/#satellite-data-ingestion-job) | 1 |
 
 <sup>1</sup>An additional unit cost is taken into account for each item returned in the response when more than one item is being retrieved.
 
 
-# Basic SKU API Limits
+## Basic SKU API Limits
 
 
-## Total available units
+### Total available units
 Operation | Throttling time window | Units reset after each time window.|
 ----------| -------------------------- | ------------------------------ |
 Write/Read| per 1 Minute	| 25,000 |
@@ -51,10 +51,10 @@ Write/Read| per 1 Month|	5,000,000 |
 Long running job| per 5 Minutes|	1000|
 Long running job| per 1 Month| 100,000 |
 
-# Standard SKU API Limits
+## Standard SKU API Limits
 Standard SKU offers a 5 times increase in API quota per month compared to the Basic SKU, while all other quota limits remain unchanged.
 
-## Total available units
+### Total available units
 Operation | Throttling time window | Units reset after each time window.|
 ----------| -------------------------- | ------------------------------ |
 Write/Read| per 1 Minute	| 25,000 |
@@ -67,14 +67,10 @@ Long running job| per 1 Month| 500,000 <sup>2</sup>|
 <sup>2</sup>This limit is 5 times the Basic SKU limit.
 
 
-
 ## Error code
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned. 
 
 Once the specified time has elapsed, you can make requests again to the Azure Data Manager for Agriculture. It's important to note that attempting to establish a TCP connection or using different user authentication methods will not bypass these limits, as they are specific to each tenant.
-
-## FAQs
-
 
 ## Frequently Asked Questions (FAQs)
 
