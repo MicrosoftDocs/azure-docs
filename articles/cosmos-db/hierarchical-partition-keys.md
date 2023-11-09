@@ -117,9 +117,9 @@ When you create a new container by using the SDK, define a list of subpartitioni
 ```csharp
 // List of partition keys, in hierarchical order. You can have up to three levels of keys.
 List<string> subpartitionKeyPaths = new List<string> { 
-    "/TenantId",
-    "/UserId",
-    "/SessionId"
+    "/tenantId",
+    "/userId",
+    "/sessionId"
 };
 
 // Create a container properties object
