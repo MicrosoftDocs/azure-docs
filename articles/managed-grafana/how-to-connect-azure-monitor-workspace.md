@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 11/07/2023
+ms.date: 11/09/2023
 --- 
 
 # Add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data
@@ -22,7 +22,18 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 - An Azure Managed Grafana instance in the Standard tier. [Create a new instance](quickstart-managed-grafana-portal.md) if you don't have one.
 - An [Azure Monitor workspace with Prometheus data](../azure-monitor/containers/prometheus-metrics-enable.md).
 
-## Add an Azure Monitor workspace to an Azure Managed Grafana workspace
+## Add a new role assignment
+
+In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the Azure Managed Grafana resource, so that Grafana can collect data from the Azure Monitor workspace.
+
+1. Open the Azure Monitor workspace that holds Prometheus data.
+1. Go to **Access control (IAM)** > **Add** > **Add role assignment**.
+1. Select the **Monitoring Data Reader** role, then **Next**.
+1. For **Assign access**, select **Managed identity**
+1. Open **Select members** and select your Azure Managed Grafana resource.
+1. Select **Review + assign** to initiate the role assignment
+
+## Add an Azure Monitor workspace
 
 1. Open your Azure Managed Grafana workspace.
 1. In the left menu, select **Integrations** > **Azure Monitor workspaces (Preview**).
