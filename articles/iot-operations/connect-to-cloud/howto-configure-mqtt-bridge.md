@@ -5,7 +5,7 @@ description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 11/09/2023
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -342,17 +342,6 @@ routes:
 
 Other methods of source topic reference aren't supported.
 
-<!-- ### Bridge all topics
-
-To create an MQTT bridge that publishes all messages from Azure IoT MQ to the target broker with matching topics and vice versa, use the `#` wildcard and omit the target topic configuration.
-
-```yaml
-routes:
-  - direction: both # local-to-remote or remote-to-local also work for unidirectional bridging
-    name: "bridge-all"
-    source: "#"
-``` -->
-
 ### Shared subscriptions
 
 The `sharedSubscription` field defines the shared subscription configuration for the route. It includes the following fields:
@@ -413,12 +402,6 @@ If `bridgeInstances` is set higher than `1`, configure the Event Grid MQTT broke
 ### Per-connection limit
 
 If using managed identity isn't possible, keep the per-connection limits for Event Grid MQTT broker in mind when designing your setup. At the time of publishing, the limit is 100 messages/second each direction for a connection. To increase the MQTT bridge throughput, use shared subscriptions to increase the number of clients serving each route.
-
-<!-- ### Client registry and authorization policy sync
-
-Azure IoT MQ supports client registry and authorization policy sync with Event Grid's permission bindings only when Azure IoT MQ can authenticate to Event Grid with managed identity and was given the correct level of permission (Contributor or above, including write access on the resource).
-
-To learn more, see [TODO](/docs/mqtt-broker/authorization/). -->
 
 ## Bridge from another broker to Azure IoT MQ
 
