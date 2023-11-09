@@ -91,7 +91,7 @@ To create a new application registration:
 
 4. Select the **+ New registration** tab.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/app-registration.png" alt-text="View app registrations.":::
+      :::image type="content" border="false" source="./media/how-to-manage-authentication/app-registration.png" lightbox="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID.":::
 
 5. Enter a **Name**, and then select a **Support account type**.
 
