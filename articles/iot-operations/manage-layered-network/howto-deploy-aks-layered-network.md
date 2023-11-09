@@ -169,6 +169,8 @@ In level 3, you will create a K3S kubernetes cluster on a Linux VM. For convenie
     1. On top of the default outbound security rules, create a rule to **deny all outbound traffic** from the level 3 VM.
     3. Create another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
 
+:::image type="content" source="./media/howto-deploy-aks-layered-network/lnm-quickstart-outbound.png" alt-text="Screenshot of network security group" lightbox="./media/howto-deploy-aks-layered-network/lnm-quickstart-outbound.png":::
+
 ## Provision the cluster in isolated layer to Arc
 
 With the following steps, you will Arc-enable the level 3 cluster using the Layered Network Management instance at level 4.
@@ -212,6 +214,10 @@ With the following steps, you will Arc-enable the level 3 cluster using the Laye
     ```
 1. Your Kubernetes cluster is now Arc-enabled and is listed in the resource group you provided in the az connectedk8s connect command. You can also validate the provisioning of this cluster through the Azure portal. This quickstart is for showcasing the capability of Layered Network Management to enable Arc for your Kubernetes cluster. You can now try the built-in Arc experiences on this cluster within the isolated network.
 
-## Related content
+## Next Step
 
-- [Create sample network environment](./howto-configure-layered-network.md)
+- View the following page to understand how to setup a cluster in isolated network for Azure IoT Operations to be deployed.
+    - [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md)
+- Refer to the following page to get more detail about setting up comprehensive network environments for Azure IoT Operations related scenarios.
+    - [Create sample network environment](./howto-configure-layered-network.md)
+ 
