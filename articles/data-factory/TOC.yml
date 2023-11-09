@@ -1325,7 +1325,7 @@ items:
     - name: Create Managed Airflow Environment
       href: create-managed-airflow-environment.md
     - name: Import Dags using Azure Blob Storage
-      href: airflow-import-dags-using-blob-storage.md
+      href: airflow-import-dags-blob-storage.md
     - name: Delete Dags 
       href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
