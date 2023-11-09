@@ -1,7 +1,7 @@
 ---
 title: Upgrade Arc resource bridge
 description: Learn how to upgrade Arc resource bridge using either cloud-managed upgrade or manual upgrade.  
-ms.date: 11/03/2023
+ms.date: 11/15/2023
 ms.topic: how-to
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge overview
 description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 11/3/2023
+ms.date: 11/15/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
