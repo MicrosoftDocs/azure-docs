@@ -394,7 +394,7 @@ Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.micr
       },
       "createdDateTime": "2023-03-13T16:37:15Z",
       "links": {
-        "contentUrl": "<Link to to download log file>"
+        "contentUrl": "<Link to download log file>"
       }
     }
   ]

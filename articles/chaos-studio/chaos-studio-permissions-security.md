@@ -1,6 +1,6 @@
 ---
-title: Permissions and security for Azure Chaos Studio Preview
-description: Understand how permissions work in Azure Chaos Studio Preview and how you can secure resources from accidental fault injection.
+title: Permissions and security for Azure Chaos Studio
+description: Understand how permissions work in Azure Chaos Studio and how you can secure resources from accidental fault injection.
 author: prasha-microsoft
 ms.author: prashabora
 ms.service: chaos-studio
@@ -9,9 +9,9 @@ ms.date: 06/30/2023
 ms.custom: template-concept, ignite-fall-2021, devx-track-arm-template
 ---
 
-# Permissions and security in Azure Chaos Studio Preview
+# Permissions and security in Azure Chaos Studio
 
-Azure Chaos Studio Preview enables you to improve service resilience by systematically injecting faults into your Azure resources. Fault injection is a powerful way to improve service resilience, but it can also be dangerous. Causing failures in your application can have more impact than originally intended and open opportunities for malicious actors to infiltrate your applications.
+Azure Chaos Studio enables you to improve service resilience by systematically injecting faults into your Azure resources. Fault injection is a powerful way to improve service resilience, but it can also be dangerous. Causing failures in your application can have more impact than originally intended and open opportunities for malicious actors to infiltrate your applications.
 
 Chaos Studio has a robust permission model that prevents faults from being run unintentionally or by a bad actor. In this article, you learn how you can secure resources that are targeted for fault injection by using Chaos Studio.
 

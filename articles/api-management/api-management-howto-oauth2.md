@@ -260,7 +260,7 @@ Optionally:
 1. [Republish](api-management-howto-developer-portal-customize.md#publish) the developer portal.
 
     > [!IMPORTANT]
-    > When making OAuth 2.0-related changes, be sure to to republish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
+    > When making OAuth 2.0-related changes, be sure to republish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
 
 ## Configure an API to use OAuth 2.0 user authorization
 
