@@ -189,9 +189,10 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
       run: npx playwright test -c playwright.service.config.ts --workers=20
 
-    - uses: actions/upload-artifact@v3
-        if: always()
-        with:
+    - name: Upload Playwright report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
         name: playwright-report
         path: path/to/playwright/folder/playwright-report/ # update accordingly
         retention-days: 10
@@ -220,6 +221,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         workingDirectory: path/to/playwright/folder # update accordingly
 
     - task: PublishPipelineArtifact@1
+      displayName: Upload Playwright report
       inputs:
         targetPath: path/to/playwright/folder/playwright-report/ # update accordingly
         artifact: 'Playwright tests'
