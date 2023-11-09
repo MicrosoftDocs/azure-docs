@@ -23,7 +23,7 @@ In this article, you will learn how to configure an external identity source for
 
 
 >[!Note] 
-> Self-sign certificates are not recommended for production environments.
+> Self-sign certificates are not recommended for production environments!
     
 •	An account with Administrator permissions</br>
 •	The Azure VMware Solution DNS zones and DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
