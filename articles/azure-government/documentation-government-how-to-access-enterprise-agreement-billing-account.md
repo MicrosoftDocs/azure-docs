@@ -114,7 +114,7 @@ Step 5 - On the Supporting information page, select all applicable categories. W
 
 Step 6 - Select the agreement boxes and then select **Submit**.
 
-:::image type="content" source="./media/additional-notes.png" alt-text="Screenshot showing the supporting information tab." lightbox="./media/additional-notes.png" :::
+:::image type="content" source="./media/additional-notes.png" alt-text="Screenshot showing the additional notes box and agreement boxes." lightbox="./media/additional-notes.png" :::
 
 Step 7 - After the tenant is created successfully, the contact email address receives a confirmation email that includes user credentials.
 
