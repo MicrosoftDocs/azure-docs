@@ -74,7 +74,7 @@ The service returns all the categories that were detected, the severity level fo
 
 You can use the **View Code** feature in both *moderate text content* or *moderate image content* page to view and copy the sample code, which includes configuration for severity filtering, blocklists, and moderation functions. You can then deploy the code on your end.
 
-:::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of viewing the code in the moderate text content page." lightbox="../media/quickstarts/content-safety-image.png":::
+:::image type="content" source="../media/quickstarts/content-safety-view-code.png" alt-text="Screenshot of viewing the code in the moderate text content page." lightbox="../media/quickstarts/content-safety-view-code.png":::
 
 ## Clean up resources
 

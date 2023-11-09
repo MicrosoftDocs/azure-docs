@@ -12,6 +12,8 @@
     href: faq.yml
 - name: Quickstarts
   items:
+  - name: Hear and speak with chat in the playground
+    href: quickstarts/hear-speak-playground.md
   - name: Generate text completions in the playground
     href: quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
