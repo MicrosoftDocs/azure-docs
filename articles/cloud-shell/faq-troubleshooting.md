@@ -152,7 +152,7 @@ Use the following steps to delete your user settings.
 1. Select **Reset user settings** from the menu.
 1. Select the **Reset** button to confirm the action.
 
-### Disable Cloud Shell in a locked down network environment
+### Block Cloud Shell in a locked down network environment
 
 - **Details**: Administrators might wish to disable access to Cloud Shell for their users. Cloud
   Shell depends on access to the `ux.console.azure.com` domain, which can be denied, stopping any
