@@ -72,7 +72,7 @@ To learn more, visit [Service Health portal classic experience overview](/azure/
 
 ## August 2023
 
-### Improved VM resiliency with Azure Advisor's availability zone recommendations
+### General Availability: Improved VM resiliency with Availability Zone recommendations
 
 Azure Advisor now provides availability zone recommendations. Zonal deployment is a best practice, according to Well Architected Framework (WAF) guidelines. By adopting Advisor zonal deployment recommendations, you can design your solutions to utilize zonal virtual machines (VMs), ensuring the isolation of your VMs from potential failures in other zones. With zonal deployment, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions.
 
@@ -86,7 +86,7 @@ Azure Adviser now offers the capability of grouping and/or filtering recommendat
 
 If you're interested in the workloads filter, reach out to your account team for more information.
 
-### New Cost Optimization workbook template
+### New: Cost Optimization workbook template
 
 Azure Advisor now has a new version of the Cost Optimization workbook template. The  Cost Optimization workbook offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated virtual machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
 
@@ -104,7 +104,7 @@ To learn more, visit [Reliability recommendations](/azure/advisor/advisor-refere
 
 ## May 2023
 
-### New Reliability workbook template
+### New: Reliability workbook template
 
 Azure Advisor now has a Reliability workbook template. The new workbook helps you identify areas of improvement by checking configuration of selected Azure resources using the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) and documented best practices. You can use filters, subscription, resource group, and tags, to focus on resources that you care about most. Use the workbook recommendations to:
 
@@ -178,7 +178,7 @@ Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resiz
 
 ## October 2022
 
-### Advisor score on specific workloads, General Availability
+### General Availability: Advisor score on specific workloads
 
 Advisor Score now supports the ability to focus recommendations on specific workloads using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
 
