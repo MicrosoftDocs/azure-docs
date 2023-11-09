@@ -47,6 +47,8 @@ items:
       href: how-to-permissions.md
     - name: Enable Grafana Enterprise
       href: how-to-grafana-enterprise.md
+    - name: Manage plugins
+      href: how-to-manage-plugins.md
   - name: Dashboards
     expanded: false
     items:
