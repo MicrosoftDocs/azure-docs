@@ -53,6 +53,7 @@ Azure Migrate integrates with several ISV offerings.
 [CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers.
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers.
 [Device42](https://docs.device42.com/) | Assess servers.
+[Dr. Migrate](https://www.altra.cloud/products/dr-migrate) | Assess servers and databases.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers.
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) | Assess servers.
