@@ -42,24 +42,19 @@ The same thing happens when the packet is reassembled. The network device must s
 
 #### Azure and fragmentation
 
-Fragmented packets in Azure are not processed by Accelerated Networking. When a VM receives a fragmented packet, it will be sent via the non-accelerated path. This means they will not get the benefits of Accelerated Networking (lower latency, reduced jitter, and higher packets per second). For this reason, we recommend avoiding fragmentation if possible.
+Fragmented packets in Azure are not processed by Accelerated Networking. When a VM receives a fragmented packet, it will be processed via the non-accelerated path. This means fragmented packets will not get the benefits of Accelerated Networking (lower latency, reduced jitter, and higher packets per second). For this reason, we recommend avoiding fragmentation if possible.
 
-By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive to the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs. Out of order fragment reordering can be enabled in some cases. If an application requires this, open a support case.
+By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive at the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs. Out of order fragment reordering can be enabled in some cases. If an application requires this, open a support case.
 
 #### Tune the MTU
 
-We don't encourage customers to increase VM MTUs. This discussion is meant to explain the details of how Azure implements MTU and performs fragmentation.
-
-> [!IMPORTANT]
->Increasing MTU isn't known to improve performance and could have a negative effect on application performance.
->Hybrid networking services, such as VPN, ExpressRoute, and vWAN, support a maximum MTU of 1400 bytes.
->
+We don't recommend customers increase the MTU on VM NICs. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance.
 
 #### Large send offload
 
 Large send offload (LSO) can improve network performance by offloading the segmentation of packets to the Ethernet adapter. When LSO is enabled, the TCP/IP stack creates a large TCP packet and sends it to the Ethernet adapter for segmentation before forwarding it. The benefit of LSO is that it can free the CPU from segmenting packets into sizes that conform to the MTU and offload that processing to the Ethernet interface where it's performed in hardware. To learn more about the benefits of LSO, see [Supporting large send offload](/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-When LSO is enabled, Azure customers might see large frame sizes when they perform packet captures. These large frame sizes might lead some customers to think fragmentation is occurring or that a large MTU is being used when it’s not. With LSO, the Ethernet adapter can advertise a larger maximum segment size (MSS) to the TCP/IP stack to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. But the packet will be broken down into many smaller frames by the Ethernet adapter, according to the Ethernet adapter’s MTU.
+When LSO is enabled, Azure customers might see large frame sizes when they perform packet captures. These large frame sizes might lead some customers to think fragmentation is occurring or that a large MTU is being used when it’s not. With LSO, the Ethernet adapter can advertise a larger maximum segment size (MSS) to the TCP/IP stack to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. But the packet will be broken down into many smaller frames by the Ethernet adapter, according to the Ethernet adapter's MTU.
 
 ### TCP MSS window scaling and PMTUD
 
@@ -69,7 +64,7 @@ TCP maximum segment size (MSS) is a setting that limits the size of TCP segments
 
 `MSS = MTU - (IP header size + TCP header size)`
 
-The IP header and the TCP header are 20 bytes each, or 40 bytes total. So an interface with an MTU of 1,500 will have an MSS of 1,460. But the MSS is configurable.
+The IP header and the TCP header are 20 bytes each, or 40 bytes total. So, an interface with an MTU of 1,500 will have an MSS of 1,460. But the MSS is configurable.
 
 This setting is agreed to in the TCP three-way handshake when a TCP session is set up between a source and a destination. Both sides send an MSS value, and the lower of the two is used for the TCP connection.
 
@@ -196,15 +191,6 @@ These are the effective TCP settings for `AutoTuningLevel`:
 
 These settings are the most likely to affect TCP performance, but keep in mind that many other factors across the internet, outside the control of Azure, can also affect TCP performance.
 
-#### Increase MTU size
-
-Because a larger MTU means a larger MSS, you might wonder whether increasing the MTU can increase TCP performance. Probably not. There are pros and cons to packet size beyond just TCP traffic. As discussed earlier, the most important factors affecting TCP throughput performance are TCP window size, packet loss, and RTT.
-
-> [!IMPORTANT]
-> We don't recommend that Azure customers change the default MTU value on virtual machines.
->
->
-
 ### Accelerated networking and receive side scaling
 
 #### Accelerated networking
@@ -313,7 +299,7 @@ TCP performance relies heavily on RTT and packet Loss. The PING utility availabl
 
 ### Measure actual bandwidth of a virtual machine
 
-To accurately measure the bandwidth of Azure VMs, follow [this guidance](./virtual-network-bandwidth-testing).
+To accurately measure the bandwidth of Azure VMs, follow [this guidance](./virtual-network-bandwidth-testing.md).
 
 For more details on testing other scenarios, see these articles:
 
