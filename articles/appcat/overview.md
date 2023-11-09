@@ -1,6 +1,6 @@
 ---
 title: About Azure Migrate tools 
-description: Learn about Azure Migrate and Azure Migrate: Application and Code Assessment for .NET and Java 
+description: Learn about Azure Migrate and Azure Migrate Application and Code Assessment for .NET and Java 
 author: yenchiho
 ms.service: Azure Migrate 
 ms.workload: infrastructure and App Innovation
@@ -46,4 +46,5 @@ Learn more about Azure Migrate and Azure Migrate: Application and Code Assessmen
 
 > [Azure Migrate](migrate/index.yml)
 > 
-> [Azure Migrate: Application and Code Assessment](index.yml)
+> [Azure Migrate Application and Code Assessment for .NET](index.yml)
+> [Azure Migrate Application and Code Assessment for Java](index.yml)
