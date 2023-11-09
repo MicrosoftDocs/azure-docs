@@ -202,7 +202,7 @@ To update a user, visit the **Authentication** page for your cluster,
 and select the ellipses **...** next to the user. The ellipses open a menu
 to delete the user or reset their password.
 
-The `citus` role is privileged and can't be deleted. However, `citus` role would be disabled, if 'Microsoft Entra ID authentication only' authentication method is selected for the cluster.
+The `citus` role is privileged and can't be deleted. However, `citus` role would be *disabled*, if 'Microsoft Entra ID authentication only' authentication method is selected for the cluster.
 
 ## How to modify privileges for user roles
 
