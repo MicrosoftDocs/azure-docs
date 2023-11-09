@@ -114,7 +114,8 @@ The ANQ deployment includes built-in redundancy at the data level to provide dat
 While the solution uses Qumulo’s replication engine between the on-premises cluster and the ANQ target, its purpose is to move data from an on-premises source to an Azure-based target rather than as a means of data protection.
 
 Both ANQ and the on-premises Qumulo cluster also support any file-based backup solution to enable external data protection.
-Resource Tier Availability
+
+### Resource Tier Availability
 
 For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s documentation.
 
