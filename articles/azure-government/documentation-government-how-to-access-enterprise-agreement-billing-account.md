@@ -89,7 +89,7 @@ Billing administration on the Azure Government portal happens in the context of 
 
 To manage an Azure Government enrollment, partners and customers use the [Azure Government Portal](https://portal.azure.us/). To sign in to the Azure Government portal, you need user credentials available in the Azure tenant hosted in the Government cloud. If you don’t have an existing Azure Government tenant, you can submit request to your organization with the following steps:
 
-[!NOTE]
+> [!NOTE]
 > A Partner can also submit a tenant creation request for their own organization.
 
 Step 1 - Navigate to the intake form at [Government Validation System](https://usgovintake.embark.microsoft.com/) and select **Customers handling government-controlled data**.
