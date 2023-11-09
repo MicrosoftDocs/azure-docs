@@ -113,8 +113,6 @@ The command can build the image with or without a Dockerfile.  If building witho
 - Node.js
 - PHP
 - Python
-- Ruby
-- Go
 
 The following example shows how to deploy a container app from local source code.  
 
