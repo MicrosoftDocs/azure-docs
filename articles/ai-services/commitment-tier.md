@@ -21,6 +21,7 @@ Azure AI offers commitment tier pricing, each offering a discounted rate compare
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 Commitment tier pricing is also available for the following Azure AI service:
 
@@ -28,6 +29,7 @@ Commitment tier pricing is also available for the following Azure AI service:
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 * Azure AI Vision - OCR
 
