@@ -71,8 +71,8 @@ For Arc-enabled VMware vSphere, manual upgrade is available, but appliances on v
 
 Azure Arc VM management (preview) on Azure Stack HCI supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until appliance version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade. For subsequent upgrades, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq).
 
-For Arc-enabled System Center Virtual Machine Manager (SCVMM) (preview), the upgrade feature isn't currently available yet. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
- 
+For Arc-enabled System Center Virtual Machine Manager (SCVMM), the upgrade feature isn't currently available yet. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
+
 ## Version releases
 
 The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there is a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.

@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # What is Azure Arc resource bridge?
 
-Azure Arc resource bridge is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml)), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml) preview).
+Azure Arc resource bridge is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml)), and System Center Virtual Machine Manager (SCVMM) [Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml).
 
 Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure. The resource bridge is provided credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as “arc-enabled” Azure resources.
 
@@ -28,9 +28,9 @@ Azure Arc resource bridge hosts other components such as [custom locations](..\p
 
 :::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
 
-Azure Arc resource bridge can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge:
+Azure Arc resource bridge can host other Azure services or solutions running on-premises. There are two objects hosted on the Arc resource bridge:
 
-* Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
+* Cluster extension: The Azure service deployed to run on-premises. Currently, it supports three services:
 
   * Azure Arc-enabled VMware
   * Azure Arc VM management on Azure Stack HCI
@@ -114,7 +114,7 @@ Arc resource bridge supports the following Azure regions:
 
 ### Regional resiliency
 
-While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, this preview release of Azure Arc resource bridge does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
+While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, Azure Arc resource bridge currently does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
 
 ### Private cloud environments
 
