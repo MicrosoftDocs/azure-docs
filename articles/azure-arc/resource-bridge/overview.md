@@ -42,7 +42,7 @@ Custom locations and cluster extension are both Azure resources, which are linke
 
 Some resources are unique to the infrastructure. For example, vCenter has a resource pool, network, and template resources. During VM creation, these resources need to be specified. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
 
-To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources that are projected in Azure. For example, if the resource bridge is deleted by accident, all the resources projected in Azure by the resource bridge are impacted. The on-premises VMs in your on-premises private cloud are not impacted, as they are running on vCenter but you won't be able to start or stop the VMs from Azure. It is not recommended to directly manage or modify the resource bridge using any on-premises applications.
+To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources that are projected in Azure. For example, if the resource bridge is deleted by accident, all the resources projected in Azure by the resource bridge are impacted. The on-premises VMs in your on-premises private cloud aren't impacted, as they are running on vCenter but you won't be able to start or stop the VMs from Azure. It is not recommended to directly manage or modify the resource bridge using any on-premises applications.
 
 ## Benefits of Azure Arc resource bridge
 
@@ -126,7 +126,7 @@ The following private cloud environments and their versions are officially suppo
 
 ### Supported versions
 
-When the Arc-enabled private cloud announces General Availability, the minimum supported version of Arc resource bridge will be 1.0.15.
+For Arc-enabled private clouds in General Availability, the minimum supported version of Arc resource bridge is 1.0.15.
 
 Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.18, then the typical n-3 supported versions are:
 
@@ -135,9 +135,9 @@ Generally, the latest released version and the previous three versions (n-3) of 
 * n-2 version: 1.0.16
 * n-3 version: 1.0.15
 
-There may be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug; a hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
+There could be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug; a hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions (starting with 1.0.15), then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays might occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions (starting with 1.0.15), then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
 
 ## Next steps
 

@@ -17,7 +17,7 @@ There must be sufficient space on the management machine and appliance VM to dow
 
 Currently, in order to upgrade Arc resource bridge, you must enable outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
-Arc resource bridges configured with DHCP can't be upgraded and won't be supported in production. A new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
+Arc resource bridges configured with DHCP can't be upgraded and aren't supported. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
 
 ## Overview
 
@@ -75,7 +75,7 @@ For Arc-enabled System Center Virtual Machine Manager (SCVMM), the upgrade featu
 
 ## Version releases
 
-The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there is a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
+The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there's a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 
 ## Supported versions
 
@@ -88,7 +88,7 @@ For example, if the current version is 1.0.18, then the typical n-3 supported ve
 - n-2 version: 1.0.16
 - n-3 version: 1.0.15
 
-There might be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
+There might be instances where supported versions aren't sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month, although it's possible that delays could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 
