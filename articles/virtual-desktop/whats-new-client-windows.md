@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 11/08/2023
+ms.date: 11/09/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -37,7 +37,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 *Date published: October 17, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1dqzi), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1dlc8), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1dlc7)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KN), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRm0)
 
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
