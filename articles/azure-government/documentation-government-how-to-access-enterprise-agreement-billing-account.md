@@ -108,7 +108,7 @@ Step 4 - Next, enter your organization's information. Make sure that the details
 
 :::image type="content" source="./media/intake-form-organization-contact-information.png" alt-text="Screenshot showing the organization and contact information." lightbox="./media/intake-form-organization-contact-information.png" :::
 
-Step 5 - On the Supporting information page, select all applicable categories. If no categories apply, in the **Additional notes** box, type `This request is for partner migration due to enterprise portal deprecation`. To help the validation process, you can enter other information like PCN numbers, CAGE numbers, and so on, in the notes box.
+Step 5 - On the Supporting information page, select all applicable categories. When no categories apply, in the **Additional notes** box, type `This request is for partner migration due to enterprise portal deprecation`. To help the validation process, you can enter other information like PCN numbers, CAGE numbers, and so on, in the notes box.
 
 :::image type="content" source="./media/supporting-information.png" alt-text="Screenshot showing the supporting information tab." lightbox="./media/supporting-information.png" :::
 
