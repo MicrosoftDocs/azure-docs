@@ -57,12 +57,6 @@
         href: how-to/index-add.md
     - name: Add and manage data
       href: how-to/data-add.md
-    - name: Generate synthetic data
-      items:
-      - name: Generate samples from your dataset
-        href: how-to/generate-data-qa.md
-      - name: Simulate interaction data with your app
-        href: how-to/simulator-interaction-data.md
   - name: Build apps with prompt flow
     items:
     - name: Prompt flow overview
