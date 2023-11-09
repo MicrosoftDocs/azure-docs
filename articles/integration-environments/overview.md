@@ -17,11 +17,11 @@ ms.date: 11/15/2023
 
 As a developer, if you work on solutions to integrate services and systems in the cloud, on premises, or both, you can have multiple or different resources in Azure to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
 
-Azure Integration Environments helps reduce this complexity by providing a central place in Azure where you can organize and manage the Azure resources for your solutions by creating *integration environments*. For example, you might create integration environments based on business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further break down your environment and organize resources by logical function or purpose. For example, you might create application groups for specific purposes such as order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
+Azure Integration Environments helps reduce this complexity by providing a central place in Azure where you can organize and manage the Azure resources by creating *integration environments*. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further break down your environment and organize resources by logical function or purpose. For example, you might create application groups for employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
 
-If you're a business analyst or SME, an integration environment gives you a way to add business context about each application group by modeling the business processes and stages that are implemented by the Azure resources in each group. For each business process stage, you can define the key business data properties to track in deployed resources. You then map your business stages and properties to actual resources in Azure and data sources.
+If you're a business analyst or SME, you can model your organization's business processes and stages that are implemented by the Azure resources in each group to add business context about the resources in each group. For each business process stage, you can define the key business data properties to track in deployed resources. You then map your business stages and properties to actual resources in Azure and data sources.
 
-For this release, an integration environment offers the following capabilities in the Azure portal as a unified experience:
+For this release, an integration environment offers the following capabilities as a unified, "single-pane-of view" experience in the Azure portal:
 
 - [Central organization and management](#central-resource)
 
@@ -35,12 +35,22 @@ Your integration environment provides a common location in Azure for you to orga
 
 This model offers the flexibility for your organization to use integration environments based on your organization's conventions, standards, and principles. For example, some organizations might create integration environments based on business units or teams such as Finance, Marketing, Operations, Corporate Services, and so on. Others might create integration environments based on their infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility for your organization's needs.
 
-For example, suppose you're an integration developer at a power company. You create an integration environment and  application groups for the Azure resources that implement the following scenarios:
+For example, suppose you're a developer who works on solutions that integrate various services and systems used at a power company. You create an integration environment that contains application groups for the Azure resources that implement the following scenarios:
 
-- Open a new customer account.
-- Resolve a customer ticket for a power outage.
+| Scenario | Application group |
+|----------|-------------------|
+| Open a new customer account. | **CustomerService-NewAccount** |
+| Resolve a customer ticket for a power outage. | **CustomerService-PowerOutage** |
 
 :::image type="content" source="media/overview/integration-environment.png" alt-text="Screenshot shows Azure portal, integration environment resource, and application groups." lightbox="media/overview/integration-environment.png":::
+
+Inside the **CustomerService-PowerOutage** application group, you have the following Azure resources:
+
+:::image type="content" source="media/overview/application-group.png" alt-text="Screenshot shows Azure portal, integration environment resource, and an application group with Azure resources." lightbox="media/overview/application-group.png":::
+
+Each expanded Azure resource shows the following components:
+
+:::image type="content" source="media/overview/resource-components.png" alt-text="Screenshot shows Azure portal, each Azure resource and their components." lightbox="media/overview/resource-components.png":::
 
 <a name="supported-resources"></a>
 
@@ -67,7 +77,7 @@ For more information about other Azure resource types planned for support, see t
 
 Your integration environment provides a way to add business context about the Azure resources that implement your integration solutions. To visually describe this context, you model the business processes and their stages using the process designer, and then map each stage to the actual resources. For your stakeholders, you can define the key business data to capture and track as that data moves through the deployed resources. When you're done, you deploy each business process as a separate Azure resource along with a tracking profile that Azure adds to your resources. That way, you decouple the business process model from your implementation and don't have to embed any tracking information in your solutions.
 
-For example, suppose you're an integration developer at a power company. You manage a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
+For example, suppose you're a business analyst at a power company, and you're on a team that works on solutions that integrate various services and systems used by your organization. Your team manages a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
