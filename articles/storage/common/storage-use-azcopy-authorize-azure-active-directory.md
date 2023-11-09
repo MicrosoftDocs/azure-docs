@@ -300,9 +300,9 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.
 
-## Authorize using Azure CLI
+## Authorize with Azure CLI
 
-If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token. 
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
@@ -312,9 +312,9 @@ export AZCOPY_AUTO_LOGIN_TYPE=AzCLI
 
 For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Authorize using Azure PowerShell
+## Authorize with Azure PowerShell
 
-If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token. 
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
