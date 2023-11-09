@@ -132,6 +132,9 @@ The web application that you previously opened in a browser should now reflect t
 Learn more by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
 
 [Feature State service]: /rest/api/maps/v2/feature-state
@@ -148,3 +151,4 @@ Learn more by reading:
 [Create an indoor map]: tutorial-creator-indoor-maps.md
 [Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
 [WFS API]: /rest/api/maps/v2/wfs
+[Creator for indoor maps]: creator-indoor-maps.md

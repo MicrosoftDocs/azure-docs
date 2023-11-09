@@ -7,10 +7,10 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
-> Azure Key Vault support for Azure Storage is in preview.
+> Azure Key Vault support for Azure Storage is in preview. You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
 >
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). For using Azure Storage in an ARM template, see [Bring your own storage](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json). Azure Storage is non-default storage for App Service and billed separately.
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. Azure Storage is non-default storage for App Service and billed separately.
 
 The benefits of custom-mounted storage include:
 - Configure persistent storage for your App Service app and manage the storage separately.
@@ -23,26 +23,13 @@ The following features are supported for Linux containers:
 - Azure Blobs (read-only).
 - Up to five mount points per app.
 
-This article covers three options for mounting your storage account:
+Here are the three options to mount Azure storage to your app:
 
-### [Basic](#tab/basic)
-
-Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you. 
-
-If you plan to mount storage using the Azure CLI, you need to obtain an access key. 
-
-### [Access Key](#tab/access-key)
-
-Choose this option storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). 
-
-Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. 
-
-### [Key Vault](#tab/key-vault)
-
-Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](../../../key-vault/general/overview.md) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service.
-
----
-
+| Mounting option | Usage |
+|--------------------------|-------------|
+|Basic|Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you.|
+|Access Key|If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md).|
+|Key Vault|Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](../../../key-vault/general/overview.md) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service.|
 
 ## Prerequisites
 
@@ -88,7 +75,7 @@ No extra steps are required because the portal gets and stores the access key fo
 
 ### [Access Key](#tab/access-key)
 
-You need to obtain the access key from your storage account. <!--link or instructions? -->
+You need to obtain the access key from your storage account.
 
 ### [Key Vault](#tab/key-vault)
 
@@ -97,8 +84,9 @@ Before you can mount storage using Key Vault access, you need to get the Key Vau
 1. In the portal, browse to your Key Vault secret and copy the **Secret Identifier** into your clipboard.
 :::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Screenshot of Key Vault secret identifier.":::
 
-1. Back in your app, create an [**application setting**](../../configure-common.md?tabs=portal#configure-app-settings) and paste the Key Vault **Secret Identifier** into **Value**.
-:::image type="content" source="../../media/configure-azure-storage/secret-identifier-application-setting.png" alt-text="Screenshot of Secret Identifier application setting.":::
+1. Back in your app, follow the [key vault reference](../../app-service-key-vault-references.md#source-app-settings-from-key-vault) to create an [**application setting**](../../configure-common.md#configure-app-settings) using the **Secret Identifier**.
+
+    Example app setting value: `@Microsoft.KeyVault(SecretUri=https://mykeyvault.vault.azure.net/secrets/mykeyvaultsecret/1192426x947d4e37843e14rf3937dcc3)`
 
 Now you're ready to use Key Vault to access your storage account.
 
@@ -193,7 +181,7 @@ Mounting storage with Key Vault access isn't currently supported by the Azure CL
 > [!NOTE]
 > Adding, editing, or deleting a storage mount causes the app to be restarted.
 
-## Test the mounted storage
+## Validate the mounted storage
 
 To validate that the Azure Storage is mounted successfully for the app:
 

@@ -9,7 +9,7 @@ ms.date: 08/09/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
 
-[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources](includes/quickstart/clean-up-resources.md)]
 
 -->
 
@@ -20,6 +20,10 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 ::: zone pivot="sc-enterprise"
 
 ### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 [!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
@@ -55,11 +59,11 @@ Use the following steps to delete the resource group by using Visual Studio Code
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-[!INCLUDE [clean-up-resources-via-resource-group](../../includes/quickstart/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 

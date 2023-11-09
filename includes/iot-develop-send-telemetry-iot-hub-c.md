@@ -25,9 +25,9 @@ Install the following prerequisites on your development machine except where not
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
-    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Get started with Azure Cloud Shell](../articles/cloud-shell/get-started.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
 
 Install the remaining prerequisites for your operating system.
@@ -54,7 +54,7 @@ To complete this quickstart on Windows, install Visual Studio 2022 and add the r
 
 1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2022](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
     > [!NOTE]
-    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, run the installer, and then select **Modify**. 
+    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, run the installer, and then select **Modify**.
 1. In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
 1. Run the installation.
 
@@ -124,7 +124,7 @@ In this section, you use the C SDK to send messages from a device to your IoT hu
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The sample output appears in your console. 
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The sample output appears in your console.
 
 ## View telemetry
 
@@ -132,7 +132,7 @@ You can view the device telemetry with IoT Explorer. Optionally, you can view te
 
 To view telemetry in Azure IoT Explorer:
 
-1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list.
 1. On the left menu for your device, select **Telemetry**.
 1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
@@ -141,7 +141,7 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select **Stop** to end receiving events.
 
-To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1: 
+To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1:
 
 1. On your device in IoT Explorer, select **IoT Plug and Play components** from the left menu. Then select **thermostat1** from the list of components.
 
@@ -167,7 +167,7 @@ To view device telemetry with Azure CLI:
       module: ''
       origin: mydevice
       payload: '{"workingSet":1251}'
-    
+
     event:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;1
