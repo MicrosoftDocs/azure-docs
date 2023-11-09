@@ -139,7 +139,7 @@ Replicated user profiles are read-only under normal circumstances. The solutionâ
 
 ANQ also supports any file-based backup solution to enable external data protection.
 
-### Resource Tier Availability
+### Resource tier availability
 
 For specific information about the availability and recovery options for the AVD service layer, for Nerdio Enterprise Manager, and for FSLogix, consult the relevant documentation for each.
 
