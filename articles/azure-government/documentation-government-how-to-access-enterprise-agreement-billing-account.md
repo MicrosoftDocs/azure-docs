@@ -63,7 +63,7 @@ To access your customer Enterprise Agreement (EA) billing profile or enrollment,
 
 Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](../cost-management-billing/manage/understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
-## Access your EA billing account as a customer
+### Access your EA billing account as a customer
 
 Billing administration on the Azure Government portal happens in the context of a billing account scope (or enrollment scope). To access your EA billing account, use the following steps:
 
@@ -73,9 +73,9 @@ Billing administration on the Azure Government portal happens in the context of 
 1. If you have access to more than one billing account, select **Billing scopes** from the navigation menu. Then, select the billing account that you want to work with.  
     :::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-04.png" alt-text="Screenshot showing Billing scopes." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-04.png" :::
 
-## Access Partner billing account and customer billing profile as a Partner user
+### Access Partner billing account and customer billing profile as a Partner user
 
-Billing administration on the Azure Government portal happens in the context of a billing account scope. To access your billing account, use the following steps:
+Billing administration in the Azure Government portal happens in the context of a billing account scope. To access your billing account, use the following steps:
 
 1. Sign in to the [Azure Government Portal](https://portal.azure.us/).
 2.	Search for **Cost Management + Billing** and select it.  
@@ -118,7 +118,7 @@ Step 6 - Select the agreement boxes and then select **Submit**.
 
 Step 7 - After the tenant is created successfully, the contact email address receives a confirmation email that includes user credentials.
 
-Step 8 - The user credentials must be associated with as EA role, such as a Partner administrator, to access Cost Management + Billing.
+Step 8 - The user credentials must be associated with as EA role, such as a Partner administrator, to access Cost Management + Billing. An existing Partner administrator that has access to the Azure Government portal can assign EA roles to new user credential. If you can't add the EA role, you can submit a support request. For more information, see [Add a partner administrator](../cost-management-billing/manage/ea-billing-administration-partners.md#add-a-partner-administrator).
 
 ## Next steps
 
