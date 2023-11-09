@@ -32,7 +32,7 @@ The ANQ service  used in the solution is deployed in Qumulo’s Azure tenant.
 
 Access to the ANQ cluster is enabled through VNet injection from a dedicated subnet in the customer’s Azure tenant that connects to the customer’s dedicated ANQ service instance in the Qumulo tenant.
 
-:::image type="content" source="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs.png" alt-text="Conceptual diagram that shows the solution architecture for pacs using Qumulo.":::
+:::image type="content" source="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs.png" alt-text="Conceptual diagram that shows the solution architecture for pacs using Qumulo." lightbox="media/qumulo-vendor-neutral-archive/solution-architecture-qumulo-pacs-2.png":::
 
 ### Solution workflow
 
@@ -48,7 +48,7 @@ Here's the basic workflow for Azure Native Qumulo PACS VNA:
 
 The process flow for Azure Native Qumulo for PACS VNA is depicted here:
 
-:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="Conceptual diagram that shows the process flow for picture archiving and communication system with a vendor neutral archive using Qumulo.":::
+:::image type="content" source="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs.png" alt-text="Conceptual diagram that shows the process flow for picture archiving and communication system with a vendor neutral archive using Qumulo." lightbox="media/qumulo-vendor-neutral-archive/process-flow-qumulo-pacs-2.png":::
 
 ## Components
 
