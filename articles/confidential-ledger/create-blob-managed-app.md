@@ -13,26 +13,49 @@ ms.topic: overview
 ## Prerequisites
 
 - An Azure Storage Account
-- [Azure CLI](/cli/azure/install-azure-cli)
-- Python versions that are [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
+- [Azure CLI](/cli/azure/install-azure-cli) (optional)
+- Python versions that are [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites) (optional)
+
+## Overview
+
+The `Blob Storage Digest Backed by Confidential Ledger` Managed Application can be used to guarantee that the blobs within a blob container are trusted and that they have not been tampered with. The application, once connected to a storage account, will track all blobs being added to every container in the storage account in real time and calculate as well as store the digests into Azure Confidential Ledger. Audits can be performed at any time to check the validity of the blobs and to ensure that the blob container has not been tampered with.
+
 
 ## Deploying the Managed Application
 
-Please deploy the Managed Application found here named [BlobStorageACLFin](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/027da7f8-2fc6-46d4-9be9-560706b60fec/resourceGroups/ppaul-rg/providers/Microsoft.Solutions/applicationDefinitions/BlobStorageACLFin/overview).
+The Managed Application can be found in the Azure Marketplace here: [Blob Storage Digests Backed by Confidential Ledger (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/azureconfidentialledger.acl-blob-storage-preview/resourceGroupId//resourceGroupLocation//dontDiscardJourney~/false/_provisioningContext~/%7B%22initialValues%22%3A%7B%22subscriptionIds%22%3A%5B%22027da7f8-2fc6-46d4-9be9-560706b60fec%22%5D%2C%22resourceGroupNames%22%3A%5B%5D%2C%22locationNames%22%3A%5B%22eastus%22%5D%7D%2C%22telemetryId%22%3A%225be042b2-6422-4ee3-9457-4d6d96064009%22%2C%22marketplaceItem%22%3A%7B%22categoryIds%22%3A%5B%5D%2C%22id%22%3A%22Microsoft.Portal%22%2C%22itemDisplayName%22%3A%22NoMarketplace%22%2C%22products%22%3A%5B%5D%2C%22version%22%3A%22%22%2C%22productsWithNoPricing%22%3A%5B%5D%2C%22publisherDisplayName%22%3A%22Microsoft.Portal%22%2C%22deploymentName%22%3A%22NoMarketplace%22%2C%22launchingContext%22%3A%7B%22telemetryId%22%3A%225be042b2-6422-4ee3-9457-4d6d96064009%22%2C%22source%22%3A%5B%5D%2C%22galleryItemId%22%3A%22%22%7D%2C%22deploymentTemplateFileUris%22%3A%7B%7D%2C%22uiMetadata%22%3Anull%7D%7D).
 
 ### Resources to be created
 
-- Confidential Ledger
-- Service Bus Queue with sessions enabled
-- Storage Account (Publisher owned storage account used to store digest logic and audit history)
-- Function App
-- Application Insights
+Once the required fields are filled and the application is deployed, the following resources will be created under a Managed Resource Group:
+
+- [Confidential Ledger](https://learn.microsoft.com/en-us/azure/confidential-ledger/overview)
+- [Service Bus Queue](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) with [Sessions](https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions) enabled
+- [Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) (Publisher owned storage account used to store digest logic and audit history)
+- [Function App](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python)
+- [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 ## Connecting a Storage Account to the Managed Application
 
 Once a Managed Application is created, you will then be able to connect the Managed Application to your Storage Account to start processing and recording Blob Container digests to Azure Confidential Ledger.
 
-### Create a Topic for the Storage Account
+### Create a Topic and Event Subscription for the Storage Account
+
+The Managed Application uses an Azure Service Bus Queue to track and record all `Create Blob` events. You can add this Queue as an Event Subscriber for any storage account that you will be creating blobs for.
+
+#### Azure Portal
+
+:::image type="content" source="./media/managed-application/managed-app-event-subscription.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription.":::
+
+On the Azure Portal you can navigate to the storage account that you would like to start creating blob digests for and go to the `Events` blade. There you can create an Event Subscription and connect it to the Azure Service Bus Queue Endpoint.
+
+:::image type="content" source="./media/managed-application/managed-app-event-session-id.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription session id.":::
+
+The queue uses sessions to maintain ordering across multiple storage accounts so it is required to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
+
+#### Azure CLI
+
+Creating the Event Topic:
 
 ```bash
 az eventgrid system-topic create \
@@ -44,11 +67,14 @@ az eventgrid system-topic create \
 ```
 
 `resource-group` - Resource Group of where Topic should be created
+
 `name` - Name of Topic to be created
+
 `location` - Location of Topic to be created
+
 `source` - Resource ID of storage account to create Topic for
 
-### Subscribe to Storage Account Topic
+Creating the Event Subscription:
 
 ```bash
 az eventgrid system-topic event-subscription create \
@@ -63,12 +89,24 @@ az eventgrid system-topic event-subscription create \
 ```
 
 `name` - Name of Subscription to be created
+
 `system-topic-name` - Name of Topic the Subscription is being created for (Should be same as newly created topic)
+
 `resource-group` - Resource Group of where Subscription should be created
+
 `delivery-attribute-mapping` - Mapping for required sessionId field. Please enter a unique sessionId
+
 `endpoint` - Resource ID of the service bus queue that is subscribing to the storag account Topic
 
 ### Add Required Role to Storage Account
+
+The Managed Application requires the `Storage Blob Data Owner` role to read and create hashes for each blob and this role is required te be added in order for the digest to be calculated correctly.
+
+#### Azure Portal
+
+:::image type="content" source="./media/managed-application/managed-app-managed-identity.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a managed identity for the managed app.":::
+
+#### Azure CLI
 
 ```bash
 az role assignment create \
@@ -79,42 +117,72 @@ az role assignment create \
 ```
 
 `assignee-object-id` - OID of the Azure Function created with the Managed Application. Can be found under the 'Identity' blade
+
 `scope` - Resource ID of storage account to create the role for
+
+> [!NOTE]
+> Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of 10 storage accounts that contain high usage blob containers.
+
+## Adding Blobs and Digest Creation
+
+Once the storage account is properly connected to the Managed Application, blobs can start being added to containers within the storage account. The blobs will be tracked in real-time and digests will be calculated and stored in Azure Confidential Ledger.
+
+### Transaction and Block Tables
+
+All blob creation event are tracked in internal tables stored within the Managed Application.
+
+:::image type="content" source="./media/managed-application/managed-app-transaction-table.png" alt-text="Screenshot of the Azure portal in a web browser, showing the transaction table where blob hashes are stored.":::
+
+The transaction table holds information about each blob as well as a unique hash that is generated using a combination of the blob's metadata and contents.
+
+:::image type="content" source="./media/managed-application/managed-app-block-table.png" alt-text="Screenshot of the Azure portal in a web browser, showing the block table where digest information is stored.":::
+
+The block table holds information related to every digest that has been created for the blob container as well as the associated transaction ID for the digest is stored in Azure Confidential Ledger.
+
+
+### Viewing Digest on Azure Confidential Ledger
+
+You can view the digests being stored directly in Azure Confidential Ledger by navigating to the `Ledger Explorer` blade.
+
+:::image type="content" source="./media/managed-application/managed-app-acl-ledger-explorer.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Azure Confidential Ledger explorer with digest transactions.":::
 
 ## Performing an Audit
 
-### Trigger Audit through Portal
+If you ever want to check the validity of the blobs that have been added to a container to ensure that they have not been tampered with, an aduit can be run at any point in time. The audit will replay every blob creation event and re-calculate the digests with the blobs that are stored in the container during the audit. It will then compare the re-calcuated digests with the digests stored in Azure Confidential and provide a report displaying all digest comaprisons and whether or not the blob container has been tampered with.
 
-*Option to trigger an audit will be made available through the ACL UI*
+### Triggering an Audit
 
-### Trigger Audit through SDK
-
-A trigger can be triggered by including the following message to the Service Bus Queue associated with your Managed Application:
+An audit can be triggered by including the following message to the Service Bus Queue associated with your Managed Application:
 
 ```json
-message = {
+{
     "eventType": "PerformAudit",
-    "storageAccount": "STORAGE_ACCOUNT_NAME",
-    "blobContainer": "BLOB_CONTAINER_NAME"
+    "storageAccount": "<storage_account_name>",
+    "blobContainer": "<blob_container_name>"
 }
 ```
 
-Below is a sample of how to send this message using the Python SDK. This can also be added via Portal, HTTP Request or other SDKs.
+#### Azure Portal
 
+:::image type="content" source="./media/managed-application/queue-trigger-audit.png" alt-text="Screenshot of the Azure portal in a web browser, how to trigger an audit by adding a message to the queue.":::
+
+Be sure to include a `Session ID` as this is a session enabled queue.
+
+#### Azure Service Bus Python SDK
 
 ```python
 import json
 import uuid
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
 
-SERVICE_BUS_CONNECTION_STR = ""
-SESSION_QUEUE_NAME = ""
-STORAGE_ACCOUNT_NAME = ""
-BLOB_CONTAINER_NAME = ""
+SERVICE_BUS_CONNECTION_STR = "<service_bus_connection_string>"
+QUEUE_NAME = "<service_bus_queue_name>"
+STORAGE_ACCOUNT_NAME = "<storage_account_name>"
+BLOB_CONTAINER_NAME = "<blob_container_name>"
 SESSION_ID = str(uuid.uuid4())
 
 servicebus_client = ServiceBusClient.from_connection_string(conn_str=SERVICE_BUS_CONNECTION_STR, logging_enable=True)
-sender = servicebus_client.get_queue_sender(queue_name=SESSION_QUEUE_NAME)
+sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
 
 message = {
     "eventType": "PerformAudit",
@@ -126,7 +194,27 @@ message = ServiceBusMessage(json.dumps(message), session_id=SESSION_ID)
 sender.send_messages(message)
 ```
 
-## Clean Up Resources
+### Viewing Audit Results
+
+Once the audit has been performed successfully, the results of the audit can be found under a container named `<managed-application-name>-audit-records` found within the respective storage account. The results will contain the re-calculated digest, the digest retrieved from Azure Confidential Ledger and whether or not the blobs have been tampered with.
+
+:::image type="content" source="./media/managed-application/managed-app-audit-record.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample audit record with matching digests.":::
+
+## Logging and Errors
+
+Error logs can be found under a container named `<managed-application-name>-error-logs` found within the respective storage account. If a blob creation event or audit process fails, the cause of the failure will be recorded and stored in this container. If there are any questions about the error logs or application functionality please conatct the Azure Confidential Ledger Support team provided in the Managaed Application details.
+
+## Clean Up Managed Application
+
+You can delete the Managed Application to clean up and remove all associated resources. This will stop all blob transactions from being tracked and stop all digests from being created. Audit reports will only remain valid for the blobs that were added before the deletion.
+
+## More resources
+
+For more information about managed applications and the deployed resources, see the following links:
+
+- [Managed Applications](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview)
+- [Azure Service Queue Sessions](https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)
+- [Azure Storage Events](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
 
 ## Next steps
 
