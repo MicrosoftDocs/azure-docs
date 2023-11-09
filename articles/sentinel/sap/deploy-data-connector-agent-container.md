@@ -156,9 +156,14 @@ This section has two steps:
 
 # [Configuration file](#tab/config-file)
 
-Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, you can use a configuration file instead. See the [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023) or the [Systemconfig.json file reference](reference-systemconfig-json.md) (for versions deployed June 22 or later).
+Key Vault is the recommended method to store your authentication credentials and configuration data.
 
-Once you have the file prepared, go to the next step&mdash;[Deploy the data connector agent](#deploy-the-data-connector-agent).
+If you are prevented from using Azure Key Vault, you can use a configuration file instead. See the appropriate reference file:
+
+- [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023).
+- [Systemconfig.json file reference](reference-systemconfig-json.md) (for versions deployed June 22 or later).
+
+Once you have the file prepared, skip the Key Vault steps below and go directly to the step after them&mdash;[Deploy the data connector agent](#deploy-the-data-connector-agent).
 
 ---
 
@@ -204,6 +209,10 @@ Once you have the file prepared, go to the next step&mdash;[Deploy the data conn
     ```
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
+
+    # [Configuration file](#tab/config-file)
+
+    Move on, nothing to see here...
 
     ---
 
@@ -342,6 +351,12 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
     The table displays the agent name and health status for agents you deploy via the UI only.   
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+
+# [Azure portal](#tab/azure-portal/config-file)
+
+The UI can only be used with Azure Key Vault.
+
+To use the command line to create an agent using a config file, see [these instructions](link).
 
 # [Command line](#tab/command-line/managed-identity)
 
