@@ -104,6 +104,9 @@ This feature currently doesn't support SDK.
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
 
+>[!IMPORTANT]
+>You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
+
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
