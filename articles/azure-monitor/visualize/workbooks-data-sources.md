@@ -25,8 +25,8 @@ Workbooks can extract data from these data sources:
  - [Workload health](#workload-health)
  - [Azure resource health](#azure-resource-health)
  - [Azure RBAC](#azure-rbac)
- - [Change Analysis](#change-analysis-preview)
- - [Prometheus](#prometheus-preview)
+ - [Change Analysis](#change-analysis)
+ - [Prometheus](#prometheus)
 
 ## Logs
 
