@@ -21,7 +21,13 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This archive page retains updates from older months.  
 
-Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
+Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
+
+## March 2023
+
+### Connectors
+
+Azure Data Lake Storage Gen2 connector now supports shared access signature authentication. [Learn more](connector-azure-data-lake-storage.md#shared-access-signature-authentication)
 
 ## February 2023
 
