@@ -16,6 +16,9 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 `max-asserts`
 
+> [!WARNING]
+> This rule is intended used in tandem with `testFramework` experimental feature flag for expected functionality. For more information, see [Bicep Experimental Test Framework](https://github.com/Azure/bicep/issues/11967).
+
 ## Solution
 
 Reduce the number of predeployment conditions in your template.
