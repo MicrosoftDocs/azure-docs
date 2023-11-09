@@ -702,12 +702,12 @@ var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"))
 var addParticipantResponse = await callConnection.AddParticipantAsync(addThisPerson);
 
 // cancel the request with optional parameters
-var cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResponse.Value.InvitationId)
+var cancelAddParticipantOperationOptions = new CancelAddParticipantOperationOptions(addParticipantResponse.Value.InvitationId)
 {
     OperationContext = "operationContext",
     OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
 }
-await callConnection.CancelAddParticipantAsync(cancelAddParticipantOptions);
+await callConnection.CancelAddParticipantOperationAsync(cancelAddParticipantOperationOptions);
 ```
 
 # [Java](#tab/java)
@@ -715,14 +715,14 @@ await callConnection.CancelAddParticipantAsync(cancelAddParticipantOptions);
 ```java
 // Add ACS user
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
-AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
-Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+AddParticipantOperationOptions addParticipantOperationOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantOperationResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 
 // cancel the request
-CancelAddParticipantOptions cancelAddParticipantOptions = new CancelAddParticipantOptions(addParticipantResultResponse.invitationId)
+CancelAddParticipantOperationOptions cancelAddParticipantOperationOptions = new CancelAddParticipantOperationOptions(addParticipantResultResponse.invitationId)
                 .setOperationContext("<operation_context>")
                 .setOperationCallbackUrl("<url_endpoint>");
-callConnectionAsync.cancelAddParticipantWithResponse(cancelAddParticipantOptions).block();
+callConnectionAsync.cancelAddParticipantOperationWithResponse(cancelAddParticipantOperationOptions).block();
 ```
 
 # [JavaScript](#tab/javascript)
@@ -738,7 +738,10 @@ const { invitationId } = await callConnection.addParticipant(addThisPerson, {
 });
 
 // cancel the request
-await callConnection.cancelAddParticipant(invitationId);
+await callConnection.cancelAddParticipantOperation(invitationId, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 ```
 
 # [Python](#tab/python)
@@ -753,7 +756,7 @@ call_connection_client = call_automation_client.get_call_connection(
 result = call_connection_client.add_participant(target)
 
 # cancel the request
-call_connection_client.cancel_add_participant(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+call_connection_client.cancel_add_participant_operation(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 ## Remove a participant from a call
