@@ -102,7 +102,7 @@ Step 2 - Partners select at least **Azure Government Trial**, which results Azur
 
 Step 3 - Enter your **Desired Domain** and **Desired Username** using the parameters provided in the tool tip and then select **Next** when finished. We recommend that you enter a domain and username that allows your organization to easily identify the purpose for the tenant. Doing so can help when there are multiple tenants created for the organization.
 
-:::image type="content" source="./media/intake-form-tenant-information.png" alt-text="Screenshot showing the intake form to select trial." lightbox="./media/intake-form-tenant-information.png" :::
+:::image type="content" source="./media/intake-form-tenant-information.png" alt-text="Screenshot showing the tenant information." lightbox="./media/intake-form-tenant-information.png" :::
 
 Step 4 - Next, enter your organization's information. Make sure that the details you provide are the same ones shown on legal documents for the organization associated with government contracts. Ensure that the organization contact person is an employee of the organization. They must have access to the email address entered. Information requests and tenant credentials are sent to the contact person. After you enter the information, select **Next**.
 
