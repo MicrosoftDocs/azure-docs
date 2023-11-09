@@ -1,5 +1,5 @@
 ---
-title: Get Started with Managed Airflow?
+title: Get Started with Managed Airflow
 titleSuffix: Azure Data Factory
 description: This document is the master document that contains all the links required to start working with Managed Airflow.
 ms.service: data-factory
