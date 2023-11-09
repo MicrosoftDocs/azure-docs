@@ -118,7 +118,7 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
 1. Add the following content to it:
 
-    :::code language="xml" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
+    :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
 1. Save and commit the file to your source code repository.
 

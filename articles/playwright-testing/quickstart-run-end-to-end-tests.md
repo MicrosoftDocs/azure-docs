@@ -91,7 +91,7 @@ To add the service configuration to your project:
 
 1. Add the following content to it:
 
-    :::code language="xml" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
+    :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
 1. Save the file.
 
