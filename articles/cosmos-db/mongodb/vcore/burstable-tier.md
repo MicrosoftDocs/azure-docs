@@ -1,5 +1,5 @@
 ---
-title: Burstable Tier
+title: Burstable tier
 titleSuffix: Introduction to Burstable Tier on Azure Cosmos DB for MongoDB vCore
 description: Introduction to Burstable Tier on Azure Cosmos DB for MongoDB vCore.
 author: suvishodcitus

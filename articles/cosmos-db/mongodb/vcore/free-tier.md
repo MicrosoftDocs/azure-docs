@@ -8,7 +8,8 @@ ms.reviewer: abramees
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 10/14/2023
+ms.date: 11/08/2023
+ms.custom: references_regions
 # CustomerIntent: As a database owner, I want customers/developers to be able to evaluate the service for free.
 ---
 
