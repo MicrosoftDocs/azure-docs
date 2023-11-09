@@ -15,7 +15,7 @@ ms.date: 06/29/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models. 
+This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models.
 
 ## Why is chunking important?
 
@@ -88,7 +88,7 @@ You can both ski in winter and swim in summer.
 **Example: maximum tokens = 16**
 
 ```
-Barcelona is a city in Spain. It is close to the sea /n and the mountain. /n
+Barcelona is a city in Spain. It is close to the sea /n and the mountains. /n
 You can both ski in winter and swim in summer.
 ```
 
@@ -126,5 +126,3 @@ This sample is built on LangChain, Azure OpenAI, and Azure Cognitive Search.
 + [Understanding embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
 + [Learn how to generate embeddings](/azure/ai-services/openai/how-to/embeddings?tabs=console)
 + [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings?tabs=command-line)
-
-
