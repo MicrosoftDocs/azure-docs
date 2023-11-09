@@ -64,7 +64,7 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 ### Service Health Alert recommendations
 
-Azure Advisor now provides Service Health Alert recommendations with Azure Resource Graph (ARG) as a data source. These recommendations surface for subscriptions in which no service health alert has been configured and help redirect you to the Service Health page to take an action. You can create and customize alerts based on the class of service health notification, affected subscriptions, services, and regions.
+Azure Advisor now provides Service Health Alert recommendation for subscriptions which do not have service health alerts configured. The action link will redirect you to the Service Health page where you can create and customize alerts based on the class of service health notification, affected subscriptions, services, and regions.
 
 Azure Service Health alerts keep you informed about issues and advisories in four areas (Service issues, Planned maintenance, Security and Health advisories) and can be crucial for incident preparedness.
 
@@ -88,7 +88,7 @@ If you're interested in the workloads filter, reach out to your account team for
 
 ### New: Cost Optimization workbook template
 
-Azure Advisor now has a new version of the Cost Optimization workbook template. The  Cost Optimization workbook offers a range of recommendations: cost recommendations, notice of idle resources, and improperly deallocated virtual machines. Additionally, it provides insights into using Azure Hybrid benefit options for Windows, Linux, and SQL databases.
+Azure Advisor now has a new version of the Cost Optimization workbook template. The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases
 
 To learn more, visit [Understand and optimize your Azure costs using the Cost Optimization workbook](/azure/advisor/advisor-cost-optimization-workbook).
 
@@ -163,9 +163,7 @@ To learn more, visit [Optimize Virtual Machine (VM) or Virtual Machine Scale Set
 
 ### Advanced filtering capabilities
 
-Azure Advisor now provides advanced filtering through the **Add filter** option. You can now filter recommendations by recommendation type, impact (priority), and workload. You can also filter by resource group, and resource type.
-
-To learn more, visit [Review optimization opportunities by workload, environment or team](/azure/advisor/advisor-tag-filtering).
+Azure Advisor now provides additional filtering capabilities. You can filter recommendations by resource group, resource type, impact and workload.
 
 ## November 2022
 
@@ -178,7 +176,7 @@ Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resiz
 
 ## October 2022
 
-### General Availability: Advisor score on specific workloads
+### General Availability: Advisor score across Azure regions
 
 Advisor Score now supports the ability to focus recommendations on specific workloads using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
 
@@ -196,13 +194,13 @@ To learn more, visit [Azure Advisor for MySQL](/azure/mysql/single-server/concep
 
 ### Unlimited number of subscriptions
 
-Azure Advisor now provides an unlimited number of subscriptions that you can use to focus on different aspects of your resources. Previously, the number of subscriptions was limited to 60. It's easier now to get an overview of optimization opportunities available to your organization without spending time and effort applying filters and processing subscriptions in batches.
+It is easier now to get an overview of optimization opportunities available to your organization – no need to spend time and effort to apply filters and process subscription in batches.
 
 To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 
 ### Tag filtering
 
-Azure Advisor now provides tag filtering so you can scope recommendations to a business unit, workload, or team. Filter recommendations and calculate scores using tags already assigned to Azure resources, resource groups and subscriptions. Apply tag filters to:
+You can now get Advisor recommendations scoped to a business unit, workload, or team. Filter recommendations and calculate scores using tags already assigned to Azure resources, resource groups and subscriptions. Apply tag filters to:
 
 * Identify cost saving opportunities by business units
 
