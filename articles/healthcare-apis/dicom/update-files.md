@@ -11,15 +11,15 @@ ms.author: mmitrik
 
 # Update DICOM files
 
-Bulk update allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to quickly perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads.  
+The bulk update operation allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
 
-Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval.  
+Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
 
 ## Use the bulk update operation
-Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes.  
+Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
 
-### Bulk update studies
-The bulk update endpoint starts a long-running operation that updates all instances in each specified study with the specified attributes.
+### Update instances in multiple studies
+The bulk update endpoint starts a long-running operation that updates all instances in each study with the specified attributes.
 
 ```http
 POST {dicom-service-url}/{version}/studies/$bulkUpdate
@@ -37,7 +37,7 @@ POST {dicom-service-url}/{version}/partitions/{PartitionName}/studies/$bulkUpdat
 
 #### Request body
 
-The request body contains the specification for studies to update.  Both the `studyInstanceUids` and `changeDataset` are required.
+The request body contains the specification for studies to update. Both the `studyInstanceUids` and `changeDataset` are required.
 
 ```json
 {
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 ```
 
-If the operation fails to start successfully, the response will include information about the failure in the errors list, including UIDs of the failing instance(s).  
+If the operation fails to start successfully, the response will include information about the failure in the errors list, including UIDs of the failing instance(s). 
 
 ```http
 {
@@ -95,7 +95,7 @@ If the operation fails to start successfully, the response will include informat
 | 400 (Bad Request) |                     | Request body has invalid data                                |
 
 ### Operation Status
-The above `href` URL can be polled for the current status of the update operation until completion.  A return code of `200` indicates the operation completed successfully.
+The `href` URL can be polled for the current status of the update operation until completion. A return code of `200` indicates the operation completed successfully.
 
 ```http
 GET {dicom-service-url}/{version}/operations/{operationId}
@@ -132,7 +132,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 | 404 (Not Found) |           | Operation not found                   |
 
 ## Retrieving study versions
-The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default. The original version is returned by setting the `msdicom-request-original` header to `true`.  Here's an example request:
+The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default. The original version is returned by setting the `msdicom-request-original` header to `true`. Here's an example request:
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}
@@ -145,10 +145,10 @@ Content-Type: application/dicom
 The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions.  
+The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions. 
 
 ## Supported DICOM modules
-Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables below.  
+Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
 
 #### Patient identification module attributes
 | Attribute Name   | Tag           | Description           |
@@ -165,36 +165,36 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 #### Patient demographic module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
-| Patient's Age | (0010,1010) | Age of the Patient.  |
-| Occupation | (0010,2180) | Occupation of the Patient.  |
-| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information (for example, that they shouldn't use the patients name where other patients are present).  |
+| Patient's Age | (0010,1010) | Age of the Patient. |
+| Occupation | (0010,2180) | Occupation of the Patient. |
+| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information (for example, that they shouldn't use the patients name where other patients are present). |
 | Patient's Birth Date | (0010,0030) | Date of birth of the named patient  |
 | Patient's Birth Time | (0010,0032) | Time of birth of the named patient  |
-| Patient's Sex | (0010,0040) | Sex of the named patient.  |
-| Quality Control Subject |(0010,0200) | Indicates whether or not the subject is a quality control phantom.  |
+| Patient's Sex | (0010,0040) | Sex of the named patient. |
+| Quality Control Subject |(0010,0200) | Indicates whether or not the subject is a quality control phantom. |
 | Patient's Size | (0010,1020) | Patient's height or length in meters  |
 | Patient's Weight | (0010,1030) | Weight of the patient in kilograms  |
 | Patient's Address | (0010,1040) | Legal address of the named patient  |
 | Military Rank | (0010,1080) | Military rank of patient  |
-| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (for example, U.S. Army).  |
+| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (for example, U.S. Army). |
 | Country of Residence | (0010,2150) | Country in which patient currently resides  |
 | Region of Residence | (0010,2152) | Region within patient's country of residence  |
 | Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached  |
 | Ethnic Group | (0010,2160) | Ethnic group or race of patient  |
 | Patient's Religious Preference | (0010,21F0) | The religious preference of the patient  |
 | Patient Comments | (0010,4000) | User-defined comments about the patient | 
-| Responsible Person | (0010,2297) | Name of person with medical decision making authority for the patient.  |
-| Responsible Person Role | (0010,2298) | Relationship of Responsible Person to the patient.  |
-| Responsible Organization | (0010,2299) | Name of organization with medical decision making authority for the patient.  |
-| Patient Species Description | (0010,2201) | The species of the patient.  |
-| Patient Breed Description | (0010,2292) | The breed of the patient.See Section C.7.1.1.1.1.  |
-| Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry.  |
+| Responsible Person | (0010,2297) | Name of person with medical decision making authority for the patient. |
+| Responsible Person Role | (0010,2298) | Relationship of Responsible Person to the patient. |
+| Responsible Organization | (0010,2299) | Name of organization with medical decision making authority for the patient. |
+| Patient Species Description | (0010,2201) | The species of the patient. |
+| Patient Breed Description | (0010,2292) | The breed of the patient.See Section C.7.1.1.1.1. |
+| Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
 
 ## Limitations
 There are a few limitations when you use the bulk update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
 - Only one bulk update operation can be performed at a time.
-- You can't delete only the latest version of a study or revert back to the original version.  
+- You can't delete only the latest version of a study or revert back to the original version. 
 
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-dicom-trademark.md)]
