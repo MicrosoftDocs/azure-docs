@@ -38,11 +38,11 @@ There are several ways to configure Layered Network Management to bridge the con
 - **A simplified virtual machine and network** - This scenario uses an [Azure AKS](/azure/aks/) cluster and an Azure Linux VM. You need an Azure subscription the following resources:
   - An [AKS cluster](/azure/aks/concepts-clusters-workloads) for layer 4 and 5.
   - An [Azure Linux VM](/azure/virtual-machines/) for layer 3. 
-- **A simplified physically isolated network** - Requires three physical devices (IoT/PC/server) and a wireless access point.
+- **A simplified physically isolated network** - Requires at least two physical devices (IoT/PC/server) and a wireless access point. This setup simulates a simple two-layers network (level 3 and level 4). Level 3 is the isolated clusted and is the target for deploying the Azure IoT Operations.
   - The wireless access point is used for setting up a local network and **doesn't** provide internet access.
-  - Level 4 cluster - A single node cluster hosted on a dual NIC physical machine, connects to internet and the local network.
+  - Level 4 cluster - A single node cluster hosted on a dual NIC physical machine, connects to internet and the local network. The Layered Network Management should be deployed to this cluster.
   - Level 3 cluster - Another single node cluster hosted on a physical machine. This device cluster only connects to the local network.
-  - DNS server - A DNS server setup in the local network. It provides custom domain name resolution and point the network request to the IP of level 4 cluster.
+  - Custom DNS - A DNS server setup in the local network or CoreDNS configuration on the level 3 cluster. It provides custom domain name resolution and point the network request to the IP of level 4 cluster.
 - **ISA-95 network** - You should try deploying Layered Network Management to an ISA-95 network or a preproduction environment.
 
 ## Key features
@@ -60,5 +60,8 @@ Layered Network Management supports the Azure IoT Operations components in an is
 |Installation: Layered Network Management deployed as an Arc extension|Public Preview|
 
 ## Next steps
-- [Setup Layered Network Management in a simplified virtual machine and network environment](howto-deploy-aks-layered-network.md)
+- Follow the instruction below to try a simple example with Azure virtual resources. This is the quickest way to see how Layered Network Management works without having to setup physical machines and Purdue Network. 
+  - [Setup Layered Network Management in a simplified virtual machine and network environment](howto-deploy-aks-layered-network.md)
+- To understand how to setup cluster in isolated environment for Azure IoT Operations relative scenairos, please refer to:
+  - [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md)
 
