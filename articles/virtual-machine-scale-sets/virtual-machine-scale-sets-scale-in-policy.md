@@ -99,7 +99,7 @@ New-AzVmss `
   -ScaleInPolicy “OldestVM”
 ```
 
-### Azure CLI 2.0
+### Azure CLI
 
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
@@ -177,7 +177,7 @@ Update-AzVmss `
  -ScaleInPolicy “OldestVM”
 ```
 
-### Azure CLI 2.0
+### Azure CLI
 
 The following is an example for updating the scale-in policy of an existing scale set: 
 
