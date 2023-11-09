@@ -5,7 +5,7 @@ author: an-emma
 ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 11/09/2023
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job
@@ -183,6 +183,10 @@ WHERE dbprin.name = '<ASA_JOB_NAME>'
 
 #### [Azure SQL Database](#tab/azure-sql)
 
+> [!NOTE]
+> When using SQL Managed Instance (MI) as a reference input, you must configure a public endpoint in your SQL Managed Instance.  You must specify the fully qualified domain name with the port when configuring the **database** property. For example: sampleserver.public.database.windows.net,3342.
+>
+
 Now that your managed identity is configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your SQL Database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the SQL Database output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so.
@@ -197,7 +201,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 #### [Azure Synapse Analytics](#tab/azure-synapse)
 
-Now that your managed identity and storage account are configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
+Now that your managed identity and storage account are configured, you can add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your Azure Synapse database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the Azure Synapse output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so.
 
