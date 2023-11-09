@@ -1,5 +1,5 @@
 ---
-title: Reliability in Microsoft Defender for DevOps
+title: Reliability in Microsoft Defender for Cloud for DevOps security
 description: Find out about reliability in Defender for DevOps
 author: anaharris-ms
 ms.service: azure
