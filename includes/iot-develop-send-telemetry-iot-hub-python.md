@@ -6,7 +6,7 @@
  ms.topic: include
  ms.date: 04/27/2023
  ms.author: timlt
- ms.custom: include file, devx-track-azurecli 
+ ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli
 ---
 
@@ -26,9 +26,9 @@ Install the following prerequisites on your development machine except where not
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python3 --version`.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
-    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Get started with Azure Cloud Shell](../articles/cloud-shell/get-started.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
@@ -107,7 +107,7 @@ You can view the device telemetry with IoT Explorer. Optionally, you can view te
 
 To view telemetry in Azure IoT Explorer:
 
-1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list.
 1. On the left menu for your device, select **Telemetry**.
 1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
@@ -116,7 +116,7 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select **Stop** to end receiving events.
 
-To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1: 
+To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1:
 
 1. On your device in IoT Explorer, select **IoT Plug and Play components** from the left menu. Then select **thermostat1** from the list of components.
 
@@ -143,7 +143,7 @@ To view device telemetry with Azure CLI:
       origin: mydevice
       payload:
         temperature: 28
-    
+
     event:
       component: thermostat2
       interface: dtmi:com:example:TemperatureController;2

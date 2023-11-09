@@ -7,7 +7,7 @@ ms.reviewer: ilanawaitser
 ms.topic: conceptual 
 ms.date: 02/28/2023
 
-#customer-intent: As a DevOps manager or data scientist, I want to understand which AIOps features Azure Monitor offers and how to implement a machine learning pipeline on data in Azure Monitor Logs so that I can use artifical intelligence to to improve service quality and reliability of my IT environment.
+#customer-intent: As a DevOps manager or data scientist, I want to understand which AIOps features Azure Monitor offers and how to implement a machine learning pipeline on data in Azure Monitor Logs so that I can use artifical intelligence to improve service quality and reliability of my IT environment.
 
 ---
 # Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor 
