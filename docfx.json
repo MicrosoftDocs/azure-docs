@@ -1027,6 +1027,8 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/industry/**/*.md": "azure-industry",
+        "articles/iot-operations/**/*.md": "iot",
+        "articles/iot-operations/**/*.yml": "iot",
         "articles/integration-environments/*.md": "azure",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "lab-services",
