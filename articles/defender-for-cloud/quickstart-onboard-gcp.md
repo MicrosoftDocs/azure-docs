@@ -45,11 +45,11 @@ To connect your GCP project to Defender for Cloud by using a native connector:
 
 1. Select **Add environment** > **Google Cloud Platform**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" alt-text="Screenshot that shows selections for adding Google Cloud Platform as a connector."  lightbox="media/quickstart-onboard-gcp/google-cloud.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png" alt-text="Screenshot that shows selections for adding Google Cloud Platform as a connector."  lightbox="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png":::
 
 1. Enter all relevant information.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the pane for creating a GCP connector." lightbox="media/quickstart-onboard-gcp/create-connector.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-details.png" alt-text="Screenshot of the pane for creating a GCP connector." lightbox="media/quickstart-onboard-gcp/add-gcp-project-details.png":::
 
    Optionally, if you select **Organization**, a management project and an organization custom role are created on your GCP project for the onboarding process. Autoprovisioning is enabled for the onboarding of new projects.
 
@@ -61,33 +61,35 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
 1. For the plans that you want to connect, turn the toggle to **On**. By default, all necessary prerequisites and components are provisioned. [Learn how to configure each plan](#optional-configure-selected-plans).
 
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-plans-selection.png" alt-text="Screenshot that shows the tab for selecting plans for a GCP project." lightbox="media/quickstart-onboard-gcp/add-gcp-project-plans-selection.png":::
+
     If you choose to turn on the Microsoft Defender for Containers plan, ensure that you meet the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for it.
 
-1. Select **Next: Configure access**.
+1. Select **Configure access** and make the following selections:
 
-    1. Choose the deployment type:
+    1. Select the deployment type:
 
         - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
         - **Least privilege access**: Grants Defender for Cloud access to only the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
-    1. Choose the deployment method: **GCP Cloud Shell** or **Terraform**.
+    1. Select the deployment method: **GCP Cloud Shell** or **Terraform**.
 
-1. Select **Copy**.
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
 
-    :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot that shows the location of the copy button.":::
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on GCP. 
+
+1. Select **Next: Review and generate**.
+
+1. Select **Create**.
 
    > [!NOTE]
-   > For the discovery of GCP resources and for the authentication process, you must enable the following APIs: `iam.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`, `iamcredentials.googleapis.com`, and `compute.googleapis.com`. If you don't enable these APIs, we'll enable them during the onboarding process by running the GCloud script.
-
-1. Select **GCP Cloud Shell >**. The GCP Cloud Shell opens.
-
-1. Paste the script into the GCP Cloud Shell terminal and run it.
-
-1. Ensure that you created the following resources for Microsoft Defender Cloud Security Posture Management (CSPM) and Defender for Containers:
-
-    | CSPM | Defender for Containers|
-    |--|--|
-    | CSPM service account reader role <br><br> Microsoft Defender for Cloud identity federation <br><br> CSPM identity pool <br><br>Microsoft Defender for Servers service account (when the servers plan is enabled) <br><br>*Azure Arc for servers onboarding* service account (when Azure Arc for servers autoprovisioning is enabled) | Microsoft Defender for Containers service account role <br><br> Microsoft Defender Data Collector service account role <br><br> Microsoft Defender for Cloud identity pool |
+   > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur: 
+   > - `iam.googleapis.com`
+   > - `sts.googleapis.com`
+   > - `cloudresourcemanager.googleapis.com`
+   > - `iamcredentials.googleapis.com`
+   > - `compute.googleapis.com`
+   > If you don't enable these APIs at this time, you can enable them during the onboarding process by running the GCloud script.
 
 After you create the connector, a scan starts on your GCP environment. New recommendations appear in Defender for Cloud after up to 6 hours. If you enabled autoprovisioning, Azure Arc and any enabled extensions are installed automatically for each newly detected resource.
 

@@ -86,7 +86,7 @@ To connect to Azure Resource Manager, you will need to create or get signing cha
 
 For test and development use only, you can use Windows PowerShell to create certificates on your local system. While creating the certificates for the client, follow these guidelines:
 
-1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
+1. You first need to create a root certificate for the signing chain. For more information, see steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
 
 2. You can next create the endpoint certificates for Azure Resource Manager and blob (optional). You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signed-endpoint-certificates).
 
@@ -286,7 +286,7 @@ You will install Azure PowerShell modules on your client that will work with you
     PS C:\windows\system32> Get-Module -Name "Az*" -ListAvailable
     ```
 
-    If you used PowerShell 5.1 and later, the example output below indicates that that the Az version 1.10.0 modules were installed successfully.
+    If you used PowerShell 5.1 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
 
     ```powershell
     PS C:\WINDOWS\system32> Get-InstalledModule -Name Az -AllVersions
@@ -371,7 +371,7 @@ You will now add the device IP address to:
 - The DNS server configuration
 
 > [!IMPORTANT]
-> We recommend that you modify the the DNS server configuration for endpoint name resolution.
+> We recommend that you modify the DNS server configuration for endpoint name resolution.
 
 On your Windows client that you are using to connect to the device, take the following steps:
 
