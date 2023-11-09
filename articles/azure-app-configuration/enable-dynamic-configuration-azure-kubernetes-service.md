@@ -12,7 +12,7 @@ ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
-# Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider (preview)
+# Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider
 
 This tutorial shows how you can enable dynamic configuration updates in Azure App Configuration Kubernetes Provider. It builds on the web app introduced in the quickstart. Your app in Azure Kubernetes Service can use this tutorial to get updated data from Azure App Configuration automatically. Before you continue, finish [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) first.
 
@@ -37,7 +37,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
 1. Update the *appConfigurationProvider.yaml* in *Deployment* directory with the following content to enable the dynamic data refresh. Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and the value of the `spec.auth.workloadIdentity.managedIdentityClientId` field with the client ID of the user-assigned managed identity you created before.
 
     ```yaml
-    apiVersion: azconfig.io/v1beta1
+    apiVersion: azconfig.io/v1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
@@ -51,8 +51,9 @@ A *sentinel key* is a key that you update after you complete the change of all o
       auth:
         workloadIdentity:
           managedIdentityClientId: <your-managed-identity-client-id>
-      keyValues:
+      configuration:
         refresh:
+          enabled: true
           monitoring:
             keyValues:
             - key: Settings:Sentinel
