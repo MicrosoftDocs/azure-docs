@@ -135,6 +135,8 @@
               items:
                 - name: Autoscale introduction
                   href: ../provision-throughput-autoscale.md
+                - name: Autoscale per partition/region
+                  href: ../autoscale-per-partition-region.md
                 - name: Autoscale FAQ
                   href: ../autoscale-faq.yml
             - name: Serverless

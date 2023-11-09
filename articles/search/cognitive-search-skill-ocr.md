@@ -1,7 +1,7 @@
 ---
-title: OCR cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+title: OCR Azure AI Searchskill
+titleSuffix: Azure AI Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure AI Search.
 
 author: careyjmac
 ms.author: chalton
@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: reference
 ms.date: 06/24/2022
 ---
-# OCR cognitive skill
+# OCR Azure AI Searchskill
 
 The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This article is the reference documentation for the OCR skill. See [Extract text from images](cognitive-search-concept-image-scenarios.md) for usage instructions.
 
@@ -31,7 +31,7 @@ The **OCR** skill extracts text from image files. Supported file formats include
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
+> In addition, image extraction is [billable by Azure AI Search](https://azure.microsoft.com/pricing/details/search/).
 >
 
 ## Skill parameters

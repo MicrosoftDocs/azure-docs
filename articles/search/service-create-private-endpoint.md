@@ -1,7 +1,7 @@
 ---
 title: Create a Private Endpoint for a secure connection
-titleSuffix: Azure Cognitive Search
-description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
+titleSuffix: Azure AI Search
+description: Set up a private endpoint in a virtual network for a secure connection to an Azure AI Search service.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.date: 09/12/2022
 ---
 
-# Create a Private Endpoint for a secure connection to Azure Cognitive Search
+# Create a Private Endpoint for a secure connection to Azure AI Search
 
-In this article, you'll learn how to secure an Azure Cognitive Search service so that it can't be accessed over the internet:
+In this article, you'll learn how to secure an Azure AI Search service so that it can't be accessed over the internet:
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
 + [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
@@ -21,14 +21,14 @@ In this article, you'll learn how to secure an Azure Cognitive Search service so
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
-You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
 > Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
 
 ## Why use a Private Endpoint for secure access?
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure AI Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enable you to:
 
@@ -55,9 +55,9 @@ In this section, you'll create a virtual network and subnet to host the VM that 
 
 ## Create a search service with a private endpoint
 
-In this section, you'll create a new Azure Cognitive Search service with a Private Endpoint.
+In this section, you'll create a new Azure AI Search service with a Private Endpoint.
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure Cognitive Search**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure AI Search**.
 
 1. In **New Search Service - Basics**, enter or select the following values:
 

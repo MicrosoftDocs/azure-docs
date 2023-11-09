@@ -1,0 +1,50 @@
+- name: Microsoft Copilot for Azure (preview) documentation
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Concepts
+  items:
+  - name: Capabilities
+    href: capabilities.md
+  - name: Limited access
+    href: limited-access.md
+  - name: Responsible AI FAQ
+    href: responsible-ai-faq.md
+- name: Enhanced scenarios
+  items:
+  - name: Get resource information
+    href: get-information-resource-graph.md
+  - name: Deploy VMs effectively
+    href: deploy-vms-effectively.md
+  - name: Build infrastructure and deploy workloads
+    href: build-infrastructure-deploy-workloads.md
+  - name: Get monitoring information
+    href: get-monitoring-information.md
+  - name: Optimize your code
+    href: optimize-code-application-insights.md
+  - name: Work smarter with Azure Stack HCI
+    href: work-smarter-edge.md
+  - name: Secure and protect storage accounts
+    href: improve-storage-accounts.md
+  - name: Generate Azure CLI scripts
+    href: generate-cli-scripts.md
+  - name: Author API Management policies
+    href: author-api-management-policies.md
+  - name: Generate Kubernetes YAML files
+    href: generate-kubernetes-yaml.md
+  - name: Understand service health
+    href: understand-service-health.md
+  - name: Analyze costs
+    href: analyze-cost-management.md
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Microsoft Q&A
+    href: /answers/products/
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/

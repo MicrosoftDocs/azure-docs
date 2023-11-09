@@ -1,7 +1,7 @@
 ---
 title: Service administration in the portal
-titleSuffix: Azure Cognitive Search
-description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
+titleSuffix: Azure AI Search
+description: Manage an Azure AI Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/12/2023
 ---
-# Service administration for Azure Cognitive Search in the Azure portal
+# Service administration for Azure AI Search in the Azure portal
 
 > [!div class="op_single_selector"]
 >
@@ -22,7 +22,7 @@ ms.date: 01/12/2023
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
+Azure AI Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
 
 Depending on your permission level, the portal covers virtually all aspects of search service operations, including:
 
@@ -78,9 +78,9 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Because Azure Cognitive Search is a [monitored resource](../azure-monitor/monitor-reference.md), you can review the built-in [**activity logs**](../azure-monitor/essentials/activity-log.md) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
+Because Azure AI Search is a [monitored resource](../azure-monitor/monitor-reference.md), you can review the built-in [**activity logs**](../azure-monitor/essentials/activity-log.md) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
 
-If you opt in for [**resource logging**](../azure-monitor/essentials/resource-logs.md), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+If you opt in for [**resource logging**](../azure-monitor/essentials/resource-logs.md), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Azure AI Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
 

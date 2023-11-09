@@ -1,7 +1,7 @@
 ---
 title: Query types 
-titleSuffix: Azure Cognitive Search
-description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
+titleSuffix: Azure AI Search
+description: Learn about the types of queries supported in Azure AI Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 10/09/2023
 ---
 
-# Querying in Azure Cognitive Search
+# Querying in Azure AI Search
 
-Azure Cognitive Search supports query constructs for a broad range of scenarios, from free-form text search, to highly specified query patterns, to vector search. All queries execute over a search index that stores searchable content.
+Azure AI Search supports query constructs for a broad range of scenarios, from free-form text search, to highly specified query patterns, to vector search. All queries execute over a search index that stores searchable content.
 
 <a name="types-of-queries"></a>
 
@@ -34,21 +34,21 @@ This article brings focus to the last category: queries that work on plain text 
 
 ## Filter search
 
-Filters are widely used in apps that are based on Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
+Filters are widely used in apps that are based on Azure AI Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
 
 You might also need filters to invoke a specialized query form, as described in the following table. You can use a filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, operators, and patterns.
 
 | Filter scenario | Description |
 |-----------------|-------------|
-| Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
+| Range filters | In Azure AI Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
 | Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets. When backed by filters, search results narrow on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria provided by the facet. |
 
 > [!NOTE]
-> Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure Cognitive Search](search-filters.md).
+> Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure AI Search](search-filters.md).
 
 ## Geospatial search
 
-Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure Cognitive Search, you can implement geospatial search by following these steps:
+Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure AI Search, you can implement geospatial search by following these steps:
 
 + Define a filterable field of one of these types: [Edm.GeographyPoint, Collection(Edm.GeographyPoint, Edm.GeographyPolygon)](/rest/api/searchservice/supported-data-types).
 + Verify the incoming documents include the appropriate coordinates.
@@ -95,4 +95,4 @@ For a closer look at query implementation, review the examples for each syntax. 
 
 + [Simple query examples](search-query-simple-examples.md)
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)git
++ [How full text search works in Azure AI Search](search-lucene-query-architecture.md)git

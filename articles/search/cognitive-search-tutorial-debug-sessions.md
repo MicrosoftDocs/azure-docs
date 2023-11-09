@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Debug skillsets'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Debug Sessions is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 author: HeidiSteen
 ms.author: heidist
@@ -25,7 +25,7 @@ Before you begin, have the following prerequisites in place:
 
 + An active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
++ Azure AI Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
 + Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting cached data created during a debug session.
 
@@ -44,7 +44,7 @@ This section creates the sample data set in Azure Blob Storage so that the index
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
+   + Choose the same region as Azure AI Search to avoid bandwidth charges.
 
    + Choose the StorageV2 (general purpose V2) account type.
 
@@ -56,7 +56,7 @@ This section creates the sample data set in Azure Blob Storage so that the index
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -310,6 +310,6 @@ This tutorial touched on various aspects of skillset definition and processing. 
 
 + [How to map skillset output fields to fields in a search index](cognitive-search-output-field-mapping.md)
 
-+ [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md)
++ [Skillsets in Azure AI Search](cognitive-search-working-with-skillsets.md)
 
 + [How to configure caching for incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)

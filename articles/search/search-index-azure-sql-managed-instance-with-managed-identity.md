@@ -1,7 +1,7 @@
 ---
 title: Connect to Azure SQL Managed Instance using managed identity
-titleSuffix: Azure Cognitive Search
-description: Learn how to set up an Azure Cognitive Search indexer connection to an Azure SQL Managed Instance using a managed identity
+titleSuffix: Azure AI Search
+description: Learn how to set up an Azure AI Search indexer connection to an Azure SQL Managed Instance using a managed identity
 author: gmndrg
 ms.author: gimondra
 manager: liamca
@@ -13,7 +13,7 @@ ms.date: 10/18/2023
 
 # Set up an indexer connection to Azure SQL Managed Instance using a managed identity
 
-This article describes how to set up an Azure Cognitive Search indexer connection to [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) using a managed identity instead of providing credentials in the connection string.
+This article describes how to set up an Azure AI Search indexer connection to [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) using a managed identity instead of providing credentials in the connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in SQL Managed Instance.
 
@@ -30,7 +30,7 @@ Before learning more about this feature, it's recommended that you understand wh
 
   To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Microsoft Entra authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision a Microsoft Entra admin (SQL Managed Instance). 
 
-* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. Connecting through a Shared Private Link when using a managed identity isn't currently supported.
+* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure AI Search. Connecting through a Shared Private Link when using a managed identity isn't currently supported.
 
 ## 1 - Assign permissions to read the database
 
@@ -70,7 +70,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this step, you'll give your Azure Cognitive Search service permission to read data from your SQL Managed Instance.
+In this step, you'll give your Azure AI Search service permission to read data from your SQL Managed Instance.
 
 1. In the Azure portal, navigate to your SQL Managed Instance page.
 1. Select **Access control (IAM)**.

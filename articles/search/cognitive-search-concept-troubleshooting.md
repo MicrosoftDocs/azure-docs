@@ -1,16 +1,16 @@
 ---
 title: Tips for AI enrichment design
-titleSuffix: Azure Cognitive Search
-description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---
-# Tips for AI enrichment in Azure Cognitive Search
+# Tips for AI enrichment in Azure AI Search
 
-This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
+This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure AI Search. 
 
 If you haven't already, step through [Quickstart: Create a skillset for AI enrichment](cognitive-search-quickstart-blob.md) for a light-weight introduction to enrichment of blob data.
 
@@ -26,7 +26,7 @@ Run your sample through the end-to-end pipeline and check that the results meet 
 
 The data source connection isn't validated until you define an indexer that uses it. If you get connection errors, make sure that:
 
-+ Your connection string is correct. Specially when you're creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](search-howto-indexing-azure-blob-storage.md#credentials) to learn about the different formats supported.
++ Your connection string is correct. Specially when you're creating SAS tokens, make sure to use the format expected by Azure AI Search. See [How to specify credentials section](search-howto-indexing-azure-blob-storage.md#credentials) to learn about the different formats supported.
 
 + Your container name in the indexer is correct.
 

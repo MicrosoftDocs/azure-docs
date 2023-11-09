@@ -6,32 +6,25 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
 # Build and train a custom model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
-::: moniker-end
+:::moniker range=">=doc-intel-3.0.0"
 
-::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)]   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+
 Document Intelligence models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
 ## Custom model input requirements
 
 First, make sure your training data set follows the input requirements for Document Intelligence.
 
-::: moniker-end
-
-::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
-::: moniker-end
-
-::: moniker range=">=doc-intel-3.0.0"
 
 ## Training data tips
 
@@ -50,7 +43,7 @@ Once you've put together the set of forms or documents for training, you need to
 
 * Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
+  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
 ## Create a project in the Document Intelligence Studio
 
@@ -131,19 +124,11 @@ Once the model training is complete, you can test your model by selecting the mo
 
 Congratulations you've trained a custom model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about custom model types](../concept-custom.md)
-
-> [!div class="nextstepaction"]
-> [Learn about accuracy and confidence with custom models](../concept-accuracy-confidence.md)
-
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-**Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Other versions:** [Document Intelligence v3.0](../how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true?view=doc-intel-3.0.0&preserve-view=true)
+**Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **v2.1**. **Other versions:** [v3.0](../how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true?view=doc-intel-3.0.0&preserve-view=true)
 
 When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
@@ -155,13 +140,7 @@ If you want to use manually labeled training data, you must start with at least 
 
 First, make sure your training data set follows the input requirements for Document Intelligence.
 
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
 
 ## Training data tips
 
@@ -201,15 +180,29 @@ If you add the following content to the request body, the API trains with docume
 }
 ```
 
+::: moniker-end
+
 ## Next steps
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Document Intelligence model and start using it on your forms.
 
-* [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
-* [Train with labels using the Sample Labeling tool](../label-tool.md)
+:::moniker range=">=doc-intel-3.0.0"
 
-## See also
+> [!div class="nextstepaction"]
+> [Learn about custom model types](../concept-custom.md)
+
+> [!div class="nextstepaction"]
+> [Learn about accuracy and confidence with custom models](../concept-accuracy-confidence.md)
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+
+  > [!div class="nextstepaction"]
+  > [Train with labels using the Sample Labeling tool](../label-tool.md)
+:::moniker-end
+
+### See also
+
+* [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
 
 * [What is Document Intelligence?](../overview.md)
-
-::: moniker-end

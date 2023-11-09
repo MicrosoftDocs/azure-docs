@@ -1,7 +1,7 @@
 ---
 title: How to work with search results
-titleSuffix: Azure Cognitive Search
-description: Define search result composition, get a document count, sort results, and add content navigation to search results in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Define search result composition, get a document count, sort results, and add content navigation to search results in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,9 @@ ms.topic: how-to
 ms.date: 08/31/2023
 ---
 
-# How to work with search results in Azure Cognitive Search
+# How to work with search results in Azure AI Search
 
-This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
+This article explains how to work with a query response in Azure AI Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
 
 Parameters on the query determine:
 
@@ -42,7 +42,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
 > [!NOTE]
-> For images in results, such as a product photo or logo, store them outside of Azure Cognitive Search, but add a field in your index to reference the image URL in the search document. Sample indexes that demonstrate images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+> For images in results, such as a product photo or logo, store them outside of Azure AI Search, but add a field in your index to reference the image URL in the search document. Sample indexes that demonstrate images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
 
 ### Tips for unexpected results
 
@@ -164,7 +164,7 @@ For either algorithm, a "@search.score" equal to 1.00 indicates an unscored or u
 
 ### Order by the semantic reranker
 
-If you're using [semantic search](semantic-search-overview.md), the "@search.rerankerScore" determines the sort order of your results. 
+If you're using [semantic ranking](semantic-search-overview.md), the "@search.rerankerScore" determines the sort order of your results. 
 
 The "@search.rerankerScore" range is 1 to 4.00, where a higher score indicates a stronger semantic match.
 
@@ -180,7 +180,7 @@ String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCI
 
 + Numeric content in string fields is sorted alphabetically (1, 10, 11, 2, 20).
 
-+ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer on a field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
++ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer on a field will have no effect on sorting behavior because Azure AI Search sorts on a non-analyzed copy of the field.
 
 + Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
 
@@ -217,7 +217,7 @@ POST /indexes/good-books/docs/search?api-version=2020-06-30
     }
 ```
 
-By default, Azure Cognitive Search returns up to five highlights per field. You can adjust this number by appending a dash followed by an integer. For example, `"highlight": "description-10"` returns up to 10 highlighted terms on matching content in the "description" field.
+By default, Azure AI Search returns up to five highlights per field. You can adjust this number by appending a dash followed by an integer. For example, `"highlight": "description-10"` returns up to 10 highlighted terms on matching content in the "description" field.
 
 ### Highlighted results
 

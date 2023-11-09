@@ -1,7 +1,7 @@
 ---
 title: OData order-by reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and language reference documentation for using order-by in Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 11/02/2022
 ---
 
-# OData $orderby syntax in Azure Cognitive Search
+# OData $orderby syntax in Azure AI Search
 
-In Azure Cognitive Search, the **$orderby** parameter specifies a custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
+In Azure AI Search, the **$orderby** parameter specifies a custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
 
-Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting behaviors, see [Ordering results](search-pagination-page-layout.md#ordering-results).
+Field path construction and constants are described in the [OData language overview in Azure AI Search](query-odata-filter-orderby-syntax.md). For more information about sorting behaviors, see [Ordering results](search-pagination-page-layout.md#ordering-results).
 
 ## Syntax
 
@@ -32,10 +32,10 @@ sortable_function ::= geo_distance_call | 'search.score()'
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 Each clause has sort criteria, optionally followed by a sort direction (`asc` for ascending or `desc` for descending). If you don't specify a direction, the default is ascending. If there are null values in the field, null values appear first if the sort is `asc` and last if the sort is `desc`.
 
@@ -79,7 +79,7 @@ Sort hotels in descending order by search.score and rating, and then in ascendin
 
 ## See also 
 
-- [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [How to work with search results in Azure AI Search](search-pagination-page-layout.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

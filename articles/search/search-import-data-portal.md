@@ -1,6 +1,6 @@
 ---
 title: Import data into a search index using Azure portal
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
 author: HeidiSteen
 manager: nitinme
@@ -9,9 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/25/2023
 ---
-# Import data wizard in Azure Cognitive Search
+# Import data wizard in Azure AI Search
 
-The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you're new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
+The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you're new to Azure AI Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure AI Search.
 
 If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
@@ -25,7 +25,7 @@ In the [Azure portal](https://portal.azure.com), open the search service page fr
 
 The wizard opens fully expanded in the browser window so that you have more room to work. 
 
-You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
+You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure AI Search** in the left-navigation pane on the service overview page.
 
 ## Objects created by the wizard
 
@@ -41,7 +41,7 @@ The wizard will output the objects in the following table. After the objects are
 
 ## Benefits and limitations
 
-Before writing any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Cognitive Search. 
+Before writing any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure AI Search. 
 
 If you're evaluating skillsets, the wizard will handle all of the output field mappings and add helper functions to create usable objects. Text split is added if you specify a parsing mode. Text merge is added if you chose image analysis so that the wizard can reunite text descriptions with image content. Shaper skills added to support valid projections if you chose the knowledge store option. All of the above tasks come with a learning curve. If you're new to enrichment, the ability to have these steps handled for you allows you to measure the value of a skill without having to invest much time and effort.
 
@@ -61,7 +61,7 @@ The wizard isn't without limitations. Constraints are summarized as follows:
 
 + A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you'll need to create the knowledge store through REST API or the SDKs.
 
-+ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled or you have set a shared private link, you must disable them, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
++ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled or you have set a shared private link, you must disable them, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure AI Search data source, indexer, skillset and index through REST API or the SDKs.
 
 ## Workflow
 
@@ -81,7 +81,7 @@ The workflow is a pipeline, so it's one way. You can't use the wizard to edit an
 
 ### Data source configuration in the wizard
 
-The **Import data** wizard connects to an external [supported data source](search-indexer-overview.md#supported-data-sources) using the internal logic provided by Azure Cognitive Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Cognitive Search.
+The **Import data** wizard connects to an external [supported data source](search-indexer-overview.md#supported-data-sources) using the internal logic provided by Azure AI Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure AI Search.
 
 You can paste in a connection to a supported data source in a different subscription or region, but the **Choose an existing connection** picker is scoped to the active subscription.
 
@@ -109,7 +109,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 1. Is the field list accurate? If your data source contains fields that weren't picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
+1. Is the data type appropriate for the incoming data? Azure AI Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
 1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 

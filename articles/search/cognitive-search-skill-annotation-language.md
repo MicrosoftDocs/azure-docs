@@ -1,7 +1,7 @@
 ---
 title: Skill context and input annotation reference language
-titleSuffix: Azure Cognitive Search
-description: Annotation syntax reference for annotation in the context, inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Annotation syntax reference for annotation in the context, inputs and outputs of a skillset in an AI enrichment pipeline in Azure AI Search.
 
 author: BertrandLeRoy
 ms.author: beleroy
@@ -13,7 +13,7 @@ ms.date: 01/27/2022
 
 This article is the reference documentation for skill context and input syntax. It's a full description of the expression language used to construct paths to nodes in an enriched document.
 
-Azure Cognitive Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
+Azure AI Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
 The data working set that represents the current state of the indexer work for the current document starts from the raw data coming from the data source and is
 progressively enriched with each skill iteration's output data.
 That data is internally organized in a tree-like structure that can be queried to be used as skill inputs or to be added to the index.
@@ -266,5 +266,5 @@ Parentheses can be used to change or disambiguate evaluation order.
 |`=3*(2+5)`|`21`|
 
 ## See also
-+ [Create a skillset in Azure Cognitive Search](cognitive-search-defining-skillset.md)
-+ [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md)
++ [Create a skillset in Azure AI Search](cognitive-search-defining-skillset.md)
++ [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md)

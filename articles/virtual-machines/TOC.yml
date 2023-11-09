@@ -227,6 +227,8 @@
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
         href: dcasccv5-dcadsccv5-series.md
+      - name: DCesv5 and DCedsv5-series
+        href: dcesv5-dcedsv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -274,6 +276,8 @@
         href: ecasv5-ecadsv5-series.md
       - name: ECas_cc_v5 and ECads_cc_v5-series
         href: ecasccv5-ecadsccv5-series.md
+      - name: ECesv5 and ECedsv5-series
+        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series

@@ -1,7 +1,7 @@
 ---
 title: OData logical operator reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure AI Search queries.
 
 manager: nitinme
 author: bevloh
@@ -21,9 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData logical operators in Azure Cognitive Search - `and`, `or`, `not`
+# OData logical operators in Azure AI Search - `and`, `or`, `not`
 
-[OData filter expressions](query-odata-filter-orderby-syntax.md) in Azure Cognitive Search are Boolean expressions that evaluate to `true` or `false`. You can write a complex filter by writing a series of [simpler filters](search-query-odata-comparison-operators.md) and composing them using the logical operators from [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
+[OData filter expressions](query-odata-filter-orderby-syntax.md) in Azure AI Search are Boolean expressions that evaluate to `true` or `false`. You can write a complex filter by writing a series of [simpler filters](search-query-odata-comparison-operators.md) and composing them using the logical operators from [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
 
 - `and`: A binary operator that evaluates to `true` if both its left and right sub-expressions evaluate to `true`.
 - `or`: A binary operator that evaluates to `true` if either one of its left or right sub-expressions evaluates to `true`.
@@ -46,10 +46,10 @@ logical_expression ::=
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 There are two forms of logical expressions: binary (`and`/`or`), where there are two sub-expressions, and unary (`not`), where there is only one. The sub-expressions can be Boolean expressions of any kind:
 
@@ -61,7 +61,7 @@ There are two forms of logical expressions: binary (`and`/`or`), where there are
 - Other logical expressions constructed using `and`, `or`, and `not`.
 
 > [!IMPORTANT]
-> There are some situations where not all kinds of sub-expression can be used with `and`/`or`, particularly inside lambda expressions. See [OData collection operators in Azure Cognitive Search](search-query-odata-collection-operators.md#limitations) for details.
+> There are some situations where not all kinds of sub-expression can be used with `and`/`or`, particularly inside lambda expressions. See [OData collection operators in Azure AI Search](search-query-odata-collection-operators.md#limitations) for details.
 
 ### Logical operators and `null`
 
@@ -112,7 +112,7 @@ Match documents for hotels in Vancouver, Canada where there is a deluxe room wit
 
 ## Next steps  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

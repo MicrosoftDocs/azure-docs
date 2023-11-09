@@ -1,7 +1,7 @@
 ---
 title: Drop and rebuild an index
-titleSuffix: Azure Cognitive Search
-description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,9 @@ ms.topic: how-to
 ms.date: 02/07/2023
 ---
 
-# Drop and rebuild an index in Azure Cognitive Search
+# Drop and rebuild an index in Azure AI Search
 
-This article explains how to drop and rebuild an Azure Cognitive Search index. It explains the circumstances under which rebuilds are required, and provides recommendations for mitigating the impact of rebuilds on ongoing query requests. If you  have to rebuild frequently, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to.
+This article explains how to drop and rebuild an Azure AI Search index. It explains the circumstances under which rebuilds are required, and provides recommendations for mitigating the impact of rebuilds on ongoing query requests. If you  have to rebuild frequently, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to.
 
 During active development, it's common to drop and rebuild indexes when you're iterating over index design. Most developers work with a small representative sample of their data to facilitate this process.
 
@@ -28,7 +28,7 @@ The following table lists the modifications that require an index rebuild.
 | Assign an analyzer to a field | [Analyzers](search-analyzers.md) are defined in an index and then assigned to fields. You can add a new analyzer definition to an index at any time, but you can only *assign* an analyzer when the field is created. This is true for both the **analyzer** and **indexAnalyzer** properties. The **searchAnalyzer** property is an exception (you can assign this property to an existing field). |
 | Update or delete an analyzer definition in an index | You can't delete or change an existing analyzer configuration (analyzer, tokenizer, token filter, or char filter) in the index unless you rebuild the entire index. |
 | Add a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
-| Switch tiers | In-place upgrades aren't supported. If you require more capacity, you must create a new service and rebuild your indexes from scratch. To help automate this process, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). This app will back up your index to a series of JSON files, and then recreate the index in a search service you specify.|
+| Switch tiers | In-place upgrades aren't supported. If you require more capacity, you must create a new service and rebuild your indexes from scratch. To help automate this process, you can use the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). This app will back up your index to a series of JSON files, and then recreate the index in a search service you specify.|
 
 ## Modifications with no rebuild requirement
 
@@ -43,7 +43,7 @@ Many other modifications can be made without impacting existing physical structu
 + Add, update, or delete synonymMaps
 + Add, update, or delete semantic configurations
 
-When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Cognitive Search. For more information on updating index content, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
+When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure AI Search. For more information on updating index content, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## How to rebuild an index
 
@@ -90,4 +90,4 @@ If you added or renamed a field, use [$select](search-query-odata-select.md) to 
 + [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 + [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
-+ [Security in Azure Cognitive Search](search-security-overview.md)
++ [Security in Azure AI Search](search-security-overview.md)

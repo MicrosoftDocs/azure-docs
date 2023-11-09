@@ -105,7 +105,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 
 - Lock down the Azure KeyVault to only **disable public access** and allow only *trusted Microsoft* services to secure the resources.
 
-    :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
+:::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
 
 > [!NOTE]
 >Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access. This doesn't preclude ability to provide key during CMK setup or fetch keys from Azure Key Vault during server operations. 
@@ -178,7 +178,7 @@ Azure Database for PostgreSQL - Flexible Server supports advanced [Data Recovery
 * The Geo-redundant backup encryption key needs to be the created in an Azure Key Vault (AKV) in the region where the Geo-redundant backup is stored 
 * The [Azure Resource Manager (ARM) REST API](../../azure-resource-manager/management/overview.md) version for supporting Geo-redundant backup enabled CMK servers is '2022-11-01-preview'. Therefore, using [ARM templates](../../azure-resource-manager/templates/overview.md) for automation of creation of servers utilizing both encryption with CMK and geo-redundant backup features,  please use this ARM API version. 
 *  Same [user managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)can't be used to authenticate for primary database Azure Key Vault (AKV) and Azure Key Vault (AKV) holding encryption key for Geo-redundant backup. To make sure that we maintain regional resiliency we recommend creating user managed identity in the same region as the geo-backups. 
-* If [Read replica database](../flexible-server/concepts-read-replicas.md) is setup to be encrypted with CMK during creation, its encryption key needs to be resident in an Azure Key Vault (AKV) in the region where Read replica database resides. [User assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate against this Azure Key Vault (AKV) needs to be created in the same region. 
+* If [Read replica database](../flexible-server/concepts-read-replicas.md) is set up to be encrypted with CMK during creation, its encryption key needs to be resident in an Azure Key Vault (AKV) in the region where Read replica database resides. [User assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate against this Azure Key Vault (AKV) needs to be created in the same region. 
 
 ## Limitations
 
