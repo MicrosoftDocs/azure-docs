@@ -27,7 +27,7 @@ The Azure Virtual Desktop solution with Azure Native Qumulo file storage is depl
 
 Azure Native Qumulo for with Azure Virtual desktop is a solution that is distributed across two separate Azure regions in an active-active configuration.
 
-:::image type="content" source="media/qumulo-virtual-desktop/solution-architecture-qumulo-avd.png" alt-text="Conceptual diagram that shows the solution architecture Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/solution-architecture-qumulo-avd-2.png":::
+:::image type="content" source="media/qumulo-virtual-desktop/solution-architecture-qumulo-virtual-desktop.png" alt-text="Conceptual diagram that shows the solution architecture Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/solution-architecture-qumulo-virtual-desktop-2.png":::
 
 ### Solution workflow
 
@@ -57,7 +57,7 @@ Azure Native Qumulo for with Azure Virtual desktop is a solution that is distrib
 
 The process flow for Azure Native Qumulo for with Azure Virtual desktop is depicted here:
 
-:::image type="content" source="media/qumulo-virtual-desktop/process-workflow-qumulo-avd.png" alt-text="Conceptual diagram that shows the process workflow for Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/process-workflow-qumulo-avd-2.png":::
+:::image type="content" source="media/qumulo-virtual-desktop/process-workflow-qumulo-virtual-desktop.png" alt-text="Conceptual diagram that shows the process workflow for Azure virtual desktop with Qumulo." lightbox="media/qumulo-virtual-desktop/process-workflow-qumulo-virtual-desktop-2.png":::
 
 ## Components
 
