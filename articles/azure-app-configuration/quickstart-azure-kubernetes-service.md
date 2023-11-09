@@ -230,7 +230,6 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     ```console
     helm install azureappconfiguration.kubernetesprovider \
          oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-         --version 1.0.0-preview4 \
          --namespace azappconfig-system \
          --create-namespace
     ```
@@ -240,7 +239,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and the value of the `spec.auth.workloadIdentity.managedIdentityClientId` field with the client ID of the user-assigned managed identity you created in previous step [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
    
     ```yaml
-    apiVersion: azconfig.io/v1beta1
+    apiVersion: azconfig.io/v1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
@@ -327,7 +326,7 @@ If the Azure App Configuration Kubernetes Provider retrieved data from your App 
 ```console
 $ kubectl get AzureAppConfigurationProvider appconfigurationprovider-sample -n appconfig-demo -o yaml
 
-apiVersion: azconfig.io/v1beta1
+apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
   ... ... ...
 status:
