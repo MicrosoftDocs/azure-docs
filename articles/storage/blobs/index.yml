@@ -7,12 +7,8 @@ metadata:
   title: Azure Blob Storage documentation
   description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
   services: storage
-<<<<<<< HEAD
-  ms.service: azure-blob-storage
-=======
   ms.service: azure-storage
   ms.subservice: blobs
->>>>>>> 4e74465c9698e17899300c2b1850c039f46adc17
   ms.topic: landing-page
   ms.collection: collection
   author: normesta
