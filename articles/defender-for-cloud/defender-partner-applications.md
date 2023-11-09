@@ -22,7 +22,7 @@ With this preview, the security scan results from partner applications are now a
 
 ## Preview prerequisites
 
-This preview requires connecting your source code repositories to Defender for Cloud. To complete this step, see [Quickstart: Connect your GitHub repositories to Microsoft Defenderfor Cloud](quickstart-onboard-github.md).
+This preview requires connecting your source code repositories to Defender for Cloud. To complete this step, see [Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
 
 | Aspect                                          | Details                                                                                                                                               |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,8 +34,8 @@ This preview requires connecting your source code repositories to Defender for C
 
 | Logo | Partner name | Description                                                                                                                                                                                    | Enablement Guide |
 |----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-|          | 42Crunch         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. | Link                 |
+|          | 42Crunch         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. | Link                 |
 
 ## Next steps
 
-[Learn about Defender for APIs](defender-for-apis-introduction.md)defender-
+[Learn about Defender for APIs](defender-for-apis-introduction.md)

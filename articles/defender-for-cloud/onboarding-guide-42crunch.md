@@ -64,7 +64,7 @@ To create a new default workflow:
 
 1. After the workflow completes, select **Security**, then select **Code scanning** to view the results.
 
-   :::image type="content" source="media/onboarding-guide-42crunch/security-code-scanning.png" alt-text="Screenshot showin security code scanning." lightbox="media/onboarding-guide-42crunch/security-code-scanning.png":::
+   :::image type="content" source="media/onboarding-guide-42crunch/security-code-scanning.png" alt-text="Screenshot showing security code scanning." lightbox="media/onboarding-guide-42crunch/security-code-scanning.png":::
 
 1. Select a Code Scanning alert detected by 42Crunch REST API Static Security Testing. You can also filter by tool in the Code scanning tab. Filter on **42Crunch REST API Static Security Testing**.
 
@@ -121,7 +121,7 @@ For the full enterprise version of the 42Crunch platform, the following data is 
 
 42Crunch offers both a free limited version and paid enterprise version of the security audit and conformance scan.
 
-For the free version of 42Crunch, the 42Crunch CI/CD plugins work standalone, with no requirement to login to the 42Crunch platform. Audit and scanning results are then made available in Microsoft Defender for Cloud, as well as within the CI/CD platform. Audits and scans are limited to up to 25 executions per month each, per repo, with a maximum of 3 repositories.
+For the free version of 42Crunch, the 42Crunch CI/CD plugins work standalone, with no requirement to sign in to the 42Crunch platform. Audit and scanning results are then made available in Microsoft Defender for Cloud, as well as within the CI/CD platform. Audits and scans are limited to up to 25 executions per month each, per repo, with a maximum of 3 repositories.
 
 For the paid enterprise version of 42Crunch, audits and scans are still executed locally in CI/CD but can sync with the 42Crunch platform service, where you can use several advanced features including customizable security quality gates, data dictionaries, and tagging. While the enterprise version is licensed for a certain number of APIs, there are no limits to the number of audits and scans that can be run on a monthly basis.
 
