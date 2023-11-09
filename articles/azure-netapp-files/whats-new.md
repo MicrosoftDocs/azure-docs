@@ -23,9 +23,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2023
 
-* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) is now generally available (GA).
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
 
-    You now have the ability to revert from Standard to Basic network features, however you must submit a waitlist request before reverting. For more information, see [Edit network features](configure-network-features.md#edit-network-features-option-for-existing-volumes).
+    It no longer requires registration when you edit the network features option of existing volumes from Basic to Standard network features.
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#supported-regions) in select US Gov regions
   
