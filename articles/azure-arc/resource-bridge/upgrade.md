@@ -17,7 +17,7 @@ There must be sufficient space on the management machine and appliance VM to dow
 
 Currently, in order to upgrade Arc resource bridge, you must enable outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
-Arc resource bridges configured with DHCP can't be upgraded and aren't supported. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
+Arc resource bridges configured with DHCP can't be upgraded and aren't supported in a production environment. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
 
 ## Overview
 
