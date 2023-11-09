@@ -1,26 +1,22 @@
 ---
-title: Integrate with LangChain in Prompt flow (preview)
+title: Integrate with LangChain in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to integrate with LangChain in Prompt flow with Azure Machine Learning studio.
+description: Learn how to integrate with LangChain in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Integrate with LangChain (preview)
+# Integrate with LangChain
 
-Prompt Flow can also be used together with the [LangChain](https://python.langchain.com) python library, which is the framework for developing applications powered by LLMs, agents and dependency tools. In this document, we'll show you how to supercharge your LangChain development on our Prompt Flow.
+Prompt Flow can also be used together with the [LangChain](https://python.langchain.com) python library, which is the framework for developing applications powered by LLMs, agents and dependency tools. In this document, we'll show you how to supercharge your LangChain development on our prompt Flow.
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of flows with the LangChain python library. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 We introduce the following sections:
 * [Benefits of LangChain integration](#benefits-of-langchain-integration)
@@ -31,10 +27,10 @@ We introduce the following sections:
 
 ## Benefits of LangChain integration
 
-We consider the integration of LangChain and Prompt flow as a powerful combination that can help you to build and test your custom language models with ease, especially in the case where you may want to use LangChain modules to initially build your flow and then use our Prompt Flow to easily scale the experiments for bulk testing, evaluating then eventually deploying.
+We consider the integration of LangChain and prompt flow as a powerful combination that can help you to build and test your custom language models with ease, especially in the case where you may want to use LangChain modules to initially build your flow and then use our prompt Flow to easily scale the experiments for bulk testing, evaluating then eventually deploying.
 
 - For larger scale experiments - **Convert existed LangChain development in seconds.**
-    If you have already developed demo prompt flow based on LangChain code locally, with the streamlined integration in Prompt Flow, you can easily convert it into a flow for further experimentation, for example you can conduct larger scale experiments based on larger data sets.
+    If you have already developed demo prompt flow based on LangChain code locally, with the streamlined integration in prompt Flow, you can easily convert it into a flow for further experimentation, for example you can conduct larger scale experiments based on larger data sets.
 - For more familiar flow engineering - **Build prompt flow with ease based on your familiar Python SDK**.
     If you're already familiar with the LangChain SDK and prefer to use its classes and functions directly, the intuitive flow building python node enables you to easily build flows based on your custom python code.
 
@@ -51,7 +47,7 @@ Assume that you already have your own LangChain code available locally, which is
 
 For more libraries import, you need to customize environment based on our base image, which should contain all the dependency packages you need for your LangChain code. You can follow this guidance to use **docker context** to build your image, and [create the custom environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime) based on it in Azure Machine Learning workspace.
 
-Then you can create a [Prompt flow runtime](./how-to-create-manage-runtime.md) based on this custom environment.
+Then you can create a [prompt flow runtime](./how-to-create-manage-runtime.md) based on this custom environment.
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/runtime-custom-env.png" alt-text="Screenshot of flows on the runtime tab with the add compute instance runtime popup. " lightbox = "./media/how-to-integrate-with-langchain/runtime-custom-env.png":::
 
@@ -67,7 +63,7 @@ Instead of directly coding the credentials in your code and exposing them as env
 
 Create a connection that securely stores your credentials, such as your LLM API KEY or other required credentials.
 
-1. Go to Prompt flow in your workspace, then go to **connections** tab.
+1. Go to prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select a connection type to store your credentials. (Take custom connection as an example)
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create drop-down menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
 3. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
@@ -126,7 +122,7 @@ If you have a LangChain code that consumes the AzureOpenAI model, you can replac
 
 Import library `from promptflow.connections import AzureOpenAIConnection`
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-aoai.png" alt-text="Screenshot of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-aoai.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-aoai.png" alt-text="Screenshot of LangChain code in prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-aoai.png":::
 
 
 For custom connection, you need to follow the steps:

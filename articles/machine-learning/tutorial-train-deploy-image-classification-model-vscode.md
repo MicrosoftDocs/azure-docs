@@ -27,7 +27,6 @@ In this tutorial, you learn the following tasks:
 > [!div class="checklist"]
 > * Understand the code
 > * Create a workspace
-> * Create a GPU cluster for training
 > * Train a model
 
 ## Prerequisites
@@ -78,53 +77,12 @@ The first thing you have to do to build an application in Azure Machine Learning
 
 For more information on workspaces, see [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
 
-## Create a GPU cluster for training
-
-> [!NOTE]
-> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [Train the model](#train-the-model).
-
-A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
-
-1. In the Azure Machine Learning view, expand your workspace node.
-1. Right-click the **Compute clusters** node inside your workspace's **Compute** node and select **Create Compute**
-
-    > [!div class="mx-imgBorder"]
-    > ![Create training compute cluster](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
-
-1. A specification file appears. Configure the specification file with the following options.
-
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json
-    name: gpu-cluster
-    type: amlcompute
-    size: Standard_NC12
-    
-    min_instances: 0
-    max_instances: 3
-    idle_time_before_scale_down: 120
-    ```
-
-    The specification file creates a GPU cluster called `gpu-cluster` with at most 3 Standard_NC12 VM nodes that automatically scales down to 0 nodes after 120 seconds of inactivity.
-
-    For more information on VM sizes, see [sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md).
-
-1. Right-click the specification file and select **AzureML: Execute YAML**.
-
-After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
-
 ## Train the model
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
 Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
 
-> [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
-> ```yml
-> resources:
->  instance_type: Standard_NC12
->  instance_count: 3
-```
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -132,7 +90,9 @@ code: src
 command: >
     python train.py
 environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:48
-compute: azureml:gpu-cluster
+resources:
+   instance_type: Standard_NC12
+   instance_count: 3
 experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```
@@ -160,7 +120,6 @@ In this tutorial, you learn the following tasks:
 > [!div class="checklist"]
 > * Understand the code
 > * Create a workspace
-> * Create a GPU cluster for training
 > * Train a model
 
 For next steps, see:

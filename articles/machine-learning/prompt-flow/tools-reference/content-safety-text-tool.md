@@ -1,29 +1,25 @@
 ---
-title: Content Safety (Text) tool in Azure Machine Learning prompt flow (preview)
+title: Content Safety (Text) tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Azure Content Safety is a content moderation service developed by Microsoft that help users detect harmful content from different modalities and languages. This tool is a wrapper for the Azure Content Safety Text API, which allows you to detect text content and get moderation results.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Content safety (text) tool (preview)
+# Content safety (text) tool
 
 Azure Content Safety is a content moderation service developed by Microsoft that help users detect harmful content from different modalities and languages. This tool is a wrapper for the Azure Content Safety Text API, which allows you to detect text content and get moderation results. For more information, see [Azure Content Safety](https://aka.ms/acs-doc).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 - Create an [Azure Content Safety](https://aka.ms/acs-create) resource.
-- Add "Azure Content Safety" connection in Prompt Flow. Fill "API key" field with "Primary key" from "Keys and Endpoint" section of created resource.
+- Add "Azure Content Safety" connection in prompt flow. Fill "API key" field with "Primary key" from "Keys and Endpoint" section of created resource.
 
 ## Inputs
 

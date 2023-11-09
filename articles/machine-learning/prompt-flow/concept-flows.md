@@ -1,7 +1,7 @@
 ---
-title: What are flows in Azure Machine Learning prompt flow (preview)
+title: What are flows in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn about how a flow in Prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+description: Learn about how a flow in prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,23 +12,19 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Flows in Prompt flow (preview)?
+# Flows in prompt flow?
 
 In Azure Machine Learning prompt flow, users have the capability to develop a LLM-based AI application by engaging in the stages of developing, testing, tuning, and deploying a flow. This comprehensive workflow allows users to harness the power of Large Language Models (LLMs) and create sophisticated AI applications with ease.
 
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Flows
 
-A flow in Prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+A flow in prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 
 Within a flow, nodes take center stage, representing specific tools with unique capabilities. These nodes handle data processing, task execution, and algorithmic operations, with inputs and outputs. By connecting nodes, you establish a seamless chain of operations that guides the flow of data through your application.
 
 To facilitate node configuration and fine-tuning, our user interface offers a notebook-like authoring experience. This intuitive interface allows you to effortlessly modify settings and edit code snippets within nodes. Additionally, a visual representation of the workflow structure is provided through a DAG (Directed Acyclic Graph) graph. This graph showcases the connectivity and dependencies between nodes, providing a clear overview of the entire workflow.
 
-With the flow feature in Prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
+With the flow feature in prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
 
 ## Flow types
 
@@ -40,7 +36,7 @@ Azure Machine Learning prompt flow offers three different flow types to cater to
 
 ## Next steps
 
-- [Get started with Prompt flow](get-started-prompt-flow.md)
+- [Get started with prompt flow](get-started-prompt-flow.md)
 - [Create standard flows](how-to-develop-a-standard-flow.md)
 - [Create chat flows](how-to-develop-a-chat-flow.md)
 - [Create evaluation flows](how-to-develop-an-evaluation-flow.md)

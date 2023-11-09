@@ -61,7 +61,7 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in terms of number of requests.
 
-Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines (preview) for long-running asynchronous inference. We recommend using them when:
+Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
 
 > [!div class="checklist"]
 > * You have expensive models or pipelines that require a longer time to run.
@@ -98,7 +98,7 @@ The following table shows a summary of the different features available to onlin
 
 | Feature                       | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |-------------------------------|-------------------------------------------------|-----------------------------------------------|
-| Deployment types              | Models                                          | Models and Pipeline components (preview)      |
+| Deployment types              | Models                                          | Models and Pipeline components      |
 | MLflow model deployment       | Yes                                             | Yes                                           |
 | Custom model deployment       | Yes, with scoring script                        | Yes, with scoring script                      |
 | Model package deployment  <sup>1</sup>    | Yes (preview)                                   | No                                            |
@@ -137,7 +137,7 @@ You can create and manage batch and online endpoints with multiple developer too
 
 - [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [How to deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
+- [How to deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)

@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
-| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). <br><br>**New in version 1.7**. | `model`, `pipeline` | `model` |
+| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment). <br><br>**New in version 1.7**. | `model`, `pipeline` | `model` |
 | `settings` | object | Configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. <br><br>**New in version 1.7**. | | |
 
 > [!TIP]

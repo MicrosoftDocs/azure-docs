@@ -91,4 +91,4 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 - [YAML reference for pipeline component](reference-yaml-component-pipeline.md)
 - [Track an experiment](how-to-log-view-metrics.md)
 - [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
-- [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
+- [Deploy a pipeline with batch endpoints](how-to-use-batch-pipeline-deployments.md)
