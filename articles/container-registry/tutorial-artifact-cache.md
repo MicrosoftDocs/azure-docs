@@ -56,6 +56,12 @@ Implementing Artifact Cache provides the following benefits:
         
         4. Username and Password secrets- The secrets containing the username and password. 
 
+## Limitations
+
+- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
+
+- Artifact Cache only supports 1000 cache rules.
+
 ## Upstream support 
 
 Artifact Cache currently supports the following upstream registries:
@@ -94,12 +100,6 @@ The repository level wildcard allows you to cache all repositories from an upstr
 | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | contoso.azurecr.io/dotnet/* => mcr.microsoft.com/dotnet/*                                                                               | Mapping specific repositories under ACR to corresponding repositories in MCR.               | contoso.azurecr.io/dotnet/sdk => mcr.microsoft.com/dotnet/sdk<br>contoso.azurecr.io/dotnet/runtime => mcr.microsoft.com/dotnet/runtime             |
 | contoso.azurecr.io/library/dotnet/* => mcr.microsoft.com/dotnet/* <br>contoso.azurecr.io/library/python/* => docker.io/library/python/* | Mapping specific repositories under ACR to repositories from different upstream registries. | contoso.azurecr.io/library/dotnet/app1 => mcr.microsoft.com/dotnet/app1<br>contoso.azurecr.io/library/python/app3 => docker.io/library/python/app3 |
-
-## Limitations
-
-- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
-
-- Artifact Cache only supports 1000 cache rules.
 
 ### Limitations for Wildcard based cache rules
 
