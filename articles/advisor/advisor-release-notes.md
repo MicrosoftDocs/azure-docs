@@ -82,7 +82,7 @@ To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Le
 
 ### Introducing workload based recommendations management
 
-Azure Adviser now offers the capability of grouping and/or filtering recommendations by workload. Workload creation is available to selected customers based on their support contract.
+Azure Advisor now offers the capability of grouping and/or filtering recommendations by workload. Workload creation is available to selected customers based on their support contract.
 
 If you're interested in wokload based recommendations, reach out to your account team for more information.
 
