@@ -52,7 +52,7 @@ Creating a capacity pool enables you to create volumes within it.
         > You can only take advantage of the 2-TiB minimum if all the volumes in the capacity pool are using Standard network features. If any volume is using Basic network features, the minimum size is 4 TiB.
 
     * **Enable cool access**  *(for Standard service level only)*   
-        This option specifies whether volumes in the capacity pool will support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#enable-cool-access-on-a-new-volume). 
+        This option specifies whether volumes in the capacity pool will support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
 
     * **QoS**   
         Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  See [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) and [Performance Considerations](azure-netapp-files-performance-considerations.md) to understand the QoS types.  

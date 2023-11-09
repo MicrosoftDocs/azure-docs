@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Manage a Microsoft Dev Box dev center
 
+In this article, you learn how to manage a dev center in Microsoft Dev Box by using the Azure portal.
+
 Development teams vary in the way they function and might have different needs. A dev center helps you manage these scenarios by enabling you to group similar sets of projects together and apply similar settings.
 
 ## Permissions
@@ -27,9 +29,11 @@ To manage a dev center, you need the following permissions:
 
 ## Create a dev center
 
-Your development teams' requirements change over time. You can create a new dev center to support organizational changes like a new business requirement or a new regional center. You can create as many or as few dev centers as you need, depending on how you organize and manage your development teams.
+Your development teams' requirements change over time. You can create a new dev center in Microsoft Dev Box to support organizational changes like a new business requirement or a new regional center.
 
-To create a dev center: 
+You can create as many or as few dev centers as you need, depending on how you organize and manage your development teams.
+
+To create a dev center in the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -70,9 +74,10 @@ To create a dev center:
 
 ## Delete a dev center
 
-You might choose to delete a dev center to reflect organizational or workload changes. Deleting a dev center is irreversible, and you must prepare for the deletion carefully.
+You might choose to delete a dev center to reflect organizational or workload changes. Deleting a dev center in Microsoft Dev Box is irreversible, and you must prepare for the deletion carefully.
 
 A dev center can't be deleted while any projects are associated with it. You must delete the projects before you can delete the dev center.
+
 Attached network connections and their associated virtual networks are not deleted when you delete a dev center.
 
 When you're ready to delete your dev center, follow these steps:
@@ -92,6 +97,10 @@ When you're ready to delete your dev center, follow these steps:
 ## Attach a network connection
 
 You can attach existing network connections to a dev center. You must attach a network connection to a dev center before you can use it in projects to create dev box pools.
+
+Network connections enable dev boxes to connect to existing virtual networks. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
+
+To attach a network connection to a dev center in Microsoft Dev Box:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -147,7 +156,7 @@ To make role assignments:
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups that you want to be able to access the dev center. |
 
-## Next steps
+## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
 - [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)

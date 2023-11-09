@@ -55,7 +55,7 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
     1. Enter a **Name** for your API center. It must be unique in your subscription. 
 
-    1. In **Region**, select one of the [available regions](overview.md#preview-limitations) for API Center preview. 
+    1. In **Region**, select one of the [available regions](overview.md#available-regions) for API Center preview. 
 
 1. Optionally, on the **Tags** tab, add one or more name/value pairs to help you categorize your Azure resources.
 

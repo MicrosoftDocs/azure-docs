@@ -1,16 +1,16 @@
 ---
-title: How to enter the HDInsight on AKS Flink CLI client using Secure Shell (SSH) on Azure portal
-description: How to enter the HDInsight on AKS Flink SQL & DStream CLI client using webssh on Azure portal
+title: How to enter the Apache Flink® CLI client using Secure Shell (SSH) on HDInsight on AKS clusters with Azure portal
+description: How to enter Apache Flink® SQL & DStream CLI client using webssh on HDInsight on AKS clusters with Azure portal
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Access CLI Client using Secure Shell (SSH) on Azure portal
+# Access Apache Flink® CLI client using Secure Shell (SSH) on HDInsight on AKS clusters with Azure portal
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example guides how to enter the HDInsight on AKS Flink CLI client using SSH on Azure portal, we cover both Flink SQL and Flink DataStream
+This example guides how to enter the Apache Flink CLI client on HDInsight on AKS clusters using SSH on Azure portal, we cover both SQL and Flink DataStream
 
 ## Prerequisites
 - You're required to select SSH during [creation](./flink-create-cluster-portal.md) of Flink Cluster
@@ -62,3 +62,4 @@ Submitting a job means to upload the job’s JAR to the SSH pod and initiating t
 ## Reference
 
 * [Flink SQL Client](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/sqlclient/)
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

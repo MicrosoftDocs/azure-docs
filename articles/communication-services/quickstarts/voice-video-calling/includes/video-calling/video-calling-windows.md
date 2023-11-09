@@ -321,7 +321,7 @@ var callString = CalleeTextBox.Text.Trim();
 
 if (!string.IsNullOrEmpty(callString))
 {
-    if (callString.StartsWith("8:")) // 1:1 ACS call
+    if (callString.StartsWith("8:")) // 1:1 Azure Communication Services call
     {
         call = await StartAcsCallAsync(callString);
     }
@@ -346,7 +346,7 @@ if (call != null)
 }
 ```
 
-Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
+Add the methods to start or join the different types of Call (1:1 Azure Communication Services call, 1:1 phone call, Azure Communication Services Group call, Teams meeting join, etc.).
 
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
