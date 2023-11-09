@@ -4,16 +4,16 @@ description: Learn how to update DICOM files using the update API in Azure Healt
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/27/2023
 ms.author: mmitrik
 ---
 
 # Update DICOM files
 
-Bulk update is an easy way to make changes to imaging metadata for files stored in the DICOM&reg; service.  Specifically, the feature enables DICOM attributes to be updated for one or more studies in a single, asynchronous operation.  You can use this API to quickly perform updates related to patient demographic changes and avoid the costs of repeating time-consuming uploads.  
+Bulk update allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to quickly perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads.  
 
-Beyond the efficiency gains, the bulk update feature also preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval.  
+Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval.  
 
 ## Use the bulk update operation
 Bulk update is an asynchronous, long-running operation available at the studies endpoint.  The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes.  
