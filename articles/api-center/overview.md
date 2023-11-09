@@ -28,7 +28,7 @@ With API Center, stakeholders throughout your organization - including API progr
 
 *  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata and build workflows** around this metadata to enforce governance.​
 
-* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API program managers and developers can discover the API inventory via the **Azure portal or using the API Catalog**, a fully managed website that internal and external stakeholders can access.​
+* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API program managers and developers can discover the API inventory via the **Azure portal or using the API Catalog**, a fully managed, automatically generated website that internal and external stakeholders can access.​
 
 * **Accelerate API consumption** - Maximize developer productivity when consuming APIs and ensure they are consumed in a secure manner consistent with organizational standards. Developers can consume the API inventory using the **API Catalog** website.​
 
@@ -69,7 +69,7 @@ Contoso's API ecosystem includes the following:
 
 * **API management** - Contoso uses Azure API Management to manage, publish, and secure their APIs. They use separate instances for Development, Test, and Production, each with a distinct name: APIM-DEV, APIM-TEST and APIM-PROD. 
 
-* **API Center** - Contoso has adopted Azure API Center as their centralized hub for API discovery, governance, and consumption. API Center serves as a structured and organized API hub that provides comprehensive information about all organizational API, maintaining API metadata including versions and associated deployments. 
+* **API Center** - Contoso has adopted Azure API Center as their centralized hub for API discovery, governance, and consumption. API Center serves as a structured and organized API hub that provides comprehensive information about all organizational APIs, maintaining related information including versions and associated deployments. 
 
 ## Frequently asked questions
 
