@@ -23,7 +23,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**
     +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
   + **azureml-core, azureml-pipeline-core, azureml-pipeline-steps**
-    + [team name] -> AzureML-Pipeline [Put release notes here] -> Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
+    + AzureML-Pipeline - Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
   + **azureml-interpret**
     + updated azureml-interpret package to interpret-community 0.30.*
   + **azureml-mlflow**
