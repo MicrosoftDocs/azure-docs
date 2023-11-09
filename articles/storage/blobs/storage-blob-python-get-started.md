@@ -43,37 +43,49 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 ```
 
-You can also work with data resources asynchronously using the `azure.storage.blob.aio` library. If you're using `azure.storage.blob.aio`, add the following `import` statements instead:
-
-```python
-import asyncio
-
-from azure.identity.aio import DefaultAzureCredential
-from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
-```
-
-To learn about using asynchronous libraries in your project, see [Asynchronous programming](#tab/asynchronous-programming).
-
 Blob client library information:
+
 - [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
-- [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio): Contains the primary classes that you can use to operate on the service, containers, and blobs asynchronously.
 
-## Asynchronous programming
+### Asynchronous programming
 
-The Azure Blob Storage client library for Python supports both synchronous and asynchronous APIs. The asynchronous APIs are based on Python's [asyncio](https://docs.python.org/3/library/asyncio.html) library and require Python 3.5 or later. Follow these steps to use the asynchronous APIs:
+The Azure Blob Storage client library for Python supports both synchronous and asynchronous APIs. The asynchronous APIs are based on Python's [asyncio](https://docs.python.org/3/library/asyncio.html) library and require Python 3.5 or later. 
 
-- Install an async transport, such as [aiohttp](https://pypi.org/project/aiohttp/), using the `pip install` command. You can install `aiohttp` using an optional dependency install command:
+Follow these steps to use the asynchronous APIs in your project:
+
+- Install an async transport, such as [aiohttp](https://pypi.org/project/aiohttp/). You can install `aiohttp` along with `azure-storage-blob` by using an optional dependency install command. In this example, we use the following `pip install` command:
+
     ```console
     pip install azure-storage-blob[aio]
     ```
-- Import from the `azure.storage.blob.aio` library. To learn more, see [Set up your project](#set-up-your-project).
-- Create a client object using `async with`. To learn more, see the async examples in [Authorize access and connect to Blob Storage](#authorize-access-and-connect-to-blob-storage).
+
+- Open your code file and add the necessary import statements. In this example, we add the following to our *.py* file:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
+    ```        
+
+- Create a client object using `async with` to begin working with data resources. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool. In this example, we create a `BlobServiceClient` object using `async with`, and then create a `ContainerClient` object:
+
+    ```python
+    async with BlobServiceClient(account_url, credential=credential) as blob_service_client:
+        container_client = blob_service_client.get_container_client(container="sample-container")
+    ```
+
+    To learn more, see the async examples in [Authorize access and connect to Blob Storage](#authorize-access-and-connect-to-blob-storage).
+
+Blob async client library information:
+
+- [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio): Contains the primary classes that you can use to operate on the service, containers, and blobs asynchronously.
 
 ## Authorize access and connect to Blob Storage
 
 To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
-To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
 You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
 
@@ -98,11 +110,35 @@ The following example creates a `BlobServiceClient` object using `DefaultAzureCr
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_DAC":::
 
+If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
+
+```python
+# TODO: Replace <storage-account-name> with your actual storage account name
+account_url = "https://<storage-account-name>.blob.core.windows.net"
+credential = DefaultAzureCredential()
+
+async with BlobServiceClient(account_url, credential=credential) as blob_service_client:
+    # Work with data resources in the storage account
+```
+
 ## [SAS token](#tab/sas-token)
 
 To use a shared access signature (SAS) token, provide the token as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
+
+If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
+
+```python
+# TODO: Replace <storage-account-name> with your actual storage account name
+account_url = "https://<storage-account-name>.blob.core.windows.net"
+
+# Replace <sas_token_str> with your actual SAS token
+sas_token: str = "<sas_token_str>"
+
+async with BlobServiceClient(account_url, credential=sas_token) as blob_service_client:
+    # Work with data resources in the storage account
+```
 
 To learn more about generating and managing SAS tokens, see the following articles:
 
@@ -122,6 +158,18 @@ To use a storage account shared key, provide the key as a string and initialize 
 You can also create a `BlobServiceClient` object using a connection string.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_connection_string":::
+
+If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
+
+```python
+# TODO: Replace <storage-account-name> with your actual storage account name
+account_url = "https://<storage-account-name>.blob.core.windows.net"
+
+shared_access_key = os.getenv("AZURE_STORAGE_ACCESS_KEY")
+
+async with BlobServiceClient(account_url, credential=shared_access_key) as blob_service_client:
+    # Work with data resources in the storage account
+```
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
