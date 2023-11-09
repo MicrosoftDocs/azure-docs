@@ -41,7 +41,7 @@ Now that you've set up your Azure NetApp Files share, you can start uploading im
 To upload an MSIX image to your Azure NetApp Files share:
 
 1. In each session host, install the certificate that you signed the MSIX package with. Make sure to store the certificates in the folder named **Trusted People**.
-2. Copy the MSIX image you want to add to the Azure NetApps Files share.
+2. Copy the MSIX image you want to add to the Azure NetApp Files share.
 3. Go to **File Explorer** and enter the mount path, then paste the MSIX image into the mount path folder.
 
 Your MSIX image should now be accessible to your session hosts when they add an MSIX package using the Azure portal or PowerShell.
