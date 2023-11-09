@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 10/25/2023
+ms.date: 11/09/2023
 ms.author: danlep
 ---
 
@@ -30,7 +30,7 @@ If you use the legacy developer portal and want to continue using the API Manage
 
 ## Help and support
 
-If you have questions, get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com//answers/tags/29/azure-api-management). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+If you have questions, get answers from community experts in [Microsoft Q&A](/answers/tags/29/azure-api-management). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 1. For **Summary**, type a description of your issue, for example, "Legacy developer portal retirement". 
 1. Under **Issue type**, select **Technical**.  
@@ -40,7 +40,7 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 1. For **Problem type**, select **Developer Portal**. 
 1. For **Problem subtype**, select **Cannot sign in to developer portal**. 
 
-## Next steps
+## Related content
 
 See all [upcoming breaking changes and feature retirements](overview.md).
 
