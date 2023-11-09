@@ -84,9 +84,9 @@ To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Le
 
 Azure Adviser now offers the capability of grouping and/or filtering recommendations by workload. Workload creation is available to selected customers based on their support contract.
 
-If you're interested in the workloads filter, reach out to your account team for more information.
+If you're interested in wokload based recommendations, reach out to your account team for more information.
 
-### New: Cost Optimization workbook template
+### Cost Optimization workbook template
 
 Azure Advisor now has a new version of the Cost Optimization workbook template. The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases
 
