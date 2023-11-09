@@ -13,21 +13,22 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you set up the Layered Network Management on a level4 and level 3 Purdue network. Network level 4 has internet access and level 3 doesn't.
+In this quickstart, you set up the Layered Network Management on a level4 and level 3 Purdue network. Network level 4 has internet access and level 3 doesn't. You will configure the Layered Network Management to rout network traffic from level 3 to Azure. Finally, you can Arc-enable the K3S cluster in level 3 even it is not directly connected to the internet.
 
 - Level 4 an AKS cluster with Layered Network Management deployed.
 - Level 3 is a K3S cluster running on a Linux VM that uses the Layered Network Management instance in level 4 to achieve connection to Azure. The level 3 network is configured to have outbound access to the level 4 network on ports 443 and 8084. All other outbound access is disabled.
 
 The Layered Network Management architecture requires DNS configuration on the level 3 network, where the allowlisted URLs are repointed to the level 4 network. In this example, this setup is accomplished using an automated setup that's built on CoreDNS, the default DNS resolution mechanism that ships with k3s.
 
-The setup is done using a jumpbox or installation machine that has access to the internet and both the level 3 and level 4 networks.
 
 ## Prerequisites
+These prerequisites are only for deploying the Layered Network Management independently and Arc-enable the child level cluster. For the scenario of enabling Azure IoT Operations in an isolated network, there will be other prerequisites.
 
-- An AKS cluster
+- An [AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli)
 - An Azure Linux Ubuntu **22.04.3 LTS** VM
+- A jumpbox or setup machine that has access to the internet and both the level 3 and level 4 networks
 
-## Deploy Layered Network Management to the internet-facing cluster
+## Deploy Layered Network Management to the AKS cluster
 
 These steps deploy Layered Network Management to the AKS cluster. The cluster is the top layer in the ISA-95 model. At the end of this section, you have an instance of Layered Network Management that's ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations service.
 
@@ -154,15 +155,23 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 
 1. In this example, the Layered Network Management instance is ready to accept traffic on the external IP `20.81.111.118`.
 
-## Provision the cluster in the adjacent isolated layer to Arc
-
-In level 3, you create a K3S kubernetes cluster on a Linux VM and Arc-enable it using the Layered Network Management instance at level 4.
+## Prepare the level 3 cluster
+In level 3, you will create a K3S kubernetes cluster on a Linux VM. For convenience of setting up the cluster, you can create the Azure Linux Ubuntu 22.04.3 LTS VM with internet access and enabled ssh from your jumpbox.
+> In a more realistic scenario which starts the setup in isolated network, you shall prepare the machine with the pre-built image for your solution or the [Air-Gap Install](https://docs.k3s.io/installation/airgap) approach of K3S.
 
 1. On the Linux VM, install and configure K3S using the following commands:
 
     ```bash
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
     ```
+1. Configure network isolation for the level 3. With the following steps, the level 3 cluster will only be able to send traffic to the Layered Network Management in level 4.
+    1. Navigate to the **network security group** of the VM's network interface.
+    1. On top of the default outbound security rules, create a rule to **deny all outbound traffic** from the level 3 VM.
+    3. Create another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
+
+## Provision the cluster in isolated layer to Arc
+
+With the following steps, you will Arc-enable the level 3 cluster using the Layered Network Management instance at level 4.
 
 1. Set up the jumpbox to have *kubectl* access to the cluster.
    
@@ -174,7 +183,7 @@ In level 3, you create a K3S kubernetes cluster on a Linux VM and Arc-enable it 
 
    On your jumpbox, set up kubectl access to the level 3 k3s cluster by copying the `config.level3` file into the `~/.kube` directory and rename it to `config`. The server entry in the config file should be set to the IP address or domain name of the level 3 VM.
 
-1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+1. Refer to [Configure CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network?tabs=coredns#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
 
 1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 
