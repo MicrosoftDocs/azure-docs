@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
+
 # Artifact Cache - Overview 
 
 Artifact Cache feature allows users to cache container images in a private container registry. Artifact Cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
@@ -94,6 +95,12 @@ The repository level wildcard allows you to cache all repositories from an upstr
 | contoso.azurecr.io/dotnet/* => mcr.microsoft.com/dotnet/*                                                                               | Mapping specific repositories under ACR to corresponding repositories in MCR.               | contoso.azurecr.io/dotnet/sdk => mcr.microsoft.com/dotnet/sdk<br>contoso.azurecr.io/dotnet/runtime => mcr.microsoft.com/dotnet/runtime             |
 | contoso.azurecr.io/library/dotnet/* => mcr.microsoft.com/dotnet/* <br>contoso.azurecr.io/library/python/* => docker.io/library/python/* | Mapping specific repositories under ACR to repositories from different upstream registries. | contoso.azurecr.io/library/dotnet/app1 => mcr.microsoft.com/dotnet/app1<br>contoso.azurecr.io/library/python/app3 => docker.io/library/python/app3 |
 
+## Limitations
+
+- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
+
+- Artifact Cache only supports 1000 cache rules.
+
 ### Limitations for Wildcard based cache rules
 
 Wildcard cache rules use asterisks (*) to match multiple paths within the container image registry. These rules cannot overlap with other wildcard cache rules. In other words, if you have a wildcard cache rule for a certain registry path, you cannot add another wildcard rule that overlaps with it. 
@@ -124,14 +131,6 @@ Existing cache rule: `contoso.azurecr.io/*` => `mcr.microsoft.com/*`<br>
 New cache being added: `contoso.azurecr.io/library/dotnet` => `docker.io/library/dotnet`<br>
 
 The addition of the new cache rule is allowed because `contoso.azurecr.io/library/dotnet` is a static path and can overlap with the wildcard cache rule `contoso.azurecr.io/*`.
-
-## Limitations
-
-- Artifact Cache feature doesn't support Customer managed key (CMK) enabled registries.
-
-- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
-
-- Artifact Cache only supports 1000 cache rules.
 
 ## Next steps
 
