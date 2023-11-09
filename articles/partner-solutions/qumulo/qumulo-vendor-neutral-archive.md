@@ -115,15 +115,11 @@ While the solution uses Qumulo’s replication engine between the on-premises cl
 
 Both ANQ and the on-premises Qumulo cluster also support any file-based backup solution to enable external data protection.
 
-### Resource Tier Availability
+### Resource tier availability
 
 For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s documentation.
 
-### Resource Tier Availability
-
-For specific information about the availability and recovery options for the VNA application server, consult your VNA server vendor’s own documentation
-
-## Deploy this scenario
+## Deployment
 
 - To deploy Azure Native Qumulo Scalable File Service, see [our website](https://qumulo.com/product/azure/).
 
