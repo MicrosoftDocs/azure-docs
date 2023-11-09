@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/09/2023
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
@@ -29,6 +29,9 @@ The following table lists the property names and their description for creating 
 ## Authentication and encryption
 
 You can use four types of security protocols to connect to your Kafka clusters:
+
+> [!NOTE]
+> For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
 
 |Property name   |Description   |
 |----------|-----------|
@@ -71,8 +74,8 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
 
 For step-by-step tutorial on connecting to confluent cloud kakfa, visit the documentation: 
 
-Confluent cloud kafka input: [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
-Confluent cloud kafka output: [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
+* Confluent cloud kafka input: [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+* Confluent cloud kafka output: [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
 
 
 ## Key vault integration
