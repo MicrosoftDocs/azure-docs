@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 10/17/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -153,7 +153,10 @@ To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure
 
 ## Specify static IP pools (optional)
 
-An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods. 
+An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods.
+
+> [!NOTE]
+> SAP customers can skip this step.
 
 You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes generates a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 

@@ -127,7 +127,7 @@ public class App
 
 ## Authenticate the Phone Numbers Client
 
-The `PhoneNumberClientBuilder` is enabled to use Azure Active Directory Authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Azure Active Directory.  You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
+The `PhoneNumberClientBuilder` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID.  You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
 // You can find your resource name from your resource in the Azure portal

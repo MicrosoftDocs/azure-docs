@@ -91,9 +91,9 @@ If you do the GET command to retrieve a patient again, you'll see James Tiberiou
 
 ## Troubleshooting access issues
 
-If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR.
+If you ran into issues during any of these steps, review the documents we have put together on Microsoft Entra ID and the Azure API for FHIR.
 
-* [Azure AD and Azure API for FHIR](azure-active-directory-identity-configuration.md) - This document outlines some of the basic principles of Azure Active Directory and how it interacts with the Azure API for FHIR.
+* [Microsoft Entra ID and Azure API for FHIR](azure-active-directory-identity-configuration.md) - This document outlines some of the basic principles of Microsoft Entra ID and how it interacts with the Azure API for FHIR.
 * [Access token validation](azure-api-fhir-access-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.
 
 ## Next Steps
@@ -104,6 +104,3 @@ Now that you can successfully connect to your client application, you’re ready
 >[Write a web application](tutorial-web-app-write-web-app.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
-
-

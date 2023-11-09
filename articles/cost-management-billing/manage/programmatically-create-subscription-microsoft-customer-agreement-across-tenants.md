@@ -1,6 +1,6 @@
 ---
-title: Programmatically create MCA subscriptions across Azure Active Directory tenants
-description: Learn how to programmatically create an Azure MCA subscription across Azure Active Directory tenants.
+title: Programmatically create MCA subscriptions across Microsoft Entra tenants
+description: Learn how to programmatically create an Azure MCA subscription across Microsoft Entra tenants.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -10,21 +10,21 @@ ms.reviewer: rygraham
 ms.author: banders
 ---
 
-# Programmatically create MCA subscriptions across Azure Active Directory tenants
+# Programmatically create MCA subscriptions across Microsoft Entra tenants
 
-This article helps you programmatically create a Microsoft Customer Agreement (MCA) subscription across Azure Active Directory tenants. In some situations, you might need to create MCA subscriptions across Azure Active Directory (Azure AD) tenants but have them tied to a single billing account. Examples of such situations include SaaS providers wanting to segregate hosted customer services from internal IT services or internal environments that have strict regulatory compliance requirements, like Payment Card Industry (PCI).
+This article helps you programmatically create a Microsoft Customer Agreement (MCA) subscription across Microsoft Entra tenants. In some situations, you might need to create MCA subscriptions across Microsoft Entra tenants but have them tied to a single billing account. Examples of such situations include SaaS providers wanting to segregate hosted customer services from internal IT services or internal environments that have strict regulatory compliance requirements, like Payment Card Industry (PCI).
 
-The process to create an MCA subscription across tenants is effectively a two-phase process. It requires actions to be taken in the source and destination Azure AD tenants. This article uses the following terminology:
+The process to create an MCA subscription across tenants is effectively a two-phase process. It requires actions to be taken in the source and destination Microsoft Entra tenants. This article uses the following terminology:
 
-- Source Azure AD (source.onmicrosoft.com). It represents the source tenant where the MCA billing account exists.
-- Destination Cloud Azure AD (destination.onmicrosoft.com). It represents the destination tenant where the new MCA subscriptions are created.
+- Source Microsoft Entra ID (source.onmicrosoft.com). It represents the source tenant where the MCA billing account exists.
+- Destination Cloud Microsoft Entra ID (destination.onmicrosoft.com). It represents the destination tenant where the new MCA subscriptions are created.
 
 ## Prerequisites
 
 You must you already have the following tenants created:
 
-- A source Azure AD tenant with an active [Microsoft Customer Agreement](create-subscription.md) billing account. If you don't have an active MCA, you can create one. For more information, see [Azure - Sign up](https://signup.azure.com/)
-- A destination Azure AD tenant separate from the tenant where your MCA belongs. To create a new Azure AD tenant, see [Azure AD tenant setup](../../active-directory/develop/quickstart-create-new-tenant.md).
+- A source Microsoft Entra tenant with an active [Microsoft Customer Agreement](create-subscription.md) billing account. If you don't have an active MCA, you can create one. For more information, see [Azure - Sign up](https://signup.azure.com/)
+- A destination Microsoft Entra tenant separate from the tenant where your MCA belongs. To create a new Microsoft Entra tenant, see [Microsoft Entra tenant setup](../../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## Application set-up
 
@@ -32,7 +32,7 @@ Use the information in the following sections to set up and configure the needed
 
 ### Register an application in the source tenant
 
-To programmatically create an MCA subscription, an Azure AD application must be registered and granted the appropriate Azure RBAC permission. For this step, ensure you're signed into the source tenant (source.onmicrosoft.com) with an account that has permissions to register Azure AD applications.
+To programmatically create an MCA subscription, a Microsoft Entra application must be registered and granted the appropriate Azure RBAC permission. For this step, ensure you're signed into the source tenant (source.onmicrosoft.com) with an account that has permissions to register Microsoft Entra applications.
 
 Following the steps in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
@@ -53,7 +53,7 @@ After you determine the scope and role, use the information at [Manage billing r
 
 ### Register an application in the destination tenant
 
-To accept the MCA subscription from the destination tenant (destination.onmicrosoft.com), an Azure AD application must be registered and added to the Billing administrator Azure AD role. For this step, ensure you're signed in to the destination tenant (destination.onmicrosoft.com) with an account that has permissions to register Azure AD applications. It must also have billing administrator role permission.
+To accept the MCA subscription from the destination tenant (destination.onmicrosoft.com), a Microsoft Entra application must be registered and added to the Billing administrator Microsoft Entra role. For this step, ensure you're signed in to the destination tenant (destination.onmicrosoft.com) with an account that has permissions to register Microsoft Entra applications. It must also have billing administrator role permission.
 
 Follow the same steps used above to register an application in the source tenant. Save the following information to test and configure your environment:
 
@@ -62,9 +62,11 @@ Follow the same steps used above to register an application in the source tenant
 - Object ID
 - App secret value that was generated. The value is only visible at the time of creation.
 
-### Add the destination application to the Billing administrator Azure AD role
+<a name='add-the-destination-application-to-the-billing-administrator-azure-ad-role'></a>
 
-Use the information at [Assign administrator and non-administrator roles to users with Azure AD](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) to add the destination application created in the preceding section to the Billing administrator Azure AD role in the destination tenant.
+### Add the destination application to the Billing administrator Microsoft Entra role
+
+Use the information at [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) to add the destination application created in the preceding section to the Billing administrator Microsoft Entra role in the destination tenant.
 
 ## Programmatically create a subscription
 

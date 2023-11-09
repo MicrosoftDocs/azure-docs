@@ -9,4 +9,4 @@ ms.author: msmbaldwin
 
 ---
 
-Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a particular security principal. Because of this limitation, we recommend assigning access policies to groups of users, where possible, rather than individual users. Using groups makes it much easier to manage permissions for multiple people in your organization. For more information, see [Manage app and resource access using Azure Active Directory groups](../articles/active-directory/fundamentals/active-directory-manage-groups.md)
+Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a particular security principal. Because of this limitation, we recommend assigning access policies to groups of users, where possible, rather than individual users. Using groups makes it much easier to manage permissions for multiple people in your organization. For more information, see [Manage app and resource access using Microsoft Entra groups](../articles/active-directory/fundamentals/active-directory-manage-groups.md)

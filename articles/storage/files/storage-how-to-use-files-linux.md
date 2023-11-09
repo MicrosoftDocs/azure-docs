@@ -107,7 +107,7 @@ On other distributions, use the appropriate package manager or [compile from sou
     If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
 ## Mount the Azure file share on-demand with mount
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/media` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
 
 Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
 
@@ -116,7 +116,7 @@ RESOURCE_GROUP_NAME="<resource-group-name>"
 STORAGE_ACCOUNT_NAME="<storage-account-name>"
 FILE_SHARE_NAME="<file-share-name>"
 
-MNT_ROOT="/mount"
+MNT_ROOT="/media"
 MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 
 sudo mkdir -p $MNT_PATH
@@ -185,10 +185,10 @@ You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for t
 You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/media` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
 
 ```bash
-MNT_ROOT="/mount"
+MNT_ROOT="/media"
 sudo mkdir -p $MNT_ROOT
 ```
 
@@ -322,7 +322,7 @@ sudo systemctl restart autofs
 
 If you want to mount a specific snapshot of an SMB Azure file share, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
 
-After you've created the file share snapshot, following these instructions to mount it.
+After you've created the file share snapshot, follow these instructions to mount it.
 
 1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
 2. Select **Data storage > File shares** and select the file share.
@@ -334,10 +334,10 @@ After you've created the file share snapshot, following these instructions to mo
 5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
    
    ```bash
-   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
+   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
    ```
    
-6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
+6. If you're able to browse the snapshot under the path `/media/<file-share-name>/snapshot1`, then the mount succeeded.
 
 If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
 

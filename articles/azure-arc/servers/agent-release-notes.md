@@ -16,6 +16,23 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
+## Version 1.35 - October 2023
+
+Download for [Windows](https://download.microsoft.com/download/e/7/0/e70b1753-646e-4aea-bac4-40187b5128b0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- The Linux installation script now downloads supporting assets with either wget or curl, depending on which tool is available on the system
+- [azcmagent connect](azcmagent-connect.md) and [azcmagent disconnect](azcmagent-disconnect.md) now accept the `--user-tenant-id` parameter to enable Lighthouse users to use a credential from their tenant and onboard a server to a different tenant.
+- You can configure the extension manager to run, without allowing any extensions to be installed, by configuring the allowlist to `Allow/None`. This supports Windows Server 2012 ESU scenarios where the extension manager is required for billing purposes but doesn't need to allow any extensions to be installed. Learn more about [local security controls](security-overview.md#local-agent-security-controls).
+
+### Fixed
+
+- Improved reliability when installing Microsoft Defender for Endpoint on Linux by increasing [available system resources](agent-overview.md#agent-resource-governance) and extending the timeout
+- Better error handling when a user specifies an invalid location name to [azcmagent connect](azcmagent-connect.md)
+- Fixed a bug where clearing the `incomingconnections.enabled` [configuration setting](azcmagent-config.md) would show `<nil>` as the previous value
+- Security fix for the extension allowlist and blocklist feature to address an issue where an invalid extension name could impact enforcement of the lists.
+
 ## Version 1.34 - September 2023
 
 Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13db-4f1f-babf-b1aab33b364f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
@@ -67,39 +84,6 @@ Download for [Windows](https://download.microsoft.com/download/7/e/5/7e51205f-a0
 
 - Fixed an issue that could result in high CPU usage if the agent was unable to send telemetry to Azure.
 - Improved local logging when there are network communication errors
-
-## Version 1.31 - June 2023
-
-Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-1364-41ed-90b0-1340a44ba409/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### Known issue
-
-The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue displays as  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
-
-To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
-
-| Package type | Version number with proxy issue | Version number of patched agent |
-| ------------ | ------------------------------- | ------------------------------- |
-| Windows | 1.31.02347.1069 | 1.31.02356.1083 |
-| RPM-based Linux | 1.31.02347.957 | 1.31.02356.970 |
-| DEB-based Linux | 1.31.02347.939 | 1.31.02356.952 |
-
-### New features
-
-- Added support for Amazon Linux 2023
-- [azcmagent show](azcmagent-show.md) no longer requires administrator privileges
-- You can now filter the output of [azcmagent show](azcmagent-show.md) by specifying the properties you wish to output
-
-### Fixed
-
-- Added an error message when a pending reboot on the machine affects extension operations
-- The scheduled task that checks for agent updates no longer outputs a file
-- Improved formatting for clock skew calculations
-- Improved reliability when upgrading extensions by explicitly asking extensions to stop before trying to upgrade.
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Manager extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
-- [azcmagent disconnect](azcmagent-disconnect.md) now closes any active SSH or Windows Admin Center connections
-- Improved output of the [azcmagent check](azcmagent-check.md) command
-- Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)
 
 ## Next steps
 

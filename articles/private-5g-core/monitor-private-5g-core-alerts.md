@@ -35,9 +35,9 @@ Alerts help track important events in your network by sending a notification con
 
       :::image type="content" source="media/packet-core-alerts-signal-list.png" alt-text="Screenshot of Azure portal showing alert signal selection menu." lightbox="media/packet-core-alerts-signal-list.png":::
 
-1. Select the signal you want the alert to be based on and follow the rest of the create instructions. For more information on alert options and setting actions groups used for notification, please refer to [the Azure Monitor alerts create and edit documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric).
+1. Select the signal you want the alert to be based on and follow the rest of the create instructions. For more information on alert options and setting actions groups used for notification, please refer to [the Azure Monitor alerts create and edit documentation](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric).
 1. Once you've reached the end of the create instructions, select **Review + create** to create your alert.
 1. Verify that your alert rule was created by navigating to the alerts page for your packet core (see steps 1 and 2) and finding it in the list of alert rules on the page.
 
 ## Next steps
-- [Learn more about Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+- [Learn more about Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).

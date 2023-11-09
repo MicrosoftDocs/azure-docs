@@ -7,7 +7,7 @@ ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.custom: synapse
 ---
 
@@ -107,7 +107,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 > [!IMPORTANT]
 > The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
 >
-> As more activity runs, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourfactoryorworkspacename**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
+> As more activity runs, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you might want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourfactoryorworkspacename**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 #### Properties
 
@@ -117,7 +117,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details. | Yes      |
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account. Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. Make sure you have enough core quotas in that Azure region to meet the required clusterSize. For details, refer to [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Storage (Gen 2) as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Storage (Gen 2), use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Storage (Gen 2). </p> | Yes      |
 | clusterResourceGroup         | The HDInsight cluster is created in this resource group. | Yes      |
-| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of the service by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
+| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of the service by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster can stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
 | clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. Enterprise Security Package enabled cluster cannot be created on-demand, instead use an [existing cluster/ bring your own compute](#azure-hdinsight-linked-service). | No       |
 | version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
 | hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
@@ -151,7 +151,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 #### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -244,7 +244,7 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No       |
 
 * Specifying node sizes
-See the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario. 
+See the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which might not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 
@@ -253,7 +253,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.
+If you specify a wrong value for these properties, you might receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.
 
 ### Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service. The computing environment is managed by the user and the service uses it to execute the activities.
@@ -303,7 +303,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | clusterUri        | The URI of the HDInsight cluster.                            | Yes      |
 | username          | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes      |
 | password          | Specify password for the user account.                       | Yes      |
-| linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Storage (Gen 2) linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you may access data in the Azure Data Lake Storage (Gen 2) from Hive/Pig scripts. </p> | Yes      |
+| linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Storage (Gen 2) linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you can access data in the Azure Data Lake Storage (Gen 2) from Hive/Pig scripts. </p> | Yes      |
 | isEspEnabled      | Specify '*true*' if the HDInsight cluster is [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md) enabled. Default is '*false*'. | No       |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime, which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
 
@@ -556,7 +556,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
 | accessToken          | Access token is required for the service to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | No                                       |
 | MSI          | Use the service's managed identity (system-assigned) to authenticate to Azure Databricks. You do not need Access Token when using 'MSI' authentication. More details about Managed Identity authentication can be found [here](https://techcommunity.microsoft.com/t5/azure-data-factory/azure-databricks-activities-now-support-managed-identity/ba-p/1922818)  | No                                       |
-| existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
+| existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You might need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
 | instancePoolId    | Instance Pool ID of an existing pool in databricks workspace.  | No  |
 | newClusterVersion    | The Spark version of the cluster. It creates a job cluster in databricks. | No  |
 | newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like "1" means numOfWorker is 1 or "1:10" means autoscale from 1 as min and 10 as max.  | No                |
@@ -586,14 +586,23 @@ You create an Azure Synapse Analytics (Artifacts) linked service and use it with
 ```json
 {
     "name": "AzureSynapseArtifacts",
+    "type": "Microsoft.DataFactory/factories/linkedservice",
     "properties": {
-        "description": "AzureSynapseArtifactsDescription",
+      "properties": {
+        "a":{
+          "type": "String"
+        }
+      },
         "annotations": [],
         "type": "AzureSynapseArtifacts",
         "typeProperties": {
-            "endpoint": "https://<workspacename>.dev.azuresynapse.net",
+            "endpoint": "@{linkedService().a}",
             "authentication": "MSI",
-            "workspaceResourceId": "<workspace Resource Id>"
+            "workspaceResourceId": ""
+        },
+        "ConnectVia":{
+          "referenceName": "integrationRuntime1",
+          "type": "IntergrationRuntimeReference"
         }
     }
 }
@@ -610,6 +619,7 @@ You create an Azure Synapse Analytics (Artifacts) linked service and use it with
 | endpoint | The Azure Synapse Analytics URL	 | Yes |
 | authentication | The default setting is System Assigned Managed Identity | Yes |
 | workspaceResourceId | workspace Resource Id	 | Yes |
+| connectVia | The integration runtime to be used to connect to the data store. You can use Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. The self-hosted integration runtime is not currently supported. | Yes |
 
 ## Azure Function linked service
 

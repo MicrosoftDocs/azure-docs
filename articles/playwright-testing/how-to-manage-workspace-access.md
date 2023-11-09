@@ -92,15 +92,17 @@ You can revoke a user's access to a Microsoft Playwright Testing workspace using
 
     For more information about how to remove role assignments, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
-## (Optional) Use Azure AD security groups to manage workspace access
+<a name='optional-use-azure-ad-security-groups-to-manage-workspace-access'></a>
 
-Instead of granting or revoking access to individual users, you can manage access for groups of users using Azure AD security groups. This approach has the following benefits:
+## (Optional) Use Microsoft Entra security groups to manage workspace access
+
+Instead of granting or revoking access to individual users, you can manage access for groups of users using Microsoft Entra security groups. This approach has the following benefits:
 
 - Avoid the need for granting team or project leaders the Owner role on the workspace. You can grant them access only to the security group to let them manage access to the workspace.
 - You can organize, manage and revoke users' permissions on a workspace and other resources as a group, without having to manage permissions on a user-by-user basis.
-- Using Azure AD groups helps you to avoid reaching the [subscription limit](/azure/role-based-access-control/troubleshooting#limits) on role assignments.
+- Using Microsoft Entra groups helps you to avoid reaching the [subscription limit](/azure/role-based-access-control/troubleshooting#limits) on role assignments.
 
-To use Azure AD security groups:
+To use Microsoft Entra security groups:
 
 1. [Create a security group](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
 
@@ -112,7 +114,7 @@ To use Azure AD security groups:
 
 ## Create a custom role for restricted tenants
 
-If you're using Azure Active Directory [tenant restrictions](/azure/active-directory/external-identities/tenant-restrictions-v2) and users with temporary access, you can create a custom role in Azure RBAC to manage permissions and grant access to run tests.
+If you're using Microsoft Entra [tenant restrictions](/azure/active-directory/external-identities/tenant-restrictions-v2) and users with temporary access, you can create a custom role in Azure RBAC to manage permissions and grant access to run tests.
 
 Perform the following steps to manage permissions with a custom role:
 
@@ -134,7 +136,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - When you create a resource in Azure, such as a workspace, you are not automatically the owner of the resource. Your role is inherited from the highest scope role that you're authorized against in that subscription. As an example, if you're a Contributor for the subscription, you have the permissions to create a Microsoft Playwright Testing workspace. However, you would be assigned the Contributor role against that workspace, and not the Owner role.
 
-- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource).
+- When there are two role assignments to the same Microsoft Entra user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions.
 

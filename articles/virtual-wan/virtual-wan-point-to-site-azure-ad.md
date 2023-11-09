@@ -1,7 +1,7 @@
 ---
-title: 'Create a P2S User VPN connection - Azure AD authentication'
+title: 'Create a P2S User VPN connection - Microsoft Entra authentication'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Azure Active Directory authentication for Virtual WAN User VPN (point-to-site).
+description: Learn how to configure Microsoft Entra authentication for Virtual WAN User VPN (point-to-site).
 services: virtual-wan
 author: cherylmc
 
@@ -11,9 +11,9 @@ ms.date: 10/19/2022
 ms.author: cherylmc 
 
 ---
-# Create a P2S User VPN connection using Azure Virtual WAN - Azure AD authentication
+# Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Azure Active Directory (Azure AD) authentication. Azure AD authentication is only available for gateways that use the OpenVPN protocol.
+This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -62,15 +62,15 @@ A User VPN configuration defines the parameters for connecting remote clients. I
     * **Configuration name** - Enter the name you want to call your User VPN Configuration.
     * **Tunnel type** - Select OpenVPN from the dropdown menu.
 
-1. Click **Azure Active Directory** to open the page.
+1. Click **Microsoft Entra ID** to open the page.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Azure Active Directory page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png":::
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Microsoft Entra ID page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png":::
 
-    Toggle **Azure Active Directory** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Azure Active Directory page for Enterprise applications in the portal.
-   * **Authentication method** - Select Azure Active Directory.
-   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant.
+    Toggle **Microsoft Entra ID** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Microsoft Entra ID page for Enterprise applications in the portal.
+   * **Authentication method** - Select Microsoft Entra ID.
+   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Microsoft Entra tenant.
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **AAD Tenant:** TenantID for the Azure AD tenant. Make sure there is no `/` at the end of the AAD tenant URL. 
+   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL. 
 
      * Enter `https://login.microsoftonline.com/{AzureAD TenantID}` for Azure Public AD
      * Enter `https://login.microsoftonline.us/{AzureAD TenantID}` for Azure Government AD
