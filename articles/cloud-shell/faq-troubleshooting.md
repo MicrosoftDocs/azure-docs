@@ -7,7 +7,9 @@ tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell Frequently Asked Questions (FAQ)
 ---
-# Azure Cloud Shell Frequently Asked Questions (FAQ)
+# Azure Cloud Shell frequently asked questions (FAQ)
+
+This article answers common questions and explains how to troubleshoot Cloud Shell issues.
 
 ## Browser support
 
