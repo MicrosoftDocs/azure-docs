@@ -1,6 +1,6 @@
 ---
 title: Update DICOM files in the DICOM service
-description: Learn how to update DICOM files using the update API in Azure Health Data Services
+description: Learn how to use the bulk update API in Azure Health Data Services to modify DICOM attributes for multiple files in the DICOM service. This article explains the benefits, requirements, and steps of the bulk update operation.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
@@ -16,10 +16,10 @@ Bulk update allows you to make changes to imaging metadata for multiple files st
 Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval.  
 
 ## Use the bulk update operation
-Bulk update is an asynchronous, long-running operation available at the studies endpoint.  The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes.  
+Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes.  
 
 ### Bulk update studies
-The bulk update endpoint starts a long running operation that updates all instances in each specified study with the specified attributes.
+The bulk update endpoint starts a long-running operation that updates all instances in each specified study with the specified attributes.
 
 ```http
 POST {dicom-service-url}/{version}/studies/$bulkUpdate
@@ -29,13 +29,13 @@ POST {dicom-service-url}/{version}/studies/$bulkUpdate
 POST {dicom-service-url}/{version}/partitions/{PartitionName}/studies/$bulkUpdate
 ```
 
-#### Request Header
+#### Request header
 
 | Name         | Required  | Type   | Description                     |
 | ------------ | --------- | ------ | ------------------------------- |
 | Content-Type | False     | string | `application/json` is supported |
 
-#### Request Body
+#### Request body
 
 The request body contains the specification for studies to update.  Both the `studyInstanceUids` and `changeDataset` are required.
 
@@ -132,7 +132,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 | 404 (Not Found) |           | Operation not found                   |
 
 ## Retrieving study versions
-The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance.  The latest version of a study, series, or instance is always returned by default.  The original version is returned by setting the `msdicom-request-original` header to `true`.  An example request is shown below:
+The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default. The original version is returned by setting the `msdicom-request-original` header to `true`.  Here's an example request:
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}
@@ -148,9 +148,9 @@ The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes b
 The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions.  
 
 ## Supported DICOM modules
-Currently, any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation.  Supported attributes are called out in the tables below.  
+Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables below.  
 
-#### Patient Identification Module Attributes
+#### Patient identification module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
 | Patient's Name   | (0010,0010)   | Patient's full name   |
@@ -162,7 +162,7 @@ Currently, any attributes in the [Patient Identification Module](https://dicom.n
 | Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother. 
 | Medical Record Locator | (0010,1090)| An identifier used to find the patient's existing medical record (for example, film jacket). 
 
-#### Patient Demographic Module Attributes
+#### Patient demographic module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
 | Patient's Age | (0010,1010) | Age of the Patient.  |
@@ -191,10 +191,10 @@ Currently, any attributes in the [Patient Identification Module](https://dicom.n
 | Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry.  |
 
 ## Limitations
-There are a few notable limitations when using the update operation:
+There are a few limitations when you use the bulk update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
-- Only one update operation can be performed at a time.
-- There's no way to delete only the latest version of a study or revert back to the original version.  
+- Only one bulk update operation can be performed at a time.
+- You can't delete only the latest version of a study or revert back to the original version.  
 
-[!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]
+[!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-dicom-trademark.md)]
