@@ -89,6 +89,8 @@ To add the service configuration to your project:
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
+    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
+
 1. Add the following content to it:
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
