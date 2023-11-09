@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -17,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2023
+  - [Manage protection of datasources using Azure Business Continuity center (preview)](#manage-protection-of-datasources-using-azure-business-continuity-center-preview)
   - [Save your MARS backup passphrase securely to Azure Key Vault is now generally available.](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-is-now-generally-available)
   - [Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available](#update-rollup-1-for-microsoft-azure-backup-server-v4-is-now-generally-available)
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
@@ -72,6 +73,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## Manage protection of datasources using Azure Business Continuity center (preview)
+
+You can now also manage Azure Backup protections with Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. 
+
+For more information, see the [supported scenarios of ABC center (preview)](../business-continuity-center/business-continuity-center-support-matrix.md).
+
 ## Save your MARS backup passphrase securely to Azure Key Vault is now generally available.
 
 Azure Backup now allows you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase with MARS agent.
@@ -89,12 +97,11 @@ Azure Backup now provides Update Rollup 1 for Microsoft Azure Backup Server (MAB
 
 For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
 
-
 ## SAP HANA instance snapshot backup support is now generally available
 
 Azure Backup now supports SAP HANA instance snapshot backup and enhanced restore, which provides a cost-effective backup solution using managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
 
- You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot.
+You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot.
 
 >[!Note]
 >- Currently, the snapshots are stored on your storage account/operational tier and isn't stored in Recovery Services vault.
