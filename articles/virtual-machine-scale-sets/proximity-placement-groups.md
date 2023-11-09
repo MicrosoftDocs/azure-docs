@@ -113,6 +113,10 @@ Get-AzProximityPlacementGroup
 
 ## Create a scale set in a proximity placement group
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a scale in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVMSS](/powershell/module/az.compute/new-azvmss) to create the scale set.
 
 ```azurepowershell-interactive
