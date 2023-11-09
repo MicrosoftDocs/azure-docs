@@ -11,7 +11,7 @@ ms.date: 10/01/2023
 
 # Delete files in Managed Airflow
 
-This guide will walk you through the steps to delete DAG files in Managed Airflow environment.  
+This guide walks you through the steps to delete DAG files in Managed Airflow environment.  
 
 ## Prerequisites
 
@@ -20,13 +20,13 @@ This guide will walk you through the steps to delete DAG files in Managed Airflo
 
 ## Delete DAGs using Git-Sync Feature.  
 
-While using Git-sync feature, deleting DAGs in Managed Airflow is not possible because all your Git source files are synchronized with Managed Airflow. The recommended approach is to remove the file from your source code repository and your commit will get synchronized with Managed Airflow. 
+While using Git-sync feature, deleting DAGs in Managed Airflow isn't possible because all your Git source files are synchronized with Managed Airflow. The recommended approach is to remove the file from your source code repository and your commit gets synchronized with Managed Airflow. 
 
 ## Delete DAGs using Blob Storage.
 
 ### Delete DAGs
 
-1. Let’s say you want to delete the DAG named ``Tutorial.py`` as shown in the image below. 
+1. Let’s say you want to delete the DAG named ``Tutorial.py`` as shown in the image. 
     
     :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot shows the DAG to be deleted.":::
 

@@ -16,21 +16,21 @@ ms.date: 10/20/2023
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
 Managed Airflow in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows. 
-To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage or via Github repository. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
+To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage or via GitHub repository. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
 
 ## Create a Managed Airflow environment
 Refer to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
 
 ## Import DAGs
-Managed Airflow provides two distinct methods for loading DAGs from python source files into Airflow's environment. These methods are listed below:
+Managed Airflow provides two distinct methods for loading DAGs from python source files into Airflow's environment. These methods are:
 
-- **Git Sync:** This service allows you to synchronize your GitHub repository with Managed Airflow, enabling you to import DAGs directly from your GitHub repository. Refer to: [Sync a Github repository in Managed Airflow](airflow-sync-github-repository.md)
+- **Enable Git Sync:** This service allows you to synchronize your GitHub repository with Managed Airflow, enabling you to import DAGs directly from your GitHub repository. Refer to: [Sync a GitHub repository in Managed Airflow](airflow-sync-github-repository.md)
 
-- **Blob Storage:** With this approach, you can upload your DAG files to a designated directory within a blob storage account that is linked to your Azure Data Factory. Subsequently, you import the file paths of these DAGs in Managed Airflow. Refer to: [Import Dags using Azure Blob Storage](airflow-import-dags-blob-storage.md)
+- **Azure Blob Storage:**  You can upload your DAGs, plugins etc. to a designated folder within a blob storage account that is linked with Azure Data Factory. Then, you import the file path of the folder in Managed Airflow. Refer to: [Import DAGs using Azure Blob Storage](airflow-import-dags-blob-storage.md)
 
 ## Remove DAGs from the Airflow environment
 
-Refer to: [Delete Dags in Managed Airflow](delete-dags-in-managed-airflow.md)
+Refer to: [Delete DAGs in Managed Airflow](delete-dags-in-managed-airflow.md)
 
 ## Monitor DAG runs
 
