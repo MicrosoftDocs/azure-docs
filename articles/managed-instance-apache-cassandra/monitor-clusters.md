@@ -170,7 +170,7 @@ Examples:
   ```
 
 ### Cassandra 4 and later
-In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance on updating the Cassandra configuration, please refer to [Update Cassandra Configuration](create-cluster-portal.md#update-cassandra-configuration). The available options are as follows:
+In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance on updating the Cassandra configuration, please refer to [Update Cassandra Configuration](create-cluster-portal.md#update-cassandra-configuration). The available options are as follows (Reference: [Cassandra Audit Logging Documentation](https://cassandra.apache.org/doc/stable/cassandra/operating/audit_logging.html)):
 ```
 audit_logging_options:
     included_keyspaces: <Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces>
