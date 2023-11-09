@@ -84,7 +84,7 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 * Default outbound access IP doesn't support fragmented packets.
 
-* ICMP pings are not supported with resources using default outbound access IPs.
+* Default outbound access IP doesn't support ICMP pings.
 
 ## Next steps
 
