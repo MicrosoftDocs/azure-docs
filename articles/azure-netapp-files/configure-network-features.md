@@ -84,6 +84,9 @@ This section shows you how to set the network features option when you create a 
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same network interface card (NIC) for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible.
 
+>[!IMPORTANT]
+>It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
+
 You can also revert the option from *Standard* back to *Basic* network features, but considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features.
 
 See [regions supported for this feature](azure-netapp-files-network-topologies.md#regions-edit-network-features).
@@ -104,9 +107,6 @@ This feature currently doesn't support SDK.
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
 
->[!IMPORTANT]
->You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
-
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
@@ -117,55 +117,53 @@ This feature currently doesn't support SDK.
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 
 
-Updating the network features of your volume alters the underlying network sibling set of the NIC utilized by that volume. This NIC can be utilized by other volumes you own, and other NICs can share the same network sibling set. **Updating the network features of one volume can inadvertently update the network features of several other volumes.**
-
-[Terraform uses state data](https://developer.hashicorp.com/terraform/language/state) to remember which remote Azure resources correspond to each resource in a Terraform module. Implementing a feature in Terraform that changes the network features of a single volume that could potentially change the network features of other volumes is not possible, as the state data representing the other volumes network features that were inadvertently changed wouldn't match the remote volumes now updated network features. 
+Updating the network features of your volume alters the underlying network sibling set of the NIC utilized by that volume. This NIC can be utilized by other volumes you own, and other NICs can share the same network sibling set. **If not performed correctly, updating the network features of one Terraform-managed volume can inadvertently update the network features of several other volumes.**
 
 >[!IMPORTANT]
 >A discontinuity between state data and remote Azure resource configurations can result in the destruction of one or more volumes and possible data loss upon running `terraform apply`. Carefully follow the workaround outlined here to safely update the network features of any Terraform-managed volume.
 
 >[!NOTE]
->A Terraform module usually consists solely of all top level `*.tf` and/or `*.tf.json` template files in a directory, but a Terraform module can make use of module calls to explicitly include other modules into the configuration. You can [learn more about possible module structures](https://developer.hashicorp.com/terraform/language/files). To update all templates in your module that reference Azure NetApp Files volumes, be sure to look at all possible sources where your module can reference templates.
+>A Terraform module usually consists solely of all top level `*.tf` and/or `*.tf.json` configuration files in a directory, but a Terraform module can make use of module calls to explicitly include other modules into the configuration. You can [learn more about possible module structures](https://developer.hashicorp.com/terraform/language/files). To update all configuration file in your module that reference Azure NetApp Files volumes, be sure to look at all possible sources where your module can reference configuration files.
 
-The name of the state file in your Terraform module is `terraform.tfstate`. It contains the properties and their values of all deployed resources in the module. Below is highlighted the `network_features` property with value “Basic” for an Azure NetApp Files Volume in a `terraform.tfstate` example file:
+The name of the state file in your Terraform module is `terraform.tfstate`. It contains the arguments and their values of all deployed resources in the module. Below is highlighted the `network_features` argument with value “Basic” for an Azure NetApp Files Volume in a `terraform.tfstate` example file:
 
 :::image type="content" source="../media/azure-netapp-files/terraform-module.png" alt-text="Screenshot of Terraform module." lightbox="../media/azure-netapp-files/terraform-module.png":::
 
-Do _not_ manually update the `terraform.tfstate` file. Likewise, the `network_features` property in the `*.tf` and `*.tf.json` template files should also not be updated until you follow the steps outlined here as this would cause a mismatch in the properties of the remote volume and the local template representing that remote volume. When Terraform detects a mismatch between the properties of remote resources and local templates representing those remote resources, Terraform can destroy the remote resources and reprovision them with the properties in the local templates. This can cause data loss in a volume.
+Do _not_ manually update the `terraform.tfstate` file. Likewise, the `network_features` argument in the `*.tf` and `*.tf.json` configuration files should also not be updated until you follow the steps outlined here as this would cause a mismatch in the arguments of the remote volume and the local configuration file representing that remote volume. When Terraform detects a mismatch between the arguments of remote resources and local configuration files representing those remote resources, Terraform can destroy the remote resources and reprovision them with the arguments in the local configuration files. This can cause data loss in a volume.
 
-By following the steps outlined here, the `network_features` property in the `terraform.tfstate` file is automatically updated by Terraform to have the value of "Standard" without destroying the remote volume, thus indicating the network features has been successfully updated to Standard.
+By following the steps outlined here, the `network_features` argument in the `terraform.tfstate` file is automatically updated by Terraform to have the value of "Standard" without destroying the remote volume, thus indicating the network features has been successfully updated to Standard.
 
 #### Determine affected volumes 
 
 Changing the network features for an Azure NetApp Files Volume can impact the network features of other Azure NetApp Files Volumes. Volumes in the same network sibling set must have the same network features setting. Therefore, before you change the network features of one volume, you must determine all volumes affected by the change using the Azure portal.
 
-1. Log into the Azure portal. 
+1. Log in to the Azure portal. 
 1. Navigate to the volume for which you want to change the network features option.
 1. Select the **Change network features**. ***Do **not** select Save.***
 1. Record the paths of the affected volumes then select **Cancel**. 
 
 :::image type="content" source="../media/azure-netapp-files/affected-volumes-network-features.png" alt-text="Screenshot of volumes affected by change network features." lightbox="../media/azure-netapp-files/affected-volumes-network-features.png":::
 
-All Terraform templates that define these volumes need to be updated, meaning you need to find the Terraform templates that define these volumes. The templates representing the affected volumes might not be in the same Terraform module.
+All Terraform configuration files that define these volumes need to be updated, meaning you need to find the Terraform configuration files that define these volumes. The configuration files representing the affected volumes might not be in the same Terraform module.
 
 >[!IMPORTANT]
 >With the exception of the single volume you know is managed by Terraform, additional affected volumes might not be managed by Terraform. An additional volume that is listed as being in the same network sibling set does not mean that this additional volume is managed by Terraform.
 
-#### Modify the affected volumes’ templates
+#### Modify the affected volumes’ configuration files
 
-You must modify the templates for each affected volume managed by Terraform that you discovered. Failing to update the template can destroy the volume or result in data loss. 
+You must modify the configuration files for each affected volume managed by Terraform that you discovered. Failing to update the configuration file can destroy the volume or result in data loss. 
 
 >[!IMPORTANT]
->Depending on your volume’s lifecycle configuration block settings in your Terraform template, your volume can be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform and which are not.
+>Depending on your volume’s lifecycle configuration block settings in your Terraform configuration file, your volume can be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform and which are not.
 
-1. Locate the affected Terraform-managed volumes templates.
+1. Locate the affected Terraform-managed volumes configuration files.
 1. Add the `ignore_changes = [network_features]` to the volume's `lifecycle` configuration block. If the `lifecycle` block does not exist in that volume’s configuration, add it.
 
     :::image type="content" source="../media/azure-netapp-files/terraform-lifecycle.png" alt-text="Screenshot of the lifecycle configuration." lightbox="../media/azure-netapp-files/terraform-lifecycle.png":::
 
 1. Repeat for each affected Terraform-managed volume. 
  
-The `ignore_changes` feature is intended to be used when a resource’s reference to data might change after the resource is created. Adding the `ignore_changes` feature to the `lifecycle` block allows the network features of the volumes to be changed in the Azure portal without Terraform trying to fix this property of the volume on the next run of `terraform apply`. You can [learn more about the `ignore_changes` feature](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle). 
+The `ignore_changes` feature is intended to be used when a resource’s reference to data might change after the resource is created. Adding the `ignore_changes` feature to the `lifecycle` block allows the network features of the volumes to be changed in the Azure portal without Terraform trying to fix this argument of the volume on the next run of `terraform apply`. You can [learn more about the `ignore_changes` feature](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle). 
 
 #### Update the volumes' network features
 
@@ -176,7 +174,7 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
     :::image type="content" source="../media/azure-netapp-files/change-network-features-standard.png" alt-text="Screenshot of confirm change of network features." lightbox="../media/azure-netapp-files/change-network-features-standard.png":::
 
 1. Select **Save**. 
-1. Wait until you receive a notification that the network features update has  completed. In your **Notifications**, the message reads "Successfully updated network features. Network features for network sibling set have successfully updated to ‘Standard’."
+1. Wait until you receive a notification that the network features update has completed. In your **Notifications**, the message reads "Successfully updated network features. Network features for network sibling set have successfully updated to ‘Standard’."
 1. In the terminal, run `terraform plan` to view any potential changes. The output should indicate that the infrastructure matches the configuration with a message reading "No changes. Your infrastructure matches the configuration."
 
     :::image type="content" source="../media/azure-netapp-files/terraform-plan-output.png" alt-text="Screenshot of terraform plan command output." lightbox="../media/azure-netapp-files/terraform-plan-output.png":::
@@ -188,21 +186,21 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
 
     Repeat for all modules containing affected volumes.
 
-    Observe the change in the value of the `network_features` property in the `terraform.tfstate` files, which changed from "Basic" to "Standard":
+    Observe the change in the value of the `network_features` argument in the `terraform.tfstate` files, which changed from "Basic" to "Standard":
 
     :::image type="content" source="../media/azure-netapp-files/updated-terraform-module.png" alt-text="Screenshot of updated Terraform module." lightbox="../media/azure-netapp-files/updated-terraform-module.png":::
 
-### Update Terraform-managed Azure NetApp Files volumes’ templates for configuration parity and future volumes' recreation or updates
+#### Update Terraform-managed Azure NetApp Files volumes’ configuration file for configuration parity
 
-Terraform now ignores changes to your volumes’ network features that occur outside of the volumes’ Terraform templates, such as in Azure portal. However, if for any reason volumes were deleted/destroyed, and recreated using the current templates, the volumes is recreated with a “Basic” network features. Additionally, the value of “Basic” for the `network_features` property in the volumes’ templates doesn't accurately reflect the remote volumes’ network features, which is Standard.
+Once you've update the volumes' network features, you must also modify the `network_features` arguments and `lifecycle blocks` in all configuration files of affected Terraform-managed volumes. This update ensures that if you have to recreate or update the volume, it maintains its Standard network features setting. 
 
-To solve this problem, update the `network_features` property in all templates of affected Terraform-managed volumes with the value of “Standard” and remove the `ignore_changes = [network_features]` line from the `lifecycle` block:
+1. In the configuration file, set `network_features` to "Standard" and remove the `ignore_changes = [network_features]` line from the `lifecycle` block. 
 
-:::image type="content" source="../media/azure-netapp-files/terraform-network-features-standard.png" alt-text="Screenshot of Terraform module with Standard network features." lightbox="../media/azure-netapp-files/terraform-network-features-standard.png":::
+    :::image type="content" source="../media/azure-netapp-files/terraform-network-features-standard.png" alt-text="Screenshot of Terraform module with Standard network features." lightbox="../media/azure-netapp-files/terraform-network-features-standard.png":::
 
-When you implement this update, the Terraform templates accurately match the description of remote affected volumes. In the event of volume recreation, the volumes are created with Standard network features from the time of creation, and the templates accurately reflect the remote resources.
-
-Verify that the updated templates accurately represent the configuration of the remote resources by running `terraform plan`. Confirm the output reads "No changes." To complete the update, run `terraform apply`.
+1. Repeat for each affected Terraform-managed volume. 
+1. Verify that the updated configuration files accurately represent the configuration of the remote resources by running `terraform plan`. Confirm the output reads "No changes."
+1. Run `terraform apply` to complete the update. 
 
 ## Next steps  
 
