@@ -411,17 +411,17 @@ Schema breakdown:
 
 The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks, plus an additional object for the local temporary disk.
 
-The image reference object contains the following information about the OS image:
+The image reference object contains the following information about the OS image, please note that an image could come either from the platform, marketplace, community gallery, or direct shared gallery but not both:
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `id` | Resource ID | 2019-06-01
 | `offer` | Offer of the platform or marketplace image | 2019-06-01
-| `publisher` | Image publisher | 2019-06-01
-| `sku` | Image sku | 2019-06-01
-| `version` | Version of the platform or marketplace image | 2019-06-01
-| `communityGalleryImageId` | Resource ID when using a community image | 2023-07-01
-| `sharedGalleryImageId` | Resource ID when using a direct shared image | 2023-07-01
+| `publisher` | Publisher of the platform or marketplace image | 2019-06-01
+| `sku` | Sku of the platform or marketplace image | 2019-06-01
+| `version` | Version of the image | 2019-06-01
+| `communityGalleryImageId` | Resource ID of the community image, empty otherwise | 2023-07-01
+| `sharedGalleryImageId` | Resource ID o direct shared image, empty otherwise | 2023-07-01
 | `exactVersion` | Version of the community or direct shared image | 2023-07-01
 
 The OS disk object contains the following information about the OS disk used by the VM:
@@ -773,9 +773,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "publisher": "MicrosoftWindowsServer",
             "sku": "2019-Datacenter",
             "version": "latest",
-            "communityGalleryImageId": "",
-            "sharedGalleryImageId": "",
-            "exactVersion": ""
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -915,9 +915,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "publisher": "Canonical",
             "sku": "16.04.0-LTS",
             "version": "latest",
-            "communityGalleryImageId": "",
-            "sharedGalleryImageId": "",
-            "exactVersion": ""
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
