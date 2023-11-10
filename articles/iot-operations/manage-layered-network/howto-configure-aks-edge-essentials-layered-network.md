@@ -46,7 +46,7 @@ After you complete this section, the Layered Network Management service is ready
 
 ### Configure the custom DNS
 
-In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns.md). In the article:
+In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns). In the article:
     - If you choose the *CoreDNS* approach, you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
     - If you choose to use a *DNS server*, follow the steps to set up the DNS server before you move to the next section in this article.
 
