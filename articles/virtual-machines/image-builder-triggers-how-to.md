@@ -69,6 +69,8 @@ additionalregion=eastus2
 acgName=ibTriggersGallery
 # Name of the image definition to be created - ibTriggersImageDef in this example
 imageDefName=ibTriggersImageDef
+# Name of the Trigger to be created - ibTrigger in this example
+ibTriggerName=ibTrigger
 # Name of the image template to be created - ibTriggersImageTemplate in this example
 imageTemplateName=ibTriggersImageTemplate
 # Reference name in the image distribution metadata
@@ -161,12 +163,12 @@ Image template requirements:
 After configuring your template use the following command to submit the image configuration to the Azure Image Builder service:
 
 ```azurecli-interactive
-az resource create --api-version 2022-07-01 --resource-group $resourceGroupName --properties @helloImageTemplateforTriggers.json --is-full-object --resource-type Microsoft.VirtualMachineImages/imageTemplates --name $imageTemplateName
+az image builder create -g $resourceGroupName -n $imageTemplateName --image-template helloImageTemplateforTriggers.json
 ```
 You can use the following command to check to make sure the image template was created successfully:
 
 ```azurecli-interactive
-az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName
+az image builder show --name $imageTemplateName --resource-group $resourceGroupName
 ```
 > [!NOTE]
 > When running the command above the `provisioningState` should say "Succeeded", which means the template was created without any issues. If the `provisioningState` does not say succeeded, you will not be able to make a trigger use the image template.
@@ -189,12 +191,12 @@ Trigger requirements:
 Use the following command to add the trigger to your resource group.
 
 ```azurecli-interactive
-az resource create --api-version 2022-07-01 --resource-group $resourceGroupName --properties @trigger.json --is-full-object --namespace Microsoft.VirtualMachineImages --parent imageTemplates/$imageTemplateName --resource-type triggers --name source
+az image builder trigger create --name $ibTriggerName --resource-group $resourceGroupName --image-template-name $imageTemplateName --kind SourceImage
 ```
 You can also use the following command to check that the trigger was created successfully:
 
 ```azurecli
-az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/triggers/source
+az image builder trigger show --name $ibTriggerName --image-template-name $imageTemplateName --resource-group $resourceGroupName
 ```
 > [!NOTE]
 > When running the command above the `provisioningState` should say `Succeeded`, which means the trigger was created without any issues. In `status`, the code should say `Healthy` and the message should say `Trigger is active.`
@@ -206,14 +208,14 @@ az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/r
 Use the following command to delete the trigger:
 
 ```azurecli-interactive
-az resource delete --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/triggers/source
+az image builder trigger delete --name $ibTriggerName --image-template-name $imageTemplateName --resource-group $resourceGroupName
 ```
 #### Deleting the image template
 
 Use the following command to delete the image template:
 
 ```azurecli-interactive
-az resource delete --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName
+az image builder delete --name $imageTemplateName --resource-group $resourceGroupName
 ```
 
 ## Next steps
