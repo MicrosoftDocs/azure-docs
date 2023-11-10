@@ -89,7 +89,7 @@ Use the token in requests to the Application Insights endpoint:
     POST /v1/apps/yous_app_id/query?timespan=P1D
     Host: https://api.applicationinsights.io
     Content-Type: application/json
-    Authorization: bearer <your access token>
+    Authorization: Bearer <your access token>
 
     Body:
     {
