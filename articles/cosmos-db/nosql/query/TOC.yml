@@ -5,7 +5,7 @@
   items:
     - name: Use Copilot (preview)
       href: how-to-enable-use-copilot.md
-    - name: Transparency FAQ
+    - name: Copilot transparency FAQ
       href: ../../copilot-faq.yml
 - name: Clauses
   items:
