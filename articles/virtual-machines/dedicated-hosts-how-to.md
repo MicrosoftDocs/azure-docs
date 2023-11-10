@@ -413,27 +413,27 @@ Start-AzVM `
 
 ---
 
-## Move a VM from dedicated host to multi-tenant infrastructure
-You can move a VM that is running on a dedicated host to multi-tenant infrastructure, but the VM must first be Stop\Deallocated.
+## Move a VM from dedicated host to multitenant infrastructure
+You can move a VM that is running on a dedicated host to multitenant infrastructure, but the VM must first be Stop\Deallocated.
 
 - Make sure that your subscription has sufficient vCPU quota for the VM in the region where
-- Your multi-tenant VM will be scheduled in the same region and zone as the dedicated host
+- Your multitenant VM will be scheduled in the same region and zone as the dedicated host
 
 ### [Portal](#tab/portal)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the [portal](https://portal.azure.com).
+Move a VM from dedicated host to multitenant infrastructure using the [portal](https://portal.azure.com).
 
 1. Open the page for the VM.
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
 1. Select **None** under host group drop-down menu.
 1. When you're done, select **Save** at the top of the page.
-1. After the VM has been reconfigured as a multi-tenant VM, select **Overview** from the left menu.
+1. After the VM has been reconfigured as a multitenant VM, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
 
 ### [CLI](#tab/cli)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multi-tenant VM. 
+Move a VM from dedicated host to multitenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multitenant VM. 
 
 Replace the values with your own information.
 
@@ -446,7 +446,7 @@ az vm start -n myVM -g myResourceGroup
 
 ### [PowerShell](#tab/powershell)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the PowerShell.
+Move a VM from dedicated host to multitenant infrastructure using the PowerShell.
 
 Replace the values of the variables with your own information.
 
