@@ -8,7 +8,7 @@ ms.date: 11/10/2023
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
 
-[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as an additional authentication protocol issued by Microsoft Entra ID. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
+[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as another authentication protocol issued by Microsoft Entra ID. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
 
 AKS rotates the key automatically and periodically. If you don't want to wait, you can rotate the key manually and immediately. The maximum lifetime of the token issued by the OIDC provider is one day.
 
@@ -130,7 +130,7 @@ The output should resemble the following:
 }
 ```
 
-During key rotation, there is one additional key present in the discovery document.
+During key rotation, there's one other key present in the discovery document.
 
 ## Next steps
 
