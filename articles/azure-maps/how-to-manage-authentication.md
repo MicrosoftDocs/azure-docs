@@ -38,7 +38,7 @@ To view your Azure Maps authentication details:
 
 3. Select **Authentication** in the settings section of the left pane.
 
-   :::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/shared/get-key.png":::
+   :::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 ## Choose an authentication category
 
