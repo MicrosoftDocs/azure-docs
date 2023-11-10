@@ -26,10 +26,10 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-   ![Open VS Code desktop](../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png)
+:::image type="content" source="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png" alt-text="Open VS Code desktop" lightbox="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png":::
 
 
-1. [Deploy IoT Operations using az CLI](../deploy-iot-ops/howto-deploy-iot-operations.md#deploy-extensions&tabs=cli).
+1. [Connect the cluster to Azure Arc](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster).
 
 ## Deploy edge and cloud Azure resources
 
@@ -50,10 +50,11 @@ TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudRes
 > The deployment configuration is for demonstration or development purposes only. They are not recommended for live environments.
 
 The resources deployed by the template include: 
-* Event Hubs related resources 
-* IoT MQ Broker
-* Kafka north-bound connector and topicmap
-* Azure role-based access assignments
+* [Event Hubs related resources](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L349) 
+* [IoT Operations MQ Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L118)
+* [IoT MQ Broker](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L202)
+* [Kafka north-bound connector and topicmap](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L282)
+* [Azure role-based access assignments](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L379)
 
 
 
