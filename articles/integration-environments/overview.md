@@ -23,6 +23,8 @@ Azure Integration Environments reduces this complexity by providing a central pl
 
 To provide business information about an application group, business analysts can add flow charts that illustrate the business processes implemented by the Azure resources in each group. For insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each stage and the business properties to actual Azure resources and data sources.
 
+:::image type="content" source="media/overview/business-process.png" alt-text="Coceptual diagram that shows visualizing business flow as a business process that maps to Azure resources in an application group." lightbox="media/overview/business-process.png":::
+
 For this release, an integration environment offers the following capabilities as a unified, "single-pane-of view" experience in the Azure portal:
 
 - [Central organization and management](#central-resource)
