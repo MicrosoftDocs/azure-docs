@@ -120,7 +120,7 @@ To adjust Advisor VM/VMSS right sizing rules, follow these steps:
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  :::image type="content" source="media/advisor-configure-rules.png" alt-text="Screenshot of Azure Advisor configuration option for VM/VMSS sizing rules." lightbox="media/advisor-configure-rules.png":::
+  :::image type="content" source="media/advisor-get-started/advisor-configure-rules.png" alt-text="Screenshot of Azure Advisor configuration option for VM/VMSS sizing rules." lightbox="media/advisor-get-started/advisor-configure-rules.png":::
 
 ## Next steps
 
