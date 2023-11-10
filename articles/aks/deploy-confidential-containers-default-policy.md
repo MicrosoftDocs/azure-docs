@@ -428,21 +428,21 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
   This command displays values like the following output:
 
-    ```output
-    Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
-    Location: MyLocation
-    ResourceGroupName: MyResourceGroup
-    Name: MyAttestationProvider
-    Status: Ready
-    TrustModel: AAD
-    AttestUri: https://MyAttestationProvider.us.attest.azure.net
-    Tags:
-    TagsTable:
-    ```
+  ```output
+  Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
+  Location: MyLocation
+  ResourceGroupName: MyResourceGroup
+  Name: MyAttestationProvider
+  Status: Ready
+  TrustModel: AAD
+  AttestUri: https://MyAttestationProvider.us.attest.azure.net
+  Tags:
+  TagsTable:
+  ```
 
-    ```bash
-    export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
-    ```
+  ```bash
+  export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
+  ```
 
 1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `https://<your-unique-keyvault-name>.vault.azure.net`
 
@@ -529,7 +529,7 @@ kubectl delete pod pod-name
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
 [confidential-containers-considerations]: confidential-containers-overview.md#considerations
 [azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
-[azure-managed-hsm]: ../azure/key-vault/managed-hsm/overview.md
+[azure-managed-hsm]: ../key-vault/managed-hsm/overview.md
 [provision-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [assign-key-vault-access-cli]: ../key-vault/general/rbac-guide.md#assign-role
 [key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator-preview
