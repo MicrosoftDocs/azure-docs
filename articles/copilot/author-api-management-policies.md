@@ -20,7 +20,7 @@ When you're working with API Management policies, you can also select a portion 
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to get help authoring API Management policies. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to get help authoring API Management policies. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of policies.
 
 - "Generate a policy to configure rate limiting with 5 requests per second"
 - "Generate a policy to remove a 'X-AspNet-Version' header from the response"
