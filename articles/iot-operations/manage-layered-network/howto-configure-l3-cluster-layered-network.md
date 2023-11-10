@@ -1,7 +1,7 @@
 ---
 title: Configure level 3 cluster in an isolated network
 # titleSuffix: Azure IoT Layered Network Management
-description: Prepare the level 3 cluster and connnect it to the Layered Network Management service.
+description: Prepare a level 3 cluster and connect it to the IoT Layered Network Management service
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This page describes a special environment setup for deploying the Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. You will setup a kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -24,7 +24,8 @@ You'll complete the following tasks:
 - Arc-enable the cluster.
 
 ## Prerequisites
-Refer to the **hardware requirements** and **Prerequisites** in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+
+Follow the guidance for **hardware requirements** and **prerequisites** sections in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## Configure a Kubernetes cluster
 
@@ -57,19 +58,19 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
-
 ## Create the AKS Edge Essentials cluster
 
-To create the AKS Edge Essentials cluster that is compatible for Azure IoT Operations:
+To create the AKS Edge Essentials cluster that's compatible with Azure IoT Operations:
 
 1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
-    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the _aksedge-config.json_ file as follows:
+
+    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the *aksedge-config.json* file as follows:
 
     - `Init.ServiceIPRangeSize` = 10
     - `LinuxNode.DataSizeInGB` = 30
     - `LinuxNode.MemoryInMB` = 8192
 
-    In the **Network** section, set the `SkipDnsCheck` property to **true** and add the `DnsServers` property set to the address of the DNS server in the subnet.
+    In the **Network** section, set the `SkipDnsCheck` property to **true**.Add and set the `DnsServers` to the address of the DNS server in the subnet.
 
     ```json
     "DnsServers": ["<IP ADDRESS OF THE DNS SERVER IN SUBNET>"],
@@ -77,6 +78,7 @@ To create the AKS Edge Essentials cluster that is compatible for Azure IoT Opera
     ```
 
 1. Install **local-path** storage in the cluster by running the following command:
+
     ```cmd
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
     ```
@@ -85,7 +87,7 @@ To create the AKS Edge Essentials cluster that is compatible for Azure IoT Opera
 
 In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
 
-After the device is moved to L3, configure the DNS setting using the following steps:
+After the device is moved to level 3, configure the DNS setting using the following steps:
 
 1. In **Windows Control Panel** > **Network and Internet** > **Network and Sharing Center**, select the current network connection.
 1. In the network properties dialog, select **Properties** > **Internet Protocol Version 4 (TCP/IPv4)** > **Properties**.
@@ -127,6 +129,7 @@ You should complete this step in an *internet facing environment outside of the 
     ```
 
 1. For better performance, increase the file descriptor limit:
+
     ```bash
     echo fs.file-max = 100000 | sudo tee -a /etc/sysctl.conf
     
@@ -201,7 +204,8 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 
 ### Arc-enable cluster
 
-1. Sign in with Azure CLI. To avoid permission issues later, it's important that the sign in happens interactively by using a browser window:
+1. Sign in with Azure CLI. To avoid permission issues later, it's important that the sign in happens interactively using a browser window:
+
     ```powershell
     az login
     ```
@@ -256,8 +260,10 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
    ```
 
 ### Configure cluster network
+
 >[!IMPORTANT]
 > These steps are for AKS Edge Essentials only.
+
 After you've deployed Azure IoT Operations to your cluster, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
 1. Enable a firewall rule for port 8883:
     ```powershell
