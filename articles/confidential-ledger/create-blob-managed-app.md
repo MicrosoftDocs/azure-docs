@@ -18,7 +18,7 @@ ms.topic: overview
 
 ## Overview
 
-The `Blob Storage Digest Backed by Confidential Ledger` Managed Application can be used to guarantee that the blobs within a blob container are trusted and not tampered with. The application, once connected to a storage account, tracks all blobs being added to every container in the storage account in real time in addition to calculating and storing the digests into Azure Confidential Ledger. Audits can be performed at any time to check the validity of the blobs and to ensure that the blob container is not tampered with.
+The **Blob Storage Digest Backed by Confidential Ledger** Managed Application can be used to guarantee that the blobs within a blob container are trusted and not tampered with. The application, once connected to a storage account, tracks all blobs being added to every container in the storage account in real time in addition to calculating and storing the digests into Azure Confidential Ledger. Audits can be performed at any time to check the validity of the blobs and to ensure that the blob container is not tampered with.
 
 
 ## Deploying the Managed Application
@@ -29,11 +29,11 @@ The Managed Application can be found in the Azure Marketplace here: [Blob Storag
 
 Once the required fields are filled and the application is deployed, the following resources are created under a Managed Resource Group:
 
-- [Confidential Ledger](https://learn.microsoft.com/en-us/azure/confidential-ledger/overview)
-- [Service Bus Queue](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) with [Sessions](https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions) enabled
-- [Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) (Publisher owned storage account used to store digest logic and audit history)
-- [Function App](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python)
-- [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- [Confidential Ledger](overview.md)
+- [Service Bus Queue](./../service-bus-messaging/service-bus-messaging-overview.md) with [Sessions](./../articles/service-bus-messaging/message-sessions.md) enabled
+- [Storage Account](./../articles/storage/common/storage-account-overview.md) (Publisher owned storage account used to store digest logic and audit history)
+- [Function App](./../azure-docs-pr/articles/azure-functions/functions-overview.md)
+- [Application Insights](./../azure-docs-pr/articles/azure-monitor/app/app-insights-overview.md)
 
 ## Connecting a Storage Account to the Managed Application
 
@@ -41,7 +41,7 @@ Once a Managed Application is created, you are able to then connect the Managed 
 
 ### Create a Topic and Event Subscription for the Storage Account
 
-The Managed Application uses an Azure Service Bus Queue to track and record all `Create Blob` events. You can add this Queue as an Event Subscriber for any storage account that you are creating blobs for.
+The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you are creating blobs for.
 
 #### Azure portal
 
@@ -121,7 +121,7 @@ az role assignment create \
 `scope` - Resource ID of storage account to create the role for
 
 > [!NOTE]
-> Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of 10 storage accounts that contain high usage blob containers.
+> Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
 
 ## Adding Blobs and Digest Creation
 
@@ -212,9 +212,9 @@ You can delete the Managed Application to clean up and remove all associated res
 
 For more information about managed applications and the deployed resources, see the following links:
 
-- [Managed Applications](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview)
-- [Azure Service Queue Sessions](https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)
-- [Azure Storage Events](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
+- [Managed Applications](./../articles/azure-resource-manager/managed-applications/overview.md)
+- [Azure Service Queue Sessions](./../articles/service-bus-messaging/message-sessions.md)
+- [Azure Storage Events](./../articles/storage/blobs/storage-blob-event-overview.md)
 
 ## Next steps
 
