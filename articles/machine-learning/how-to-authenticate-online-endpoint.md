@@ -35,6 +35,8 @@ Access to retrieve the key or token for an online endpoint is restricted by Azur
 
 For more information on using Azure RBAC with Azure Machine Learning, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
 
+On the option to retrieve the token via REST API, see [Invoke the endpoint to score data with your model](how-to-deploy-with-rest.md#invoke-the-endpoint-to-score-data-with-your-model).
+
 # [Azure CLI](#tab/azure-cli)
 
 To get the key or token, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or token.

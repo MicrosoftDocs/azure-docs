@@ -181,11 +181,11 @@ The following data fields are found in usage detail files and Cost Management AP
 | billingProfileName | Name of the billing profile that groups costs across invoices in a single billing currency across the customers who have onboarded to a Microsoft customer agreement and the CSP customers that have made entitlement purchases like SaaS, Azure Marketplace, and reservations. | N/A |
 | invoiceSectionName | Name of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. | N/A |
 | invoiceSectionID | Identifier of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners. | N/A |
-| **CustomerTenantID** | Identifier of the Azure Active Directory tenant of the customer's subscription. | Customer's organizational ID - the customer's Azure Active Directory TenantID. |
-| **CustomerName** | Name of the Azure Active Directory tenant for the customer's subscription. | Customer's organization name, as shown in the Partner Center. Important for reconciling the invoice with your system information. |
-| **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer's subscription. | Customer Azure Active Directory tenant domain. |
-| **PartnerTenantID** | Identifier for the partner's Azure Active Directory tenant. | Partner Azure Active Directory Tenant ID called as Partner ID, in GUID format. |
-| **PartnerName** | Name of the partner Azure Active Directory tenant. | Partner name. |
+| **CustomerTenantID** | Identifier of the Microsoft Entra tenant of the customer's subscription. | Customer's organizational ID - the customer's Microsoft Entra TenantID. |
+| **CustomerName** | Name of the Microsoft Entra tenant for the customer's subscription. | Customer's organization name, as shown in the Partner Center. Important for reconciling the invoice with your system information. |
+| **CustomerTenantDomainName** | Domain name for the Microsoft Entra tenant of the customer's subscription. | Customer Microsoft Entra tenant domain. |
+| **PartnerTenantID** | Identifier for the partner's Microsoft Entra tenant. | Partner Microsoft Entra tenant ID called as Partner ID, in GUID format. |
+| **PartnerName** | Name of the partner Microsoft Entra tenant. | Partner name. |
 | **ResellerMPNID** | ID for the reseller associated with the subscription. | ID of the reseller on record for the subscription. Not available for current activity. |
 | costCenter | Cost center associated to the subscription. | N/A |
 | billingPeriodStartDate | Billing period start date, as shown on the invoice. | N/A |

@@ -44,7 +44,7 @@ az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \

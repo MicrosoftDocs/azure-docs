@@ -11,7 +11,7 @@ ms.author: cherylmc
 
 # Configure Bastion for native client connections
 
-This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the VNet. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally, you can also upload or download files, depending on the connection type and client.
+This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the VNet. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. Additionally, you can also upload or download files, depending on the connection type and client.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
@@ -54,7 +54,7 @@ After you deploy this feature, there are different connection instructions, depe
 
 Use the following table to understand how to connect from native clients. Notice that different supported combinations of native client and target VMs allow for different features and require specific commands.
 
-| Client | Target VM | Method | Azure Active Directory authentication | File transfer | Concurrent VM sessions | Custom port |
+| Client | Target VM | Method | Microsoft Entra authentication | File transfer | Concurrent VM sessions | Custom port |
 |---|---|---|---| --- |---|---|
 | Windows native client | Windows VM | [RDP](connect-vm-native-client-windows.md) | Yes | [Upload/Download](vm-upload-download-native.md#rdp) | Yes | Yes |
 |  | Linux VM | [SSH](connect-vm-native-client-windows.md) | Yes |No | Yes | Yes |

@@ -125,7 +125,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode flexible \
-  --image RHEL \
+  --image RHELRaw8LVMGen2 \
   --admin-username azureuser \
   --generate-ssh-keys \
   --upgrade-policy Rolling \
@@ -242,7 +242,7 @@ Running [az vm show](/cli/azure/vm#az-vm-show) again, we now will see that the V
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to. 
 
 ```azurecli-interactive
-az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHEL
+az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHELRaw8LVMGen2
 ```
 
 ```output

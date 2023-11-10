@@ -61,7 +61,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
   
 - _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
-- Azure Active Directory (Azure AD) isn't supported for the SFTP endpoint.
+- Microsoft Entra ID isn't supported for the SFTP endpoint.
 
 - POSIX-like access control lists (ACLs) aren't supported for the SFTP endpoint.
 

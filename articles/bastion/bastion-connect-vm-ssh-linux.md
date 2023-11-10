@@ -5,13 +5,13 @@ description: Learn how to use Azure Bastion to connect to Linux VM using SSH.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 10/13/2023
 ms.author: cherylmc
 ---
 
 # Create an SSH connection to a Linux VM using Azure Bastion
 
-This article shows you how to securely and seamlessly create an SSH connection to your Linux VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. 
+This article shows you how to securely and seamlessly create an SSH connection to your Linux VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software.
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md) overview article.
 
@@ -21,7 +21,7 @@ When connecting to a Linux virtual machine using SSH, you can use both username/
 
 Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
 
-The connection settings and features that are available depend on the Bastion SKU you're using.
+The connection settings and features that are available depend on the Bastion SKU you're using. Make sure your Bastion deployment is using the required SKU.
 
 * To see the available features and settings per SKU tier, see the [SKUs and features](bastion-overview.md#sku) section of the Bastion overview article.  
 * To check the SKU tier of your Bastion deployment and upgrade if necessary, see [Upgrade a Bastion SKU](upgrade-sku.md).

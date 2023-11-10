@@ -76,11 +76,11 @@ To get diagnostic data specific to your app, you can insert code to send your ow
 
 Using the <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient?displayProperty=fullName>, you have several APIs available:
 
-* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> is typically used for monitoring usage patterns, but the data it sends also appears under **Custom Events** in diagnostic search. Events are named and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./diagnostic-search.md).
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> is typically used for monitoring usage patterns, but the data it sends also appears under **Custom Events** in diagnostic search. Events are named and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./search-and-transaction-diagnostics.md?tabs=transaction-search).
 * <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> lets you send longer data such as POST information.
 * <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> sends exception details, such as stack traces to Application Insights.
 
-To see these events, on the left menu, open [Search](./diagnostic-search.md). Select the dropdown menu **Event types**, and then choose **Custom Event**, **Trace**, or **Exception**.
+To see these events, on the left menu, open [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search). Select the dropdown menu **Event types**, and then choose **Custom Event**, **Trace**, or **Exception**.
 
 :::image type="content" source="./media/asp-net-exceptions/customevents.png" lightbox="./media/asp-net-exceptions/customevents.png" alt-text="Screenshot that shows the Search screen.":::
 
@@ -165,7 +165,7 @@ Catch ex as Exception
 End Try
 ```
 
-The properties and measurements parameters are optional, but they're useful for [filtering and adding](./diagnostic-search.md) extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you want to each dictionary.
+The properties and measurements parameters are optional, but they're useful for [filtering and adding](./search-and-transaction-diagnostics.md?tabs=transaction-search) extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you want to each dictionary.
 
 ## Browser exceptions
 

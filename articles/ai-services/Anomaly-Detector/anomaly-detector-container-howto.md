@@ -15,6 +15,8 @@ keywords: on-premises, Docker, container, streaming, algorithms
 
 # Install and run Docker containers for the Anomaly Detector API 
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Containers enable you to use the Anomaly Detector API your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run an Anomaly Detector container.

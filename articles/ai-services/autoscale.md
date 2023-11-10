@@ -3,7 +3,7 @@ title: Use the autoscale feature
 description: Learn how to use the autoscale feature for Azure AI services to dynamically adjust the rate limit of your service.
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 06/27/2022
 ---

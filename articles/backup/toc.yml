@@ -24,7 +24,7 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
-  - name: Enable Multi-user authorization on Recovery Services vault
+  - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
     items:
@@ -32,6 +32,10 @@
       href: quick-backup-hana-cli.md
     - name: Restore
       href: quick-restore-hana-cli.md
+  - name: Restore the entire SAP HANA system to snapshot restore point
+    href: quick-sap-hana-database-instance-restore.md    
+  - name: Enable enhanced soft delete
+    href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -60,14 +64,20 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+  - name: Configure SAP HANA database instance snapshot backup
+    href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md    
+  - name: Configure Multi-user authorization (MUA)
     href: multi-user-authorization-tutorial.md
+  - name: Recover soft deleted items with enhanced soft delete
+    href: backup-azure-enhanced-soft-delete-tutorial.md
 - name: Concepts
   items:
-  - name: Resiliency
+  - name: Reliability
     items:
+    - name: Availability zone and disaster recovery
+      href: ../reliability/reliability-backup.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../reliability/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -138,7 +148,7 @@
     href: backup-azure-vms-introduction.md
   - name: SAP HANA database on Azure VM backup
     items:
-    - name: About HANA database backup
+    - name: Overview
       href: sap-hana-database-about.md
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
@@ -464,13 +474,13 @@
         href: backup-azure-sap-hana-database.md
       - name: HANA System Replication database
         href: sap-hana-database-with-hana-system-replication-backup.md
-      - name: Snapshots
+      - name: Instance snapshot
         href: sap-hana-database-instances-backup.md
     - name: Restore
       items:
       - name: Database and HANA System Replication database
         href: sap-hana-database-restore.md
-      - name: Snapshots
+      - name: Instance snapshot
         href: sap-hana-database-instances-restore.md
     - name: Manage
       href: sap-hana-database-manage.md      

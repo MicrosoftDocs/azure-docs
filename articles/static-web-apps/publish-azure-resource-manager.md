@@ -44,7 +44,9 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 1. Select **Generate New Token**.
 
-1. Provide a name for this token in the _Note_ field, for example *myfirstswadeployment*.
+1. Provide a name for this token in the _Name_ field, for example *myfirstswadeployment*.
+
+1. Select an _Expiration_ for the token, the default is 30 days.
 
 1. Specify the following *scopes*: **repo, workflow, write:packages**
 

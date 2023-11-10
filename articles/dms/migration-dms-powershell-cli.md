@@ -1,18 +1,20 @@
 ---
 title: Migrate databases at scale using Azure PowerShell / CLI (Preview)
 description: Learn how to use Azure PowerShell or CLI to migrate databases at scale with the Azure SQL migration extension in Azure Data Studio
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolph.west
 ms.date: 04/26/2022
 ms.service: dms
-ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate databases at scale using automation (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
+The [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
 - An enhanced assessment mechanism can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
 - An SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
@@ -47,7 +49,7 @@ Pre-requisites that are common across all supported migration scenarios using Az
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
 * Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
     > [!IMPORTANT] 
-    > If your target is Azure SQL Database you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+    > If your target is Azure SQL Database you have to migrate database schema from source to target using [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
 

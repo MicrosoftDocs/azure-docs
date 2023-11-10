@@ -7,7 +7,7 @@
     topicHref: /azure/active-directory/index
     items:  
     - name: B2C
-      tocHref: /azure/active-directory/develop/
+      tocHref: /entra/identity-platform/
       topicHref: /azure/active-directory-b2c/index
 - name: Azure
   tocHref: /azure/
@@ -18,7 +18,7 @@
     topicHref: /azure/active-directory/index
     items:  
     - name: B2C
-      tocHref: /azure/active-directory/external-identities/
+      tocHref: /entra/external-id/
       topicHref: /azure/active-directory-b2c/index
 - name: Azure
   tocHref: /azure/
@@ -29,5 +29,5 @@
     topicHref: /azure/active-directory/index
     items:  
     - name: B2C
-      tocHref: /azure/active-directory/fundamentals/
+      tocHref: /entra/fundamentals/
       topicHref: /azure/active-directory-b2c/index

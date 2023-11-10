@@ -22,6 +22,10 @@ The instructions for manual installation of the drivers, and the list of current
 
 The NVIDIA GPU Driver Extension can also be deployed on Linux N-series VMs. For more information, see [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md).
 
+> [!Note]
+> The GPU driver extensions do not automatically update the driver after the extension is installed. If you need to move to a newer driver version then either manually download and install the driver or remove and add the extension again.
+>
+
 ## Prerequisites
 
 Confirm your virtual machine satisfies the prerequisites for using the NVIDIA GPU Driver Extension.

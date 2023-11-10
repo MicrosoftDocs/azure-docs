@@ -32,7 +32,7 @@ There are three types of APIs you can query:
 
 - **API Endpoints** - A group of all types of API endpoints.
 
-- **API Management** services - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
+- **API Management services** - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
 
 **To query APIs in the cloud security graph**:
 

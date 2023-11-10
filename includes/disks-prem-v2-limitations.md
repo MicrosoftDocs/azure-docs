@@ -16,3 +16,5 @@
 - Azure Site Recovery aren't supported for VMs with Premium SSD v2 disks.
 - Azure Backup support for VMs with Premium SSD v2 disks is currently in [public preview](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). 
 - The size of a Premium SSD v2 can't be expanded without either deallocating the VM or detaching the disk.
+- Premium SSDv2 does NOT support host caching.
+  

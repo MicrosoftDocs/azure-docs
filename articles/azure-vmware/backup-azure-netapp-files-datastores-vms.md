@@ -18,7 +18,7 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
 
 * Cloud Backup for Virtual Machines requires outbound internet access from your Azure VMware Solution SDDC. For more information, see [Internet connectivity design considerations](../azure-vmware/concepts-design-public-internet-access.md).
 
-* You must have sufficient permissions to [Create an Azure AD app and service principal](../active-directory/develop/howto-create-service-principal-portal.md) within your Azure AD tenant and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
+* You must have sufficient permissions to [Create a Microsoft Entra app and service principal](../active-directory/develop/howto-create-service-principal-portal.md) within your Microsoft Entra tenant and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
 
     ```json
     "actions": [

@@ -1,7 +1,7 @@
 ---
 description: This article covers troubleshooting Cloud Shell common scenarios.
 ms.contributor: jahelmic
-ms.date: 05/03/2023
+ms.date: 09/29/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -38,14 +38,14 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell
+- **Details**: Administrators might want to disable access to Cloud Shell for their users. Cloud Shell
   depends on access to the `ux.console.azure.com` domain, which can be denied, stopping any access
   to Cloud Shell's entry points including `portal.azure.com`, `shell.azure.com`, Visual Studio Code
   Azure Account extension, and `learn.microsoft.com`. In the US Government cloud, the entry point is
   `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` via network
-  settings to your environment. The Cloud Shell icon will still exist in the Azure portal, but can't
-  connect to the service.
+  settings to your environment. Even though the Cloud Shell icon still exists in the Azure portal,
+  you can't connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 
@@ -60,7 +60,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Details**: When using a Microsoft Entra subscription, you can't create storage.
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
   ID subscriptions aren't able to create Azure resources.
 
@@ -69,7 +69,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell
   infrastructure.
 - **Resolution**: Confirm that your network settings to allow sending HTTPS and websocket requests
-  to domains at `*.console.azure.com`.
+  to domains at `*.console.azure.com` and `*.servicebus.windows.net`.
 
 ### Set your Cloud Shell connection to support using TLS 1.2
 
@@ -101,7 +101,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 > [!NOTE]
 > Azure VMs must have a Public facing IP address.
 
-- **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following
+- **Details**: Due to the default Windows Firewall settings for WinRM the user might see the following
   error:
 
   > Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure
@@ -123,13 +123,13 @@ Azure Cloud Shell has the following known limitations:
 
 ### Quota limitations
 
-Azure Cloud Shell has a limit of 20 concurrent users per tenant per region. Opening more than 20
-simultaneous sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to
-have more than 20 sessions open, such as for training sessions, contact Support to request a quota
-increase before your anticipated usage.
+Azure Cloud Shell has a limit of 20 concurrent users per tenant. Opening more than 20 simultaneous
+sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to have more than
+20 sessions open, such as for training sessions, contact Support to request a quota increase before
+your anticipated usage.
 
 Cloud Shell is provided as a free service for managing your Azure environment. It's not as a general
-purpose computing platform. Excessive automated usage may be considered in breach to the Azure Terms
+purpose computing platform. Excessive automated usage can be considered in breach to the Azure Terms
 of Service and could lead to Cloud Shell access being blocked.
 
 ### System state and persistence
@@ -141,8 +141,6 @@ considerations include:
 
 - With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash,
   your `$HOME` directory is also persisted.
-- Azure fileshares can be mounted only from within your [assigned region][05].
-  - In Bash, run `env` to find your region set as `ACC_LOCATION`.
 - Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ### Browser support
@@ -160,7 +158,7 @@ Cloud Shell supports the latest versions of following browsers:
 
 - Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
-  - FireFox/IE may not support clipboard permissions properly.
+  - FireFox might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
 - Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
 
@@ -265,7 +263,7 @@ again.
    Bash:
 
    ```bash
-   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" -o tsv --query accessToken)
    curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 
@@ -290,5 +288,4 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 
 <!-- link references -->
 [04]: https://docs.docker.com/desktop/
-[05]: persisting-shell-storage.md#mount-a-new-clouddrive
 [06]: /powershell/microsoftgraph/migration-steps

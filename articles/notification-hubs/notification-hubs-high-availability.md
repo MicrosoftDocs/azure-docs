@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/11/2023
+ms.date: 10/02/2023
 
 ---
 
@@ -20,7 +20,7 @@ Android, Windows, etc.) from any back-end (cloud or on-premises). This article d
 >
 > - Availability zones
 >
-> Availability zones support will incur an additional cost on top of existing tier pricing. Starting October 9th 2023, you are automatically billed.
+> Availability zones support incurs an additional cost on top of existing tier pricing. Starting October 27th 2023, you will be automatically billed.
 
 Notification Hubs offers two availability configurations:
 

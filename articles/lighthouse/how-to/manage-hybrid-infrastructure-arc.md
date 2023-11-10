@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage hybrid infrastructure at scale with Azure Arc
 
-[Azure Lighthouse](../overview.md) can help service providers use Azure Arc to manage customers' hybrid environments, with visibility across all managed Azure Active Directory (Azure AD) tenants.
+[Azure Lighthouse](../overview.md) can help service providers use Azure Arc to manage customers' hybrid environments, with visibility across all managed Microsoft Entra tenants.
 
 [Azure Arc](../../azure-arc/overview.md) helps simplify complex and distributed environments across on-premises, edge and multicloud, enabling deployment of Azure services anywhere and extending Azure management to any infrastructure.
 

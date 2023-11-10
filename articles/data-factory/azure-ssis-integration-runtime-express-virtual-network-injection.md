@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for express injection of A
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 10/20/2023
 author: chugugrace
 ms.author: chugu 
 ---

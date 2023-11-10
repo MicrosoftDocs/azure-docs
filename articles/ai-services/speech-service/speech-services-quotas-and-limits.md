@@ -23,6 +23,9 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). The quotas and limits for Free (F0) Speech resources aren't adjustable. 
 
+> [!IMPORTANT]
+> If you switch a Speech resource from Free (F0) to Standard (S0) pricing tier, the change of the corresponding quotas may take up to several hours.
+
 ### Speech to text quotas and limits per resource
 
 This section describes speech to text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
@@ -45,8 +48,6 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 |--|--|--|
 | [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
-| Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
-| Max blob container size | N/A | 5 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
 | Max audio length for transcriptions with diarizaion enabled. | N/A | 240 minutes per file  |

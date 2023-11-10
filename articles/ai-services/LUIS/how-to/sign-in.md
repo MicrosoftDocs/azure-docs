@@ -1,11 +1,11 @@
 ---
 title: Sign in to the LUIS portal and create an app
 description:  Learn how to sign in to LUIS and create application.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 07/19/2022
 ---

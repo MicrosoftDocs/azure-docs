@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/19/2023
 ---
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
@@ -52,7 +52,7 @@ A high-level summary of the pattern looks like this:
 + Send the top ranked search results to the LLM.
 + Use the natural language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
-Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture, there's no extra training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
+Cognitive search provides inputs to the LLM prompt, but doesn't train the model. In RAG architecture, there's no extra training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
@@ -67,7 +67,7 @@ The web app provides the user experience, providing the presentation, context, a
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction) to coordinate the workflow. LangChain [integrates with Azure Cognitive Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Cognitive Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
 
-The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
+The information retrieval system provides the searchable index, query logic, and the payload (query response). The search index can contain vectors or non-vector content. Although most samples and demos include vector fields, it's not a requirement. The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
 
 The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
@@ -112,7 +112,7 @@ There's no query type in Cognitive Search - not even semantic or vector search -
 | [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (non-vector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
 | [Semantic ranking](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
-| [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
+| [Hybrid search](hybrid-search-how-to-query.md) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
@@ -231,6 +231,8 @@ print("\n-------------------\nPrompt:\n" + prompt)
 
 + [Use Azure AI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
 
++ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) to create your own RAG solution.
+
 + [Review the azure-search-openai-demo demo](https://github.com/Azure-Samples/azure-search-openai-demo) to see a working RAG solution that includes Cognitive Search, and to study the code that builds the experience. This demo uses a fictitious Northwind Health Plan for its data.
 
   Here's a [similar end-to-end demo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
@@ -238,8 +240,6 @@ print("\n-------------------\nPrompt:\n" + prompt)
 + [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 
 + [Review creating queries](search-query-create.md) to learn more search request syntax and requirements.
-
-<!-- + Use this accelerator to create your own RAG solution. -->
 
 > [!NOTE]
 > Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specifically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.

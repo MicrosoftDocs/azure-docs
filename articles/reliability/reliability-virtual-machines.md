@@ -71,7 +71,7 @@ To run production workloads, you can use:
     
 When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
 
-For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zone-enabled).
+For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zones-enabled).
 
 For information on how to migrate your existing VMs to availability zone support, see [migrate to availability zone support](#migrate-to-availability-zone-support). 
 
@@ -85,7 +85,7 @@ For information on how to migrate your existing VMs to availability zone support
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Migrate VMs using availability sets to Virtual Machine Scale Sets Flex**
 
-Availability sets will be retired soon. Modernize your workloads by migrating them from VMs to Virtual Machine Scale Sets Flex. 
+Modernize your workloads by migrating them from VMs to Virtual Machine Scale Sets Flex. 
 
 With Virtual Machine Scale Sets Flex, you can deploy your VMs in one of two ways:
 
@@ -407,7 +407,7 @@ To learn more about availability zone readiness options, see:
 
 Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
-#### Create a resource with availability zone enabled
+### Create a resource with availability zones enabled
 
 Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
 - [Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
@@ -520,14 +520,12 @@ Microsoft and its customers operate under the [Shared Responsibility Model](./av
 
 For deploying virtual machines, you can use [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
 
-## Additional guidance
+## Next steps
 
 - [Well-Architected Framework for virtual machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review)
 - [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
 - [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
 - [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
 - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
+- [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/availability-zones-overview)

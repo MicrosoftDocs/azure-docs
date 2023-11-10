@@ -54,7 +54,7 @@ items:
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
-      - name: JWT authentication and RBAC authorization for clients with Azure AD identity
+      - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
         href: mqtt-client-azure-ad-token-and-rbac.md
       - name: Use cases
         items:
@@ -263,9 +263,9 @@ items:
           href: scripts/powershell-resource-group.md
         - name: Subscribe and filter events for resource group
           href: scripts/powershell-resource-group-filter.md
-        - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
+        - name: Secure WebHook delivery with Microsoft Entra App in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-azure-ad-app.md
-        - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
+        - name: Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-azure-ad-user.md
       - name: Resource Manager templates
         href: template-samples.md
@@ -311,6 +311,8 @@ items:
               href: communication-services-email-events.md
             - name: Job Router Events
               href: communication-services-router-events.md
+            - name: Advanced Messaging Events
+              href: communication-services-advanced-messaging-events.md
           - name: Azure Container Registry
             href: event-schema-container-registry.md
           - name: Azure Data Box
@@ -339,6 +341,14 @@ items:
             href: ./event-schema-policy.md
           - name: Azure resource groups
             href: event-schema-resource-groups.md
+          - name: Azure Resource Notifications
+            items:
+            - name: Overview
+              href: event-schema-resource-notifications.md
+            - name: Health Resources
+              href: event-schema-health-resources.md
+            - name: Azure Resource Management
+              href: event-schema-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -359,7 +369,7 @@ items:
             items:
             - name: Graph API event sources
               href: partner-events-graph-api.md
-            - name: Azure Active Directory
+            - name: Microsoft Entra ID
               href: azure-active-directory-events.md
             - name: Microsoft Outlook
               href: outlook-events.md
@@ -416,7 +426,7 @@ items:
           items:
           - name: Overview
             href: authentication-overview.md
-          - name: Publish events using Azure Active Directory authentication
+          - name: Publish events using Microsoft Entra authentication
             href: authenticate-with-active-directory.md
           - name: Publish events using access key or shared access signature
             href: authenticate-with-access-keys-shared-access-signatures.md
@@ -490,6 +500,10 @@ items:
         href: how-to-event-domains.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Subscribe to Azure Resource Notifications - Health Resources events
+        href: subscribe-to-resource-notifications-health-resources-events.md
+      - name: Subscribe to Azure Resource Notifications - Resources events
+        href: subscribe-to-resource-notifications-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move
@@ -520,7 +534,7 @@ items:
           href: consume-private-endpoints.md
         - name: Configure IP firewall
           href: configure-firewall.md
-        - name: Deliver events to Azure Active Directory protected endpoints
+        - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
       - name: Monitor and troubleshoot
         items:
@@ -584,4 +598,3 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-

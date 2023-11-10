@@ -22,7 +22,7 @@ If you are using a different API, see [API for MongoDB](../mongodb/how-to-provis
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md), or select an existing Azure Cosmos DB account.
 
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 

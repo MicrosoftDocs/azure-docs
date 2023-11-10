@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 author: aahill
 ms.author: aahi
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 10/28/2021
 ---
@@ -14,15 +14,7 @@ ms.date: 10/28/2021
 
 Azure AI services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
 
-[Azure AI services](./what-are-ai-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
-
-|Service category|Purpose|
-|--|--|
-|[Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Build apps that surface recommendations for informed and efficient decision-making.|
-|[Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.|
-|[Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.|
-|[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.|
-|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.|
+[Azure AI services](./what-are-ai-services.md) is a group of services, each supporting different, generalized prediction capabilities. 
 
 Use Azure AI services when you:
 
@@ -105,10 +97,6 @@ The following data categorizes each service by which kind of data it allows or r
 ## Where can you use Azure AI services?
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
-
-## How is Azure Cognitive Search related to Azure AI services?
-
-[Azure Cognitive Search](../search/search-what-is-azure-search.md) is a separate cloud search service that optionally uses Azure AI services to add image and natural language processing to indexing workloads. Azure AI services is exposed in Azure Cognitive Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
 
 ## How can you use Azure AI services?
 

@@ -43,7 +43,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
     
     > [!IMPORTANT]
     > * Semantic search and vector search are subject to [additional pricing](../concepts/use-your-data.md#search-options).
-    >    * You can use *Simple* search as the search type for no additional cost.
+    >    * You can use *keyword* search as the search type for no additional cost.
     > * To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource.
     > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
     

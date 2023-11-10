@@ -48,6 +48,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
+  -AllowBlobPublicAccess $false
 ```
 
 ## Create a virtual machine

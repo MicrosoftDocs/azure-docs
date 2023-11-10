@@ -187,7 +187,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys
