@@ -213,7 +213,8 @@ The first step is to configure metrics availability to the log analytics workspa
 
 Browse to the Azure Firewall resource page to configure diagnostic settings as shown in the following screenshot. This pushes firewall metrics to the configured workspace.
 
-Note that the diagnostics settings for metrics must be a separate configuration than logs. Firewall logs can be configured to use Azure Diagnostics or Resource Specific. However, Firewall metrics must always use Azure Diagnostics.
+>[!Note]
+> The diagnostics settings for metrics must be a separate configuration than logs. Firewall logs can be configured to use Azure Diagnostics or Resource Specific. However, Firewall metrics must always use Azure Diagnostics.
 
 :::image type="content" source="media/logs-and-metrics/firewall-diagnostic-setting.png" alt-text="Screenshot of Azure Firewall diagnostic setting.":::
 
