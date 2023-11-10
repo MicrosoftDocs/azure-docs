@@ -24,7 +24,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
-- The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later. This is required to generate a [security policy][confidential-containers-security-policy].
+- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. This is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 
@@ -98,7 +98,7 @@ az provider register --namespace "Microsoft.ContainerService"
    The following example updates the cluster named *myAKSCluster* and creates a single system node pool in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --node-vm-size Standard_DC4as_cc_v5 --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <1.25.0 and above> --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
@@ -112,7 +112,7 @@ az provider register --namespace "Microsoft.ContainerService"
 3. Add a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 
+    az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --workload-runtime KataCcIsolation
     ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -158,32 +158,6 @@ Use the following command to enable Confidential Containers (preview) by creatin
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-## Pod manifest to test kata-cc runtime
-
-The following is an example manifest YAML of a pod which consists of a container running busybox using the kata-cc runtime. This example is used later to create a pod and test functionality.
-
-1. Create a file named *busybox.yaml*, and copy in the following manifest.
-
-    ```yml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      labels:
-        run: busybox
-      name: busybox-cc
-    spec:
-      containers:
-      - image: docker.io/library/busybox:latest
-        name: busybox
-      runtimeClassName: kata-cc-isolation
-    ```
-
-2. Create the pod with the [`kubectl apply`][kubectl-appy] command, as shown in the following example:
-
-    ```bash
-    kubectl apply -f busybox.yaml
-    ```
-
 ## Configure container
 
 Before you configure access to the Azure Key Vault Managed HSM and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity.
@@ -196,82 +170,316 @@ To configure the workload identity, perform the following steps described in the
 * Establish federated identity credential
 * Deploy the sample quickstart pod application
 
-1. After completing the steps to configure a workload identity, create a runtime class resource by copying the following YAML manifest and saving it as `kata-cc-runtime.yaml`.
+## Deploy a trusted application with kata-cc and attestation container
+
+The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with Azure attestation secret provisioning container injected into the pod.
+
+This configuration is basedon the following four components:
+
+* Kafka Cluster: A simple Kafka cluster deployed in the Kafka namespace on the cluster.
+* Kafka Producer: A Kafka producer running as a vanilla Kubernetes pod that sends encrypted user-configured messages using a public key to a Kafka topic.
+* Kafka Consumer: A Kafka consumer pod running with the kata-cc runtime, equipped with a secure key release container to retrieve the private key for decrypting Kafka messages and render the messages to web UI.
+
+For this preview release, we recommend for test and evaluation purposes to either create or use an existing Azure Key Vault Premium tier resource to support storing keys in a hardware security module (HSM). We don't recommend using your production key vault. If you don't have an Azure Key Vault, see [Create a key vault using the Azure CLI][provision-key-vault-azure-cli].
+
+1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
+
+   >[!NOTE]
+   >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+
+   >[!NOTE]
+   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator (preview)][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+
+1. This example requires the following producer and consumer YAML files. Copy the following YAML manifest and save it as `producer.yaml`.
 
     ```yml
-    kind: RuntimeClass
-    apiVersion: node.k8s.io/v1
+    apiVersion: v1
+    kind: Pod
     metadata:
-      name: kata-cc-isolation1
-      labels:
-        addonmanager.kubernetes.io/mode: "Reconcile"
-    handler: kata-cc
-    overhead:
-      podFixed:
-        memory: "2Gi"
-        # cpu: "250m"
-    scheduling:
-      nodeSelector:
-        kubernetes.azure.com/kata-cc-isolation: "true"
-    ```
-
-1. Enable the cluster autoscaler feature on the cluster using the [`az aks update`][az-aks-update] commamd and scale the cluster with three nodes.
-
-   ```azurecli-interactive
-   az aks update --resource-group myResourceGroup --name myAKSCluster --enable-cluster-autoscaler --min-count 1 --max-count 3
-   ```
-
-1. Deploy the runtime class resource by running the ['kubectl apply'][kubectl-apply] command.
-
-    ```bash
-    kubectl apply -f kata-cc-runtime.yaml
-    ```
-
-1. Create a stress deployment spec by copying the following YAML manifest and saving it as `stressdeployment.yaml`. It creates a ReplicaSet to bring up four pods with the stress-ng tool.
-
-    ```yml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: normal-deployment
-      labels:
-        app: normal-stress
+      name: kafka-producer
+      namespace: kafka
     spec:
-      replicas: 4
+      containers:
+        - image: "fishersnpregistry.azurecr.io/kafka-producer-bugbash:1.0"
+          name: kafka-producer
+          command:
+            - /produce
+          env:
+            - name: TOPIC
+              value: kafka-demo-topic
+            - name: MSG
+              value: "Azure Confidential Computing"
+            - name: PUBKEY
+              value: |-
+                -----BEGIN PUBLIC KEY-----
+                MIIBojAN***AE=
+                -----END PUBLIC KEY-----
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: 200m
+    ```
+
+   Copy the following YAML manifest and save it as `consumer.yaml`.
+
+    ```yml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: kafka-golang-consumer
+      namespace: kafka
+      labels:
+        azure.workload.identity/use: "true"
+        app.kubernetes.io/name: kafka-golang-consumer
+    spec:
+      serviceAccountName: workload-identity-sa
+      runtimeClassName: kata-cc
+      containers:
+        - image: "fishersnpregistry.azurecr.io/aasp:v1.0"
+          imagePullPolicy: Always
+          name: aasp
+          env:
+            - name: AaspSideCarArgs
+              value: ewogICAgImNlcnRjYWNoZSI6IHsKCQkiZW5kcG9pbnRfdHlwZSI6ICJMb2NhbFRISU0iLAoJCSJlbmRwb2ludCI6ICIxNjkuMjU0LjE2OS4yNTQvbWV0YWRhdGEvVEhJTS9hbWQvY2VydGlmaWNhdGlvbiIKCX0gIAp9
+          command:
+            - /bin/aasp
+          volumeMounts:
+            - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64d
+              name: endor-loc
+        - image: "fishersnpregistry.azurecr.io/kafka-consumer-bugbash:1.2"
+          imagePullPolicy: Always
+          name: kafka-golang-consumer
+          env:
+            - name: SkrClientKID
+              value: kafka-encryption-demo
+            - name: SkrClientMAAEndpoint
+              value: sharedeus2.eus2.test.attest.azure.net
+            - name: SkrClientAKVEndpoint
+              value: ""
+            - name: TOPIC
+              value: kafka-demo-topic
+          command:
+            - /consume
+          ports:
+            - containerPort: 3333
+              name: kafka-consumer
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: 200m
+      volumes:
+        - name: endor-loc
+          hostPath:
+            path: /opt/confidential-containers/share/kata-containers/reference-info-base64d
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: consumer
+      namespace: kafka
+    spec:
+      type: LoadBalancer
       selector:
-        matchLabels:
-          app: normal-stress
-      template:
-        metadata:
-          name: normal-stress
-          labels:
-            app: normal-stress
-        spec:
-          runtimeClassName: kata-cc-isolation1
-          containers:
-          - name: normal-stress-ctr
-            image: polinux/stress
-            resources:
-              # requests:
-              #  memory: "20M"
-              limits:
-                cpu: 200m
-                memory: "100M"
-            command: ["stress"]
-            args: ["--cpu","1", "--vm", "1", "--vm-bytes", "50M", "--vm-hang", "1"]
+        app.kubernetes.io/name: kafka-golang-consumer
+      ports:
+        - protocol: TCP
+          port: 80
+          targetPort: kafka-consumer
     ```
 
-1. Create the stress deployment containers by running the [`kubectl-apply`][kubectl-apply] command.
+1. Create a Kafka namespace by running the following command:
 
     ```bash
-    kubectl apply -f stressdeployment.yaml
+    kubectl create namespace kafka
     ```
 
-1. Verify all pods are running and Kata-cc containers' resource request can trigger Kata-cc node pool auto scale using the [kubectl scale][kubectl-scale] command.
+1. Install the Kafka cluster in the Kafka namespace running the following command:
 
     ```bash
-    kubectl scale deployment normal-deployment --replicas=10
+    kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     ```
+
+1. Run the following command to apply the `Kafka` cluster CR file.
+
+    ```bash
+    kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
+    ```
+
+1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy. Set `WORKLOAD_MEASUREMENT` to the hash of the security policy by running the following command:
+
+    ```bash
+    $ export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml -j genpolicy-debug-settings.json --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
+
+    ```
+
+    >[!NOTE]
+    >If `az confcom katapolicygen` returns an error, run the following commands and try again:
+    >
+    >`az extension remove --name confcom`
+    >`$ az extension add --source https://acccliazext.blob.core.windows.net/confcom/confcom-0.3.13-py3-none-any.whl -y`
+
+1. Copy the Bash script to prepare encryption key for the workload.   This value needs to match the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file. Save the file as `setup-key.sh`.
+
+    ```bash
+    #!/bin/bash
+
+    # --------------------------------------------------------------------------------------------
+    # Copyright (c) Microsoft Corporation. All rights reserved.
+    # Licensed under the MIT License. See License.txt in the project root for license information.
+    # --------------------------------------------------------------------------------------------
+    
+    
+    set -e
+    
+    # This script creates a RSA key in MHSM with a release policy, then downloads
+    # the public key and saves the key info
+    
+    if [ $# -ne 2 ] ; then
+    	echo "Usage: $0 <KEY_NAME> <AZURE_AKV_RESOURCE_ENDPOINT>"
+    	exit 1
+    fi
+    
+    KEY_NAME=$1
+    AZURE_AKV_RESOURCE_ENDPOINT=$2
+    
+    key_vault_name=$(echo "$AZURE_AKV_RESOURCE_ENDPOINT" | cut -d. -f1)
+    echo "Key vault name is ${key_vault_name}"
+    
+    if [[ $(curl https://$AZURE_AKV_RESOURCE_ENDPOINT) ]] 2>/dev/null; then
+    	echo "......MHSM endpoint OK"
+    else
+    	echo "Azure akv resource endpoint doesn't exist. Please refer to documentation instructions to set it up first:"
+    	exit 1
+    fi
+    
+    if [[ -z "${MAA_ENDPOINT}" ]]; then
+    	echo "Error: Env MAA_ENDPOINT is not set. Please set up your own MAA instance or select from a region where MAA is offered (e.g. sharedeus2.eus2.attest.azure.net):"
+    	echo ""
+    	echo "https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=azure-attestation"
+    	exit 1
+    fi
+    
+    if [[ -z "${MANAGED_IDENTITY}" ]]; then
+    	echo "Error: Env MANAGED_IDENTITY is not set. Please assign principal ID of the managed identity that will have read access to the key. To create a managed identity:"
+    	echo "az identity create -g <resource-group-name> -n <identity-name>"
+    	exit 1
+    fi
+    
+    policy_file_name="${KEY_NAME}-release-policy.json"
+    
+    echo { \"anyOf\":[ { \"authority\":\"https://${MAA_ENDPOINT}\", \"allOf\":[ > ${policy_file_name}
+    echo '{"claim":"x-ms-attestation-type", "equals":"sevsnpvm"},' >> ${policy_file_name}
+    
+    if [[ -z "${WORKLOAD_MEASUREMENT}" ]]; then
+    	echo "Warning: Env WORKLOAD_MEASUREMENT is not set. To better protect your key, consider adding it to your key release policy"
+    else
+    	echo {\"claim\":\"x-ms-sevsnpvm-hostdata\", \"equals\":\"${WORKLOAD_MEASUREMENT}\"}, >> ${policy_file_name}
+    fi
+    
+    
+    echo {\"claim\":\"x-ms-compliance-status\", \"equals\":\"azure-signed-katacc-uvm\"}, >> ${policy_file_name}
+    echo {\"claim\":\"x-ms-sevsnpvm-is-debuggable\", \"equals\":\"false\"}, >> ${policy_file_name}
+    
+    echo '] } ], "version":"1.0.0" }' >> ${policy_file_name}
+    echo "......Generated key release policy ${policy_file_name}"
+    
+    # Create RSA key
+    az keyvault key create --id https://$AZURE_AKV_RESOURCE_ENDPOINT/keys/${KEY_NAME} --ops wrapKey unwrapkey encrypt decrypt --kty RSA-HSM --size 3072 --exportable --policy ${policy_file_name}
+    echo "......Created RSA key in ${AZURE_AKV_RESOURCE_ENDPOINT}"
+    
+    
+    # # Download the public key
+    public_key_file=${KEY_NAME}-pub.pem
+    rm -f ${public_key_file}
+    
+    if [[ "$AZURE_AKV_RESOURCE_ENDPOINT" == *".vault.azure.net" ]]; then
+        az keyvault key download --vault-name ${key_vault_name} -n ${KEY_NAME} -f ${public_key_file}
+    	echo "......Downloaded the public key to ${public_key_file}"
+    elif [[ "$AZURE_AKV_RESOURCE_ENDPOINT" == *".managedhsm.azure.net" ]]; then
+    
+        az keyvault key download --hsm-name ${key_vault_name} -n ${KEY_NAME} -f ${public_key_file}
+    	echo "......Downloaded the public key to ${public_key_file}"
+    fi
+    
+    # generate key info file
+    key_info_file=${KEY_NAME}-info.json
+    echo {  > ${key_info_file}
+    echo \"public_key_path\": \"${public_key_file}\", >> ${key_info_file}
+    echo \"kms_endpoint\": \"$AZURE_AKV_RESOURCE_ENDPOINT\", >> ${key_info_file}
+    echo \"attester_endpoint\": \"${MAA_ENDPOINT}\" >> ${key_info_file}
+    echo }  >> ${key_info_file}
+    echo "......Generated key info file ${key_info_file}"
+    echo "......Key setup successful!"
+    ```
+
+1. Obtain the resource ID of the managed identity you created earlier. `setup-key.sh` relies on the identity. Run the following command to create a variable for the managed identity ID.
+
+    ```bash
+    export MANAGED_IDENTITY="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'id' -otsv)"
+    ```
+
+1. Set the `MAA_ENDPOINT` environmental variable to the Microsoft Azure Attestation endpoint value by running the following command. The attestation URL is the Attest URI of the attestation provider containing the attestation policy, which looks like this: `https://MyAttestationProvider.wus.attest.azure.net`.
+
+   Run the [az attestation show][az-attestation-show] command to retrieve attestation provider properties such as status and AttestURI:
+
+    ```azurecli-interactive
+    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
+    ```
+
+  This command displays values like the following output:
+
+    ```output
+    Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
+    Location: MyLocation
+    ResourceGroupName: MyResourceGroup
+    Name: MyAttestationProvider
+    Status: Ready
+    TrustModel: AAD
+    AttestUri: https://MyAttestationProvider.us.attest.azure.net
+    Tags:
+    TagsTable:
+    ```
+
+    ```bash
+    export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
+    ```
+
+1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `https://<your-unique-keyvault-name>.vault.azure.net`
+
+    ```bash
+    # <Azure Key Vault URL> should have the following format:
+    # <Azure Key Vault Name>.vault.azure.net
+    bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
+    ```
+
+  Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key.
+
+1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
+
+    ```azurecli-interactive
+    az account set --subscription <Subscription ID>
+    az keyvault key list --vault-name <Name of vault> -o table
+    ```
+
+1. Deploy the `consumer` and `producer` YAML manifests using the files you saved earlier.
+
+    ```bash
+    kubectl apply –f consumer.yaml
+    ```
+
+    ```bash
+    kubectl apply –f producer.yaml
+    ```
+
+1. Get the IP address of the web service using the following command:
+
+    ```bash
+    kubectl get svc consumer -n kafka 
+    ```
+
+Copy and paste the IP address of the consumer service into your browser and observe the decrypted messages. You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you are not running the consumer with kata-cc runtime class, you no longer need the policy.
+
+Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key cannot be retrieved. The key cannot be retrieved because the consumer is no longer running in a confidential environment, and the `aasp container` is missing, preventing decryption of messages.
 
 ## Cleanup
 
@@ -321,3 +529,10 @@ kubectl delete pod pod-name
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
 [confidential-containers-considerations]: confidential-containers-overview.md#considerations
 [azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
+[azure-managed-hsm]: ../azure/key-vault/managed-hsm/overview.md
+[provision-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
+[assign-key-vault-access-cli]: ../key-vault/general/rbac-guide.md#assign-role
+[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator-preview
+[user-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#user-access-administrator
+[owner-rbac]: ../role-based-access-control/built-in-roles.md#owner
+[az-attestation-show]: /cli/azure/attestation#az-attestation-show
