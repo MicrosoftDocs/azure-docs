@@ -60,7 +60,7 @@ Schedule an expiration date and time as you create an environment through the de
 
 1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
 
-## Change the deployment environment expiration date and time
+## Change an environment expiration date and time
 
 Plans change, projects change, and timelines change. If you need to change the expiration date and time for an environment, you can do so in the developer portal.
 
