@@ -38,8 +38,7 @@ Your image builds will automatically be migrated to Isolated Image Builds and yo
 > Image Builder is in the process of rolling this change out to all locations and customers. Some of these details might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
 
 > [!IMPORTANT] 
-> Make sure your subscription is registered for `Microsoft.ContainerInstance provider`. 
-> Then add the relevant Azure CLI or PowerShell commands:
+> Make sure your subscription is registered for `Microsoft.ContainerInstance provider`: 
 > - Azure CLI: `az provider register -n Microsoft.ContainerInstance`
 > - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
 
