@@ -1,7 +1,7 @@
 ---
 title: Isolated Image Builds for Azure VM Image Builder
 description: Isolated Image Builds is achieved by transitioning core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances resources in your subscription providing compute and network isolation. 
-ms.date: 11/01/2023
+ms.date: 11/10/2023
 ms.topic: sample
 author: kof-f
 ms.author: erd
@@ -36,6 +36,13 @@ Your image builds will automatically be migrated to Isolated Image Builds and yo
 
 > [!NOTE]
 > Image Builder is in the process of rolling this change out to all locations and customers. Some of these details might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
+
+> [!IMPORTANT] 
+> Make sure your subscription is registered for `Microsoft.ContainerInstance provider`. 
+> Then add the relevant Azure CLI or PowerShell commands:
+> - Azure CLI: `az provider register -n Microsoft.ContainerInstance`
+> - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
+
 
 ## Next steps
 
