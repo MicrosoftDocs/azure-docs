@@ -20,10 +20,6 @@ The following table describes the different methods to edit the DCR, while the r
 | New cluster | Use an existing [ARM template ](https://github.com/microsoft/Docker-Provider/tree/ci_prod/scripts/onboarding/aks/onboarding-using-msi-auth) to onboard an AKS cluster to Container insights. Modify the `dataFlows` section of the DCR in that template to include a transformation, similar to one of the samples below. |
 | Existing DCR | After a cluster has been onboarded to Container insights, edit its DCR to include a transformation using the process in [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md). |
 
-```json
-
-```
-
 
 ## Data sources
 The [dataSources section of the DCR](../essentials/data-collection-rule-structure.md#datasources) defines the different types of incoming data that the DCR will process. For Container insights, this includes the `ContainerInsights` extension, which includes one or more predefined `streams` starting with the prefix *Microsoft-*.
@@ -68,11 +64,11 @@ The snippet below shows the `dataFlows` section for a single stream with a trans
 
 
 ## Sample DCRs
-The following samples show sample DCRs for Container insights using transformations. Use these samples as a starting point and customize then as required to meet your particular requirements.
+The following samples show DCRs for Container insights using transformations. Use these samples as a starting point and customize then as required to meet your particular requirements.
 
 
 ### Filter for a particular namespace
-This sample uses the log query `source | where Namespace == 'kube-system'` to collect data for a single namespace in `ContainerLogsV2`. You can replace `kube-system` in this query with another namespace or replace the `where` clause with another filter to match the particular data you want to collect.
+This sample uses the log query `source | where Namespace == 'kube-system'` to collect data for a single namespace in `ContainerLogsV2`. You can replace `kube-system` in this query with another namespace or replace the `where` clause with another filter to match the particular data you want to collect. The other streams are grouped into a separate data flow and have no transformation applied.
 
 
 ```json
@@ -144,7 +140,7 @@ This sample uses the log query `source | where Namespace == 'kube-system'` to co
 ```
 
 ## Add a column to a table
-This sample uses the log query `source | extend new_CF = ContainerName` to send data to a custom column added to the `ContainerLogV2` table. This transformation requires that you add the custom column to the table using the process described in [Add or delete a custom column](../logs/create-custom-table.md#add-or-delete-a-custom-column).
+This sample uses the log query `source | extend new_CF = ContainerName` to send data to a custom column added to the `ContainerLogV2` table. This transformation requires that you add the custom column to the table using the process described in [Add or delete a custom column](../logs/create-custom-table.md#add-or-delete-a-custom-column).  The other streams are grouped into a separate data flow and have no transformation applied.
 
 
 
