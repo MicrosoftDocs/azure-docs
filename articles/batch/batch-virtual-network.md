@@ -25,6 +25,9 @@ To allow compute nodes to communicate securely with other virtual machines, or w
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
 
+    > [!IMPORTANT]
+    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+
 ## General virtual network requirements
 
 * The Virtual Network must be in the same subscription and region as the Batch account you use to create your pool.
