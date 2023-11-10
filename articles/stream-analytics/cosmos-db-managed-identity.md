@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/20/2023
 ms.custom: subject-rbac-steps, ignite-2022
 ---
 
@@ -55,6 +55,9 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $re
 
 > [!NOTE]
 > Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 10 minutes. Even though test connection can pass initially, jobs may fail when they are started before the permissions fully propagate.
+
+> [!IMPORTANT]
+> If the CosmosDB account is not configured to accept connections from **All networks**, you must select **Accept connections from within public Azure datacenters**.
 
 
 ### Add Azure Cosmos DB as an output

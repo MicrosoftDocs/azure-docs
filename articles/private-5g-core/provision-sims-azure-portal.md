@@ -111,65 +111,66 @@ Prepare the files using the information you collected for your SIMs in [Collect 
   - If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicyId` parameter for that SIM.
 
     ```json
-    {  
-      "version": 1,  
-      "azureKey": 1,  
-      "vendorKeyFingerprint": "A5719BCEFD6A2021A11D7649942ECC14", 
-      "encryptedTransportKey": "0EBAE5E2D31A1BE48495F6DCA65983EEAE6BA6B75A92040562EAD84079BF701CBD3BB1602DB74E85921184820B78A02EC709951195DC87E44481FDB6B826DF775E29B7073644EA66649A14B6CA6B0EE75DE8B4A8D0D5186319E37FBF165A691E607CFF8B65F3E5E9D448049704DE4EA047101ADA4554A543F405B447B8DB687C0B7624E62515445F3E887B3328AA555540D9959752C985490586EF06681501A89594E28F98BF66F179FE3F1D2EE13C69BC42C30A8D3DC6898B8160FC66CDDEE164760F27B68A07BA4C4AE5AFFEA45EE8342E1CA8470150ED6AF4215CEF173418E60E2B1DF4A8C2AE6F0C9A291F5D185ECAD0D94D48EFD06570A0C1AE27D5EC20",  
-      "signedTransportKey": "83515CC47C8890F62D4A0D16DE58C2F2DCFD827C317047693A46B9CA1F9EBC33CCDB8CABE04A275D65E180813CCFF43FC2DA95E19E2B9FF2588AE0914418DC9CB5506EB7AEADB272F5DAB9F0B1CCFAD62B95C91D4F4680A350F56D2A7F8EC863F4D61E1D7A38746AEE6C6391D619CCFCFA2B6D554671D91A26484CD6E120D84917FBF69D3B56B2AA8F2B36AF88492F1A7E267594B6C1596B81A81079540EC3F31869294BFEB225DFB171DE557B8C05D7C963E047E3AF36D1387FEDA28E55E411E5FB6AED178FB9C92D674D71AF8FEB6462F509E6423D4EBE0EC84E4135AA6C7A36F849A14A6A70E7188E08278D515BD95A549645E9D595D1DEC13E1A68B9CB67",  
-      "sims": [  
-        {  
-          "name": "SIM 1",  
-          "properties": {  
-            "deviceType": "Sensor",  
-           "integratedCircuitCardIdentifier": "8922345678901234567",  
-            "internationalMobileSubscriberIdentity": "001019990010002",  
-            "encryptedCredentials": "3ED205BE2DD7F0E467283EC55F9E8F3588B68DC98811BE671070C65EFDE0CCCAD18C8B663231C80FB478F753A6B09142D06982421261679B7BB112D36473EA7EF973DCF7F634124B58DD945FE61D4B16978438CB33E64D3AA58B5C38A0D97030B5F95B16E308D919EB932ACCD36CB8C2838C497B3B38A60E3DD385",  
-            "simPolicy": {  
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy"  
-            },  
-            "staticIpConfiguration": [
-                    {
-                        "attachedDataNetwork": {
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork"
-                        },
-                        "slice": {
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
-                        },
-                        "staticIp": {
-                            "ipv4Address": "2.4.0.1"
-                        } 
-              }  
-            ]  
-          }  
-        }
-        {  
-          "name": "SIM 2",  
-          "properties": {  
-            "deviceType": "Cellphone",  
-           "integratedCircuitCardIdentifier": "1234545678907456123",  
-            "internationalMobileSubscriberIdentity": "001019990010003",  
-            "encryptedCredentials": "3ED205BE2DD7F0E467283EC55F9E8F3588B68DC98811BE671070C65EFDE0CCCAD18C8B663231C80FB478F753A6B09142D06982421261679B7BB112D36473EA7EF973DCF7F634124B58DD945FE61D4B16978438CB33E64D3AA58B5C38A0D97030B5F95B16E308D919EB932ACCD36CB8C2838C497B3B38A60E3DD385",  
-            "simPolicy": {  
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy"  
-            },  
-            "staticIpConfiguration": [
-                    {
-                        "attachedDataNetwork": {
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork"
-                        },
-                        "slice": {
-                            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
-                        },
-                        "staticIp": {
-                            "ipv4Address": "2.4.0.2"
-                        } 
-              }  
-            ]  
-          }  
-        }  
-      ]  
-    }  
+    {
+      "version": 1,
+      "azureKeyIdentifier": 1,
+      "vendorKeyFingerprint": "A5719BCEFD6A2021A11D7649942ECC14",
+      "encryptedTransportKey": "0EBAE5E2D31A1BE48495F6DCA65983EEAE6BA6B75A92040562EAD84079BF701CBD3BB1602DB74E85921184820B78A02EC709951195DC87E44481FDB6B826DF775E29B7073644EA66649A14B6CA6B0EE75DE8B4A8D0D5186319E37FBF165A691E607CFF8B65F3E5E9D448049704DE4EA047101ADA4554A543F405B447B8DB687C0B7624E62515445F3E887B3328AA555540D9959752C985490586EF06681501A89594E28F98BF66F179FE3F1D2EE13C69BC42C30A8D3DC6898B8160FC66CDDEE164760F27B68A07BA4C4AE5AFFEA45EE8342E1CA8470150ED6AF4215CEF173418E60E2B1DF4A8C2AE6F0C9A291F5D185ECAD0D94D48EFD06570A0C1AE27D5EC20",
+      "signedTransportKey": "83515CC47C8890F62D4A0D16DE58C2F2DCFD827C317047693A46B9CA1F9EBC33CCDB8CABE04A275D65E180813CCFF43FC2DA95E19E2B9FF2588AE0914418DC9CB5506EB7AEADB272F5DAB9F0B1CCFAD62B95C91D4F4680A350F56D2A7F8EC863F4D61E1D7A38746AEE6C6391D619CCFCFA2B6D554671D91A26484CD6E120D84917FBF69D3B56B2AA8F2B36AF88492F1A7E267594B6C1596B81A81079540EC3F31869294BFEB225DFB171DE557B8C05D7C963E047E3AF36D1387FEDA28E55E411E5FB6AED178FB9C92D674D71AF8FEB6462F509E6423D4EBE0EC84E4135AA6C7A36F849A14A6A70E7188E08278D515BD95A549645E9D595D1DEC13E1A68B9CB67",
+      "sims": [
+        {
+          "name": "SIM 1",
+          "properties": {
+            "deviceType": "Sensor",
+            "integratedCircuitCardIdentifier": "8922345678901234567",
+            "internationalMobileSubscriberIdentity": "001019990010002",
+            "encryptedCredentials": "3ED205BE2DD7F0E467283EC55F9E8F3588B68DC98811BE671070C65EFDE0CCCAD18C8B663231C80FB478F753A6B09142D06982421261679B7BB112D36473EA7EF973DCF7F634124B58DD945FE61D4B16978438CB33E64D3AA58B5C38A0D97030B5F95B16E308D919EB932ACCD36CB8C2838C497B3B38A60E3DD385",
+            "simPolicy": {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy"
+            },
+            "staticIpConfiguration": [
+              {
+                "attachedDataNetwork": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork"
+                },
+                "slice": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
+                },
+                "staticIp": {
+                  "ipv4Address": "2.4.0.1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "SIM 2",
+          "properties": {
+            "deviceType": "Cellphone",
+            "integratedCircuitCardIdentifier": "1234545678907456123",
+            "internationalMobileSubscriberIdentity": "001019990010003",
+            "encryptedCredentials": "3ED205BE2DD7F0E467283EC55F9E8F3588B68DC98811BE671070C65EFDE0CCCAD18C8B663231C80FB478F753A6B09142D06982421261679B7BB112D36473EA7EF973DCF7F634124B58DD945FE61D4B16978438CB33E64D3AA58B5C38A0D97030B5F95B16E308D919EB932ACCD36CB8C2838C497B3B38A60E3DD385",
+            "simPolicy": {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy"
+            },
+            "staticIpConfiguration": [
+              {
+                "attachedDataNetwork": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork"
+                },
+                "slice": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
+                },
+                "staticIp": {
+                  "ipv4Address": "2.4.0.2"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+
     ```
 
 ## Begin provisioning the SIMs in the Azure portal

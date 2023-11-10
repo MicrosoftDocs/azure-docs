@@ -85,7 +85,7 @@ Alphanumeric sender ID is not capable of receiving inbound messages or STOP mess
 Short Code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md). 
 
 ### Can you text to a toll-free number from a short code?
-ACS toll-free numbers are enabled to receive messages from short codes. However, short codes are not typically enabled to send messages to toll-free numbers. If your messages from short codes to ACS toll-free numbers are failing, check with your short code provider if the short code is enabled to send messages to toll-free numbers. 
+Azure Communication Services toll-free numbers are enabled to receive messages from short codes. However, short codes are not typically enabled to send messages to toll-free numbers. If your messages from short codes to Azure Communication Services toll-free numbers are failing, check with your short code provider if the short code is enabled to send messages to toll-free numbers. 
 
 ### How should a short code be formatted?
 Short codes do not fall under E.164 formatting guidelines and do not have a country code, or a "+" sign prefix. In the SMS API request, your short code should be passed as the 5-6 digit number you see in your short codes page without any prefix. 
@@ -103,7 +103,6 @@ Once you have submitted the short code program brief application in the Azure po
     - Lower case letters: a - z
     - Numbers: 0-9
     - Spaces
-    - Special characters: *+*, *-*, _ , &
 
 ### Is a number purchase required to use alphanumeric sender ID?
 The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.

@@ -15,10 +15,10 @@ Before you can launch your Operator Connect or Teams Phone Mobile service, you a
 - Test your service.
 - Prepare for launch.
 
-In this article, you learn about the steps you and your onboarding team must take.
+In this article, you learn about the steps that you and your onboarding team must take.
 
 > [!TIP]
-> In many cases, your onboarding team is from Microsoft, provided through the [Included Benefits](onboarding.md) or through a separate arrangement.
+> This article assumes that your Azure Communications Gateway onboarding team from Microsoft is also onboarding you to Operator Connect and/or Teams Phone Mobile. If you've chosen a different onboarding partner for Operator Connect or Teams Phone Mobile, you need to ask them to arrange changes to the Operator Connect and/or Teams Phone Mobile environments.
 
 > [!IMPORTANT]
 > Some steps can require days or weeks to complete. For example, you'll need to wait at least seven days for automated testing of your deployment and schedule your launch date at least two weeks in advance. We recommend that you read through these steps in advance to work out a timeline.

@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for RMIT Malaysia
 description: Details of the RMIT Malaysia Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/19/2023
+ms.date: 11/06/2023
 ms.topic: sample
 ms.custom: generated
 ---

@@ -59,9 +59,9 @@ If you send a non-JSON payload that is still UFT-8, it will be serialized as a J
 You can use the following filter to filter all the messages that include the word “Contoso”:
 ```azurecli-interactive
 "advancedFilters": [{
-    "operatorType": "`StringContains` ",
+    "operatorType": "StringContains",
     "key": "data",
-    "value": “Contoso”
+    "value": "Contoso"
 }]
 ```
 
@@ -82,9 +82,9 @@ You can use the following filter to filter all the messages coming from your cli
 
 ```azurecli-interactive
 "advancedFilters": [{"
-    operatorType": "`StringContains` ",
-    "key": "`clienttype`", 
-    "value": “sensor”
+    operatorType": "StringContains",
+    "key": "clienttype", 
+    "value": "sensor"
 }]
 ```
 
