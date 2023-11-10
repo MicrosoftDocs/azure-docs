@@ -85,7 +85,7 @@ Follow the instruction below to deploy IoT Operations to the level 3 cluster.
 
 ## Next steps
 
-Once the IoT Operations is deployed, you can try the following quickstarts. The Alice Springs in your level 3 cluster shall be capable to work as described in the quickstarts.
+Once the IoT Operations is deployed, you can try the following quickstarts. The Azure IoT Operations in your level 3 cluster shall be capable to work as described in the quickstarts.
 
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](../get-started/quickstart-add-assets.md)
-- [Process telemetry](../get-started/quickstart-process-telemetry.md)
+- [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md)
