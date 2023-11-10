@@ -28,7 +28,7 @@ Azure Advisor now has a new version of the Service Retirement workbook that incl
 
 * User experience and navigation are improved.
 
-List of the newly onboarded services in workbook:
+List of the newly added services:
 
 | Service | Retiring Feature |
 |-----------------|-------------------|
@@ -43,7 +43,7 @@ List of the newly onboarded services in workbook:
 | Azure Database for MariaDB | Entire service |
 | Azure Cache for Redis | Support for TLS 1.0 and 1.1 |
 
-List of services off boarded from Workbook:
+List of the removed services:
 
 | Service | Retiring Feature |
 |-----------------|-------------------|
