@@ -28,7 +28,6 @@ To empower customers that run applications and data on Azure to continue using t
 
 For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
 
-Building complex solutions.
 
 ### Microsoft HIS Designer for Logic Apps
 
