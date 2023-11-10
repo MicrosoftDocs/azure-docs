@@ -34,7 +34,7 @@ This preview requires connecting your source code repositories to Defender for C
 
 | Logo | Partner name | Description                                                                                                                                                                                    | Enablement Guide |
 |----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-|          | 42Crunch         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. | Link                 |
+| :::image type="content" source="media/defender-partner-applications/42crunch-logo.png" alt-text="42Crunch logo.":::         | 42Crunch         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. | [42Crunch onboarding guide](onboarding-guide-42crunch.md)                 |
 
 ## Next steps
 
