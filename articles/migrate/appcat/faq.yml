@@ -3,7 +3,7 @@ metadata:
   title: Azure Migrate application and code assessment FAQ
   description: Answers to frequently asked questions about Azure Migrate application and code assessment .
   author: yenchiho
-  ms.service: automanage
+  ms.service: azure-migrate
   ms.workload: Application Innovation
   ms.topic: faq
   ms.date: 11/09/2023

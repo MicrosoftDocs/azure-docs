@@ -2,9 +2,9 @@
 title: About Azure Migrate application and code assessment
 description: Learn about Azure Migrate application and code assessment tools
 author: yenchiho
-ms.service: Azure Migrate 
+ms.service: azure-migrate
 ms.workload: infrastructure and App Innovation
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: yenchiho
 ms.custom: overview
