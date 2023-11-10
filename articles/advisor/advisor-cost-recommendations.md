@@ -28,11 +28,12 @@ Advisor identifies resources that weren't used at all over the last seven days a
 
 * Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** isn't considered since we found that **CPU** and **Outbound Network utilization** are sufficient.
 
-* The last seven days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, it might take up to 48 hours for the recommendations to be updated.
+* The last seven days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After you change the lookback period, it might take up to 48 hours for the recommendations to be updated.
+
 * Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
 
 * A shutdown recommendation is created if:
-  * P95th of the maximum value of CPU utilization summed across all cores is less than 3%
+  * P95 of the maximum value of CPU utilization summed across all cores is less than 3%
   * P100 of average CPU in last 3 days (sum over all cores) <= 2%
   * Outbound Network utilization is less than 2% over a seven-day period
 
@@ -42,12 +43,12 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
 
 * Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**.
 
-* The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, please be aware that it may take up to 48 hours for the recommendations to be updated.
+* The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, be aware that it might take up to 48 hours for the recommendations to be updated.
 
 * Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
 
 * An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
-  * Performance of the workloads on the new SKU shouldn't be impacted.
+  * Performance of the workloads on the new SKU won't be impacted.
     * Target for user-facing workloads:
       * P95 of CPU and Outbound Network utilization at 40% or lower on the recommended SKU
       * P100 of Memory utilization at 60% or lower on the recommended SKU
@@ -80,11 +81,11 @@ The resulting recommendation suggests that a user should resize their current vi
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU/instance count information.
 To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule on a per-subscription basis.
 
-In some cases recommendations can't be adopted or might not be applicable, such as some of these common scenarios (there may be other cases):
+In some cases recommendations can't be adopted or might not be applicable, such as some of these common scenarios (there might be other cases):
 
 * Virtual machine or virtual machine scale set has been provisioned to accommodate upcoming traffic
 
-* Virtual machine or virtual machine scale set uses other resources not considered by the resize algo, such as metrics other than CPU, Memory and Network
+* Virtual machine or virtual machine scale set uses other resources not considered by the resize algorithim, such as metrics other than CPU, Memory and Network
 
 * Specific testing being done on the current SKU, even if not utilized efficiently
 
@@ -107,7 +108,7 @@ We're constantly working on improving these recommendations. Feel free to share 
 You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. To learn about right sizing, visit [Rightsize to maximize your cloud investment with Microsoft Azure](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/).
 
 > [!NOTE]
-> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
+> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
 To adjust Advisor VM/VMSS right sizing rules, follow these steps:
 
@@ -119,7 +120,7 @@ To adjust Advisor VM/VMSS right sizing rules, follow these steps:
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  :::image type="content" source="./media/advisor-configure-rules.png" alt-text="Screenshot of Azure Advisor configuration option for VM/VMSS sizing rules." lightbox="./media/advisor-configure-rules.png":::
+  :::image type="content" source="media/advisor-get-started/advisor-configure-rules.png" alt-text="Screenshot of Azure Advisor configuration option for VM/VMSS sizing rules." lightbox="media/advisor-get-started/advisor-configure-rules.png":::
 
 ## Next steps
 
