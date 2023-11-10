@@ -128,9 +128,12 @@ The following example shows a warmup trigger [TypeScript function](functions-ref
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
 
+---
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
