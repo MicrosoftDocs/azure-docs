@@ -6,7 +6,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/11/2023
+ms.date: 11/08/2023
 ms.custom: engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C

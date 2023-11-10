@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2023
+ms.date: 11/09/2023
 ms.custom: project-no-code, engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
