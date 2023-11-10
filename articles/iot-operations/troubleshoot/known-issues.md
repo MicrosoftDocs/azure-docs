@@ -34,7 +34,7 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Full persistence support isn't currently available.
 
-- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You may also see errors such as `authentication denied for $SYS/frontend/head/aio-mq-dmqtt-frontend-1-1-1884: invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pod(s): 
+- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You may also see errors such as `invalid sat: service account token has expired`. If you notice this happening, run the following command, to manually restart the affected pod(s): 
     ```bash
     kubectl -n azure-iot-operations delete pods <pod-name>
     ```
