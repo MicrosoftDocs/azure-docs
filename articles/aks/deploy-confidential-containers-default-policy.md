@@ -92,8 +92,10 @@ az provider register --namespace "Microsoft.ContainerService"
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
-   * **--workload-runtime**: Specify *KataCcIsolation* to enable the Confidential Containers feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
+   * **--enable-workload-identity**: Enables creating a Microsoft Entra Workload ID enabling pods to use a Kubernetes identity.
+   * **--enable-oidc-issuer**: Enables OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
 
    The following example updates the cluster named *myAKSCluster* and creates a single system node pool in the *myResourceGroup*:
 
@@ -109,7 +111,11 @@ az provider register --namespace "Microsoft.ContainerService"
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Add a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
+3. Add a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
+
+   * **--workload-runtime**: Specify *KataCcIsolation* to enable the Confidential Containers feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
     ```azurecli-interactive
     az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --workload-runtime KataCcIsolation
@@ -133,7 +139,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-     * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
    The following example adds a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
@@ -160,7 +166,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
 
 ## Configure container
 
-Before you configure access to the Azure Key Vault Managed HSM and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity.
+Before you configure access to the Azure Key Vault and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity.
 
 To configure the workload identity, perform the following steps described in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article:
 
@@ -168,7 +174,6 @@ To configure the workload identity, perform the following steps described in the
 * Create a managed identity
 * Create Kubernetes service account
 * Establish federated identity credential
-* Deploy the sample quickstart pod application
 
 ## Deploy a trusted application with kata-cc and attestation container
 
@@ -426,23 +431,23 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
     ```
 
-  This command displays values like the following output:
+   This command displays values like the following output:
 
-  ```output
-  Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
-  Location: MyLocation
-  ResourceGroupName: MyResourceGroup
-  Name: MyAttestationProvider
-  Status: Ready
-  TrustModel: AAD
-  AttestUri: https://MyAttestationProvider.us.attest.azure.net
-  Tags:
-  TagsTable:
-  ```
+    ```output
+    Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
+    Location: MyLocation
+    ResourceGroupName: MyResourceGroup
+    Name: MyAttestationProvider
+    Status: Ready
+    TrustModel: AAD
+    AttestUri: https://MyAttestationProvider.us.attest.azure.net
+    Tags:
+    TagsTable:
+    ```
 
-  ```bash
-  export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
-  ```
+   ```bash
+   export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
+   ```
 
 1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `https://<your-unique-keyvault-name>.vault.azure.net`
 
@@ -452,7 +457,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
     ```
 
-  Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key.
+   Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key.
 
 1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
 
