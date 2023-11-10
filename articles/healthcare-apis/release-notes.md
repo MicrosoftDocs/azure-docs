@@ -20,6 +20,14 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## October 2023
+
+### DICOM Service
+**Bulk import is available in public preview**
+
+Bulk import is a new capability that simplifies the process of adding data to the DICOM service.  When enabled, the feature creates a storage container and .dcm files that are copied to the container will automatically be added to the DICOM service.  See the [Import DICOM files](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/import-files) documentation for more details.  
+
+
 ## September 2023
 
 **Retirement announcement for Azure API for FHIR**
