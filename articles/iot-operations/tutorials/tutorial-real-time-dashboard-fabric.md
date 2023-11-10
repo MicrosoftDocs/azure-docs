@@ -31,4 +31,34 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 1. [Deploy IoT Operations using az CLI](../deploy-iot-ops/howto-deploy-iot-operations.md#deploy-extensions&tabs=cli).
 
+## Deploy edge and cloud Azure resources
+
+The MQTT broker and north-bound cloud connector components can be deployed as regular Azure resources as they have Azure Resource Provider (RPs) implementations. A single Bicep template file from the explore-iot-operations repo deploys all the required edge and cloud resources and Azure role-based access assignments. Execute this command in your codespace terminal:
+
+```azcli
+CLUSTER_NAME=<arc-connected-cluster-name>
+TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep'
+
+ az deployment group create               \ 
+    --name az-resources                   \
+    --resource-group $RESOURCE_GROUP      \
+    --template-file $TEMPLATE_FILE_NAME   \
+    --parameters clusterName=$CLUSTER_NAME
+```
+
+> [!IMPORTANT]
+> The deployment configuration is for demonstration or development purposes only. They are not recommended for live environments.
+
+The resources deployed by the template include: 
+* Event Hubs related resources 
+* IoT MQ Broker
+* Kafka north-bound connector and topicmap
+* Azure role-based access assignments
+
+
+
+
+
+
+
 
