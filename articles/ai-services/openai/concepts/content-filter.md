@@ -30,6 +30,7 @@ The following sections provide information about the content filtering categorie
 The content filtering system integrated in the Azure OpenAI Service contains: 
 * Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 * Additional optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
+
 ### Categories
 
 |Category|Description|
@@ -396,32 +397,16 @@ print(response)
           "filtered": false, 
           "severity": "safe" 
         }
-      }, 
-      "finish_reason": "stop", 
-      "index": 0, 
-      "message": { 
-        "content": "Example model response will be returned ", 
-        "role": "assistant" 
-      } 
-    } 
-  ], 
-  "created": 1699386280, 
-  "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
-  "model": "gpt-35-turbo", 
-  "object": "chat.completion", 
-  "prompt_filter_results": [ 
-    { 
-      "content_filter_results": { 
-        "custom_blocklists": [], 
-        "hate": { 
-          "filtered": false, 
-          "severity": "safe" 
-        }, 
-        "jailbreak": { 
-          "detected": false, 
+      },
+      "protected_materials_code": { 
+          "citation": { 
+            "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
+            "license": "EXAMPLE-LICENSE" 
+          }, 
+          "detected": true, 
           "filtered": false 
         }, 
-        "profanity": { 
+        "protected_materials_text": { 
           "detected": false, 
           "filtered": false 
         }, 
@@ -436,9 +421,8 @@ print(response)
         "violence": { 
           "filtered": false, 
           "severity": "safe" 
-        } 
-      }, 
-      "prompt_index": 0 
+        } ,
+       "prompt_index": 0
     } 
   ], 
   "usage": { 
@@ -446,7 +430,7 @@ print(response)
     "prompt_tokens": 11, 
     "total_tokens": 417 
   } 
-} 
+}
 ```
 
 The following code snippet shows how to retrieve annotations when content was filtered:
@@ -593,6 +577,7 @@ As part of your application design, consider the following best practices to del
 - Decide how you want to handle scenarios where your users send prompts containing content that is classified at a filtered category and severity level or otherwise misuse your application.
 - Check the `finish_reason` to see if a completion is filtered.
 - Check that there's no error object in the `content_filter_result` (indicating that content filters didn't run).
+- If you're using the protected material code model in annotate mode, display the citation URL when you're displaying the code in your application.
 
 ## Next steps
 
