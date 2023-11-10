@@ -70,10 +70,23 @@ The resources deployed by the template include:
     :::image type="content" source="media/event-hub-messages.png" alt-text="Confirm Event Hubs messages" lightbox="media/event-hub-messages.png":::
 
 
-## Configure Fabric resources
+## Create and configure Microsoft Fabric Event streams 
 
-1. [Create an eventstream in Microsoft Fabric]
+1. [Create a KQL database](/fabric/real-time-analytics/create-database)
 
+1. [Create an eventstream in Microsoft Fabric](/fabric/real-time-analytics/event-streams/create-manage-an-eventstream)
+
+    1. [Add the Event Hubs namespace created in the previous section as a source](/fabric/real-time-analytics/event-streams/add-manage-eventstream-sources#add-an-azure-event-hub-as-a-source)
+
+    1. [Add the KQL database created in the previous step as a destination](/fabric/real-time-analytics/event-streams/add-manage-eventstream-destinations#add-a-kql-database-as-a-destination)
+
+1. In the wizard's **Inspect** step, add a **New table** called *sensor_readings*, enter a **Data connection name** and click **Next** 
+
+1. In the **Preview data** tab, select the **JSON** format and click **Finish** 
+
+In a few seconds, you should see the data being ingested into KQL database.
+
+ :::image type="content" source="media/eventstream-ingesting.png" alt-text="Eventstream ingesting success" lightbox="media/eventstream-ingesting.png":::
 
 
 

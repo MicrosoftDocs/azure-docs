@@ -184,7 +184,7 @@ items:
         - name: Configure L3 cluster
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
 
-    - name: Scenario walkthroughs
+    - name: Tutorials
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: tutorials/tutorial-real-time-dashboard-fabric.md
