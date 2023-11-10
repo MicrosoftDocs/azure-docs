@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
 
 Azure Container Apps is a serverless container solution that allows to maintain less infrastructure and save on costs when running containerized applications. Instead of worrying about server configurations, container orchestrations, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
 
-From single-container applications to full microservice-based systems, you focus on building applications in the languages and runtimes that best meet your needs, and Container Apps handles the server management for you.
+From single-container applications to full microservice-based systems, helps you stay productive. You focus on building applications in the languages and runtimes that best meet your needs, while Container Apps handles the server management for you.
 
 Common uses of Azure Container Apps include:
 
