@@ -12,6 +12,8 @@
     href: faq.yml
 - name: Quickstarts
   items:
+  - name: Hear and speak with chat in the playground
+    href: quickstarts/hear-speak-playground.md
   - name: Generate text completions in the playground
     href: quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
@@ -55,12 +57,6 @@
         href: how-to/index-add.md
     - name: Add and manage data
       href: how-to/data-add.md
-    - name: Generate synthetic data
-      items:
-      - name: Generate samples from your dataset
-        href: how-to/generate-data-qa.md
-      - name: Simulate interaction data with your app
-        href: how-to/simulator-interaction-data.md
   - name: Build apps with prompt flow
     items:
     - name: Prompt flow overview
@@ -117,6 +113,14 @@
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
+  - name: Deploy and monitor
+    items:
+    - name: Deployments overview
+      href: concepts/deployments-overview.md
+    - name: Deploy large language models
+      href: how-to/deploy-models.md
+    - name: Monitor quality and safety of deployed applications
+      href: how-to/monitor-quality-safety.md
   - name: Setup your development environment
     items:
     - name: Get started with the Azure AI SDK
