@@ -80,7 +80,7 @@ While multiple approaches for modernization exist, Microsoft recommends moderniz
 - Manage coexistence between legacy data along with migrated data.
 - Manage application interdependencies.
 - Define the future of the mainframe scheduler and jobs.
-- Define a strategy for replacing Commercial off-the-shelf (COTS) products.
+- Define a strategy for replacing commercial off-the-shelf (COTS) products.
 - Conduct hybrid functional and nonfunctional testing activities.
 - Maintain external dependencies or interfaces.
 
