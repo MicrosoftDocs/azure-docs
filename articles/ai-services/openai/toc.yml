@@ -148,7 +148,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
 - name: Resources
