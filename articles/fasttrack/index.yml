@@ -85,7 +85,7 @@ conceptualContent:
         # Card
         - title: Data
           links:
-            - url: https://developer.microsoft.com/reactor/series/s-1230/
+            - url: https://aka.ms/askfta-data
               itemType: video
               text: Ask an Azure Data SME
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-ep01-modern-data-warehouse-designing%2C-making-%26-operating
@@ -100,7 +100,7 @@ conceptualContent:
         # Card
         - title: "AI & ML"
           links:
-            - url: https://aka.ms/askfta-aiml
+            - url: https://aka.ms/askfta-ai
               itemType: video
               text: Ask an Azure AI SME
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
@@ -108,16 +108,16 @@ conceptualContent:
               text: "Azure OpenAI: Introduction to Language Models and Applications"
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
               itemType: video
-              text: Azure ML Fundamentals
+              text: Azure Machine Learning Fundamentals
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
               itemType: video
-              text: Azure ML Developer Experience
+              text: Azure Machine Learning Developer Experience
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep01-azure-ml-enterprise-deployment
               itemType: video
-              text: Azure ML Enterprise Deployment
+              text: Azure Machine Learning Enterprise Deployment
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
               itemType: video
-              text: Azure ML Operations    
+              text: Azure Machine Learning Operations    
         # Card
         - title: Security
           links:
