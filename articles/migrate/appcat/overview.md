@@ -42,7 +42,7 @@ Azure Migrate application and code assessment for Java and .NET offers the follo
 
 In this article, you learned what Azure Migrate and Azure Migrate application and code assessment can offer, with a wide range of capabilities for you to tackle your migration and modernization needs. 
 
-Learn more about Azure Migrate application and code Assessment:
+Learn more about Azure Migrate application and code assessment:
 
 * [Azure Migrate](../migrate/index.yml)
 * [Azure Migrate application and code Assessment for Java](java.yml)
