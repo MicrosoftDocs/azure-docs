@@ -16,7 +16,7 @@ This article is not a complete list of partners.  The number keeps expanding and
 
 ## Alert Logic Log Manager
 
-:::image type="content" source="./media/partners/alertlogic.png" alt-text="Alert Logic logo.":::
+:::image type="content" source="./media/partners/alertlogic.png" lightbox="./media/partners/alertlogic.png" alt-text="Alert Logic logo.":::
 
 Alert Logic Log Manager collects virtual machine (VM), application, and Azure platform logs for security analysis and retention. It also collects the Azure Activity Log through the Azure Monitor API. This information is used to detect malfeasance and meet compliance requirements.
 
@@ -76,7 +76,7 @@ CloudMonix offers monitoring, automation, and self-healing services for the Micr
 
 ## Datadog
 
-:::image type="content" source="./media/partners/datadog.png" alt-text="Datadog logo.":::
+:::image type="content" source="./media/partners/datadog.png" lightbox="./media/partners/datadog.png" alt-text="Datadog logo.":::
 
 Azure enables customers to migrate and modernize their applications to run in the cloud, in coordination with many partner solutions. One such partner is Datadog, which provides observability and security tools for users to understand the health and performance of their applications across hybrid and multiple-cloud environments. But configuring the necessary integrations often requires moving between the Azure portal and Datadog. This process adds complexity, takes time, and makes it difficult to troubleshoot if things aren't working.  
 
@@ -98,7 +98,7 @@ For documentation on the integration, see [Datadog integration with Azure](../pa
 
 ## Dynatrace
 
-:::image type="content" source="./media/partners/dynatrace.png" alt-text="Dynatrace logo.":::
+:::image type="content" source="./media/partners/dynatrace.png" lightbox="./media/partners/dynatrace.png" alt-text="Dynatrace logo.":::
 
 Dynatrace partners with Microsoft to help the world’s largest organizations tame hybrid, multicloud complexity and accelerate digital transformation. Beyond the integrations built by Dynatrace that enable monitoring of specific Azure services and the ability to purchase the Dynatrace Software Intelligence Platform through the [Microsoft Azure Marketplace](https://www.dynatrace.com/news/press-release/dynatrace-expands-strategic-collaboration-with-microsoft/), Dynatrace also deeply integrates with Microsoft Azure as a native solution. Azure Native Dynatrace Service provides all the unique capabilities of the [Dynatrace Software Intelligence Platform on Microsoft Azure with native integration into the Azure Portal](https://www.dynatrace.com/news/press-release/dynatrace-platform-available-on-microsoft-azure/). The Dynatrace Software Intelligence Platform provides several purpose-built [integrations for monitoring Microsoft Azure](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services) resources and services.  Some examples include: 
 
@@ -252,7 +252,7 @@ Learn more about [how to monitor Azure](https://newrelic.com/solutions/partners/
 
 ## OpsGenie
 
-:::image type="content" source="./media/partners/opsgenie.png" alt-text="OpsGenie logo.":::
+:::image type="content" source="./media/partners/opsgenie.png" lightbox="./media/partners/opsgenie.png" alt-text="OpsGenie logo.":::
 
 OpsGenie acts as a dispatcher for the alerts that Azure generates. OpsGenie determines the people to notify based on on-call schedules and escalations. It can notify them by using email, text messages (SMS), phone calls, or push notifications. 
 
@@ -298,7 +298,7 @@ RSA NetWitness Platform's integration with Azure Monitor provides quick out-of-t
 
 ## ScienceLogic
 
-:::image type="content" source="./media/partners/sciencelogic.png" alt-text="ScienceLogic logo.":::
+:::image type="content" source="./media/partners/sciencelogic.png" lightbox="./media/partners/sciencelogic.png" alt-text="ScienceLogic logo.":::
 
 ScienceLogic delivers a next-generation IT service assurance platform for managing any technology, anywhere. ScienceLogic delivers the scale, security, automation, and resilience necessary to simplify the tasks of managing IT resources, services, and applications. The ScienceLogic platform uses Azure APIs to connect with Microsoft Azure. 
 
