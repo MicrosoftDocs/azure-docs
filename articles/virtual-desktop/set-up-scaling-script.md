@@ -4,7 +4,7 @@ description: How to automatically scale Azure Virtual Desktop session hosts with
 author: Heidilohr
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 04/17/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
@@ -13,7 +13,7 @@ manager: femila
 In this article, you'll learn about the scaling tool that uses an Azure Automation runbook and Azure Logic App to automatically scale session host VMs in your Azure Virtual Desktop environment. To learn more about the scaling tool, see [Scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md).
 
 > [!NOTE]
-> - Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
+> - Azure Virtual Desktop's native Autoscale solution is generally available for pooled and personal host pool(s) and will automatically scale in or out session host VMs based on scaling schedule. We recommend using Autoscale for easier configuration. For more information, see [Autoscale scaling plans](autoscale-scaling-plan.md).
 >
 > - You can't scale session hosts using Azure Automation and Azure Logic Apps together with [autoscale](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
 
