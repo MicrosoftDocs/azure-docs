@@ -31,7 +31,24 @@ Commitment tier pricing is also available for the following Azure AI service:
   * Language Detection
   * Named Entity Recognition (NER)
 
+* Azure AI Vision - OCR
+
+* Document Intelligence – Custom/Invoice
+
 For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
+## Create a new resource
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed.
+
+2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
+
+    > [!NOTE]
+    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. For more information, see [disconnected containers](./containers/disconnected-containers.md).
+
+    :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
+
+3. Once your resource is created, you can change your pricing from pay-as-you-go, to a commitment plan.
 
 ## Purchase a commitment plan by updating your Azure resource
 
