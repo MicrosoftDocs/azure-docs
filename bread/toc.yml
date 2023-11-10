@@ -722,9 +722,6 @@
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
-  - name: Azure Integration Environments
-    tocHref: /azure/integration-environments/
-    topicHref: /azure/integration-environments/
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
