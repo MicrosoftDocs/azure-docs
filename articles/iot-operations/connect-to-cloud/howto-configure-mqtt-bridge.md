@@ -372,13 +372,13 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 ## Azure Event Grid MQTT broker support
 
-[Event Grid MQTT Broker](/azure/event-grid/mqtt-overview) requires each set of client credential like an X.509 certificate to be registered ahead of time in the registry, and then multiple clients with different client IDs can connect without you having to registry them again.
-
-This support works well with MQTTBridgeConnector's dynamic client ID and shared subscription systems to scale out connector instances for increased throughput and redundancy.
-
 To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker.
 
-First, using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. Take note of the output value for `identity.principalId`, which should look like `00000000-0000-0000-0000-000000000000`.
+For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../tutorials/tutorial-connect-event-grid.md).
+
+### Connect to Event Grid MQTT broker with managed identity
+
+First, using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. Take note of the output value for `identity.principalId`, which should look like `abcd1234-5678-90ab-cdef-1234567890ab`.
 
 ```azurecli
 az k8s-extension show --resource-group <RESOURCE_GROUP> --cluster-name <CLUSTER_NAME> --name mq --cluster-type connectedClusters --query identity.principalId -o tsv
