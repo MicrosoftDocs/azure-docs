@@ -66,11 +66,8 @@ The system-assigned managed identity needs the [Key Vault Crypto Service Encrypt
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-review.png" alt-text="Screenshot of the role assignment with the review + assign action." lightbox="media/configure-customer-managed-keys/key-vault-add-role-review.png":::
 
-## Use the Azure portal to 
 
-Configure
-
-## Use an ARM template to update the encryption key
+## Update the DICOM service with the encryption key
 
 After you add the key, you need to update the DICOM service with the key URL.  
 
@@ -84,6 +81,20 @@ After you add the key, you need to update the DICOM service with the key URL.
 4. Copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
+
+#### Update the key by using the Azure portal
+
+1. In the Azure portal, go to the DICOM service and then select **Encryption** from the left pane.
+
+1. Select **Customer-managed key** for the Encryption type.
+
+1. Select a key vault and key or enter the Key URI for the key that was created previously.  
+
+1. Select an identity type, either System-assigned or User-assigned, that matches the type of managed identity configured previously.
+
+1. Select **Save** to update the DICOM service to use the customer-managed key.  
+
+:::image type="content" source="media/configure-customer-managed-keys/configure-encryption-portal.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/configure-encryption-portal.png":::
 
 #### Update the key by using an ARM template
 
