@@ -170,7 +170,7 @@ System-assigned identity will be autocreated after your endpoint is created, whi
 ##### System-assigned
 You notice there's an option whether *Enforce access to connection secrets (preview)*. If your flow uses connections, the endpoint needs to access connections to perform inference. The option is by default enabled, the endpoint is granted **Azure Machine Learning Workspace Connection Secrets Reader** role to access connections automatically if you have connection secrets reader permission. If you disable this option, you need to grant this role to the system-assigned identity manually by yourself or ask help from your admin. [Learn more about how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
 
-##### User-Assigned
+##### User-assigned
 
 When you create the deployment, Azure tries to pull the user container image from the Azure AI resource Azure Container Registry (ACR) and mounts the user model and code artifacts into the user container from the Azure AI resource storage account.
 

@@ -54,7 +54,7 @@ Before you can start a chat session, you need to configure the playground to use
 
 1. Select **Enable speech to text** and **Enable text to speech**.  
 
-    :::image type="content" source="../media/quickstarts/hear-speak/playground-settings-enable-stt-tts.png" alt-text="Screenshot of the playground settings page." lightbox="../media/quickstarts/hear-speak/playground-settings-enable-stt-tts.png":::
+    :::image type="content" source="../media/quickstarts/hear-speak/playground-settings-enable-speech.png" alt-text="Screenshot of the playground settings page." lightbox="../media/quickstarts/hear-speak/playground-settings-enable-speech.png":::
 
 1. Select the language locale and voice you want to use for speaking and hearing. The list of available voices depends on the locale that you select.
 
