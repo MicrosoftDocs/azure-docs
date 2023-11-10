@@ -8,11 +8,21 @@ ms.reviewer: aul
 
 # Data transformations in Container insights
 
-[Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow to modify or filter data before it's ingested in your Log Analytics workspace. This article describes how to implement transformations in Container insights.
+[Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to modify or filter data before it's ingested in your Log Analytics workspace. This article describes how to implement transformations in Container insights. You might want to filter out data collected from your cluster to save costs, or you might want to process incoming data to assist in your data queries.
+
+## Data Collection Rules (DCRs)
+Transformations are implemented in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) which are used to configure data collection in Azure Monitor. When you onboard Container insights for a cluster, a DCR is created for it with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. You can view this DCR from **Data Collection Rules** in the **Monitor** menu in the Azure portal. To create a transformation, you must either modify this DCR, or onboard your cluster with a custom DCR that includes your transformation. 
+
+The following table describes the different methods to edit the DCR, while the rest of this article provides details specific to Container insights.
+
+| Method | Description |
+|:---|:---|
+| New cluster | Use an existing [ARM template ](https://github.com/microsoft/Docker-Provider/tree/ci_prod/scripts/onboarding/aks/onboarding-using-msi-auth) to onboard an AKS cluster to Container insights. Modify the `dataFlows` section of the DCR in that template to include a transformation, similar to one of the samples below. |
+| Existing DCR | After a cluster has been onboarded to Container insights, edit its DCR to include a transformation. See [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md). |
+
 
 ## Streams
-The data collected by Container insights is defined by one or more known `streams` in the DCR. The following table lists the streams that will be included in a DCR for each of the [Cost presets](container-insights-cost-config.md#cost-presets).
-
+The data collected by Container insights is defined by one or more known `streams` in the DCR. The streams included in the DCR depends on the [Cost preset](container-insights-cost-config.md#cost-presets) that you selected for the cluster.
 
 | Stream | Cost preset | Description |
 |:---|:---|:---|
@@ -23,13 +33,7 @@ The data collected by Container insights is defined by one or more known `stream
 > [!IMPORTANT]
 > If your DCR includes `Microsoft-ContainerInsights-Group-Default` You must replace this group stream with the single streams to use a transformation. 
 
-## Methods to create a transformation
-Since transformations are implemented in DCRs, you either need to onboard a cluster to Container insights with a DCR that includes a transformation or editing an existing DCR.
 
-| Method | Description |
-|:---|:---|
-| New cluster | Use an existing [ARM template ](https://github.com/microsoft/Docker-Provider/tree/ci_prod/scripts/onboarding/aks/onboarding-using-msi-auth) to onboard an AKS cluster to Container insights. Modify the `dataFlows` section of the DCR in that template to include a transformation, similar to one of the samples below. |
-| Existing DCR | After a cluster has been onboarded to Container insights, you can edit its DCR to include a transformation. See [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md). |
 
 
 

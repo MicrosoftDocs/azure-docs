@@ -557,6 +557,8 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
+        - name: Create a transformation
+          href: containers/container-insights-transformation.md
         - name: Authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
