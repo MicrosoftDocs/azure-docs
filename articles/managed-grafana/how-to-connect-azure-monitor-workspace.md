@@ -29,7 +29,7 @@ In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the 
 1. Open the Azure Monitor workspace that holds Prometheus data.
 1. Go to **Access control (IAM)** > **Add** > **Add role assignment**.
 1. Select the **Monitoring Data Reader** role, then **Next**.
-1. For **Assign access**, select **Managed identity**
+1. For **Assign access to**, select **Managed identity**
 1. Open **Select members** and select your Azure Managed Grafana resource.
 1. Select **Review + assign** to initiate the role assignment
 
