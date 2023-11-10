@@ -84,7 +84,7 @@ To learn more, visit [Use Availability zones for better resiliency and availabil
 
 Azure Advisor now offers the capability of grouping and/or filtering recommendations by workload. The feature is available to selected customers based on their support contract.
 
-If you're interested in wokload based recommendations, reach out to your account team for more information.
+If you're interested in workload based recommendations, reach out to your account team for more information.
 
 ### Cost Optimization workbook template
 
