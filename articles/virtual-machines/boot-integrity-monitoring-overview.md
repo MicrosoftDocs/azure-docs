@@ -3,10 +3,11 @@ title: Boot integrity monitoring overview
 description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking.
 author: Howie425
 ms.author: howieasmerom
+ms.reviewer: erd
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual 
-ms.date: 04/25/2023
+ms.date: 11/06/2023
 ms.custom: template-concept 
 ---
 
@@ -113,12 +114,12 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 ### [CLI](#tab/cli)
 
-If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. Configuration of virtual machines are customizable by virtual machine owner (az vm create).
+1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. To deploy guest attestation extension use (`--enable_integrity_monitoring`). Configuration of virtual machines are customizable by virtual machine owner (`az vm create`).
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure enable integrity monitoring is turned on (`--enable_integrity_monitoring`).
 
-1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure both Secure Boot and vTPM are on (az vm update).
-For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (CLI)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
+> [!NOTE]
+> The Guest Attestation Extension needs to be configured explicitly.
 
 ### [PowerShell](#tab/powershell)
 
