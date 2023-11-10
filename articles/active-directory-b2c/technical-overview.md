@@ -256,7 +256,7 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Microsoft Entra roles, including Azure AD B2C administration role support, see [Administrator role permissions in Microsoft Entra ID](entra/roles/permissions-reference).
+For more information about Microsoft Entra roles, including Azure AD B2C administration role support, see [Administrator role permissions in Microsoft Entra ID](/entra/roles/permissions-reference).
 
 ## Auditing and logs
 
