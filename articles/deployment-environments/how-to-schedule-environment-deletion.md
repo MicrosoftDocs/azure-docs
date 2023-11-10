@@ -15,7 +15,7 @@ ms.date: 11/10/2023
 
 In this article, you learn how to set an expiration, or end date for an environment. On the expiration date, the environment and all its resources are deleted. If your timeline changes, you can change the expiration date.
 
-Working with many Azure Deployment Environments across multiple projects can be challenging. Scheduled deletion helps you manage your environments by automatically deleting them on a specific date at a specific time. Using automatic expiry and deletion helps you keep track of your active an inactive environments and helps you avoid paying for environments that you no longer need. 
+Working with many Azure Deployment Environments across multiple projects can be challenging. Scheduled deletion helps you manage your environments by automatically deleting them on a specific date at a specific time. Using automatic expiry and deletion helps you keep track of your active and inactive environments and helps you avoid paying for environments that you no longer need. 
 
 ## Prerequisites
 
@@ -59,6 +59,26 @@ Schedule an expiration date and time as you create an environment through the de
    :::image type="content" source="media/how-to-schedule-environment-deletion/set-timezone.png" alt-text="Screenshot showing the Add environment pane with the selected time zone highlighted." lightbox="media/how-to-schedule-environment-deletion/set-timezone.png":::
 
 1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+
+## Change the deployment environment expiration date and time
+
+Plans change, projects change, and timelines change. If you need to change the expiration date and time for an environment, you can do so in the developer portal.
+
+1. Sign in to the [developer portal](https://devportal.microsoft.com).
+ 
+1. On the environment you want to change, select the Actions menu, and then select **Change expiration**.
+ 
+   :::image type="content" source="media/how-to-schedule-environment-deletion/environment-tile-actions.png" alt-text="Screenshot of the developer portal, showing an environment tile with the actions menu open, and Change expiration highlighted." lightbox="media/how-to-schedule-environment-deletion/environment-tile-actions.png":::
+
+1. In Change expiration, you can change any of the following options:
+   - Clear **Enable scheduled deletion** to disable scheduled deletion. 
+   - Select a new date for expiration.
+   - Select a new time for expiration.
+   - Select a new time zone for expiration.
+ 
+   :::image type="content" source="media/how-to-schedule-environment-deletion/change-expiration-date-time.png" alt-text="Screenshot of the developer portal, showing the options for scheduled deletion which you can change." lightbox="media/how-to-schedule-environment-deletion/change-expiration-date-time.png":::
+
+1. When you've set the new expiration date and time, select **Change**.
 
 ## Related content
 
