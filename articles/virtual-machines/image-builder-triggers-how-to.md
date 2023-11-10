@@ -7,7 +7,7 @@ ms.reviewer: erd
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 11/10/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
@@ -25,9 +25,9 @@ Before setting up your first trigger, ensure you're using Azure Image Builder AP
 
 ## How to set up a trigger in Azure Image Builder
 
-### Register the features
+### Register the providers
 
-To use VM Image Builder with triggers, you need to register the below features. Check your registration by running the following commands:
+To use VM Image Builder with triggers, you need to register the below providers. Check your registration by running the following commands:
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
@@ -35,6 +35,7 @@ az provider show -n Microsoft.KeyVault -o json | grep registrationState
 az provider show -n Microsoft.Compute -o json | grep registrationState
 az provider show -n Microsoft.Storage -o json | grep registrationState
 az provider show -n Microsoft.Network -o json | grep registrationState
+az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
 ```
 
 If the output doesn't say registered, run the following commands:
@@ -45,6 +46,7 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 Register the auto image build triggers feature:
 
