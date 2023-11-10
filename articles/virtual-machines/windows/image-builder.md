@@ -30,7 +30,7 @@ Use the following sample JSON template to configure the image: [helloImageTempla
 > [!NOTE]
 > Windows users can run the following Azure CLI examples on [Azure Cloud Shell](https://shell.azure.com) by using Bash.
 
-## Register the features
+## Register the providers
 
 To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
 
