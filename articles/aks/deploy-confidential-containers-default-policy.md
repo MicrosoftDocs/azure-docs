@@ -328,14 +328,14 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
     ```
 
-1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy. Set `WORKLOAD_MEASUREMENT` to the hash of the security policy by running the following command:
+1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy stored in the `WORKLOAD_MEASUREMENT` variable by running the following command:
 
     ```bash
-    export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml -j genpolicy-debug-settings.json --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
+    export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
 
     ```
 
-1. Copy the Bash script to prepare encryption key for the workload.   This value needs to match the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key by copying the following Bash script to prepare encryption key for the workload. Save the file as `setup-key.sh`.
 
     ```bash
     #!/bin/bash
@@ -429,43 +429,15 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     echo "......Key setup successful!"
     ```
 
-1. Obtain the resource ID of the managed identity you created earlier. `setup-key.sh` relies on the identity. Run the following command to create a variable for the managed identity ID.
-
-    ```bash
-    export MANAGED_IDENTITY="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'id' -otsv)"
-    ```
-
-1. Set the `MAA_ENDPOINT` environmental variable to the Microsoft Azure Attestation endpoint value by running the following command. The attestation URL is the Attest URI of the attestation provider containing the attestation policy, which looks like this: `https://MyAttestationProvider.wus.attest.azure.net`.
-
-   Run the [az attestation show][az-attestation-show] command to retrieve attestation provider properties such as status and AttestURI:
-
-    ```azurecli-interactive
-    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
-    ```
-
-   This command displays values like the following output:
-
-    ```output
-    Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
-    Location: MyLocation
-    ResourceGroupName: MyResourceGroup
-    Name: MyAttestationProvider
-    Status: Ready
-    TrustModel: AAD
-    AttestUri: https://MyAttestationProvider.us.attest.azure.net
-    Tags:
-    TagsTable:
-    ```
+1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
    ```bash
-   export MAA_ENDPOINT="MyAttestationProvider.wus.attest.azure.net"
+   export MAA_ENDPOINT="<SkrClientMMAEndpoint value>"
    ```
 
 1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `https://<your-unique-keyvault-name>.vault.azure.net`
 
     ```bash
-    # <Azure Key Vault URL> should have the following format:
-    # <Azure Key Vault Name>.vault.azure.net
     bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
     ```
 
