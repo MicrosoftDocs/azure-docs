@@ -92,7 +92,7 @@
     - name: Database deployment
       items:
       - name: GitHub Actions
-        href: how-to-deploy-github-action.md
+        href: flexible-server/how-to-deploy-github-action.md
       - name: Azure Pipelines
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
