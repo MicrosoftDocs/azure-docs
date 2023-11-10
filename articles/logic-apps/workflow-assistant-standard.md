@@ -24,11 +24,55 @@ Only Standard workflows include the workflow assistant. You can open the workflo
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and a workflow in the designer.
 
-1. On the workflow menu, select **Assistant**, which opens the **Workflow assistant** pane.
+1. On the workflow toolbar, select **Assistant**.
 
-1. In the chat box, enter your request or question about Azure Logic Apps capabilities, or enter a specific question about the current workflow.
+   :::image type="content" source="media/workflow-assistant-standard/open-workflow-assistant.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow toolbar with Assistant selected." lightbox="media/workflow-assistant-standard/open-workflow-assistant.png":::
 
-1. At any time, feel free to close the workflow assistant. Your chat history isn't saved or preserved. 
+   To the designer's left side, the **Workflow assistant** pane opens:
+
+   :::image type="content" source="media/workflow-assistant-standard/chat-open-first-time.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and open workflow assistant pane." lightbox="media/workflow-assistant-standard/chat-open-first-time.png":::
+
+1. In the chat box, enter your request or question about Azure Logic Apps capabilities, or enter a specific question about the current workflow. When you're done, press Enter, or select **Submit** (paper airplane icon).
+
+   The following example asks the question, "What is a trigger?"
+
+   :::image type="content" source="media/workflow-assistant-standard/ask-question.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, open workflow assistant pane, and chat box with a question entered." lightbox="media/workflow-assistant-standard/ask-question.png":::
+
+   The workflow assistant takes some time to research your query and generates an answer, for example:
+
+   :::image type="content" source="media/workflow-assistant-standard/question-response.png" alt-text="Screenshot shows open workflow assistant pane, and chat box with a generated answer to the previously entered question." lightbox="media/workflow-assistant-standard/question-response.png":::
+
+1. [Provide optional feedback about your experience with the workflow assistant](#provide-feedback).
+
+1. At any time, you can close the workflow assistant. Your chat history isn't saved or preserved.
+
+<a name="provide-feedback"></a>
+
+## Provide feedback
+
+The Azure Logic Apps team values your feedback and encourages you to share your experiences, especially if you encounter unexpected responses or have any concerns about the workflow assistant.
+
+1. In the chat pane, under the workflow assistant's response, choose an option:
+
+   - To share constructive feedback about the workflow assistant or its responses, select the thumbs-down icon.
+
+     :::image type="content" source="media/workflow-assistant-standard/thumbs-down.png" alt-text="Screenshot shows workflow assistant pane feedback options with thumbs-down icon selected." lightbox="media/workflow-assistant-standard/thumbs-down.png":::
+
+     1. On the **Give feedback to Microsoft** pane that opens, rate the difficulty how difficult was the assistant for you to use and how valuable.
+
+     1. In the text box, include the question that you asked, relevant workflow information about your workflow, and the assistant's response that you received.
+
+     1. If you want Microsoft or the Azure Logic Apps team to contact you, select **It's OK to contact me about my feedback".
+
+     1. When you're done, select **Submit**.
+
+   - To report problems with the workflow assistant, select **Report a bug**.
+
+     :::image type="content" source="media/workflow-assistant-standard/report-bug.png" alt-text="Screenshot shows workflow assistant pane feedback options with selected option for Report a bug." lightbox="media/workflow-assistant-standard/report-bug.png":::
+
+     1. After the Azure Logic Apps customer feedback bug report template opens in GitHub, follow the template's prompts to provide the required information and other details about the problem.
+
+     1. When you're done, select **Submit new issue**.
 
 ## How does the workflow assistant work?
 
@@ -75,14 +119,6 @@ This list includes only some examples, so please share your feedback with the Az
 - Workflow size
 
   You might experience different performance levels in the workflow assistant, based on factors such as the number of workflow operations or complexity. The assistant is trained on workflows with different complexity levels but still has limited scope and might not be able to handle very large workflows. These limitations are primarily related to token constraints in the queries sent to Azure Open AI Service. The Azure Logic Apps team is committed to continuous improvement and enhancing these limitations through iterative updates.
-
-## Provide feedback
-
-The Azure Logic Apps team values your feedback and encourages you to share your experiences, especially if you encounter unexpected responses or have any concerns about the workflow assistant.
-
-1. In the chat pane, under the workflow assistant's response, select the thumbs-down icon.
-
-1. Include information about your workflow, your specific question, and the response that you received from the assistant. 
 
 ## Frequently asked questions (FAQ)
 
