@@ -95,7 +95,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 1. Select **Save** to update the DICOM service to use the customer-managed key.  
 
-:::image type="content" source="media/configure-customer-managed-keys/configure-encryption-portal.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/configure-encryption-portal.png":::
+:::image type="content" source="media/configure-customer-managed-keys/configure-encryption-portal.png" alt-text="Screenshot of the Encryption view, showing the selection of the Customer-managed key option, key vault settings, identity type settings, and Save button." lightbox="media/configure-customer-managed-keys/configure-encryption-portal.png":::
 
 #### Update the key by using an ARM template
 
@@ -281,7 +281,7 @@ If you're opting to use a user-assigned managed identity with the DICOM service,
 
 1. On the Create DICOM service page, enter in the **DICOM service name** and then select **Next: Security**.  
 
-:::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create DICOM service view with the DICOM service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
+  :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create DICOM service view with the DICOM service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
 
 2. On the Security tab, select **Customer-managed key** for the Encryption type.
 
@@ -289,7 +289,7 @@ If you're opting to use a user-assigned managed identity with the DICOM service,
 
 4. Select the **Select an identity** option to select the user-assigned managed identity.
 
-:::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
+  :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
 5. On the Select user assigned managed identity panel, filter for an select the managed identity you want to use, then select **Add**.
 
@@ -297,6 +297,6 @@ If you're opting to use a user-assigned managed identity with the DICOM service,
 
 7. On the Review + create tab, you'll see the summary of the configuration options and a Validation success message if all of the settings are configured correctly.  Select **Create** to deploy the DICOM service with customer-managed keys.
 
-:::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
+  :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
