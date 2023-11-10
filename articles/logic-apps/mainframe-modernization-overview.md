@@ -170,7 +170,7 @@ Eventually, after you replace all the workloads or features in the mainframe sys
 
 For more information, see [Strangler Fig pattern](/azure/architecture/patterns/strangler-fig).
 
-### SAGA and Choreography pattern
+### SAGA and Choreography patterns
 
 Distributed transactions such as the two-phase commit (2PC) protocol require that all participants in a transaction to commit or roll back before the transaction can proceed. Cloud hybrid architectures work better following an eventual consistency paradigm rather than a distributed transaction model.
 
