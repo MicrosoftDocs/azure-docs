@@ -6,7 +6,7 @@ ms.author: sunila
 ms.reviewer: maghan
 ms.date: 04/28/2023
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: github-actions-azure, mode-other, devx-track-azurecli
 ---

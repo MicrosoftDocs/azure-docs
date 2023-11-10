@@ -5,6 +5,7 @@ author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan 
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: template-how-to
