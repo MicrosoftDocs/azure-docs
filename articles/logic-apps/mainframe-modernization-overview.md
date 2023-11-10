@@ -150,7 +150,7 @@ Shared elements, such as jobs and interdependencies, exist and have impact acros
 
 Good design includes factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability that allows other applications and scenarios to reuse components and subsystems. For cloud-hosted applications and services, decisions made during the design and implementation phase have a huge impact on quality and the total cost of ownership.
 
-The Azure Architecture Center provides tested [design and implementation patterns](/azure/architecture/patterns/category/design-implementation) that describe the problem that they address, considerations for applying the pattern, and an example based on Microsoft Azure. While multiple design and implementation patterns exist, some of the most relevant patterns for mainframe modernization include the "Anti-corruption Layer", "Strangler Fig", "Saga" and "Choreography" patterns.
+The Azure Architecture Center provides tested [design and implementation patterns](/azure/architecture/patterns/category/design-implementation) that describe the problem that they address, considerations for applying the pattern, and an example based on Microsoft Azure. While multiple design and implementation patterns exist, some of the most relevant patterns for mainframe modernization include the "Anti-corruption Layer", "Strangler Fig", "Saga", and "Choreography" patterns.
 
 ### Anti-corruption Layer pattern
 
