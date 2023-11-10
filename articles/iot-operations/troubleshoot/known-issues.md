@@ -4,7 +4,7 @@ description: A list of known issues for Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 11/02/2023
+ms.date: 11/10/2023
 
 ---
 
