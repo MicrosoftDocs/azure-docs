@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration Kubernetes Provider reference | Microsoft Docs
+title: Azure App Configuration Kubernetes Provider reference
 description: "It describes the supported properties of AzureAppConfigurationProvider object in the Azure App Configuration Kubernetes Provider."
 services: azure-app-configuration
 author: junbchen
@@ -74,7 +74,7 @@ The `spec.configuration.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting that determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|enabled|The setting determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |monitoring|The key-values monitored for change detection, aka sentinel keys. The data from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed.|true|object|
 |interval|The interval at which the data will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
 
@@ -121,7 +121,7 @@ The `spec.secret.refresh` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting that determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|enabled|The setting determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |interval|The interval at which the data will be refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.configuration.refresh`.|true|duration string|
 
 ## Examples
