@@ -118,7 +118,7 @@ az provider register --namespace "Microsoft.ContainerService"
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --workload-runtime KataCcIsolation
+    az aks nodepool add --resource-group myResourceGroup --name nodepool2 --cluster-name myAKSCluster --node-count 2 --os-sku AzureLinux --node-vm-size Standard_DC4as_cc_v5 --workload-runtime KataCcIsolation
     ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -194,6 +194,24 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
    >[!NOTE]
    >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator (preview)][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+
+   Run the following command to set the scope:
+
+    ```azurecli-interactive
+    AKV_SCOPE=`az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv` 
+    ```
+
+   Run the following command to assign the **Key Vault Crypto Officer** role.
+
+    ```azurecli-interactive
+    az role assignment create --role "Key Vault Crypto Officer" --assignee "${USER_ASSIGNED_IDENTITY_NAME}" --scope $AKV_SCOPE
+    ```
+
+   Run the following command to assign the **Key Vault Crypto User** role.
+
+    ```azurecli-interactive
+    az role assignment create --role "Key Vault Crypto User" --assignee "${USER_ASSIGNED_IDENTITY_NAME}" --scope $AKV_SCOPE
+    ``````
 
 1. This example requires the following producer and consumer YAML files. Copy the following YAML manifest and save it as `producer.yaml`.
 
@@ -298,7 +316,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     kubectl create namespace kafka
     ```
 
-1. Install the Kafka cluster in the Kafka namespace running the following command:
+1. Install the Kafka cluster in the Kafka namespace by running the following command::
 
     ```bash
     kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
@@ -313,7 +331,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy. Set `WORKLOAD_MEASUREMENT` to the hash of the security policy by running the following command:
 
     ```bash
-    $ export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml -j genpolicy-debug-settings.json --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
+    export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml -j genpolicy-debug-settings.json --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
 
     ```
 
