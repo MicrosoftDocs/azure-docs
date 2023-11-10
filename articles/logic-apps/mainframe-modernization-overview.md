@@ -74,7 +74,7 @@ This Azure Logic Apps connector for MQ enables connections between Standard work
 
 ## How to modernize mainframe workloads with Azure Logic Apps?
 
-While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. They are complex and in many cases have been running for more than 50 years. As such, a successful modernization strategy includes ways to handle the following tasks:
+While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. These systems are complex and, in many cases, have been running for over 50 years. So, a successful modernization strategy includes ways to handle the following tasks:
 
 - Maintain the current service level indicators and objectives for your environments.
 - Manage coexistence between legacy data along with migrated data.
