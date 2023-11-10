@@ -26,7 +26,7 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-:::image type="content" source="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png" alt-text="Open VS Code desktop" lightbox="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png":::
+    :::image type="content" source="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png" alt-text="Open VS Code desktop" lightbox="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png":::
 
 
 1. [Connect the cluster to Azure Arc](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster).
@@ -47,7 +47,7 @@ TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudRes
 ```
 
 > [!IMPORTANT]
-> The deployment configuration is for demonstration or development purposes only. They are not recommended for live environments.
+> The deployment configuration is for demonstration or development purposes only. It is not suitable for live environments.
 
 The resources deployed by the template include: 
 * [Event Hubs related resources](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L349) 
@@ -56,6 +56,23 @@ The resources deployed by the template include:
 * [Kafka north-bound connector and topicmap](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L282)
 * [Azure role-based access assignments](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L379)
 
+## Send test MQTT data and confirm cloud delivery
+
+1. Simulate test data by deploying a Kubernetes workload. The pod will simulate a sensor by sending sample temperature, vibration and pressure readings every 200 milliseconds to the MQ broker using an MQTT client. Execute the command below in the codespace terminal
+
+    ```bash
+    kubectl apply -f tutorials/mq-realtime-fabric-dashboard/simulate-data.yaml
+    ```
+1. The Kafka north-bound connector is [pre-configured in the deployment](https://github.com/Azure-Samples/explore-iot-operations/blob/e4bf8375e933c29c49bfd905090b37caef644135/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L331) to pick up messages from the MQTT topic where messages are being published to Event Hubs in the cloud.
+
+1. After about a minute, confirm the message delivery in Event Hubs metrics.
+
+    :::image type="content" source="media/event-hub-messages.png" alt-text="Confirm Event Hubs messages" lightbox="media/event-hub-messages.png":::
+
+
+## Configure Fabric resources
+
+1. [Create an eventstream in Microsoft Fabric]
 
 
 
