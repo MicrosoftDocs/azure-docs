@@ -62,13 +62,13 @@ conceptualContent:
           links:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
               itemType: video
-              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
+              text: Azure Migrate your servers to Azure - Part 1
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep06-learn-how-azure-migrate-can-help-migrate-servers-azure-part-2
               itemType: video
-              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 2
+              text: Azure Migrate your servers to Azure - Part 2
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
               itemType: video
-              text: How To Get Started FAST Azure Virtual Desktop for Beginners
+              text: How To Get Started FAST - Azure Virtual Desktop for Beginners
             # Possible addition - Azure Networking Fundamentals (replace AVD)
         # Card
         - title: Cloud Native
