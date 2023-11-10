@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2022
+ms.date: 11/09/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -76,7 +76,7 @@ When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you 
 > [!IMPORTANT]
 > Another design that is **NOT** supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that are not [peered](../../virtual-network/virtual-network-peering-overview.md) with each other. It is recommended to segregate the SAP application layer and DBMS layer using subnets within an Azure virtual network instead of using different Azure virtual networks. If you decide not to follow the recommendation, and instead segregate the two layers into different virtual network, the two virtual networks need to be [peered](../../virtual-network/virtual-network-peering-overview.md). Be aware that network traffic between two [peered](../../virtual-network/virtual-network-peering-overview.md) Azure virtual networks are subject of transfer costs. With the huge data volume  in many Terabytes exchanged between the SAP application layer and DBMS layer substantial costs can be accumulated if the SAP application layer and DBMS layer is segregated between two peered Azure virtual networks. 
 
-If you deployed Jumpbox or management VMs in a separate subnet, you can define multiple virtual network interface cards (vNICs) for the HANA VM, with each vNIC assigned to different subnet. With the ability to have multiple vNICs, you can set up network traffic separation, if necessary. For example, client traffic can be routed through the primary vNIC and admin traffic is routed through a second vNIC.  
+If you deployed Jumpbox or management VMs in a separate subnet, you can define [multiple virtual network interface cards (vNICs)](./planning-guide.md#multiple-vnics-per-vm) for the HANA VM, with each vNIC assigned to different subnet. With the ability to have multiple vNICs, you can set up network traffic separation, if necessary. For example, client traffic can be routed through the primary vNIC and admin traffic is routed through a second vNIC.  
 You also assign static private IP addresses that are deployed for both virtual NICs.
 
 > [!NOTE]
@@ -117,7 +117,7 @@ The minimum OS releases for deploying scale-out configurations in Azure VMs, che
 > Azure VM scale-out deployments of SAP HANA with standby node are only possible using the [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) storage. No other SAP HANA certified Azure storage allows the configuration of SAP HANA standby nodes
 >
 
-For /hana/shared, we recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) or [Azure Files](https://learn.microsoft.com/azure/storage/files/files-nfs-protocol). 
+For /hana/shared, we recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) or [Azure Files](../../storage/files/files-nfs-protocol). 
 
 A typical basic design for a single node in a scale-out configuration, with `/hana/shared` deployed on Azure NetApp Files, looks like:
 
