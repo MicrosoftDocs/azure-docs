@@ -11,7 +11,7 @@ ms.date: 11/10/2023
 
 ---
 
-# "Set and expiration and deletion date for a deployment environment"
+# Set and expiration and deletion date for a deployment environment
 
 In this article, you learn how to set an expiration, or end date for an environment. On the expiration date, the environment and all its resources are deleted. If your timeline changes, you can change the expiration date.
 
@@ -38,7 +38,7 @@ Schedule an expiration date and time as you create an environment through the de
    |Name     | Enter a descriptive name for your environment. |
    |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
-   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
+   |Definition | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
    |Expiration | Select **Enable scheduled deletion**. |
 
    :::image type="content" source="media/how-to-schedule-environment-deletion/add-environment-pane.png" alt-text="Screenshot showing the Add environment pane with Enable scheduled deletion highlighted." lightbox="media/how-to-schedule-environment-deletion/add-environment-pane.png":::
