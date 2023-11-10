@@ -54,6 +54,96 @@
       "source_path_from_root": "/articles/app-service/networking/private-endpoint.md",
       "redirect_url": "/azure/app-service/overview-private-endpoint",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-ftp.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-github.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-continuous-deployment-github.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-local-git.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-staging-environment.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-linux-docker-aspnetcore.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-privateendpoint.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-configure-custom-domain.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-configure-ssl-certificate.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-scale-manual.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-scale-high-availability.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-integrate-app-service-with-application-gateway.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-sql.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-storage.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-redis.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-documentdb.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-schedule-restore.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-monitor.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
     }
   ]
 }
