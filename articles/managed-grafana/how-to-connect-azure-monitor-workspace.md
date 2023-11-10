@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 11/09/2023
+ms.date: 11/10/2023
 --- 
 
 # Add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data
@@ -42,10 +42,6 @@ In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the 
 
 1. Select **Add**.
 1. In the pane that opens, select an Azure Monitor workspace from the list and confirm with **Add**.
-
-   > [!TIP]
-   > If you get the message "Role assignment not found in selected Azure Monitor workspace", ensure that the managed identity has the Monitoring Data Reader role assigned to the Managed Grafana instance. To do so, in the Azure Managed Grafana workspace, go to **Identity** > **Azure role assignments**.
-
 1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can remove an Azure Monitor workspace by selecting **Delete** or add more by selecting **Add** again.
 
 ## Display Prometheus data in Grafana
