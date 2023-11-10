@@ -362,8 +362,8 @@ var transferOption = new TransferToParticipantOptions(transferDestination) {
     OperationCallbackUri = new Uri("<uri_endpoint>") // Sending event to a non-default endpoint.
 };
 // adding customCallingContext
-transferOption.CustomCallingContext.Add(new VoipHeader("customVoipHeader1", "customVoipHeaderValue1"));
-transferOption.CustomCallingContext.Add(new VoipHeader("customVoipHeader2", "customVoipHeaderValue2"));
+transferOption.CustomCallingContext.AddVoip("customVoipHeader1", "customVoipHeaderValue1");
+transferOption.CustomCallingContext.AddVoip("customVoipHeader2", "customVoipHeaderValue2");
 
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
@@ -376,7 +376,7 @@ TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(
                 .setOperationContext("<operation_context>")
                 .setOperationCallbackUrl("<url_endpoint>"); // Sending event to a non-default endpoint.
 // set customCallingContext
-options.getCustomCallingContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
+options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
@@ -387,9 +387,8 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 const transferDestination = { communicationUserId: "<user_id>" };
 const options = { operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 // adding customCallingContext
-const customCallingContext = new CustomCallingContext({}, {});
-const voipHeader = new VoipHeader("customVoipHeader1", "customVoipHeaderValue1");
-customCallingContext.add(voipHeader);
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "voip", key: "customVoipHeader1", value: "customVoipHeaderValue1" })
 options.customCallingContext = customCallingContext;
 
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
@@ -423,8 +422,8 @@ var transferOption = new TransferToParticipantOptions(transferDestination);
 transferOption.Transferee = transferee;
 
 // adding customCallingContext
-transferOption.CustomCallingContext.Add(new VoipHeader("customVoipHeader1", "customVoipHeaderValue1"));
-transferOption.CustomCallingContext.Add(new VoipHeader("customVoipHeader2", "customVoipHeaderValue2"));
+transferOption.CustomCallingContext.AddVoip("customVoipHeader1", "customVoipHeaderValue1");
+transferOption.CustomCallingContext.AddVoip("customVoipHeader2", "customVoipHeaderValue2");
 
 transferOption.OperationContext = "<Your_context>";
 transferOption.OperationCallbackUri = new Uri("<uri_endpoint>");
@@ -437,8 +436,8 @@ var transferOption = new TransferToParticipantOptions(transferDestination);
 transferOption.Transferee = transferee;
 
 // adding customCallingContext
-transferOption.CustomCallingContext.Add(new SIPUUIHeader("uuivalue"));
-transferOption.CustomCallingContext.Add(new SIPCustomHeader("header1", "headerValue"));
+transferOption.CustomCallingContext.AddSipUui("uuivalue");
+transferOption.CustomCallingContext.AddSipX("header1", "headerValue");
 
 transferOption.OperationContext = "<Your_context>";
 
@@ -460,7 +459,7 @@ options.setOperationContext("<Your_context>");
 options.setOperationCallbackUrl("<url_endpoint>");
 
 // set customCallingContext
-options.getCustomCallingContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
+options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 
@@ -473,8 +472,8 @@ options.setOperationContext("<Your_context>");
 options.setOperationCallbackUrl("<url_endpoint>");
 
 // set customCallingContext
-options.getCustomCallingContext().addOrUpdate(new SIPUUIHeader("UUIvalue"));
-options.getCustomCallingContext().addOrUpdate(new SIPCustomHeader("sipHeaderName", "value"));
+options.getCustomCallingContext().addSipUui("UUIvalue");
+options.getCustomCallingContext().addSipX("sipHeaderName", "value");
 
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
@@ -488,9 +487,8 @@ const transferee = { communicationUserId: "<transferee_user_id>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 
 // adding customCallingContext
-const customCallingContext = new CustomCallingContext({}, {}); 
-const voipHeader = new VoipHeader("customVoipHeader1", "customVoipHeaderValue1");
-customCallingContext.add(voipHeader);
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "voip", key: "customVoipHeader1", value: "customVoipHeaderValue1" })
 options.customCallingContext = customCallingContext;
 
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
@@ -502,11 +500,9 @@ const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 
 // adding customCallingContext
-const customCallingContext = new CustomCallingContext({}, {}); 
-const sipUUIHeader = new SIPUserToUserHeader("uuivalue");
-customCallingContext.add(sipUUIHeader);
-const sipCustomHeader = new SIPCustomHeader("headerName", "headerValue");
-customCallingContext.add(sipCustomHeader);
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "sipuui", key: "", value: "uuivalue" });
+customContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
 options.customCallingContext = customCallingContext;
 
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
@@ -566,15 +562,15 @@ You can add a participant (Communication Services user or phone number) to an ex
 // Add ACS user
 var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 // add custom calling context
-addThisPerson.CustomCallingContext.Add(new VoipHeader("myHeader", "myValue"));
+addThisPerson.CustomCallingContext.AddVoip("myHeader", "myValue");
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
 
 // Add PSTN user
 var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
 var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 // add custom calling context
-addThisPerson.CustomCallingContext.Add(new SIPUUIHeader("value"));
-addThisPerson.CustomCallingContext.Add(new SIPCustomHeader("header1", "customSipHeaderValue1"));
+addThisPerson.CustomCallingContext.AddSipUui("value");
+addThisPerson.CustomCallingContext.AddSipX("header1", "customSipHeaderValue1");
 
 // Use option bag to set optional parameters
 var addParticipantOptions = new AddParticipantOptions(new CallInvite(addThisPerson))
@@ -593,7 +589,7 @@ AddParticipantsResult result = await callConnection.AddParticipantAsync(addParti
 // Add ACS user
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 // add custom calling context
-callInvite.getCustomCallingContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
+callInvite.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
                 .setOperationContext("<operation_context>")
                 .setOperationCallbackUrl("<url_endpoint>");
@@ -603,8 +599,8 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 // add custom calling context
-callInvite.getCustomCallingContext().addOrUpdate(new SIPUUIHeader("value"));
-callInvite.getCustomCallingContext().addOrUpdate(new SIPCustomHeader("header1", "customSipHeaderValue1"));
+callInvite.getCustomCallingContext().addSipUui("value");
+callInvite.getCustomCallingContext().addSipX("header1", "customSipHeaderValue1");
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
                 .setOperationContext("<operation_context>")
                 .setOperationCallbackUrl("<url_endpoint>");
@@ -616,9 +612,9 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 ```javascript
 // Add ACS user
 // add custom calling context
-const customCallingContext = new CustomCallingContext({}, {});
-const voipHeader = new VoipHeader("voipHeaderName", "voipHeaderValue")
-customCallingContext.add(voipHeader);
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "voip", key: "voipHeaderName", value: "voipHeaderValue" })
+
 const addThisPerson = {
     targetParticipant: { communicationUserId: "<acs_user_id>" },
     customCallingContext: customCallingContext,
@@ -631,11 +627,9 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson, 
 // Add PSTN user
 const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
 // add custom calling context
-const customCallingContext = new CustomCallingContext({}, {});
-const sipUUIHeader = new SIPUserToUserHeader("value");
-const sipCustomHeader = new SIPCustomHeader("headerName", "headerValue");
-customCallingContext.add(sipUUIHeader);
-customCallingContext.add(sipCustomHeader);
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "sipuui", key: "", value: "value" });
+customContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
 const addThisPerson = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
