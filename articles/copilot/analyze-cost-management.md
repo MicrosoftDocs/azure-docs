@@ -18,10 +18,10 @@ When you ask Microsoft Copilot for Azure (preview) questions about your costs, i
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use for Cost Management. Modify these prompts based on your real-life scenarios, or try additional prompts to meet your needs.
 
-- "Summarize my costs for the last 6 months?"
-- "Why did my cost spike on July 8th"
+- "Summarize my costs for the last 6 months."
+- "Why did my cost spike on July 8th?"
 - "Can you provide an estimate of our expected expenses for the next 6 months?"
 - "Show me the resource group with the highest spending in the last 6 months."
 - "How can we reduce our costs?"
