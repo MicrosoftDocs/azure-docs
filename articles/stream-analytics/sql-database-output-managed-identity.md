@@ -5,7 +5,7 @@ author: an-emma
 ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/09/2023
+ms.date: 11/10/2023
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job
@@ -214,6 +214,25 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you are now ready to proceed with using Managed Identity for your Azure Synapse Analytics resource with Stream Analytics.
 
 ---
+## Additional Steps for SQL Reference Data
+
+Azure Stream Analytics requires you to configure your job's storage account when using SQL Reference data.
+This storage account is used for storing content related to your Stream Analytics job, such as SQL reference data snapshots.
+
+Follow the following steps to set up an associated storage account:  
+
+1. On the **Stream Analytics job** page, select **Storage account settings** under **Configure** on the left menu.
+1. On the **Storage account settings** page, select **Add storage account**.
+1. Follow the instructions to configure your storage account settings.
+
+    :::image type="content" source="./media/run-job-in-virtual-network/storage-account-settings.png" alt-text="Screenshot of the Storage account settings page of a Stream Analytics job." :::
+
+    
+> [!IMPORTANT]
+> - To authenticate with connection string, you must disable the storage account firewall settings. 
+> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list for Storage Blob Data Contributor role and 
+Storage Table Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
+
 
 ## Additional Steps with User-Assigned Managed Identity
 
