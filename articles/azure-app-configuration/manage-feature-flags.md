@@ -70,7 +70,7 @@ In the **Operations** menu, select **Feature manager** to display all your featu
 
 **Manage view** > **Settings** lets you choose how many feature flags will be loaded per **Load more** action. **Load more** will only be visible if there are more than 200 feature flags.
 
-Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`.
+Feature flags created with the Feature Manager are stored as regular key-values. They're kept with a special prefix `.appconfig.featureflag/` and content type `application/vnd.microsoft.appconfig.ff+json;charset=utf-8`.
 
 To view the underlying key-values:
 
