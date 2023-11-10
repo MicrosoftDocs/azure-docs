@@ -4,7 +4,7 @@ description: Create an Azure VM image of Azure Virtual Desktop by using VM Image
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 06/20/2023
+ms.date: 11/10/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
@@ -78,6 +78,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 
 # If they don't show as 'Registered', run the following commented-out code
 
@@ -85,6 +86,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+## Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 ```
 
 ## Set up the environment and variables
