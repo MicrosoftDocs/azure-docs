@@ -33,8 +33,6 @@ To modify and interact with an Azure OpenAI model in the Playground, you need to
 
 ## Deploying foundation models
 
-# [Studio](#tab/azure-studio)
-
 Follow the steps below to deploy a foundation model such as `distilbert-base-cased` to an online endpoint in Azure AI Studio.
 
 1. Choose a model you want to deploy from AI Studio model catalog. Alternatively, you can initiate deployment by selecting **Create** from `your project`>`deployments` 
@@ -47,47 +45,6 @@ Follow the steps below to deploy a foundation model such as `distilbert-base-cas
 
 5. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
 
-
-# [Python SDK](#tab/python)
-
-You can use the Azure AI Generative SDK to deploy a prompt flow as an online endpoint. In this example, you deploy a `distilbert-base-cased` model.
-
-```python
-# Import required dependencies
-from azure.ai.generative import AIClient
-from azure.ai.generative.entities.deployment import Deployment
-from azure.identity import InteractiveBrowserCredential as Credential
-
-# Credential info can be found under your project settings on Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
-credential = Credential()
-
-client = AIClient(
-    credential=credential,
-    subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    resource_group_name="INSERT_YOUR_RESOURCE_GROUP_NAME",
-    project_name="INSERT_YOUR_PROJECT_NAME",
-)
-
-# The model_id can be found on the model card on Azure AI Studio model catalog 
-model_id = "azureml://registries/azureml/distilbert-base-cased/versions/10"
-
-# Name your deployment
-deployment_name = "distilbert-base-cased-10"
-
-# Define your deployment
-deployment = Deployment(
-    name=deployment_name,
-    model=model_id,
-)
-
-# Deploy the model
-deployment = client.deployments.create_or_update(deployment)
-
-# Test with a sample json file
-print(client.deployments.invoke(deployment_name, "./request_file_azureml_curated.json"))
-```
-
----
 
 ## Deploying a prompt flow
 
