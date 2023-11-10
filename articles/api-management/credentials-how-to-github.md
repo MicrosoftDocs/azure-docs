@@ -18,7 +18,7 @@ You learn how to:
 > [!div class="checklist"]
 > * Register an application in GitHub
 > * Configure a token credential in API Management.
-> * Authorize with GitHub and configure access policies.
+> * Authorize with GitHub and configure a credential connection
 > * Create an API in API Management and configure a policy.
 > * Test your GitHub API in API Management
 
@@ -68,8 +68,6 @@ You learn how to:
 
 [!INCLUDE [api-management-credential-create-connection](../../includes/api-management-credential-create-connection.md)]
 
-
-     
 ## Step 4: Create an API in API Management and configure a policy
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
@@ -99,13 +97,13 @@ You learn how to:
     |**URL** for GET     |  /user/followers |
 
 1. Select **All operations**. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Copy the following, and paste in the policy editor. Make sure the provider-id and authorization-id correspond to the names in Step 2. Select **Save**. 
+1. Copy the following, and paste in the policy editor. Make sure the `provider-id` and `authorization-id` values correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
 
     ```xml
     <policies>
         <inbound>
             <base />
-            <get-authorization-context provider-id="github-01" authorization-id="github-auth-01" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
+            <get-authorization-context provider-id="github-01" authorization-id="first-connecton" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
             <set-header name="Authorization" exists-action="override">
                 <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
             </set-header>
@@ -140,7 +138,7 @@ The preceding policy definition consists of three parts:
 
     A successful response returns user data from the GitHub API.
 
-## Next steps
+## Related content
 
 * Learn more about [access restriction policies](api-management-access-restriction-policies.md).
 * Learn more about GitHub's [REST API](https://docs.github.com/en/rest?apiVersion=2022-11-28)

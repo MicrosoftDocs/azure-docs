@@ -14,10 +14,10 @@ ms.custom: references_regions
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]
-> Currently, you can use credential manager to manage OAuth 2.0 credentials (formerly called *authorizations*) for backend OAuth APIs. Support for other types of credentials is planned.
+> Currently, you can use credential manager to manage token credentials (formerly called *authorizations*) for backend OAuth 2.0 APIs. Support for other types of credentials is planned.
 
 
-## Managing credentials for OAuth
+## Managing token credentials for OAuth
 
 Using credential manager, you can greatly simplify the process of authenticating and authorizing users across one or more backend or SaaS services that use OAuth 2.0. Using API Management's credential manager, easily configure OAuth 2.0, consent, acquire tokens, cache tokens in a credential store, and refresh tokens without writing a single line of code. Use API credentials to delegate authentication to your API Management instance. 
 

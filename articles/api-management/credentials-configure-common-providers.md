@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 11/10/2023
 ms.author: danlep
 ---
 

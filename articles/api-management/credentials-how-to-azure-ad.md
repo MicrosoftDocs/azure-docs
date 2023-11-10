@@ -9,16 +9,16 @@ ms.date: 11/08/2023
 ms.author: danlep
 ---
 
-# Create a credential to the Microsoft Graph API
+# Create a token credential to the Microsoft Graph API
 
-This article guides you through the steps required to create a [credential](credentials-overview.md) with the Microsoft Graph API within Azure API Management. The credential code grant type is used in this example.
+This article guides you through the steps required to create a managed [token credential](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Create a Microsoft Entra application
 > * Create and configure a credential in API Management
-> * Configure an access policy
+> * Configure a credential connection
 > * Create a Microsoft Graph API in API Management and configure a policy
 > * Test your Microsoft Graph API in API Management
 
@@ -28,7 +28,6 @@ You learn how to:
 
     If you want to create your own developer tenant, you can sign up for the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
 - A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
-- Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance. 
 
 <a name='step-1-create-an-azure-ad-application'></a>
 
@@ -38,14 +37,14 @@ Create a Microsoft Entra application for the API and give it the appropriate per
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account with sufficient permissions in the tenant.
 1. Under **Azure Services**, search for **Microsoft Entra ID**.
-1. On the left menu, select **App registrations**, and then select **+ New registration**. 
-    :::image type="content" source="media/credentials-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating a Microsoft Entra app registration in the portal.":::
-    
+1. On the left menu, select **App registrations**, and then select **+ New registration**.     
 1. On the **Register an application** page, enter your application registration settings:
     1. In **Name**, enter a meaningful name that will be displayed to users of the app, such as *MicrosoftGraphAuth*.
     1. In **Supported account types**, select an option that suits your scenario, for example, **Accounts in this organizational directory only (Single tenant)**.
-    1. Set the **Redirect URI** to **Web**,  and enter `https://credential-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management service where you will configure the credential provider.
+    1. Set the **Redirect URI** to **Web**,  and enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management service where you will configure the credential provider.
     1. Select **Register**.
+
+        :::image type="content" source="media/credentials-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating a Microsoft Entra app registration in the portal.":::
 1. On the left menu, select **API permissions**, and then select **+ Add a permission**.
     :::image type="content" source="./media/credentials-how-to-azure-ad/add-permission.png" alt-text="Screenshot of adding an API permission in the portal.":::
 
@@ -53,13 +52,13 @@ Create a Microsoft Entra application for the API and give it the appropriate per
         > [!NOTE]
         > Make sure the permission **User.Read** with the type **Delegated** has already been added.
     1. Type **Team**, expand the **Team** options, and then select **Team.ReadBasic.All**. Select **Add permissions**.
-    1. Next, select **Grant admin consent for Default Directory**. The status of the permissions will change to **Granted for Default Directory**.
+    1. Next, select **Grant admin consent for Default Directory**. The status of the permissions change to **Granted for Default Directory**.
 1. On the left menu, select **Overview**. On the **Overview** page, find the **Application (client) ID** value and record it for use in Step 2.
 1. On the left menu, select **Certificates & secrets**, and then select **+ New client secret**.    
     :::image type="content" source="media/credentials-how-to-azure-ad/create-secret.png" alt-text="Screenshot of creating an app secret in the portal.":::
     
     1. Enter a **Description**.
-    1. Select any option for **Expires**.
+    1. Select an option for **Expires**.
     1. Select **Add**.
     1. Copy the client secret's **Value** before leaving the page. You will need it in Step 2.
 
@@ -72,30 +71,19 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     
     |Settings  |Value  |
     |---------|---------|
-    |**Credential provider name**     |  A name of your choice, such as *Microsoft Entra ID-01*       |
+    |**Credential provider name**     |  A name of your choice, such as *MicrosoftEntraID-01*       |
     |**Identity provider**     |   Select **Azure Active Directory v1**      |
     |**Grant type**     | Select **credential code**        |
-    |**Authorization URL** | `https://graph.microsoft.com` |
+    |**Authorization URL** | Optional for Microsoft Entra identity provider. Default is `https://login.microsoftonline.com`. |
     |**Client ID**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
-    | **Resource URL** | Resource to get the credential for. |    
-    |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common* |
+    |**Resource URL** | `https://graph.microsoft.com` |    
+    |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common*. |
     |**Scopes**     |    Optional for Microsoft Entra identity provider. Automatically configured from Microsoft Entra app's API permissions.      |
 
 ## Step 3: Authorize with Microsoft Entra ID and configure an access policy
 
-1. On the **Login** tab, select **Login with Microsoft Entra ID**. Before the credential will work, it needs to be authorized.
-    :::image type="content" source="media/credentials-how-to-azure-ad/login-azure-ad.png" alt-text="Screenshot of login with Microsoft Entra ID in the portal.":::
-
-1. When prompted, sign in to your organizational account.
-1. On the confirmation page, select **Allow access**.
-1. After successful credential, the browser is redirected to API Management and the window is closed. In API Management, select **Next**.
-1. On the **Access policy** page, create an access policy so that API Management has access to use the credential. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
-1. For this example, select **API Management service `<service name>`**, and then click "+ Add members". You should see your access policy in the Members table below.
-
-    :::image type="content" source="media/credentials-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the credential."::: 
- 
-1. Select **Complete**.
+[!INCLUDE [api-management-credential-create-connection](../../includes/api-management-credential-create-connection.md)]
 
 > [!NOTE]
 > If you update your Microsoft Graph permissions after this step, you will have to repeat Steps 2 and 3.
@@ -127,13 +115,13 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |**URL** for GET    |  /me/joinedTeams |
 
 1. Select **All operations**. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Copy the following, and paste in the policy editor. Make sure the `provider-id` and `credential-id` correspond to the values you configured in Step 2. Select **Save**. 
+1. Make sure the `provider-id` and `authorization-id` values correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
 
     ```xml
     <policies>
         <inbound>
             <base />
-            <get-credential-context provider-id="aad-01" credential-id="aad-auth-01" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
+            <get-credential-context provider-id="MicrosoftEntraID-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
            <set-header name="credential" exists-action="override">
                <value>@("Bearer " + ((credential)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
            </set-header>
@@ -155,6 +143,7 @@ The preceding policy definition consists of two parts:
 * The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched credential token.
 
 ## Step 5: Test the API 
+
 1. On the **Test** tab, select one operation that you configured.
 1. Select **Send**. 
     
@@ -162,7 +151,7 @@ The preceding policy definition consists of two parts:
 
     A successful response returns user data from the Microsoft Graph.
 
-## Next steps
+## Related content
 
 * Learn more about [access restriction policies](api-management-access-restriction-policies.md)
 * Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.
