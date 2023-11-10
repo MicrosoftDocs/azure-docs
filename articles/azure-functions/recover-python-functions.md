@@ -40,7 +40,6 @@ General troubleshooting guides for Python Functions include:
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Sync triggers failed](#sync-triggers-failed)
->>>>>>> 33e09a3a182024bd6490743d1c2817430528b617
 ::: zone-end
 
 
