@@ -19,7 +19,7 @@ As a developer, when you work on solutions that integrate services and systems i
 
 Azure Integration Environments reduces this complexity by providing a central place in Azure where you can organize and manage the Azure resources by creating *integration environments*. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further break down your environment and organize resources by logical function or purpose. For example, you might create application groups for employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
 
-:::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organing separate Azure resources into an application group." lightbox="media/overview/organize-conceptual.png":::
+:::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into an application group." lightbox="media/overview/organize-conceptual.png":::
 
 To provide business information about an application group, business analysts can add flow charts that illustrate the business processes implemented by the Azure resources in each group. For insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each stage and the business properties to actual Azure resources and data sources.
 
