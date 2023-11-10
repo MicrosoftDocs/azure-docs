@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Configure multiple credential connections
 
-You can configure multiple credentials (also called *credential connections*) to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple credentials for different scenarios and users.
+You can configure multiple connections (also called *credential connections*) to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a token credential provider, you might need to create multiple credentials for different scenarios and users.
 
 In this article, you learn how to add a credential connection to an existing provider, using the portal. For an overview of configuration steps, see [How to configure credentials?](credentials-overview.md#how-to-configure-credentials)
 
@@ -42,7 +42,7 @@ If you want to create another connection for the credential provider, complete t
 
 ## Manage credentials - portal
 
-You can manage credential provider settings and credential connections in the portal. For example, you might need to update client credentials for the credential provider.
+You can manage credential provider settings and credential connections in the portal. For example, you might need to update client credentials for a token credential provider.
 
 To update provider settings:
 
@@ -58,11 +58,12 @@ To update a credential connection:
 
 1. Sign into [portal](https://portal.azure.com) and go to your API Management instance.
 1. In the left menu, select **Credential manager**.
-1. Select the credential provider (for example, *mygithub*).
+1. Select the credential provider whose connection you want to update.
 1. In the provider window, select **Connections**.
 1. In the row for the connection you want to update, select the context (...) menu, and select from the options. For example, to manage access policies, select **Edit access policies**.
 
     :::image type="content" source="media/configure-credential-connection/update-connection.png" alt-text="Screenshot of updating a credential connection in the portal.":::
+1. In the window that appears, make updates, and select **Save**.
 
 ## Related content
 

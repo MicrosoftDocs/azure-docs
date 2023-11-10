@@ -1,6 +1,6 @@
 ---
 title: Configure credential providers - Azure API Management | Microsoft Docs
-description: Learn how to configure common identity providers for API credentials in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider. A credential manages authorization tokens to an OAuth 2.0 backend service. 
+description: Learn how to configure common identity providers for managed token credentials in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider.  
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.author: danlep
 
 # Configure identity providers for API credentials
 
-In this article, you learn about configuring identity providers for [credentials](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
+In this article, you learn about configuring identity providers for managed [token credentials](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
 * Microsoft Entra provider
 * Generic OAuth 2.0 provider
 
-You add identity provider settings when configuring a credential in your API Management instance. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
+You add identity provider settings when configuring a token credential in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
 
-* [Create a credential with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
+* [Create a token credential with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
 ## Prerequisites
 
@@ -28,11 +28,9 @@ To configure any of the supported providers in API Management, first configure a
 
 * Depending on your scenario, configure app settings such as scopes (API permissions).
     
-* Minimally, retrieve the following app credentials that will be configured in API Management: the app's **client id** and **client secret**.
+* Minimally, retrieve the following app credentials that will be configured in API Management: the app's **client ID** and **client secret**.
 
 * Depending on the provider and your scenario, you might need to retrieve other settings such as authorization endpoint URLs or scopes.
-
-<a name='azure-ad-provider'></a>
 
 ## Microsoft Entra provider
 
@@ -51,7 +49,8 @@ API credentials support the Microsoft Entra identity provider, which is the iden
 
 ## Generic OAuth 2.0 providers
 
-API credentials support two generic providers:
+You can use two generic providers for configuring token credentials:
+
 * Generic OAuth 2.0
 * Generic OAuth 2.0 with PKCE 
 
@@ -68,7 +67,7 @@ A generic provider allows you to use your own OAuth 2.0 identity provider based 
 
 ## Other identity providers
 
-API Management supports several providers for popular SaaS offerings, such as GitHub. You can select from a list of these providers in the Azure portal when you create a credential.
+API Management supports several providers for popular SaaS offerings, including GitHub, LinkedIn, and others. You can select from a list of these providers in the Azure portal when you create a managed credential.
 
 :::image type="content" source="media/credentials-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
 

@@ -332,7 +332,7 @@
       href: credentials-configure-common-providers.md
     - name: Configure and use credential - Microsoft Entra ID
       href: credentials-how-to-azure-ad.md
-    - name: Configure and use credEssentials - GitHub
+    - name: Configure and use credential - GitHub
       href: credentials-how-to-github.md
     - name: Configure multiple credential connections
       href: configure-credential-connection.md

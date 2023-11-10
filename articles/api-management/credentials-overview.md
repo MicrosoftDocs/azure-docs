@@ -9,17 +9,25 @@ ms.author: danlep
 ms.custom: references_regions
 ---
 
-# What are API credentials?
+# About API credentials and credential manager
 
-API Management's *API credentials* (formerly called *authorizations*) provide a simple and reliable way to unbundle and abstract authorization credentials from web APIs. Credentials greatly simplify the process of authenticating and authorizing users across one or more backend or SaaS services. Using API Management's credential manager, easily configure OAuth 2.0, consent, acquire tokens, cache tokens, and refresh tokens without writing a single line of code. Use API credentials to delegate authentication to your API Management instance. 
+To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
+
+> [!NOTE]
+> Currently, you can use credential manager to manage OAuth 2.0 credentials (formerly called *authorizations*) for backend OAuth APIs. Support for other types of credentials is planned.
+
+
+## Managing credentials for OAuth
+
+Using credential manager, you can greatly simplify the process of authenticating and authorizing users across one or more backend or SaaS services that use OAuth 2.0. Using API Management's credential manager, easily configure OAuth 2.0, consent, acquire tokens, cache tokens in a credential store, and refresh tokens without writing a single line of code. Use API credentials to delegate authentication to your API Management instance. 
 
 This feature enables APIs to be exposed with or without a subscription key, use OAuth 2.0 authorizations to the backend services, and reduce development costs in ramping up, implementing, and maintaining security features with service integrations.
 
-:::image type="content" source="media/credentials-overview/overview-providers.png" alt-text="Diagram of API Management credentials and supported SaaS providers." border="true":::
+:::image type="content" source="media/credentials-overview/overview-providers.png" alt-text="Diagram of API Management OAuth credentials and supported SaaS providers." border="true":::
 
 ## Key scenarios
 
-Using credentials in API Management, customers can enable different scenarios and easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some example scenarios where this feature could be used:
+Using OAuth credentials in API Management, customers can enable different scenarios and easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some example scenarios where this feature could be used:
 
 * Easily connect to a SaaS backend by attaching the stored authorization token and proxying requests
 
@@ -35,11 +43,28 @@ Using credentials in API Management, customers can enable different scenarios an
 
 * With credentials, every API in API Management can act as a Logic Apps custom connector.
 
+## How OAuth credentials work
+
+Authentication and authorization to a backend API using OAuth 2.0 is a complex process, as shown in the following high-level diagram. Every time a user opens the client application, they have to login, provide consent, and then they will request a new access token to verify the API call.
+
+[Insert diagram]
+
+By creating and storing an API credential in the credential manager in API Management, your client apps don't have to store and manage users' access tokens and credentials when users make calls to third-party SaaS APIs.     
+
+Users will login and provide consent one time only, and the API Management instance will manage their credentials after that. When API Management gets an incoming call to be forwarded to an external service, it can just attach the access token/credential to  the request.     
+
+
+##
+
+
+
 ## How do credentials work?
 
 Credentials consist of two parts, **management** and **runtime**.
 
-* The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the credentials. For details, see [Process flow - management](#process-flow---management).
+* The **management** part in credential manager takes care of setting up and configuring a *credential store* for a particular identity provider, enabling the consent flow for the identity provider, and creating one or more *connections* for access to the credentials. For details, see [Process flow - management](#process-flow---management).
+
+    
 
 * The **runtime** part uses the [`get-authorization-context` policy](get-authorization-context-policy.md) to fetch and store the credential's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Process flow - runtime](#process-flow---runtime).  
    
