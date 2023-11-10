@@ -115,7 +115,7 @@
         href: concepts/evaluation-improvement-strategies.md
     - name: Evaluate with Azure AI Studio and SDK
       href: how-to/evaluate-generative-ai-app.md
-    - name: Evaluate from the Azure AI Studio playground 
+    - name: Manually evaluate prompts in Azure AI Studio playground 
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md

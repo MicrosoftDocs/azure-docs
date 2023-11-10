@@ -53,13 +53,13 @@ Some potential action items based on the evaluation metrics could include:
 
 The metrics detail table offers a wealth of data that can guide your model improvement efforts, from recognizing patterns to customizing your view for efficient analysis and refining your model based on identified issues. 
 
-Here are some examples of the metrics results for the conversation scenario:
+Here are some examples of the metrics results for the question answering scenario:
 
-:::image type="content" source="../media/evaluations/view-results/metrics-details-qa.png" alt-text="Screenshot of metrics results for the conversation scenario." lightbox="../media/evaluations/view-results/metrics-details-qa.png":::
+:::image type="content" source="../media/evaluations/view-results/metrics-details-qa.png" alt-text="Screenshot of metrics results for the question answering scenario." lightbox="../media/evaluations/view-results/metrics-details-qa.png":::
 
-And here are some examples of the metrics results for the question answering scenario:
+And here are some examples of the metrics results for the conversation scenario:
 
-:::image type="content" source="../media/evaluations/view-results/metrics-details-rag.png" alt-text="Screenshot of metrics results for question answering scenario." lightbox="../media/evaluations/view-results/metrics-details-rag.png":::
+:::image type="content" source="../media/evaluations/view-results/metrics-details-rag.png" alt-text="Screenshot of metrics results for the conversation scenario." lightbox="../media/evaluations/view-results/metrics-details-rag.png":::
 
 
 If there's something wrong with the run, you can also debug your evaluation run with the log and trace. 
