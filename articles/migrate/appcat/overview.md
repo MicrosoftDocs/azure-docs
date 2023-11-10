@@ -45,5 +45,5 @@ In this article, you learned what Azure Migrate and Azure Migrate application an
 Learn more about Azure Migrate application and code assessment:
 
 * [Azure Migrate](../migrate/index.yml)
-* [Azure Migrate application and code Assessment for Java](java.yml)
-* [Azure Migrate application and code Assessment for .NET](dotnet.yml)
+* [Azure Migrate application and code assessment for Java](java.yml)
+* [Azure Migrate application and code assessment for .NET](dotnet.yml)
