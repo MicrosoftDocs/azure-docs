@@ -181,7 +181,7 @@ Azure Logic Apps workflows act as Choreographers coordinating SAGAs. Workflow ac
 
 For more information, see [SAGA pattern](/azure/architecture/reference-architectures/saga/saga).
 
-While this article covered three modernization patterns, building complex solutions requires many more and also having a clear understanding of the modernization goals. Extending the value of legacy assets is not an easy task but remains the best approach to extend business value.
+While this article covers several modernization patterns, complex solutions require many more patterns and that you clearly understand your organization's modernization goals. Although the task to extend the value of legacy assets is challenging, this option is the best way to preserve investment in these assets and prolong their business value.
 
 ## Next step
 
