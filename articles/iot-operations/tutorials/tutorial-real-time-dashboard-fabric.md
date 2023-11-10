@@ -13,7 +13,7 @@ ms.date: 11/01/2023
 
 # Build a real-time dashboard in Microsoft Fabric with MQTT data
 
-In this walkthough, you'll build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that is published to IoT MQ. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
+In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that is published to IoT MQ. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
 
 ## Prepare your Kubernetes cluster
 
