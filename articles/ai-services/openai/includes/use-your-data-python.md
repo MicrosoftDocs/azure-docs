@@ -14,10 +14,10 @@ ms.date: 11/09/2023
 
 1. Create a new folder named *openai-python* for your project and a new Python code file named *main.py*. Change into that directory:
 
-   ```cmd
-   mkdir openai-python
-   cd openai-python
-   ```
+```cmd
+mkdir openai-python
+cd openai-python
+```
 
 1. Install the following Python Libraries:
 
