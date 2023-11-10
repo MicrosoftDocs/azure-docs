@@ -1,5 +1,5 @@
 ---
-title: RestApiPoller data connector reference for the Codeless Connector Platform
+title: Data connector reference for the Codeless Connector Platform
 description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
@@ -9,11 +9,11 @@ ms.author: austinmc
 
 ---
 
-# RestApiPoller data connector reference for the Codeless Connector Platform
+# Data connector reference for the Codeless Connector Platform
 
 To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) reference docs. Specifically this reference document expands on the following details:
 
-- An updated data connector kind, `RestApiPoller`  
+- The data connector kind, `RestApiPoller`, which is used for the CCP.
 - Authorization configuration
 - Data source request and response configuration options
 - Data stream paging options
@@ -390,7 +390,7 @@ These are the paging types:
 ## DCR configuration
 
 Field	Required	Type	Description
-DataCollectionEndpoint	true	String	DCE (Data Collection Endpoint) for example: https://example.ingest.monitor.azure.com.
+DataCollectionEndpoint	true	String	DCE (Data Collection Endpoint) for example: `https://example.ingest.monitor.azure.com`.
 Create DCE here
 
 DataCollectionRuleImmutableId	true	String	On DCR creation, the response for the DCR will have its immutable id
@@ -444,6 +444,4 @@ Here's an example of all the components of the CCP data connector JSON together.
                 }
               }
             }
-
-
 ```

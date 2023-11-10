@@ -84,7 +84,7 @@ Reference the latest information on DCRs in these articles:
 
 For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
 
-To understand how to create a complex DCR with multiple data flows, see the [example section](#example).
+To understand how to create a complex DCR with multiple data flows, see the [example section](#example-data-collection-rule).
 
 ### Data connector definition
 
@@ -125,10 +125,11 @@ Each step in building the codeless connector is represented in the following exa
 
 ### Example data
 
-A data source, *ExampleDataSource* returns the following JSON when connecting to its endpoint.
+A data source returns the following JSON when connecting to its endpoint.
 
 ```json
-{
+[
+        {
         "ts": "3/6/2023 8:15:15 AM",
         "eventType": "Alert",
         "deviceMac": "bc:27:c6:21:1c:70",
@@ -137,28 +138,32 @@ A data source, *ExampleDataSource* returns the following JSON when connecting to
         "destIp": "121.93.178.13",
         "protocol": "tcp/ip",
         "priority": "0",
-        "message": "This is an alert message",
-},
-{
+        "message": "This is an alert message"
+        },
+        {
         "ts": "3/6/2023 8:14:54 AM",
         "eventType": "File",
         "srcIp": "178.175.128.249",
         "destIp": "234.113.125.105",
         "fileType": "MS_EXE",
         "fileSizeBytes": 193688,
-        "disposition": "Malicious",
-}
-
+        "disposition": "Malicious"
+        }
+]
 ```
 
-This response contains `eventType` of *Alert* and *File*. The file events are to be ingested into the normalized standard table, *AsimFileActivityEvent*, while the alert events are to be ingested into a custom table.
+This response contains `eventType` of **Alert** and **File**. The file events are to be ingested into the normalized standard table, **AsimFileEventLogs**, while the alert events are to be ingested into a custom table.
 
 ### Example custom output table definition
 
+For more information on the structure of this table, see [Tables API](/rest/api/loganalytics/tables/create-or-update).
+
 ```json
-"schema": {
-      "name": "ExampleConnectorAlerts_CL",
-      "columns": [
+{
+"properties": {
+    "schema": {
+        "name": "ExampleConnectorAlerts_CL",
+        "columns": [
         {
           "name": "TimeGenerated",
           "type": "datetime"
@@ -179,23 +184,26 @@ This response contains `eventType` of *Alert* and *File*. The file events are to
           "name": "Priority",
           "type": "int"
         }
-      ]
+        ]
+      }
     }
+}
 ```
 
 ### Example data collection rule
 
-The following DCR transforms the event types above into two output tables.
+The following DCR transforms the example data source into two output tables.
 
-1. The first dataflow sends all events which EventType is *Alert* to the custom `ExampleConnectorAlerts_CL`` table while 
-1. the second dataflow directs all events which EventType is *File* to the normalized standard `ASimWebSessionLog`table. [Shouldn't this be AsimFileActivityEvent??]
+1. The first dataflow directs `eventType` = **Alert** to the custom `ExampleConnectorAlerts_CL` table.
+1. the second dataflow directs `eventType` = **File** to the normalized standard table,`ASimFileEventLogs`.
 
+For more information on the structure of this example, see [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create) and [Data collection rules - custom logs](../azure-monitor/essentials/data-collection-rule-structure.md#custom-logs).
 
 ```json
 {
+  "location": "eastus",
   "properties": {
-    "immutableId": "dcr-XXXXXXXXXXXXXXXXXXXXXXXX",
-    "dataCollectionEndpointId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft.Insights/dataCollectionEndpoints/DataCollectionEndpoint1",
+    "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
     "streamDeclarations": {
       "Custom-ExampleConnectorInput": {
         "columns": [
@@ -250,13 +258,11 @@ The following DCR transforms the event types above into two output tables.
         ]
       }
     },
-    "dataSources": {},
     "destinations": {
       "logAnalytics": [
         {
-          "workspaceResourceId": "/subscriptions/ XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX /resourcegroups/MyRG /providers/microsoft.operationalinsights/workspaces/myws",
-          "workspaceId": " XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX ",
-          "name": " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+          "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/centralTeamWorkspace",
+          "name": "UniqueFriendlyDestinationName"
         }
       ]
     },
@@ -266,36 +272,22 @@ The following DCR transforms the event types above into two output tables.
           "Custom-ExampleConnectorInput"
         ],
         "destinations": [
-          " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+          "UniqueFriendlyDestinationName"
         ],
         "transformKql": "source | where eventType == \"Alert\" | project TimeGenerated = ts, SourceIP = srcIp, DestIP = destIp, Message = message, Priority = priority \n",
         "outputStream": "Custom-ExampleConnectorAlerts_CL"
       },
       {
         "streams": [
-          " Custom-ExampleConnectorInput "
+          " Custom-ExampleConnectorInput"
         ],
         "destinations": [
-          "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+          "UniqueFriendlyDestinationName"
         ],
         "transformKql": "source | where eventType == \"File\" | project-rename TimeGenerated = ts, EventOriginalType = eventType, SrcIpAddr = srcIp, DstIpAddr = destIp, FileContentType = fileType, FileSize = fileSizeBytes, EventOriginalSeverity = disposition \n",
-        "outputStream": "Microsoft-ASimWebSessionLogs"
+        "outputStream": "Microsoft-ASimFileEventLogs"
       }
-    ],
-    "provisioningState": "Succeeded"
-  },
-  "location": "eastus2",
-  "id": "/subscriptions/ XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX /resourceGroups/myRG/providers/Microsoft.Insights/dataCollectionRules/ConnectorExampleDCR",
-  "name": "ConnectorExampleDCR",
-  "type": "Microsoft.Insights/dataCollectionRules",
-  "etag": "\"84023354-0000-0200-0000-640656b00000\"",
-  "systemData": {
-    "createdBy": "xxx@yyy.com",
-    "createdByType": "User",
-    "createdAt": "2023-03-06T20:29:42.2901363Z",
-    "lastModifiedBy": "xxx@yyy.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-03-06T21:10:06.6741288Z"
+    ]
   }
 }
 
@@ -304,9 +296,9 @@ The following DCR transforms the event types above into two output tables.
 ### Example data connector definition
 
 Notes: 
-1)	The kind property for API polling connector should always be "Customizable".
-2)	Since this is a type of API polling connector the connectivityCriteria type should be "hasDataConnectors"
-3)	The instructionsSteps should include a button of type ConnectionToggleButton, which would help trigger the deployment of data connector rules based on the connection parameters specified.
+1)	The `kind` property for API polling connector should always be `Customizable`.
+2)	Since this is a type of API polling connector the `connectivityCriteria` type should be `hasDataConnectors`
+3)	The `instructionsSteps` should include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
 
 ```json
