@@ -1,22 +1,23 @@
 ---
 title: Authorization code flow - Azure Active Directory B2C  
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 11/10/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+# Customer intent: As a developer who is building a web app, I want to learn more about the OAuth 2.0 authorization code flow in Azure AD B2C, so that I can add sign-up, sign-in, and other identity management tasks to my app.
+
 ---
 
 # OAuth 2.0 authorization code flow in Azure Active Directory B2C
 
-You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL).Take a look at the [sample apps that use MSAL](integrate-with-app-code-samples.md).
+You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. In this article, we describe how to send and receive HTTP messages without using any open-source libraries. This article is language-independent. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL). Take a look at the [sample apps that use MSAL](integrate-with-app-code-samples.md). 
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications, single-page applications, and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](protocols-overview.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
 
@@ -124,7 +125,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com).|
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
-| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Microsoft Entra ID both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD B2C both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in from the `/authorize` endpoint. |
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same `code_verifier` used to obtain the authorization code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
