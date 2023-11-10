@@ -837,7 +837,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/concept-reserved-pricing.md",
-        "redirect_url": "/azure/postgresql/single-server/concept-reserved-pricing",
+        "redirect_url": "/azure/postgresql/flexible-server/concept-reserved-pricing",
         "redirect_document_id": false
     },
     {
@@ -1012,7 +1012,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/concepts-version-policy.md",
-        "redirect_url": "/azure/postgresql/single-server/concepts-version-policy",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-version-policy",
         "redirect_document_id": false
     },
     {
@@ -1167,7 +1167,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/how-to-deploy-github-action.md",
-        "redirect_url": "/azure/postgresql/single-server/how-to-deploy-github-action",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-deploy-github-action",
         "redirect_document_id": false
     },
     {
@@ -1469,6 +1469,21 @@
         "source_path_from_root": "/articles/postgresql/single-server/partners-migration-postgresql.md",
         "redirect_url": "/azure/postgresql/migrate/partners-migration-postgresql",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/concept-reserved-pricing.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concept-reserved-pricing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/concepts-version-policy.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-version-policy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-deploy-github-action.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-deploy-github-action",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/single-server/index.yml",

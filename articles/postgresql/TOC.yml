@@ -38,12 +38,12 @@
       - name: Migrate from Oracle
         href: single-server/how-to-migrate-from-oracle.md
   - name: Versioning policy
-    href: single-server/concepts-version-policy.md
+    href: flexible-server/concepts-version-policy.md
     displayName: version, postgresql
   - name: Major version upgrades
     href: single-server/how-to-upgrade-using-dump-and-restore.md
   - name: Prepay for reserved capacity
-    href: single-server/concept-reserved-pricing.md
+    href: flexible-server/concept-reserved-pricing.md
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
@@ -104,7 +104,7 @@
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
     - name: Prepay for reserved capacity
-      href: concept-reserved-pricing.md
+      href: flexible-server/concept-reserved-pricing.md
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access

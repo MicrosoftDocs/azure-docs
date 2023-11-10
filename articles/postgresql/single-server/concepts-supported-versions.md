@@ -17,7 +17,7 @@ adobe-target: true
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-Please see [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for support policy details.
+Please see [Azure Database for PostgreSQL versioning policy](../flexible-server/concepts-version-policy.md) for support policy details.
 
 Azure Database for PostgreSQL currently supports the following major versions:
 
@@ -31,11 +31,11 @@ The current minor release is 10.22. Refer to the [PostgreSQL documentation](http
 
 ## PostgreSQL version 9.6 (retired)
 
-Aligning with Postgres community's [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL has retired PostgreSQL version 9.6 as of November 11, 2021.  See [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for more details and restrictions. If you're running this major version, upgrade to a higher version, preferably to PostgreSQL 11 at your earliest convenience.
+Aligning with Postgres community's [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL has retired PostgreSQL version 9.6 as of November 11, 2021.  See [Azure Database for PostgreSQL versioning policy](../flexible-server/concepts-version-policy.md) for more details and restrictions. If you're running this major version, upgrade to a higher version, preferably to PostgreSQL 11 at your earliest convenience.
 
 ## PostgreSQL version 9.5 (retired)
 
-Aligning with Postgres community's [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL has retired PostgreSQL version 9.5 as of February 11, 2021.  See [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for more details and restrictions. If you're running this major version, upgrade to a higher version, preferably to PostgreSQL 11 at your earliest convenience.
+Aligning with Postgres community's [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL has retired PostgreSQL version 9.5 as of February 11, 2021.  See [Azure Database for PostgreSQL versioning policy](../flexible-server/concepts-version-policy.md) for more details and restrictions. If you're running this major version, upgrade to a higher version, preferably to PostgreSQL 11 at your earliest convenience.
 
 ## Managing upgrades
 

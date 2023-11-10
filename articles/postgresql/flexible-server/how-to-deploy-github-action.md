@@ -26,7 +26,7 @@ You need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).
 - An Azure Database for PostgreSQL server.
-    - [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md)
+    - [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](../single-server/quickstart-create-server-database-portal.md)
 
 ## Workflow file overview
 
@@ -227,4 +227,4 @@ When your Azure PostgreSQL database and repository are no longer needed, clean u
 > [Learn about Azure and GitHub integration](/azure/developer/github/)
 <br/>
 > [!div class="nextstepaction"]
-> [Learn how to connect to the server](how-to-connect-query-guide.md)
+> [Learn how to connect to the server](../single-server/how-to-connect-query-guide.md)
