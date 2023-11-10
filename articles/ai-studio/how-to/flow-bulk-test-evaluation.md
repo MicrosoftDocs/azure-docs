@@ -38,27 +38,27 @@ A batch run allows you to run your flow with a large dataset and generate output
 
 To start a batch run with evaluation, you can select on the **Evaluate** button - **Custom evaluation**. By selecting Custom evaluation, you can submit either a batch run with evaluation methods or submit a batch run without evaluation for your flow.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png" alt-text="This screenshot shows the batch run and evaluation trigger button":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png" alt-text="This screenshot shows the batch run and evaluation trigger button" lightbox="../media/prompt-flow/batch-run-evaluate/.png" lightbox="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png":::
 
 First, you're asked to give your batch run a descriptive and recognizable name. You can also write a description and add tags (key-value pairs) to your batch run. After you finish the configuration, select **Next** to continue.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/basic-setting.png" alt-text="This screenshot shows the basic setting of custom evaluation":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/basic-setting.png" alt-text="This screenshot shows the basic setting of custom evaluation" lightbox="../media/prompt-flow/batch-run-evaluate/basic-setting.png":::
 
 Second, you need to select or upload a dataset that you want to test your flow with. You also need to select an available runtime to execute this batch run. 
 
 Prompt flow also supports mapping your flow input to a specific data column in your dataset. This means that you can assign a column to a certain input. You can assign a column to an input by referencing with `${data.XXX}` format. If you want to assign a constant value to an input, you can directly type in that value.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/batch-run-settings.png" alt-text="This screenshot shows the batch run setting of custom evaluation":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/batch-run-settings.png" alt-text="This screenshot shows the batch run setting of custom evaluation" lightbox="../media/prompt-flow/batch-run-evaluate/batch-run-settings.png":::
 
-Then, in the next step, you can decide to use an evaluation method to validate the performance of this flow. You can directly select the **Next** button to skip this step if you don't want to apply any evaluation method or calculate any metrics. Otherwise, if you want to run batch run with evaluation now, you can select one or more evaluation methods. The evaluation starts after the batch run is completed. You can also start another round of evaluation after the batch run is completed. To learn more about how to start a new round of evaluation, see [Start a new round of evaluation](../media/prompt-flow/batch-run-evaluate/#start-a-new-round-of-evaluation).
+Then, in the next step, you can decide to use an evaluation method to validate the performance of this flow. You can directly select the **Next** button to skip this step if you don't want to apply any evaluation method or calculate any metrics. Otherwise, if you want to run batch run with evaluation now, you can select one or more evaluation methods. The evaluation starts after the batch run is completed. You can also start another round of evaluation after the batch run is completed. To learn more about how to start a new round of evaluation, see [Start a new round of evaluation](#start-a-new-round-of-evaluation).
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/select-evaluation.png" alt-text="This screenshot shows how to select evaluation methods.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/select-evaluation.png" alt-text="This screenshot shows how to select evaluation methods." lightbox="../media/prompt-flow/batch-run-evaluate/select-evaluation.png":::
 
 In the  next step **input mapping**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column can come from a dataset. By default, evaluation uses the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 - If the data source is from your run output, the source is indicated as **${run.output.[OutputName]}**
 - If the data source is from your test dataset, the source is indicated as **${data.[ColumnName]}**
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/input-mapping.png" alt-text="This screenshot shows how to configure evaluation settings, including input mapping and connection.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/input-mapping.png" alt-text="This screenshot shows how to configure evaluation settings, including input mapping and connection." lightbox="../media/prompt-flow/batch-run-evaluate/input-mapping.png":::
 
 > [!NOTE]
 > If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
@@ -71,7 +71,7 @@ Then you can select **Next**  to review your settings and select on  **Submit** 
 
 After submission, you can find the submitted batch run in the run list tab in prompt flow page. Select a run to navigate to the run detail page.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/run-list.png" alt-text="This screenshot shows the run list page of prompt flow.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/run-list.png" alt-text="This screenshot shows the run list page of prompt flow." lightbox="../media/prompt-flow/batch-run-evaluate/run-list.png":::
 
 In the run detail page, you can select **Details** to check the details of this batch run. 
 
@@ -79,7 +79,7 @@ In the details panel, you can check the metadata of this run. You can also go to
 
 You can  **select an evaluation run**  from the dropdown box and you see appended columns at the end of the table showing the evaluation result for each row of data. 
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/batch-run-output.png" alt-text="This screenshot shows the batch run output.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/batch-run-output.png" alt-text="This screenshot shows the batch run output." lightbox="../media/prompt-flow/batch-run-evaluate/batch-run-output.png":::
 
 To view the overall performance, you can select the **Metrics** tab, and you can see various metrics that indicate the quality of each variant.
 
@@ -93,7 +93,7 @@ If you have already completed a batch run, you can start another round of evalua
 
 You can go to the prompt flow **Runs** tab. Then go to the batch run detail page and select **Evaluate** to start another round of evaluation.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/new-eval.png" alt-text="This screenshot shows how to start a new evaluation based on a batch run.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/new-eval.png" alt-text="This screenshot shows how to start a new evaluation based on a batch run." lightbox="../media/prompt-flow/batch-run-evaluate/new-eval.png":::
 
 ## Check batch run history and compare metrics
 
@@ -101,7 +101,7 @@ In some scenarios, you'll modify your flow to improve its performance. You can s
 
 To check the batch run history of your flow, you can select the **View batch run** button of your flow page. You see a list of batch runs that you have submitted for this flow.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/visualize-outputs.png" alt-text="This screenshot shows the visualize output button in run list page.":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/visualize-outputs.png" alt-text="This screenshot shows the visualize output button in run list page." lightbox="../media/prompt-flow/batch-run-evaluate/visualize-outputs.png":::
 
 You can select on each batch run to check the detail. You can also select multiple batch runs and select on the **Visualize outputs** to compare the metrics and the outputs of the batch runs.
 
