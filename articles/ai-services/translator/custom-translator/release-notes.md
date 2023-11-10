@@ -18,7 +18,6 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 ### November 2023 model updates
 
 * The current supported language pairs, including direct language models, are listed in the following tables.
-* For higher quality, we encourage you to retrain your models accordingly.
 
 #### Direct language models
 
@@ -40,7 +39,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Korean (`ko-kr`)|Chinese Simplified (`zh-hans`)|
 |Spanish (`es-es`)|German (`de-de`)|
 
-#### English `target/source ↔ source/target` language models
+#### To/from English language models
 
 |Source |Target|
 |:----|:----|
