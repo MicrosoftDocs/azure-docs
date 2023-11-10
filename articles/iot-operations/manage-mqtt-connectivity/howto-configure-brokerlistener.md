@@ -24,11 +24,12 @@ The *BrokerListener* resource has these fields:
 | --- | --- | --- |
 | brokerRef | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
 | port | Yes | The port number that this listener listens on. This field is required and must be a valid TCP port number. |
-| serviceType | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `loadBalancer`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
-| serviceName | | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to IoT MQ. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. If multiple service types are specified across different `BrokerListeners`, each `serviceType` must have a unique `serviceName`. |
-| nodePort | | If `serviceType` is `nodePort`, specify the port to use as the `nodePort`. Has no effect for other service types. |
-| authenticationEnabled | | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. |
-| tls | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: `automatic`: Indicates that this listener uses cert-manager to get and renew a certificate for the listener. To use this type, specify an `issuerRef` field to reference the cert-manager issuer; `manual`: Indicates that the listener uses a manually provided certificate for the listener. To use this type, specify a `secret` field that references a Kubernetes secret resource containing the certificate and the private key. |
+| serviceType | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
+| serviceName | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to IoT MQ. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. If multiple service types are specified across different `BrokerListeners`, each `serviceType` must have a unique `serviceName`. |
+| nodePort | No | If `serviceType` is `nodePort`, specify the port to use as the `nodePort`. Has no effect for other service types. |
+| authenticationEnabled | No | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authenticate the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. To learn more about authentication, see [Configure Azure IoT MQ authentication](howto-configure-authentication.md). |
+| authorizationEnabled | No | A boolean flag that indicates whether this listener requires authorization from clients. If set to `true`, this listener uses any *BrokerAuthorization* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authorization. This field is optional and defaults to `false`. To learn more about authorization, see [Configure Azure IoT MQ authorization](howto-configure-authorization.md). |
+| tls | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: <br> * If set to `automatic`, this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager issuer](howto-configure-tls-auto.md). <br> * If set to `manual`, the listener uses a manually provided certificate for the listener. To use this type, [specify a `secretName` field that references a Kubernetes secret containing the certificate and private key](howto-configure-tls-manual.md). |
 
 > [!IMPORTANT]
 > At this time, you cannot have two listener resources of the same *serviceType* with a different *serviceName*
@@ -43,11 +44,14 @@ To inspect the listener, run:
 kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
-The output should look like this, with metadata removed for brevity:
+The output should look like this, with most metadata removed for brevity:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
+metadata:
+  name: listener
+  namespace: azure-iot-operations
 spec:
   brokerRef: broker
   authenticationEnabled: true
@@ -65,7 +69,7 @@ spec:
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
 
-## Example: create new BrokerListeners
+## Create new BrokerListeners
 
 This example shows how to create two new *BrokerListener* resources for a *Broker* resource named *my-broker*. Each *BrokerListener* resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
 
