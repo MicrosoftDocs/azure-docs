@@ -16,8 +16,6 @@ This article covers information about Azure Migrate application and code assessm
 
 Azure Migrate is a central hub for carrying out at-scale migrations. It helps decide, plan and execute server infrastructure migrations to Azure. It can also discover data and webapp workloads’ config files running on the discovered servers, generate business case and high level assessments. Azure Migrate is the recommended tool for performing end-to-end server discovery, assessment and migrations. It also performs assessments of data and webapps at a configuration level without requiring access to application code making it suitable for high level analysis.
 
-For scenarios that require deeper analysis of the application and migration guidance, several other dimensions such as source code, application configuration and dependency analysis become necessary. Azure Migrate application and code assessment are the tools of choice for you to assess applications, get the recommended fixes and comprehensive reports that helps you apply changes for replatforming exercise.
-
 Azure Migrate offers the following benefits: 
 
 - No source code required
@@ -26,6 +24,8 @@ Azure Migrate offers the following benefits:
 - Good for portfolio scanning, discovery and assessment, and point and migrate capabilities for VMs
 - Include a wide array of different tools for specific migration scenarios
  
+For scenarios that require deeper analysis of the application and migration guidance, several other dimensions such as source code, application configuration and dependency analysis become necessary. Azure Migrate application and code assessment are the tools of choice for you to assess applications, get the recommended fixes and comprehensive reports that helps you apply changes for replatforming exercise.
+
 Azure Migrate application and code assessment for Java and .NET offers the following additional benefits: 
 
 - Assess applications and code for replatform recommendations reports
@@ -34,6 +34,15 @@ Azure Migrate application and code assessment for Java and .NET offers the follo
 - Produce comprehensive report for all applications across Java and .NET
 - Have a intelligent experience that assesses your source code with GUI or CLI
 
+## Download Azure Migrate application and code assessment
+
+You can download Azure Migrate application and code assessment right now from the following:
+
+> [!div class="nextstepaction"]
+> [Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+
+> [!div class="nextstepaction"]
+> [Azure Migrate application and code assessment for .NET](https://aka.ms/appcat/download/dotnet)
 
 > [!NOTE]
 > You can start from either Azure Migrate or Azure Migrate application and code assessment. We offer you the tools for best coverage of different scenarios and use cases that you aim to achieve. 
