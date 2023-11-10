@@ -11,9 +11,9 @@ ms.date: 11/10/2023
 
 ---
 
-# Schedule an expiration and deletion date for a deployment environment
+# Schedule an expiration date for a deployment environment
 
-In this article, you learn how to set an expiration, or end date for a deployment environment. On the expiration date, Azure Deployment Environments deletes the environment and all its resources. If your timeline changes, you can change the expiration date.
+In this article, you learn how to set an expiration, or end date for a deployment environment. On the expiration date, Azure Deployment Environments automatically deletes the environment and all its resources. If your timeline changes, you can change the expiration date.
 
 Working with many deployment environments across multiple projects can be challenging. Scheduled deletion helps you manage your environments by automatically deleting them on a specific date at a specific time. Using automatic expiry and deletion helps you keep track of your active and inactive environments and helps you avoid paying for environments that you no longer need. 
 
