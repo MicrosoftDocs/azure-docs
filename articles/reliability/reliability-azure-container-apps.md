@@ -179,7 +179,7 @@ New-AzContainerAppManagedEnv @EnvArgs
 ##### Verify zone redundancy with the Azure CLI
 
 > [!NOTE]
-> Currently, the Azure Portal does not show whether zone redundancy is enabled.
+> The Azure Portal does not show whether zone redundancy is enabled.
 
 Use the [`az container app env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command to verify zone redundancy is enabled for your Container Apps environment.
 
@@ -203,7 +203,7 @@ az containerapp env show `
 
 ---
 
-Verify the response contains `"zoneRedundant": true`.
+The command returns a JSON response. Verify the response contains `"zoneRedundant": true`.
 
 ### Safe deployment techniques
 
