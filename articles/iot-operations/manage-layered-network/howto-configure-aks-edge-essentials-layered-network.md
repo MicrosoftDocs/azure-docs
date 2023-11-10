@@ -28,7 +28,7 @@ The network and cluster architecture are described as follows:
 - A level 4 single-node cluster running on a host machine with:
     - Direct access to the internet.
     - A secondary network interface card (NIC) connected to the local network. The secondary NIC makes the level 4 cluster visible to the level 3 local network.
-- A custom DNS in the local network. See the [Configure custom DNS](howto-configure-layered-network#configure-custom-dns) for the options. To set up the environment quickly, you should use the *CoreDNS* approach instead of a DNS server.
+- A custom DNS in the local network. See the [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns) for the options. To set up the environment quickly, you should use the *CoreDNS* approach instead of a DNS server.
 - The level 3 cluster connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
 
 ![Diagram showing a level 4 and level 3 AKS Edge Essentials network.](./media/howto-configure-aks-edge-essentials-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
@@ -46,7 +46,7 @@ After you complete this section, the Layered Network Management service is ready
 
 ### Configure the custom DNS
 
-In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network#configure-custom-dns.md). In the article:
+In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns.md). In the article:
     - If you choose the *CoreDNS* approach, you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
     - If you choose to use a *DNS server*, follow the steps to set up the DNS server before you move to the next section in this article.
 
