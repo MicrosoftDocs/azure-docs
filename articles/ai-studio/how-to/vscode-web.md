@@ -65,6 +65,7 @@ To get started with the AI SDK, we recommend the [aistudio-copilot-sample repo](
     git clone https://github.com/azure/aistudio-copilot-sample
     ```
 
+
 ### The Azure AI CLI
 
 If you prefer to work interactively, the Azure AI CLI has everything you need to build generative AI solutions.

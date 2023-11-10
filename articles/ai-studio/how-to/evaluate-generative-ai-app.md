@@ -63,7 +63,7 @@ By specifying the appropriate scenario, we can tailor the evaluation to the spec
 :::image type="content" source="../media/evaluations/evaluate/add-flow-and-variants.png" alt-text="Screenshot of the flow and variants page when creating a new evaluation." lightbox="../media/evaluations/evaluate/add-flow-and-variants.png":::
 
 #### Select metrics
-By default, we preselect certain recommended metrics based on the scenario you previously selected. You can refer to the table below for the default metrics, and the complete list of metrics we offer support for in each scenario. For more in-depth information on each metric definition and how it's calculated, learn more [here](../../../concepts/evaluation-metrics-built-in.md).
+By default, we preselect certain recommended metrics based on the scenario you previously selected. You can refer to the table below for the default metrics, and the complete list of metrics we offer support for in each scenario. For more in-depth information on each metric definition and how it's calculated, learn more [here](../concepts/evaluation-metrics-built-in.md).
 
 | Scenario           | Default metrics                          | All metrics                                                                                        |
 |--------------------|------------------------------------------|----------------------------------------------------------------------------------------------------|

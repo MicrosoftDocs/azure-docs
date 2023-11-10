@@ -72,6 +72,7 @@ Follow the steps below to deploy a prompt flow as an online endpoint in Azure AI
     :::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/deployments-score-url-samples.png" alt-text="Screenshot of the deployment endpoint and code samples." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/deployments-score-url-samples.png":::
 
 
+
 For more information, see the sections below.
 
 > [!TIP]

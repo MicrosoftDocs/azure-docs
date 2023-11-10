@@ -45,7 +45,6 @@ Follow the steps below to deploy a foundation model such as `distilbert-base-cas
 
 5. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
 
-
 ## Deploying a prompt flow
 
 > [!TIP]
