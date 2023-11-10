@@ -335,12 +335,6 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-    >[!NOTE]
-    >If `az confcom katapolicygen` returns an error, run the following commands and try again:
-    >
-    >`az extension remove --name confcom`
-    >`$ az extension add --source https://acccliazext.blob.core.windows.net/confcom/confcom-0.3.13-py3-none-any.whl -y`
-
 1. Copy the Bash script to prepare encryption key for the workload.   This value needs to match the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file. Save the file as `setup-key.sh`.
 
     ```bash
