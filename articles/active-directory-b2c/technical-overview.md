@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
 
-# Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
+#Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
 
 ---
 
@@ -256,7 +256,7 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Microsoft Entra roles, including Azure AD B2C administration role support, see [Administrator role permissions in Microsoft Entra ID](/entra/roles/permissions-reference).
+For more information about Microsoft Entra roles, including Azure AD B2C administration role support, see [Administrator role permissions in Microsoft Entra ID](/entra/identity/role-based-access-control/permissions-reference).
 
 ## Auditing and logs
 
