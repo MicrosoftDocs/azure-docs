@@ -23,7 +23,6 @@ Here are the troubleshooting sections for common issues in Python functions:
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
-* [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 * [Sync triggers failed](#sync-triggers-failed)
 ::: zone-end
 
@@ -40,8 +39,11 @@ General troubleshooting guides for Python Functions include:
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
+<<<<<<< HEAD
+=======
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 * [Sync triggers failed](#sync-triggers-failed)
+>>>>>>> 33e09a3a182024bd6490743d1c2817430528b617
 ::: zone-end
 
 
@@ -239,8 +241,9 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ---
 
-## Troubleshoot errors with Protocol Buffers
 
+<<<<<<< HEAD
+=======
 Version 4.x.x of the Protocol Buffers (Protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that require Protobuf v4.x.x. 
 
 Example error logs:
@@ -278,6 +281,7 @@ To prevent such issues, it's recommended not to name directories the same as Pyt
 ---
 
 ::: zone pivot="python-mode-decorators"  
+>>>>>>> 33e09a3a182024bd6490743d1c2817430528b617
 ## Troubleshoot "could not load file or assembly"
 
 If you receive this error, it might be because you're using the v2 programming model. This error results from a known issue that will be resolved in an upcoming release.
