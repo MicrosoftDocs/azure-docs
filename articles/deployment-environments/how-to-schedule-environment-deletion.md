@@ -1,0 +1,65 @@
+---
+title: Schedule an environment for automatic deletion
+description: Learn how to set a scheduled expiration date and time for an environment. On the expiration date, the environment and all its resources are deleted.
+author: RoseHJM
+ms.author: rosemalcolm
+ms.service: deployment-environments
+ms.topic: how-to 
+ms.date: 11/10/2023
+
+#customer intent: As a developer, I want automatically delete my environment on a specific date so that I can keep resources current.
+
+---
+
+# "Set and expiration and deletion date for a deployment environment"
+
+In this article, you learn how to set an expiration, or end date for an environment. On the expiration date, the environment and all its resources are deleted. If your timeline changes, you can change the expiration date.
+
+## Prerequisites
+
+- Access to a project that has at least one environment type.
+- The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
+
+## Add an environment
+
+Schedule an expiration date and time as you create an environment through the developer portal.
+
+1. Sign in to the [developer portal](https://devportal.microsoft.com).
+1. From the **New** menu at the top left, select **New environment**.
+ 
+   :::image type="content" source="media/how-to-schedule-environment-deletion/new-environment.png" alt-text="Screenshot of the developer portal showing the new menu with new environment highlighted." lightbox="media/how-to-schedule-environment-deletion/new-environment.png":::
+ 
+1. In the Add an environment pane, select the following information:
+
+   |Field  |Value  |
+   |---------|---------|
+   |Name     | Enter a descriptive name for your environment. |
+   |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
+   |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
+   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
+   |Expiration | Select **Enable scheduled deletion**. |
+
+   :::image type="content" source="media/how-to-schedule-environment-deletion/add-environment-pane.png" alt-text="Screenshot showing the Add environment pane with Enable scheduled deletion highlighted." lightbox="media/how-to-schedule-environment-deletion/add-environment-pane.png":::
+
+   If your environment is configured to accept parameters, you're able to enter them on a separate pane. In this example, you don't need to specify any parameters.
+
+1. Under **Expiration**, select a **deletion date**, and then select a **deletion time**. 
+   The date and time you select is the date and time that the environment and all its resources are deleted. If you want to change the date or time, you can do so later.
+
+   :::image type="content" source="media/how-to-schedule-environment-deletion/set-expiration-date-time.png" alt-text="Screenshot showing the Add environment pane with expiration date and time highlighted." lightbox="media/how-to-schedule-environment-deletion/set-expiration-date-time.png":::
+
+   You can also specify a time zone for the expiration date and time. Select **Time zones** to see a list of time zones.
+ 
+   :::image type="content" source="media/how-to-schedule-environment-deletion/select-timezones.png" alt-text="Screenshot showing the Add environment pane with time zones link highlighted." lightbox="media/how-to-schedule-environment-deletion/select-timezones.png":::
+ 
+1. Make sure that the time zone reflects the time zone you want to use for the expiration date and time. Select the time zone you want to use.
+
+   :::image type="content" source="media/how-to-schedule-environment-deletion/set-timezone.png" alt-text="Screenshot showing the Add environment pane with the selected time zone highlighted." lightbox="media/how-to-schedule-environment-deletion/set-timezone.png":::
+
+1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+
+## Related content
+
+* [Quickstart: Create and access Azure Deployment Environments by using the developer portal](quickstart-create-access-environments.md)
+
+

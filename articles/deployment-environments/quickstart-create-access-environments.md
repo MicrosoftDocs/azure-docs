@@ -34,7 +34,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 > Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
-1. From the **New** menu at the top right, select **New environment**.
+1. From the **New** menu at the top left, select **New environment**.
  
    :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted.":::
  
