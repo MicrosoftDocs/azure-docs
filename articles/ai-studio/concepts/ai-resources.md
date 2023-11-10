@@ -74,7 +74,7 @@ The Azure AI services resource contains the keys and endpoints needed to authent
 | ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Speech to text, text to speech, translation and speaker recognition |
 | ![Vision icon](../../ai-services/media/service-icons/vision.svg) [Vision](../../ai-services/computer-vision/index.yml) | Analyze content in images and videos |
 
-Large language models that can be used to generate text, speech, images, and more, are hosted by the AI resource. Fine-tuned models and OSS models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.<br/><br/>Model-as-as-service endpoints including Azure OpenAI base models 
+Large language models that can be used to generate text, speech, images, and more, are hosted by the AI resource. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.<br/><br/>Model-as-as-service endpoints including Azure OpenAI base models 
 
 ## Centralized setup and governance
 
