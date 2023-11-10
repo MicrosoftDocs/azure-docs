@@ -79,13 +79,13 @@ A burstable SKU recommendation is made if:
 The resulting recommendation suggests that a user should resize their current virtual machine or virtual machine scale set to a burstable SKU with the same number of cores. This suggestion is made so a user can take advantage of lower cost and also the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU.
 
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU/instance count information.
-To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule on a per-subscription basis.
+To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule by subscription.
 
 In some cases recommendations can't be adopted or might not be applicable, such as some of these common scenarios (there might be other cases):
 
 * Virtual machine or virtual machine scale set has been provisioned to accommodate upcoming traffic
 
-* Virtual machine or virtual machine scale set uses other resources not considered by the resize algorithim, such as metrics other than CPU, Memory and Network
+* Virtual machine or virtual machine scale set uses other resources not considered by the resize algorithm, such as metrics other than CPU, Memory and Network
 
 * Specific testing being done on the current SKU, even if not utilized efficiently
 
@@ -105,7 +105,7 @@ We're constantly working on improving these recommendations. Feel free to share 
 
 ## Configure VM/VMSS recommendations
 
-You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. To learn about right sizing, visit [Rightsize to maximize your cloud investment with Microsoft Azure](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/).
+You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can adjust the average CPU utilization rule and the look back period by subscription. Doing virtual machine (VM) right sizing requires specialized knowledge. To learn about right sizing, visit [Rightsize to maximize your cloud investment with Microsoft Azure](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/).
 
 > [!NOTE]
 > To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
