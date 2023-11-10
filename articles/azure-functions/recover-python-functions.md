@@ -24,12 +24,12 @@ Here are the troubleshooting sections for common issues in Python functions:
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
+* [Sync triggers failed](#sync-triggers-failed)
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators" 
 Specifically with the v2 model, here are some known issues and their workarounds:
 
-* [Multiple Python workers not supported](#multiple-python-workers-not-supported)
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
 * [Issues with deployment](#issue-with-deployment)
@@ -41,6 +41,7 @@ General troubleshooting guides for Python Functions include:
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
+* [Sync triggers failed](#sync-triggers-failed)
 ::: zone-end
 
 
@@ -266,13 +267,17 @@ You can mitigate this issue in either of two ways:
     protobuf >= 3.19.3, == 3.*
     ```
 
+## Sync triggers failed
+
+The error 'Sync triggers failed' could represent various issues, one possible cause is a conflict between customer-defined dependencies and Python's built-in modules.
+
+In an App Service Plan, customer-defined dependencies take precedence, potentially causing conflicts when using Python's built-in modules, like 'logging,' if they share the same names as directories in customer code. In a Consumption Plan, such conflicts are less likely, as customer dependencies are not prioritized by default. 
+
+To prevent such issues, it's recommended not to name directories the same as Python's native import modules. Additionally, avoid including Python native libraries in your 'requirements.txt' file.
+
 ---
 
 ::: zone pivot="python-mode-decorators"  
-## Multiple Python workers not supported
-
-The multiple Python workers setting isn't supported in the v2 programming model at this time. More specifically, enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
-
 ## Troubleshoot "could not load file or assembly"
 
 If you receive this error, it might be because you're using the v2 programming model. This error results from a known issue that will be resolved in an upcoming release.

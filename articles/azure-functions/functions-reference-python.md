@@ -973,6 +973,9 @@ requests==2.19.1
 ```bash
 pip install -r requirements.txt
 ```
+In an App Service Plan, customer-defined dependencies take precedence, potentially causing conflicts when using Python's built-in modules, like 'logging,' if they share the same names as directories in your code. In a Consumption Plan, such conflicts are less likely, as customer dependencies are not prioritized by default. 
+
+To prevent such issues, it's recommended not to name your directories the same as Python's native import modules. In addition, avoid including Python native libraries in the 'requirements.txt' file.
 
 ## Publishing to Azure
 
