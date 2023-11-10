@@ -139,7 +139,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 | Number of deployments per subscription | 200 | Yes |
 | Number of deployments per endpoint | 20 | Yes |
 | Number of instances per deployment | 20 <sup>2</sup> | Yes |
-| Max request time-out at endpoint level  | 90 seconds | - |
+| Max request time-out at endpoint level  | 180 seconds | - |
 | Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
 | Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
 | Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |

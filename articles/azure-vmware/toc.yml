@@ -163,14 +163,22 @@ items:
       href: configure-storage-policy.md
     - name: Configure vSAN
       href: configure-vsan.md
+    - name: Configure Azure Elastic SAN
+      href: configure-azure-elastic-san.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
-  - name: Deploy Arc
-    href: deploy-arc-for-azure-vmware-solution.md
+  - name: Arc-enabled Azure VMware Solution private cloud
+    items:
+    - name: Deploy Arc-enabled Azure VMware Solution
+      href: deploy-arc-for-azure-vmware-solution.md
+    - name: Manage Arc-enabled Azure VMware Solution
+      href: manage-arc-enabled-azure-vmware-solution.md
+    - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
+      href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
   - name: Deploy disaster recovery
     items:
     - name: Deploy VMware HCX for disaster recovery

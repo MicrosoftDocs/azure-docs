@@ -680,8 +680,8 @@ If custom properties aren't set in the alert rule, the field is null.
 Use action groups in the Azure portal or use the REST API to enable the common alert schema. Schemas are defined at the action level. For example, you must separately enable the schema for an email action and a webhook action.
 
 ### Enable the common schema in the Azure portal
-
-![Screenshot that shows the common alert schema opt in.](media/alerts-common-schema/portal-opt-in.png)
+<!-- convertborder later -->
+:::image type="content" source="media/alerts-common-schema/portal-opt-in.png" lightbox="media/alerts-common-schema/portal-opt-in.png" alt-text="Screenshot that shows the common alert schema opt in." border="false":::
 
 1. Open any existing action or a new action in an action group.
 1. Select **Yes** to enable the common alert schema.

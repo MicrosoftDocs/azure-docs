@@ -16,6 +16,26 @@ This article lists significant changes to Azure Monitor documentation.
 >
 > !["An rss icon"](./media//whats-new/rss.png)  https://aka.ms/azmon/rss
 
+## October 2023
+
+|Subservice | Article | Description |
+|---|---|---|
+General|[Best practices for monitoring Kubernetes with Azure Monitor](best-practices-containers.md)|New article.|
+General|[Estimate Azure Monitor costs](cost-estimate.md)|New article describing use of Azure Monitor pricing calculator.|
+General|[Azure Monitor billing meter names](cost-meters.md)|Billing meters moved into dedicated reference article.|
+General|[Azure Monitor cost and usage](cost-usage.md)|Rewritten.|
+Agents|[Collect logs from a text or JSON file with Azure Monitor Agent](agents/data-collection-text-log.md)|Added the ability to collect logs from a JSON file with Azure Monitor Agent.|
+Alerts|[Create or edit an alert rule](alerts/alerts-create-new-alert-rule.md)|Custom properties for Azure Monitor alerts are now located in the Details tab when creating or editing  an alert rule. |
+Alerts|[Create or edit an alert rule](alerts/alerts-create-new-alert-rule.md)|Added note clarifying the limitations of setting the frequency of alert rules to one minute. |
+Application-Insights|[IP addresses used by Azure Monitor](app/ip-addresses.md)|A logic model diagram is available to assist with troubleshooting scenarios.|
+Application-Insights|[Application Insights Overview dashboard](app/overview-dashboard.md)|All of the Application Insights experiences are now defined in a manner that mirrors the Azure portal experience. We've included a logic model diagram to visually convey how Application Insights works at a high level.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](app/opentelemetry-enable.md)|Our OpenTelemetry Distro released for .NET, Java, Python, and Node.js. This is a replacement for classic Application Insights SDKs.|
+Essentials|[Collect IIS logs with Azure Monitor Agent](agents/data-collection-iis.md)|Added guidance on setting up data collection endpoints based on deployment.|
+Logs|[Restore logs in Azure Monitor](logs/restore.md)|Updated information about the cost of restoring logs. |
+Logs|[Log Analytics workspace data export in Azure Monitor](logs/logs-data-export.md)|Billing for Data Export was enabled in early October 2023.|
+Logs|[Analyze usage in a Log Analytics workspace](logs/analyze-usage.md)|Added support for querying data volume from events directly, and by computer.|
+
+
 ## September 2023
 
 |Subservice | Article | Description |
@@ -34,7 +54,7 @@ Containers|[Migrate from ContainerLog to ContainerLogV2](containers/container-in
 Containers|[Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview)](containers/prometheus-remote-write-azure-workload-identity.md)|New article Configure remote write for Azure Monitor managed service …|
 Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](essentials/migrate-to-azure-storage-lifecycle-policy.md)|Added CLI and template tabs showing storage lifecycle setting.|
 General|[Plan your alerts and automated actions](alerts/alerts-plan.md)|Add alerts best practices article|
-General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Updated information about the Cost Analysis usage report which contains both the cost for your usage, and the number of units of usage. You can use this export to see the amount of benefit you're receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). |
+General|[Azure Monitor cost and usage](cost-usage.md)|Updated information about the Cost Analysis usage report which contains both the cost for your usage, and the number of units of usage. You can use this export to see the amount of benefit you're receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). |
 Logs|[Send log data to Azure Monitor by using the HTTP Data Collector API (deprecated)](logs/data-collector-api.md)|Added deprecation notice.|
 Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)|Added code samples for the Azure Monitor Ingestion client module for Go.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new Virtual Network Manager,  Dev Center, and Communication Services tables that now support Basic logs.|
@@ -43,7 +63,7 @@ Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configu
 
 |Subservice| Article | Description |
 |---|---|---|
-General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Added section detailing billing meter names.|
+General|[Azure Monitor cost and usage](cost-usage.md)|Added section detailing billing meter names.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|A caution has been added about using community libraries with additional information on how to request we include them in our distro.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|Support and feedback options are now available across all of our OpenTelemetry pages.|
 Application-Insights|[How many Application Insights resources should I deploy?](app/create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy)|We added an important warning about additional network costs when monitoring across regions.|
@@ -81,7 +101,6 @@ Application-Insights|[Data Collection Basics of Azure Monitor Application Insigh
 Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|The "Explore your data" section has been improved.|
 Application-Insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|We've documented steps for troubleshooting sampling.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Additional Azure tables now support low-cost basic logs, including tables for the Bare Metal Machines, Managed Lustre, Nexus Clusters, and Nexus Storage Appliances services. |
-Logs|[Create and manage a dedicated cluster in Azure Monitor Logs](logs/logs-dedicated-clusters.md)|The minimum ingestion commitment for a dedicated cluster is now 100 GB per day (previously 500 GB). |
 Logs|[Query Basic Logs in Azure Monitor](logs/basic-logs-query.md)|Basic log queries are now billable.|
 Logs|[Restore logs in Azure Monitor](logs/restore.md)|Restored logs are now billable.|
 Logs|[Run search jobs in Azure Monitor](logs/search-jobs.md)|Search jobs are now billable.|
@@ -655,7 +674,7 @@ Azure Monitor Workbooks documentation previously resided on an external GitHub r
 
 | Article | Description |
 |:---|:---|
-| [Azure Monitor cost and usage](usage-estimated-costs.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
+| [Azure Monitor cost and usage](cost-usage.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
 | [Azure Monitor overview](overview.md) | Updated overview diagram. |
 
 ### Agents

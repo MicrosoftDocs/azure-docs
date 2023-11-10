@@ -11,11 +11,6 @@
     "redirect_document_id": false
   },
   {
-    "source_path": "service-bus-messaging-exceptions.md",
-    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md",
-    "redirect_document_id": false
-  },
-  {
     "source_path": "service-bus-amqp-apache.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
     "redirect_document_id": false

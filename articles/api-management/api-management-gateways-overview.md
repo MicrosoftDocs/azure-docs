@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 11/6/2023
 ms.author: danlep
 ---
 
@@ -76,12 +76,14 @@ The following table compares features available in the managed gateway versus th
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) |  ❌ | ❌ | ✔️ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
-| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ | 
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
+<sup>3</sup>CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>4</sup> Client protocol needs to be enabled.
 
 ### Backend APIs
 
@@ -95,11 +97,13 @@ The following table compares features available in the managed gateway versus th
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
-| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ❌ |
+| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ✔️ |
+| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
+| [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
+| [Circuit Breaker](backends.md#circuit-breaker-preview) |  ✔️ |  ✔️ | ✔️ |
 
-<sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported in the Consumption tier.
+<sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
 ### Policies
 
