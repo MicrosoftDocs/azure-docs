@@ -70,7 +70,7 @@ This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, whic
 
 #### IBM MQ
 
-This Azure Logic Apps connector for MQ enables connections between Standard workflows and IBM MQ servers on premises or in Azure. We also provide IBM MQ Integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
+This Azure Logic Apps connector for MQ enables connections between Standard workflows and IBM MQ servers on premises or in Azure. Microsoft also provides IBM MQ integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
 
 ## How to modernize mainframe workloads with Azure Logic Apps?
 
