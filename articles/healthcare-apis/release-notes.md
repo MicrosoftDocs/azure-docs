@@ -25,7 +25,7 @@ This article provides details about the features and enhancements made to Azure 
 ### DICOM Service
 **Bulk import is available in public preview**
 
-Bulk import is a new capability that simplifies the process of adding data to the DICOM service.  When enabled, the feature creates a storage container and .dcm files that are copied to the container will automatically be added to the DICOM service.  See the [Import DICOM files](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/import-files) documentation for more details.  
+Bulk import simplifies the process of adding data to the DICOM service. When enabled, the capability creates a storage container and .dcm files that are copied to the container are automatically added to the DICOM service. For more information, see [Import DICOM files (preview)](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/import-files).  
 
 
 ## September 2023
