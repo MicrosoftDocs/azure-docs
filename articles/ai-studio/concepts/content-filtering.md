@@ -23,7 +23,7 @@ This system is powered by Azure AI Content Safety, and now works by running both
 
 The content filtering models have been trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality can vary. In all cases, you should do your own testing to ensure that it works for your application.
 
-Users now could create a content filter or use the default content filter for Azure OpenAI model deployment, and could also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md). The custom content filter for those models aren't yet available. Models available through Models as a Service will have content filtering enabled by default and can't be configured.
+You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
 
 ## How to create a content filter? 
 For any model deployment in Azure AI Studio, you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  To create a content filter, you could go to **Build**, choose one of your projects, then select **Content filters** in the left navigation bar, and create a content filter. 
@@ -67,19 +67,18 @@ The default content filtering configuration is set to filter at the medium sever
 
 <sup>1</sup> For Azure Open AI models, only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning off content filters. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-### Additional filters for Gen-AI scenarios
-You could also enable additional filters for Gen-AI scenarios: jailbreak risk detection and protected material detection. 
+### More filters for Gen-AI scenarios
+You could also enable filters for Gen-AI scenarios: jailbreak risk detection and protected material detection. 
 
 :::image type="content" source="../media/content-safety/content-filter/additional-models.png" alt-text="Screenshot of additional models." lightbox="../media/content-safety/content-filter/additional-models.png":::
 
-
 ## How to apply a content filter?
 
-A default content filter will be set when you create a deployment. You could also apply your custom content filter to your deployment(s). Select **Deployments** and choose one of your deployments, then select **Edit**, a window of updating deployment will open up. Then you could update the deployment by selecting one of your created content filters.
+A default content filter is set when you create a deployment. You can also apply your custom content filter to your deployment. Select **Deployments** and choose one of your deployments, then select **Edit**, a window of updating deployment will open up. Then you can update the deployment by selecting one of your created content filters.
 
 :::image type="content" source="../media/content-safety/content-filter/apply-content-filter.png" alt-text="Screenshot of apply content filter." lightbox="../media/content-safety/content-filter/apply-content-filter.png":::
 
-Now, you could go to playground to test whether the content filter works as expected!
+Now, you can go to the playground to test whether the content filter works as expected!
 
 ## Next steps
 
