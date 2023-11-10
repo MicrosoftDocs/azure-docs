@@ -9,6 +9,7 @@ ms.date: 11/01/2023
 
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from IoT MQ.
 ---
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 # Build a real-time dashboard in Microsoft Fabric with MQTT data
 
@@ -26,8 +27,7 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
    ![Open VS Code desktop](../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png)
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-1. [Deploy IoT Operations using az CLI](../deploy-iot-ops/howto-deploy-iot-operations.md&tabs=cli#deploy-extensions).
+1. [Deploy IoT Operations using az CLI](../deploy-iot-ops/howto-deploy-iot-operations.md#deploy-extensions&tabs=cli).
 
 
