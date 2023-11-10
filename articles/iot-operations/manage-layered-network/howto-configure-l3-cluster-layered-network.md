@@ -24,7 +24,7 @@ You'll complete the following tasks:
 - Arc-enable the cluster.
 
 ## Prerequisites
-Refer to the **hardware requirements** and **Prerequisites** in [Prepare your Azure Arc-enabled Kubernetes cluster](/azure/iot-operations/deploy-iot-ops/howto-prepare-cluster).
+Refer to the **hardware requirements** and **Prerequisites** in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## Configure a Kubernetes cluster
 
@@ -164,9 +164,9 @@ You should complete this step in an *internet facing environment outside of the 
 
 ## Move the device to level 3 isolated network
 
-After the device is moved to your level 3 isolated network layer, it is required to have a [custom DNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network#configure-custom-dns).
-- If you choose the [CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network?tabs=coredns#configure-coredns) approach, complete the steps in the instruction and your cluster is ready to connect to Arc.
-- If you use a [DNS server](/azure/iot-operations/manage-layered-network/howto-configure-layered-network?tabs=dnsserver#configure-the-dns-server), you need to have the DNS server ready, then configure the DNS setting of Ubuntu. The following example uses Ubuntu UI:
+After the device is moved to your level 3 isolated network layer, it's required to have a [custom DNS](howto-configure-layered-network.md#configure-custom-dns).
+- If you choose the [CoreDNS](howto-configure-layered-network.md#configure-coredns) approach, complete the steps in the instruction and your cluster is ready to connect to Arc.
+- If you use a [DNS server](howto-configure-layered-network.md#configure-the-dns-server), you need to have the DNS server ready, then configure the DNS setting of Ubuntu. The following example uses Ubuntu UI:
     1. Open the **Wi-Fi Settings**.
     1. Select the setting of the current connection.
     1. In the IPv4 tab, disable the **Automatic** setting for DNS and enter the local IP of DNS server.

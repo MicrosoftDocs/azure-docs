@@ -169,7 +169,7 @@ In level 3, you will create a K3S kubernetes cluster on a Linux VM. For convenie
     1. On top of the default outbound security rules, create a rule to **deny all outbound traffic** from the level 3 VM.
     3. Create another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
 
-:::image type="content" source="./media/howto-deploy-aks-layered-network/lnm-quickstart-outbound.png" alt-text="Screenshot of network security group" lightbox="./media/howto-deploy-aks-layered-network/lnm-quickstart-outbound.png":::
+:::image type="content" source="./media/howto-deploy-aks-layered-network/outbound-rules.png" alt-text="Screenshot of network security group outbound rules." lightbox="./media/howto-deploy-aks-layered-network/outbound-rules.png":::
 
 ## Provision the cluster in isolated layer to Arc
 
@@ -185,7 +185,7 @@ With the following steps, you will Arc-enable the level 3 cluster using the Laye
 
    On your jumpbox, set up kubectl access to the level 3 k3s cluster by copying the `config.level3` file into the `~/.kube` directory and rename it to `config`. The server entry in the config file should be set to the IP address or domain name of the level 3 VM.
 
-1. Refer to [Configure CoreDNS](/azure/iot-operations/manage-layered-network/howto-configure-layered-network?tabs=coredns#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
 
 1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 
