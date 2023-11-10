@@ -16,7 +16,7 @@ In this walkthough, you'll build a real-time Power BI dashboard in Microsoft Fab
 
 ## Prepare your Kubernetes cluster
 
-This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codespace to get going rapidly. If you want to use a different environment, all the artifacts are available in the [explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tutorials/mq-realtime-fabric-dashboard) GitHub repo so that you can follow along easily. 
+This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codespace to help you get going quickly. If you want to use a different environment, all the artifacts are available in the [explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tutorials/mq-realtime-fabric-dashboard) GitHub repo so you can easily follow along. 
 
 1. Create the codespace, optionally entering your Azure details to store them as environment variables for the terminal.
 
