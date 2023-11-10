@@ -33,7 +33,7 @@ az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Network | grep registrationState
-az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
+az provider show -n Microsoft.ContainerInstance | grep registrationState
 ```
 
 If they do not say registered, run the following:
