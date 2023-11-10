@@ -30,10 +30,10 @@ The Managed Application can be found in the Azure Marketplace here: [Blob Storag
 Once the required fields are filled and the application is deployed, the following resources are created under a Managed Resource Group:
 
 - [Confidential Ledger](overview.md)
-- [Service Bus Queue](./../service-bus-messaging/service-bus-messaging-overview.md) with [Sessions](./../articles/service-bus-messaging/message-sessions.md) enabled
-- [Storage Account](./../articles/storage/common/storage-account-overview.md) (Publisher owned storage account used to store digest logic and audit history)
-- [Function App](./../azure-docs-pr/articles/azure-functions/functions-overview.md)
-- [Application Insights](./../azure-docs-pr/articles/azure-monitor/app/app-insights-overview.md)
+- [Service Bus Queue](./../service-bus-messaging/service-bus-messaging-overview.md) with [Sessions](./../service-bus-messaging/message-sessions.md) enabled
+- [Storage Account](./../storage/common/storage-account-overview.md) (Publisher owned storage account used to store digest logic and audit history)
+- [Function App](./../azure-functions/functions-overview.md)
+- [Application Insights](./../azure-monitor/app/app-insights-overview.md)
 
 ## Connecting a Storage Account to the Managed Application
 
@@ -55,7 +55,7 @@ The queue uses sessions to maintain ordering across multiple storage accounts so
 
 #### Azure CLI
 
-Creating the Event Topic:
+**Creating the Event Topic:**
 
 ```bash
 az eventgrid system-topic create \
@@ -74,7 +74,7 @@ az eventgrid system-topic create \
 
 `source` - Resource ID of storage account to create Topic for
 
-Creating the Event Subscription:
+**Creating the Event Subscription:**
 
 ```bash
 az eventgrid system-topic event-subscription create \
@@ -164,7 +164,7 @@ An audit can be triggered by including the following message to the Service Bus 
 
 #### Azure portal
 
-:::image type="content" source="./media/managed-application/queue-trigger-audit.png" alt-text="Screenshot of the Azure portal in a web browser, how to trigger an audit by adding a message to the queue.":::
+:::image type="content" source="./media/managed-application/managed-app-queue-trigger-audit.png" alt-text="Screenshot of the Azure portal in a web browser, how to trigger an audit by adding a message to the queue.":::
 
 Be sure to include a `Session ID` as the queue has sessions enabled.
 
@@ -212,9 +212,9 @@ You can delete the Managed Application to clean up and remove all associated res
 
 For more information about managed applications and the deployed resources, see the following links:
 
-- [Managed Applications](./../articles/azure-resource-manager/managed-applications/overview.md)
-- [Azure Service Queue Sessions](./../articles/service-bus-messaging/message-sessions.md)
-- [Azure Storage Events](./../articles/storage/blobs/storage-blob-event-overview.md)
+- [Managed Applications](./../azure-resource-manager/managed-applications/overview.md)
+- [Azure Service Queue Sessions](./../service-bus-messaging/message-sessions.md)
+- [Azure Storage Events](./../storage/blobs/storage-blob-event-overview.md)
 
 ## Next steps
 
