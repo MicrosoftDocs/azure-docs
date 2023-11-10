@@ -94,10 +94,10 @@ ai init
 
 Follow the prompts to: 
 - Select or create an Azure subscription
-- Select or create an Azure AI resource
+- Select or create an Azure AI resource or Azure AI project
 - Select or create a resource group
 - Select a model
-- Select or create a deployment
+- Select or create Azure OpenAI model deployments
 
 
 ### AI chat

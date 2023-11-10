@@ -130,7 +130,7 @@ After completing all the necessary configurations, you can review and proceed to
 
 :::image type="content" source="../media/evaluations/evaluate/review-and-finish.png" alt-text="Screenshot of the review and finish page to create a new evaluation." lightbox="../media/evaluations/evaluate/review-and-finish.png":::
 
-## Create an evaluation with custom evaluation flow 
+## Create an evaluation with custom evaluation flow
 
 There are two ways to develop your own evaluation methods: 
 + Customize a Built-in Evaluation Flow: Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization.  
