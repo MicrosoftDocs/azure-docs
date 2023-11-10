@@ -28,7 +28,7 @@ Azure Advisor now has a new version of the Service Retirement workbook that incl
 
 * User experience and navigation are improved.
 
-List of the newly onboarded services in workbook:
+List of the newly added services:
 
 | Service | Retiring Feature |
 |-----------------|-------------------|
@@ -43,7 +43,7 @@ List of the newly onboarded services in workbook:
 | Azure Database for MariaDB | Entire service |
 | Azure Cache for Redis | Support for TLS 1.0 and 1.1 |
 
-List of services off boarded from Workbook:
+List of the removed services:
 
 | Service | Retiring Feature |
 |-----------------|-------------------|
@@ -64,7 +64,7 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 ### Service Health Alert recommendations
 
-Azure Advisor now provides Service Health Alert recommendation for subscriptions which do not have service health alerts configured. The action link will redirect you to the Service Health page where you can create and customize alerts based on the class of service health notification, affected subscriptions, services, and regions.
+Azure Advisor now provides Service Health Alert recommendation for subscriptions, which do not have service health alerts configured. The action link will redirect you to the Service Health page where you can create and customize alerts based on the class of service health notification, affected subscriptions, services, and regions.
 
 Azure Service Health alerts keep you informed about issues and advisories in four areas (Service issues, Planned maintenance, Security and Health advisories) and can be crucial for incident preparedness.
 
