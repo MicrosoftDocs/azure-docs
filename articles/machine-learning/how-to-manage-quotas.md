@@ -132,7 +132,7 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 Azure Machine Learning online endpoints and batch endpoints have limits described in the following table.
 
 > [!IMPORTANT]
-> These limits are _regional_, meaning that you can use up to these limits per each region you're using. For example, if your current limit for number of endpoints per subscription is 100, you can deploy 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to all the other limits.
+> These limits are _regional_, meaning that you can use up to these limits per each region you're using. For example, if your current limit for number of endpoints per subscription is 100, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to all the other limits.
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
@@ -156,7 +156,7 @@ To request an exception from the Azure Machine Learning product team, use the st
 > [!NOTE]
 > 1. Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 > 2. Endpoints and deployments can be of different types, but limits apply to the sum of all types. For example, the sum of managed online endpoints, Kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region by default. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region by default.
-> 3. Because this is a regional limit, you can deploy 100 endpoints in each region by default. For example, you can deploy 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to number of deployments and all the other limits. 
+> 3. Because this is a regional limit, you can create 100 endpoints in each region by default. For example, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to number of deployments and all the other limits. 
 > 4. We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error. There are some VM SKUs that are exempt from extra quota. See [virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment) for more.
 > 5. Requests per second, connections, bandwidth etc are related. If you request for increase for any of these limits, ensure estimating/calculating other related limites together.
 
@@ -276,14 +276,14 @@ To raise endpoint quota, [open an online customer support request](https://porta
         1. Provide what VM SKU and number of instances in total to support the target throughput and latency. Provide how many endpoints/deployments/instances you plan to use in each region.
         1. Confirm if you have a benchmark test that indicates the selected VM SKU and number of instances would meet your throughput and latency requirement.
         1. Provide the type of the payload and size of a single payload. Network bandwidth should align with the payload size and requests per second.
-        1. Provide planned time plan (by when you need increased threshold - you could have staged plan) and confirm if (1) the cost of using the scale is within your budget and (2) VM SKUs are approved.
+        1. Provide planned time plan (by when you need increased limits - provide staged plan if possible) and confirm if (1) the cost of running it at that scale is reflected in your budget and (2) the target VM SKUs are approved.
 1. Finally, select __Save and continue__ to continue.
 
 [![Screenshot of the endpoint quota details form.](./media/how-to-manage-quotas/quota-details.png)](./media/how-to-manage-quotas/quota-details.png)
 
 > [!NOTE]
 > - Above detail reason for quota increase is required to process your request.
-> - This endpoint quota increase request is different from VM quota increase request. If your request is related to VM quota increase, please follow the instructions in the [VM quota increases](#VM-quota-increases) section.
+> - This endpoint quota increase request is different from VM quota increase request. If your request is related to VM quota increase, please follow the instructions in the [VM quota increases](#vm-quota-increases) section.
 
 ## Next steps
 
