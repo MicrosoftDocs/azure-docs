@@ -54,7 +54,7 @@ This Azure Logic Apps connector for 3270 allows Standard workflows to access and
 
 #### IBM Customer Information Control System (CICS)
 
-This Azure Logic Apps connector for CICS provides Standard workflows with the capabilities to interact and integrate with CICS programs using multiple protocols, such as TCP/IP and HTTP. If you need to access CICS environments using LU6.2, you will need Host Integration Server (HIS). For more information, see [Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector](../connectors/integrate-cics-apps-ibm-mainframe.md).
+This Azure Logic Apps connector for CICS provides Standard workflows with the capability to interact and integrate with CICS programs using multiple protocols, such as TCP/IP and HTTP. If you need to access CICS environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector](../connectors/integrate-cics-apps-ibm-mainframe.md).
 
 #### IBM DB2
 
