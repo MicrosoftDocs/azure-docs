@@ -117,7 +117,7 @@ The minimum OS releases for deploying scale-out configurations in Azure VMs, che
 > Azure VM scale-out deployments of SAP HANA with standby node are only possible using the [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) storage. No other SAP HANA certified Azure storage allows the configuration of SAP HANA standby nodes
 >
 
-For /hana/shared, we recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) or [Azure Files](../../storage/files/files-nfs-protocol). 
+For /hana/shared, we recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) or [Azure Files](../../storage/files/files-nfs-protocol.md). 
 
 A typical basic design for a single node in a scale-out configuration, with `/hana/shared` deployed on Azure NetApp Files, looks like:
 
