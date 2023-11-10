@@ -18,7 +18,7 @@ ms.topic: overview
 
 ## Overview
 
-The **Blob Storage Digest Backed by Confidential Ledger** Managed Application can be used to guarantee that the blobs within a blob container are trusted and not tampered with. The application, once connected to a storage account, tracks all blobs being added to every container in the storage account in real time in addition to calculating and storing the digests into Azure Confidential Ledger. Audits can be performed at any time to check the validity of the blobs and to ensure that the blob container is not tampered with.
+The **Blob Storage Digest Backed by Confidential Ledger** Managed Application can be used to guarantee that the blobs within a blob container are trusted and not tampered with. The application, once connected to a storage account, tracks all blobs being added to every container in the storage account in real time in addition to calculating and storing the digests into Azure Confidential Ledger. Audits can be performed at any time to check the validity of the blobs and to ensure that the blob container isn't tampered with.
 
 
 ## Deploying the Managed Application
@@ -37,11 +37,11 @@ Once the required fields are filled and the application is deployed, the followi
 
 ## Connecting a Storage Account to the Managed Application
 
-Once a Managed Application is created, you are able to then connect the Managed Application to your Storage Account to start processing and recording Blob Container digests to Azure Confidential Ledger.
+Once a Managed Application is created, you're able to then connect the Managed Application to your Storage Account to start processing and recording Blob Container digests to Azure Confidential Ledger.
 
 ### Create a Topic and Event Subscription for the Storage Account
 
-The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you are creating blobs for.
+The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you're creating blobs for.
 
 #### Azure portal
 
@@ -51,7 +51,7 @@ On the Azure portal, you can navigate to the storage account that you would like
 
 :::image type="content" source="./media/managed-application/managed-app-event-session-id.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription session ID.":::
 
-The queue uses sessions to maintain ordering across multiple storage accounts so it's required to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
+The queue uses sessions to maintain ordering across multiple storage accounts so you will also need to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
 
 #### Azure CLI
 
@@ -148,7 +148,7 @@ You can view the digests being stored directly in Azure Confidential Ledger by n
 
 ## Performing an Audit
 
-If you ever want to check the validity of the blobs that are added to a container to ensure that they are not tampered with, an audit can be run at any point in time. The audit replays every blob creation event and recalculates the digests with the blobs that are stored in the container during the audit. It then compares the recalcuated digests with the digests stored in Azure Confidential and provide a report displaying all digest comparisons and whether or not the blob container is tampered with.
+If you ever want to check the validity of the blobs that are added to a container to ensure that they aren't tampered with, an audit can be run at any point in time. The audit replays every blob creation event and recalculates the digests with the blobs that are stored in the container during the audit. It then compares the recalculated digests with the digests stored in Azure Confidential and provides a report displaying all digest comparisons and whether or not the blob container is tampered with.
 
 ### Triggering an Audit
 
@@ -206,7 +206,7 @@ Error logs can be found under a container named `<managed-application-name>-erro
 
 ## Clean Up Managed Application
 
-You can delete the Managed Application to clean up and remove all associated resources. Deleing the Managed Application stops all blob transactions from being tracked and stop all digests from being created. Audit reports remain valid for the blobs that were added before the deletion.
+You can delete the Managed Application to clean up and remove all associated resources. Deleting the Managed Application stops all blob transactions from being tracked and stop all digests from being created. Audit reports remain valid for the blobs that were added before the deletion.
 
 ## More resources
 
