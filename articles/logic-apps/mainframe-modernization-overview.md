@@ -172,7 +172,7 @@ For more information, see [Strangler Fig pattern](/azure/architecture/patterns/s
 
 ### SAGA and Choreography pattern
 
-Distributed transactions like the two-phase commit (2PC) protocol require all participants in a transaction to commit or roll back before the transaction can proceed. Cloud hybrid architectures work better following an eventual consistency paradigm rather than a Distributed transaction model.
+Distributed transactions such as the two-phase commit (2PC) protocol require that all participants in a transaction to commit or roll back before the transaction can proceed. Cloud hybrid architectures work better following an eventual consistency paradigm rather than a distributed transaction model.
 
 The SAGA design pattern is a way to manage consistency across services in distributed transaction scenarios. A saga is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. If a step fails, the saga executes compensating transactions that counteract the preceding transactions.
 
