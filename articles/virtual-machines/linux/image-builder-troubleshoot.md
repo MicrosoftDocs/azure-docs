@@ -735,7 +735,7 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
-### Unregistered Azure Container Instances provider"
+### Unregistered Azure Container Instances provider
 
 #### Error
 ```text
