@@ -147,4 +147,4 @@ If you aren't going use the deployment, you should delete it with the below comm
 * Learn [safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 * [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-* Learn about [limits that apply to managed online endpoints](how-to-manage-quotas.md#limits-that-apply-to-managed-online-endpoints).
+* Learn about [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).

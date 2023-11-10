@@ -779,5 +779,4 @@ Delete the User-assigned managed identity:
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
-* For limitations for managed online endpoints, see [limits that apply to managed online endpoints](how-to-manage-quotas.md#limits-that-apply-to-managed-online-endpoints).
-* For limitations for Kubernetes endpoints, see [limits that apply to Kubernetes online endpoints](how-to-manage-quotas.md#limits-that-apply-to-kubernetes-online-endpoints).
+* For limitations for managed online endpoint and Kubernetes online endpoint, see [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
