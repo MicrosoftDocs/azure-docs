@@ -21,7 +21,7 @@ Application Gateway v2 currently supports the following combinations:
 * Public IP address only
 * [Private IP address only (preview)](application-gateway-private-deployment.md)
 
-For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-a-private-frontend-ip-address).
 
 A public IP address isn't required for an internal endpoint that's not exposed to the internet. A private frontend configuration is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multitier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or TLS termination.
 
