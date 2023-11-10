@@ -339,7 +339,7 @@ The table below outlines the various ways content filtering can appear:
 
 ### Main content filters
 When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the main categories (hate and fairness, sexual, violence, and self-harm): 
-- content filtering category (hate, sexual, violence, self-harm)
+- content filtering category (hate, sexual, violence, self_harm)
 - the severity level (safe, low, medium or high) within each content category
 - filtering status (true or false).
 
@@ -347,9 +347,16 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned via the API for optional models:
-- jailbreak risk
-- detected (true or false), filtered (true or false)
+When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models jailbreak risk, protected material text and protected material code:
+- category (jailbreak, protected_materials_text, protected_materials_code),
+- detected (true or false),
+- filtered (true or false).
+
+For the protected material code model, the following additional information is returned by the API:
+- an example citation of a public GitHub repository where a code snippet was found
+- the license of the repository.
+
+When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
 Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
