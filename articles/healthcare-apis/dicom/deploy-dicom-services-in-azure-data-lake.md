@@ -22,6 +22,9 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 - **Create a storage account with a hierarchical namespace**.  For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/articles/storage/blobs/create-data-lake-storage-account.md).
 - **Create a new blob container in the storage account**.  This container will be used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/articles/storage/blobs/blob-containers-portal.md)
 
+> [!NOTE]
+> The data lake storage option is currently only available for newly created instances of the DICOM service.  After GA, there will be options for existing DICOM service instances to migrate.
+
 ## Deploy the DICOM service with Data Lake Storage
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services workspace**.
@@ -40,9 +43,11 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
 1. Select **External (preview)** for the Storage Location.  
 
-1. Select the storage account created in the prerequisites.
+1. Select the subscription that contains the storage account.
 
-1. Select the storage container created in the prerequisites.  
+1. Select the storage account created in the prerequisites for the Data Lake Storage field.
+
+1. Select the storage container created in the prerequisites for the File system name.  
 
 1. Select **Review + create** to deploy the DICOM service.  
 
@@ -55,12 +60,13 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
    :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot that shows the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
 
    The DICOM service overview shows the newly created service.
-   
+
    :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
 
 ## Next steps
 
 * [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
 * [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+* [Enable audit and diagnostic logging in the DICOM service](enable-diagnostic-logging.md)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
