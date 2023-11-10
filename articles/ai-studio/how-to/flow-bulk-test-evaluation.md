@@ -38,7 +38,7 @@ A batch run allows you to run your flow with a large dataset and generate output
 
 To start a batch run with evaluation, you can select on the **Evaluate** button - **Custom evaluation**. By selecting Custom evaluation, you can submit either a batch run with evaluation methods or submit a batch run without evaluation for your flow.
 
-:::image type="content" source="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png" alt-text="This screenshot shows the batch run and evaluation trigger button" lightbox="../media/prompt-flow/batch-run-evaluate/.png" lightbox="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png":::
+:::image type="content" source="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png" alt-text="This screenshot shows the batch run and evaluation trigger button" lightbox="../media/prompt-flow/batch-run-evaluate/custom-evaluation-button.png":::
 
 First, you're asked to give your batch run a descriptive and recognizable name. You can also write a description and add tags (key-value pairs) to your batch run. After you finish the configuration, select **Next** to continue.
 
