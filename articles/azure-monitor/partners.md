@@ -14,14 +14,6 @@ The following partner products integrate with Azure Monitor. They're listed in a
 
 This article is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate other appropropriate partners. 
 
-## AIMS
-
-:::image type="content" source="./media/partners/aims.jpg" alt-text="AIMS AIOps logo.":::
-
-AIMS AIOps (Artificial Intelligence for IT Operations) automates analysis of Azure performance metrics for infrastructure and services to provide actionable insight to drive efficiency, scale appropriately, control costs, and provide business insights. AIMS use machine learning to alleviate tedious manual work for IT Ops teams. AIMS also supports on-premises technologies for seamless hybrid control. AIMS is available in Azure Marketplace and as a fully functional (and free) Community Edition.
-
-For more information, see the [AIMS AIOps documentation for Azure](https://www.aims.ai/platform/azure).
-
 ## Alert Logic Log Manager
 
 :::image type="content" source="./media/partners/alertlogic.png" alt-text="Alert Logic logo.":::
@@ -332,18 +324,6 @@ For more information, see the [Serverless360 documentation](https://docs.serverl
 Reduce incidents and mean time to recovery (MTTR) with the Now Platform for AIOps. Eliminate noise, prioritize, identify root-cause detection by using ML, and remediate with IT transformation (ITX) workflows. Understand the current state of your IaaS, PaaS, and FaaS services from Azure, and build service maps from tags to build application service context for the business impact analysis.    
 
 [Learn more about ServiceNow](https://www.servicenow.com/solutions/aiops.html).
-
-## SignalFx
-
-:::image type="content" source="./media/partners/signalfx.png" alt-text="SignalFx logo.":::
-
-SignalFx offers real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today's dynamic environments. 
-
-By taking advantage of the massively scalable SignalFx platform, the SaaS platform is optimized for container-based and microservices-based architectures. SignalFx provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. 
-
-SignalFx integrates directly with Azure Monitor—as well as through open-source connectors such as Telegraf, StatsD, and collectd—to provide dashboards, analytics, and alerts for Azure.
-
-For more information, see the [SignalFx documentation](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure).
 
 ## SIGNL4
 
