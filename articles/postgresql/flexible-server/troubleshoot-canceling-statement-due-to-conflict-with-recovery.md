@@ -10,6 +10,9 @@ ms.date: 10/5/2023
 ---
 
 # Canceling statement due to conflict with recovery
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This article helps you solve a problem that occurs during executing queries against read replica.
 
 

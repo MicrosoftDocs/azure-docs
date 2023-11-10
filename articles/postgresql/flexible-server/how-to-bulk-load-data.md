@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This article discusses various methods for loading data in bulk in Azure Database for PostgreSQL - Flexible Server, along with best practices for both initial data loads in empty databases and incremental data loads.
 
 ## Loading methods
