@@ -28,9 +28,9 @@ With API Center, stakeholders throughout your organization - including API progr
 
 *  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata and build workflows** around this metadata to enforce governance.​
 
-* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API program managers and developers can discover the API inventory via the **Azure portal or using the API Catalog**, a fully managed, automatically generated website that internal and external stakeholders can access.​
+* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API Center helps program managers and developers  discover the API inventory and filter using custom metadata properties. ​
 
-* **Accelerate API consumption** - Maximize developer productivity when consuming APIs and ensure they are consumed in a secure manner consistent with organizational standards. Developers can consume the API inventory using the **API Catalog** website.​
+* **Accelerate API consumption** - Maximize developer productivity when consuming APIs and ensure they are consumed in a secure manner consistent with organizational standards. 
 
 ## Key capabilities
 
