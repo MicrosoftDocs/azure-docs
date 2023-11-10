@@ -66,7 +66,7 @@ landingContent:
         links:
           - text: Azure confidential VM options on AMD
             url: confidential-vm-overview.md
-          - text: Virtual Machines based on AMD SEV-SNP and Intel TDX technology
+          - text: Confidential VM solutions
             url: virtual-machine-solutions.md
       - linkListType: concept
         links:

@@ -1,5 +1,5 @@
 ---
-title: Virtual Machines based on AMD SEV-SNP and Intel TDX technology
+title: Confidential VM solutions
 description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD processors backed by SEV-SNP technology and on Intel processors backed by Trust Domain Extensions technology.
 author: mamccrea
 ms.author: mamccrea
