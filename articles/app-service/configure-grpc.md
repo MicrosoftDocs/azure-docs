@@ -42,7 +42,7 @@ Next, you'll need to configure the HTTP 2.0 Proxy:
 Once turned on, this setting configures your site to be forwarded HTTP/2 requests.
 
 #### 3. Add HTTP20_ONLY_PORT application setting
-App Service requires an application setting that specifically listens for HTTP/2 traffic.
+App Service requires an application setting that specifically listens for HTTP/2 traffic in addition to the HTTP/1.1 port.  The HTTP/2 port will be defined in the App Settings.   
 1. Navigate to the **Environment variables** under **Settings** on the left pane of your web app.  
 2. Under the **App settings** tab, add the following app setting to your application.
 	1. **Name =** HTTP20_ONLY_PORT 
@@ -74,4 +74,7 @@ HTTP/2 enabled on App Service doesn't currently support client certificates.  Cl
 gRPC must make secure HTTP calls to App Service.  You cannot make insecure calls.
 
 ### Activity Timeout
-gRPC requests on App Service have a timeout request limit.  gRPC requests will time out after 20 minutes of inactivity.  
+gRPC requests on App Service have a timeout request limit.  gRPC requests will time out after 20 minutes of inactivity.
+
+### Custom Containers
+HTTP/2 & gRPC support is in addition to App Service HTTP/1.1 support.  Custom containers that would like to support HTTP/2 must still support HTTP/1.1.  
