@@ -32,7 +32,9 @@ Only Standard workflows include the workflow assistant. You can open the workflo
 
    :::image type="content" source="media/workflow-assistant-standard/chat-open-first-time.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and open workflow assistant pane." lightbox="media/workflow-assistant-standard/chat-open-first-time.png":::
 
-1. In the chat box, enter your request or question about Azure Logic Apps capabilities, or enter a specific question about the current workflow. When you're done, press Enter, or select **Submit** (paper airplane icon).
+## Ask a question or make a request
+
+1. In the chat box, enter your question or request for more information about Azure Logic Apps capabilities or about the current workflow. When you're done, press Enter, or select **Submit** (paper airplane icon).
 
    The following example asks the question, "What is a trigger?"
 
