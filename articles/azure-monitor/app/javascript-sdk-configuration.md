@@ -182,7 +182,7 @@ To view the unminified callstack, select an Exception Telemetry item in the Azur
 
 If you experience issues that involve source map support for JavaScript applications, see [Troubleshoot source map support for JavaScript applications](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#troubleshoot-source-map-support-for-javascript-applications).
 
-:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
+:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" lightbox="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
 
 ## Tree shaking
 
