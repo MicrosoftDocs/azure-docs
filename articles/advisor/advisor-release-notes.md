@@ -72,23 +72,23 @@ To learn more, visit [Service Health portal classic experience overview](/azure/
 
 ## August 2023
 
-### General Availability: Improved VM resiliency with Availability Zone recommendations
+### Improved VM resiliency with Availability Zone recommendations
 
-Azure Advisor now provides availability zone recommendations. Zonal deployment is a best practice, according to Well Architected Framework (WAF) guidelines. By adopting Advisor zonal deployment recommendations, you can design your solutions to utilize zonal virtual machines (VMs), ensuring the isolation of your VMs from potential failures in other zones. With zonal deployment, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions.
+Azure Advisor now provides availability zone recommendations. By adopting these recommendations, you can design your solutions to utilize zonal virtual machines (VMs), ensuring the isolation of your VMs from potential failures in other zones. With zonal deployment, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions.
 
-To learn more, visit [Reliability recommendations - Azure Advisor | Microsoft Learn](/azure/advisor/advisor-reference-reliability-recommendations#compute).
+To learn more, visit [Use Availability zones for better resiliency and availability](/azure/advisor/advisor-reference-reliability-recommendations#use-availability-zones-for-better-resiliency-and-availability).
 
 ## July 2023
 
 ### Introducing workload based recommendations management
 
-Azure Advisor now offers the capability of grouping and/or filtering recommendations by workload. Workload creation is available to selected customers based on their support contract.
+Azure Advisor now offers the capability of grouping and/or filtering recommendations by workload. The feature is available to selected customers based on their support contract.
 
 If you're interested in wokload based recommendations, reach out to your account team for more information.
 
 ### Cost Optimization workbook template
 
-Azure Advisor now has a new version of the Cost Optimization workbook template. The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases
 
 To learn more, visit [Understand and optimize your Azure costs using the Cost Optimization workbook](/azure/advisor/advisor-cost-optimization-workbook).
 
@@ -96,11 +96,9 @@ To learn more, visit [Understand and optimize your Azure costs using the Cost Op
 
 ### Recommendation reminders for an upcoming event
 
-Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in Azure Event Management (AEM) programs are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event. To learn more about Azure Event Management, visit [Enhanced Solutions](https://www.microsoft.com/unifiedsupport/enhanced-solutions).
+Azure Advisor now offers new recommendation reminders to help you proactively manage and improve the resilience and health of your workloads before an important event. Customers in [Azure Event Management (AEM) program](https://www.microsoft.com/unifiedsupport/enhanced-solutions) are now reminded about outstanding recommendations for their subscriptions and resources that are critical for the event.
 
 The event notifications are displayed when you visit Advisor or manage resources critical for an upcoming event. The reminders are displayed for events happening within the next 12 months and only for the subscriptions linked to an event. The notification includes a call to action to review outstanding recommendations for reliability, security, performance, and operational excellence.
-
-To learn more, visit [Reliability recommendations](/azure/advisor/advisor-reference-reliability-recommendations).
 
 ## May 2023
 
@@ -120,7 +118,7 @@ To assess the reliability of your workload using the tenets found in the [Micr
 
 ### Data in Azure Resource Graph is now available in Azure China and US Government clouds
 
-Azure Advisor data is now available in the Azure Resource Graph (ARG) in Azure China and US Government clouds (public cloud enabled in April 2020). The ARG is useful for customers who can now get recommendations for all their subscriptions at once and build custom views of Advisor recommendation data. For example:
+Azure Advisor data is now available in the Azure Resource Graph (ARG) in Azure China and US Government clouds. The ARG is useful for customers who can now get recommendations for all their subscriptions at once and build custom views of Advisor recommendation data. For example:
 
 * Review your recommendations summarized by impact and category.
 
@@ -139,23 +137,17 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 ## April 2023
 
-### Cost savings summary for multiple currencies
-
-Azure Advisor now provides cost savings summaries in multiple currencies, through the Recommendation Digest configuration **Language** option. Enterprise customers with subsidiaries in other countries often get cost recommendations denominated in multiple currencies. They now can use updated cost summary view to evaluate the total amount of cost savings in different currencies.
-
-To learn more, visit [Configure periodic summary for recommendations](/azure/advisor/advisor-recommendations-digest).
-
 ### Postpone/dismiss a recommendation for multiple resources
 
-Azure Advisor now provides the option to postpone or dismiss multiple resources at once. Once you open a recommendations details page with a list of recommendations and associated resources, select the relevant resources and choose **Postpone** or **Dismiss** in the command bar at the top of the page.
+Azure Advisor now provides the option to postpone or dismiss a recommendation for multiple resources at once. Once you open a recommendations details page with a list of recommendations and associated resources, select the relevant resources and choose **Postpone** or **Dismiss** in the command bar at the top of the page.
 
 To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/view-recommendations#dismissing-and-postponing-recommendations)
 
 ### VM/VMSS right-sizing recommendations with custom lookback period
 
-Azure Advisor is now providing Virtual Machine and Virtual Machine Scale Sets right-sizing recommendations with an adjustable lookback period through the **Commitments** option. You can improve the relevance of recommendations to make them more actionable, obtain in additional cost savings.
+You can now improve the relevance of recommendations to make them more actionable, resulting in additional cost savings.
 
-The right sizing recommendations identify idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. With this latest update, you can adjust the default lookback period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level, which is especially useful when your workloads have biweekly or monthly peaks (such as with payroll applications).
+The right sizing recommendations help optimize costs by identifying idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. Now, with this latest update, you can adjust the default look back period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level. This is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications).
 
 To learn more, visit [Optimize Virtual Machine (VM) or Virtual Machine Scale Set (VMSS) spend by resizing or shutting down underutilized instances](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
 
@@ -173,14 +165,6 @@ Azure Advisor now offers cost optimization recommendations for Virtual Machine S
 
 To learn more, visit [
 Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting down underutilized instances](/azure/advisor/advisor-cost-recommendations#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
-
-## October 2022
-
-### General Availability: Advisor score across Azure regions
-
-Advisor Score now supports the ability to focus recommendations on specific workloads using resource tag filters, in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments. This report was initially available in preview only and is now generally available.
-
-To learn more, visit [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
 ## June 2022
 
@@ -200,7 +184,7 @@ To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 
 ### Tag filtering
 
-You can now get Advisor recommendations scoped to a business unit, workload, or team. Filter recommendations and calculate scores using tags already assigned to Azure resources, resource groups and subscriptions. Apply tag filters to:
+You can now get Advisor recommendations scoped to a business unit, workload, or team. Filter recommendations and calculate scores using tags you have already assigned to Azure resources, resource groups and subscriptions. Apply tag filters to:
 
 * Identify cost saving opportunities by business units
 
