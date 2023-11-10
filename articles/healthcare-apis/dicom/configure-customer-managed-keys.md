@@ -78,6 +78,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-list.png" alt-text="Screenshot of the Keys page and the key to use with the DICOM service." lightbox="media/configure-customer-managed-keys/key-vault-list.png":::
 
 3. Select the key version.
+
 4. Copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
@@ -282,19 +283,19 @@ If you're opting to use a user-assigned managed identity with the DICOM service,
 
 :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create DICOM service view with the DICOM service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
 
-1. On the Security tab, select **Customer-managed key** for the Encryption type.
+2. On the Security tab, select **Customer-managed key** for the Encryption type.
 
-1. Select a key vault and key or enter the Key URI for the key that was created previously.  
+3. Select a key vault and key or enter the Key URI for the key that was created previously.  
 
-1. Select the **Select an identity** option to select the user-assigned managed identity.
+4. Select the **Select an identity** option to select the user-assigned managed identity.
 
 :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
-1. On the Select user assigned managed identity panel, filter for an select the managed identity you want to use, then select **Add**.
+5. On the Select user assigned managed identity panel, filter for an select the managed identity you want to use, then select **Add**.
 
-1. On the Security tab, select **Review + create** to review the settings.
+6. On the Security tab, select **Review + create** to review the settings.
 
-1. On the Review + create tab, you'll see the summary of the configuration options and a Validation success message if all of the settings are configured correctly.  Select **Create** to deploy the DICOM service with customer-managed keys.
+7. On the Review + create tab, you'll see the summary of the configuration options and a Validation success message if all of the settings are configured correctly.  Select **Create** to deploy the DICOM service with customer-managed keys.
 
 :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
 
