@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: How to create route policy in Network Fabric"
-description: Learn to create, view, list, update, delete commands for Network Fabric.
+description: Learn to create, view, list, update, and delete commands for Network Fabric.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-azurecli
 Route policies provide Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
 
 With route policies, routes are tagged with certain attributes via community values
-and extended community values when they're distributed via Border Gateway Patrol (BGP).
+and extended community values when they're distributed via Border Gateway Protocol (BGP).
 Similarly, on the BGP listener side, route policies can be authored to discard/allow
 routes based on community values and extended community value attributes.
 
