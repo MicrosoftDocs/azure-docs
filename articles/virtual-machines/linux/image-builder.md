@@ -20,7 +20,7 @@ This article uses a sample JSON template to configure the image. The JSON file i
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-## Register the features
+## Register the providers
 
 To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
 

@@ -3,8 +3,8 @@ title: Use Azure Image Builder & Azure Compute Gallery for Linux VMs
 description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in an Azure Compute Gallery, and then distribute the image globally.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 04/11/2023
+ms.reviewer: erd
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -21,7 +21,7 @@ We will be using a sample .json template to configure the image. The .json file 
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-## Register the features
+## Register the providers
 
 To use Azure Image Builder, you need to register the feature.
 
@@ -33,6 +33,7 @@ az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Network | grep registrationState
+az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
 ```
 
 If they do not say registered, run the following:
@@ -43,6 +44,7 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 
 ## Set variables and permissions
