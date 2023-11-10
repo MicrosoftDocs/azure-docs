@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Application and Code Assessment Toolkit
+title: Azure Migrate application and code assessment
 summary: Tools to assess applications' binaries and source code for cloud readiness
 
 metadata:
-  title: Application and Code Assessment Toolkit
-  description: Learn about Application and Code Assessment Toolkit
+  title: Azure Migrate application and code assessment
+  description: Learn about Azure Migrate application and code assessment
   ms.service: appcat
   ms.topic: landing-page
   ms.date: 30/10/2023
@@ -16,13 +16,13 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Application and Code Assessment Toolkit
+  - title: About Azure Migrate application and code assessment
     linkLists: 
       - linkListType: overview
         links: 
-          - text: What is Application and Code Assessment Toolkit?
+          - text: Overview
             url: overview.md
-          - text: Java applications
-            url: /azure/developer/java/migration/appcat
-          - text: .NET applications
+          - text: Assess Java applications and code
+            url: java.md
+          - text: Assess .NET applications and code
             url: dotnet.md
