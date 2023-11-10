@@ -22,7 +22,7 @@ To distribute the image to an Azure Compute Gallery, the template uses [sharedIm
 
 ## Register the providers
 
-To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
+To use VM Image Builder, you need to register the providers. Check your registration by running the following commands:
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
