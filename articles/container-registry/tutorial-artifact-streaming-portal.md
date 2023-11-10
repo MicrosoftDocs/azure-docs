@@ -20,8 +20,6 @@ This article is part three in a four-part tutorial series. In this tutorial, you
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
-* [Navigate to the Azure portal](https://ms.portal.azure.com/#create/Microsoft.KubernetesService) and create an AKS cluster in the same region as the ACR registry and attach to it.
-
 ## Push/Import the image and generate the streaming artifact - Azure portal
 
 Artifact Streaming is available in the *premium* [SKU](container-registry-skus.md) Azure Container Registry. To enable Artifact Streaming, update a registry using the Azure portal.
