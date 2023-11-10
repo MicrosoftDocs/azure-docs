@@ -51,32 +51,37 @@ An attribute can be corrected in the following ways:
 #### Fewer Study, Series, and Instance attributes are returned by default
 The set of attributes returned by default has been reduced to improve performance. See the detailed list in the [search response](./dicom-services-conformance-statement-v2.md#search-response) documentation.
 
-List of attributes added/removed from default tags are shown below. **+** denotes addition, **-** denotes removal.
+Attributes added newly to default tags.
 
-|Tag level| Tag          | Attribute Name | Action
-|:-----------| :----------- | :------------- |:-- |
-|Study | (0008, 0005) | SpecificCharacterSet | **-** |
-|Study | (0008, 0030) | StudyTime | **-** |
-|Study | (0008, 0056) | InstanceAvailability | **-** |
-|Study | (0008, 1030) | StudyDescription | **+** |
-|Study | (0008, 0201) | TimezoneOffsetFromUTC | **-** |
-|Study | (0010, 0040) | PatientSex | **-** |
-|Study | (0020, 0010) | StudyID | **-** |
-|Series | (0008, 0005) | SpecificCharacterSet | **-** |
-|Series | (0008, 0201) | TimezoneOffsetFromUTC | **-** |
-|Series | (0008, 103E) | SeriesDescription | **-** |
-|Series | (0008, 1090) | ManufacturerModelName | **+** |
-|Series | (0040, 0245) | PerformedProcedureStepStartTime | **-** |
-|Series | (0040, 0275) | RequestAttributesSequence | **-** |
-|Instance | (0008, 0005) | SpecificCharacterSet | **-** |
-|Instance | (0008, 0016) | SOPClassUID | **-** |
-|Instance | (0008, 0056) | InstanceAvailability | **-** |
-|Instance | (0008, 0201) | TimezoneOffsetFromUTC | **-** |
-|Instance | (0020, 0013) | InstanceNumber | **-** |
-|Instance | (0028, 0010) | Rows | **-** |
-|Instance | (0028, 0011) | Columns | **-** |
-|Instance | (0028, 0100) | BitsAllocated | **-** |
-|Instance | (0028, 0008) | NumberOfFrames | **-** |
+|Tag level| Tag          | Attribute Name |
+|:-----------| :----------- | :------------- |
+|Study | (0008, 1030) | StudyDescription |
+|Series | (0008, 1090) | ManufacturerModelName |
+
+Attributes removed from default tags.
+
+|Tag level| Tag          | Attribute Name |
+|:-----------| :----------- | :------------- |
+|Study | (0008, 0005) | SpecificCharacterSet |
+|Study | (0008, 0030) | StudyTime |
+|Study | (0008, 0056) | InstanceAvailability |
+|Study | (0008, 0201) | TimezoneOffsetFromUTC |
+|Study | (0010, 0040) | PatientSex |
+|Study | (0020, 0010) | StudyID |
+|Series | (0008, 0005) | SpecificCharacterSet |
+|Series | (0008, 0201) | TimezoneOffsetFromUTC |
+|Series | (0008, 103E) | SeriesDescription |
+|Series | (0040, 0245) | PerformedProcedureStepStartTime |
+|Series | (0040, 0275) | RequestAttributesSequence |
+|Instance | (0008, 0005) | SpecificCharacterSet |
+|Instance | (0008, 0016) | SOPClassUID |
+|Instance | (0008, 0056) | InstanceAvailability |
+|Instance | (0008, 0201) | TimezoneOffsetFromUTC |
+|Instance | (0020, 0013) | InstanceNumber |
+|Instance | (0028, 0010) | Rows |
+|Instance | (0028, 0011) | Columns |
+|Instance | (0028, 0100) | BitsAllocated |
+|Instance | (0028, 0008) | NumberOfFrames |
 
 All the removed tags are part of additional tags which will be returned when queried with `includefield = all`.
 
