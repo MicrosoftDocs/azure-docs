@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/22/2022
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
@@ -171,7 +171,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
         ```
 
     > [!NOTE]  
-    > You can also use mydumper for capturing a parallelized dump of your data from your source Amazon RDS for MySQL database. For more information, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](concepts-migrate-mydumper-myloader.md).
+    > You can also use mydumper for capturing a parallelized dump of your data from your source Amazon RDS for MySQL database. For more information, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../single-server/concepts-migrate-mydumper-myloader.md).
 
 ## Link source and replica servers to start Data-in Replication
 
@@ -182,7 +182,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
     ```
 
    > [!NOTE]  
-   > If you're instead using myloader, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](concepts-migrate-mydumper-myloader.md).
+   > If you're instead using myloader, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../single-server/concepts-migrate-mydumper-myloader.md).
 
 1. Sign in to the source Amazon RDS for MySQL server, and set up a replication user. Then grant the necessary privileges to this user.
 

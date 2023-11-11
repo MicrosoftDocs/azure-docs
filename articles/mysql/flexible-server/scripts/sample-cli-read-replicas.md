@@ -13,6 +13,8 @@ ms.date: 02/10/2022
 
 # Create and manage read replicas in an Azure Database for MySQL - Flexible Server using Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
+
 This sample CLI script creates and manages [read replicas](../concepts-read-replicas.md) in an Azure Database for MySQL - Flexible Server.
 
 >[!IMPORTANT]

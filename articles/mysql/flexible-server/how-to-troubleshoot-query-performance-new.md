@@ -2,7 +2,7 @@
 title: Troubleshoot query performance in Azure Database for MySQL 
 description: Learn how to troubleshoot query performance in Azure Database for MySQL.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting
@@ -55,7 +55,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](./concepts-server-logs.md#analyze-logs-in-azure-monitor-logs).
+> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](../single-server/concepts-server-logs.md#analyze-logs-in-azure-monitor-logs).
 >
 
 The following snapshot depicts a sample slow query.

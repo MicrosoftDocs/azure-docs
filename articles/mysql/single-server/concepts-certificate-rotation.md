@@ -61,7 +61,7 @@ To avoid interruption of your application's availability as a result of certif
 
     * For .NET (MySQL Connector/NET, MySQLConnector) users, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
-      :::image type="content" source="media/overview/netconnecter-cert.png" alt-text="Azure Database for MySQL .NET cert diagram":::
+      :::image type="content" source="../flexible-server/media/overview-single/netconnecter-cert.png" alt-text="Azure Database for MySQL .NET cert diagram":::
 
     * For .NET users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates don't exist, create the missing certificate file.
 

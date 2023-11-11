@@ -13,6 +13,8 @@ ms.date: 02/10/2022
 
 # Restore an Azure Database for MySQL - Flexible Server using Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
+
 Azure Database for MySQL - Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region.
 
 This sample CLI script performs a [point-in-time restore](../concepts-backup-restore.md) and creates a new server from your Flexible Server's backups.

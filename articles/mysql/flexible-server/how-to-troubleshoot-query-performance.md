@@ -2,7 +2,7 @@
 title: Profile query performance - Azure Database for MySQL 
 description: Learn how to profile query performance in Azure Database for MySQL by using EXPLAIN.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting

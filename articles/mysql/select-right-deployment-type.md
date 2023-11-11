@@ -6,6 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 04/18/2023
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 

@@ -91,7 +91,7 @@ landingContent:
         - text: Dump and restore
           url: single-server/concepts-migrate-dump-restore.md
         - text: Import and export
-          url: single-server/concepts-migrate-import-export.md
+          url: flexible-server/concepts-migrate-import-export.md
         - text: Migrate Amazon RDS for MySQL with MySQL Workbench
           url: single-server/how-to-migrate-rds-mysql-workbench.md
         - text: Migrate Amazon RDS for MySQL using Data-in replication
@@ -111,7 +111,7 @@ landingContent:
           - text: Migrate using dump and restore
             url: single-server/concepts-migrate-dump-restore.md
           - text: Migrate using import and export
-            url: single-server/concepts-migrate-import-export.md
+            url: flexible-server/concepts-migrate-import-export.md
       - linkListType: how-to-guide
         links:
           - text: Migrate RDS MySQL using MySQL Workbench
@@ -191,7 +191,7 @@ landingContent:
           - text: Troubleshoot replication latency
             url: how-to-troubleshoot-replication-latency.md
           - text: Troubleshoot database corruption
-            url: single-server/how-to-fix-corrupt-database.md
+            url: flexible-server/how-to-fix-corrupt-database.md
           - text: Troubleshoot connectivity issues
             url: single-server/how-to-troubleshoot-connectivity-issues.md
           - text: Tune performance using the sys_schema

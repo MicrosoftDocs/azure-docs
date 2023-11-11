@@ -4,14 +4,14 @@ description: This article explains common ways to import and export databases in
 author: aditivgupta
 ms.author: adig
 ms.service: mysql
-ms.subservice: migration-guide
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
 
 # Migrate your MySQL database by using import and export
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
@@ -25,7 +25,7 @@ For other migration scenarios, see the [Database Migration Guide](/data-migratio
 
 Before you begin migrating your MySQL database, you need to:
 
-- Create an [Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md).
+- Create an [Azure Database for MySQL server by using the Azure portal](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md).
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for importing and exporting.
 
 ## Create a database on the Azure Database for MySQL server

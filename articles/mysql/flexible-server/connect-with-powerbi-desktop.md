@@ -11,6 +11,8 @@ ms.date: 05/23/2023
 
 # Import data from Azure Database for MySQL - Flexible Server in Power BI 
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!NOTE]
 > This article applies to Power BI Desktop only. Currently Power Query online or Power BI Service is **not supported**. 
 

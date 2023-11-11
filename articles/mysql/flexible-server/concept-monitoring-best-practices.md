@@ -2,7 +2,7 @@
 title: Monitoring best practices - Azure Database for MySQL
 description: This article describes the best practices to monitor your Azure Database for MySQL.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: mksuni 
 ms.author: sumuth
@@ -35,11 +35,11 @@ Monitor CPU usage and if the database is exhausting CPU resources. If CPU usage 
 
 ### Memory
 
-The amount of memory available for the database server is proportional to the [number of vCores](concepts-pricing-tiers.md). Make sure the memory is enough for the workload. Load test your application to verify the memory is sufficient for read and write operations. If the database memory consumption frequently grows beyond a defined threshold, this indicates that you should upgrade your instance by increasing vCores or higher performance tier. Use [Query Store](concepts-query-store.md), [Query Performance Recommendations](concepts-performance-recommendations.md) to identify queries with the longest duration, most executed. Explore opportunities to optimize. 
+The amount of memory available for the database server is proportional to the [number of vCores](../single-server/concepts-pricing-tiers.md). Make sure the memory is enough for the workload. Load test your application to verify the memory is sufficient for read and write operations. If the database memory consumption frequently grows beyond a defined threshold, this indicates that you should upgrade your instance by increasing vCores or higher performance tier. Use [Query Store](../single-server/concepts-query-store.md), [Query Performance Recommendations](../single-server/concepts-performance-recommendations.md) to identify queries with the longest duration, most executed. Explore opportunities to optimize. 
 
 ### Storage
 
-The [amount of storage](how-to-create-manage-server-portal.md#scale-compute-and-storage) provisioned for the MySQL server determines the IOPs for your server. The storage used by the service includes the database files, transaction logs, the server logs and backup snapshots. Ensure that the consumed disk space does not constantly exceed above 85 percent of the total provisioned disk space. If that is the case, you need to delete or archive data from the database server to free up some space. 
+The [amount of storage](../single-server/how-to-create-manage-server-portal.md#scale-compute-and-storage) provisioned for the MySQL server determines the IOPs for your server. The storage used by the service includes the database files, transaction logs, the server logs and backup snapshots. Ensure that the consumed disk space does not constantly exceed above 85 percent of the total provisioned disk space. If that is the case, you need to delete or archive data from the database server to free up some space. 
 
 ### Network traffic
 
