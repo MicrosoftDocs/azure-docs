@@ -10,7 +10,7 @@ ms.date: 11/15/2023
 ms.author: eur
 ---
 
-# Develop a flow
+# Develop a prompt flow
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
