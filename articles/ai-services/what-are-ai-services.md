@@ -2,13 +2,12 @@
 title: What are Azure AI services?
 titleSuffix: Azure AI services
 description: Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 keywords: Azure AI services, cognitive
 ms.service: azure-ai-services
 ms.topic: overview
-ms.date: 7/18/2023
+ms.date: 11/15/2023
 ms.author: eur
 ms.custom: build-2023, build-2023-dataai
 ---
@@ -28,8 +27,8 @@ Select a service from the table below and learn how it can help you meet your de
 | Service | Description |
 | --- | --- |
 | ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg) [Anomaly Detector](./Anomaly-Detector/index.yml) (retired) | Identify potential problems early on |
-| ![Azure Cognitive Search icon](media/service-icons/cognitive-search.svg) [Azure Cognitive Search](../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps |
-| ![Azure OpenAI Service icon](media/service-icons/azure.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks |
+| ![Azure AI Search icon](media/service-icons/search.svg) [Azure AI Search](../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps |
+| ![Azure OpenAI Service icon](media/service-icons/azure-openai.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks |
 | ![Bot service icon](media/service-icons/bot-services.svg) [Bot Service](/composer/) | Create bots and connect them across channels |
 | ![Content Moderator icon](media/service-icons/content-moderator.svg) [Content Moderator](./content-moderator/index.yml) (retired) | Detect potentially offensive or unwanted content |
 | ![Content Safety icon](media/service-icons/content-safety.svg) [Content Safety](./content-safety/index.yml) | An AI service that detects unwanted contents |
@@ -50,28 +49,69 @@ Select a service from the table below and learn how it can help you meet your de
 ## Pricing tiers and billing
 
 Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
-* maximum number of allowed transactions per second (TPS).
-* service features enabled within the pricing tier.
-* cost for a predefined number of transactions. Going above this number will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/) for your service.
+* Maximum number of allowed transactions per second (TPS).
+* Service features enabled within the pricing tier.
+* Cost for a predefined number of transactions. Going above this number will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/) for your service.
 
 > [!NOTE]
 > Many of the Azure AI services have a free tier you can use to try the service. To use the free tier, use `F0` as the SKU for your resource.
 
+## Development options 
 
-## Use Azure AI services in different development environments
+The tools that you will use to customize and configure models are different from those that you'll use to call the Azure AI services. Out of the box, most Azure AI services allow you to send data and receive insights without any customization. For example: 
 
-With Azure and Azure AI services, you have access to several development options, such as:
+* You can send an image to the Azure AI Vision service to detect words and phrases or count the number of people in the frame
+* You can send an audio file to the Speech service and get transcriptions and translate the speech to text at the same time
+
+Azure offers a wide range of tools that are designed for different types of users, many of which can be used with Azure AI services. Designer-driven tools are the easiest to use, and are quick to set up and automate, but might have limitations when it comes to customization. Our REST APIs and client libraries provide users with more control and flexibility, but require more effort, time, and expertise to build a solution. If you use REST APIs and client libraries, there is an expectation that you're comfortable working with modern programming languages like C#, Java, Python, JavaScript, or another popular programming language. 
+
+Let's take a look at the different ways that you can work with the Azure AI services.
+
+### Client libraries and REST APIs
+
+Azure AI services client libraries and REST APIs provide you direct access to your service. These tools provide programmatic access to the Azure AI services, their baseline models, and in many cases allow you to programmatically customize your models and solutions. 
+
+* **Target user(s)**: Developers and data scientists
+* **Benefits**: Provides the greatest flexibility to call the services from any language and environment. 
+* **UI**: N/A - Code only
+* **Subscription(s)**: Azure account + Azure AI services resources
+
+If you want to learn more about available client libraries and REST APIs, use our [Azure AI services overview](index.yml) to pick a service and get started with one of our quickstarts.
+
+### Continuous integration and deployment
+
+You can use Azure DevOps and GitHub Actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
+
+* **Target user(s)**: Developers, data scientists, and data engineers
+* **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
+* **UI tools**: N/A - Code only 
+* **Subscription(s)**: Azure account + Azure AI services resource + GitHub account
+
+### Continuous integration and delivery with DevOps and GitHub Actions
+
+Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub Actions. These tools are used for automated training, testing, and release management of custom models. 
+
+* [CI/CD for Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [CI/CD for LUIS](./luis/luis-concept-devops-automation.md)
+
+### On-premises containers 
+
+Many of the Azure AI services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. For a complete list of Azure AI containers, see [On-premises containers for Azure AI services](./cognitive-services-container-support.md).
+
+### Training models
+
+Some services allow you to bring your own data, then train a model. This allows you to extend the model using the Service's data and algorithm with your own data. The output matches your needs. When you bring your own data, you might need to tag the data in a way specific to the service. For example, if you are training a model to identify flowers, you can provide a catalog of flower images along with the location of the flower in each image to train the model. 
+
+## Azure AI services in the ecosystem
+
+With Azure and Azure AI services, you have access to a broad ecosystem, such as:
 
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Azure AI services Docker containers for secure access.
 * Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
-To learn more, see [Azure AI services development options](./cognitive-services-development-options.md).
-
-### Containers for Azure AI services
-
-Azure AI services also provides several Docker containers that let you use the same APIs that are available from Azure, on-premises. These containers give you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. For more information, see [Azure AI containers](cognitive-services-container-support.md "Azure AI containers").
+To learn more, see [Azure AI services ecosystem](ai-services-and-ecosystem.md).
 
 ## Regional availability
 
@@ -99,6 +139,7 @@ Azure AI services provides several support options to help you move forward with
 
 ## Next steps
 
+* Learn how to [get started with Azure](https://azure.microsoft.com/get-started/)
 * Select a service from the tables above and learn how it can help you meet your development goals.
 * [Create a multi-service resource](multi-service-resource.md?pivots=azportal)
 * [Plan and manage costs for Azure AI services](plan-manage-costs.md)

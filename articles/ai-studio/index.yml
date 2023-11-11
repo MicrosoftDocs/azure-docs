@@ -1,0 +1,108 @@
+### YamlMime:Landing
+
+title: Azure AI Studio documentation # < 60 chars
+summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
+metadata:
+  title: Azure AI Studio documentation
+  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  ms.service: azure-ai-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: eric-urban
+  ms.author: eur
+  ms.date: 11/15/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure AI Studio
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AI Studio?
+            url: what-is-ai-studio.md
+          - text: What are AI services?
+            url: ../ai-services/what-are-ai-services.md
+          - text: What is prompt flow?
+            url: how-to/prompt-flow.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: concepts/retrieval-augmented-generation.md
+          - text: Responsible use of AI
+            url: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
+
+  # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Hear and speak with chat in the playground
+            url: quickstarts/hear-speak-playground.md
+          - text: Generate product name ideas
+            url: quickstarts/playground-completions.md
+          - text: Moderate text and images
+            url: quickstarts/content-safety.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy a web app for chat on your data
+            url: tutorials/deploy-chat-web-app.md
+
+  # Card
+  - title: Develop apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get started with the Azure AI SDK
+            url: how-to/sdk-install.md
+          - text: Get started with the Azure AI CLI
+            url: how-to/cli-install.md
+      - linkListType: reference
+        links:
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/
+          - text: Azure OpenAI Service Reference
+            url: ../ai-services/openai/reference.md
+      - linkListType: quickstart
+        links:
+          - text: Speech to speech chat
+            url: ../ai-services/speech-service/openai-speech.md?pivots=programming-language-python
+          - text: Conversational language understanding
+            url: ../ai-services/language-service/conversational-language-understanding/quickstart.md?pivots=rest-api
+          - text: Document intelligence
+            url: ../ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
+  
+  # Card
+  - title: Explore more AI resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Machine Learning
+            url: ../machine-learning/index.yml
+          - text: Semantic Kernel
+            url: /semantic-kernel/
+          - text: AI Builder
+            url: /ai-builder/
+          - text: Power Virtual Agents with Azure AI Language
+            url: /power-virtual-agents/advanced-clu-integration
+          - text: GitHub Copilot
+            url: https://docs.github.com/copilot/getting-started-with-github-copilot
+
+  # Card
+  - title: Training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure AI Training
+            url: https://aka.ms/LearnAzureAIStudio
+          - text: Vector search in Azure AI Search
+            url: /training/modules/improve-search-results-vector-search/
+          - text: AI Learning paths and modules
+            url: /training/browse/?resource_type=learning%20path&expanded=data-ai&subjects=artificial-intelligence
+          - text: AI Engineer career path
+            url: /training/career-paths/ai-engineer
+          - text: AI learning and community hub
+            url: /ai/
+          - text: Identify principles and practices for responsible AI
+            url: /training/paths/responsible-ai-business-principles/

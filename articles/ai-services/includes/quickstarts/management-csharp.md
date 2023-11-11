@@ -107,8 +107,6 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
-
 ## Run the application
 
 Run the application from your application directory with the `dotnet run` command.
