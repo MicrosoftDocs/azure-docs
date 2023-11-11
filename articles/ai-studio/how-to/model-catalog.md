@@ -28,10 +28,6 @@ You can filter the model catalog by collection, model name, or task to find the 
 - **Model name**: You can filter the model catalog by model name (such as GPT) to find a specific model. 
 - **Task**: The task filter allows you to filter models by the task they're best suited for, such as chat, question answering, or text generation.
 
-Here's an example of filtering by collection ("Azure OpenAI") in the model catalog:
-
-:::image type="content" source="../media/explore/model-catalog-filter-collection.png" alt-text="Screenshot of filtering by collection in the Azure AI Studio model catalog." lightbox="../media/explore/model-catalog-filter-collection.png":::
-
 
 ## Model benchmarks
 

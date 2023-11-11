@@ -10,7 +10,7 @@ ms.date: 11/15/2023
 ms.author: eur
 ---
 
-# Deploy a flow as a managed online endpoint for real-time inference
+# Deploy a flow for real-time inference
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 

@@ -10,7 +10,7 @@ ms.date: 11/15/2023
 ms.author: eur
 ---
 
-# Submit batch run and evaluate a flow
+# Submit a batch run and evaluate a flow
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 

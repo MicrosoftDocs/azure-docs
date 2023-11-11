@@ -121,7 +121,7 @@
       href: how-to/deploy-models.md
     - name: Monitor quality and safety of deployed applications
       href: how-to/monitor-quality-safety.md
-  - name: Setup your development environment
+  - name: Set up your development environment
     items:
     - name: Get started with the Azure AI SDK
       href: how-to/sdk-install.md
