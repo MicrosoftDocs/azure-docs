@@ -39,10 +39,10 @@ The MQTT broker and north-bound cloud connector components can be deployed as re
 CLUSTER_NAME=<arc-connected-cluster-name>
 TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep'
 
- az deployment group create               \ 
-    --name az-resources                   \
-    --resource-group $RESOURCE_GROUP      \
-    --template-file $TEMPLATE_FILE_NAME   \
+ az deployment group create \ 
+    --name az-resources \
+    --resource-group $RESOURCE_GROUP \
+    --template-file $TEMPLATE_FILE_NAME \
     --parameters clusterName=$CLUSTER_NAME
 ```
 
@@ -87,6 +87,20 @@ The resources deployed by the template include:
 In a few seconds, you should see the data being ingested into KQL database.
 
  :::image type="content" source="media/eventstream-ingesting.png" alt-text="Eventstream ingesting success" lightbox="media/eventstream-ingesting.png":::
+
+## Create Power BI report
+
+1. From the KQL database, right-click on the *sensor-readings* table and select **Build Power BI report**
+
+     :::image type="content" source="media/powerbi-report.png" alt-text="Create Power BI report" lightbox="media/powerbi-report.png":::
+
+1. Drag the *∑ Temperature* onto the canvas and change the visualization to a line graph, drag the *EventEnqueuedUtcTime* column on to the visual and save the report.
+
+      :::image type="content" source="media/powerbi-dash-create.png" alt-text="Save Power BI report" lightbox="media/powerbi-dash-create.png":::
+
+1. Open the Power BI report to see the real-time dashboard, you can refresh the dashboard with latest sensor reading using the button on the top right.
+
+    :::image type="content" source="media/powerbi-dash-show.png" alt-text="View Power BI report" lightbox="media/powerbi-dash-show.png":::
 
 
 
