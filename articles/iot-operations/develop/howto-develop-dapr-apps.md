@@ -67,6 +67,7 @@ To create the yaml file, use the following component definitions:
 > | `spec.metadata.satTokenPath` | TBD |
 > | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
 > | `spec.metadata.caCertPath` | The certificate chain path for validating the broker |
+> | `spec.metadata.logLevel` | The logging level of the component. 'Debug', 'Info', 'Warn' and 'Error' |
 
 1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
 
@@ -88,6 +89,8 @@ To create the yaml file, use the following component definitions:
         value: true
       - name: caCertPath
         value: "/certs/aio-mq-ca-cert/ca.pem"
+      - name: logLevel
+        value: "Info"
     ---
     # State Management component
     apiVersion: dapr.io/v1alpha1
@@ -106,6 +109,8 @@ To create the yaml file, use the following component definitions:
         value: true
       - name: caCertPath
         value: "/certs/aio-mq-ca-cert/ca.pem"
+      - name: logLevel
+        value: "Info"
     ```
 
 1. Apply the component yaml to your cluster by running the following command:
@@ -151,7 +156,7 @@ Your application can authenticate to MQ using any of the [supported authenticati
 To configure authorization policies to Azure IoT MQ, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
 
 > [!TIP]
-> If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to allow MQTT topics.
+> If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to all MQTT topics.
 
 To create the yaml file, use the following component definitions:
 
@@ -294,7 +299,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-pubsub:0.1.0-preview
+          image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -305,7 +310,7 @@ To start, you create a yaml file that uses the following component definitions:
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
-          image: mcr.microsoft.com/azureiotoperations/dapr/mq-statestore:0.1.0-preview
+          image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
