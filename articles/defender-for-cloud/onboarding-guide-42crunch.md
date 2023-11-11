@@ -27,7 +27,7 @@ Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit)
 
 To complete this step, follow the instructions in [Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md). If you already have a GitHub repository connected to Microsoft Defender for Cloud, you can skip this step.
 
-## Configure 42Crunch audit service
+## Configure 42Crunch Audit service
 
 The REST API Static Security Testing action locates REST API contracts that follow the OpenAPI Specification (OAS, formerly known as Swagger) and runs thorough security checks on them. Both OAS v2 and v3 are supported, in both JSON and YAML format.
 
@@ -49,11 +49,11 @@ To create a new default workflow:
 
 1. Choose "Setup a workflow yourself"
 1. Rename the workflow from main.yaml to 42crunch-audit.yml
-1. Go to https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing?version=v3#full-workflow-example.
+1. Go to [https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example](https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example).
 1. Copy the full sample workflow and paste it in the workflow editor.
 
    > [!NOTE]
-   > This workflow assumes you have GitHub Code Scanning enabled. Set the **upload-to-code-scanning** option to **false** if you don't.
+   > This workflow assumes you have GitHub Code Scanning enabled, which is required for the security finding results to show in Defender for Cloud. Ensure the **upload-to-code-scanning** option is set to **true**.
 
    :::image type="content" source="media/onboarding-guide-42crunch/workflow-editor.png" alt-text="Screenshot showing GitHub workflow editor." lightbox="media/onboarding-guide-42crunch/workflow-editor.png":::
 
@@ -85,7 +85,7 @@ The selected recommendation shows all 42Crunch audit findings. You have complete
 
 :::image type="content" source="media/onboarding-guide-42crunch/api-recommendations.png" alt-text="Screenshot showing API summary." lightbox="media/onboarding-guide-42crunch/api-recommendations.png":::
 
-## Configure 42Crunch scan service
+## Configure 42Crunch Scan service
 
 API Scan continually scans the API to ensure conformance to the OpenAPI contract and detect vulnerabilities at testing time. It detects OWASP API Security Top 10 issues early in the API lifecycle and validates that your APIs can handle unexpected requests.
 
