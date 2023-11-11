@@ -16,7 +16,9 @@ ms.date: 11/15/2023
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The workflow assistant provides a chat interface that helps you answer questions about Standard workflows in single-tenant Azure Logic Apps. You can use the assistant to describe an existing workflow or ask for specific answers from within your workflow's context. Available directly within the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
+If you're new to building Standard workflows in single-tenant Azure Logic Apps, or you're updating a workflow either built by other developers or with other developers, you likely or often have many questions about workflows, connectors and their operations, and tasks that you want to complete in single-tenant Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use, so how do you choose?
+
+The workflow assistant provides a chat interface where you can ask specific questions about the currently open workflow or request other information about Azure Logic Apps. Available only directly from inside the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
