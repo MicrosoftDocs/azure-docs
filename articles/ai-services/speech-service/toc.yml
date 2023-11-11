@@ -175,6 +175,42 @@ items:
           href: how-to-custom-voice-training-data.md
         - name: How to record voice samples
           href: record-custom-voice-samples.md
+    - name: Text to speech avatar
+      items:
+      - name: What is text to speech avatar?
+        href: what-is-text-to-speech-avatar.md
+        displayName: tts-avatar
+      - name: How to synthesize text to speech avatar
+        items:
+        - name: Set up environment
+          href: get-started-avatar.md
+        - name: Real time synthesis
+          href: real-time-synthesis-avatar.md
+        - name: Batch synthesis 
+          items:
+          - name: Introduction to batch synthesis
+            href: introduction-to-batch-synthesis-avatar.md
+          - name: Create batch synthesis
+            href: create-batch-synthesis-avatar.md
+          - name: Get batch synthesis
+            href: get-batch-synthesis-avatar.md
+          - name: List batch synthesis
+            href: list-batch-synthesis-avatar.md
+          - name: Obtain batch synthesis results
+            href: batch-synthesis-results-avatar.md 
+          - name: Batch synthesis properties
+            href: batch-synthesis-properties-avatar.md
+        - name: Edit avatar gestures with SSML
+          href: edit-avatar-gestures-with-ssml.md
+      - name: Custom text to speech avatar
+        items:
+        - name: What is custom text to speech avatar?
+          href: what-is-custom-tts-avatar.md
+          displayName: custom-tts-avatar
+        - name: Create a custom text to speech avatar
+          href: create-custom-tts-avatar.md
+        - name: How to record video samples
+          href: record-video-samples-custom-tts-avatar.md
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
