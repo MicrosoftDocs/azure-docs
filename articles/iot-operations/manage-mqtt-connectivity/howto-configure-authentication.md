@@ -217,10 +217,10 @@ BinaryData
 
 ### Import certificate-to-attribute mapping
 
-To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret under the key `attributes.toml`. This file maps the subject name of the client certificate to the attributes that can be used in authorization policies. It's required even if you don't use authorization policies.
+To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret under the key `x509Attributes.toml`. This file maps the subject name of the client certificate to the attributes that can be used in authorization policies. It's required even if you don't use authorization policies.
 
 ```bash
-kubectl create secret generic x509-attributes --from-file=attributes.toml 
+kubectl create secret generic x509-attributes --from-file=x509Attributes.toml -n azure-iot-operations
 ```
 
 To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
