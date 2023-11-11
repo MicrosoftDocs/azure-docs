@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/30/2023
+ms.date: 11/15/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
