@@ -91,9 +91,15 @@ To organize the already deployed Azure resources used by the work order processo
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process flow chart in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-For each stage, you specify the key business data property values to capture and track. You then map each stage to the corresponding operation in a Standard logic app workflow and map the properties to operation outputs that provide the necessary data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and the dynamic content tokens that represent the operation outputs that you want.
+For each stage, you specify the key business data property values to capture and track.
 
-For example, the following screenshot shows a selected workflow operation and mappings between previously specified business properties for the **Create_ticket** stage and the outputs from operations in a Standard logic app workflow:
+For example, the **Create_ticket** stage defines the following business property values for tracking:
+
+:::image type="content" source="media/overview/define-business-properties-tracking.png" alt-text="Screenshot shows Edit stage pane with specified business properties to capture and track." lightbox="media/overview/define-business-properties-tracking.png":::
+
+Next, you map each stage to the corresponding operation in a Standard logic app workflow and map the properties to the workflow operation outputs that provide the necessary data. If you're familiar with Azure Logic Apps, you use a read-only version of the workflow designer to select the operation and the dynamic content tokens that represent the operation outputs that you want.
+
+For example, the following screenshot shows the read-only workflow designer, the selected workflow operation, and mappings between previously specified business properties for the **Create_ticket** stage and the selected outputs from operations in a Standard logic app workflow:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
