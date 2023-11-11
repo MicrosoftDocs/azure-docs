@@ -5,7 +5,7 @@ description: Learn about the Azure IoT Operations CLI.
 author: PatAltimore
 ms.author: patricka
 ms.topic: reference
-ms.date: 11/02/2023
+ms.date: 11/10/2023
 
 #CustomerIntent: As an IT admin or operator, I want to learn about the Azure IoT Operations CLI so that I can manage my IoT deployments.
 ---
@@ -28,6 +28,7 @@ This command is used for the deployment orchestration of Azure IoT Operations.
 You can choose what aspects run:
 
 - `--kv-id` **enables** `KeyVault CSI driver` workflows.
+- `--mq-insecure` **enables** a listener bound to port 1883 with no authN or authZ. The broker encryptInternalTraffic setting is set to false. **Use for non-production workloads only.**.
 - `--no-tls` **disables** TLS workflows.
 - `--no-deploy` **disables** Azure IoT Operations service deployment workflows.
 - `--no-block` returns immediately after starting the Azure IoT Operations deployment workflow.
