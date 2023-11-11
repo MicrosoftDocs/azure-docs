@@ -31,10 +31,10 @@ speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech," and you select es-ES-ElviraNeural, the text is spoken in English with a Spanish accent.
 
-If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
+If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../language-support.md?tabs=tts).
 
 > [!NOTE]
->  The default voice is the first voice returned per locale from the [voice list API](rest-text-to-speech.md#get-a-list-of-voices).
+> The default voice is the first voice returned per locale from the [voice list API](../../rest-text-to-speech.md#get-a-list-of-voices).
 > 
 >  The order of priority for speaking is as follows:
 >    - If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice in `en-US` speaks.
@@ -59,7 +59,7 @@ const avatarConfig = new SpeechSDK.AvatarConfig(
 
 Real-time avatar uses WebRTC protocol to output the avatar video stream. You need to set up the connection with the avatar service through WebRTC peer connection.
 
-First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](./communication-services/verview.md）, which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](get-started-avatar.md#prerequisites). You can also choose to use your own ICE server.
+First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](../../../../communication-services/overview.md, which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](get-started-avatar.md#prerequisites). You can also choose to use your own ICE server.
 
 The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the network relay token you prepared in the [prerequisites section](get-started-avatar.md#prerequisites) or from the configuration of your own ICE server.
 

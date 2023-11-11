@@ -14,7 +14,7 @@ keywords: custom text to speech avatar
 
 # Create a custom text to speech avatar
 
-Getting started with a custom text to speech avatar is a straightforward process. All it takes are a handful of video files. If you'd like to train a [custom neural voice](custom-neural-voice.md) for the same actor, you can do so separately.
+Getting started with a custom text to speech avatar is a straightforward process. All it takes are a handful of video files. If you'd like to train a [custom neural voice](../../custom-neural-voice.md) for the same actor, you can do so separately.
 
 > [!IMPORTANT]
 > Custom text to speech avatar training is currently available only in some regions: West US2, West Europe, and Southeast Asia. After your avatar model is trained in a supported region, you can copy it to a speech resource in another region as needed. 
