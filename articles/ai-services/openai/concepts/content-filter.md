@@ -377,7 +377,7 @@ openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 response = openai.Completion.create(
     engine="gpt-35-turbo", # engine = "deployment_name".
-    messages = [{"role":"user","content":"Example prompt that leads to a model completion where jailbreak attack was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
+    messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Example prompt that leads to a protected code completion that was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
     # while content detected at severity level low isn't filtered by the content filters.
 )
 
@@ -396,14 +396,13 @@ print(response)
         "hate": { 
           "filtered": false, 
           "severity": "safe" 
-        }
-      },
-      "protected_materials_code": { 
+        }, 
+        "protected_materials_code": { 
           "citation": { 
             "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
             "license": "EXAMPLE-LICENSE" 
           }, 
-          "detected": true, 
+          "detected": true,
           "filtered": false 
         }, 
         "protected_materials_text": { 
@@ -421,8 +420,50 @@ print(response)
         "violence": { 
           "filtered": false, 
           "severity": "safe" 
-        } ,
-       "prompt_index": 0
+        } 
+      }, 
+      "finish_reason": "stop", 
+      "index": 0, 
+      "message": { 
+        "content": "Example model response will be returned ", 
+        "role": "assistant" 
+      } 
+    } 
+  ], 
+  "created": 1699386280, 
+  "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
+  "model": "gpt-35-turbo", 
+  "object": "chat.completion", 
+  "prompt_filter_results": [ 
+    { 
+      "content_filter_results": { 
+        "custom_blocklists": [], 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "jailbreak": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "profanity": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "prompt_index": 0 
     } 
   ], 
   "usage": { 
@@ -430,7 +471,7 @@ print(response)
     "prompt_tokens": 11, 
     "total_tokens": 417 
   } 
-}
+} 
 ```
 
 The following code snippet shows how to retrieve annotations when content was filtered:
