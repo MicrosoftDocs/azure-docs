@@ -91,7 +91,7 @@ The following screenshot shows the WMTS Tile Layer sample overlaying a web-mappi
 
 The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out. For the source code for this sample, see [Tile Layer Options source code].
 
-:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png" lightbox"./media/map-add-tile-layer/tile-layer-options.png" alt-text="A screenshot of Tile Layer Options sample.":::
+:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png" lightbox="./media/map-add-tile-layer/tile-layer-options.png" alt-text="A screenshot of Tile Layer Options sample.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result]
