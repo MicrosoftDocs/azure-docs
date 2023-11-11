@@ -179,7 +179,6 @@ In Azure Logic Apps, workflows can act as choreographers to coordinate sagas. Wo
 
 :::image type="content" source="media/mainframe-modernization-overview/saga-pattern.png" alt-text="Conceptual diagram showing the SAGA pattern." lightbox="media/mainframe-modernization-overview/saga-pattern.png":::
 
-
 While this article covers several modernization patterns, complex solutions require many more patterns and that you clearly understand your organization's modernization goals. Although the task to extend the value of legacy assets is challenging, this option is the best way to preserve investment in these assets and prolong their business value.
 
 ## Next step
