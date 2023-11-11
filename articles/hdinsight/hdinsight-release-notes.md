@@ -51,14 +51,14 @@ For workload specific versions, see
   * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer might face creation failures if this check is not enabled.
     
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
-     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
+     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture.
+       
+* In-line quota update.
+   * Now you can request quota increase directly from the My Quota page, with the direct API call it is much faster. In case the API call fails, you can create a new support request for quota increase.
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be rolled out to all regions starting upcoming release.
-
-* In-line quota update.
-   * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the APdI call fails, then customers need to create a new support request for quota increase.
 
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we will retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).

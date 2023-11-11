@@ -114,7 +114,7 @@
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Managed identities for Azure Resources
-          href: ../../active-directory/managed-identities-azure-resources/how-to-managed-identity-regional-move.md
+          href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move
         - name: Power BI
           href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
