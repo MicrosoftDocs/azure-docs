@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: 
 ---
 
-# Azure API Center (preview) - key concepts
+# Azure API Center - key concepts
 
 This article explains key concepts of [Azure API Center](overview.md). API Center enables tracking APIs in a centralized location for discovery, reuse, and governance.
 
@@ -21,7 +21,7 @@ This article explains key concepts of [Azure API Center](overview.md). API Cente
 
 The following diagram shows the main entities in API Center and how they relate to each other. See the following sections for more information about these entities and related concepts.
 
-:::image type="content" source="media/key-concepts/api-center-data-model.png" alt-text="Diagram that shows key features of the data model in API Center." border="false":::
+:::image type="content" source="media/key-concepts/api-center-data-model.png" alt-text="Diagram that shows key features of the data model in API Center." border="true":::
 
 ## API
 
@@ -56,7 +56,7 @@ API Center supports properties of type array, boolean, number, object, predefine
 API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 
 
-## Next steps
+## Related content
 
-* [Set up your API center](set-up-api-center.md)
+* [What is API Center?](overview.md)
 

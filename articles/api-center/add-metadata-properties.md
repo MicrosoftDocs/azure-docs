@@ -11,7 +11,7 @@ ms.custom:
 
 # Tutorial: Customize metadata properties
 
-In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom properties and several built-in properties in the API Center metadata schema for search and filtering and to enforce governance standards in your organization. 
+In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several built-in properties for search and filtering and to enforce governance standards in your organization. 
 
 For background information about the metadata schema in API Center, see [Key concepts](key-concepts.md).
 
@@ -73,7 +73,7 @@ You can view and download the JSON schema for the metadata properties in your AP
 
 1. In the left menu, select **Metadata schema > View schema**. 
 
-1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added. You can also view the metadata schema for deployments and environments you add to your API center.
+1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
 
     :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
@@ -89,7 +89,7 @@ In this tutorial, you learned how to use the portal to:
 > * Define custom metadata properties in your API center
 > * View the metadata schema
 
-Now that you've prepared your metadata schema, add to the inventory in your API center. Start by registering APIs.
+Now that you've prepared your metadata schema, add APIs to the inventory in your API center. 
 
 > [!div class="nextstepaction"]
 > [Register APIs in your API inventory](register-apis.md)

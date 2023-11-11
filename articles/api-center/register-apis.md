@@ -11,7 +11,7 @@ ms.custom:
 
 # Tutorial: Register APIs in your API inventory
 
-Start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata properties. 
+In this tutorial, start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata properties. 
 
 For background information about APIs, API versions, definitions, and other entities that you can inventory in API Center, see [Key concepts](key-concepts.md).
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to use the portal to:
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
 
-* Complete the previous tutorial, [Customize metadata properties](add-metadata-properties.md), to apply custom metadata properties to APIs.
+* Complete the previous tutorial, [Customize metadata properties](add-metadata-properties.md), to define custom metadata properties for your APIs.
 
 ## Add APIs
 
@@ -67,7 +67,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
     :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal.":::
 
-1. Select **Create**.
+1. Select **Create**. The API is registered
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
@@ -91,7 +91,7 @@ Here you add a version to one of your APIs:
 
     :::image type="content" source="media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal.":::
 
-1. In the **Add API version** page: 
+1. On the **Add API version** page: 
     1. Enter or select the following information:
 
         |Setting|Value|Description|
@@ -100,11 +100,17 @@ Here you add a version to one of your APIs:
         |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
         |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version. |
     
-    1. Select **Create**.
+    1. Select **Create**. The version is added.
     
-1. To add an API definition to your version, in the left menu of your API version, select **Definitions** > **+ Add definition**.
+## Add a definition to your version
 
-1. In the **Add definition** Page:
+Usually you'll want to add an API definition to your API version. API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
+
+To add an API definition to your version:
+
+1. In the left menu of your API version, select **Definitions** > **+ Add definition**.
+
+1. On the **Add definition** Page:
 
     1. Enter or select the following information:
 
@@ -119,8 +125,7 @@ Here you add a version to one of your APIs:
 
         :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png":::
 
-
-    1. Select **Create**.
+    1. Select **Create**. The definition is added.
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]    

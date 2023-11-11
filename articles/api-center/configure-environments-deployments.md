@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add environments and deployments in Azure API Center (preview) | Microsoft Docs
-description: In this tutorial, augment the inventory in your API center by adding information about API environments and deployments.
+description: In this tutorial, augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.custom:
 
 
 
-# Tutorial: Add environments and deployments in API Center (preview)
+# Tutorial: Add environments and deployments in your API inventory
 
 Augment the inventory in your API center by adding information about API environments and deployments. 
 
@@ -33,19 +33,19 @@ In this tutorial, you learn how to use the portal to:
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* One or more APIs registered in your API center. If you haven't registered any APIs already, see [Tutorial: Start your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
+* One or more APIs registered in your API center. If you haven't registered any APIs already, see [Tutorial: Register APIs in your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
 
 ## Add an environment
 
 Use your API center to keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. You can add multiple environments to your API center, each aligned with a lifecycle stage such as development, testing, staging, or production.
 
-Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in properties and any custom metadata properties you've defined in a [previous tutorial](add-metadata-properties.md).
+Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in properties and any custom metadata properties you defined in a [previous tutorial](add-metadata-properties.md).
 
 1. In the portal, navigate to your API center.
 
 1. In the left menu, select **Environments** > **+ Add environment**.
 
-1. In the **Create environment** page, add the following information. If you previously defined the custom *Line of business* metadata property or other properties assigned to environments, you'll see them at the bottom of the page.
+1. On the **Create environment** page, add the following information. If you previously defined the custom *Line of business* metadata property or other properties assigned to environments, you'll see them at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -85,8 +85,8 @@ Here you add a deployment by associating one of your APIs with the environment y
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the deployment.|
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
-    | **Definition** | Select or add an API definition file for the Demo Conference API. | API definition file. |
-    | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
+    | **Definition** | Select or add a definition file for a version of the Demo Conference API. | API definition file. |
+    | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
     | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
 
     :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal." :::
@@ -95,11 +95,8 @@ Here you add a deployment by associating one of your APIs with the environment y
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]
-> * Create an API center
-> * Define metadata properties in the schema
-> * Register one or more APIs in your API center
-> * Add a version with an API definition to an API
-> * Add information about API environments and deployments
+> * Add information about API environments 
+> * Add information about API deployments
 
 ## Related content
 

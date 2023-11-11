@@ -97,6 +97,3 @@ A: Yes, all data in API Center is encrypted at rest.
 > [!div class="nextstepaction"]
 > [Set up your API center](set-up-api-center.md)
 
-> [!div class="nextstepaction"]
-> [Provide feedback](https://aka.ms/apicenter/preview/feedback)
-
