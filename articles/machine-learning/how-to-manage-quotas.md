@@ -138,13 +138,13 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
 
-| <div style="width:150px">**Resource**</div> | <div style="width:200px">**Limit <sup>1</sup>**</div> | **Allows exception** | **Applies to** |
+| **Resource**&nbsp;&nbsp; | **Limit <sup>1</sup>** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Allows exception** | **Applies to** |
 | --- | ---- | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
 | Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
-| Number of deployments per endpoint | 20 | Yes | All types of endpoints <sup>3</sup> | Yes | Yes |
+| Number of deployments per endpoint | 20 | Yes | All types of endpoints <sup>3</sup> |
 | Number of instances per deployment | 50 <sup>4</sup> | Yes | Managed online endpoint |
 | Max request time-out at endpoint level | 180 seconds | - | Managed online endpoint |
 | Max request time-out at endpoint level | 300 seconds | - | Kubernetes online endpoint |
