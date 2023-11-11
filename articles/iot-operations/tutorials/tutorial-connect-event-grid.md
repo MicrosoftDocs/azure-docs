@@ -33,7 +33,7 @@ By setting the `topic-spaces-configuration`, this command creates a namespace wi
 * MQTT broker **enabled**
 * Maximum client sessions per authentication name as **3**
 
-The max client sessions options allows IoT MQ to spawn multiple instances and still be able to connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
+The max client sessions option allows IoT MQ to spawn multiple instances and still be able to connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
 ## Create a topic space
 
@@ -82,7 +82,7 @@ Take note of the output value for `topicSpacesConfiguration.hostname`, which is 
 example.region-1.ts.eventgrid.azure.net
 ```
 
-## Create a MQTT bridge connector and topic map resources
+## Create an MQTT bridge connector and topic map resources
 
 In a new file `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the placeholder value in `endpoint` with the Event Grid MQTT hostname from previous step.
 
@@ -238,7 +238,7 @@ In a new terminal window, start another shell in the mosquitto client pod.
 kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
-Inside the shell, use mosquitto to publish 5 messages to the `tutorial/local` topic.
+Inside the shell, use mosquitto to publish five messages to the `tutorial/local` topic.
 
 ```bash
 mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 \
@@ -265,7 +265,7 @@ In the subscriber shell, you see the messages you published.
 23:17:54.881 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 ```
 
-Here, you see the messages are published to the local IoT MQ broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local IoT MQ broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80ms.
+Here, you see the messages are published to the local IoT MQ broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local IoT MQ broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
 
 ## Check Event Grid metrics to verify message delivery
 
@@ -277,7 +277,7 @@ You can also check the Event Grid metrics to verify the messages are delivered t
 
 In this tutorial, you learned how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker. As next steps, explore the following scenarios:
 
-* To use a MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
+* To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
 * To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
 
 ## Related content
