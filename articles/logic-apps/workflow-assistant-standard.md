@@ -18,6 +18,8 @@ ms.date: 11/15/2023
 
 The workflow assistant provides a chat interface that helps you answer questions about Standard workflows in single-tenant Azure Logic Apps. You can use the assistant to describe an existing workflow or ask for specific answers from within your workflow's context. Available directly within the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
 
+:::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
+
 ## Open the workflow assistant
 
 Only Standard workflows include the workflow assistant. You can open the workflow assistant from an existing workflow or a new workflow. 
