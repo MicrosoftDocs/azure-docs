@@ -10,7 +10,7 @@ ms.custom: ignite-2022
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Security DevOps installs, configures, and runs the latest versions of static analysis tools such as, SDL, security and compliance tools. Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
-Security DevOps uses the following Open Source tools:
+Microsoft Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
@@ -18,9 +18,9 @@ Security DevOps uses the following Open Source tools:
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
-| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
-| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
-| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
+| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM Template, Bicep | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
+| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, CloudFormation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | container images, Infrastructure as Code (IaC) | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Security DevOps uses the following Open Source tools:
 
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
-- Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+- Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) to view the DevOps posture assessments in Defender for Cloud.
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
@@ -70,7 +70,7 @@ Security DevOps uses the following Open Source tools:
         name: Microsoft Security DevOps Analysis
 
         # MSDO runs on windows-latest.
-        # ubuntu-latest and macos-latest supporting coming soon
+        # ubuntu-latest also supported
         runs-on: windows-latest
 
         steps:
@@ -80,8 +80,14 @@ Security DevOps uses the following Open Source tools:
 
           # Run analyzers
         - name: Run Microsoft Security DevOps Analysis
-          uses: microsoft/security-devops-action@preview
+          uses: microsoft/security-devops-action@latest
           id: msdo
+          with:
+          # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
+          # policy: 'GitHub' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: GitHub.
+          # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
+          # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
+          # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
 
           # Upload alerts to the Security tab
         - name: Upload alerts to Security tab
@@ -97,7 +103,7 @@ Security DevOps uses the following Open Source tools:
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
 
-    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)
+    For additional configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. Select **Start commit**
 
@@ -133,8 +139,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 
 ## Next steps
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 
-Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
+Learn how to [connect your GitHub Organizations](quickstart-onboard-github.md) to Defender for Cloud.
 
-[Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)
