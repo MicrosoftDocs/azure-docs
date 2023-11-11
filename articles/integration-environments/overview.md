@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 As a developer, when you work on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
 
-Azure Integration Environments reduces this complexity by providing a central place in Azure where you can organize and manage the Azure resources by creating *integration environments*. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further break down your environment and organize resources by logical function or purpose. For example, you might create application groups for employee onboarding, order processing, bank reconciliation, shipping notifications, and so on. For more information, see [Central organization and management](#central-resource).
+Azure Integration Environments reduces this complexity by providing a central place in Azure where you can organize and manage the Azure resources by creating *integration environments*. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on. Inside an integration environment, you create application groups to further organize resources into smaller collections by business function or purpose. For example, you might create application groups for employee onboarding, order processing, bank reconciliation, shipping notifications, and so on. For more information, see [Central organization and management](#central-resource).
 
 :::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into an application group." lightbox="media/overview/organize-conceptual.png":::
 
@@ -35,7 +35,7 @@ For this release, an integration environment offers the following capabilities a
 
 ## Central organization and management
 
-In Azure, integration environment gives you a centralized way to organize and manage the Azure resources that your development team uses to implement solutions that integrate the services and systems used by your organization. At the next level in an integration environment, application groups provide a way to organize resources into smaller collections. For example, an integration environment can have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
+In Azure, integration environment gives you a centralized way to organize and manage the Azure resources that your development team uses to implement solutions that integrate the services and systems used by your organization. At the next level in an integration environment, application groups provide a way to organize resources into smaller collections based on their business scenarios. For example, an integration environment can have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
 
 This architecture offers the flexibility for you to use integration environments based on your organization's conventions, standards, and principles. For example, your organization might create integration environments based on business units or teams such as Finance, Marketing, Operations, Corporate Services, and so on. Or, your organization might create integration environments based on infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility to meet your organization's needs.
 
@@ -60,7 +60,7 @@ Each expanded Azure resource includes the following components:
 
 ### Supported Azure resources
 
-The following table lists the currently supported Azure resources that you can include in an application groups:
+The following table lists the currently supported Azure resources that you can include in an application group:
 
 | Azure service | Resources |
 |---------------|-----------|
