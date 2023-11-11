@@ -1,6 +1,6 @@
 ---
-title: Workflow assistant for Standard logic app workflows
-description: Learn how the workflow assistant helps you with Standard workflows in Azure Logic Apps.
+title: Get help from the workflow assistant in Standard workflows
+description: Try asking the workflow assistant for help with Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ---
 
-# Get help with Standard workflows using the workflow assistant in Azure Logic Apps (preview)
+# Get help with Standard workflows by asking the workflow assistant in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
