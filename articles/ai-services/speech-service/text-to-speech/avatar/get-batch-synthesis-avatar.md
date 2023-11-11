@@ -56,7 +56,7 @@ You should receive a response body in the following format:
 }
 ```
 
-From the `outputs.result` field, you can download a video file containing the avatar video. The `outputs.summary` field allows you to download the summary and debug details. For more information on batch synthesis results, refer to [batch synthesis results](batch-synthesis-results-avatar.md).
+From the `outputs.result` field, you can download a video file containing the avatar video. The `outputs.summary` field allows you to download the summary and debug details. For more information on batch synthesis results, see [batch synthesis results](batch-synthesis-results-avatar.md).
 
 ## Next steps
 

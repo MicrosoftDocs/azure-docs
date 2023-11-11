@@ -14,7 +14,7 @@ keywords: text to speech avatar
 ---
 # Text to speech avatar overview
 
-The text to speech avatar system is a text-to-speech feature with visual capability that allows you to create synthetic videos of a photorealistic avatar speaking based on input text.
+The text to speech avatar system is a text to speech feature with visual capability that allows you to create synthetic videos of a photorealistic avatar speaking based on input text.
 
 The system offers a range of prebuilt avatar choices. The voice in the synthetic video could be a prebuilt neural voice available on Azure AI Speech or the [custom neural voice](../../custom-neural-voice.md) of talent selected by you. Prebuilt text to speech avatars can be accessed through a UI tool on the Speech Studio or from an API. We provide both batch mode and real-time synthesis. The language support for text to speech avatar is the same as the language support for text to speech. For details, see [Language and voice support for the Speech service](../../language-support.md?tabs=tts).
 
@@ -25,11 +25,11 @@ Text to speech avatar includes the following features:
 | Feature | Summary |
 | --- | --- |
 |Prebuilt text to speech avatar |Highly natural out-of-the-box avatars. Create an Azure account and Speech service subscription, and then use the Speech SDK or visit the [Speech Studio portal](https://aka.ms/speechstudio/talkingavatar) to select prebuilt text to speech avatars to get started. |
-|Custom text to speech avatar|You can create a custom text to speech avatar for your product or brand by providing your own video recording data of your selected actors. If also creating a custom neural voice for the actor, the avatar will be highly realistic.|
+|Custom text to speech avatar|You can create a custom text to speech avatar for your product or brand by providing your own video recording data of your selected actors. If also creating a custom neural voice for the actor, the avatar can be highly realistic.|
 
 ## More about text to speech avatar features
 
-Azure text to speech Avatar converts text into a digital video of a photorealistic human speaking with natural-sounding voices powered by Azure text-to-speech. It offers a collection of prebuilt avatars and allows you to create a custom text to speech avatar by providing your own video recording data. The text to speech avatar video can be synthesized asynchronously or in real-time. You can build applications with the text to speech avatar through an API, and we also provide a content creation tool on Speech Studio for you to create video content without coding.
+Azure text to speech Avatar converts text into a digital video of a photorealistic human speaking with natural-sounding voices powered by Azure text to speech. It offers a collection of prebuilt avatars and allows you to create a custom text to speech avatar by providing your own video recording data. The text to speech avatar video can be synthesized asynchronously or in real-time. You can build applications with the text to speech avatar through an API, and we also provide a content creation tool on Speech Studio for you to create video content without coding.
 
 With text to speech Avatar’s advanced neural network models, the feature empowers you to deliver lifelike and high-quality synthetic talking avatar videos for various applications while adhering to responsible AI practices.
 
@@ -50,7 +50,7 @@ To get started with text to speech avatar, see the [How to synthesize text to sp
 
 ## Avatar video output
 
-Both batch synthesis and real-time synthesis resolution are 1920 * 1080, FPS is 25. Batch synthesis codec can be h264 or h265 if the format is mp4 and can set codec as vp9 if the format is webm; only webm can contain an alpha channel. Real-time synthesis codec is h264. Video bitrate can be configured for both batch synthesis and real-time synthesis in the request; the default value is 2000000; more detailed configurations can be found in the sample code.
+Both batch synthesis and real-time synthesis resolution are 1920 * 1080, FPS is 25. Batch synthesis codec can be h264 or h265 if the format is mp4 and can set codec as vp9 if the format is `webm`; only `webm` can contain an alpha channel. Real-time synthesis codec is h264. Video bitrate can be configured for both batch synthesis and real-time synthesis in the request; the default value is 2000000; more detailed configurations can be found in the sample code.
 
 |                  | Batch synthesis  | Real-Time synthesis |
 |------------------|------------------|----------------------|
@@ -72,9 +72,9 @@ You can create custom text to speech avatars that are unique to your product or 
 
 ## Pricing
 
-When you use the text to speech avatar feature, you will be billed by the minutes of video output, and the text to speech, speech to text, Azure Open AI, or other Azure services will be charged separately.
+When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure Open AI, or other Azure services are charged separately.
 
-For more details, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Reference docs
 

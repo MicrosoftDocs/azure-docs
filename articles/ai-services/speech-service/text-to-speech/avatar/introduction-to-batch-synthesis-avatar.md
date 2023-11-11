@@ -14,13 +14,13 @@ keywords: text to speech avatar
 
 # Introduction to batch synthesis
 
-The text to speech avatar batch synthesis API (preview) allows for the asynchronous synthesis of text into a talking avatar as a video file. Publishers and video content platforms can utilize this API to create avatar video content in a batch, suitable for various use cases such as training materials, presentations, or advertisements.
+The text to speech avatar batch synthesis API (preview) allows for the asynchronous synthesis of text into a talking avatar as a video file. Publishers and video content platforms can utilize this API to create avatar video content in a batch. That approach can be suitable for various use cases such as training materials, presentations, or advertisements.
 
 The avatar batch synthesis API operates asynchronously and doesn't return synthesized videos in real-time. Instead, you submit text for synthesis, poll for the synthesis status, and download the video output when the status indicates success. The text input formats must be plain text or Speech Synthesis Markup Language (SSML) text.
 
 This diagram provides a high-level overview of the workflow.
 
-:::image type="content" source="media/tts-avatar/batch-synthesis-workflow.png" alt-text="Screenshot of displaying a high-level overview of the batch synthesis workflow":::
+:::image type="content" source="../../media/avatar/batch-synthesis-workflow.png" alt-text="Screenshot of displaying a high-level overview of the batch synthesis workflow" lightbox="../../media/avatar/batch-synthesis-workflow.png":::
 
 To perform batch synthesis, you can use the following REST API operations.
 

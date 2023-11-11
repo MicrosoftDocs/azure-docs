@@ -14,7 +14,7 @@ keywords: text to speech avatar batch synthesis
 
 # Batch synthesis properties
 
-Batch synthesis properties can be grouped to 3 parts: batch job related properties, text to speech related properties, avatar related properties, which are described in the following 3 tables.
+Batch synthesis properties can be grouped as: batch job related properties, text to speech related properties, avatar related properties, which are described in the following tables.
 
 Batch synthesis job related properties:
 
@@ -24,7 +24,7 @@ Batch synthesis job related properties:
 | customProperties         | A custom set of optional batch synthesis configuration settings.<br/><br/>This property is stored for your convenience to associate the synthesis jobs that you created with the synthesis jobs that you get or list. This property is stored, but isn't used by the Speech service.<br/><br/>You can specify up to 10 custom properties as key and value pairs. The maximum allowed key length is 64 characters, and the maximum allowed value length is 256 characters.|
 | description              | The description of the batch synthesis.<br/><br/>This property is optional.|
 | displayName              | The name of the batch synthesis. Choose a name that you can refer to later. The display name doesn't have to be unique.<br/><br/>This property is required.|
-| id                       | The batch synthesis job ID.<br/><br/>This property is read-only.|
+| ID                       | The batch synthesis job ID.<br/><br/>This property is read-only.|
 | lastActionDateTime       | The most recent date and time when the status property value changed.<br/><br/>This property is read-only.|
 | properties               | A defined set of optional batch synthesis configuration settings.  |
 | properties.destinationContainerUrl | The batch synthesis results can be stored in a writable Azure container. If you don't specify a container URI with [shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) token, the Speech service stores the results in a container managed by Microsoft. SAS with stored access policies isn't supported. When the synthesis job is deleted, the result data is also deleted.<br/><br/>This optional property isn't included in the response when you get the synthesis job.|
@@ -53,7 +53,7 @@ Avatar related properties:
 | properties.talkingAvatarCharacter         | The character name of the talking avatar.<br/><br/>The supported avatar characters can be found [here](what-is-text-to-speech-avatar.md).<br/><br/>This property is required.|
 | properties.talkingAvatarStyle             | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](what-is-text-to-speech-avatar.md).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
 | properties.customized                     | A bool value indicating whether the avatar to be used is customized avatar or not. True for customized avatar, and false for prebuilt avatar.<br/><br/>This property is optional, and the default value is `false`.|
-| properties.videoFormat                    | The format for output video file, could be mp4 or webm.<br/><br/>Webm is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
+| properties.videoFormat                    | The format for output video file, could be mp4 or webm.<br/><br/>The `webm` format is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
 | properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background.<br/><br/>This property is optional, and the default value is hevc.|
 | properties.kBitrate (bitrateKbps)          | The bitrate for output video, which is integer value, with unit kbps.<br/><br/>This property is optional, and the default value is 2000.|
 | properties.videoCrop                      | This property allows you to crop the video output, which means, to output a rectangle subarea of the original video. This property has two fields, which define the top-left vertex and bottom-right vertex of the rectangle.<br/><br/>This property is optional, and the default behavior is to output the full video.|

@@ -31,7 +31,7 @@ You can find the verbal consent statement in multiple languages on GitHub. The l
 
 You're required to provide video recordings of the avatar talent speaking in a language of your choice. The video recordings should contain high signal-to-noise ratio voice. The voice in the video recording isn't used as training data for a custom neural voice; its purpose is to train the custom text to speech avatar model.
 
-For more information about preparing the training data, refer to [How to record video samples](record-video-samples-custom-tts-avatar.md).
+For more information about preparing the training data, see [How to record video samples](record-video-samples-custom-tts-avatar.md).
 
 ## Next steps
 

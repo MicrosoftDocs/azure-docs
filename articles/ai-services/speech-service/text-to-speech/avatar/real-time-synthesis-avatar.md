@@ -14,11 +14,11 @@ keywords: text to speech avatar
 
 # Real-time synthesis
 
-In this how-to guide, you will learn how to use text to speech avatar (preview) with real-time synthesis.
+In this how-to guide, you learn how to use text to speech avatar (preview) with real-time synthesis.
 
 ## Select text to speech language and voice
 
-The text to speech feature in the Speech service supports a broad portfolio of [languages and voices](language-support.md?tabs=tts). You can get the full list or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Speech service supports a broad portfolio of [languages and voices](../../language-support.md?tabs=tts). You can get the full list or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the specified voice. The following code snippet shows how this technique works:
 
@@ -55,7 +55,7 @@ const avatarConfig = new SpeechSDK.AvatarConfig(
 );  
 ```
 
-## Setup connection to real-time avatar
+## Set up connection to real-time avatar
 
 Real-time avatar uses WebRTC protocol to output the avatar video stream. You need to set up the connection with the avatar service through WebRTC peer connection.
 
@@ -77,7 +77,7 @@ peerConnection = new RTCPeerConnection({
 > [!NOTE]
 >  The ICE server URL has two kinds: one with prefix 'turn' (such as `turn:relay.communication.microsoft.com:3478`), and one with prefix 'stun' (such as `stun:relay.communication.microsoft.com:3478`). Here, the one with prefix 'turn' is needed, and only fill the 'turn' one.
 
-Secondly, you need to set up the video and audio player elements in the 'ontrack' callback function of the peer connection. This callback will be invoked twice during the connection, once for video track and once for audio track. You need to create both video and audio player elements in the callback function.
+Secondly, you need to set up the video and audio player elements in the `ontrack` callback function of the peer connection. This callback is invoked twice during the connection, once for video track and once for audio track. You need to create both video and audio player elements in the callback function.
 
 The following code snippet shows how to do so:
 
@@ -150,16 +150,16 @@ You can find end-to-end working samples on [GitHub](https://github.com/Azure-Sam
 
 ## Edit background
 
-The avatar real-time synthesis API currently doesn't support setting a background image/video and only supports setting a solid-color background, without transparent background support. However, there is an alternative way to implement background customization on the client side, following the steps below:
+The avatar real-time synthesis API currently doesn't support setting a background image/video and only supports setting a solid-color background, without transparent background support. However, there's an alternative way to implement background customization on the client side, following the steps below:
 
 1. Set the background color to green (for ease of matting), which is supported by the API.
 1. Create a canvas element with the same size as the avatar video.
 1. Capture each frame of the avatar video and apply a pixel-by-pixel calculation to set the green pixel to transparent, and draw the recalculated frame to the canvas.
 1. Hide the original video.
 
-With this approach, you can get an animated canvas that plays like a video, which has a transparent background. Here is the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/js/basic.js#L108) to demonstrate such an approach.
+With this approach, you can get an animated canvas that plays like a video, which has a transparent background. Here's the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/js/basic.js#L108) to demonstrate such an approach.
 
-After you have a transparent-background avatar, you can now set the background to any image or video by simply placing the image or video behind the canvas.
+After you have a transparent-background avatar, you can now set the background to any image or video by placing the image or video behind the canvas.
 
 ## Next steps
 

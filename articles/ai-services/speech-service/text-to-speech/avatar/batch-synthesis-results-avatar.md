@@ -60,7 +60,7 @@ To delete a batch synthesis job, make an HTTP DELETE request using the following
 curl -v -X DELETE "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar/YourSynthesisId" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
-If the delete request is successful, the response headers will include `HTTP/1.1 204 No Content`.
+If the delete request is successful, the response headers include `HTTP/1.1 204 No Content`.
 
 ## Next steps
 

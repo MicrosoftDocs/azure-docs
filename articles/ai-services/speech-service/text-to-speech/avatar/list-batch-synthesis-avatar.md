@@ -22,7 +22,7 @@ Replace `YourSpeechKey` with your Speech resource key and `YourSpeechRegion` wit
 curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar?skip=0&top=2" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
-You will receive a response body in the following format:
+You receive a response body in the following format:
 
 ```json
 {
@@ -93,7 +93,7 @@ You will receive a response body in the following format:
 }
 ```
 
-From `outputs.result`, you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. For more information, refer to [batch synthesis results](batch-synthesis-results-avatar.md).
+From `outputs.result`, you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. For more information, see [batch synthesis results](batch-synthesis-results-avatar.md).
 
 The `values` property in the JSON response lists your synthesis requests. The list is paginated, with a maximum page size of 100. The `@nextLink` property is provided as needed to get the next page of the paginated list.
 

@@ -20,7 +20,7 @@ To submit a batch synthesis request, construct the HTTP POST request body follow
 - If the `textType` property is set to `PlainText`, you must also set the `voice` property in the `synthesisConfig`. In the example below, the `textType` is set to `SSML`, so the `speechSynthesis` isn't set.
 - Set the required `displayName` property. Choose a name for reference, and it doesn't have to be unique.
 - Set the required `talkingAvatarCharacter` and `talkingAvatarStyle` properties. You can find supported avatar characters and styles [here](what-is-text-to-speech-avatar.md).
-- Optionally, you can set the `videoFormat`, `backgroundColor`, and other properties. For more details, refer to [batch synthesis properties](batch-synthesis-properties-avatar.md).
+- Optionally, you can set the `videoFormat`, `backgroundColor`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties-avatar.md).
 
 > [!NOTE]
 > The maximum JSON payload size accepted is 500 kilobytes.

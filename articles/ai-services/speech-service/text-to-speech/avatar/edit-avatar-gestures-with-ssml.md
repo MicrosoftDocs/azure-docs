@@ -14,9 +14,9 @@ keywords: text to speech avatar batch synthesis
 
 # Edit avatar gestures with SSML
 
-The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text-to-speech output. Most SSML tags can also work in TTS Avatar. Furthermore, TTS Avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
+The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in TTS Avatar. Furthermore, TTS Avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
 
-A gesture will start at the time point of insertion. If the gesture takes longer time than the audio, the gesture will be cut at the point the audio is finished.
+A gesture starts at the time point of insertion. If the gesture takes longer time than the audio, the gesture is cut at the point the audio is finished.
 
 **Bookmark example:**
 
@@ -28,10 +28,10 @@ Hello <bookmark mark='gesture.wave-left-1'/>, my name is Jenny, nice to meet you
 </speak>
 ```
 
-In this example, the avatar will start waving her hand at the left after the word "Hello".
+In this example, the avatar will start waving their hand at the left after the word "Hello".
 The full list of prebuilt avatar supported gestures can be found in the TTS Avatar portal and on this page.
 
-:::image type="content" source="media/tts-avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving her hand at the left":::
+:::image type="content" source="../../media/avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left" lightbox="../../media/avatar/gesture.png":::
 
 ## Supported pre-built avatar characters, styles and gestures
 

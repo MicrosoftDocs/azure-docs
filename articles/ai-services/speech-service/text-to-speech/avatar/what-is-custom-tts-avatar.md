@@ -33,7 +33,7 @@ Before you get started, here are some considerations:
 
 **Your use case:** Will you use the avatar to create video content such as training material, product introduction, or use the avatar as a virtual salesperson in a real-time conversation with your customers? There are some recording requirements for different use cases.
 
-**The look of the avatar:** The custom text to speech avatar will look the same as the avatar talent in the training data, and we don't support customizing the appearance of the avatar model, such as clothes, hairstyle, etc. So if your application requires multiple styles of the same avatar, you should prepare training data for each style, as each style of an avatar will be considered as a single avatar model.
+**The look of the avatar:** The custom text to speech avatar looks the same as the avatar talent in the training data, and we don't support customizing the appearance of the avatar model, such as clothes, hairstyle, etc. So if your application requires multiple styles of the same avatar, you should prepare training data for each style, as each style of an avatar will be considered as a single avatar model.
 
 **The voice of the avatar:** The custom text to speech avatar can work with both prebuilt neural voices and custom neural voices. Creating a custom neural voice for the avatar talent and using it with the avatar will significantly increase the naturalness of the avatar experience.
 
@@ -43,15 +43,15 @@ Here's an overview of the steps to create a custom text to speech avatar:
 
 1. **Prepare training data:** Ensure that the video recording is in the right format. It's a good idea to shoot the video recording in a professional-quality video shooting studio to get a clean background image. The quality of the resulting avatar heavily depends on the recorded video used for training. Factors like speaking rate, body posture, facial expression, hand gestures, consistency in the actor's position, and lighting of the video recording are essential to create an engaging custom text to speech avatar.
 
-1. **Train the avatar model:** We will start training the custom text to speech model after verifying the consent statement of the avatar talent. In the preview stage of this service, this step will be done manually by Microsoft. You will be notified after the model is successfully trained.
+1. **Train the avatar model:** We'll start training the custom text to speech model after verifying the consent statement of the avatar talent. In the preview stage of this service, this step will be done manually by Microsoft. You'll be notified after the model is successfully trained.
 
 1. **Deploy and use your avatar model in your APPs**
 
 ## Components sequence
 
-The custom text to speech avatar model contains three components: text analyzer, the TTS acoustic predictor, and TTS avatar video renderer. To generate an avatar video file or stream with the avatar model, text is first input into the text analyzer, which provides the output in the form of a phoneme sequence. The acoustic predictor predicts the acoustic features of the input text, and these two parts are provided by text to speech or custom neural voice models. Finally, the neural text to speech avatar model predicts the image of lip sync with the acoustic features, so that the synthetic video is generated. The neural text to speech avatar models are trained using deep neural networks based on the recording samples of human videos in different languages. All languages of prebuilt voices and custom nueral voices can be supported.
+The custom text to speech avatar model contains three components: text analyzer, the TTS acoustic predictor, and TTS avatar video renderer. To generate an avatar video file or stream with the avatar model, text is first input into the text analyzer, which provides the output in the form of a phoneme sequence. The acoustic predictor predicts the acoustic features of the input text, and these two parts are provided by text to speech or custom neural voice models. Finally, the neural text to speech avatar model predicts the image of lip sync with the acoustic features, so that the synthetic video is generated. The neural text to speech avatar models are trained using deep neural networks based on the recording samples of human videos in different languages. All languages of prebuilt voices and custom neural voices can be supported.
 
-:::image type="content" source="media/tts-avatar/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow":::
+:::image type="content" source="../../media/avatar/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow" lightbox="../../media/avatar/custom-avatar-workflow.png":::
 
 ## Next steps
 
