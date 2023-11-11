@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 
 > [!IMPORTANT]
 >
-> This capability is in public preview and isn't yet ready production use. For more information, see the 
+> This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 After you define the key business property values to capture for tracking and map your business process stages to the operations and data in Standard logic app workflows, you're ready to deploy your business process and tracking profile to Azure.

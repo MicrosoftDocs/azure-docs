@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 
 > [!IMPORTANT]
 >
-> This capability is in public preview and isn't yet ready production use. For more information, see the 
+> This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 After you create a business process for an application group in an integration environment, you can capture key business data for each stage in your business process. For this task, you specify the properties that your organization wants to track for each stage. You then map that stage to an actual operation and the corresponding data in a Standard logic app workflow created with Azure Logic Apps.

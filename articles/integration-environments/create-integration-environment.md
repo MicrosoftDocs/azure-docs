@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 
 > [!IMPORTANT]
 >
-> This capability is in public preview and isn't yet ready production use. For more information, see the 
+> This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To centrally and logically organize and manage Azure resources associated with your integration solutions, create an integration environment. For more information, see [What is Azure Integration Environments](overview.md)?
