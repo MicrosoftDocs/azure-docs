@@ -4,7 +4,7 @@ description: A list of known issues for Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 11/02/2023
+ms.date: 11/10/2023
 
 ---
 
@@ -34,6 +34,16 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Full persistence support isn't currently available.
 
+- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You may also see errors such as `invalid sat: service account token has expired`. If you notice this happening, run the following command, to manually restart the affected pod(s): 
+    ```bash
+    kubectl -n azure-iot-operations delete pods <pod-name>
+    ```
+- You can't currently access these [observability metrics](.././reference/observability-metrics-mq.md) for IoT MQ
+    - aio_mq_backend_replicas
+    - aio_mq_backend_replicas_current
+    - aio_mq_frontend_replicas
+    - aio_mq_frontend_replicas_current
+
 ## Azure IoT Data Processor (preview)
 
 If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
@@ -46,7 +56,7 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. If you notice this happening, run the following commands:
+It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. You may also see errors such as `service account token expired`.. If you notice this happening, run the following commands:
 
 ```bash
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
