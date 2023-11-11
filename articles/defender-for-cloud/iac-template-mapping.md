@@ -22,7 +22,7 @@ To allow Microsoft Defender for Cloud to map Infrastructure as Code template to 
   > Microsoft Defender for Cloud will only use the following tags from Infrastructure as Code templates for mapping:
   > - yor_trace
   > - mapping_tag
-- Configure your Azure DevOps pipelines to run [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Configure your Azure pipelines to run [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 
 ## See the mapping between your IaC template and your cloud resources 
 
