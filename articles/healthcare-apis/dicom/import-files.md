@@ -3,7 +3,7 @@ title: Import DICOM files into the DICOM service
 description: Learn how to import DICOM files by using bulk import in Azure Health Data Services.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: quickstart
 ms.date: 10/05/2023
 ms.author: mmitrik

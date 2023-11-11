@@ -300,9 +300,6 @@ The IMDS API contains multiple endpoint categories representing different data s
 
 ## Versions
 
-> [!NOTE]
-> This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
-
 ### List API versions
 
 Returns the set of supported API versions.
@@ -1130,6 +1127,29 @@ Example document:
 }
 ```
 
+#### Signature Validation Guidance
+
+When validating the signature, you should confirm that the signature was created with a certificate from Azure. This is done by validating the certificate Subject Alternative Name (SAN).
+
+Example SAN `DNS Name=eastus.metadata.azure.com, DNS Name=metadata.azure.com`
+
+> [!NOTE]
+> The domain for the public cloud and each sovereign cloud will be different.
+
+| Cloud | Domain in SAN |
+|-------|-------------|
+| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
+| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
+
+> [!NOTE]
+> The certificates might not have an exact match for the domain. For this reason, the certification validation should accept any subdomain (for example, in public cloud general availability regions accept `*.metadata.azure.com`).
+
+We don't recommend certificate pinning for intermediate certs. For further guidance, see [Certificate pinning - Certificate pinning and Azure services](/azure/security/fundamentals/certificate-pinning).
+Please note that the Azure Instance Metadata Service will NOT offer notifications for future Certificate Authority changes.
+Instead, you must follow the centralized [Azure Certificate Authority details](/azure/security/fundamentals/azure-ca-details?tabs=root-and-subordinate-cas-list) article for all future updates.
+
 #### Sample 1: Validate that the VM is running in Azure
 
 Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
@@ -1231,30 +1251,6 @@ openssl verify -verbose -CAfile /etc/ssl/certs/DigiCert_Global_Root.pem -untrust
 ---
 
 The `nonce` in the signed document can be compared if you provided a `nonce` parameter in the initial request.
-
-> [!NOTE]
-> The certificate for the public cloud and each sovereign cloud will be different.
-
-| Cloud | Certificate |
-|-------|-------------|
-| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
-| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
-| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
-| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
-
-> [!NOTE]
-> The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
-
-In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
-
-You can find the intermediate certificates on [this page](../security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
-
-> [!NOTE]
-> The intermediate certificate for Azure operated by 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
-If you pinned the intermediate certificates for Azure operated by 21Vianet as part of a root chain authority change, the intermediate certificates must be updated.
-
-> [!NOTE]
-> Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
 
 ## Managed identity
 
