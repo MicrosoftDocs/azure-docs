@@ -788,12 +788,12 @@
           href: defender-for-dns-alerts.md
     - name: DevOps security
       items:
-        - name: DevOps Security overview
+        - name: DevOps security overview
           href: defender-for-devops-introduction.md
         - name: Support and prerequisites
-          href: concept-devops-posture-management-overview.md
+          href: devops-support.md
         - name: DevOps environment security posture
-          href: concept-devops-posture-management-overview.md
+          href: concept-devops-environment-posture-management-overview.md
         - name: Onboard
           items:
             - name: Connect your Azure DevOps organization
