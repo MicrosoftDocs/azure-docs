@@ -10,7 +10,20 @@ ms.author: yenchiho
 ms.custom: overview
 ---
 
-# Azure Migrate application and code assessment
+# Download Azure Migrate application and code assessment
+
+You can download Azure Migrate application and code assessment right now from the following:
+
+> [!div class="nextstepaction"]
+> [Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+
+> [!div class="nextstepaction"]
+> [Azure Migrate application and code assessment for .NET](https://aka.ms/appcat/download/dotnet)
+
+> [!NOTE]
+> You can start from either Azure Migrate or Azure Migrate application and code assessment. We offer you the tools for best coverage of different scenarios and use cases that you aim to achieve. 
+
+## Azure Migrate application and code assessment
 
 This article covers information about Azure Migrate application and code assessment for Java and .NET.
 
@@ -34,20 +47,7 @@ Azure Migrate application and code assessment for Java and .NET offers the follo
 - Produce comprehensive report for all applications across Java and .NET
 - Have a intelligent experience that assesses your source code with GUI or CLI
 
-## Download Azure Migrate application and code assessment
-
-You can download Azure Migrate application and code assessment right now from the following:
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for .NET](https://aka.ms/appcat/download/dotnet)
-
-> [!NOTE]
-> You can start from either Azure Migrate or Azure Migrate application and code assessment. We offer you the tools for best coverage of different scenarios and use cases that you aim to achieve. 
-
- ## Next steps
+## Next steps
 
 In this article, you learned what Azure Migrate and Azure Migrate application and code assessment can offer, with a wide range of capabilities for you to tackle your migration and modernization needs. 
 

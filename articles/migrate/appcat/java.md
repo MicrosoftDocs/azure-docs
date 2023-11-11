@@ -12,15 +12,15 @@ keywords: java, azure, appCAT, assessment, replatform
 
 # Azure Migrate application and code assessment for Java
 
-This guide describes how to use the *Azure Migrate application and code assessment for Java* to assess and replatform any type of Java applications. The toolkit enables you to evaluate application readiness for replatforming and migration to Azure.
+This guide describes how to use the *Azure Migrate application and code assessment for Java* to assess and replatform any type of Java applications. The tool enables you to evaluate application readiness for replatforming and migration to Azure.
 
-`appcat` is a command-line tool to assess Java application binaries and/or source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through a broad range of transformations, use cases, and code patterns.
+`appcat` is a command-line tool from Azure Migrate to assess Java application binaries and/or source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through identifying common use cases and code patterns and proposing recommended changes.
 
 `appcat` discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
 
 `appcat` is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
-## When should I use appcat?
+## When should I use Azure Migrate application and code assessment?
 
 `appcat` is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
@@ -31,7 +31,7 @@ With `appcat`, you can do the following tasks:
 
 ### Supported Azure targets
 
-The toolkit contains rules for helping you replatform your applications so you can deploy to and use the following Azure services.
+The tool contains rules for helping you replatform your applications so you can deploy to and use the following Azure services.
 
 You can use the following services as deployment targets:
 
@@ -49,7 +49,7 @@ You can use the following services as resource services:
 * Azure Event Hubs
 * Azure Key Vault
 
-## Use appcat
+## Use Azure Migrate application and code assessment for Java
 
 To use `appcat`, you must download the ZIP file described in the next section, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
 
@@ -58,7 +58,7 @@ To use `appcat`, you must download the ZIP file described in the next section, a
 The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
 > [!div class="nextstepaction"]
-> [Download appcat](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+> [Download Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
 
 ### Run appcat
 
