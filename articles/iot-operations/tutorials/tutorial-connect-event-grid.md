@@ -282,7 +282,7 @@ In this tutorial, you learned how to configure IoT MQ for bi-directional MQTT br
 
 ## Related content
 
-* About [BrokerListener resource](howto-configure-brokerlistener.md)
-* [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
-* [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)
+* About [BrokerListener resource](../manage-mqtt-connectivity/howto-configure-brokerlistener.md)
+* [Configure authorization for a BrokerListener](../manage-mqtt-connectivity/howto-configure-authorization.md)
+* [Configure authentication for a BrokerListener](../manage-mqtt-connectivity/howto-configure-authentication.md)
+* [Configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto.md)
