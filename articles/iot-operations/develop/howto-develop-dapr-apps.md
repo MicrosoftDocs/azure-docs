@@ -22,19 +22,6 @@ The Distributed Application Runtime (Dapr) is a portable, serverless, event-driv
 
 To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
-## Features supported
-
-The following features are supported for using Dapr:  
-
-| Feature | Supported | Symbol |
-|---------| :--------:| :----: |
-| Component for Publish Subscribe | Supported | ✅ |
-| Component for State Management (concurrency*) | Supported | ✅ |
-| [Pluggable components](https://docs.dapr.io/operations/components/pluggable-components-registration/) | Supported | ✅ |
-
-> [!NOTE]
-> *Concurrency is *strong consistency*. The MQTT broker modifies the state and then returns the success message.
-
 ## Set up Dapr components
 
 The following steps show you how to install Dapr and the MQ pluggable components, and show how to create the required authorization tokens.
