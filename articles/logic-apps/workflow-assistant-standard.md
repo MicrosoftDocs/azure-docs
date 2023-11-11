@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ---
 
-# Get help with Standard workflows by asking the workflow assistant in Azure Logic Apps (preview)
+# Get help for Standard workflows by asking the workflow assistant in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
