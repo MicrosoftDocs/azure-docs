@@ -181,6 +181,6 @@ In Azure Logic Apps, workflows can act as choreographers to coordinate sagas. Wo
 
 While this article covers several modernization patterns, complex solutions require many more patterns and that you clearly understand your organization's modernization goals. Although the task to extend the value of legacy assets is challenging, this option is the best way to preserve investment in these assets and prolong their business value.
 
-## Next step
+## Next steps
 
 - [Azure Architecture Center for mainframes and midrange systems](/azure/architecture/browse/?terms=mainframe)
