@@ -138,25 +138,25 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
 
-| **Resource** | **Limit** | **Allows exception** | **Applies to managed online endpoints** | **Applies to Kubernetes online endpoints** | **Applies to batch endpoints** |
-| --- | --- | --- | --- | --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - | Yes | Yes | Yes |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - | Yes | Yes | Yes |
-| Number of endpoints per subscription <sup>2</sup> <sup>3</sup> | 100 | Yes | Yes | Yes | Yes |
-| Number of deployments per subscription <sup>2</sup> <sup>3</sup> | 500 | Yes | Yes | Yes | Yes |
-| Number of deployments per endpoint | 20 | Yes | Yes | Yes | Yes |
-| Number of instances per deployment | 50 <sup>4</sup> | Yes | Yes | - | - |
-| Max request time-out at endpoint level (managed online endpoint) | 180 seconds | - | Yes | - | - |
-| Max request time-out at endpoint level (Kubernetes online endpoint) | 300 seconds | - | - | Yes | - |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Yes | - | - |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Yes | - | - |
-| Total connections active at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Yes | - | - |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>5</sup> | Yes | Yes | - | - |
+| <div style="width:150px">**Resource**</div> | <div style="width:200px">**Limit <sup>1</sup>**</div> | **Allows exception** | **Applies to** |
+| --- | ---- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
+| Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
+| Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
+| Number of deployments per endpoint | 20 | Yes | All types of endpoints <sup>3</sup> | Yes | Yes |
+| Number of instances per deployment | 50 <sup>4</sup> | Yes | Managed online endpoint |
+| Max request time-out at endpoint level | 180 seconds | - | Managed online endpoint |
+| Max request time-out at endpoint level | 300 seconds | - | Kubernetes online endpoint |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Managed online endpoint |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Managed online endpoint |
+| Total connections active at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Managed online endpoint |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>5</sup> | Yes | Managed online endpoint |
 
 > [!NOTE]
-> 1. Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
-> 2. Endpoints and deployments can be of different types, but limits apply to the sum of all types. For example, the sum of managed online endpoints, Kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region by default. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region by default.
-> 3. Because this is a regional limit, you can create 100 endpoints in each region by default. For example, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to number of deployments and all the other limits. 
+> 1. This is a regional limit. For example, if current limit on number of endpoint is 100, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to all the other limits. 
+> 2. Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+> 3. Endpoints and deployments can be of different types, but limits apply to the sum of all types. For example, the sum of managed online endpoints, Kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region by default. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region by default.
 > 4. We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error. There are some VM SKUs that are exempt from extra quota. See [virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment) for more.
 > 5. Requests per second, connections, bandwidth etc are related. If you request for increase for any of these limits, ensure estimating/calculating other related limites together.
 
