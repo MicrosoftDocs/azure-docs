@@ -18,7 +18,7 @@ Azure IoT Layered Network Management is one of the Azure IoT Operations componen
 
 ## Set up Kubernetes cluster in Level 4
 
-To setup only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+To set up only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) Kubernetes cluster. 
 
@@ -43,7 +43,7 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
 1. Verify you meet the [Prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites) section of the AKS Edge Essentials quickstart.
 1. Follow the [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine) steps to install AKS Edge Essentials on your Windows 11 machine.
 1. Follow the steps in the [Single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment) article.
-    After use the *New-AksEdgeDeployment* PowerShell command to create a file named **aks-ee-config.json**, make the following modifications:
+    Use the *New-AksEdgeDeployment* PowerShell command to create a file named **aks-ee-config.json**, make the following modifications:
     - In the **Init** section, change the **ServiceIPRangeSize** property to **10**.
 
         ```json
