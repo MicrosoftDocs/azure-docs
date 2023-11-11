@@ -111,7 +111,9 @@ If you don't have access to install the extension, you must request access from 
       # artifactName: string. Optional. The name of the pipeline artifact to publish the SARIF result file to. Default: CodeAnalysisLogs*.
     
     ```
-    Note: The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud.
+
+    > [!NOTE]
+    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud.
 
 1. To commit the pipeline, select **Save and run**.
 

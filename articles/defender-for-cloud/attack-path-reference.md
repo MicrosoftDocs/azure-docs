@@ -169,7 +169,7 @@ This section lists all of the cloud security graph components (connections and i
 | Has tags | Lists the resource tags of the cloud resource | All Azure, AWS, and GCP resources |
 | Installed software | Lists all software installed on the machine. This insight is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
 | Allows public access | Indicates that a public read access is allowed to the resource with no authorization required. [Learn more](concept-data-security-posture-prepare.md#exposed-to-the-internetallows-public-access) | Azure storage account, AWS S3 bucket, Azure DevOps repository, GitHub repository, GCP cloud storage bucket |
-| Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | Microsoft Entra user account, IAM user |
+| Doesn't have MFA enabled | Indicates that the user account does not have a multifactor authentication solution enabled | Microsoft Entra user account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | Microsoft Entra user account |
 | Is managed | Indicates that an identity is managed by the cloud provider | Azure Managed Identity |
 | Contains common usernames | Indicates that a SQL server has user accounts with common usernames which are prone to brute force attacks. | SQL VM, Arc-Enabled SQL VM |

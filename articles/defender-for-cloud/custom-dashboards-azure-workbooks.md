@@ -172,7 +172,7 @@ You can see the details for that alert with the Open Alert View button.
 
 ### Use the 'DevOps Security' workbook
 
-This workbook provides a customizable visual reports of your DevOps security posture. You can use this workbook to view insights into your repositories with the highest number of CVEs and weaknesses, active repositories that have Advanced Security disabled, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
+This workbook provides a customizable visual report of your DevOps security posture. You can use this workbook to view insights into your repositories with the highest number of CVEs and weaknesses, active repositories that have Advanced Security disabled, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="A screenshot that shows a sample results page once you've selected the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 

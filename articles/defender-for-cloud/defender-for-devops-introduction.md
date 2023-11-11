@@ -12,7 +12,7 @@ Microsoft Defender for Cloud enables comprehensive visibility, posture managemen
 
 DevOps security within Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including Azure DevOps, GitHub, and GitLab. DevOps security recommendations can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key DevOps security capabilities include:
 
-- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of pre-production application code across multi-pipeline and multicloud environments, which includes findings from code, secret, and open-source dependency vulnerability scans. They can also [assess the security configurations of their DevOps environment](concept-devops-posture-management-overview.md).
+- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of preproduction application code across multi-pipeline and multicloud environments, which includes findings from code, secret, and open-source dependency vulnerability scans. They can also [assess the security configurations of their DevOps environment](concept-devops-posture-management-overview.md).
 
 - **Strengthen cloud resource configurations throughout the development lifecycle**: You can enable security of Infrastructure as Code (IaC) templates and container images to minimize cloud misconfigurations reaching production environments, allowing security administrators to focus on any critical evolving threats.
 
@@ -22,7 +22,7 @@ These features help unify, strengthen, and manage multi-pipeline DevOps resource
 
 ## Manage your DevOps environments in Defender for Cloud
 
-Defender for Cloud DevOps security features allow you to manage your connected environments and provide your security teams with a high-level overview of issues discovered in those environments through the [DevOps security console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
+DevOps security in Defender for Cloud allow you to manage your connected environments and provide your security teams with a high-level overview of issues discovered in those environments through the [DevOps security console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
 
 :::image type="content" source="media/defender-for-devops-introduction/devops-security-overview-2.png" alt-text="Screenshot of the top of the DevOps security page that shows all of your onboarded environments and their metrics." lightbox="media/defender-for-devops-introduction/devops-metrics.png":::
 
@@ -46,12 +46,12 @@ On this part of the screen you see:
 
 - **Name** - Lists onboarded DevOps resources from Azure DevOps, GitHub, and/or GitLab. View the resource health page by clicking it. 
 
-- **DevOps environment** - Describes the DevOps environment for the resource (i.e., Azure DevOps, GitHub, GitLab).  Use this column to sort by environment if multiple environments have been onboarded.
+- **DevOps environment** - Describes the DevOps environment for the resource (that is, Azure DevOps, GitHub, GitLab).  Use this column to sort by environment if multiple environments have been onboarded.
 
 - **Advanced security status** -  Shows whether advanced security features are enabled for the DevOps resource. 
     - `On` - Advanced security is enabled.
     - `Off` - Advanced security is not enabled.
-    - `Partially enabled` - Certain Advanced security features is not enbled (e.g., code scanning is off).
+    - `Partially enabled` - Certain Advanced security features is not enabled (for example, code scanning is off).
     - `N/A` - Defender for Cloud doesn't have information about enablement.
  
     > [!NOTE]
