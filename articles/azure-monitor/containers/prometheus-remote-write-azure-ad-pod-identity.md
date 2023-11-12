@@ -65,7 +65,7 @@ To configure remote write for Azure Monitor managed service for Prometheus using
 
       1. Copy the YAML below and save to a file.  
 
-       [!INCLUDE[pod-identity-yaml](../includes/prometheus-sidecar-remote-write-pod-identity-yaml.md)]
+      [!INCLUDE[pod-identity-yaml](../includes/prometheus-sidecar-remote-write-pod-identity-yaml.md)]
 
       b. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.  
       
