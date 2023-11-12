@@ -31,10 +31,10 @@ You can use the following REST API operations for batch synthesis:
 
 | Operation              | Method   | REST API call                                 |
 | ---------------------- | -------- | --------------------------------------------- |
-| Create batch synthesis | `POST`   | texttospeech/3.1-preview1/batchsynthesis      |
-| Get batch synthesis    | `GET`    | texttospeech/3.1-preview1/batchsynthesis/{id} |
-| List batch synthesis   | `GET`    | texttospeech/3.1-preview1/batchsynthesis      |
-| Delete batch synthesis | `DELETE` | texttospeech/3.1-preview1/batchsynthesis/{id} |
+| [Create batch synthesis](#create-batch-synthesis) | `POST`   | texttospeech/3.1-preview1/batchsynthesis      |
+| [Get batch synthesis](#get-batch-synthesis)    | `GET`    | texttospeech/3.1-preview1/batchsynthesis/{id} |
+| [List batch synthesis](#list-batch-synthesis)   | `GET`    | texttospeech/3.1-preview1/batchsynthesis      |
+| [Delete batch synthesis](#delete-batch-synthesis) | `DELETE` | texttospeech/3.1-preview1/batchsynthesis/{id} |
 
 For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-synthesis).
 
@@ -249,7 +249,7 @@ To delete a batch synthesis job, make an HTTP DELETE request using the URI as sh
 curl -v -X DELETE "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/YourSynthesisId" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
-The response headers will include `HTTP/1.1 204 No Content` if the delete request was successful.
+The response headers include `HTTP/1.1 204 No Content` if the delete request was successful.
 
 ## Batch synthesis results
 

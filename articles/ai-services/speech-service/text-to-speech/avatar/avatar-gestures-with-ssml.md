@@ -51,5 +51,5 @@ The full list of prebuilt avatar supported gestures provided here can also be fo
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
 * [Real-time synthesis](./real-time-synthesis-avatar.md)
-* [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)
+* [Use batch synthesis for text to speech avatar](./batch-synthesis-avatar.md)
 

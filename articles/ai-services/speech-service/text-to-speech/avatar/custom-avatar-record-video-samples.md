@@ -18,6 +18,8 @@ keywords: how to record video samples for custom text to speech avatar
 
 This article provides instructions on preparing high-quality video samples for creating a custom text to speech avatar.
 
+Custom text to speech avatar model building requires training on a video recording of a real human speaking. This person is the avatar talent. Customers must get sufficient consent under all relevant laws and regulations from the avatar talent to create a custom avatar from their talent's image or likeness.
+
 ## Recording environment
 
 - We recommend recording in a professional video shooting studio or a well-lit place with a clean background.

@@ -101,5 +101,5 @@ FFMPEG can be downloaded from [ffmpeg.org](https://ffmpeg.org/download.html). Re
 
 ## Next steps
 
-* [Create an avatar with batch synthesis](./batch-synthesis-create-avatar.md)
+* [Create an avatar with batch synthesis](./batch-synthesis-avatar.md)
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)

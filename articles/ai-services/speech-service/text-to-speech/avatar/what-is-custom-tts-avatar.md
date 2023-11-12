@@ -55,7 +55,7 @@ The custom text to speech avatar model contains three components: text analyzer,
 
 The custom text to speech avatar can work with a prebuilt neural voice or custom neural voice as the avatar's voice. For more information, see [Avatar voice and language](./what-is-text-to-speech-avatar.md#avatar-voice-and-language).
 
-[Custom neural voice](../../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../../custom-neural-voice.md) with a text to speech avatar, you'll need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
+[Custom neural voice](../../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
 
 ## Next steps
 

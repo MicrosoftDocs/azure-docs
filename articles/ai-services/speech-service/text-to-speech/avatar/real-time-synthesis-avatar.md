@@ -26,7 +26,7 @@ To get started, make sure you have the following prerequisites:
 - **Communication Resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
 - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/ai-services/speech-service/quickstarts/setup-platform#install-the-speech-sdk-for-javascript) to generate the relay token with the endpoint and connection string filled.
 
-## Set Up Environment
+## Set up environment
 
 For real-time avatar synthesis, you need to install the Speech SDK for JavaScript to use with a webpage. For the installation instructions, see [Install the Speech SDK](/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-javascript&tabs=windows%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cbrowser%2Cmac%2Cpypi#install-the-speech-sdk-for-javascript).
 
@@ -188,5 +188,5 @@ After you have a transparent-background avatar, you can set the background to an
 ## Next steps
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)
+* [Use batch synthesis for text to speech avatar](./batch-synthesis-avatar.md)
 

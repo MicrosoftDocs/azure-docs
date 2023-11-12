@@ -189,10 +189,10 @@ items:
         - name: Real-time synthesis
           href: text-to-speech/avatar/real-time-synthesis-avatar.md
           displayName: avatar
-        - name: Batch synthesis for avatar
+        - name: Batch synthesis
           items:
-          - name: Create a text to speech avatar with batch synthesis
-            href: text-to-speech/avatar/batch-synthesis-create-avatar.md
+          - name: Use batch synthesis for avatar
+            href: text-to-speech/avatar/batch-synthesis-avatar.md
           - name: Batch synthesis properties
             href: text-to-speech/avatar/batch-synthesis-avatar-properties.md
             displayName: avatar
