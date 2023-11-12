@@ -41,7 +41,7 @@ This example has the minimum input parameters for a complete deployment.
 az iot ops init --cluster <cluster name> -g <resource group> --kv-id <Key Vault resource ID>
 ```
 
-You can combine other commands. In this example, you create a KeyVault and pass the ID to `init`.
+You can combine other commands. In this example, you create a Key Vault and pass the ID to `init`.
 
 ```bash
 az iot ops init --cluster <cluster name> -g <resource group> --kv-id $(az keyvault create -n mykeyvault -g myrg -o tsv --query id)
