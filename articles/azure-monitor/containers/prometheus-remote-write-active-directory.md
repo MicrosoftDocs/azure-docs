@@ -33,7 +33,7 @@ Follow the procedure at [Register an application with Microsoft Entra ID and cre
 
 ## Get the client ID of the Microsoft Entra application.
 
-1. From the **Microsoft Entra ID** menu in the Azure Portal, select **App registrations**.
+1. From the **Microsoft Entra ID** menu in the Azure portal, select **App registrations**.
 2. Locate your application and note the client ID.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot showing client ID of Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/application-client-id.png":::
