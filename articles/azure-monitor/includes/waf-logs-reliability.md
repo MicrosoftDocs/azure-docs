@@ -33,11 +33,11 @@ Some availability features require a dedicated cluster, which currently requires
 
 ### Comparison of data and service resilience features
 
-|	Feature	| In-region resilience	| Cross-region service resilience	|	Cross-region data backup	|	Cross-region high availability	|	Manual intervention |	Cost
+|	Feature	| In-region resilience	| Cross-region service resilience	|	Cross-region data backup	|	Cross-region high availability	|	Configuration and management |	Cost
 |	-	|	-	|	-	|	-	|	-	|	-	|	-
-|	Availability zones	|	:white_check_mark:	|		|		|		|	Automatically enabled on dedicated clusters in supported regions	|	No cost
+|	Availability zones	|	:white_check_mark:	|		|		|		|	Automatically enabled and managed on dedicated clusters in supported regions	|	No cost
 
-|	Continuous data export |	|		|	:white_check_mark:	|	Data is replicated based on your storage account settings or other processes applied to Event Hubs	|	Automatic once enabled |	Cost of data export + Storage blob (GRS/GZRS/ RA-GRS/RA-GZRS) or Event Hubs
-|	Dual ingestion	|		|	:white_check_mark:	|	:white_check_mark:	|:white_check_mark:	|	Automatic once enabled	|	Up to 2 times + egress charges (if all data is dual ingested) |
+|	Continuous data export |	|		|	:white_check_mark:	|	Data is replicated based on your storage account settings or other processes applied to Event Hubs	|	Automatically managed once enabled |	Cost of data export + Storage blob (GRS/GZRS/ RA-GRS/RA-GZRS) or Event Hubs
+|	Dual ingestion	|		|	:white_check_mark:	|	:white_check_mark:	|:white_check_mark:	|	Automatically managed once configured	|	Up to two times the cost of retention (depending on how much data is dual ingested) + egress charges  |
 
 
