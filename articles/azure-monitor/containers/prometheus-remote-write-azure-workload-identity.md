@@ -127,34 +127,7 @@ This article describes how to configure [remote-write](prometheus-remote-write.m
 >     *	`IDENTITY_TYPE` – `workloadIdentity`.
 
 Use the sample yaml below if you're using kube-prometheus-stack:
-
-```yml
-prometheus:
-  prometheusSpec:
-    externalLabels:
-          cluster: <AKS-CLUSTER-NAME>
-    podMetadata:
-        labels:
-            azure.workload.identity/use: "true"
-    ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
-    remoteWrite:
-    - url: 'http://localhost:8081/api/v1/write'
-
-    containers:
-    - name: prom-remotewrite
-      image: <CONTAINER-IMAGE-VERSION>
-      imagePullPolicy: Always
-      ports:
-        - name: rw-port
-          containerPort: 8081
-      env:
-      - name: INGESTION_URL
-        value: <INGESTION_URL>
-      - name: LISTENING_PORT
-        value: '8081'
-      - name: IDENTITY_TYPE
-        value: workloadIdentity
-```
+[!INCLUDE [prometheus-sidecar-remote-write-workload-identity-yaml](../includes/prometheus-sidecar-remote-write-workload-identity-yaml.md)]
 
 1. Replace the following values in the YAML.
   
