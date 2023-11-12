@@ -2,7 +2,6 @@
 title: How to record video samples for custom text to speech avatar - Speech service
 titleSuffix: Azure AI services
 description: Learn how to prepare high-quality video samples for creating a custom text to speech avatar
-services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -12,7 +11,7 @@ ms.author: v-baolianzou
 keywords: how to record video samples for custom text to speech avatar
 ---
 
-# Recording video samples for custom text to speech avatar (preview)
+# How to record video samples for custom text to speech avatar (preview)
 
 [!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
 
@@ -25,7 +24,7 @@ Custom text to speech avatar model building requires training on a video recordi
 - We recommend recording in a professional video shooting studio or a well-lit place with a clean background.
 - The background of the video should be clean, smooth, pure-colored, and a green screen is the best choice.
 - Ensure even and bright lighting on the actor's face, avoiding shadows on face or reflections on actor's glasses and clothes.
-- Camera requirement: A minimum of 1080 P resolution and 36 FPS.
+- Camera requirement: A minimum of 1080-P resolution and 36 FPS.
 - Other devices: You can use a teleprompter to remind the script during recording but ensure it doesn't affect the actor's gaze towards the camera. Provide a seat if the avatar needs to be in a sitting position.
 
 ## Appearance of the actor
@@ -58,7 +57,7 @@ You need three types of basic video clips:
    - Maintain a smile or nodding head as if listening or waiting.
    - Length: 1 minute.
 
-Other tips:
+Here are more tips for recording video clips:
 
 - Ensure all video clips are taken in the same conditions.
 - Mind facial expressions, which should be suitable for the avatar's use case. For example, look positive and be smile if the custom text to speech avatar will be used as customer service, and look professionally if the avatar will be used for news reporting.
@@ -70,9 +69,9 @@ Other tips:
 
 ## Data requirements
 
-- Avatar training video recording file format: .mp4 or .MOV.
-- Resolution: >= 1920*1080.
-- Frame rate per second: >= 25 FPS.
+- Avatar training video recording file format: .mp4 or .mov.
+- Resolution: At least 1920x1080.
+- Frame rate per second: At least 25 FPS.
 
 ## Next steps
 

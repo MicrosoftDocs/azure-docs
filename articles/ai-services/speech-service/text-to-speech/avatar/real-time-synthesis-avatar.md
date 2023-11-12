@@ -1,5 +1,5 @@
 ---
-title: Real-time synthesis - Speech service
+title: Real-time synthesis for text to speech avatar (preview) - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use text to speech avatar with real-time synthesis.
 author: sally-baolian
@@ -11,7 +11,7 @@ ms.author: v-baolianzou
 keywords: text to speech avatar
 ---
 
-# Real-time synthesis for text to speech avatar (preview)
+# How to do real-time synthesis for text to speech avatar (preview)
 
 [!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
 
@@ -188,5 +188,5 @@ After you have a transparent-background avatar, you can set the background to an
 ## Next steps
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [Use batch synthesis for text to speech avatar](./batch-synthesis-avatar.md)
+* [Install the Speech SDK](/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-javascript&tabs=windows%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cbrowser%2Cmac%2Cpypi#install-the-speech-sdk-for-javascript)
 

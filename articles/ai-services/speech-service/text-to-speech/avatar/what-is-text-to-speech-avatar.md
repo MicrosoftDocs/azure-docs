@@ -41,12 +41,6 @@ You can choose from a range of prebuilt voices for the avatar. The language supp
 
 The voice in the synthetic video could be a prebuilt neural voice available on Azure AI Speech or the [custom neural voice](../../custom-neural-voice.md) of talent selected by you. 
 
-## Custom text to speech avatar
-
-You can create custom text to speech avatars that are unique to your product or brand. All it takes to get started is taking 10 minutes of video recordings. If you're also creating a custom neural voice for the actor, the avatar can be highly realistic. For more information, see [What is custom text to speech avatar](./what-is-custom-tts-avatar.md).
-
-[Custom neural voice](../../custom-neural-voice.md) and [custom text to speech avatar](what-is-custom-tts-avatar.md) are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](#available-locations). 
-
 ## Avatar video output
 
 Both batch synthesis and real-time synthesis resolution are 1920 x 1080, and the frames per second (FPS) are 25. Batch synthesis codec can be h264 or h265 if the format is mp4 and can set codec as vp9 if the format is `webm`; only `webm` can contain an alpha channel. Real-time synthesis codec is h264. Video bitrate can be configured for both batch synthesis and real-time synthesis in the request; the default value is 2000000; more detailed configurations can be found in the sample code.
@@ -56,6 +50,12 @@ Both batch synthesis and real-time synthesis resolution are 1920 x 1080, and the
 | **Resolution**   | 1920 x 1080      | 1920 x 1080          |
 | **FPS**          | 25               | 25                   |
 | **Codec**        | h264/h265/vp9    | h264                 |
+
+## Custom text to speech avatar
+
+You can create custom text to speech avatars that are unique to your product or brand. All it takes to get started is taking 10 minutes of video recordings. If you're also creating a custom neural voice for the actor, the avatar can be highly realistic. For more information, see [What is custom text to speech avatar](./what-is-custom-tts-avatar.md).
+
+[Custom neural voice](../../custom-neural-voice.md) and [custom text to speech avatar](what-is-custom-tts-avatar.md) are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](#available-locations). 
 
 ## Sample code
 
@@ -75,15 +75,9 @@ For more information, see [Speech service pricing](https://azure.microsoft.com/p
 
 The text to speech avatar feature is only available in the following service regions: West US 2, West Europe, and Southeast Asia. 
 
-## Reference docs
-
-* [Speech SDK](../../speech-sdk.md)
-* [REST API: text to speech](../../rest-text-to-speech.md)
-  
 ### Responsible AI 
 
 We care about the people who use AI and the people who will be affected by it as much as we care about technology. For more information, see the Responsible AI [transparency notes](https://aka.ms/TTS-TN).
-
 
 ## Next steps
 

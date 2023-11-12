@@ -1,5 +1,5 @@
 ---
-title: Create batch synthesis - Speech service
+title: How to use batch synthesis for text to speech avatar - Speech service
 titleSuffix: Azure AI services
 description: Learn how to create text to speech avatar batch synthesis
 author: sally-baolian
@@ -11,7 +11,7 @@ ms.author: v-baolianzou
 keywords: text to speech avatar batch synthesis
 ---
 
-# Use batch synthesis for text to speech avatar (preview)
+# How to use batch synthesis for text to speech avatar (preview)
 
 [!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
 
