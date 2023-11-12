@@ -23,7 +23,7 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
 
-## Azure VMware Solution private cloud extension with AV64 node size (mixed SKU topology)
+## Azure VMware Solution private cloud extension with AV64 node size
 
 The AV64 is a new Azure VMware Solution host SKU, which is available to expand (not to create) the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
