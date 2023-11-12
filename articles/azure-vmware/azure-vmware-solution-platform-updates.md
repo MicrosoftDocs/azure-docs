@@ -4,12 +4,42 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/30/2023
+ms.date: 11/12/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## November 2023
+
+**VMware vSphere 8.0**
+
+VMware vSphere 8.0 will be rolled out to the Azure VMware Solution starting at the end of November.
+
+**AV64 SKU**
+
+Azure VMware Solution AV64 node size is now available in specific regions. The AV64 node is built on Intel Xeon Platinum 8370C CPUs with a total of 64 physical cores, 1 TB of memory and 15.4 TB of total storage. The AV64 SKU can be used for extending existing Azure VMware Solution private clouds built on AV36, AV36P, or AV52 node sizes. [Learn more](https://learn.microsoft.com/azure/azure-vmware/introduction#azure-vmware-solution-private-cloud-extension-with-av64-node-size)
+
+**Azure Elastic SAN (preview)**
+
+Azure Elastic SAN is a cloud-native managed SAN offering scalability, cost-efficiency, high performance, and security. It now supports snapshots, enhanced security, and integrates with Azure VMware Solution. Furthermore, as a VMware Certified datastore, Elastic SAN allows you to independently scale your storage and performance, optimizing your total cost of ownership and scalability. [Learn more](https://aka.ms/Elastic-san-preview-refresh-updates-blog)
+
+**Azure VMware Solution in Microsoft Azure Government**
+
+Azure VMware Solution was approved to be added as a service within the Azure Government Federal Risk and Authorization Management Program (FedRAMP) High Provisional Authorization to Operate (P-ATO). Azure VMware Solution is already available in Azure Commercial and included in the Azure Commercial FedRAMP High P-ATO. With this latest approval, customers and their partners who require the data sovereignty that Azure Government provides can now meet FedRAMP requirements with Azure VMware Solution in Azure Government. [Learn more](https://techcommunity.microsoft.com/t5/azure-migration-and/azure-vmware-solution-was-approved-and-added-to-the-fedramp-high/ba-p/3968157)
+
+**Azure NetApp Files for Microsoft Azure Government**
+
+All Azure NetApp Files features available on Azure public cloud are also available on supported Azure Government regions. For Azure Government regions supported by Azure NetApp Files, see [Products Available by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+**Azure Arc-enabled VMware vSphere**
+
+Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
+
+**Five-year Reserved Instance**
+
+A Five-year Reserved Instance promotion is available for Azure VMware Solution until March 31, 2024 for customers looking to lock-in their VMware solution costs for multiple years. [Visit our pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/).
 
 ## August 2023
 
