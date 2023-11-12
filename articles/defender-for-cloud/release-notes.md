@@ -504,7 +504,7 @@ For more information, see [Container Vulnerability Assessment powered by MDVM](a
 
 July 30, 2023
 
-Agentless container posture capabilities is now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+Agentless container posture capabilities are now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
 
 Learn more about [agentless container posture in Defender CSPM](concept-agentless-containers.md).
 
