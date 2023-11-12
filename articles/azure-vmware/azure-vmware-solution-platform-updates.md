@@ -75,14 +75,14 @@ Customers using the cloudadmin@vsphere.local credentials with the vSphere Client
 
 **Stretched Clusters Generally Available**
 
-Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically failover to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
+Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically fail over to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
 
 
 ## May 2023
 
 **Azure VMware Solution in Azure Gov**
  
-Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
 **New Azure VMware Solution Region: Qatar**
 
