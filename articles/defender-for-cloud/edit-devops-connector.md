@@ -23,16 +23,16 @@ After onboarding your Azure DevOps, GitHub, or GitLab environments to Microsoft 
 
 1. Select **Edit settings** for the connector.
 
-    :::image type="content" source="media/edit-devops-connector/edit-connector-1.png" alt-text="Screenshot that shows edit connector page." lightbox="media/edit-devops-connector/editConnector1.png":::
+    :::image type="content" source="media/edit-devops-connector/edit-connector-1.png" alt-text="A screenshot showing how to edit settings on the edit connector page." lightbox="media/edit-devops-connector/edit-connector-1.png":::
 
-1. Navigate to the **Configure access** blade. This is where you can perform token exchange, change the organizations/groups onboarded, or toggle autodiscovery.
+1. Navigate to **Configure access**. Here you can perform token exchange, change the organizations/groups onboarded, or toggle autodiscovery.
 
 > [!NOTE]
-> IF you are the owner of the connector, re-authorizing your environment to make changes is **optional**. For a user trying to take ownership of the connector, you must re-authorize using your access token. Please note that this is an irreversible change as soon as you select 'Re-authorize'.
+> IF you are the owner of the connector, re-authorizing your environment to make changes is **optional**. For a user trying to take ownership of the connector, you must re-authorize using your access token. This change is irreversible as soon as you select 'Re-authorize'.
 
 1. Use **Edit connector account** component to make changes to onboarded inventory. If an organization/group is greyed out, please ensure that you have proper permissions to the environment and the scope is not onboarded elsewhere in the Tenant.
 
-    :::image type="content" source="media/edit-devops-connector/edit-connector-2.png" alt-text="Screenshot that shows edit connector page." lightbox="media/edit-devops-connector/editConnector2.png":::
+    :::image type="content" source="media/edit-devops-connector/edit-connector-2.png" alt-text="A screenshot showing how to select an account when editing a connector." lightbox="media/edit-devops-connector/edit-connector-2.png":::
    
 1. To save your inventory changes, Select **Next: Review and generate >** and **Update**. Failing to select **Update** will cause any inventory changes to not be saved.
 
