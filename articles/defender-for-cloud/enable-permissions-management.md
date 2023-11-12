@@ -9,15 +9,17 @@ ms.date: 11/02/2023
 
 ## Overview
 
-Cloud Infrastructure Entitlement Management (CIEM) is a security model that helps organizations manage and control user access and entitlements in their cloud infrastructure.
+Cloud Infrastructure Entitlement Management (CIEM) is a security model that helps organizations manage and control user access and entitlements in their cloud infrastructure. CIEM is a critical component of the Cloud Native Application Protection Platform (CNAPP) solution that provides visibility into who or what has access to specific resources. It ensures that access rights adhere to the principle of least privilege (PoLP), where users or workload identities, such as apps and services,  receive only the minimum levels of access necessary to perform their tasks.
 
-Microsoft delivers both CNAPP and CIEM solutions with Microsoft Defender for Cloud (CNAPP) and Microsoft Entra Permissions Management (CIEM). Integrating the capabilities of Permissions Management with Defender for Cloud strengthens the prevention of security breaches that can occur due to excessive permissions or misconfigurations in the cloud environment. By continuously monitoring and managing cloud entitlements, Permissions Management helps to reduce the attack surface, detect potential threats, and maintain compliance with regulatory standards. This makes Permissions Management an essential tool to integrate into the capabilities of Defender for Cloud for securing cloud-native applications and protecting sensitive data in the cloud.
+Microsoft delivers both CNAPP and CIEM solutions with Microsoft Defender for Cloud (CNAPP) and Microsoft Entra Permissions Management (CIEM). Integrating the capabilities of Permissions Management with Defender for Cloud strengthens the prevention of security breaches that can occur due to excessive permissions or misconfigurations in the cloud environment. By continuously monitoring and managing cloud entitlements, Permissions Management helps to discover the attack surface, detect potential threats, right-size access permissions, and maintain compliance with regulatory standards. This makes insights from Permissions Management essential to integrate and enrich the capabilities of Defender for Cloud for securing cloud-native applications and protecting sensitive data in the cloud.
+
+This integration brings the following insights derived from the Microsoft Entra Permissions Management suite into the Microsoft Defender for Cloud portal. For more information, see the [Feature matrix](#feature-matrix).
 
 ## Common use-cases and scenarios
 
-Permissions Management capabilities are available as part of the Defender CSPM plan. With these added capabilities, you can track permissions analytics, unused permissions for active identities, and over-permissioned identities and mitigate them to support the best practice of least privilege.
+Microsoft Entra Permissions Management capabilities are seamlessly integrated as a valuable component within the Defender [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan. The integrated capabilities are foundational, providing the essential functionalities within Microsoft Defender for Cloud. With these added capabilities, you can track permissions analytics, unused permissions for active identities, and over-permissioned identities and mitigate them to support the best practice of least privilege.
 
-You can find new recommendations under the **All recommendations** tab.
+You can find the new recommendations in the **Manage Access and Permissions** Security Control under the **Recommendations** tab in the Defender for Cloud dashboard.
 
 ## Preview Prerequisites
 
@@ -39,7 +41,7 @@ You can find new recommendations under the **All recommendations** tab.
 1. Select **Save**.
 1. After a few seconds, you'll notice that:
 
-    - Your subscription has a new Reader assignment for the Permissions Management app.
+    - Your subscription has a new Reader assignment for the Cloud Infrastructure Entitlement Management application.
 
     - The new **Azure CSPM (Preview)** standard is assigned to your subscription.
 
@@ -49,7 +51,7 @@ You can find new recommendations under the **All recommendations** tab.
 **Azure recommendations**:
 
 - Azure overprovisioned identities should have only the necessary permissions
-- Unused Super Identities in your Azure environment should be removed
+- Super Identities in your Azure environment should be removed
 - Unused identities in your Azure environment should be removed
 
 ## Enable Permissions Management for AWS
@@ -65,6 +67,8 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 1. Enable the Defender CSPM plan. If the plan is already enabled, select the **Settings >** link and turn on the **Permissions Management** feature.
 
 1. Follow the wizard instructions to enable the plan with the new Permissions Management capabilities.
+1. Select **Configure access**, and then choose the appropriate **Permissions** type. Choose the deployment method: **'AWS CloudFormation' \ 'Terraform' script**.
+1. The deployment template is autofilled with default role ARN names. You can customize the role names by selecting the hyperlink.
 1. Run the updated CFT \ terraform script on your AWS environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
@@ -76,6 +80,32 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 - AWS overprovisioned identities should have only the necessary permissions
 
 - Unused identities in your AWS environment should be removed
+
+> [!NOTE]
+> The recommendations offered through the Permissions Management (Preview) integration are programmatically available from [Azure Resource Graph](/azure/governance/resource-graph/overview).
+
+## Known limitations
+
+- AWS or GCP accounts that are initially onboarded to Microsoft Entra Permissions Management can't be integrated via Microsoft Defender for Cloud.
+
+## Feature matrix
+
+The integration feature comes as part of Defender CSPM plan and doesn't require a Microsoft Entra Permissions Management license. To learn more about additional capabilities that you can receive from MEPM, refer to the feature matrix:
+
+| **Category**                                                 | **Capabilities**                                             | **Defender for Cloud** | **Permissions Management** |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------- | -------------------------- |
+| Discover                                                     | Permissions discovery for  risky identities (including unused identities, overprovisioned active  identities, super identities) in Azure, AWS, GCP | o                      | o                          |
+| Permissions Creep Index  (PCI) for multicloud environments (Azure, AWS, GCP) and all identities | o                                                            | o                      |                            |
+| Permissions discovery for  all identities, groups in Azure, AWS, GCP | X                                                            | o                      |                            |
+| Permissions usage  analytics, role / policy assignments in Azure, AWS, GCP | X                                                            | o                      |                            |
+| Support for identity providers (including AWS IAM Identity Center, Okta, GSuite) | X                                                            | o                      |                            |
+| Remediate                                                    | Automated deletion of  permissions                           | X                      | o                          |
+| Remediate identities by  attaching / detaching the permissions | X                                                            | o                      |                            |
+| Custom role / AWS Policy  generation based on activities of identities, groups, etc. | X                                                            | o                      |                            |
+| Permissions on demand  (time-bound access) for human and workload identities via Microsoft Entra admin center, APIs, ServiceNow app. | X                                                            | o                      |                            |
+| Monitor                                                      | Machine Learning-powered anomaly detections                  | X                      | o                          |
+| Activity based,  rule-based alerts                           | X                                                            | o                      |                            |
+| Context-rich forensic  reports (for example, PCI history report, user entitlement & usage report, etc.) | X                                                            | o                      |                            |
 
 ## Enable Permissions Management for GCP
 
@@ -106,4 +136,5 @@ Follow these steps to [connect your GCP account](quickstart-onboard-gcp.md) to M
 
 ## Next steps
 
-For more information about Microsoft’s CIEM solution, see [Microsoft Entra Permissions Management](/entra/permissions-management/).
+- For more information about Microsoft’s CIEM solution, see [Microsoft Entra Permissions Management](/entra/permissions-management/).
+- To obtain a free trial of Microsoft Entra Permissions Management, see the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_Entra_PM/PMDashboard.ReactView).
