@@ -19,7 +19,7 @@ VMware vSphere 8.0 will be rolled out to the Azure VMware Solution starting at t
 
 **AV64 SKU**
 
-Azure VMware Solution AV64 node size is now available in specific regions. The AV64 node is built on Intel Xeon Platinum 8370C CPUs with a total of 64 physical cores, 1 TB of memory and 15.4 TB of total storage. The AV64 SKU can be used for extending existing Azure VMware Solution private clouds built on AV36, AV36P, or AV52 node sizes. [Learn more](https://learn.microsoft.com/azure/azure-vmware/introduction#azure-vmware-solution-private-cloud-extension-with-av64-node-size)
+Azure VMware Solution AV64 node size is now available in specific regions. The AV64 node is built on Intel Xeon Platinum 8370C CPUs with a total of 64 physical cores, 1 TB of memory and 15.4 TB of total storage. The AV64 SKU can be used for extending existing Azure VMware Solution private clouds built on AV36, AV36P, or AV52 node sizes. [Learn more](introduction.md#azure-vmware-solution-private-cloud-extension-with-av64-node-size)
 
 **Azure Elastic SAN (preview)**
 
