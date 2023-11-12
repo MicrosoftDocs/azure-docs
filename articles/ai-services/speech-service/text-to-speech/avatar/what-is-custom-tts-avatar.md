@@ -2,18 +2,16 @@
 title: Custom text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the custom text to speech avatar feature of speech service, which allows you to create a customized, one-of-a-kind synthetic talking avatar for your application.
-services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: custom text to speech avatar
 ---
 
-# What is custom text to speech avatar
+# What is custom text to speech avatar?
 
 Custom text to speech avatar allows you to create a customized, one-of-a-kind synthetic talking avatar for your application. With custom text to speech avatar, you can build a unique and natural-looking avatar for your product or brand by providing video recording data of your selected actors. If you also create a [custom neural voice](../../custom-neural-voice.md) for the same actor and use it as the avatar's voice, the avatar will be even more realistic.
 
@@ -27,7 +25,7 @@ The custom text to speech avatar can work with a prebuilt neural voice or custom
 Creating a custom Text to speech avatar requires at least 10 minutes of video recording of the avatar talent as training data, and you must first get consent from the actor talent.
 
 > [!IMPORTANT]
-> In the Preview stage of the custom text to speech avatar, the data processing and model training are done manually.
+> Currently for custom text to speech avatar, the data processing and model training are done manually.
 
 Before you get started, here are some considerations:
 
@@ -56,4 +54,4 @@ The custom text to speech avatar model contains three components: text analyzer,
 ## Next steps
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [How to synthesize text to speech avatar](get-started-avatar.md)
+* [Real-time synthesis](./real-time-synthesis-avatar.md)

@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech avatar
 ---
 
@@ -27,14 +26,14 @@ To perform batch synthesis, you can use the following REST API operations.
 | Operation            | Method  | REST API call                                      |
 |----------------------|---------|---------------------------------------------------|
 | Create batch synthesis | POST    | texttospeech/3.1-preview1/batchsynthesis/talkingavatar |
-| Get batch synthesis    | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{id} |
+| Get batch synthesis    | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{SynthesisId} |
 | List batch synthesis   | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar |
-| Delete batch synthesis | DELETE  | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{id} |
+| Delete batch synthesis | DELETE  | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{SynthesisId} |
 
 You can refer to the code samples on the [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples).
 
 ## Next steps
 
-* [Get started with text to speech avatar](get-started-avatar.md)
+* [Create an avatar with batch synthesis](./batch-synthesis-create-avatar.md)
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [What is custom text to speech avatar](what-is-custom-tts-avatar.md)
+* [Real-time synthesis](./real-time-synthesis-avatar.md)

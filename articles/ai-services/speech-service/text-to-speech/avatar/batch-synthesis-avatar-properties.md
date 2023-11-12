@@ -1,22 +1,23 @@
 ---
 title: Batch synthesis properties - Speech service
 titleSuffix: Azure AI services
-description: Learn text to speech avatar batch synthesis properties
+description: Learn about the batch synthesis properties that are available for text to speech avatar. 
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech avatar batch synthesis
 ---
 
-# Batch synthesis properties
+# Batch synthesis properties for text to speech avatar (preview)
 
 Batch synthesis properties can be grouped as: batch job related properties, text to speech related properties, avatar related properties, which are described in the following tables.
 
-Batch synthesis job related properties:
+## Batch synthesis jobs
+
+The following table describes the batch synthesis job properties.
 
 | Property | Description |
 |----------|-------------|
@@ -31,7 +32,10 @@ Batch synthesis job related properties:
 | properties.timeToLive    |A duration after the synthesis job is created, when the synthesis results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify PT12H for 12 hours. This optional setting is P31D (31 days) by default. The maximum time to live is 31 days. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the lastActionDateTime + timeToLive properties.<br/><br/>Otherwise, you can call the [delete synthesis method](../../batch-synthesis.md#delete-batch-synthesis) to remove the job sooner. |
 | status                   | The batch synthesis processing status.<br/><br/>The status should progress from "NotStarted" to "Running", and finally to either "Succeeded" or "Failed".<br/><br/>This property is read-only.|
 
-Text to speech related properties:
+
+## Text to speech
+
+The following table describes the text to speech properties.
 
 | Property                 | Description |
 |--------------------------|--------------------------|
@@ -46,7 +50,9 @@ Text to speech related properties:
 | synthesisConfig.volume   | The volume of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](../../speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when textType is set to "PlainText".|
 | textType                 | Indicates whether the inputs text property should be plain text or SSML. The possible case-insensitive values are "PlainText" and "SSML". When the textType is set to "PlainText", you must also set the synthesisConfig voice property.<br/><br/>This property is required.|
 
-Avatar related properties:
+## Avatar properties
+
+The following table describes the avatar properties.
 
 | Property  | Description |
 |------------------------------------------|------------------------------------------|
@@ -65,7 +71,7 @@ Avatar related properties:
 | properties.duration                       | The video output duration. The value is an ISO 8601 encoded duration.<br/><br/>This property is read-only. |
 | properties.durationInTicks                 | The video output duration in ticks.<br/><br/>This property is read-only. |
 
-## How to edit background
+## How to edit the background
 
 The avatar batch synthesis API currently doesn't support setting background image/video directly. However, it supports generating a video with a transparent background, and then you can put any image/video behind the avatar as the background in a video editing tool.
 
@@ -85,18 +91,13 @@ Some video editing software doesn't support the webm format directly and only su
 
 **FFMPEG command line:**
 
-```
+```bash
 ffmpeg -vcodec libvpx-vp9 -i <input.webm> -vcodec png -pix_fmt rgba metadata:s:v:0 alpha_mode="1" <output.mov>
 ```
 
-FFMPEG can be downloaded from this [website](https://ffmpeg.org/download.html). Replace <input.webm> and <output.mov> with your local path and filename in the command line.
+FFMPEG can be downloaded from [ffmpeg.org](https://ffmpeg.org/download.html). Replace `<input.webm>` and `<output.mov>` with your local path and filename in the command line.
 
 ## Next steps
 
-* [Get started with text to speech avatar](get-started-avatar.md)
+* [Create an avatar with batch synthesis](./batch-synthesis-create-avatar.md)
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [Introduction to batch synthesis](introduction-to-batch-synthesis-avatar.md)
-* [Create batch synthesis](create-batch-synthesis-avatar.md)
-* [Get batch synthesis](get-batch-synthesis-avatar.md)
-* [Batch synthesis results](batch-synthesis-results-avatar.md)
-* [What is custom text to speech avatar](what-is-custom-tts-avatar.md)

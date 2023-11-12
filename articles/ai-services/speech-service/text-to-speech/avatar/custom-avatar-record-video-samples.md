@@ -9,7 +9,6 @@ ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: how to record video samples for custom text to speech avatar
 ---
 

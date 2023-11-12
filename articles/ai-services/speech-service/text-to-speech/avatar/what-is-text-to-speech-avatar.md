@@ -2,16 +2,15 @@
 title: Text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the Text to speech avatar feature of speech service, which allows users to create synthetic videos featuring avatars speaking based on text input. 
-services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech avatar
 ---
+
 # Text to speech avatar overview
 
 The text to speech avatar system is a text to speech feature with visual capability that allows you to create synthetic videos of a photorealistic avatar speaking based on input text.
@@ -23,6 +22,9 @@ The language support for text to speech avatar is the same as the language suppo
 > [!TIP]
 > You can create custom text to speech avatars that are unique to your product or brand. All it takes to get started is taking 10 minutes of video recordings. If you're also creating a custom neural voice for the actor, the avatar can be highly realistic. For more information, see [What is custom text to speech avatar](./what-is-custom-tts-avatar.md).
 
+
+> [!NOTE]
+> Text to speech avatar feature in public preview is only available in the following 3 service regions: West US2, West Europe, and Southeast Asia. If you plan to use custom neural voice with the text to speech avatar, you'll need to deploy the custom neural voice models to the supported regions. Otherwise, you can [copy the custom neural voice models](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) to the avatar supported regions. 
 
 ## More about text to speech avatar features
 
@@ -76,7 +78,7 @@ For more information, see [Speech service pricing](https://azure.microsoft.com/p
   
 ### Responsible AI 
 
-We care about the people who use the AI system and the people who will be affected by it as much as we care about technology. For more information, see the Responsible AI [transparency notes](../../../cognitive-services-limited-access.md).
+We care about the people who use the AI system and the people who will be affected by it as much as we care about technology. For more information, see the Responsible AI [transparency notes](https://aka.ms/TTS-TN).
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Edit avatar gestures with SSML - Speech service
+title: Customize avatar gestures with SSML - Speech service
 titleSuffix: Azure AI services
 description: Learn how to edit text to speech avatar gestures with SSML
 author: sally-baolian
@@ -8,17 +8,18 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech avatar batch synthesis
 ---
 
-# Edit avatar gestures with SSML
+# Customize text to speech avatar gestures with SSML (preview)
 
 The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in text to speech avatar. Furthermore, text to speech avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
 
 A gesture starts at the time point of insertion. If the gesture takes more time than the audio, the gesture is cut at the point the audio is finished.
 
-**Bookmark example:**
+## Bookmark example
+
+The following example shows how to insert a gesture in the text to speech avatar batch synthesis with SSML.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -30,11 +31,11 @@ Hello <bookmark mark='gesture.wave-left-1'/>, my name is Jenny, nice to meet you
 
 In this example, the avatar will start waving their hand at the left after the word "Hello".
 
-The full list of prebuilt avatar supported gestures can be found in the text to speech avatar portal and on this page.
-
 :::image type="content" source="../../media/avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left" lightbox="../../media/avatar/gesture.png":::
 
 ## Supported pre-built avatar characters, styles and gestures
+
+The full list of prebuilt avatar supported gestures provided here can also be found in the text to speech avatar portal.
 
 |  Characters | Styles            | Gestures                    | Enabled for batch API | Enabled for real-time API |
 |------------|-------------------|-----------------------------|-----------------------|---------------------------|
@@ -46,10 +47,7 @@ The full list of prebuilt avatar supported gestures can be found in the text to 
 
 ## Next steps
 
-* [Get started with text to speech avatar](get-started-avatar.md)
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [Introduction to batch synthesis](introduction-to-batch-synthesis-avatar.md)
-* [Create batch synthesis](create-batch-synthesis-avatar.md)
-* [Get batch synthesis](get-batch-synthesis-avatar.md)
-* [Obtain batch synthesis results](batch-synthesis-results-avatar.md)
-* [What is custom text to speech avatar](what-is-custom-tts-avatar.md)
+* [Real-time synthesis](./real-time-synthesis-avatar.md)
+* [Introduction to batch synthesis for text to speech avatar](batch-synthesis-avatar-overview.md)
+

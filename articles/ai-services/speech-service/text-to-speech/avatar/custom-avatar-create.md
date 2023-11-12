@@ -8,16 +8,15 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: v-baolianzou
-ms.custom: cog-serv-seo-aug-2020
 keywords: custom text to speech avatar 
 ---
 
-# Create a custom text to speech avatar
+# Create a custom text to speech avatar (preview)
 
 Getting started with a custom text to speech avatar is a straightforward process. All it takes are a handful of video files. If you'd like to train a [custom neural voice](../../custom-neural-voice.md) for the same actor, you can do so separately.
 
 > [!IMPORTANT]
-> Custom text to speech avatar training is currently available only in some regions: West US2, West Europe, and Southeast Asia. After your avatar model is trained in a supported region, you can copy it to a speech resource in another region as needed. 
+> Custom text to speech avatar training is currently available only in some regions: West US2, West Europe, and Southeast Asia. After your avatar model is trained in a supported region, you can copy it to a speech resource in another region as needed. For more information, see [Copy your voice model to another project](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project).
 
 ## Get consent file from the avatar talent
 
@@ -31,9 +30,9 @@ You can find the verbal consent statement in multiple languages on GitHub. The l
 
 You're required to provide video recordings of the avatar talent speaking in a language of your choice. The video recordings should contain high signal-to-noise ratio voice. The voice in the video recording isn't used as training data for a custom neural voice; its purpose is to train the custom text to speech avatar model.
 
-For more information about preparing the training data, see [How to record video samples](record-video-samples-custom-tts-avatar.md).
+For more information about preparing the training data, see [How to record video samples](custom-avatar-record-video-samples.md).
 
 ## Next steps
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [How to record video samples](record-video-samples-custom-tts-avatar.md)
+* [How to record video samples](custom-avatar-record-video-samples.md)
