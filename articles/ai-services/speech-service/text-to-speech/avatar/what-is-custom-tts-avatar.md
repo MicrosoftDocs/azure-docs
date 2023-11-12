@@ -11,12 +11,18 @@ ms.author: v-baolianzou
 keywords: custom text to speech avatar
 ---
 
-# What is custom text to speech avatar?
+# What is custom text to speech avatar? (preview)
+
+[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
 
 Custom text to speech avatar allows you to create a customized, one-of-a-kind synthetic talking avatar for your application. With custom text to speech avatar, you can build a unique and natural-looking avatar for your product or brand by providing video recording data of your selected actors. If you also create a [custom neural voice](../../custom-neural-voice.md) for the same actor and use it as the avatar's voice, the avatar will be even more realistic.
 
 > [!IMPORTANT]
 > Custom text to speech avatar access is [limited](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
+
+
+> [!NOTE]
+> Custom text to speech avatar training is only available in the following service regions: West US 2, West Europe, and Southeast Asia. If you plan to use custom neural voice with the text to speech avatar, you'll need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the avatar supported regions. 
 
 The custom text to speech avatar can work with a prebuilt neural voice or custom neural voice as the avatar's voice. The avatar's language support scope is the same as the synthetic voice's language. Check supported language of prebuilt neural voice [here](../../language-support.md?tabs=tts), and check supported languages for [custom neural voice](../../language-support.md?tabs=tts#custom-neural-voice).
 

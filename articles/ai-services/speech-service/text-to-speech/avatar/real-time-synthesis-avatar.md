@@ -13,6 +13,8 @@ keywords: text to speech avatar
 
 # Real-time synthesis for text to speech avatar (preview)
 
+[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+
 In this how-to guide, you learn how to use text to speech avatar (preview) with real-time synthesis.
 
 ## Prerequisites
@@ -84,9 +86,9 @@ const avatarConfig = new SpeechSDK.AvatarConfig(
 
 Real-time avatar uses WebRTC protocol to output the avatar video stream. You need to set up the connection with the avatar service through WebRTC peer connection.
 
-First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](../../../../communication-services/overview.md, which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](get-started-avatar.md#prerequisites). You can also choose to use your own ICE server.
+First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](../../../../communication-services/overview.md), which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](#prerequisites). You can also choose to use your own ICE server.
 
-The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the network relay token you prepared in the [prerequisites section](get-started-avatar.md#prerequisites) or from the configuration of your own ICE server.
+The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the network relay token you prepared in the [prerequisites section](#prerequisites) or from the configuration of your own ICE server.
 
 ```JavaScript
 // Create WebRTC peer connection
@@ -190,5 +192,5 @@ After you have a transparent-background avatar, you can now set the background t
 
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [Introduction to batch synthesis for text to speech avatar](batch-synthesis-avatar-overview.md)
+* [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)
 

@@ -13,7 +13,11 @@ keywords: text to speech avatar batch synthesis
 
 # Batch synthesis properties for text to speech avatar (preview)
 
+[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+
 Batch synthesis properties can be grouped as: batch job related properties, text to speech related properties, avatar related properties, which are described in the following tables.
+
+Some properties in JSON format are required when you create a new batch synthesis job. Other properties are optional. The batch synthesis response includes other properties to provide information about the synthesis status and results. For example, the `outputs.result` property contains the location from where you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. 
 
 ## Batch synthesis jobs
 

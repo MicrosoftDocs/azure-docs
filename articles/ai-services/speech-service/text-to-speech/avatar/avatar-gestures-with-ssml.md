@@ -13,6 +13,8 @@ keywords: text to speech avatar batch synthesis
 
 # Customize text to speech avatar gestures with SSML (preview)
 
+[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+
 The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in text to speech avatar. Furthermore, text to speech avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
 
 A gesture starts at the time point of insertion. If the gesture takes more time than the audio, the gesture is cut at the point the audio is finished.
@@ -49,5 +51,5 @@ The full list of prebuilt avatar supported gestures provided here can also be fo
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
 * [Real-time synthesis](./real-time-synthesis-avatar.md)
-* [Introduction to batch synthesis for text to speech avatar](batch-synthesis-avatar-overview.md)
+* [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)
 

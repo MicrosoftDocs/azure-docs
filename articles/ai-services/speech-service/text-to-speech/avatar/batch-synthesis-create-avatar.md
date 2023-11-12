@@ -11,7 +11,32 @@ ms.author: v-baolianzou
 keywords: text to speech avatar batch synthesis
 ---
 
-# Create batch synthesis for text to speech avatar (preview)
+# Use batch synthesis for text to speech avatar (preview)
+
+[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+
+The batch synthesis API for text to speech avatar (preview) allows for the asynchronous synthesis of text into a talking avatar as a video file. Publishers and video content platforms can utilize this API to create avatar video content in a batch. That approach can be suitable for various use cases such as training materials, presentations, or advertisements.
+
+The avatar batch synthesis API operates asynchronously and doesn't return synthesized videos in real-time. Instead, you submit text for synthesis, poll for the synthesis status, and download the video output when the status indicates success. The text input formats must be plain text or Speech Synthesis Markup Language (SSML) text.
+
+This diagram provides a high-level overview of the workflow.
+
+:::image type="content" source="../../media/avatar/batch-synthesis-workflow.png" alt-text="Screenshot of displaying a high-level overview of the batch synthesis workflow" lightbox="../../media/avatar/batch-synthesis-workflow.png":::
+
+To perform batch synthesis, you can use the following REST API operations.
+
+| Operation            | Method  | REST API call                                      |
+|----------------------|---------|---------------------------------------------------|
+| [Create batch synthesis](#create-a-batch-synthesis-request) | POST    | texttospeech/3.1-preview1/batchsynthesis/talkingavatar |
+| [Get batch synthesis](#get-batch-synthesis)    | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{SynthesisId} |
+| [List batch synthesis](#list-batch-synthesis)   | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar |
+| [Delete batch synthesis](#delete-batch-synthesis) | DELETE  | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{SynthesisId} |
+
+You can refer to the code samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples).
+
+## Create a batch synthesis request
+
+Some properties in JSON format are required when you create a new batch synthesis job. Other properties are optional. The [batch synthesis response](#get-batch-synthesis) includes other properties to provide information about the synthesis status and results. For example, the `outputs.result` property contains the location from [where you can download a video file](#get-batch-synthesis-results-file) containing the avatar video. From `outputs.summary`, you can access the summary and debug details. 
 
 To submit a batch synthesis request, construct the HTTP POST request body following these instructions:
 
@@ -72,7 +97,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The `status` property should progress from `NotStarted` status to `Running` and finally to `Succeeded` or `Failed`. You can periodically call the [GET batch synthesis API](get-batch-synthesis-avatar.md) until the returned status is `Succeeded` or `Failed`.
+The `status` property should progress from `NotStarted` status to `Running` and finally to `Succeeded` or `Failed`. You can periodically call the [GET batch synthesis API](#get-batch-synthesis) until the returned status is `Succeeded` or `Failed`.
 
 
 ## Get batch synthesis
@@ -119,7 +144,7 @@ You should receive a response body in the following format:
 }
 ```
 
-From the `outputs.result` field, you can download a video file containing the avatar video. The `outputs.summary` field allows you to download the summary and debug details. For more information on batch synthesis results, see [batch synthesis results](batch-synthesis-results-avatar.md).
+From the `outputs.result` field, you can download a video file containing the avatar video. The `outputs.summary` field allows you to download the summary and debug details. For more information on batch synthesis results, see [batch synthesis results](#get-batch-synthesis-results-file).
 
 
 ## List batch synthesis
@@ -203,21 +228,21 @@ You receive a response body in the following format:
 }
 ```
 
-From `outputs.result`, you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. For more information, see [batch synthesis results](batch-synthesis-results-avatar.md).
+From `outputs.result`, you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. For more information, see [batch synthesis results](#get-batch-synthesis-results-file).
 
 The `values` property in the JSON response lists your synthesis requests. The list is paginated, with a maximum page size of 100. The `@nextLink` property is provided as needed to get the next page of the paginated list.
 
 ## Get batch synthesis results file
 
-Once you get a batch synthesis job with `status` of "Succeeded", you can download the video output results. Use the URL from the `outputs.result` property of the [get batch synthesis](get-batch-synthesis-avatar.md) response.
+Once you get a batch synthesis job with `status` of "Succeeded", you can download the video output results. Use the URL from the `outputs.result` property of the [get batch synthesis](#get-batch-synthesis) response.
 
-To get the batch synthesis results file, make an HTTP GET request using the URI as shown in the following example. Replace `YourOutputsResultUrl` with the URL from the `outputs.result` property of the [get batch synthesis](./get-batch-synthesis-avatar.md) response. Replace `YourSpeechKey` with your Speech resource key.
+To get the batch synthesis results file, make an HTTP GET request using the URI as shown in the following example. Replace `YourOutputsResultUrl` with the URL from the `outputs.result` property of the [get batch synthesis](#get-batch-synthesis) response. Replace `YourSpeechKey` with your Speech resource key.
 
 ```azurecli-interactive 
 curl -v -X GET "YourOutputsResultUrl" -H "Ocp-Apim-Subscription-Key: YourSpeechKey" > output.mp4
 ```
 
-To get the batch synthesis summary file, make an HTTP GET request using the URI as shown in the following example. Replace `YourOutputsResultUrl` with the URL from the `outputs.summary` property of the [get batch synthesis](get-batch-synthesis-avatar.md) response. Replace `YourSpeechKey` with your Speech resource key.
+To get the batch synthesis summary file, make an HTTP GET request using the URI as shown in the following example. Replace `YourOutputsResultUrl` with the URL from the `outputs.summary` property of the [get batch synthesis](#get-batch-synthesis) response. Replace `YourSpeechKey` with your Speech resource key.
 
 ```azurecli-interactive
 curl -v -X GET "YourOutputsSummaryUrl" -H "Ocp-Apim-Subscription-Key: YourSpeechKey" > summary.json
@@ -263,5 +288,5 @@ If the delete request is successful, the response headers include `HTTP/1.1 204 
 ## Next steps
 
 * [Batch synthesis properties](./batch-synthesis-avatar-properties.md)
-* [Introduction to batch synthesis for text to speech avatar](batch-synthesis-avatar-overview.md)
+* [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)

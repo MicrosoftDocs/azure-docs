@@ -130,8 +130,12 @@ items:
       href: get-started-text-to-speech.md
     - name: How to synthesize speech
       href: how-to-speech-synthesis.md
-    - name: Batch synthesis API
-      href: batch-synthesis.md
+    - name: Batch synthesis
+      items:
+      - name: Use batch synthesis for text to speech
+        href: batch-synthesis.md
+      - name: Batch synthesis properties
+        href: batch-synthesis-properties.md
     - name: Improve synthesis with SSML
       items:
       - name: SSML overview
@@ -179,19 +183,19 @@ items:
       items:
       - name: What is text to speech avatar?
         href: text-to-speech/avatar/what-is-text-to-speech-avatar.md
-        displayName: tts-avatar
+        displayName: avatar
       - name: How to synthesize text to speech avatar
         items:
         - name: Real-time synthesis
           href: text-to-speech/avatar/real-time-synthesis-avatar.md
-        - name: Batch synthesis
+          displayName: avatar
+        - name: Batch synthesis for avatar
           items:
-          - name: Introduction to batch synthesis for text to speech avatar
-            href: text-to-speech/avatar/batch-synthesis-avatar-overview.md
           - name: Create a text to speech avatar with batch synthesis
             href: text-to-speech/avatar/batch-synthesis-create-avatar.md
           - name: Batch synthesis properties
             href: text-to-speech/avatar/batch-synthesis-avatar-properties.md
+            displayName: avatar
         - name: Customize avatar gestures with SSML
           href: text-to-speech/avatar/avatar-gestures-with-ssml.md
       - name: Custom text to speech avatar
@@ -203,6 +207,7 @@ items:
           href: text-to-speech/avatar/custom-avatar-create.md
         - name: How to record video samples
           href: text-to-speech/avatar/custom-avatar-record-video-samples.md
+          displayName: avatar
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
