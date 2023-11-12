@@ -23,7 +23,7 @@ This article provides instructions on preparing high-quality video samples for c
 - We recommend recording in a professional video shooting studio or a well-lit place with a clean background.
 - The background of the video should be clean, smooth, pure-colored, and a green screen is the best choice.
 - Ensure even and bright lighting on the actor's face, avoiding shadows on face or reflections on actor's glasses and clothes.
-- Camera requirement: A minimum of 1080P resolution and 36 FPS.
+- Camera requirement: A minimum of 1080 P resolution and 36 FPS.
 - Other devices: You can use a teleprompter to remind the script during recording but ensure it doesn't affect the actor's gaze towards the camera. Provide a seat if the avatar needs to be in a sitting position.
 
 ## Appearance of the actor

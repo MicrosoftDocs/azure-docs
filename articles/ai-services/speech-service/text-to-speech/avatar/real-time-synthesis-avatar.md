@@ -15,7 +15,7 @@ keywords: text to speech avatar
 
 [!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
 
-In this how-to guide, you learn how to use text to speech avatar (preview) with real-time synthesis.
+In this how-to guide, you learn how to use text to speech avatar (preview) with real-time synthesis. The synthetic avatar video will be generated in almost real time after the system receives the text input.
 
 ## Prerequisites
 
@@ -60,14 +60,11 @@ All neural voices are multilingual and fluent in their own language and English.
 
 If the voice doesn't speak the language of the input text, the Speech service doesn't create synthesized audio. For a full list of supported neural voices, see [Language and voice support for the Speech service](../../language-support.md?tabs=tts).
 
-> [!NOTE]
-> The default voice is the first voice returned per locale from the [voice list API](../../rest-text-to-speech.md#get-a-list-of-voices).
-> 
->  The order of priority for speaking is as follows:
->    - If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice in `en-US` speaks.
->    - If you only set `SpeechSynthesisLanguage`, the default voice in the specified locale speaks.
->    - If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
- >   - If the voice element is set by using Speech Synthesis Markup Language (SSML), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
+The default voice is the first voice returned per locale from the [voice list API](../../rest-text-to-speech.md#get-a-list-of-voices). The order of priority for speaking is as follows:
+- If you don't set `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`, the default voice in `en-US` speaks.
+- If you only set `SpeechSynthesisLanguage`, the default voice in the specified locale speaks.
+- If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
+- If the voice element is set by using Speech Synthesis Markup Language (SSML), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 ## Select avatar character and style
 
@@ -102,7 +99,7 @@ peerConnection = new RTCPeerConnection({
 ```
 
 > [!NOTE]
->  The ICE server URL has two kinds: one with prefix 'turn' (such as `turn:relay.communication.microsoft.com:3478`), and one with prefix 'stun' (such as `stun:relay.communication.microsoft.com:3478`). Here, the one with prefix 'turn' is needed, and only fill the 'turn' one.
+>  The ICE server URL has two kinds: one with prefix `turn` (such as `turn:relay.communication.microsoft.com:3478`), and one with prefix `stun` (such as `stun:relay.communication.microsoft.com:3478`). In the previous example scenario, for `urls` you only need to include a URL with the `turn` prefix.
 
 Secondly, you need to set up the video and audio player elements in the `ontrack` callback function of the peer connection. This callback is invoked twice during the connection, once for video track and once for audio track. You need to create both video and audio player elements in the callback function.
 
@@ -126,7 +123,7 @@ peerConnection.ontrack = function (event) {
     }
 }
 
-// Offer to receive 1 video track, and 1 audio track
+// Offer to receive one video track, and one audio track
 peerConnection.addTransceiver('video', { direction: 'sendrecv' })
 peerConnection.addTransceiver('audio', { direction: 'sendrecv' })
 ```
@@ -134,10 +131,10 @@ peerConnection.addTransceiver('audio', { direction: 'sendrecv' })
 Thirdly, you need to invoke the Speech SDK to create an avatar synthesizer and connect to the avatar service, with the peer connection as a parameter.
 
 ```JavaScript
-// create avatar synthesizer
+// Create avatar synthesizer
 var avatarSynthesizer = new SpeechSDK.AvatarSynthesizer(speechConfig, avatarConfig)
 
-// start avatar, establish WebRTC connection
+// Start avatar and establish WebRTC connection
 avatarSynthesizer.startAvatarAsync(peerConnection).then(
 (r) => { console.log("Avatar started.") }
 ).catch(
@@ -177,19 +174,18 @@ You can find end-to-end working samples on [GitHub](https://github.com/Azure-Sam
 
 ## Edit background
 
-The avatar real-time synthesis API currently doesn't support setting a background image/video and only supports setting a solid-color background, without transparent background support. However, there's an alternative way to implement background customization on the client side, following the steps below:
+The avatar real-time synthesis API currently doesn't support setting a background image/video and only supports setting a solid-color background, without transparent background support. However, there's an alternative way to implement background customization on the client side, following these guidelines:
 
-1. Set the background color to green (for ease of matting), which is supported by the API.
-1. Create a canvas element with the same size as the avatar video.
-1. Capture each frame of the avatar video and apply a pixel-by-pixel calculation to set the green pixel to transparent, and draw the recalculated frame to the canvas.
-1. Hide the original video.
+- Set the background color to green (for ease of matting), which the avatar real-time synthesis API supports.
+- Create a canvas element with the same size as the avatar video.
+- Capture each frame of the avatar video and apply a pixel-by-pixel calculation to set the green pixel to transparent, and draw the recalculated frame to the canvas.
+- Hide the original video.
 
 With this approach, you can get an animated canvas that plays like a video, which has a transparent background. Here's the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/js/basic.js#L108) to demonstrate such an approach.
 
-After you have a transparent-background avatar, you can now set the background to any image or video by placing the image or video behind the canvas.
+After you have a transparent-background avatar, you can set the background to any image or video by placing the image or video behind the canvas.
 
 ## Next steps
-
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
 * [Use batch synthesis for text to speech avatar](./batch-synthesis-create-avatar.md)

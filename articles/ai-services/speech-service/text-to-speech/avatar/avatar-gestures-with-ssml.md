@@ -17,7 +17,7 @@ keywords: text to speech avatar batch synthesis
 
 The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in text to speech avatar. Furthermore, text to speech avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
 
-A gesture starts at the time point of insertion. If the gesture takes more time than the audio, the gesture is cut at the point the audio is finished.
+A gesture starts at the insertion point in time. If the gesture takes more time than the audio, the gesture is cut at the point in time when the audio is finished.
 
 ## Bookmark example
 
