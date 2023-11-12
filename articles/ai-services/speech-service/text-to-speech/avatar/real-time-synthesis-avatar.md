@@ -146,7 +146,7 @@ avatarSynthesizer.speakTextAsync(spokenText).then(
 });
 ```
 
-You can find end-to-end working samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar).
+You can find end-to-end working samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser).
 
 ## Edit background
 

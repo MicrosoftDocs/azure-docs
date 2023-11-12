@@ -31,7 +31,7 @@ To perform batch synthesis, you can use the following REST API operations.
 | List batch synthesis   | GET     | texttospeech/3.1-preview1/batchsynthesis/talkingavatar |
 | Delete batch synthesis | DELETE  | texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{id} |
 
-You can refer to the code samples on the [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar).
+You can refer to the code samples on the [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples).
 
 ## Next steps
 
