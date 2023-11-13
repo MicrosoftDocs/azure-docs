@@ -5,6 +5,8 @@ description: Learn how to use Azure portal to check how many pages are analyzed 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: luzhan

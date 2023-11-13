@@ -1,8 +1,8 @@
 ---
 title: What is Azure AI Vision?
 titleSuffix: Azure AI services
-description: The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information. 
-services: cognitive-services 
+description: The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information.
+services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -10,7 +10,11 @@ ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
+ms.custom:
+  - seodec18
+  - cog-serv-seo-aug-2020
+  - contperf-fy21q2
+  - ignite-2023
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---

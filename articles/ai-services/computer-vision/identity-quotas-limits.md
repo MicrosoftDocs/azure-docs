@@ -7,6 +7,8 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/24/2023
 ms.author: pafarley
@@ -94,6 +96,3 @@ To increase rate limits and resource limits, you can submit a support request. H
 | --- | --- |
 | Free (F0),</br>Standard (S0)  | Not supported |
 | Enterprise (E0) | Supported |
-
-
-

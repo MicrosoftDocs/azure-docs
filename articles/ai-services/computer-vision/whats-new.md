@@ -6,7 +6,9 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
 ms.author: pafarley
