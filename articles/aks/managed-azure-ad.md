@@ -24,7 +24,7 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
 ## Before you begin
 
 * Make sure you have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they are upgraded by default and running `az aks install-cli` isn't required or recommended. If you are using an automated pipeline, you need to manage upgrading to the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise, you'll experience authentication issues if you don't use the correct version.
+* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they're upgraded by default and running `az aks install-cli` isn't required or recommended. If you're using an automated pipeline, you need to manage upgrades for the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise,  authentication issues occur on the wrong version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have a Microsoft Entra group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Microsoft Entra group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
 
@@ -127,9 +127,15 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
     az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
     ```
 
-2. Follow the instructions to sign in.
+2. Follow your instructions to sign in.
 
-3. View the nodes in the cluster using the `kubectl get nodes` command.
+3. Set `kubelogin` to use the Azure CLI.
+
+    ```azurecli-interactive
+    kubelogin convert-kubeconfig -l azurecli
+    ```
+
+4. View the nodes in the cluster with the `kubectl get nodes` command.
 
     ```azurecli-interactive
     kubectl get nodes
@@ -137,7 +143,7 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
 
 ## Non-interactive sign-in with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential.
+There are some non-interactive scenarios that don't support `kubectl`. In these cases, use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential to perform continuous integration pipelines.
 
 > [!NOTE]
 > Microsoft Entra integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Microsoft Entra ID clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Microsoft Entra clusters, or Microsoft Entra ID clusters running a version older than 1.24.
@@ -168,7 +174,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 > [!IMPORTANT]
 > The steps described in this section bypass the normal Microsoft Entra group authentication. Use them only in an emergency.
 
-If you're permanently blocked by not having access to a valid Microsoft Entra group with access to your cluster, you can still get admin credentials to directly access the cluster. You need to have access to the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) built-in role.
+If you lack admin access to a valid Microsoft Entra group, you can follow this workaround. Sign in through the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) role and grant your group or tenant admin credentials to access your cluster.
 
 ## Next steps
 
