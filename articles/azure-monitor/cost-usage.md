@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to analyze billable
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 10/20/2023
+ms.date: 11/13/2023
 ---
 
 # Azure Monitor cost and usage
