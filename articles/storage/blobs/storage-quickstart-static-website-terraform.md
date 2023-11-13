@@ -57,7 +57,7 @@ In this article, you learn how to:
 
 1. Create a file named `index.html` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/index.html":::
+    :::code language="html" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/index.html":::
 
 ## Initialize Terraform
 
