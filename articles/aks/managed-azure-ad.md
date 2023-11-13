@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
 
-# Enable Azure Managed Identity Authentication for Kubernetes Clusters with Kubenet
+# Enable Azure Managed Identity authentication for Kubernetes clusters with kubelogin
 
 The AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
