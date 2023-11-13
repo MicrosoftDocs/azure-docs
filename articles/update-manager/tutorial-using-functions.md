@@ -33,15 +33,18 @@ In this tutorial, you learn how to:
     1. Under the **requirements.psd1**, paste the following code: 
       
        ```
-       @{ 
-        # For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'. Uncomment the next line and replace the MAJOR_VERSION, 
-        for example,     'Az' = '5.*' 
-        'Az' = '5.*' 
-        'Az.ResourceGraph' = '0.13.0' 
-        'Az.Resources' = '6.*' 
-        }
+        @{ 
+         For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.         
+         Uncomment the next line and replace the MAJOR_VERSION, 
+         for example,     'Az' = '5.*' 
+         'Az' = '5.*' 
+         'Az.ResourceGraph' = '0.13.0' 
+         'Az.Resources' = '6.*' 
+            }
        ```
-       [Learn more](https://aka.ms/functions) on how to enable modules so that they're automatically managed by the Functions service. 
+       
+[Learn more](https://aka.ms/functions) on how to enable modules so that they're automatically managed by the Functions service. 
+
 1. To query ARG through your function app, you must enable system-assigned identity, user-assigned identity and assign the right permissions on the subscriptions. [Learn more](../app-service/overview-managed-identity.md).
 1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the *requirments.psd1* file.
 
@@ -63,19 +66,15 @@ In this tutorial, you learn how to:
    param($preEvent, $TriggerMetadata) 
     # Make sure to pass hashtables to Out-String so they're logged correctly
     $preEvent | Out-String | Write-Host 
- 
     $correlationId = $preEvent.id 
     $maintenanceConfigurationId = $preEvent.topic 
     $resourceSubscriptionIds = $preEvent.data.ResourceSubscriptionIds 
- 
     $queryStr = "maintenanceresources 
       | where type == 'microsoft.maintenance/applyupdates' 
       | where properties.correlationId =~ '$correlationId' 
       | project name, resourceId = properties.resourceId" 
- 
-    $argQueryResult = Search-Azgraph -Query $queryStr -Subscription $preEvent.data.ResourceSubscriptionIds 
- 
-    $mcName = ($maintenanceConfigurationId -split '/')
+     $argQueryResult = Search-Azgraph -Query $queryStr -Subscription $preEvent.data.ResourceSubscriptionIds 
+     $mcName = ($maintenanceConfigurationId -split '/')
     [8].ToLower() 
     $tagKey = "preevent_$mcName" 
     ```
