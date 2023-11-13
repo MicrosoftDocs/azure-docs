@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2023
+ms.date: 11/13/2023
 ms.author: terrylan
 
 ---
 # Azure security best practices and patterns
 
-The articles below contain security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
+This article contains security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
 
-The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+## Best practices
+
+These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 * [Best practices for protecting secrets](secrets-best-practices.md)
 * [Azure database security best practices](/azure/azure-sql/database/security-best-practice)

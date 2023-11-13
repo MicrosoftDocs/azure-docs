@@ -17,7 +17,11 @@ ms.author: terrylan
 
 ---
 # Best practices for protecting secrets
-The articles below provide guidance on protecting secrets. Follow this guidance to help ensure you do not log sensitive information, such as credentials, into GitHub repositories or continuous integration/continuous deployment (CI/CD) pipelines.
+This article provides guidance on protecting secrets. Follow this guidance to help ensure you do not log sensitive information, such as credentials, into GitHub repositories or continuous integration/continuous deployment (CI/CD) pipelines.
+
+## Best practices
+
+These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 - Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets)
 - Azure Key Vault: [Centralize storage of application secrets](../../key-vault/general/overview.md)
