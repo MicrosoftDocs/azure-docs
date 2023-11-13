@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/07/2023
+ms.date: 11/13/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -138,6 +138,9 @@ We're announcing the GA (General Availability) release of the Defender CSPM cont
 - **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
 Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+
+> [!NOTE]
+> Billing for the GA release of GCP support in Defender CSPM will begin on January 1st 2024.
 
 ### General Availability release of Data security dashboard
 
