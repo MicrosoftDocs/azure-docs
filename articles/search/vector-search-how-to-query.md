@@ -240,7 +240,7 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**Python**](#tab/python-vector-query)
 
-+ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents/11.4.0b11/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 

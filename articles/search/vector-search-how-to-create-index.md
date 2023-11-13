@@ -236,7 +236,7 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 ### [**Python**](#tab/python-add-config)
 
-+ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 

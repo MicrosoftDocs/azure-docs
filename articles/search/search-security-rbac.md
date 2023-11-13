@@ -325,7 +325,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**Python**](#tab/test-python)
 
-1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+1. Use [azure.search.documents (Azure SDK for Python)](https://pypi.org/project/azure-search-documents/).
 
 1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
 

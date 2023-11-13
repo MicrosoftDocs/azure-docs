@@ -26,7 +26,7 @@ We recommend this article for background, but if you'd rather get started, follo
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
 
-Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
+Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
 ## What's vector search in Azure AI Search?
 
