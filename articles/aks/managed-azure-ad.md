@@ -17,13 +17,15 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
 
 ## Limitations of integration
 
-* AKS-managed Microsoft Entra integration can't be disabled.
-* Changing an AKS-managed Microsoft Entra integrated cluster to legacy Microsoft Entra ID isn't supported.
-* Clusters without Kubernetes RBAC enabled aren't supported with AKS-managed Microsoft Entra integration.
+Azure Managed ID on AKS has certain limits to account for before you make a decision.
+* The integration can't be disabled once added.
+* Downgrades from an integrated cluster to the legacy Microsoft Entra ID clusters aren't supported.
+* Clusters without Kubernetes RBAC support are unable to add the integration.
 
 ## Before you begin
 
-* Make sure you have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+There are a few requirements to properly install the aks addon for managed identity.
+* You have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they're upgraded by default and running `az aks install-cli` isn't required or recommended. If you're using an automated pipeline, you need to manage upgrades for the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise,  authentication issues occur on the wrong version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have a Microsoft Entra group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Microsoft Entra group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
@@ -32,7 +34,7 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
 > Microsoft Entra integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Microsoft Entra ID clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Microsoft Entra clusters, or Microsoft Entra ID clusters running a version older than 1.24.
 > Existing downloaded `kubeconfig` continues to work. An optional query parameter **format** is included when getting clusterUser credential to overwrite the default behavior change. You can explicitly specify format to **azure** if you need to maintain the old `kubeconfig` format .
 
-<a name='enable-aks-managed-azure-ad-integration-on-your-aks-cluster'></a>
+<a name='enable-the-integration-on-your-aks-cluster'></a>
 
 ## Enable the integration on your AKS cluster
 
@@ -88,7 +90,7 @@ A successful activation of an AKS-managed Microsoft Entra ID cluster has the fol
     }
 ```
 
-<a name='upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration'></a>
+<a name='migrate-a-legacy-azure-ad-cluster-to-integration'></a>
 
 ### Migrate legacy cluster to integration
 
@@ -117,9 +119,9 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
     }
 ```
 
-<a name='access-your-aks-managed-azure-ad-enabled-cluster'></a>
+<a name='access-your-enabled-cluster'></a>
 
-## Access your Microsoft Entra ID enabled cluster
+## Access your enabled cluster
 
 1. Get the user credentials to access your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -167,7 +169,7 @@ There are some non-interactive scenarios that don't support `kubectl`. In these 
 >
 > For more information, you can refer to [Azure Kubelogin Known Issues][azure-kubelogin-known-issues].
 
-<a name='troubleshoot-access-issues-with-aks-managed-azure-ad'></a>
+<a name='troubleshoot-access-issues'></a>
 
 ## Troubleshoot access issues
 
