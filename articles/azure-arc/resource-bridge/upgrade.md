@@ -33,6 +33,8 @@ There are two ways to upgrade Arc resource bridge: cloud-managed upgrades manage
 
 Arc resource bridge is a Microsoft-managed product. Microsoft manages upgrades of Arc resource bridge through cloud-managed upgrade. Cloud-managed upgrade allows Microsoft to ensure that the resource bridge remains on a supported version.
 
+In order for cloud-managed upgrade to work, ensure that your Arc resource bridge meets upgrade prerequisites. If prerequisites are not met, then cloud managed upgrade will fail. While Microsoft manages the upgrade of your Arc resource bridge, you are still responsible for checking that your resource bridge is healthy, online, in a "Running" status and within the n-3 supported versions. Disruptions could cause cloud-managed upgrade to fail and you should remain proactive on the health, version and status of your appliance VM. You can check on the health, version and status of your appliance by using the az arcappliance show command from your management machine or checking the Azure resource of your Arc resource bridge.
+
 Cloud-managed upgrades are handled through Azure. A notification is pushed to Azure to reflect the state of the appliance VM as it upgrades. As the resource bridge progresses through the upgrade, its status might switch back and forth between different upgrade steps. Upgrade is complete when the appliance VM `status` is `Running` and `provisioningState` is `Succeeded`.  
 
 To check the status of a cloud-managed upgrade, check the Azure resource in ARM, or run the following Azure CLI command from the management machine:  
