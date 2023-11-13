@@ -8,10 +8,10 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 07/13/2023
+  ms.date: 10/31/2023
   ms.author: godonnell
   ms.subservice: B2C
-  ms.custom: b2c-support, has-azure-ad-ps-ref
+  ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
@@ -211,7 +211,7 @@ sections:
           #### [App registrations](#tab/app-reg-ga/)
           
           1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Settings** icon in the portal toolbar.
           1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
           1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
           1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
@@ -231,7 +231,7 @@ sections:
           #### [Applications (Legacy)](#tab/applications-legacy/)
           
           1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Settings** icon in the portal toolbar.
           1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
           1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
           1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.

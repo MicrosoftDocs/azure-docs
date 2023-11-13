@@ -24,8 +24,8 @@ You can set the permissions on a query pack when you view it in the Azure portal
 
 ## View query packs
 You can view and manage query packs in the Azure portal from the **Log Analytics query packs** menu. Select a query pack to view and edit its permissions. This article describes how to create a query pack by using the API.
-
-[![Screenshot that shows query packs.](media/query-packs/view-query-pack.png)](media/query-packs/view-query-pack.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/query-packs/view-query-pack.png" lightbox="media/query-packs/view-query-pack.png" alt-text="Screenshot that shows query packs." border="false":::
 
 ## Default query pack
 Azure Monitor automatically creates a query pack called `DefaultQueryPack` in each subscription in a resource group called `LogAnalyticsDefaultResources` when you save your first query. You can save queries to this query pack or create other query packs depending on your requirements.

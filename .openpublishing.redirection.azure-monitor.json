@@ -6418,6 +6418,11 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts.md",
             "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/faq.yml",
+            "redirect_url": "/azure/azure-monitor/overview#frequently-asked-questions",
+            "redirect_document_id": false
         }
     ]
 }

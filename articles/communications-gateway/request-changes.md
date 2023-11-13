@@ -10,11 +10,19 @@ ms.date: 01/08/2023
 
 # Get support or request changes to your Azure Communications Gateway
 
-If you notice problems with Azure Communications Gateway or you need Microsoft to make changes, you can raise a support request (also known as a support ticket). This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+If you notice problems with Azure Communications Gateway or you need Microsoft to make changes, you can raise a support request (also known as a support ticket) in the Azure portal. 
 
-Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
+When you raise a request, we'll investigate. If we think the problem is caused by traffic from Zoom servers, we might ask you to raise a separate support request with Zoom.
+
+This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Prerequisites
+
+We strongly recommend a Microsoft support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
+
+You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
+
+## Confirm that you need to raise an Azure Communications Gateway support request
 
 Perform initial troubleshooting to help determine if you should raise an issue with Azure Communications Gateway or a different component. Raising issues for the correct component helps resolve your issues faster.
 
@@ -23,16 +31,16 @@ Raise an issue with Azure Communications Gateway if you experience an issue with
 - The Number Management Portal.
 - Your Azure bill relating to Azure Communications Gateway.
 
-You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
+If you're providing Zoom service, you'll need to raise a separate support request with Zoom for any changes that you need to your Zoom configuration.
 
-## 1. Generate a support request in the Azure portal
+## Create a support request in the Azure portal
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Select the question mark icon in the top menu bar.
 1. Select the **Help + support** button. 
 1. Select **Create a support request**.
 
-## 2. Enter a description of the problem or the change
+## Enter a description of the problem or the change
 
 1. Concisely describe your problem or the change you need in the **Summary** box.
 1. Select an **Issue type** from the drop-down menu. 
@@ -48,17 +56,17 @@ You must have an **Owner**, **Contributor**, or **Support Request Contributor** 
 1. From the new **Problem subtype** drop-down menu, select the problem subtype that most accurately describes your issue. If the problem type you selected only has one subtype, the subtype is automatically selected.
 1. Select **Next**.
 
-## 3. Assess the recommended solutions
+## Assess the recommended solutions
 
 Based on the information you provided, we might show you recommended solutions you can use to try to resolve the problem. In some cases, we might even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
 If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request** then selecting **Next**.
 
-## 4. Enter additional details
+## Enter additional details
 
 In this section, we collect more details about the problem or the change and how to contact you. Providing thorough and detailed information in this step helps us route your support request to the right engineer. For more information, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-## 5. Review and create your support request
+## Review and create your support request
 
 Before creating your request, review the details and diagnostics that you'll send to support. If you want to change your request or the files you've uploaded, select **Previous** to return to any tab. When you're happy with your request, select **Create**.
 

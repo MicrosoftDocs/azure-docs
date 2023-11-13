@@ -2,7 +2,7 @@
 title:  Azure Arc agent
 description: Learn about Azure Arc agent
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -13,11 +13,11 @@ manager: jsuri
 
 # Azure Arc agent
 
-When you [enable guest management](enable-guest-management-at-scale.md) on VMware VMs, Azure Arc agent is installed on the VMs. The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides an architectural overview of Azure connected machine agent.
+When you [enable guest management](enable-guest-management-at-scale.md) on VMware VMs, Azure Connected Machine agent is installed on the VMs. This is the same agent Arc-enabled servers use. The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides an architectural overview of Azure connected machine agent.
 
 ## Agent components
 
-:::image type="content" source="media/connected-machine-agent-inline.png" alt-text="Diagram of Azure Connected Machine agent architectural overview." lightbox="media/connected-machine-agent-expanded.png":::
+:::image type="content" source="media/azure-arc-agent/connected-machine-agent-inline.png" alt-text="Diagram of Azure Connected Machine agent architectural overview." lightbox="media/azure-arc-agent/connected-machine-agent-expanded.png":::
 
 The Azure Connected Machine agent package contains several logical components bundled together:
 
