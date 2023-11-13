@@ -3,7 +3,7 @@ title: Overview of the MedTech service FHIR destination mapping - Azure Health D
 description: Learn about the MedTech service FHIR destination mapping.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: jasteppe
@@ -11,10 +11,7 @@ ms.author: jasteppe
 
 # Overview of the MedTech service FHIR destination mapping
 
-> [!NOTE] 
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-This article provides an overview of the MedTech service FHIR destination mapping.
+This article provides an overview of the MedTech service FHIR&reg; destination mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. The [device mapping](overview-of-device-mapping.md) is the first type and controls mapping values in the device data sent to the MedTech service to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls how the normalized data is mapped to [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
@@ -231,31 +228,14 @@ The resulting FHIR Observation will look like this after the transformation stag
 
 ## Next steps
 
-In this article, you've been provided an overview of the MedTech service FHIR destination mapping. 
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-For an overview of the MedTech service device mapping, see
+[How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
 
-> [!div class="nextstepaction"] 
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+[How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
 
-To learn how to use CalculatedContent with the MedTech service device mapping, see
+[How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-> [!div class="nextstepaction"] 
-> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-To learn how to use IotJsonPathContent with the MedTech service device mapping, see
-
-> [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
-
-To learn how to use custom functions with the MedTech service device mapping, see
-
-> [!div class="nextstepaction"] 
-> [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

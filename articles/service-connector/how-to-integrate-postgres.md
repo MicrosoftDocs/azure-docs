@@ -39,11 +39,11 @@ Supported authentication and clients for App Service, Azure Functions, Container
 > [!NOTE]
 > System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI.
 
-## Default environment variable names or application properties and Sample code
+## Default environment variable names or application properties and sample code
 
 Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
 
-### Connect with System-assigned Managed Identity
+### System-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -109,12 +109,13 @@ Reference the connection details and sample code in the following tables, accord
 
 ---
 
-### Sample code
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-me-id.md)]
 
-### Connect with User-assigned Managed Identity
+
+### User-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -190,12 +191,12 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 
 ---
 
-### Sample code
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-me-id.md)]
 
-### Connect with Connection String
+### Connection String
 
 #### [.NET](#tab/dotnet)
 
@@ -263,12 +264,12 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 
 ---
 
-### Sample code
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
 
-### Connect with Service Principal
+### Service Principal
 
 #### [.NET](#tab/dotnet)
 
@@ -361,7 +362,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 
 ---
 
-### Sample code
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-me-id.md)]

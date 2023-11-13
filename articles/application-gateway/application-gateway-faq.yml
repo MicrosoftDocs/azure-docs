@@ -270,7 +270,7 @@ sections:
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
         answer: |
-          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients (feature in Preview). Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
+          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients. Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
         answer: Application Gateway v2 supports IPv4 and IPv6  frontends (Public Preview). Currently, IPv6 support is available for new Application Gateways only. To support IPv6, VNet should be dual stack. Application Gateway v1 doesn't support dual stack VNets. 

@@ -26,6 +26,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## November 2023
+
+- **Universal Geo Restore in Azure Database for MySQL - Flexible Server (General Availability)**
+Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region, which is different than the source server region. [Learn more](concepts-backup-restore.md#restore)
+
 ## October 2023
 
 - **Addition of New vCore Options in Azure Database for MySQL - Flexible Server**
@@ -644,6 +649,7 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
 
 
 

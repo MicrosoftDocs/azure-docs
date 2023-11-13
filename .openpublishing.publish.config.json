@@ -231,6 +231,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-app-arm-templates",
+      "url": "https://github.com/Azure-Samples/function-app-arm-templates",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
