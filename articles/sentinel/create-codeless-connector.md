@@ -316,41 +316,40 @@ To create this connector in a test environment, follow the [Data Collection Rule
 ### Example data connector UI definition
 
 
-
-
 ```json
 {
-     "id": "/subscriptions/{subscription id}/resourceGroups/{resource group name}/providers/Microsoft.OperationalInsights/workspaces/{workspace name}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{data connector definition name} ",
-     "type": "Microsoft.SecurityInsights/dataConnectorDefinitions",
-      "name": "ConnectorDefinitionExample",
-      "apVersion": "2022-09-01-preview",
-      "kind": "Customizable",
-      "properties": {
+    "kind": "Customizable",
+    "properties": {
         "connectorUiConfig": {
           "title": "Data Connector Name",
-          "publisher": "Microsoft",
+          "publisher": "My Company",
           "descriptionMarkdown": "This is an example of data connector",
           "graphQueries": [
             {
               "metricName": "Alerts received",
               "legend": "My data connector alerts",
               "baseQuery": "Custom-ExampleConnectorAlerts_CL"
-            },
-            
+            },   
            {
               "metricName": "Events received",
               "legend": "My data connector events",
-              "baseQuery": "ASIMWebSessionLogs"
+              "baseQuery": "ASIMFileEventLogs"
+            }
+          ],
+          "sampleQueries": [
+            {
+                "description": "All logs",
+                "query": "{{graphQueriesTableName}}\n | take 10"
             }
           ],
           "dataTypes": [
             {
               "name": "Custom-ExampleConnectorAlerts_CL",
-              "lastDataReceivedQuery": " Custom-ExampleConnectorAlerts_CL '\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)')"
+              "lastDataReceivedQuery": "Custom-ExampleConnectorAlerts_CL \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
             },
              {
-              "name": "ASIMWebSessionLogs",
-              "lastDataReceivedQuery": " ASIMWebSessionLog \n | where \n| summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
+              "name": "ASIMFileEventLogs",
+              "lastDataReceivedQuery": "ASIMFileEventLogs \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
              }
           ],
           "connectivityCriteria": [
@@ -412,23 +411,16 @@ To create this connector in a test environment, follow the [Data Collection Rule
               "title": "Connect My Connector to Microsoft Sentinel"
             }
           ]
-        },
-        "connectionsConfig": {
-          "templateSpecName": "test", 
-          "templateSpecVersion": "1.0.0"
         }
-        }
-      }
+    }
+}
 ```
 
 ### Example data connection rules
 
 ```json
 {
-              "id": "/subscriptions/{subscription id} /resourceGroups/{resource group name}/providers/Microsoft.OperationalInsights/workspaces/{workspace name /providers/Microsoft.SecurityInsights/dataConnectors/{data connector name} ",
-              "name": "DataConnectorExample",
-              "type": "Microsoft.SecurityInsights/dataConnectors",
-	       "apiVersion": "2022-10-01-preview",
+
               "kind": "RestApiPoller",
               "properties": {
                 "connectorDefinitionName": "ConnectorDefinitionExample",

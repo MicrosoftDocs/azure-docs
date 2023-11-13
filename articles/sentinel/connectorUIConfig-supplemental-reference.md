@@ -85,7 +85,7 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
 | **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivityCriteria) | An object that defines how to verify if the connector is connected. | 7 |
 | **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI which lists the permissions required to enable or disable the connector. | 8 |
-| **instructionSteps** | True | Nested JSON<br>[instructions](#instructions) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
+| **instructionSteps** | True | Nested JSON<br>[instructions](#instructionSteps) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
 
 ### connectivityCriteria
 
@@ -115,7 +115,23 @@ Provide either one query for all of the data connector's data types, or a differ
 
 ### instructionSteps
 
-This section provides parameters that define the set of instructions that appear on your data connector page in Microsoft Sentinel.
+This section provides parameters that define the set of instructions that appear on your data connector page in Microsoft Sentinel and has the following structure:
+
+```json
+"instructionSteps": [
+    {
+        "title": "",
+        "description": "",
+        "instructions": [
+        {
+            "type": "",
+            "parameters": {}
+        }
+        ],
+        "innerSteps": {}
+    }
+]
+```
 
 |Array Property  |Type  |Description  |
 |---------|---------|---------|
@@ -123,20 +139,86 @@ This section provides parameters that define the set of instructions that appear
 | **description** | 	String	| Optional. Defines a meaningful description for your instructions. |
 | **innerSteps**	| Array | Optional. Defines an array of inner instruction steps. |
 | **instructions**  | Array of [instructions](#instructions) | Required. Defines an array of instructions of a specific parameter type. | 
-| **bottomBorder** | 	Boolean	| Optional. When `true`, adds a bottom border to the instructions area on the connector page in Microsoft Sentinel |
-| **isComingSoon** |	Boolean	| Optional. When `true`, adds a **Coming soon** title on the connector page in Microsoft Sentinel |
 
 #### instructions
 
 Displays a group of instructions, with various parameters and the ability to nest more instructionSteps in groups.
 
-| Parameter | Array property | Description |
+| Type | Array property | Description |
 |-----------|--------------|-------------|
+| **OAuthForm** | [OAuthForm](#oauthform) | Connect with OAuth |
+| **Textbox** | [Textbox](#textbox) | Basic text and labels |
+| **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. |
 | **APIKey** | [APIKey](#apikey) | Add placeholders to your connector's JSON configuration file. |
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
 | **InstallAgent** | [InstallAgent](#installagent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
+
+#### OAuthForm
+
+```json
+"instructions": [
+{
+  "type": "OAuthForm",
+  "parameters": {
+    "clientIdLabel": "Client ID",
+    "clientSecretLabel": "Client Secret",
+    "connectButtonLabel": "Connect",
+    "disconnectButtonLabel": "Disconnect"
+  }          
+}
+]
+```
+???
+
+#### Textbox
+
+```json
+"instructions": [
+{
+  "type": "Textbox",
+  "parameters": {
+      {
+        "label": "User name",
+        "placeholder": "User name",
+        "type": "text",
+        "name": "username"
+      }
+  }
+},
+{
+  "type": "Textbox",
+  "parameters": {
+      "label": "Secret",
+      "placeholder": "Secret",
+      "type": "password",
+      "name": "password"
+  }
+}
+]
+```
+
+|Name | Type | Description |
+| --| -- | -- |
+| **label** | string | |
+| **placeholder** | ?? | |
+| **type** | string | |
+| **name** | string | |
+
+#### ConnectionToggleButton
+
+```json
+"instructions": [
+{
+  "type": "ConnectionToggleButton",
+  "parameters": {
+    "label": "toggle",
+    "name": "toggle"
+  }          
+}
+]
+```
 
 #### APIKey
 
@@ -146,20 +228,21 @@ To create placeholder parameters, define an additional array named `userRequestP
 
 ```json
 "instructions": [
-                {
-                  "parameters": {
-                    "enable": "true",
-                    "userRequestPlaceHoldersInput": [
-                      {
-                        "displayText": "Organization Name",
-                        "requestObjectKey": "apiEndpoint",
-                        "placeHolderName": "{{placeHolder}}"
-                      }
-                    ]
-                  },
-                  "type": "APIKey"
-                }
-              ]
+{
+  "type": "APIKey",
+  "parameters": {
+    "enable": "true",
+    "userRequestPlaceHoldersInput": [
+      {
+        "displayText": "Organization Name",
+        "requestObjectKey": "apiEndpoint",
+        "placeHolderName": "{{placeHolder}}",
+        "placeHolderValue": ""
+      }
+    ]
+  }
+}
+]
 ```
 
 The `userRequestPlaceHoldersInput` parameter includes the following attributes:
@@ -248,18 +331,6 @@ Some **InstallAgent** types appear as a button, others will appear as a link. He
 |**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
 |**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as one of the following: `SecurityEvent`,  `ForwardEvent`       |
 
-
-### metadata
-
-This section provides metadata in the data connector UI under the **Description** area.
-
-| Collection Value  |Type  |Description  |
-|---------|---------|---------|
-| **kind** 	| String | Defines the kind of ARM template you're creating. Always use `dataConnector`. |
-| **source** | 	String | Describes your data source, using the following syntax: <br>`{`<br>`"kind":`string<br>`"name":`string<br>`}`|
-| **author** |	String | Describes the data connector author, using the following syntax: <br>`{`<br>`"name":`string<br>`}`|
-| **support** |	String | Describe the support provided for the data connector using the following syntax: <br>`{`<br>`"tier":`string,<br>`"name":`string,<br>`"email":`string,<br>`"link":`URL string<br>`}`|
-
 ### permissions
 
 |Array value  |Type  |Description  |
@@ -305,17 +376,3 @@ To define a link as an ARM template, use the following example as a guide:
    "description": "1. Click the **Deploy to Azure** button below.\n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)]({URL to custom ARM template})"
 }
 ```
-
-### Validate the data connector page user experience 
-Follow these steps to render and validate the connector user experience.
-
-1. The test utility can be accessed by this URL - https://aka.ms/sentineldataconnectorvalidateurl
-1. Go to Microsoft Sentinel -> Data Connectors
-1. Click the "import" button and select a json file that only contains the `connectorUiConfig` section of your data connector.
-
-For more information on this validation tool, see the [Build the connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#build-the-connector) instructions in our GitHub build guide.
-
-> [!NOTE]
-> Because the **APIKey** instruction parameter is specific to the codeless connector, temporarily remove this section to use the validation tool, or it will fail.
->
-
