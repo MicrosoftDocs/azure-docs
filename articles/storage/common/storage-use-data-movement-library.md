@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 # Transfer data with the Data Movement library
 
 > [!NOTE]
-> This article offers guidance for working with versions 2.0.XX of the Azure Storage Data Movement library, which are currently in maintenance mode. The library is only receiving fixes for data integrity and security issues. No new functionality or features will be added, and new storage service versions will not be supported by the library.
+> This article offers guidance for working with version 2.0.XX of the Azure Storage Data Movement library, which is currently in maintenance mode. The library is only receiving fixes for data integrity and security issues. No new functionality or features will be added, and new storage service versions will not be supported by the library.
 >
 > Beta versions of a modern Data Movement library are currently in development. For more information, see [Azure Storage Data Movement Common client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) on GitHub.
 
