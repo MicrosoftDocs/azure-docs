@@ -1,5 +1,5 @@
 ---
-title: Technical onboarding guide for 42Crunch (Preview)
+title: Technical onboarding guide for 42Crunch (preview)
 description: Learn how to use 42Crunch with Microsoft Defender.
 ms.date: 11/05/2023
 author: dcurwin
@@ -19,15 +19,16 @@ Scans can run automatically as part of a CI/CD pipeline or manually through an I
 
 Because the quality of the API specification largely determines the scan coverage and effectiveness, it's important to ensure that your OpenAPI specification is well-defined. 42Crunch **Audit** performs a static analysis of the OpenAPI specification file aimed at helping the developer to improve the security and quality of the specification. The Audit determines a composite security score from 0-100 for each specification file. As developers remediate security and semantic issues identified by the Audit, the score improves. 42Crunch recommends an [Audit score of at least 70 before running a conformance scan](https://docs.42crunch.com/latest/content/concepts/data_dictionaries.htm).
 
-# Enablement
-> [!NOTE]
-> The steps below walk through how to set up the free version of 42Crunch. See the [FAQ section](onboarding-guide-42crunch.md#FAQ) to learn the differences between the free and paid versions of 42Crunch and how to purchase 42Crunch on the Azure Marketplace.
+## Enablement
 
-Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-Audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
+> [!NOTE]
+> The following steps walk through the process of setting up the free version of 42Crunch. See the [FAQ section](#faq) to learn about the differences between the free and paid versions of 42Crunch and how to purchase 42Crunch on the Azure Marketplace.
+
+Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
 
 ## Connect your GitHub repositories to Microsoft Defender for Cloud
 
-This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations.](https://review.learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-github)
+This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations](quickstart-onboard-github.md)
 
 ## Configure 42Crunch Audit service
 
@@ -47,7 +48,7 @@ Install the 42Crunch API Security Audit plugin within your CI/CD pipeline throug
 To create a new default workflow:
 
 1. Choose "Setup a workflow yourself"
-1. Rename the workflow from main.yaml to 42crunch-Audit.yml
+1. Rename the workflow from main.yaml to 42crunch-audit.yml
 1. Go to [https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example](https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example).
 1. Copy the full sample workflow and paste it in the workflow editor.
 

@@ -451,7 +451,7 @@
       items:
       - name: Partner applications
         href: defender-partner-applications.md
-      - name: Onboard 42Crunch (Preview)
+      - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
