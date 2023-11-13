@@ -55,8 +55,10 @@ Complete the configuration using the following guidance:
 5.	When sending messages that were serialized using Google.Protobuf, the prefix type should be set to base128 since that is the most cross-compatible type.
 
 6. Service Messages aren't supported in the protobuf deserializers. Your job throws an exception if you attempt to use a service message.
-
-7. Current datatypes not supported: 
+    For example:
+    :::image type="content" source="./media/protobuf/service-message-proto.png" alt-text=" Screenshot showing an example of a service message." lightbox="./media/protobuf/service-message-proto.png" :::
+   
+8. Current datatypes not supported: 
     * Any
     * One of (related to enums)
     * Durations
