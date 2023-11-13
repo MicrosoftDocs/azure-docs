@@ -61,7 +61,7 @@ The request body for the CCP data connector definition has the following structu
 |Kind	|True	|String	|`Customizable` for API polling data connector or `Static` otherwise| 
 |type	|True	|String	|Must be `Microsoft.SecurityInsights/dataConnectorDefinitions`|
 |properties.connectorUiConfig	|True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
-|properties.connectionsConfig	|True for `Customizable`, for `Static` do not include	|Nested JSON<br>[connectionsConfig](#connectionsConfig) |The template spec of the data connector|
+|properties.connectionsConfig	|True for `Customizable`, for `Static` do not include	|Nested JSON<br>[connectionsConfig](#connections-configure-template-spec) |The template spec of the data connector|
 
 ## Configure your connector's user interface
 
@@ -83,9 +83,9 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 | **sampleQueries** | True | Nested JSON<br>[sampleQueries](#samplequeries) | Queries for the customer to understand how to find the data in the event log. | |
 | **graphQueries** | True | Nested JSON<br>[graphQueries](#graphqueries) | Queries that present data ingestion over the last two weeks.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type. | 5 |
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
-| **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivityCriteria) | An object that defines how to verify if the connector is connected. | 7 |
+| **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivitycriteria) | An object that defines how to verify if the connector is connected. | 7 |
 | **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI which lists the permissions required to enable or disable the connector. | 8 |
-| **instructionSteps** | True | Nested JSON<br>[instructions](#instructionSteps) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
+| **instructionSteps** | True | Nested JSON<br>[instructions](#instructionsteps) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
 
 ### connectivityCriteria
 
@@ -294,7 +294,6 @@ In contrast, the following image shows a *non*-inline information message:
 
 :::image type="content" source="media/create-codeless-connector/non-inline-information-message.png" alt-text="Screenshot of a non-inline information message.":::
 
-
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
 |**text**     |    String     |   Define the text to display in the message.      |
@@ -374,5 +373,120 @@ To define a link as an ARM template, use the following example as a guide:
 {
    "title": "Azure Resource Manager (ARM) template",
    "description": "1. Click the **Deploy to Azure** button below.\n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)]({URL to custom ARM template})"
+}
+```
+
+## Connections configure template spec
+
+This object includes the template spec name and version of the different connections of the data connector.
+
+|Field |Required |Type |Description |
+|---|---|---|---|
+|TemplateSpecName |	True |String |The name of the template spec which contains the data connectors connections. The template includes ARM templates that can be created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
+|TemplateSpecVersion | True |String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (e.g., "1.0.0") |
+
+## Example data connector 
+
+The following example brings together some of the components defined in this article as a JSON body format to use with the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) data connector API.
+
+For more examples of the `connectorUiConfig` review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling). Even connectors using the legacy CCP have valid examples of the UI creation.
+
+```json
+{
+    "kind": "Customizable",
+    "properties": {
+        "connectorUiConfig": {
+          "title": "Data Connector Name",
+          "publisher": "My Company",
+          "descriptionMarkdown": "This is an example of data connector",
+          "graphQueries": [
+            {
+              "metricName": "Alerts received",
+              "legend": "My data connector alerts",
+              "baseQuery": "Custom-ExampleConnectorAlerts_CL"
+            },   
+           {
+              "metricName": "Events received",
+              "legend": "My data connector events",
+              "baseQuery": "ASIMFileEventLogs"
+            }
+          ],
+            "sampleQueries": [
+            {
+                "description": "All logs",
+                "query": "ExampleConnectorAlerts_CL \n | take 10"
+            }
+          ],
+          "dataTypes": [
+            {
+              "name": "Custom-ExampleConnectorAlerts_CL",
+              "lastDataReceivedQuery": "Custom-ExampleConnectorAlerts_CL \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
+            },
+             {
+              "name": "ASIMFileEventLogs",
+              "lastDataReceivedQuery": "ASIMFileEventLogs \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
+             }
+          ],
+          "connectivityCriteria": [
+            {
+              "type": "HasDataConnectors"
+            }
+          ],
+          "permissions": {
+            "resourceProvider": [
+              {
+                "provider": "Microsoft.OperationalInsights/workspaces",
+                "permissionsDisplayText": "Read and Write permissions are required.",
+                "providerDisplayName": "Workspace",
+                "scope": "Workspace",
+                "requiredPermissions": {
+                  "write": true,
+                  "read": true,
+                  "delete": true
+                }
+              },
+            ],
+            "customs": [
+              {
+                "name": "Example Connector API Key",
+                "description": "The connector API key username and password is required"
+              }
+            ] 
+        },
+          "instructionSteps": [
+            {
+              "title": "Connect My Connector to Microsoft Sentinel",
+              "description": "To enable the connector provide the required information below and click on Connect.\n>",
+              "instructions": [
+               {
+                  "type": "Textbox",
+                  "parameters": {
+                    "label": "User name",
+                    "placeholder": "User name",
+                    "type": "text",
+                    "name": "username"
+                  }
+                },
+                {
+                  "type": "Textbox",
+                  "parameters": {
+                    "label": "Secret",
+                    "placeholder": "Secret",
+                    "type": "password",
+                    "name": "password"
+                  }
+                },
+                {
+                  "parameters": {
+                    "label": "toggle",
+                    "name": "toggle"
+                  },
+                  "type": "ConnectionToggleButton"
+                }
+              ]
+            }
+          ]
+        }
+    }
 }
 ```
