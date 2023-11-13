@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/13/2023
 ms.custom:
 ---
 # Parse Protobuf in Azure Stream Analytics
@@ -30,6 +30,9 @@ Complete the configuration using the following guidance:
 
 :::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot showing how protobuf dropdown in the input configuration blade of an ASA job." lightbox="./media/protobuf/protobuf.png" :::
 
+> [!NOTE]
+> TO learn more about Protobuf datatypes visit the [Official Protocol Buffers Documentation](https://protobuf.dev/reference/protobuf/google.protobuf/) .
+>
 
 ### Limitations
 
@@ -43,7 +46,7 @@ Complete the configuration using the following guidance:
 
 3. Maps in protobuf are currently not supported. Maps in protobuf results in an error about missing a string key.
 
-4. When a protobuf definition file contains a namespace or pack. Then, the message type must include it.
+4. When a protobuf definition file contains a namespace or package, the message type must include it.
     For example:
     :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot showing an example of a protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
 
@@ -63,6 +66,10 @@ Complete the configuration using the following guidance:
     * Value
     * Null Value
     * Empty
+
+> [!NOTE]
+> For direct help with using the Azure Stream Analytics Kafka input, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
+>
 
 ## See Also
 [Data Types in Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)
