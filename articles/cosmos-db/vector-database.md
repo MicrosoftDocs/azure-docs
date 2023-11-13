@@ -29,15 +29,15 @@ Here are some solutions:
 | **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-cosmos-db-for-mongodb-vcore)**. | Featuring native support for vector search, store your application data and vector embeddings together in a single MongoDB-compatible service. |
 | **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-cosmos-db-for-postgresql)**. | Offering native support vector search, you can store your data and vectors together in a scalable PostgreSQL offering. |
 
-## Vector database and retrieval augmented generation (RAG)
+## Vector database and retrieval augmented generation
 
-The vector search feature in a vector database enables Retrieval Augmented Generation (RAG) to harness LLMs and custom data or domain-specific information. This process involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
+The vector search feature in a vector database enables retrieval augmented generation to harness LLMs and custom data or domain-specific information. This process involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
 
-A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. Our vector search features convert the data in your database into embeddings and storing them as vectors for future use, thus capturing the semantic meaning of the text, going beyond mere keywords to comprehend the context. Moreover, this mechanism also allows you to optimize for the LLM’s limit on the number of tokens per request.
+A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. Our vector search features convert the data in your database into embeddings and store them as vectors for future use, thus capturing the semantic meaning of the text and going beyond mere keywords to comprehend the context. Moreover, this mechanism allows you to optimize for the LLM’s limit on the number of tokens per request.
 
 Prior to sending a request to the LLM, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This technique enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the LLM request using prompt engineering.
 
-Here are multiple ways to implement RAG on your data stored in Azure Cosmos DB, thus achieving the same outcome as using a vector database.
+Here are multiple ways to implement RAG on your data stored in Azure Cosmos DB, thus achieving the functionalities of a vector database.
 
 ## Implement vector database functionalities using NoSQL API and Cognitive Search
 
