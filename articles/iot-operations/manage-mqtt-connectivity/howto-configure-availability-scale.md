@@ -130,11 +130,11 @@ For *ephemeral* volume, follow the advice in the [Considerations for storage pro
 
 The value of the *ephemeralVolumeClaimSpec* property is used as the ephemeral.*volumeClaimTemplate.spec* property of the volume in the StatefulSet specs of the backend chains.
 
-For example, to use an ephemeral volume with a capacity of 1 megabyte, specify the following parameters in your Broker CRD:
+For example, to use an ephemeral volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
 
 ```yaml
 diskBackedMessageBufferSettings:
-  maxSize: "1M"
+  maxSize: "1G"
 
   ephemeralVolumeClaimSpec:
     storageClassName: "foo"
@@ -150,11 +150,11 @@ For *persistent* volume, follow the advice in [Considerations for storage provid
 
 The value of the *persistentVolumeClaimSpec* property is used as the *volumeClaimTemplates.spec* property of the *StatefulSet* specs of the backend chains.
 
-For example, to use a *persistent* volume with a capacity of 1 megabyte, specify the following parameters in your Broker CRD:
+For example, to use a *persistent* volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
 
 ```yaml 
 diskBackedMessageBufferSettings:
-  maxSize: "1M"
+  maxSize: "1G"
 
   persistentVolumeClaimSpec:
     storageClassName: "foo"
@@ -168,11 +168,11 @@ Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#em
 
 Only use *emptyDir* volume when using a cluster with filesystem quotas. For more information, see details in the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does *periodic scanning* that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy. 
 
-For example, to use an emptyDir volume with a capacity of 1 megabyte, specify the following parameters in your Broker CRD:
+For example, to use an emptyDir volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
 
 ```yaml
       diskBackedMessageBufferSettings:
-        maxSize: "1M"
+        maxSize: "1G"
 ```
 
 ### Size limits
