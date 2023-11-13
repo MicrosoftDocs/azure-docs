@@ -364,8 +364,6 @@ When using custom domains, consider the following points:
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
 - **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
-    ![Screenshot of the status of the default-route.]()
-
     :::image type="content" source="./media/custom-domain/azure-front-door-route-status.png" alt-text="Screenshot of the Front Door manager page from the Azure portal with the default route, Status and Provisioning state items highlighted.":::
 
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
