@@ -23,7 +23,7 @@ Security standards in Defender for Cloud come from a couple of sources:
 
 Security standards in Defender for Cloud are based on the Defender for Cloud platform, or on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md). At the time of writing (November 2023) AWS and GCP standards are Defender for Cloud platform-based, and Azure standards are currently based on Azure Policy.
 
-Security standards in Defender for Cloud simplify the complexity of Azure Policy. In most cases you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
+Security standards in Defender for Cloud simplify the complexity of Azure Policy. In most cases, you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
 
 ## Working with security standards
 
@@ -59,7 +59,7 @@ Each recommendation provides you with the following information:
 - Risk factors
 - Attack paths
 
-Every recommendation in Defender for Cloud has an associated risk-level that represents how exploitable and impactful the security issue presents to your environments. The risk assessment engine takes into account factors such as, internet exposure, sensitivity of data, lateral movement possibilities, attack paths remediation, and more. Recommendations can be prioritized based on their risk levels.
+Every recommendation in Defender for Cloud has an associated risk-level that represents how exploitable and impactful the security issue is in your environment. The risk assessment engine takes into account factors such as internet exposure, sensitivity of data, lateral movement possibilities, attack paths remediation, and more. Recommendations can be prioritized, based on their risk levels.
 
 > [!NOTE]
 > Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) is in public preview and therefore doesn't affect the secure score.
