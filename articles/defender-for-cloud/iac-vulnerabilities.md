@@ -1,7 +1,7 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
 
-description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
+description: Learn how to use DevOps security in Defender for Cloud to discover misconfigurations in Infrastructure as Code (IaC)
 ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
@@ -204,7 +204,7 @@ In this tutorial you learned how to configure the Microsoft Security DevOps GitH
 
 ## Next steps
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn more about [DevOps security](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
 

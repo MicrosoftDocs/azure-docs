@@ -79,7 +79,7 @@ Defender for APIs has updated its support for Azure API Management API revisions
 
 October 19, 2023
 
-New DevOps posture management recommendations are now available in public preview for all customers with a connector for Azure DevOps or GitHub. DevOps posture management helps to reduce the attack surface of DevOps environments by uncovering weaknesses in security configurations and access controls. Learn more about [DevOps posture management](concept-devops-posture-management-overview.md).
+New DevOps posture management recommendations are now available in public preview for all customers with a connector for Azure DevOps or GitHub. DevOps posture management helps to reduce the attack surface of DevOps environments by uncovering weaknesses in security configurations and access controls. Learn more about [DevOps posture management](concept-devops-environment-posture-management-overview.md).
 
 ### Releasing CIS Azure Foundations Benchmark v2.0.0 in regulatory compliance dashboard
 
