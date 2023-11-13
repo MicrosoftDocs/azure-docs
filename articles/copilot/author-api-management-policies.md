@@ -36,9 +36,13 @@ In this example, a policy is generated based on the prompt "Generate a policy to
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-remove-header.png" lightbox="media/author-api-management-policies/api-management-policy-remove-header.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a policy to remove a header.":::
 
-When you have questions about a certain policy element, you can get more information by selecting a section of the policy, right-clicking, and selecting **Explain**. Alternately, you can type your question asking Microsoft Copilot for Azure (preview) to explain more. Microsoft Copilot for Azure (preview) explains how the code works, adding details when helpful about best practices and behaviors. You can ask about one element (such as in this example asking about `<on-error> <base /> </on-error>`) or about a larger, more complex section of your policy.
+When you have questions about a certain policy element, you can get more information by selecting a section of the policy, right-clicking, and selecting **Explain**.
 
-:::image type="content" source="media/author-api-management-policies/api-management-policy-explain.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about a specific API Management policy.":::
+:::image type="content" source="media/author-api-management-policies/api-management-policy-explain.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of right-clicking a section of an API Management policy to get an explanation from Microsoft Copilot for Azure (preview).":::
+
+Microsoft Copilot for Azure (preview) explains how the code works, breaking down each specific section.
+
+:::image type="content" source="media/author-api-management-policies/api-management-policy-explanation.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about a specific API Management policy.":::
 
 ## Next steps
 
