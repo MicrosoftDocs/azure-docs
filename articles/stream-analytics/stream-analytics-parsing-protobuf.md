@@ -26,7 +26,7 @@ Complete the configuration using the following guidance:
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Protobuf definition file            | A file that specifies the structure and datatypes of your protobuf events         |
 | Message type   | The message type that you want to deserialize    |
-| Prefix style                 | naming convention used for fields and elements within the protobuf definition file. |
+| Prefix style                 | It is used to determine how long a message is to deserialize protobuf events correctly |
 
 :::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot showing how protobuf dropdown in the input configuration blade of an ASA job." lightbox="./media/protobuf/protobuf.png" :::
 
