@@ -206,7 +206,7 @@ items:
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
       - name: Azure IoT Operations CLI
-        href: reference/about-iot-operations-cli.md
+        href: /cli/azure/iot/ops
       - name: Available metrics for observability
         items:
         - name: Azure IoT MQ
