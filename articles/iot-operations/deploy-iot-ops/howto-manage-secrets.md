@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/13/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
 ---
@@ -19,6 +19,8 @@ Secrets management in Azure IoT Operations uses Azure Key Vault as the managed v
 * An Arc-enabled Kubernetes cluster with Azure IoT Operations deployed to it. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
 
 * An Azure Key Vault. You probably created one as part of setting up your Azure IoT Operations cluster.
+
+## Configure a secret store on your cluster
 
 ## Add a secret to an Azure IoT Operations component
 

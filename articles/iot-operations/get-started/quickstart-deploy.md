@@ -39,7 +39,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 
 * At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 
-* Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements.
+<!-- * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements. -->
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -113,7 +113,8 @@ This script automates the following steps:
 
 * Install required host OS features (Install-AksEdgeHostFeatures).
 
-  Your machine might reboot when Hyper-V is enabled. If so, run the script again.
+  >[!TIP]
+  >Your machine might reboot when Hyper-V is enabled. If so, go back and run the setup commands again before running the quickstart script.
 
 * Deploy a single machine cluster with internal switch (Linux node only).
 
@@ -137,7 +138,7 @@ In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. Th
    | **TENANT_ID** | ID of your Microsoft Entra tenant. |
    | **RESOURCE_GROUP_NAME** | A name for a new resource group. |
    | **LOCATION** | An Azure region close to you. The following regions are supported in public preview: East US2, West US 3, West Europe, East US, West US, West US 2, North Europe. |
-   | **CLUSTER_NAME** | A name for a new managed cluster. |
+   | **CLUSTER_NAME** | A name for the new connected cluster. |
 
    ```powerShell
    .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
