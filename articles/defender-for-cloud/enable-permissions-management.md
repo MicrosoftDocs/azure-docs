@@ -25,7 +25,7 @@ You can find the new recommendations in the **Manage Access and Permissions** Se
 
 | **Aspect**                                      | **Details**                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| Required / preferred environmental requirements | Defender CSPM                                                |
+| Required / preferred environmental requirements | Defender CSPM  <br> These capabilities are included in the Defender CSPM plan and don't require an additional license.                                        |
 | Required roles and permissions                  | **AWS  \ GCP** <br>Security Admin <br>Application.ReadWrite.All<br><br>**Azure** <br>Security Admin <br>Microsoft.Authorization/roleAssignments/write |
 | Clouds                                          | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure, AWS  and GCP commercial clouds      <br>   :::image type="icon" source="./media/icons/no-icon.png"::: Nation/Sovereign (US Gov, China Gov, Other  Gov) |
 
@@ -66,20 +66,20 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 
     - Select the **Next: Select plans >** button in the bottom of the page.
 
-1. Enable the Defender CSPM plan. If the plan is already enabled, select the **Settings >** link and turn on the **Permissions Management** feature.
-
-   :::image type="content" source="media/enable-permissions-management/enable-permissions-management-aws.png" alt-text="Enable permissions management plan for AWS" lightbox="media/enable-permissions-management/enable-permissions-management-aws.png":::
-
+1. Enable the Defender CSPM plan. If the plan is already enabled, select **Settings**  and turn on the **Permissions Management** feature.
 1. Follow the wizard instructions to enable the plan with the new Permissions Management capabilities.
 1. Select **Configure access**, and then choose the appropriate **Permissions** type. Choose the deployment method: **'AWS CloudFormation' \ 'Terraform' script**.
 1. The deployment template is autofilled with default role ARN names. You can customize the role names by selecting the hyperlink.
 1. Run the updated CFT \ terraform script on your AWS environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
+
+   :::image type="content" source="media/enable-permissions-management/enable-permissions-management-aws.png" alt-text="Enable permissions management plan for AWS" lightbox="media/enable-permissions-management/enable-permissions-management-aws.png":::
+
 1. You'll see the applicable Permissions Management recommendations on your AWS security connector within a few hours.
 1. Go to the **Recommendations** page and make sure that the relevant environments filters are checked. Filter by **Initiative= "AWS CSPM (Preview)"** which returns the following recommendations (if applicable):
 
-:::image type="content" source="media/enable-permissions-management/aws-policies.png" alt-text="Enable permissions management for AWS" lightbox="media/enable-permissions-management/aws-policies.png":::
+    :::image type="content" source="media/enable-permissions-management/aws-policies.png" alt-text="Enable permissions management for AWS" lightbox="media/enable-permissions-management/aws-policies.png":::
 
 **AWS recommendations**:
 
@@ -100,16 +100,17 @@ Follow these steps to [connect your GCP account](quickstart-onboard-gcp.md) to M
 
     - Select the **Next: Select plans >** button in the bottom of the page.
 
-1. Enable the Defender CSPM plan. If the plan is already enabled, select the **Settings >** link and turn on the Permissions Management feature.
+1. Enable the Defender CSPM plan. If the plan is already enabled, select **Settings** and turn on the Permissions Management feature.
 
 1. Follow the wizard instructions to enable the plan with the new Permissions Management capabilities.
 1. Run the updated CFT \ terraform script on your GCP environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **GCP CSPM (Preview)** standard is assigned on your security connector.
+
+    :::image type="content" source="media/enable-permissions-management/gcp-policies.png" alt-text="Enable permissions management for GCP" lightbox="media/enable-permissions-management/gcp-policies.png":::
+
 1. You'll see the applicable Permissions Management recommendations on your GCP security connector within a few hours.
 1. Go to the **Recommendations** page, and make sure that the relevant environments filters are checked. Filter by **Initiative= "GCP CSPM (Preview)"** which returns the following recommendations (if applicable):
-
-:::image type="content" source="media/enable-permissions-management/gcp-policies.png" alt-text="Enable permissions management for GCP" lightbox="media/enable-permissions-management/gcp-policies.png":::
 
 **GCP recommendations**:
 
