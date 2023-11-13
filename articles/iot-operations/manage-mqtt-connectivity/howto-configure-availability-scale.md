@@ -5,7 +5,7 @@ description: Configure core MQTT broker settings for high availability and scale
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/11/2023
+ms.date: 11/13/2023
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -96,7 +96,7 @@ The **diskBackedMessageBufferSettings** feature is used for efficient management
 
 - **Efficient queue management**: In an MQTT broker, each subscriber is associated with a message queue. The speed a subscriber processes messages directly impacts the size of the queue. If a subscriber processes messages slowly or if they disconnect but request an MQTT persistent session, the queue can grow larger than the available memory.
 
-- **Data preservation for persistent sessions**: The **diskBackedMessageBufferSettings** feature ensures that when a queue exceeds the available memory, it's seamlessly buffered to disk. This feature prevents data loss and supports MQTT persistent sessions, allowing subscribers to resume their sessions with their message queues intact upon reconnection. The disk is used as ephemeral storage and serves as a spillover from memory. Data written to disk isn't durable and is lost when the pod exits, but as long as at least one pod in each backend chain remains functional, the broker as a whole does not lose any data.
+- **Data preservation for persistent sessions**: The **diskBackedMessageBufferSettings** feature ensures that when a queue exceeds the available memory, it's seamlessly buffered to disk. This feature prevents data loss and supports MQTT persistent sessions, allowing subscribers to resume their sessions with their message queues intact upon reconnection. The disk is used as ephemeral storage and serves as a spillover from memory. Data written to disk isn't durable and is lost when the pod exits, but as long as at least one pod in each backend chain remains functional, the broker as a whole doesn't lose any data.
 
 - **Handling connectivity challenges**: Cloud connectors are treated as subscribers with persistent sessions that can face connectivity challenges when unable to communicate with external systems like Event Grid MQTT broker due to network disconnect. In such scenarios, messages (PUBLISHes) accumulate. The Azure IoT MQ broker intelligently buffers these messages to memory or disk until connectivity is restored, ensuring message integrity.
 
@@ -113,9 +113,6 @@ Tailor the broker message buffer options by adjusting the following settings:
   - **Select a storage class**: Define the desired *StorageClass* using the `storageClassName` property.
 
   - **Define access modes**: Determine the access modes you need for your volume. For more information, see [persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
-
-  - **Manage resources**: Fine-tune your resource allocation with the `requests` and `limits` properties. To learn more about resource management, see [Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
-
 
 Use the following sections to understand the different volume modes.
 
@@ -137,12 +134,12 @@ For example, to use an ephemeral volume with a capacity of 1 megabyte, specify t
 
 ```yaml
 diskBackedMessageBufferSettings:
-  maxSize: '1M'
+  maxSize: "1M"
 
   ephemeralVolumeClaimSpec:
-    storageClassName: 'foo'
+    storageClassName: "foo"
     accessModes:
-    - 'ReadWriteOnce'
+    - "ReadWriteOnce"
 ```
 
 ### Persistent volume
@@ -157,12 +154,12 @@ For example, to use a *persistent* volume with a capacity of 1 megabyte, specify
 
 ```yaml 
 diskBackedMessageBufferSettings:
-  maxSize: '1M'
+  maxSize: "1M"
 
   persistentVolumeClaimSpec:
-    storageClassName: 'foo'
+    storageClassName: "foo"
     accessModes:
-    - 'ReadWriteOnce'
+    - "ReadWriteOnce"
 ```
 
 ### emptyDir volume
@@ -175,7 +172,7 @@ For example, to use an emptyDir volume with a capacity of 1 megabyte, specify th
 
 ```yaml
       diskBackedMessageBufferSettings:
-        maxSize: '1M'
+        maxSize: "1M"
 ```
 
 ### Size limits
@@ -188,18 +185,16 @@ To set up your persistent volume for the message buffer in your Broker CRD, foll
 spec:
   diskBackedMessageBufferSettings:
     volumeClaimSpec:
-      storageClassName: 'foo'
+      storageClassName: "foo"
       accessModes:
-        - 'ReadWriteOnce'
+        - "ReadWriteOnce"
       resources:
         requests:
-          storage: '1G'
+          storage: "1G"
         limits:
-          storage: '1G'
+          storage: "1G"
   # ...customize other properties of the `volumeClaimSpec` as needed.
 ```
-
-Once configured, the broker backend transfers PUBLISH messages from memory to disk. This process continues until your specified volume is full or reaches the requested storage limit if supported by your storage provider. If your backend can no longer transfer messages to disk, they accumulate in memory. When this happens, backpressure begins rejecting new PUBLISH messages, maintaining the same behavior as before the disk buffer configuration.
 
 ### Considerations for storage providers
 
