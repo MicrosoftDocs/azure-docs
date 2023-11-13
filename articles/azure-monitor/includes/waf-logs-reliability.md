@@ -40,4 +40,4 @@ Some availability features require a dedicated cluster, which currently requires
 | Dual ingestion         | :white_check_mark:           | :white_check_mark:    | Protection from regional failure                                                                       | Enable per monitored resource.         | Up to twice the cost of retention (depending on how much data is dual ingested) + egress charges. |
 
 
-<sup>1</sup> Continuous data export susceptible to regional incidents because it relies on the stability of the Azure Monitor ingestion pipeline in your region.
+<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. Previously ingested data is backed up and remains readily available; however, further export may fail, depending on the nature of the incident.
