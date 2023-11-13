@@ -13,11 +13,11 @@ ms.custom: contperf-fy21q1, build-2023, build-2023-dataai
 ---
 # What's Azure AI Search?
 
-Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers infrastructure, APIs, and tools for information retrieval at scale over private, heterogeneous content in traditional or conversational search applications.
+Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and conversational search applications.
 
-Search is foundational to any app that surfaces text to users. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
+Information retrieval is foundational to any app that surfaces text to users. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
 
-+ A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index containing user-owned content
++ A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index 
 + Rich indexing, with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid search](hybrid-search-overview.md), fuzzy search, autocomplete, geo-search and others
 + Azure scale, security, and reach
@@ -52,7 +52,7 @@ Azure AI Search is well suited for the following application scenarios:
 
 + Search over your content, isolated from the internet.
 
-+ Consolidate heterogeneous content into a user-defined search index. 
++ Consolidate heterogeneous content into a user-defined and populated search index. 
 
 + [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
