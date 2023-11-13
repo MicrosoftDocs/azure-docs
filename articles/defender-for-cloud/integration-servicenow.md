@@ -136,7 +136,7 @@ Security admins can now create and assign tickets directly from the Microsoft De
    - **Description and Short Description**: If you chose a default integration earlier, description, and short description are automatically completed. 
    - **Remediation timeframe**: Choose the remediation timeframe to desired deadline for the recommendation to be remediated. 
    - **Apply Grace Period**: You can apply a grace period so that the resources that are given a due date don’t affect your Secure Score until they’re overdue.
-   - **Set Email Notifications**: You can send a remonder to the owners or the owner’s direct manager.
+   - **Set Email Notifications**: You can send a reminder to the owners or the owner’s direct manager.
 
    :::image type="content" border="true" source="./media/integration-servicenow/assignment-details.png" alt-text="Screenshot of how to complete the assignment details.":::
 
