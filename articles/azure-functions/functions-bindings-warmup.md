@@ -88,8 +88,6 @@ The following example shows a warmup trigger [JavaScript function](functions-ref
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger1.js" :::
 
----
-
 # [Model v3](#tab/nodejs-v3)
 
 The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md) that runs on each new instance when added to your app.
@@ -127,8 +125,6 @@ module.exports = async function (warmupContext, context) {
 The following example shows a warmup trigger [TypeScript function](functions-reference-node.md) that runs on each new instance when added to your app:
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
-
----
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.
