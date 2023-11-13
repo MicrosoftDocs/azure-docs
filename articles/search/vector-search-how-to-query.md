@@ -20,7 +20,7 @@ In Azure AI Search, if you [added vector fields](vector-search-how-to-create-ind
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
-Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ This section applies to the generally available version of vector search (**2023
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library or API endpoint that provides this capability. **Use the same embedding that you used to generate embeddings in the source documents.**
 
-You can find multiple instances of query string conversion in the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
+You can find multiple instances of query string conversion in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI model:
 
@@ -236,19 +236,19 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 + Use the [**Azure.Search.Documents 11.5.0-beta.5**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.5) package for vector scenarios. 
 
-+ See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-vector-query)
 
 + Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents/11.4.0b11/) package for vector scenarios. 
 
-+ See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-vector-query)
 
 + Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
 
-+ See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 

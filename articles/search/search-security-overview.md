@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: 
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 11/10/2023
 ---
 
 # Security overview for Azure AI Search
@@ -31,7 +31,7 @@ Azure AI Search has three basic network traffic patterns:
 Inbound requests that target a search service endpoint can be characterized as:
 
 + Create or manage indexes, indexers, data sources, skillsets, and synonym maps
-+ Invoke indexer or skillset execution
++ Trigger indexer or skillset execution
 + Load or query an index
 
 You can review the [REST APIs](/rest/api/searchservice/) to understand the full range of inbound requests that are handled by a search service.
@@ -39,28 +39,36 @@ You can review the [REST APIs](/rest/api/searchservice/) to understand the full 
 At a minimum, all inbound requests must be authenticated:
 
 + Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
-+ Alternatively, you can use Microsoft Entra ID and role-based access control for data plane operations. 
++ Microsoft Entra ID and role-based access control are also widely used for data plane operations. 
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing, skills-based AI enrichment, and vectorization. Outbound requests include both read and write operations.
 
 The following list is a full enumeration of the outbound requests that can be made by a search service. A search service makes requests on its own behalf, and on the behalf of an indexer or custom skill:
 
 + Indexers [read from external data sources](search-indexer-securing-resources.md).
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + If you're using custom skills, custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
++ If you're using [integrated vectorization](vector-search-integrated-vectorizaton.md), the search service connects to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution.
 + If you're using customer-managed keys, the service connects to an external Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or a Microsoft Entra login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Microsoft Entra ID. 
+Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
-If your Azure resource is behind a firewall, you'll need to [create rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). For resources protected by Azure Private Link, you can [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
+For Azure resources behind a firewall, [create inbound rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). 
+
+For Azure resources protected by Azure Private Link, [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
 #### Exception for same-region search and storage services
 
-If Storage and Search are in the same region, network traffic is routed through a private IP address and occurs over the Microsoft backbone network. Because private IP addresses are used, you can't configure IP firewalls or a private endpoint for network security. Instead, use the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as an alternative when both services are in the same region. 
+If Azure Storage and Azure AI Search are in the same region, network traffic is routed through a private IP address and occurs over the Microsoft backbone network. Because private IP addresses are used, you can't configure IP firewalls or a private endpoint for network security. 
+
+Configure same-region connections using either of the following approaches:
+
++ [Trusted service exception](search-indexer-howto-access-trusted-service-exception.md)
++ [Resource instance rules](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-azure-resource-instances)
 
 ### Internal traffic
 
@@ -76,7 +84,7 @@ Internal traffic consists of:
 
 ## Network security
 
-[Network security](../security/fundamentals/network-overview.md) protects resources from unauthorized access or attack by applying controls to network traffic. Azure AI Search supports networking features that can be your first line of defense against unauthorized access.
+[Network security](../security/fundamentals/network-overview.md) protects resources from unauthorized access or attack by applying controls to network traffic. Azure AI Search supports networking features that can be your frontline of defense against unauthorized access.
 
 ### Inbound connection through IP firewalls
 
@@ -92,7 +100,7 @@ Alternatively, you can use the management REST APIs. Starting with API version 2
 
 For more stringent security, you can establish a [private endpoint](../private-link/private-endpoint-overview.md) for Azure AI Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
 
-The private endpoint uses an IP address from the virtual network address space for connections to your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. A VNET allows for secure communication among resources, with your on-premises network as well as the Internet.
+The private endpoint uses an IP address from the virtual network address space for connections to your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. A virtual network allows for secure communication among resources, with your on-premises network as well as the Internet.
 
 :::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="sample architecture diagram for private endpoint access":::
 
@@ -102,11 +110,11 @@ While this solution is the most secure, using more services is an added cost so 
 
 Once a request is admitted to the search service, it must still undergo authentication and authorization that determines whether the request is permitted. Azure AI Search supports two approaches:
 
-+ [Microsoft Entra authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
++ [Microsoft Entra authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines authorization. 
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want to use.
+You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want available on your search service.
 
 ## Authorization
 
@@ -127,7 +135,7 @@ In Azure AI Search, Resource Manager is used to create or delete the service, ma
 
 Content management refers to the objects created and hosted on a search service.
 
-+ For Microsoft Entra authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to your search service.
++ For role-based authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to operations.
 
 + For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the type of key (admin or query) authorize access to content and operations.
 
@@ -141,7 +149,7 @@ For multitenancy solutions requiring security boundaries at the index level, it'
 
 ### Restricting access to documents
 
-User permissions at the document level, also known as "row-level security", isn't natively supported in Azure AI Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Azure AI Search.
+User permissions at the document level, also known as *row-level security*, isn't natively supported in Azure AI Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Azure AI Search.
 
 If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. The following table describes two approaches for trimming search results of unauthorized content.
 
@@ -164,7 +172,7 @@ Telemetry logs are retained for one and a half years. During that period, Micros
 
 + Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
 
-+ During support, this information may be used to provide quick resolution to issues and escalate product team if needed
++ During support, this information might be used to provide quick resolution to issues and escalate product team if needed
 
 <a name="encryption"></a>
 
