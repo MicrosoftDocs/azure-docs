@@ -40,7 +40,7 @@ As part of your RISE project, document the interfaces and transfer points betwee
 
 ## RISE architecture
 
-The chosen architecture for SAP RISE in Azure is decided, validated and deployed by SAP entirely. Microsoft and SAP are continuously working together how Azure best practices and recommended SAP on Azure architecture are part of SAP's design for Azure deployments. Microsoft documents the integration part with SAP RISE, not the details about SAP's used architecture. SAP might use modifications and optimizations in their employed architecture, to fulfil RISE SLAs and expectations by customers.
+An SAP RISE architecture is created and managed entirely by SAP. The technical details used by SAP for RISE in Azure are decided, validated and deployed by SAP entirely. Microsoft and SAP are continuously working together how Azure best practices and recommended SAP on Azure architecture are part of SAP's design for Azure deployments. Microsoft documents the integration part with SAP RISE in these documents, however not the details about SAP's used architecture. From Microsoft's recommended architecture SAP might use modifications and optimizations in their employed architecture, to fulfil RISE SLAs and expectations by customers. Work with SAP for any extensions or customizations and configuration, for your organization's requirements. 
 
 ## Next steps
 Check out the documentation:

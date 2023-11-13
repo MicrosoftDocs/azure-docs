@@ -102,6 +102,8 @@ Alternatively, DNS zone transfer from SAP DNS servers could be performed to a cu
 
 **Important to note**, that both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, can't be used to accept DNS replication from SAP RISE/STE/ECS DNS servers. Additionally, external DNS service providers are typically not supported by SAP RISE/ECS.
 
+SAP has published a blog post on the DNS implementation with SAP RISE in Azure, see [here for details](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/).
+
 To further read about the usage of Azure DNS for SAP, outside the usage with SAP RISE/ECS see details in following [blog post](https://www.linkedin.com/posts/k-popov_sap-on-azure-dns-integration-whitepaper-activity-6841398577495977984-ui9V/).
 
 ## Internet outbound and inbound connections with SAP RISE/ECS
@@ -138,4 +140,4 @@ Check out the documentation:
 
 - [Integrating Azure with SAP RISE managed workloads](./rise-integration.md)
 - [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
-- [DNS integration with SAP RISE in multi-cloud environment series guide – Azure](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/)
+- [DNS integration with SAP RISE in multi-cloud environment series guide – Azure | SAP Blogs](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/)
