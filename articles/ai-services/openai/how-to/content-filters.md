@@ -73,8 +73,6 @@ The following steps show how to set up a customized content filtering configurat
 
     You can create multiple content filtering configurations as per your requirements.
 
-    :::image type="content" source="../media/content-filters/multiple.png" alt-text="Screenshot of the content filtering configuration with multiple content filters configured." lightbox="../media/content-filters/multiple.png":::
-
 1. To turn the optional models on, you can select any of the checkboxes at the left hand side. When each of the optional models is turned on, you can indicate whether the model should Annotate or Filter.
 
 1. Selecting Annotate will run the respective model and return annotations via API response, but it will not filter content. In addition to annotations, you can also choose to filter content by switching the Filter toggle to on. 
@@ -85,15 +83,15 @@ The following steps show how to set up a customized content filtering configurat
 
     :::image type="content" source="../media/content-filters/edit-deployment.png" alt-text="Screenshot of the content filtering configuration with edit deployment highlighted." lightbox="../media/content-filters/edit-deployment.png":::
 
-7. Go to advanced options (outlined in the blue box below) select the content filter configuration suitable for that deployment from the **Content Filter** dropdown (outlined near the bottom of the dialog box in the red box below).
+1. Go to advanced options (outlined in the blue box below) select the content filter configuration suitable for that deployment from the **Content Filter** dropdown (outlined near the bottom of the dialog box in the red box below).
 
-    :::image type="content" source="../media/content-filters/advanced.png" alt-text="Screenshot of edit deployment configuration with advanced options selected." lightbox="../media/content-filters/select-filter.png":::
+    :::image type="content" source="../media/content-filters/advanced.png" alt-text="Screenshot of edit deployment configuration with advanced options selected." lightbox="../media/content-filters/advanced.png":::
 
-8. Select **Save and close** to apply the selected configuration to the deployment.
+1. Select **Save and close** to apply the selected configuration to the deployment.
 
-    :::image type="content" source="../media/content-filters/select-filter.png" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.png":::
+    :::image type="content" source="../media/content-filters/select-filter.jpg" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.jpg":::
 
-9. You can also edit and delete a content filter configuration if required. To do this, navigate to the content filters tab and select the desired action (options outlined near the top of the screen in the red box below). You can edit/delete only one filtering configuration at a time.  
+1. You can also edit and delete a content filter configuration if required. To do this, navigate to the content filters tab and select the desired action (options outlined near the top of the screen in the red box below). You can edit/delete only one filtering configuration at a time.  
 
     :::image type="content" source="../media/content-filters/delete.png" alt-text="Screenshot of content filter configuration with edit and delete highlighted." lightbox="../media/content-filters/delete.png":::
 
