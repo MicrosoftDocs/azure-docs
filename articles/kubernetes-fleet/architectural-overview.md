@@ -25,11 +25,9 @@ Fleet supports joining the following types of existing AKS clusters as member cl
 * AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
-You can join up to 100 AKS clusters as member clusters to the same fleet resource.
+If you want to use fleet only for the update orchestration scenario, you can create a fleet resource without the hub cluster. The fleet resource is treated just as a grouping resource, and does not have its own data plane. This is the default behavior when creating a new fleet resource. In this case, you can join up to 100 AKS clusters as member clusters to the same fleet resource.
 
-If you want to use fleet only for the update orchestration scenario, you can create a fleet resource without the hub cluster. The fleet resource is treated just as a grouping resource, and does not have its own data plane. This is the default behavior when creating a new fleet resource.
-
-If you want to use fleet for Kubernetes object propagation (preview) and multi-cluster load balancing (preview) in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled.
+If you want to use fleet for Kubernetes object propagation (preview) and multi-cluster load balancing (preview) in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled. In this case, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
 
 Note that once a fleet resource has been created, it is not possible to change the hub mode for the fleet resource.
 

@@ -21,11 +21,9 @@ Azure Kubernetes Fleet Manager (Fleet) enables at-scale management of multiple A
 
 * Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
 
-* Create Kubernetes resource objects on the Fleet resource's hub cluster and control their propagation to all or a subset of all member clusters (preview).
+* Create Kubernetes resource objects on the Fleet resource's hub cluster and control their propagation to member clusters (preview).
 
-* Export and import services between member clusters. Once successfully exported, a service and its endpoints are synced to the hub, and can be consumed by other member clusters (preview).
-
-* Load balance incoming L4 traffic across service endpoints on multiple clusters (preview).
+* Export and import services between member clusters, and load balance incoming L4 traffic across service endpoints on multiple clusters (preview).
 
 ## Next steps
 

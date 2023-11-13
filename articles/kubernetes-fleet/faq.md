@@ -27,7 +27,7 @@ Today, Azure Kubernetes Fleet Manager supports joining existing AKS clusters as 
 
 ## Number of clusters
 
-You can join up to 100 AKS clusters as member clusters to the same fleet resource.
+The number of member clusters that can be joined to the same fleet resource depends on whether the fleet resource has a hub cluster or not. Fleets without a hub cluster support joining up to 100 AKS clusters. Fleet resources with a hub cluster support joining up to 20 AKS clusters.
 
 ## AKS clusters that can be joined as members
 
