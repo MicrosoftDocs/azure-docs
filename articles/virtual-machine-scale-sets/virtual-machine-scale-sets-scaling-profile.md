@@ -29,21 +29,26 @@ By default, scale sets are created with a virtual machine scaling profile. See [
 
 ## Create a scale set without a scaling profile
 
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It's useful to create a scale set without a scaling profile when, need complete control over all VM properties, need to follow your own VM naming conventions, want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
 
-|Feature |Virtual machine scale sets (no scaling profile) |Availability Sets |
-| -------- | :--------: | :--------: |
-|Maximum capacity   |1000|200|
-|Supports Availability Zones|Yes|No|
-|Maximum Aligned Fault Domains Count|3|3|
-|Add new VM to set |Yes|Yes|
-|Add VM to specific fault domain|Yes|No|
-|Maximum Update Domain count|N/A. Update domains are deprecated|20|
+| Feature                             | Virtual machine scale sets (no scaling profile) | Availability Sets |
+| ----------------------------------- | :---------------------------------------------: | :---------------: |
+| Maximum capacity                    |                      1000                       |        200        |
+| Supports Availability Zones         |                       Yes                       |        No         |
+| Maximum Aligned Fault Domains Count |                        3                        |         3         |
+| Add new VM to set                   |                       Yes                       |        Yes        |
+| Add VM to specific fault domain     |                       Yes                       |        No         |
+| Maximum Update Domain count         |       N/A. Update domains are deprecated        |        20         |
 
 Once you have created the virtual machine scale set, you can manually attach virtual machines.
 
 > [!NOTE]
-> You cannot create a virtual machine scale set without a scaling profile in the Azure portal
+> You cannot create a virtual machine scale set without a scaling profile in the Azure portal.
 
 ### [Azure CLI](#tab/cli)
 
@@ -53,7 +58,6 @@ By default, the Azure CLI will create a scale set with a scaling profile. Omit t
 az vmss create \
 	--name myVmss \
 	--resource-group myResourceGroup \
-	--orchestration-mode flexible \
 	--platform-fault-domain-count 3 
 ```
 
