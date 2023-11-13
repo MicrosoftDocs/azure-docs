@@ -336,5 +336,5 @@ For best practices on identity and resource control, see [Best practices for aut
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-azure-ad.md
-[managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
+[managed-aad-migrate]: managed-azure-ad.md#migrate-a-legacy-azure-ad-cluster-to-integration
 [az-aks-show]: /cli/azure/aks#az_aks_show
