@@ -30,7 +30,7 @@ Security standards in Defender for Cloud simplify the complexity of Azure Policy
 Here's what you can do with security standards in Defender for Cloud:
 
 
-- **Modify the built-in MCSB for the subscription** - When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions..
+- **Modify the built-in MCSB for the subscription** - When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions.
 
 - **Add regulatory compliance standards** - If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.md)
 

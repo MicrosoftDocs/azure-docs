@@ -70,7 +70,7 @@ Once the Defender CSPM plan is enabled on your subscription, you have the abilit
 
 1. Select **On** for each component to enable it.
 
-1. (Optional) For agentless scanning for machine select **Edit configuration**.
+1. (Optional) For agentless scanning, select **Edit configuration**.
 
     :::image type="content" source="media/tutorial-enable-cspm-plan/cspm-configuration.png" alt-text="Screenshot that shows where to select edit configuration." lightbox="media/tutorial-enable-cspm-plan/cspm-configuration.png":::
 

@@ -23,7 +23,7 @@ This article is the *fourth* article in the Defender for Servers planning guide.
 
 ## Review plans
 
-You can choose from two Defender for Servers paid plans:
+You can choose from two paid plans:
 
 - **Defender for Servers Plan 1** is entry-level and must be enabled at the subscription level. Features include:
 
