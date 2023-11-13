@@ -1,5 +1,5 @@
 ---
-title: Technical onboarding guide for 42Crunch
+title: Technical onboarding guide for 42Crunch (Preview)
 description: Learn how to use 42Crunch with Microsoft Defender.
 ms.date: 11/05/2023
 author: dcurwin
@@ -19,13 +19,15 @@ Scans can run automatically as part of a CI/CD pipeline or manually through an I
 
 Because the quality of the API specification largely determines the scan coverage and effectiveness, it's important to ensure that your OpenAPI specification is well-defined. 42Crunch **Audit** performs a static analysis of the OpenAPI specification file aimed at helping the developer to improve the security and quality of the specification. The Audit determines a composite security score from 0-100 for each specification file. As developers remediate security and semantic issues identified by the Audit, the score improves. 42Crunch recommends an [Audit score of at least 70 before running a conformance scan](https://docs.42crunch.com/latest/content/concepts/data_dictionaries.htm).
 
-## Enablement
+# Enablement
+> [!NOTE]
+> The steps below walk through how to set up the free version of 42Crunch. See the [FAQ section](onboarding-guide-42crunch.md#FAQ) to learn the differences between the free and paid versions of 42Crunch and how to purchase 42Crunch on the Azure Marketplace.
 
-Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. With this preview, the security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the MDC recommendation experience, and can take governance steps natively available through MDC recommendations, including assigning owners and setting due dates for remediation.
+Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
 
 ## Connect your GitHub repositories to Microsoft Defender for Cloud
 
-To complete this step, follow the instructions in [Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md). If you already have a GitHub repository connected to Microsoft Defender for Cloud, you can skip this step.
+This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations.](https://review.learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-github)
 
 ## Configure 42Crunch Audit service
 
@@ -81,15 +83,13 @@ You have now verified that the audit results are showing in GitHub Code Scanning
 
 The selected recommendation shows all 42Crunch audit findings. You have completed the onboarding for the 42Crunch Audit step.
 
-:::image type="content" source="media/onboarding-guide-42crunch/recommendations.png" alt-text="Screenshot showing API recommendations." lightbox="media/onboarding-guide-42crunch/recommendations.png":::
-
 :::image type="content" source="media/onboarding-guide-42crunch/api-recommendations.png" alt-text="Screenshot showing API summary." lightbox="media/onboarding-guide-42crunch/api-recommendations.png":::
 
 ## Configure 42Crunch Scan service
 
 API Scan continually scans the API to ensure conformance to the OpenAPI contract and detect vulnerabilities at testing time. It detects OWASP API Security Top 10 issues early in the API lifecycle and validates that your APIs can handle unexpected requests.
 
-The scan requires a non-production live API endpoint, and the required credentials (API key/access token). [Follow these steps](https://docs.42crunch.com/latest/content/tutorials/tutorials.htm) to configure the 42Crunch scan.
+The scan requires a non-production live API endpoint, and the required credentials (API key/access token). [Follow these steps](https://github.com/42Crunch/apisecurity-tutorial) to configure the 42Crunch scan.
 
 ## FAQ
 
