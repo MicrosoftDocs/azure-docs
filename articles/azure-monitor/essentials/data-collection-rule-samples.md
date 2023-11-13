@@ -1,6 +1,6 @@
 ---
-title: Sample data collection rules (DCRs)
-description: Sample data collection rule for Azure Monitor agent
+title: Sample data collection rules (DCRs) in Azure Monitor
+description: Sample data collection rule for different Azure Monitor data collection scenarios.
 ms.topic: sample
 ms.date: 07/19/2023
 ms.custom: references_region
@@ -8,7 +8,7 @@ ms.reviewer: jeffwo
 
 ---
 
-# Sample data collection rules (DCRs)
+# Sample data collection rules (DCRs) in Azure Monitor
 This article includes sample [data collection rules (DCRs)](./data-collection-rule-overview.md) for different scenarios. For descriptions of each of the properties in these DCRs, see [Data collection rule structure](./data-collection-rule-structure.md).
 
 ## Azure Monitor agent - events and performance data

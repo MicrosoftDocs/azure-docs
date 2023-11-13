@@ -24,7 +24,7 @@ The DCE provides an endpoint for the application to send to. A single DCE can su
 See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 
 ## 3. Create table in Log Analytics workspace
-The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manually as described in the next section.
+The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](logs-ingestion-api-overview.md#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manually as described in the next section.
 
 See [Create a custom table](create-custom-table.md#create-a-custom-table). 
 
@@ -50,7 +50,7 @@ To manually create the DCR, start with the [Sample DCR for Logs Ingestion API](.
 | `StreamDeclarations` | Change the column list to the columns in your incoming data. You don't need to change the name of the stream since this just needs to match the `streams` name in `dataFlows`. |
 | `workspaceResourceId` | Resource ID of your Log Analytics workspace. You don't need to change the name since this just needs to match the `destinations` name in `dataFlows`.  |
 | transformKql | KQL query to be applied to the incoming data. If the schema of the incoming data matches the schema of the table, then you can use `source` for the transformation. Otherwise, use a query that will transform the data to match the table schema. |
-| `outputStream` | Name of the table to send the data. For a custom table, add the prefix *Custom-<table-name>*. For a built-in table, add the prefix *Microsoft-<table-name>*.
+| `outputStream` | Name of the table to send the data. For a custom table, add the prefix *Custom-\<table-name\>*. For a built-in table, add the prefix *Microsoft-\<table-name\>*. |
 
 
 ## 5. Grant access to the DCR
