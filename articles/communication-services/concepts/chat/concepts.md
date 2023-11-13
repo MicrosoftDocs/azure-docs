@@ -60,14 +60,14 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Real-time notifications in your client application can be used to subscribe to message & thread updates from other participants.
 
-## Build intelligent, AI powered chat experiences
+## Build intelligent, AI-powered chat experiences
 
 You can use Azure AI services with the Chat service to build use cases like:
 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
-- Genrate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
+- Generate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
 - Add a [Power Virtual Agent](https://powervirtualagents.microsoft.com/en-us/) (PVA) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
-- Configure a bot to run on one or more social channels along side the Chat channel.
+- Configure a bot to run on one or more social channels alongside the Chat channel.
 
 :::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
 
@@ -116,7 +116,7 @@ This feature lets server applications listen to events such as when a message is
 
 ## Push notifications 
 
-Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing so, will notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
+Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing so will notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
 IOS and Android SDK support the below event:
 - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
