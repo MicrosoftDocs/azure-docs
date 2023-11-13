@@ -4,7 +4,7 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 07/17/2023
+ms.date: 10/30/2023
 ---
 
 # Upgrade to App Service Environment v3
@@ -22,7 +22,7 @@ This page is your one-stop shop for guidance and resources to help you upgrade s
 |**1**|**Pre-flight check**|Determine if your environment meets the prerequisites to automate your upgrade using the migration feature.<br><br>- [Automated upgrade using the migration feature](migrate.md)<br><br>If not, you can upgrade manually.<br><br>- [Manual migration](migration-alternatives.md)|
 |**2**|**Migrate**|Based on results of your review, either upgrade using the migration feature or follow the manual steps.<br><br>- [Use the automated migration feature](how-to-migrate.md)<br>- [Migrate manually](migration-alternatives.md)|
 |**3**|**Testing and troubleshooting**|Upgrading using the automated migration feature requires a 3-6 hour service window. Support teams are monitoring upgrades to ensure success. If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).|
-|**4**|**Optimize your App Service plans**|Once your upgrade is complete, you can optimize the App Service plans for additional benefits.<br><br>Review the autoselected Isolated v2 SKU sizes and scale up or scale down your App Service plans as needed.<br><br>- [Scale down your App Service plans](../manage-scale-up.md)<br>- [App Service Environment post-migration scaling guidance](migrate.md#pricing)<br><br>Check out the pricing estimates if needed.<br><br>- [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)|
+|**4**|**Optimize your App Service plans**|Once your upgrade is complete, you can optimize the App Service plans for additional benefits.<br><br>Review the autoselected Isolated v2 SKU sizes and scale up or scale down your App Service plans as needed.<br><br>- [Scale down your App Service plans](../manage-scale-up.md)<br>- [App Service Environment post-migration scaling guidance](migrate.md#pricing)<br><br>Explore reserved instance pricing, savings plans, and check out the pricing estimates if needed.<br><br>- [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [How reservation discounts apply to Isolated v2 instances](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances)<br>- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)|
 |**5**|**Learn more**|Join the [free live webinar](https://developer.microsoft.com/en-us/reactor/events/20417) with FastTrack Architects.<br><br>Need more help? [Submit a request](https://cxp.azure.com/nominationportal/nominationform/fasttrack) to contact FastTrack.<br><br>[Frequently asked questions](migrate.md#frequently-asked-questions)<br><br>[Community support](https://aka.ms/asev1v2retirement)|
 
 ## Additional information

@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/09/2023
+ms.date: 11/06/2023
 ---
 
 # Source control in Azure Data Factory
@@ -38,7 +38,7 @@ Below is a list of some of the advantages git integration provides to the author
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
 -   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
--   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
+-   **Collaboration and control:** If you have multiple team members contributing to the same factory, you might want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members might only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
 -   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
     -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
@@ -113,7 +113,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 If any adjustments need to be made to the settings of your configured Azure Repos Git repository, you can choose to **Edit**.
 
-:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing a Azure Repos Git repository.":::
+:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing an Azure Repos Git repository.":::
 
 You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
 
@@ -239,6 +239,18 @@ If you connect to GitHub Enterprise Server, you need to use personal access toke
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
+#### Connecting to Azure DevOps Server 2022
+
+If you connect to Azure DevOps Server 2022, you need to use a personal access token for authentication. [Learn how to create a personal access token here](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+ 
+Connect to on-premises Azure DevOps by providing the ``Azure DevOps Server URL`` and ``Azure DevOps Project Collection``
+
+:::image type="content" source="media/data-flow/devops-001.png" alt-text="Screenshot shows ADO configure a repository using server.":::
+
+Provide the token with access scope as read/write for code.
+
+:::image type="content" source="media/data-flow/devops-002.png" alt-text="Screenshot shows ADO configure access token.":::
+
 ## Version control
 
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
@@ -342,7 +354,7 @@ Choose either method appropriately as needed.
 
 ### All resources showing as new on publish
 
-While publishing, all resources may show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
+While publishing, all resources might show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
 
 
 
