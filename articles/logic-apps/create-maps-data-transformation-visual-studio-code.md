@@ -444,7 +444,7 @@ To use the same **Transform using Data Mapper XSLT** action in the Azure portal,
 
 To create your own function that you can use with the Data Mapper tool, follow these steps:
 
-1. For each function, create a XML (.xml) file that has a meaningful name.
+1. For each function, create an XML (.xml) file that has a meaningful name.
 
    Although you can use a single file to define multiple functions, consider the recommendation to create a separate file for each function. You can use any file name, but make sure to use a meaningful name.
 
@@ -508,7 +508,7 @@ To create your own function that you can use with the Data Mapper tool, follow t
 
 1. On your local computer, open the folder for your Standard logic app project.
 
-1. Open the **Artifacts** folder, and create the following folder structure, if none exist: **DataMapper ** > **Extensions** > **Functions**.
+1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper ** > **Extensions** > **Functions**.
 
 1. In the **Functions** folder, save your function's XML file.
 
