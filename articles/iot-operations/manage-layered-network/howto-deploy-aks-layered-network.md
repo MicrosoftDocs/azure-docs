@@ -103,6 +103,14 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
           destinationType: external
         - destinationUrl: "msit-onelake.pbidedicated.windows.net"
           destinationType: external
+        - destinationUrl: "*.vault.azure.net"
+          destinationType: external
+        - destinationUrl: "*.k8s.io"
+          destinationType: external
+        - destinationUrl: "*.pkg.dev"
+          destinationType: external
+        - destinationUrl: "github.com"
+          destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0
