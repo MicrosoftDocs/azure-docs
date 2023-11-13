@@ -199,6 +199,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
+| AlmaLinux 9                                                 | ✓<sup>3</sup> | ✓ |   |
 | AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
 | Amazon Linux 2017.09                                        |  | ✓ |   |
 | Amazon Linux 2                                              | ✓ | ✓ |   |
@@ -210,6 +211,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Debian 9                                                    | ✓ | ✓ | ✓ |
 | Debian 8                                                    |   | ✓ |   |
 | OpenSUSE 15                                                 | ✓ |   |   |
+| Oracle Linux 9                                              | ✓ |  |   |
 | Oracle Linux 8                                              | ✓ | ✓ |   |
 | Oracle Linux 7                                              | ✓ | ✓ | ✓ |
 | Oracle Linux 6.4+                                           |   |  | ✓ |
@@ -218,6 +220,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
 | Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Rocky Linux 9                                               | ✓ | ✓ |   |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
@@ -225,7 +228,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
-| Ubuntu 22.04 LTS                                            | ✓ |   |   |
+| Ubuntu 22.04 LTS                                            | ✓ | ✓ |   |
 | Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
