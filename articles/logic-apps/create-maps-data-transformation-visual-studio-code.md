@@ -220,7 +220,7 @@ The example in this section transforms the source element type from String type 
 
 1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
 
-   This example selects the **To date** function. You can also find and select any custom functions in the same way.
+   This example selects the **To date** function. You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).
 
    ![Screenshot showing the selected function named To date.](media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png)
 
@@ -437,6 +437,82 @@ To use the same **Transform using Data Mapper XSLT** action in the Azure portal,
 
 - An integration account for a Consumption or Standard logic app resource
 - The Standard logic app resource itself
+
+<a name="create-custom-function"></a>
+
+## Create a custom function
+
+To create your own function that you can use with the Data Mapper tool, follow these steps:
+
+1. For each function, create a XML (.xml) file that has a meaningful name.
+
+   Although you can use a single file to define multiple functions, consider the recommendation to create a separate file for each function. You can use any file name, but make sure to use a meaningful name.
+
+1. In each file, you must use the following schema for the function definition:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="customfunctions">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" name="function"> 
+                  <xs:complexType> 
+                     <xs:sequence> 
+                        <xs:element maxOccurs="unbounded" name="param"> 
+                           <xs:complexType> 
+                               <xs:attribute name="name" type="xs:string" use="required" /> 
+                               <xs:attribute name="as" type="xs:string" use="required" /> 
+                           </xs:complexType> 
+                        </xs:element> 
+                        <xs:any minOccurs="0" /> 
+                     </xs:sequence> 
+                     <xs:attribute name="name" type="xs:string" use="required" /> 
+                     <xs:attribute name="as" type="xs:string" use="required" /> 
+                     <xs:attribute name="description" type="xs:string" use="required" /> 
+                  </xs:complexType> 
+               </xs:element> 
+            </xs:sequence> 
+         </xs:complexType> 
+      </xs:element> 
+   </xs:schema> 
+   ```
+
+   Each XML element named **"function"** implements an XSLT3.0 style function with few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+
+   The following example shows the implementation for a **SampleFunctions.xml** file:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <customfunctions>
+      <function name="age" as="xs:float" description="Returns the current age.">
+         <param name="inputDate" as="xs:date"/> 
+         <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
+      </function> 
+      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value."> 
+         <param name="condition" as="xs:boolean"/> 
+         <param name="thenResult" as="xs:anyAtomicType"/> 
+         <param name="elseResult" as="xs:anyAtomicType"/> 
+         <choose>
+            <when test="$condition"> 
+               <value-of select="$thenResult"></value-of> 
+            </when> 
+            <otherwise> 
+               <value-of select="$elseResult"></value-of> 
+            </otherwise> 
+         </choose> 
+      </function> 
+   </customfunctions> 
+   ```
+
+1. On your local computer, open the folder for your Standard logic app project.
+
+1. Open the **Artifacts** folder, and create the following folder structure, if none exist: **DataMapper ** > **Extensions** > **Functions**.
+
+1. In the **Functions** folder, save your function's XML file.
+
+1. Now, you can find your custom function in the Data Mapper tool's functions list, under the **Custom functions** collection.
 
 ## Next steps
 
