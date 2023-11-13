@@ -334,8 +334,6 @@ begin {
 }
 
 process {
-    Write-Host "NOTE: If you are using OAuth authorization on a storage account, disabling public access at the account level may interfere with authorization."
-
     try {
         select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
     } catch {
