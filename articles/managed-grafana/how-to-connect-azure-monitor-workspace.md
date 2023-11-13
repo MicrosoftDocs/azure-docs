@@ -24,7 +24,12 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 
 ## Add a new role assignment
 
-In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the Azure Managed Grafana resource, so that Grafana can collect data from the Azure Monitor workspace.
+In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the Azure Managed Grafana resource's managed identity, so that Grafana can collect data from the Azure Monitor workspace.
+
+> [!NOTE]
+> A system-assigned managed identity must be enabled in your Azure Managed Grafana resource. If needed, enable it by going to **Identity** and select **Status**: **On**.
+
+To assign the Monitoring Data Reader role:
 
 1. Open the Azure Monitor workspace that holds Prometheus data.
 1. Go to **Access control (IAM)** > **Add** > **Add role assignment**.
@@ -42,7 +47,7 @@ In the Azure Monitor workspace, assign the *Monitoring Data Reader* role to the 
 
 1. Select **Add**.
 1. In the pane that opens, select an Azure Monitor workspace from the list and confirm with **Add**.
-1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can remove an Azure Monitor workspace by selecting **Delete** or add more by selecting **Add** again.
+1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can add more Azure Monitor workspaces by selecting **Add** again.
 
 ## Display Prometheus data in Grafana
 
@@ -98,6 +103,16 @@ To build a brand new dashboard with Prometheus metrics:
 
 > [!TIP]
 > If you're unable to get Prometheus data in your dashboard, check if your Azure Monitor workspace is collecting Prometheus data. Go to [Troubleshoot collection of Prometheus metrics in Azure Monitor](../azure-monitor/containers/prometheus-metrics-troubleshoot.md) for more information.
+
+## Remove an Azure Monitor workspace
+
+If you no longer need it, you can remove an Azure Monitor workspace from your Azure Managed Grafana workspace.
+
+1. In your Azure Managed Grafana workspace, select **Integrations** > **Azure Monitor workspaces (Preview**) from the left menu.
+1. Select the row  with the resource to delete and select **Delete** > **Yes**.
+1. Go to the Azure Monitor workspace resource and remove the role assignment that was previously added:
+    1. In the Azure Monitor workspace resource, select **Access control (IAM)** > **Role assignments**.
+    1. Under **Monitoring Data Reader**, select the row with the name of your Azure Managed Grafana resource and select **Remove** > **OK**.
 
 To learn more about Azure Monitor managed service for Prometheus, read the [Azure Monitor managed service for Prometheus guide](../azure-monitor/essentials/prometheus-metrics-overview.md).
 
