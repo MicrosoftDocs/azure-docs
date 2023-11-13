@@ -2,7 +2,7 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 11/13/2023
 ms.author: xiaofanzhou
 ---
 
@@ -66,14 +66,6 @@ await connection.OpenAsync();
     ```
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
-
-# [SpringBoot](#tab/spring-mysql-mi)
-
-For a Spring application, if you create a connection with the option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
-
-Update your application following the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/how-to-bind-mysql.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
-
-For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?tabs=passwordless%2Cservice-connector&pivots=mysql-passwordless-flexible-server#store-data-from-azure-database-for-mysql)
 
 # [Python](#tab/python-mysql-mi)
 
@@ -162,53 +154,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
         }
     }
     ```
-
-# [Go](#tab/go-mysql-mi)
-
-1. Install dependencies.
-
-   ```bash
-   go get "github.com/go-sql-driver/mysql"
-   go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-   go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
-   ```
-
-1. In code, get an access token via `azidentity`, then connect to Azure MySQL with the token. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
-
-   ```go
-   import (
-     "context"
-     
-     "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-     "github.com/go-sql-driver/mysql"
-   )
-   
-   
-   func main() {
-       
-     // Uncomment the following lines according to the authentication type.
-     // for system-assigned managed identity
-     // cred, err := azidentity.NewDefaultAzureCredential(nil)
-
-     // for user-assigned managed identity
-     // clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
-     // azidentity.ManagedIdentityCredentialOptions.ID := clientid
-     // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
-     // cred, err := azidentity.NewManagedIdentityCredential(options)
-
-     if err != nil {
-     }
-   
-     ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-     token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-       Scopes: []string("https://ossrdbms-aad.database.windows.net/.default"),
-     })
-     
-     connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING") + ";Password=" + token.Token
-     db, err := sql.Open("mysql", connectionString)
-   }
-   ```
 
 # [NodeJS](#tab/nodejs-mysql-mi)
 

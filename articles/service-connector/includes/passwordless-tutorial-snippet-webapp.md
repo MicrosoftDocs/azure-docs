@@ -14,8 +14,8 @@ ms.author: xiaofanzhou
 
 Next, create a passwordless connection with Service Connector.
 
-> [!NOTE]
-> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution in Cloud Shell.
+> [!TIP]
+> The Azure portal can help you compose the commands below. In the Azure portal, go to your [Azure App Service](../quickstart-portal-app-service-connection.md) resource, select **Service Connector** from the left menu and select **Create**. Fill out the form with all required parameters. Azure automaticaly generates the connection creation command, which you can copy to use in the CLI or execute in Azure Cloud Shell.
 
 # [Azure SQL Database](#tab/sqldatabase-sc)
 
@@ -23,7 +23,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
 
-1. Choose a client type and run the corresponding command.
+1. Choose a client type and run the corresponding command. Replace the placeholders below with your own information.
 
     # [User-assigned managed identity](#tab/userassigned-sc)
 
@@ -35,7 +35,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --server <sql-name> \
         --database <database-name> \
         --user-identity client-id=<client-id> subs-id=<subscription-id> \
-        --client-type dotnet
+        --client-type <client-type>
     ```
 
     # [System-assigned managed identity](#tab/systemassigned-sc)
@@ -48,7 +48,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --server <sql-name> \
         --database <database-name> \
         --system-identity \
-        --client-type dotnet
+        --client-type <client-type>
     ```
 
     -----
@@ -66,8 +66,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
     --output tsv)
 ```
 
-> [!IMPORTANT]
-> After creating the user-assigned managed identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity:
+After creating the user-assigned managed identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity:
 
 * `User.Read.All`
 * `GroupMember.Read.All`
@@ -93,7 +92,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --server <mysql-name> \
         --database <database-name> \
         --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
-        --client-type java
+        --client-type <client-type>
     ```
 
     # [System-assigned managed identity](#tab/systemassigned-sc)
@@ -106,7 +105,7 @@ The following Azure CLI command uses a `--client-type` parameter.
     --server <mysql-name> \
     --database <database-name> \
     --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
-    --client-type java
+    --client-type <client-type>
     ```
 
     -----
@@ -142,7 +141,7 @@ The following Azure CLI command uses a `--client-type` parameter.
         --server <postgresql-name> \
         --database <database-name> \
         --system-identity \
-        --client-type java
+        --client-type <client-type>
     ```
 
     -----
@@ -157,7 +156,7 @@ This Service Connector command completes the following tasks in the background:
 
 * Enable system-assigned managed identity, or assign a user identity for the app `<server-name>` hosted by Azure App Service.
 * Set the Microsoft Entra admin to the current signed-in user.
-* Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `<database-name>` to this user. The username can be found in the connection string in preceding command output.
+* Add a database user for the system-assigned managed identity or user-assigned managed identity. Grant all privileges of the database `<database-name>` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
 * For App Service, the configurations are set in the **App Settings** blade.
 
@@ -165,7 +164,7 @@ If you encounter any problem when creating a connection, refer to [Troubleshooti
 
 ## 3. Modify your code
 
-In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. The pattern is as follows:
+In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
 
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
 2. Get an access token for the resource URI respective to the database type.
