@@ -31,7 +31,7 @@ Complete the configuration using the following guidance:
 :::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot showing how protobuf dropdown in the input configuration blade of an ASA job." lightbox="./media/protobuf/protobuf.png" :::
 
 > [!NOTE]
-> TO learn more about Protobuf datatypes visit the [Official Protocol Buffers Documentation](https://protobuf.dev/reference/protobuf/google.protobuf/) .
+> To learn more about Protobuf datatypes, visit the [Official Protocol Buffers Documentation](https://protobuf.dev/reference/protobuf/google.protobuf/) .
 >
 
 ### Limitations
@@ -44,7 +44,7 @@ Complete the configuration using the following guidance:
 
 2. Enums aren't supported. If the protobuf definition file contains enums, then protobuf events deserialize, but the enum field is empty, leading to data loss.
 
-3. Maps in protobuf are currently not supported. Maps in protobuf results in an error about missing a string key.
+3. Maps in protobuf are currently not supported. Maps in protobuf result in an error about missing a string key.
 
 4. When a protobuf definition file contains a namespace or package, the message type must include it.
     For example:
@@ -68,7 +68,7 @@ Complete the configuration using the following guidance:
     * Empty
 
 > [!NOTE]
-> For direct help with using the Azure Stream Analytics Kafka input, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
+> For direct help with using the protobuf deserializer, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 >
 
 ## See Also
