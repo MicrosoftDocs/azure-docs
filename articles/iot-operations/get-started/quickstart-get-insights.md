@@ -4,7 +4,7 @@ description: "Quickstart: Use a Power BI report to capture insights from your OP
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
-ms.date: 11/01/2023
+ms.date: 11/13/2023
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -69,8 +69,17 @@ These steps are for Power BI Desktop, so open that application now.
 1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/insightsTemplate.pbit).
 1. Open a new instance of Power BI Desktop.
 1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
-1. Optional: To view the script, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample asset data into Power BI using a custom [Power Query M](/powerquery-m/) script.
+
+    You may see an error pop up for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
+
+1. The template has now been imported, although it still needs some configuration to be able to display the data. If you see an option to **Apply changes** that are pending for your queries, select it and let the dashboard reload.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-initial-report.png" alt-text="Screenshot of Power BI Desktop showing a blank report." lightbox="media/quickstart-get-insights/power-bi-initial-report.png":::
+
+1. Optional: To view the script that imports the asset data, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
     
@@ -85,20 +94,31 @@ These steps are for Power BI Desktop, so open that application now.
 At this stage, some of the visuals in the Power BI report still display an error. That's because you still need to get the telemetry data.
 
 1. Select **File** > **Options and Settings** > **Data source settings**.  
-1. Select **Change source**. A list of data hubs and datasets are visible. Select the dataset you created in the previous section, choose the *OPCUA* contextualized telemetry table, and select **Submit**.
-1. In the left pane menu, select **Model view**.
+1. Select **Change Source**. 
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-change-data-source.png" alt-text="Screenshot of Power BI showing the Data source settings.":::
+
+    This displays a list of data source options. Select the dataset you created in the previous section and select **Create**.
+
+1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* contextualized telemetry table. Select **Submit**.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
+
+    Close the data source settings.
+
+1. In the left pane menu, select the icon for **Model view**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button.":::
 
 1. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
 
-1. Set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
+1. In the **Create relationship** box, set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view-options.png" alt-text="Screenshot of Power BI showing the model view options.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-create-relationship.png" alt-text="Screenshot of Power BI Create relationship options." lightbox="media/quickstart-get-insights/power-bi-create-relationship.png":::
 
 1. Return to the **Report view** using the left pane menu. All the visuals should display data now without error.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view." lightbox="media/quickstart-get-insights/power-bi-page-1.png":::
 
 ## View insights
 
