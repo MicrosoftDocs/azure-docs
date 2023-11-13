@@ -24,7 +24,7 @@ You can horizontally scale the MQTT broker by adding more frontend replicas and 
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the scaling settings Azure IoT MQ MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource.
+To configure the scaling settings Azure IoT MQ MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 The `mode` field can be one of these values:
 
@@ -46,7 +46,7 @@ The `cardinality` field is a nested field that has these subfields:
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the memory profile settings Azure IoT MQ MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource.
+To configure the memory profile settings Azure IoT MQ MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 `memoryProfile`: This subfield defines the settings for the memory profile. There are a few profiles for the memory usage you can choose:
 
