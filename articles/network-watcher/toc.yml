@@ -35,6 +35,8 @@
   items:
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
+  - name: Topology
+    href: network-insights-topology.md
   - name: Connection monitor
     href: connection-monitor-overview.md
   - name: Connection monitor schema
