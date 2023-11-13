@@ -125,6 +125,8 @@ Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/detai
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
+There will be egress fees for cross region outbound traffic. If a message is transferred across replicas **and** successfully sent to a client or server after the transfer, it will be billed as an outbound message.
+
 ## Delete a replica
 After you've created a replica for your Azure SignalR Service, you can delete it at any time if it's no longer needed. 
 
