@@ -118,6 +118,9 @@ Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does 
 az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id)
 ```
 
+>[!TIP]
+>If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
+
 Use optional flags to customize the `az iot ops init` command. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init). For example:
 
 | Parameter | Description |
@@ -148,6 +151,9 @@ Before you begin deploying, use the `az iot ops init` command to configure your 
    ```azurecli-interactive
    az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id) --no-deploy
    ```
+
+   >[!TIP]
+   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
 Now, you can deploy Azure IoT Operations to your cluster.
 
@@ -215,6 +221,28 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | **Environment parameters file** | The path to the parameters file that you created. |
 
 ---
+
+### Configure cluster network (AKS EE)
+
+On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+
+1. Enable a firewall rule for port 8883:
+
+    ```powershell
+    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    ```
+
+1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
+
+    ```cmd
+    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    ```
+
+1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+
+    ```cmd
+    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
+    ```
 
 ## View resources in your cluster
 
