@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 11/13/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -107,9 +107,6 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
 Update Manager doesn't support CIS-hardened images.
 
-> [!NOTE]
-> Currently, schedule patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md) and **VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery** are supported in preview.
-
 # [Azure VMs](#tab/azurevm-os)
 
 ### Azure Marketplace/PIR images
@@ -170,9 +167,10 @@ The following table lists the operating systems for Azure Marketplace images tha
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Currently, scheduled patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery are supported in preview. 
+We support customized images and the following table lists the operating systems that we support for customized images. For instructions on how to use Update Manager to manage updates on custom images, see [Custom images](manage-updates-customized-images.md).
 
-The following table lists the operating systems that we support for customized images. For instructions on how to use Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
+> [!NOTE]
+> Automatic VM guest patching doesn't work on customized images even if the Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
 
    |**Windows operating system**|
    |---|
