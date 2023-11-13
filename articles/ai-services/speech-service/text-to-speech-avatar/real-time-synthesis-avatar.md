@@ -68,7 +68,7 @@ The default voice is the first voice returned per locale from the [voice list AP
 
 ## Select avatar character and style
 
-The supported avatar characters and styles can be found [here](what-is-text-to-speech-avatar.md).
+The supported avatar characters and styles can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).
 
 The following code snippet shows how to set avatar character and style:
 
