@@ -80,7 +80,7 @@ System messages are generated when
 - a participant was added or removed 
 - the chat thread topic was updated.
 
-When you call `List Messages` or `Get Messages` on a chat thread, the result contains both kind of messages in chronological order. For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services defaults to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitize the content to ensure that it's rendered safely on client devices.
+When you call `List Messages` or `Get Messages` on a chat thread, the result contains both kind of messages in chronological order. For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services defaults to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitizes the content to ensure that it's rendered safely on client devices.
  - `text`: A plain text message composed and sent by a user as part of a chat thread. 
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
