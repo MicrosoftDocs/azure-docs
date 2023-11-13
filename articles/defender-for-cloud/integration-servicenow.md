@@ -143,7 +143,7 @@ Security admins can now create and assign tickets directly from the Microsoft De
 
    :::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
 
-   Click the Ticket ID to go to the to the newly created incident in the ServiceNow portal.
+   Click the Ticket ID to go to the newly created incident in the ServiceNow portal.
 
    :::image type="content" border="true" source="./media/integration-servicenow/incident.png" alt-text="Screenshot of an incident.":::
 
