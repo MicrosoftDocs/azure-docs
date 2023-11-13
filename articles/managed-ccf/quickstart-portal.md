@@ -27,9 +27,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Register the provider
 
-Register the resource provider in your subscription using the following commands.
+Register the `Managed CCF` feature in the `Microsoft.ConfidentialLedger` namespace following instructions at [Set up preview features in Azure subscription](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
 
-[!INCLUDE [Register provider](includes/register-provider.md)]
+Then, re-register the `Microsoft.ConfidentialLedger` resource provider as described in [Register resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ### Create a resource group
 
