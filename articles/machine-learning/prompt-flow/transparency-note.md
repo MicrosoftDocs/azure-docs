@@ -23,7 +23,7 @@ Microsoft Transparency Notes help you understand:
 - The choices that system owners can make that influence system performance and behavior.
 - The importance of thinking about the whole system, including the technology, the people, and the environment.
 
-You can use Transparency Notes when you're developing or deploying your own system. Or you can share them with the people who will use (or be affected by) your system.
+You can use Transparency Notes when you're developing or deploying your own system. Or you can share them with the people who use (or are affected by) your system.
 
 Transparency Notes are part of a broader effort at Microsoft to put AI principles into practice. To find out more, see the [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
 
@@ -55,7 +55,7 @@ When you provide a base prompt, the auto-generate prompt variants feature genera
 
 The intended use of auto-generate prompt variants is to *generate new prompts from a provided base prompt with the help of language models*. Don't use auto-generate prompt variants for decisions that might have serious adverse impacts.
 
-Auto-generate prompt variants was not designed or tested to recommend items that require more considerations related to accuracy, governance, policy, legal, or expert knowledge. These considerations often exist outside the scope of the usage patterns that regular (non-expert) users carry out. Examples of such use cases include medical diagnostics, banking, or financial recommendations, hiring or job placement recommendations, or recommendations related to housing.
+Auto-generate prompt variants wasn't designed or tested to recommend items that require more considerations related to accuracy, governance, policy, legal, or expert knowledge. These considerations often exist outside the scope of the usage patterns that regular (non-expert) users carry out. Examples of such use cases include medical diagnostics, banking, or financial recommendations, hiring or job placement recommendations, or recommendations related to housing.
 
 ## Limitations
 
@@ -93,7 +93,7 @@ To improve performance, you can modify the following parameters, depending on th
 
 The Microsoft development team tested the auto-generate prompt variants feature to evaluate harm mitigation and fitness for purpose.
 
-The testing for harm mitigation showed support for the combination of system prompts and Azure Open AI content management policies in actively safeguarding responses. You can find additional opportunities to minimize the risk of harms in [Azure OpenAI Service abuse monitoring](/azure/ai-services/openai/concepts/abuse-monitoring) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter).
+The testing for harm mitigation showed support for the combination of system prompts and Azure Open AI content management policies in actively safeguarding responses. You can find more opportunities to minimize the risk of harms in [Azure OpenAI Service abuse monitoring](/azure/ai-services/openai/concepts/abuse-monitoring) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter).
 
 Fitness-for-purpose testing supported the quality of generated prompts from creative purposes (poetry) and chat-bot agents. We caution you against drawing sweeping conclusions, given the breadth of possible base prompts and potential use cases. For your environment, use evaluations that are appropriate to the required use cases, and ensure that a human reviewer is part of the process.
 
