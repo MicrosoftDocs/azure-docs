@@ -134,12 +134,11 @@ You should complete this step in an *internet facing environment outside of the 
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
-1. Install the Azure CLI related backage. 
-    > You can install the Azure CLI directly onto the level 3 machine or on another devloper machine if you plan to access the level 3 cluster remotely through the "develop machine" or "jumpbox". If you choose to access the kubernetes cluster remotely to keep the cluster host clean, you will run the "kubectl" and "az" related commands from the developer machine for the rest of the steps in this page.
+1. Install the Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az*" related commands from the *developer* machine for the rest of the steps in this article.
 
-    1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
+    - Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
 
-    1. Install *connectedk8s* and other extensions.
+    - Install *connectedk8s* and other extensions.
 
         ```bash
         az extension add --name connectedk8s
@@ -147,7 +146,7 @@ You should complete this step in an *internet facing environment outside of the 
         az extension add --name customlocation
         ```
 
-    1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
+    - [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
 
 ## Create the K3S cluster
 
