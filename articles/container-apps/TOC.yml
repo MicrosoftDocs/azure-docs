@@ -4,14 +4,12 @@
 - name: Get started
   expanded: true
   items:
-    - name: Start here
-      items:
-        - name: About Azure Container Apps
-          href: overview.md
-        - name: Introduction to containers
-          href: start-containers.md
-        - name: Introduction to serverless containers
-          href: start-serverless-containers.md
+    - name: About Azure Container Apps
+      href: overview.md
+    - name: Introduction to containers
+      href: start-containers.md
+    - name: Introduction to serverless containers
+      href: start-serverless-containers.md
     - name: Quickstarts
       items: 
       - name: Deploy from an existing container image
