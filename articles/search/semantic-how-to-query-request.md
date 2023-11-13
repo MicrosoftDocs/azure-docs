@@ -45,7 +45,7 @@ Choose a search client that supports semantic ranking. Here are some options:
 
 + [Azure.Search.Documents](https://pypi.org/project/azure-search-documents) in the Azure SDK for Python.
 
-+ [azure-search-documents](https://central.sonatype.com/artifact/com.azure/azure-search-documents/versions) in the Azure SDK for Java.
++ [azure-search-documents](https://central.sonatype.com/artifact/com.azure/azure-search-documents) in the Azure SDK for Java.
 
 + [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) in the Azure SDK for JavaScript.
 
@@ -158,7 +158,7 @@ adminClient.CreateOrUpdateIndex(definition);
 ---
 
 > [!TIP]
-> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic ranking Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
+> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic ranking Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/semantic-search).
 
 ## 3 - Avoid features that bypass relevance scoring
 

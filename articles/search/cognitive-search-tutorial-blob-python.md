@@ -52,7 +52,7 @@ The sample data consists of 14 files of mixed content type that you'll upload to
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. 
 
-Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
+Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment).
 
 ## 1 - Create services
 
@@ -132,7 +132,7 @@ All requests require an api-key in the header of every request sent to your serv
 
 Use Visual Studio Code with the Python extension to create a new notebook. Press F1 to open the command palette and then search for "Create: New Jupyter Notebook". 
 
-Alternatively, if you downloaded the notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment), you can open it in Visual Studio Code.
+Alternatively, if you downloaded the notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment), you can open it in Visual Studio Code.
 
 In your notebook, create a new cell and add this script. It loads the libraries used for working with JSON and formulating HTTP requests.
 

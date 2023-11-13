@@ -36,7 +36,7 @@ The skillset is attached to an [indexer](search-indexer-overview.md). It uses bu
 * [Postman app](https://www.postman.com/downloads/)
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure AI Search](https://azure.microsoft.com/services/search/)
-* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media)
+* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
 
 > [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -45,9 +45,9 @@ The skillset is attached to an [indexer](search-indexer-overview.md). It uses bu
 
 The sample data consists of 14 files of mixed content type that you'll upload to Azure Blob Storage in a later step.
 
-1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) and copy them to your local computer.
+1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) and copy them to your local computer.
 
-1. Next, get the source code, a Postman collection file, for this tutorial. Source code can be found at [azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial).
+1. Next, get the source code, a Postman collection file, for this tutorial. Source code can be found at [azure-search-postman-samples/tree/main/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Tutorial).
 
 ## 1 - Create services
 

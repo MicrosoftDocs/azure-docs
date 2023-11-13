@@ -13,7 +13,7 @@ ms.custom: mode-api
 ---
 # Quickstart: Create a search index in PowerShell using REST APIs
 
-In this Azure AI Search quickstart, learn how to create, load, and query a search index using PowerShell and the [Azure AI Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
+In this Azure AI Search quickstart, learn how to create, load, and query a search index using PowerShell and the [Azure AI Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/main/Quickstart) that performs the same operations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -77,7 +77,7 @@ Unless you are using the portal, an index must exist on the service before you c
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk-through articles. The field definitions have been trimmed in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotels/Hotels_IndexDefinition.JSON) used in other walk-through articles. The field definitions have been trimmed in this quickstart for brevity.
 
 1. Paste this example into PowerShell to create a **$body** object containing the index schema.
 

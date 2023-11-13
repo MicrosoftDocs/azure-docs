@@ -32,7 +32,7 @@ The following services and tools are required for this tutorial.
 
 ## Download files
 
-Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
+Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
 
 ## 1 - Create an Azure AI Search service
 

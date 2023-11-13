@@ -127,7 +127,7 @@ With that in place, we're ready to create an index.
 
 Create a file **hotels_quickstart_index.json**.  This file defines how Azure AI Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure AI Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](/rest/api/searchservice/supported-data-types) and index attributes described in [Create Index (REST)](/rest/api/searchservice/create-index). 
 
-Add the following content to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
+Add the following content to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/quickstart/v11/hotels_quickstart_index.json). 
 
 ```json
 {
@@ -314,7 +314,7 @@ At this point, you're ready to run the sample. Use a terminal window to run the 
 node index.js
 ```
 
-If you [downloaded the source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and haven't installed the required packages yet, run `npm install` first.
+If you [downloaded the source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart/v11) and haven't installed the required packages yet, run `npm install` first.
 
 You should see a series of messages describing the actions being taken by the program. 
 
@@ -329,7 +329,7 @@ In the next step, you'll add data to index.
 
 In Azure AI Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](/azure/search/search-indexer-overview). In this case, we'll programatically push the documents to the index.
 
-Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
+Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
 
 ```json
 {

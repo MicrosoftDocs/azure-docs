@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) or follow these steps to create your own.
+Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Quickstart/v11) or follow these steps to create your own.
 
 #### Set up your environment
 
@@ -85,7 +85,7 @@ Required index elements include a name, a fields collection, and a document key 
 
 Within the fields collection, each field has a name, type, and attributes that determine how the field is used (for example, whether it's full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
 1. In the next cell, paste the following example into a cell to provide the schema.
 
@@ -139,7 +139,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 #### Load documents
 
-To load documents, create a documents collection, using an [index action](/python/api/azure-search-documents/azure.search.documents.models.indexaction) for the operation type (upload, merge-and-upload, and so forth). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
+To load documents, create a documents collection, using an [index action](/python/api/azure-search-documents/azure.search.documents.models.indexaction) for the operation type (upload, merge-and-upload, and so forth). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
 
 1. In a new cell, provide four documents that conform to the index schema. Specify an upload action for each document.
 

@@ -16,7 +16,7 @@ ms.devlang: javascript
 
 In the previous lessons, you added search to a static web app. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
 
-The source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4) GitHub repository.
+The source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) GitHub repository.
 
 ## Azure SDK @azure/search-documents 
 
@@ -33,7 +33,7 @@ The Function app authenticates through the SDK to the cloud-based Azure AI Searc
 
 ## Azure Function: Search the catalog
 
-The [Search API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/src/functions/search.js) takes a search term and searches across the documents in the search index, returning a list of matches. 
+The [Search API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/api/src/functions/search.js) takes a search term and searches across the documents in the search index, returning a list of matches. 
 
 The Azure Function pulls in the search configuration information, and fulfills the query.
 
@@ -61,9 +61,9 @@ When the user changes the page, that value is sent to the parent `Search.js` pag
 
 ## Azure Function: Suggestions from the catalog
 
-The [Suggest API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/src/functions/suggest.js) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
+The [Suggest API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/api/src/functions/suggest.js) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
-The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/bulk-insert/good-books-index.json) used during bulk upload.
+The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert/good-books-index.json) used during bulk upload.
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/src/functions/suggest.js" :::
 
@@ -81,7 +81,7 @@ If your use case for search allows your user to select only from the suggestions
 
 ## Azure Function: Get specific document 
 
-The [Lookup API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/src/functions/lookup.js) takes an ID and returns the document object from the search index. 
+The [Lookup API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/api/src/functions/lookup.js) takes an ID and returns the document object from the search index. 
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/src/functions/lookup.js" :::
 

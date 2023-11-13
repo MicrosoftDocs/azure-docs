@@ -17,7 +17,7 @@ ms.custom: mode-api
 
 This article explains how to formulate requests interactively using the [Azure AI Search REST APIs](/rest/api/searchservice) and a REST client for sending and receiving requests. 
 
-The article uses the Postman app. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
+The article uses the Postman app. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) if you prefer to use predefined requests.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

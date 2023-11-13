@@ -8,7 +8,7 @@ ms.date: 11/05/2023
 
 Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to add semantic ranking to an existing search index. 
 
-Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart-Semantic-Search) or follow these steps to create your own.
+Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Quickstart-Semantic-Search) or follow these steps to create your own.
 
 #### Set up your environment
 

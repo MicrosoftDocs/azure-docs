@@ -99,7 +99,7 @@ Your application code is responsible for handling this response and providing th
 
 ## Vector query request
 
-This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the Azure SDKs to query vectors.
 
 ### [**2023-11-01**](#tab/query-2023-11-01)
 
@@ -234,7 +234,7 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**.NET**](#tab/dotnet-vector-query)
 
-+ Use the [**Azure.Search.Documents 11.5.0-beta.5**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.5) package for vector scenarios. 
++ Use the [**Azure.Search.Documents 11.5.0**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0) package for vector scenarios. 
 
 + See the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 

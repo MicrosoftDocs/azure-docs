@@ -144,10 +144,10 @@ Once you have a managed identity and a role assignment on the search service, yo
 
 Use the following client libraries for role-based access control:
 
-+ [azure.search.documents (Azure SDK for .NET) version 11.4](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6)
-+ [azure/search-documents (Azure SDK for JavaScript) version 11.3.1](https://www.npmjs.com/package/@azure/search-documents/v/11.3.1)
-+ [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/)
++ [azure.search.documents (Azure SDK for .NET)](https://www.nuget.org/packages/Azure.Search.Documents/)
++ [azure-search-documents (Azure SDK for Java)](https://central.sonatype.com/artifact/com.azure/azure-search-documents)
++ [azure/search-documents (Azure SDK for JavaScript)](https://www.npmjs.com/package/@azure/search-documents/v/11.3.1)
++ [azure.search.documents (Azure SDK for Python)](https://pypi.org/project/azure-search-documents/)
 
 > [!NOTE]
 > To learn more about the OAuth 2.0 code grant flow used by Microsoft Entra ID, see [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
@@ -156,7 +156,7 @@ Use the following client libraries for role-based access control:
 
 The following instructions reference an existing C# sample to demonstrate the code changes.
 
-1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md).
+1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart/v11) for the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md).
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 
@@ -164,7 +164,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 
 1. Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to get access to other authentication techniques.
 
-1. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use `DefaultAzureCredential` like in the code snippet below: 
+1. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/main/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use `DefaultAzureCredential` like in the code snippet below: 
 
      ```csharp
    // Create a SearchIndexClient to send create/delete index commands
