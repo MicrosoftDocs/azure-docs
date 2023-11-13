@@ -39,13 +39,11 @@ For more information, see [Data Connector Definitions - Create or Update URI Par
 
 ## Request body
 
-The request body for the CCP data connector definition has the following structure:
+The request body for creating a CCP data connector definition with the API has the following structure:
 
 ```json
 {
-    "name": "{{dataConnectorDefinitionName}}",
     "kind": "Customizable",
-    "type": "Microsoft.SecurityInsights/dataConnectorDefinitions",
     "properties": {
         "connectorUIConfig": {}, 
         "connectionsConfig": {}
@@ -57,11 +55,9 @@ The request body for the CCP data connector definition has the following structu
 
 |Name	|Required	|Type	|Description |
 | ---- | ---- | ---- | ---- |
-|Name	|True	|String	|A unique name of the connector definition|
-|Kind	|True	|String	|`Customizable` for API polling data connector or `Static` otherwise| 
-|type	|True	|String	|Must be `Microsoft.SecurityInsights/dataConnectorDefinitions`|
-|properties.connectorUiConfig	|True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
-|properties.connectionsConfig	|True for `Customizable`, for `Static` do not include	|Nested JSON<br>[connectionsConfig](#connections-configure-template-spec) |The template spec of the data connector|
+| **Kind** | True | String	|`Customizable` for API polling data connector or `Static` otherwise| 
+|properties.**connectorUiConfig**	| True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
+|properties.**connectionsConfig**	| Optional for `Customizable`	| Nested JSON<br>[connectionsConfig](#connections-configure-template-spec) |The template spec of the data connector|
 
 ## Configure your connector's user interface
 
@@ -76,12 +72,13 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 |Field | Required | Type | Description | Screenshot notable area #|
 | ---- | ---- | ---- | ---- | ---- |
 | **title** | True | string | Title displayed in the data connector page | 1 |
-| **id** | | string | Id for internal usage | |
+| **id** | | string | Sets custom connector id for internal usage | |
 | **logo** | | string | Path to image file in SVG format. If no value is configured, a default logo is used. | 2 |
 | **publisher** | True | string | The provider of the connector | 3 |
 | **descriptionMarkdown** | True | string in markdown | A description for the connector with the ability to add markdown language to enhance it. | 4 |
 | **sampleQueries** | True | Nested JSON<br>[sampleQueries](#samplequeries) | Queries for the customer to understand how to find the data in the event log. | |
 | **graphQueries** | True | Nested JSON<br>[graphQueries](#graphqueries) | Queries that present data ingestion over the last two weeks.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type. | 5 |
+| **graphQueriesTableName** | | Sets the name of the table the connector will insert the data to. This name can be used in other queries by specifying `{{graphQueriesTableName}}` placeholder in `graphQueries` and `lastDataReceivedQuery` values.|
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
 | **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivitycriteria) | An object that defines how to verify if the connector is connected. | 7 |
 | **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI which lists the permissions required to enable or disable the connector. | 8 |
@@ -91,15 +88,15 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 
 | Field | Required | Type | Description |
 |---|---|---|---|
-|Type | True | String | One of the two following options: `HasDataConnectors` – use this value for API polling data connectors. Using this value the connector will be considered as connected when there is at least one active connection<br><br>`isConnectedQuery` – use this value for other types of data connectors. Using this value the connector will be considered as connected when the provided query returns data. | 
+|Type | True | String | One of the two following options: `HasDataConnectors` – this value is best for API polling data connectors such as the CCP. The connector is considered connected with at least one active connection.<br><br>`isConnectedQuery` – this value is best for other types of data connectors. The connector is considered connected when the provided query returns data. | 
 |Value | True when type is `isConnectedQuery` | String | A query to determine if data is received within a certain time period. For example: `CommonSecurityLog | where DeviceVendor == \"Vectra Networks\"\n| where DeviceProduct == \"X Series\"\n  | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(7d)"` |
 
 ### dataTypes
 
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
-| **name** | String | A meaningful description for the`lastDataReceivedQuery`, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
-| **lastDataReceivedQuery** | String | A KQL query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)` |
+| **name** | String | A meaningful description for the`lastDataReceivedQuery`, including support for the `graphQueriesTableName` variable. <br><br>Example: `{{graphQueriesTableName}}` |
+| **lastDataReceivedQuery** | String | A KQL query that returns one row, and indicates the last time data was received, or no data if there are no results. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)` |
 
 ### graphQueries
 
@@ -111,7 +108,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 |**metricName**     |   String      |  A meaningful name for your graph. <br><br>Example: `Total data received`       |
 |**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
-|**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName_CL | where ProviderName == "myprovider"` or `{{graphQueriesTableName}}`     |
+|**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName_CL | where ProviderName == "myprovider"` or `{{graphQueriesTableName}}` |
 
 ### instructionSteps
 
@@ -170,7 +167,13 @@ Displays a group of instructions, with various parameters and the ability to nes
 }
 ]
 ```
-???
+
+|Name | Type | Description |
+| --| -- | -- |
+| **clientIdLabel** | string | ?? |
+| **clientSecretLabel** | ?? | ?? |
+| **connectButtonLabel** | string | ?? |
+| **disconnectButtonLabel** | string | ?? |
 
 #### Textbox
 
@@ -201,10 +204,10 @@ Displays a group of instructions, with various parameters and the ability to nes
 
 |Name | Type | Description |
 | --| -- | -- |
-| **label** | string | |
-| **placeholder** | ?? | |
-| **type** | string | |
-| **name** | string | |
+| **label** | string | ?? |
+| **placeholder** | ?? | ?? |
+| **type** | string | ?? |
+| **name** | string | ?? |
 
 #### ConnectionToggleButton
 
@@ -219,6 +222,11 @@ Displays a group of instructions, with various parameters and the ability to nes
 }
 ]
 ```
+
+|Name | Type | Description |
+| --| -- | -- |
+| **label** | string | ?? |
+| **name** | string | ?? |
 
 #### APIKey
 
@@ -382,8 +390,8 @@ This object includes the template spec name and version of the different connect
 
 |Field |Required |Type |Description |
 |---|---|---|---|
-|TemplateSpecName |	True |String |The name of the template spec which contains the data connectors connections. The template includes ARM templates that can be created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
-|TemplateSpecVersion | True |String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (e.g., "1.0.0") |
+| **TemplateSpecName** |	True  |String | The name of the template spec which contains the data connectors connections. The template includes ARM templates that can be created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
+| **TemplateSpecVersion** | True | String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (e.g., "1.0.0") |
 
 ## Example data connector 
 
@@ -399,11 +407,12 @@ For more examples of the `connectorUiConfig` review [other CCP data connectors](
           "title": "Data Connector Name",
           "publisher": "My Company",
           "descriptionMarkdown": "This is an example of data connector",
+          "graphQueriesTableName": "ExampleConnectorAlerts_CL",
           "graphQueries": [
             {
               "metricName": "Alerts received",
               "legend": "My data connector alerts",
-              "baseQuery": "Custom-ExampleConnectorAlerts_CL"
+              "baseQuery": "{{graphQueriesTableName}}"
             },   
            {
               "metricName": "Events received",
@@ -413,14 +422,14 @@ For more examples of the `connectorUiConfig` review [other CCP data connectors](
           ],
             "sampleQueries": [
             {
-                "description": "All logs",
-                "query": "ExampleConnectorAlerts_CL \n | take 10"
+                "description": "All alert logs",
+                "query": "{{graphQueriesTableName}} \n | take 10"
             }
           ],
           "dataTypes": [
             {
-              "name": "Custom-ExampleConnectorAlerts_CL",
-              "lastDataReceivedQuery": "Custom-ExampleConnectorAlerts_CL \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
+              "name": "{{graphQueriesTableName}}",
+              "lastDataReceivedQuery": "{{graphQueriesTableName}} \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
             },
              {
               "name": "ASIMFileEventLogs",
