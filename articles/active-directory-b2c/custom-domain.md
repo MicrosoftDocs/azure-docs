@@ -51,7 +51,7 @@ The following diagram illustrates Azure Front Door integration:
 
 When using custom domains, consider the following:
 
-- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Microsoft Entra service limits and restrictions](/entra/identity/users/directory-service-limits-restrictions) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-classic-limits) for Azure Front Door.
+- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Microsoft Entra service limits and restrictions](/entra/identity/users/directory-service-limits-restrictions) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-classic-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so extra charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com* (unless you're using a custom policy and you [block access](#optional-block-access-to-the-default-domain-name).
 - If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
