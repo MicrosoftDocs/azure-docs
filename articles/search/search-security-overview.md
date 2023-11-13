@@ -52,7 +52,7 @@ The following list is a full enumeration of the outbound requests that can be ma
 + Indexers [read from external data sources](search-indexer-securing-resources.md).
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + If you're using custom skills, custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
-+ If you're using [integrated vectorization](vector-search-integrated-vectorizaton.md), the search service connects to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution.
++ If you're using [integrated vectorization](vector-search-integrated-vectorization.md), the search service connects to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution.
 + If you're using customer-managed keys, the service connects to an external Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
