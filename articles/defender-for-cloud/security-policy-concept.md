@@ -23,7 +23,7 @@ Security standards in Defender for Cloud come from a couple of sources:
 
 Security standards in Defender for Cloud are based on the Defender for Cloud platform, or on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md). At the time of writing (November 2023) AWS and GCP standards are Defender for Cloud platform-based, and Azure standards are currently based on Azure Policy.
 
-Defender for Cloud security standards mean you don't need manage the complexity of Azure Policy. In most cases you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
+Security standards in Defender for Cloud simplify the complexity of Azure Policy. In most cases you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
 
 ## Working with security standards
 
@@ -32,7 +32,7 @@ Here's what you can do with security standards in Defender for Cloud:
 
 - **Modify the built-in MCSB for the subscription** - When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions. [Learn about customizing MCSB recommendations](manage-mcsb.md).
 
-- **Add regulatory compliance standards** - If you have one or more Defender for Cloud paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.md)
+- **Add regulatory compliance standards** - If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.md)
 
 - **Add custom standards** - If you have at least one paid Defender plan enabled, you can define new [Azure](custom-security-policies.md), [AWS and GCP](create-custom-recommendations.md) standards in the Defender for Cloud portal, and add recommendations to them.
 

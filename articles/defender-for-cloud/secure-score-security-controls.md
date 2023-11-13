@@ -78,7 +78,7 @@ Here's how scores are calculated.
 [Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)
 
 - Each individual security control contributes towards the secure score.
-- Each resource affected by a recommendation within the control, contributes towards the control's current score. This doesn't include resources found in preview recommendations.
+- Each resource affected by a recommendation within the control, contributes towards the control's current score. Secure score doesn't include resources found in preview recommendations.
 - The current score for each control is a measure of the status of the resources *within* the control.
 
     ![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)
@@ -113,7 +113,7 @@ This equation is the same equation for a connector with just the word subscripti
 
     ![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)
 
-    The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>Here too, if you go to the recommendations page and add up the potential points available, you find that it's the difference between the current score (22) and the maximum score available (58).
+    The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>If you go to the **Recommendations** page and add up the potential points available, you find that it's the difference between the current score (22) and the maximum score available (58).
 
 
 ## Improving secure score
@@ -152,7 +152,7 @@ The table below lists the security controls in Microsoft Defender for Cloud. For
 2 | **Enable endpoint protection** - Defender for Cloud checks your organization’s endpoints for active threat detection and response solutions such as Microsoft Defender for Endpoint or any of the major solutions shown in this list.<br/><br/> When an Endpoint Detection and Response (EDR) solution isn’t found, you can use these recommendations to deploy Microsoft Defender for Endpoint (included as part of Defender for Cloud's [Defender for Servers plan](defender-for-servers-introduction.md)).<br/><br/>Other recommendations in this control help you deploy agents and configure [file integrity monitoring](file-integrity-monitoring-overview.md).
 1 | **Enable auditing and logging** - Detailed logs are a crucial part of incident investigations and many other troubleshooting operations. The recommendations in this control focus on ensuring you’ve enabled diagnostic logs wherever relevant.
 0 | **Enable enhanced security features** - Use these recommendations to enable any Defender for Cloud plans.
-0 | **Implement security best practices** - This control has no impact on your secure score. It;s collection of recommendations which are important for your organizational security, but that shouldn’t be used to assess your overall score.
+0 | **Implement security best practices** - This control has no impact on your secure score. It's collection of recommendations which are important for your organizational security, but that shouldn’t be used to assess your overall score.
 
 ## Next steps
 
