@@ -13,7 +13,7 @@ keywords: how to record video samples for custom text to speech avatar
 
 # How to record video samples for custom text to speech avatar (preview)
 
-[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
 
 This article provides instructions on preparing high-quality video samples for creating a custom text to speech avatar.
 
@@ -76,4 +76,4 @@ Here are more tips for recording video clips:
 ## Next steps
 
 * [What is text to speech avatar](what-is-text-to-speech-avatar.md)
-* [What is custom text to speech avatar](what-is-custom-tts-avatar.md)
+* [What is custom text to speech avatar](what-is-custom-text-to-speech-avatar.md)

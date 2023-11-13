@@ -13,7 +13,7 @@ keywords: custom text to speech avatar
 
 # What is custom text to speech avatar? (preview)
 
-[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
 
 Custom text to speech avatar allows you to create a customized, one-of-a-kind synthetic talking avatar for your application. With custom text to speech avatar, you can build a unique and natural-looking avatar for your product or brand by providing video recording data of your selected actors. If you also create a [custom neural voice](#custom-voice-and-custom-text-to-speech-avatar) for the same actor and use it as the avatar's voice, the avatar will be even more realistic.
 
@@ -52,7 +52,7 @@ The custom text to speech avatar model contains three components: text analyzer,
 - The acoustic predictor predicts the acoustic features of the input text, and these two parts are provided by text to speech or custom neural voice models. 
 - Finally, the neural text to speech avatar model predicts the image of lip sync with the acoustic features, so that the synthetic video is generated. 
 
-:::image type="content" source="../../media/avatar/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow" lightbox="../../media/avatar/custom-avatar-workflow.png":::
+:::image type="content" source="../media/avatar/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow" lightbox="../media/avatar/custom-avatar-workflow.png":::
 
 The neural text to speech avatar models are trained using deep neural networks based on the recording samples of human videos in different languages. All languages of prebuilt voices and custom neural voices can be supported.
 
@@ -60,7 +60,7 @@ The neural text to speech avatar models are trained using deep neural networks b
 
 The custom text to speech avatar can work with a prebuilt neural voice or custom neural voice as the avatar's voice. For more information, see [Avatar voice and language](./what-is-text-to-speech-avatar.md#avatar-voice-and-language).
 
-[Custom neural voice](../../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
+[Custom neural voice](../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
 
 ## Next steps
 

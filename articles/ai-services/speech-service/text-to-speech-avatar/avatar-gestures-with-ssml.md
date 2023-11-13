@@ -13,9 +13,9 @@ keywords: text to speech avatar batch synthesis
 
 # Customize text to speech avatar gestures with SSML (preview)
 
-[!INCLUDE [Text to speech avatar preview](../../includes/text-to-speech-avatar-preview.md)]
+[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
 
-The [Speech Synthesis Markup Language (SSML)](../../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in text to speech avatar. Furthermore, text to speech avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
+The [Speech Synthesis Markup Language (SSML)](../speech-synthesis-markup-structure.md) with input text determines the structure, content, and other characteristics of the text to speech output. Most SSML tags can also work in text to speech avatar. Furthermore, text to speech avatar batch mode provides avatar gestures insertion ability by using the SSML bookmark element with the format `<bookmark mark='gesture.*'/>`. 
 
 A gesture starts at the insertion point in time. If the gesture takes more time than the audio, the gesture is cut at the point in time when the audio is finished.
 
@@ -33,7 +33,7 @@ Hello <bookmark mark='gesture.wave-left-1'/>, my name is Jenny, nice to meet you
 
 In this example, the avatar will start waving their hand at the left after the word "Hello".
 
-:::image type="content" source="../../media/avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left" lightbox="../../media/avatar/gesture.png":::
+:::image type="content" source="../media/avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left" lightbox="../media/avatar/gesture.png":::
 
 ## Supported pre-built avatar characters, styles and gestures
 
