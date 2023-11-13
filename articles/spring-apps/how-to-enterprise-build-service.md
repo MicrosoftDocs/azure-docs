@@ -206,7 +206,15 @@ All Build Resources are showed in the `Builds`, shown as below picture.
 * `Latest Build Result Provisioning State`: the latest build result provisioning state of the build. The possible values are `Queuing`, `Building`, `Succeeded` and `Failed`.
 * `Latest Build Result Last Transition Time`: the last transition time for the latest build result of the build.
 * `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACK`. The `CONFIG` means the build result changed by builder updates or a new source code deploy operation. The `Stack` means the build result changed by stack upgrade. The `BUILDPACK` means the build result changed by buildpack upgrade.
-* `Latest Build Result Last Transition Status`: the last transition time for the latest build result of the build. The possible values are `True` or `False`.
+* `Latest Build Result Last Transition Status`: the last transition status for the latest build result of the build. The possible values are `True` or `False`.
+
+### Provisioning State, Latest Build Result Provisioning State and Latest Build Result Last Transition Status
+
+The `Provisioning State` is the provision state of the build. When it's `Failed`, it means the last build doesn't trigger a new build result, please redeploy the source code. If the error persists, please create a support ticket. 
+
+The `Latest Build Result Provisioning State` is the provisioning state of the latest build result. When it's `Failed`, it means the build failed, please check build logs for more details, see [Troubleshoot common build issues in Azure Spring Apps](troubleshoot-build-exit-code.md). 
+
+The `Latest Build Result Last Transition Status` is the last transition status for the latest build result of the build. When it's `False`, it means the last update of the latest build result failed. Please see `Latest Build Result Last Transition Reason`, if the reason is `BUILDPACK` or `STACK`, the failure won't affect the deployment. It just doesn't use the latest buildpacks or stacks version. If the reason is `CONFIG`, please redeploy the source code. If the error persists, please create a support ticket.
 
 ## Next steps
 
