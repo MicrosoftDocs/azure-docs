@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Storage account with static website ho
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.date: 11/07/2021
+ms.date: 11/13/2021
 ms.author: normesta
 ms.custom: devx-track-terraform
 content_well_notification: 
@@ -54,6 +54,10 @@ In this article, you learn how to:
 1. Create a file named `outputs.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/outputs.tf":::
+
+1. Create a file named `index.html` and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/index.html":::
 
 ## Initialize Terraform
 
