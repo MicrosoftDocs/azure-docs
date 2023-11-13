@@ -1,7 +1,7 @@
 ---
 title: Vector database
 titleSuffix: Azure Cosmos DB
-description: Vector database functionalities for retrieval augmented generation (RAG) and vector search using Azure Cosmos DB.
+description: Vector database functionalities and retrieval augmented generation (RAG) implementation.
 author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
@@ -29,19 +29,11 @@ Here are some solutions:
 | **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-cosmos-db-for-mongodb-vcore)**. | Featuring native support for vector search, store your application data and vector embeddings together in a single MongoDB-compatible service. |
 | **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-cosmos-db-for-postgresql)**. | Offering native support vector search, you can store your data and vectors together in a scalable PostgreSQL offering. |
 
-## Vector database related concepts
+## Vector database and retrieval augmented generation (RAG)
 
-You might first want to ensure that you understand the following concepts:
+The vector search feature in a vector database enables Retrieval Augmented Generation (RAG) to harness LLMs and custom data or domain-specific information. This process involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
 
-- Grounding LLMs
-- Retrieval Augmented Generation (RAG)
-- Embeddings
-- Vector search
-- Prompt engineering
-
-RAG harnesses LLMs and external knowledge to effectively handle custom data or domain-specific knowledge. It involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
-
-A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. This mechanism allows you to optimize for the LLM’s limit on the number of tokens per request. This limitation is where embeddings play a crucial role. By converting the data in your database into embeddings and storing them as vectors for future use, we apply the advantage of capturing the semantic meaning of the text, going beyond mere keywords to comprehend the context.
+A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. Our vector search features convert the data in your database into embeddings and storing them as vectors for future use, thus capturing the semantic meaning of the text, going beyond mere keywords to comprehend the context. Moreover, this mechanism also allows you to optimize for the LLM’s limit on the number of tokens per request.
 
 Prior to sending a request to the LLM, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This technique enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the LLM request using prompt engineering.
 
