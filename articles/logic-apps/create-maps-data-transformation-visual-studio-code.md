@@ -456,26 +456,26 @@ To create your own function that you can use with the Data Mapper tool, follow t
       <xs:element name="customfunctions">
          <xs:complexType>
             <xs:sequence>
-               <xs:element maxOccurs="unbounded" name="function"> 
-                  <xs:complexType> 
-                     <xs:sequence> 
-                        <xs:element maxOccurs="unbounded" name="param"> 
-                           <xs:complexType> 
-                               <xs:attribute name="name" type="xs:string" use="required" /> 
-                               <xs:attribute name="as" type="xs:string" use="required" /> 
-                           </xs:complexType> 
-                        </xs:element> 
-                        <xs:any minOccurs="0" /> 
-                     </xs:sequence> 
-                     <xs:attribute name="name" type="xs:string" use="required" /> 
-                     <xs:attribute name="as" type="xs:string" use="required" /> 
-                     <xs:attribute name="description" type="xs:string" use="required" /> 
-                  </xs:complexType> 
-               </xs:element> 
-            </xs:sequence> 
-         </xs:complexType> 
-      </xs:element> 
-   </xs:schema> 
+               <xs:element maxOccurs="unbounded" name="function">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="param">
+                           <xs:complexType>
+                               <xs:attribute name="name" type="xs:string" use="required" />
+                               <xs:attribute name="as" type="xs:string" use="required" />
+                           </xs:complexType>
+                        </xs:element>
+                        <xs:any minOccurs="0" />
+                     </xs:sequence>
+                     <xs:attribute name="name" type="xs:string" use="required" />
+                     <xs:attribute name="as" type="xs:string" use="required" />
+                     <xs:attribute name="description" type="xs:string" use="required" />
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:element>
+   </xs:schema>
    ```
 
    Each XML element named **"function"** implements an XSLT3.0 style function with few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
@@ -490,20 +490,20 @@ To create your own function that you can use with the Data Mapper tool, follow t
          <param name="inputDate" as="xs:date"/> 
          <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
       </function> 
-      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value."> 
-         <param name="condition" as="xs:boolean"/> 
-         <param name="thenResult" as="xs:anyAtomicType"/> 
-         <param name="elseResult" as="xs:anyAtomicType"/> 
+      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
+         <param name="condition" as="xs:boolean"/>
+         <param name="thenResult" as="xs:anyAtomicType"/>
+         <param name="elseResult" as="xs:anyAtomicType"/>
          <choose>
-            <when test="$condition"> 
-               <value-of select="$thenResult"></value-of> 
-            </when> 
-            <otherwise> 
-               <value-of select="$elseResult"></value-of> 
-            </otherwise> 
-         </choose> 
-      </function> 
-   </customfunctions> 
+            <when test="$condition">
+               <value-of select="$thenResult"></value-of>
+            </when>
+            <otherwise>
+               <value-of select="$elseResult"></value-of>
+            </otherwise>
+         </choose>
+      </function>
+   </customfunctions>
    ```
 
 1. On your local computer, open the folder for your Standard logic app project.
