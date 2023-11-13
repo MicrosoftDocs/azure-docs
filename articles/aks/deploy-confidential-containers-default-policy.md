@@ -2,7 +2,7 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/09/2023
+ms.date: 11/13/2023
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
@@ -213,7 +213,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     az role assignment create --role "Key Vault Crypto User" --assignee "${USER_ASSIGNED_IDENTITY_NAME}" --scope $AKV_SCOPE
     ``````
 
-1. This example requires the following producer and consumer YAML files. Copy the following YAML manifest and save it as `producer.yaml`.
+1. Copy the following YAML manifest and save it as `producer.yaml`.
 
     ```yml
     apiVersion: v1
@@ -243,7 +243,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
               cpu: 200m
     ```
 
-   Copy the following YAML manifest and save it as `consumer.yaml`.
+   Copy the following YAML manifest and save it as `consumer.yaml`. Update the value for the pod environmental variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`.
 
     ```yml
     apiVersion: v1
@@ -256,7 +256,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
         app.kubernetes.io/name: kafka-golang-consumer
     spec:
       serviceAccountName: workload-identity-sa
-      runtimeClassName: kata-cc
+      runtimeClassName: kata-cc-isolation
       containers:
         - image: "fishersnpregistry.azurecr.io/aasp:v1.0"
           imagePullPolicy: Always
@@ -278,7 +278,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
             - name: SkrClientMAAEndpoint
               value: sharedeus2.eus2.test.attest.azure.net
             - name: SkrClientAKVEndpoint
-              value: ""
+              value: "myKeyVault.vault.azure.net"
             - name: TOPIC
               value: kafka-demo-topic
           command:
@@ -335,99 +335,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by copying the following Bash script to prepare encryption key for the workload. Save the file as `setup-key.sh`.
-
-    ```bash
-    #!/bin/bash
-
-    # --------------------------------------------------------------------------------------------
-    # Copyright (c) Microsoft Corporation. All rights reserved.
-    # Licensed under the MIT License. See License.txt in the project root for license information.
-    # --------------------------------------------------------------------------------------------
-    
-    
-    set -e
-    
-    # This script creates a RSA key in MHSM with a release policy, then downloads
-    # the public key and saves the key info
-    
-    if [ $# -ne 2 ] ; then
-    	echo "Usage: $0 <KEY_NAME> <AZURE_AKV_RESOURCE_ENDPOINT>"
-    	exit 1
-    fi
-    
-    KEY_NAME=$1
-    AZURE_AKV_RESOURCE_ENDPOINT=$2
-    
-    key_vault_name=$(echo "$AZURE_AKV_RESOURCE_ENDPOINT" | cut -d. -f1)
-    echo "Key vault name is ${key_vault_name}"
-    
-    if [[ $(curl https://$AZURE_AKV_RESOURCE_ENDPOINT) ]] 2>/dev/null; then
-    	echo "......MHSM endpoint OK"
-    else
-    	echo "Azure akv resource endpoint doesn't exist. Please refer to documentation instructions to set it up first:"
-    	exit 1
-    fi
-    
-    if [[ -z "${MAA_ENDPOINT}" ]]; then
-    	echo "Error: Env MAA_ENDPOINT is not set. Please set up your own MAA instance or select from a region where MAA is offered (e.g. sharedeus2.eus2.attest.azure.net):"
-    	echo ""
-    	echo "https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=azure-attestation"
-    	exit 1
-    fi
-    
-    if [[ -z "${MANAGED_IDENTITY}" ]]; then
-    	echo "Error: Env MANAGED_IDENTITY is not set. Please assign principal ID of the managed identity that will have read access to the key. To create a managed identity:"
-    	echo "az identity create -g <resource-group-name> -n <identity-name>"
-    	exit 1
-    fi
-    
-    policy_file_name="${KEY_NAME}-release-policy.json"
-    
-    echo { \"anyOf\":[ { \"authority\":\"https://${MAA_ENDPOINT}\", \"allOf\":[ > ${policy_file_name}
-    echo '{"claim":"x-ms-attestation-type", "equals":"sevsnpvm"},' >> ${policy_file_name}
-    
-    if [[ -z "${WORKLOAD_MEASUREMENT}" ]]; then
-    	echo "Warning: Env WORKLOAD_MEASUREMENT is not set. To better protect your key, consider adding it to your key release policy"
-    else
-    	echo {\"claim\":\"x-ms-sevsnpvm-hostdata\", \"equals\":\"${WORKLOAD_MEASUREMENT}\"}, >> ${policy_file_name}
-    fi
-    
-    
-    echo {\"claim\":\"x-ms-compliance-status\", \"equals\":\"azure-signed-katacc-uvm\"}, >> ${policy_file_name}
-    echo {\"claim\":\"x-ms-sevsnpvm-is-debuggable\", \"equals\":\"false\"}, >> ${policy_file_name}
-    
-    echo '] } ], "version":"1.0.0" }' >> ${policy_file_name}
-    echo "......Generated key release policy ${policy_file_name}"
-    
-    # Create RSA key
-    az keyvault key create --id https://$AZURE_AKV_RESOURCE_ENDPOINT/keys/${KEY_NAME} --ops wrapKey unwrapkey encrypt decrypt --kty RSA-HSM --size 3072 --exportable --policy ${policy_file_name}
-    echo "......Created RSA key in ${AZURE_AKV_RESOURCE_ENDPOINT}"
-    
-    
-    # # Download the public key
-    public_key_file=${KEY_NAME}-pub.pem
-    rm -f ${public_key_file}
-    
-    if [[ "$AZURE_AKV_RESOURCE_ENDPOINT" == *".vault.azure.net" ]]; then
-        az keyvault key download --vault-name ${key_vault_name} -n ${KEY_NAME} -f ${public_key_file}
-    	echo "......Downloaded the public key to ${public_key_file}"
-    elif [[ "$AZURE_AKV_RESOURCE_ENDPOINT" == *".managedhsm.azure.net" ]]; then
-    
-        az keyvault key download --hsm-name ${key_vault_name} -n ${KEY_NAME} -f ${public_key_file}
-    	echo "......Downloaded the public key to ${public_key_file}"
-    fi
-    
-    # generate key info file
-    key_info_file=${KEY_NAME}-info.json
-    echo {  > ${key_info_file}
-    echo \"public_key_path\": \"${public_key_file}\", >> ${key_info_file}
-    echo \"kms_endpoint\": \"$AZURE_AKV_RESOURCE_ENDPOINT\", >> ${key_info_file}
-    echo \"attester_endpoint\": \"${MAA_ENDPOINT}\" >> ${key_info_file}
-    echo }  >> ${key_info_file}
-    echo "......Generated key info file ${key_info_file}"
-    echo "......Key setup successful!"
-    ```
+1. Prepare the RSA Encryption/Decryption key by [downloading][download-setup-key-script] the Bash script for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
@@ -435,13 +343,13 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    export MAA_ENDPOINT="<SkrClientMMAEndpoint value>"
    ```
 
-1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `https://<your-unique-keyvault-name>.vault.azure.net`
+1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `<your-unique-keyvault-name>.vault.azure.net`
 
     ```bash
     bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
     ```
 
-   Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key.
+   Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key. Paste the contents between the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` strings.
 
 1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
 
@@ -466,7 +374,17 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     kubectl get svc consumer -n kafka 
     ```
 
-Copy and paste the IP address of the consumer service into your browser and observe the decrypted messages. You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you are not running the consumer with kata-cc runtime class, you no longer need the policy.
+Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
+
+The following resemblers the output of the command:
+
+```output
+Welcome to Confidential Containers on AKS!
+Encrypted Kafka Message: 
+Msg 1: Azure Confidential Computing
+```
+
+You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you are not running the consumer with kata-cc runtime class, you no longer need the policy.
 
 Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key cannot be retrieved. The key cannot be retrieved because the consumer is no longer running in a confidential environment, and the `aasp container` is missing, preventing decryption of messages.
 
@@ -493,6 +411,7 @@ kubectl delete pod pod-name
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+[download-setup-key-script]: https://github.com/microsoft/confidential-container-demos/blob/add-kafka-demo/kafka/setup-key.sh
 
 <!-- INTERNAL LINKS -->
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
