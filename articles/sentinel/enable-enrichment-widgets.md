@@ -28,24 +28,91 @@ You must have the **Contributor** role for the workspace’s resource group to c
 
 Microsoft Sentinel has automated the process of creating a Key Vault for enrichment widgets. To enable the widgets experience, take the following two steps: 
 
-1. **Create a dedicated Key Vault to store credentials.**
+### Step 1: Create a dedicated Key Vault to store credentials.
 
-    1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
-    1. On the **Entity behavior** page, select **Enrichment widgets (preview)** from the toolbar.
-        :::image type="content" source="media/enable-enrichment-widgets/entity-behavior-page.png" alt-text="Screenshot of the entity behavior page.":::
-    1. On the **Widgets Onboarding Page**, select **Create Key Vault**.
-        :::image type="content" source="media/enable-enrichment-widgets/widgets-onboarding-page.png" alt-text="Screenshot of widget onboarding page.":::
-        You will see an Azure portal notification when the Key Vault deployment is in progress, and again when it has completed.
+1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
-1. **Add relevant credentials to your widgets' Key Vault.**
+1. On the **Entity behavior** page, select **Enrichment widgets (preview)** from the toolbar.
 
-    The data sources accessed by all the available widgets are listed on the **Widgets Onboarding Page**. You need to add their credentials individually. To do so, take the following steps for each data source:
+    :::image type="content" source="media/enable-enrichment-widgets/entity-behavior-page.png" alt-text="Screenshot of the entity behavior page.":::
 
-    1. Select the **Find your credentials** link for a given data source. This will redirect you to specific instructions for finding or creating credentials for that data source. When you have the credentials, copy them aside and proceed to the next step.
-    1. Select **Add credentials** for that data source. The **Custom deployment** wizard will open in a side panel on the right side of the page.  
+1. On the **Widgets Onboarding Page**, select **Create Key Vault**.
+
+    :::image type="content" source="media/enable-enrichment-widgets/widgets-onboarding-page.png" alt-text="Screenshot of widget onboarding page.":::
+
+    You will see an Azure portal notification when the Key Vault deployment is in progress, and again when it has completed.
+
+    At that point you will also see that the **Create Key Vault** button is now grayed out, and beside it, the name of your new key vault appears as a link. You can access the key vault's page by selecting the link.
+
+    Also, the section labeled **Step 2 - Add credentials**, previously grayed out, is now available.
+
+### Step 2: Add relevant credentials to your widgets' Key Vault.
+
+The data sources accessed by all the available widgets are listed on the **Widgets Onboarding Page**, under **Step 2 - Add credentials**. You need to add each data source's credentials one at a time. To do so, take the following steps for each data source:
+
+1. Select the **Find your credentials** link for a given data source. This will redirect you to specific instructions for finding or creating credentials for that data source. When you have the credentials, copy them aside and proceed to the next step.
+
+1. Select **Add credentials** for that data source. The **Custom deployment** wizard will open in a side panel on the right side of the page.  
+
     The **Subscription**, **Resource group**, **Region**, and **Key Vault name** fields are all pre-populated, and there should be no reason for you to edit them.
-    1. Enter the credentials you saved into the relevant fields in the **Custom deployment** wizard (**API key**, **Username**, **Password**, and so on).
-    1. Select **Review + create**.   
+
+1. Enter the credentials you saved into the relevant fields in the **Custom deployment** wizard (**API key**, **Username**, **Password**, and so on).
+
+1. Select **Review + create**.
+
+1. Azure will review the request and present the terms of the agreement. Select **Create** to approve the terms.
+
+1. A new page will be displayed for your new secret, with a message that the deployment is complete.
+    
+    Open a new browser tab and return to the widgets onboarding page. It’s recommended that you manage the onboarding for widgets in two separate browser tabs: one for the onboarding page itself with the list of all widget sources, and second for the deployment of each widget source secret to the key vault.
+
+1. Verify that your new secret was added to the key vault:
+
+    1. Open the key vault dedicated for your widgets.
+    1. Select **Secrets** from the key vault navigation menu.
+    1. See that the widget source’s secret has been added to the list.
+
+### Find your credentials for each widget source
+
+This section contains instructions for creating or finding your credentials for each of your widgets' data sources.
+
+#### Credentials for Virus Total
+
+1. Enter the **API key** defined in your Virus Total account. You can [sign up for a free Virus Total account](https://aka.ms/SentinelWidgetsRegisterVirusTotal) to get an API key.
+
+1. After you select **Create** and deploy the template as described in paragraph 6 of [Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault), a secret named "Virus Total" will be added to your key vault.
+
+#### Credentials for AbuseIPDB
+
+1. Enter the **API key** defined in your AbuseIPDB account. You can [sign up for a free AbuseIPDB account](https://aka.ms/SentinelWidgetsRegisterAbuseIPDB) to get an API key.
+
+1. After you select **Create** and deploy the template as described in paragraph 6 of [Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault), a secret named "AbuseIPDB" will be added to your key vault.
+
+#### Credentials for Anomali
+
+1. Enter the **username** and **API key** defined in your Anomali account.
+
+1. After you select **Create** and deploy the template as described in paragraph 6 of [Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault), a secret named "Anomali" will be added to your key vault.
+
+#### Credentials for Recorded Future
+
+1. Enter your Recorded Future **API key**. Contact your Recorded Future representative to get your API key. You can also [apply for a 30-day free trial especially for Sentinel users](https://aka.ms/SentinelWidgetsRegisterRecordedFuture).
+
+1. After you select **Create** and deploy the template as described in paragraph 6 of [Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault), a secret named "Recorded Future" will be added to your key vault.
+
+#### Credentials for Microsoft Defender Threat Intelligence (MDTI)
+
+1. The MDTI widget should fetch the data automatically if you have the relevant MDTI license. There is no need for credentials.
+
+1. You can check if you have the relevant license, and if necessary, purchase it, at the [MDTI official website](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence).
+
+## Add new widgets when they become available
+
+Microsoft Sentinel aspires to offer a broad collection of widgets, making them available as they are ready. As new widgets become available, their data sources will be added to the list on the Widgets Onboarding Page, if they aren't already there. When you see announcements of newly available widgets, check back on the Widgets Onboarding Page for new data sources that don't yet have credentials configured. To configure them, [follow Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault).
+
+## Remove the widgets experience
+
+To remove the widgets experience from Microsoft Sentinel, simply delete the Key Vault that you created in [Step 1 above](#step-1-create-a-dedicated-key-vault-to-store-credentials).
 
 ## Next steps
 
