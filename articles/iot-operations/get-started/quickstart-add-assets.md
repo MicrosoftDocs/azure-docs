@@ -217,13 +217,13 @@ spec:
 Run the following command to apply the configuration:
 
 ```bash
-kubectl apply -f opcua-configuration.yaml
+kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
 ```
 
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 
 ```bash
-kubectl get akrii -A
+kubectl get akrii -n azure-iot-operations
 ```
 
 The output from the previous command looks like the following example:
