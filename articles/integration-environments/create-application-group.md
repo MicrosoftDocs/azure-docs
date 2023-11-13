@@ -27,9 +27,15 @@ After you create an integration environment, create one or more application grou
 
   These resources and your integration environment must exist in the same Azure subscription. For information about supported resources, see [Supported Azure resources](overview.md#supported-resources).
 
-- An [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
+- An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 
-  This Azure resource is required to create an application group and is used when you define business processes for mapping to resources and to capture key business data in business process tracking scenarios.
+  This Azure resource is required to create an application group. The database is used after you create a data process flow in your application group, specify key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process.
+
+  > [!NOTE]
+  >
+  > Although Azure Integration Environments doesn't incur charges during preview,  Azure Data 
+  > Explorer incurs charges, based on the selected pricing option. For more information, see 
+  > [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
 <a name="create-application-group"></a>
 
