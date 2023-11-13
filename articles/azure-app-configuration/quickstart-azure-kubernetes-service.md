@@ -67,7 +67,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     </div>
     ```
 
-1. Create a file named *mysettings.json* at the root of your project directory, open it in a text editor, and enter the following content.
+1. Create a file named *mysettings.json* at the root of your project directory, and enter the following content.
 
     ```json
     {
@@ -207,15 +207,6 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
 
-### Setup the Azure App Configuration store
-
-Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
-
-    |**Key**|**Value**|
-    |---|---|
-    |Settings:FontColor|*Green*|
-    |Settings:Message|*Hello from Azure App Configuration*|
-
 ### Install App Configuration Kubernetes Provider to AKS cluster
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
@@ -260,7 +251,14 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. And make sure `volumeMounts.mountPath` matches  the `WORKDIR` you specified in the *Dockerfile*.
+1. Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+
+    |**Key**|**Value**|
+    |---|---|
+    |Settings:FontColor|*Green*|
+    |Settings:Message|*Hello from Azure App Configuration*|
+
+2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile*.
    
     ```yaml
     apiVersion: apps/v1
@@ -340,7 +338,7 @@ If the phase is not `COMPLETE`, the data isn't downloaded from your App Configur
 kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 ```   
 
-Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [Setup the Azure App Configuration store](#setup-the-azure-app-configuration-store) to ensure the managed identity is enabled and it's assigned the proper permission.
+Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure associated managed identity is assigned proper permission.
 
 ## Clean up resources
 
