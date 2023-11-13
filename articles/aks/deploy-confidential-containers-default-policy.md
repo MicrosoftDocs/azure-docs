@@ -175,6 +175,9 @@ To configure the workload identity, perform the following steps described in the
 * Create Kubernetes service account
 * Establish federated identity credential
 
+>[!IMPORTANT]
+>For the step to **Export environmental variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
+
 ## Deploy a trusted application with kata-cc and attestation container
 
 The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with Azure attestation secret provisioning container injected into the pod.
