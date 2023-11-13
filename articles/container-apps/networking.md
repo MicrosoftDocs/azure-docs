@@ -143,9 +143,9 @@ Different environment types have different subnet requirements:
 
 - Container Apps automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in a workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
 
-  - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) for your container app, each node has one IP address assigned.
+  - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) and your container app scales out, each node has one IP address assigned.
 
-  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, each IP address will be assigned to at least 1 replica. When determining how many IP addresses are required for your app, account for 1 IP address per replica.
+  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, one IP address may be assigned to multiple replica. However, when determining how many IP addresses are required for your app, account for 1 IP address per replica.
 
 - When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 
@@ -158,7 +158,7 @@ Different environment types have different subnet requirements:
 | /27 | 21 | 10 |
 
 <sup>1</sup> The available IP addresses is the size of the subnet minus the 11 IP addresses required for Azure Container Apps infrastructure.  
-<sup>2</sup> This is accounting for 1 IP address per node/replica on scale out.  
+<sup>2</sup> This is accounting for 1 IP address per node/replica on scale out. 
 <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. If additional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
 
 # Consumption only environment
