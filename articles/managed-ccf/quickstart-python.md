@@ -21,7 +21,7 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python versions supported by the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
-- The minimum suppoted version of the Python package is 2.0.0b3.
+- The minimum supported version of the Python package is 2.0.0b3.
 
 ## Setup
 
