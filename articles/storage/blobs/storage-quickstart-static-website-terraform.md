@@ -41,23 +41,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-storage-account-with-static-website/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-storage-account-with-static-website/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-storage-account-with-static-website/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-storage-account-with-static-website/outputs.tf":::
 
 1. Create a file named `index.html` and insert the following code:
 
-    :::code language="html" source="~/terraform_samples_test/quickstart/101-storage-account-with-static-website/index.html":::
+    :::code language="html" source="~/terraform_samples/quickstart/101-storage-account-with-static-website/index.html":::
 
 ## Initialize Terraform
 
