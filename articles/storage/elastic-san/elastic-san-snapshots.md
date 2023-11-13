@@ -4,7 +4,7 @@ description: Learn about snapshots for Azure Elastic SAN Preview, including how 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/08/2023
+ms.date: 11/15/2023
 ms.author: rogarana
 ---
 
@@ -56,7 +56,7 @@ $snapshot = New-AzElasticSanVolumeSnapshot -ResourceGroupName $rgname -ElasticSa
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume snapshot create -g "rg" -e "san_name" -v "vg_name" -n "snapshot_name" --creation-data '{source-id:"volume_id"}'
+az elastic-san volume snapshot create -g "resourceGroupName" -e "san_name" -v "vg_name" -n "snapshot_name" --creation-data '{source-id:"volume_id"}'
 ```
 
 ---
@@ -82,7 +82,7 @@ New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -Volum
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume create -g "rg" -e "san_name" -v "vg_name" -n "volume_name_2" --size-gib 2 --creation-data '{source-id:"snapshot_id",create-source:VolumeSnapshot}'
+az elastic-san volume create -g "resourceGroupName" -e "san_name" -v "vg_name" -n "volume_name_2" --size-gib 2 --creation-data '{source-id:"snapshot_id",create-source:VolumeSnapshot}'
 ```
 
 ---
@@ -100,6 +100,8 @@ You can use snapshots of managed disks to create new elastic SAN volumes using t
 
 # [PowerShell](#tab/azure-powershell)
 
+The following command will create a 1 GiB
+
 ```azurepowershell
 New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -VolumeGroupName $vgname -Name $volname2 -CreationDataSourceId $snapshot.Id -SizeGiB 1
 ```
@@ -107,7 +109,7 @@ New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -Volum
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume create -g "rg" -e "san_name" -v "vg_name" -n "volume_name_2" --size-gib 2 --creation-data '{source-id:"snapshot_id",create-source:VolumeSnapshot}'
+az elastic-san volume create -g "resourceGroupName" -e "san_name" -v "vg_name" -n "volume_name_2" --size-gib 2 --creation-data '{source-id:"snapshot_id",create-source:VolumeSnapshot}'
 ```
 
 ---
@@ -135,7 +137,7 @@ Remove-AzElasticSanVolumeSnapshot -ResourceGroupName $rgname -ElasticSanName $es
 The following command deletes an individual snapshot. Replace the values, then run the command.
 
 ```azurecli
-az elastic-san volume snapshot delete -g "rg" -e "san_name" -v "vg_name" -n "snapshot_name"
+az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "vg_name" -n "snapshot_name"
 ```
 ---
 
