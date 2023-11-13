@@ -67,7 +67,7 @@ There are a few requirements to properly install the aks addon for managed ident
     }
     ```
 
-### Add to an existing cluster
+### Use an existing cluster
 
 Enable AKS-managed Microsoft Entra integration on your existing Kubernetes RBAC enabled cluster using the [`az aks update`][az-aks-update] command. Make sure to set your admin group to keep access on your cluster.
 
