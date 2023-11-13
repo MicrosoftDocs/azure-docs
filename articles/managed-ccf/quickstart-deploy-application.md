@@ -16,6 +16,7 @@ In this quickstart tutorial, you will learn how to deploy an application to an A
 ## Prerequisites
 
 [!INCLUDE [Prerequisites](./includes/proposal-prerequisites.md)]
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Download the service identity
 

@@ -19,7 +19,7 @@ In this quickstart, you create a Managed CCF resource with the [Azure portal](ht
 
 ## Prerequisites
 
-- Install [CCF](https://microsoft.github.io/CCF/main/build_apps/install_bin.html).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Sign in to Azure
 
