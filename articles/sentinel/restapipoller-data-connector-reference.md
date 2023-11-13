@@ -1,10 +1,10 @@
 ---
 title: Data connectors reference for the Codeless Connector Platform
-description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type as part of the Codeless Connector Platform.
+description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
-ms.date: 10/19/2023
+ms.date: 11/13/2023
 ms.author: austinmc
 
 ---
@@ -66,7 +66,7 @@ The request body for the CCP data connector has the following structure:
 
 ```
 
-**CodelessRestApiPollerConnector** represents codeless API Poller connector.
+**RestApiPoller** represents the codeless API Poller connector.
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
@@ -145,8 +145,7 @@ Since the `ApiKeyName` is explicitly set to `""`, the result is the following he
 
 #### OAuth2
 
-The Codeless Connector Platform supports OAuth 2.0 authorization code grant and client credentials.
-The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+The Codeless Connector Platform supports OAuth 2.0 authorization code grant and client credentials. The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
 
 |Field | Required | Type | Description |
@@ -200,7 +199,7 @@ Example:
     "grantType": "client_credentials"
 }
 ```
-The difference between code flow to client credentials is that code flow is for fetching data on behalf of user (user permissions) and client credentials is for fetching data with the application permissions, the data server grant access / permissions to the application, there is no user, that is why in client credentials flow we don’t need authorization endpoint, only a token endpoint for retrieving tokens.
+The difference between code flow to client credentials is that code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with the application permissions. The data server grant access / permissions to the application, there is no user, that is why in client credentials flow we don't need authorization endpoint, only a token endpoint for retrieving tokens.
 
 ## Request configuration
 
@@ -210,16 +209,15 @@ The request section includes the following parameters:
 | ---- | ---- | ---- | ---- |
 | **apiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
 | **rateLimitQPS** | False | Integer | Defines the number of calls or queries allowed in a second. |
-| **queryWindowInMin** | False | Integer | Defines the available query window in minutes.	Minimum is 1 minute. Default is 5 minutes. successStatusValue
-
-HttpMethod	False	String	Defines the API method: GET or Post	GET
-QueryTimeFormat	False	String	Defines the date time presentation that the endpoint (remote server) expects. Possible values are the constants: "UnixTimestamp", "UnixTimestampInMills" or any other valid representation of date time, for example: "yyyy-MM-dd", "MM/dd/yyyy HH:mm:ss", etc..	ISO 8601 UTC
-RetryCount	False	Integer	Defines how many retries are allowed in case of a failure.	A number from 1 to 6. Default is 3.
-TimeoutInSeconds	False	Integer	Defines the request timeout, in seconds.	A number from 1 to 180. Default is 20
-IsPostPayloadJson	False	Boolean	Determines whether the POST payload is in JSON format.	Default value is false
-Headers	False	Object	Key value pairs - defines the request headers 	
-QueryParameters	False	Object	Key value pairs - defines the request query parameters 	
-StartTimeAttributeName	Depends on the scenario 	String	Defines the query parameter name for query Start time.
+| **queryWindowInMin** | False | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
+| **httpMethod** | False | String | Defines the API method: `GET`(default) or `POST` |
+| **queryTimeFormat** | False | String | Defines the date time presentation that the endpoint (remote server) expects. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
+| **RetryCount** |False | Integer (1...6) | Defines `1` to `6` retries allowed in case of a failure. Default is `3`.|
+| **TimeoutInSeconds** | False | Integer (1...180) | Defines the request timeout, in seconds. Default is `20` |
+| **IsPostPayloadJson** | False | Boolean | Determines whether the POST payload is in JSON format.	Default is `false`|
+| **Headers** | False | Object | Key value pairs that define the request headers |
+| **QueryParameters** | False | Object | Key value pairs that define the request query parameters |
+| **StartTimeAttributeName** | Depends | String | Defines the query parameter name for query Start time. |
 
 For example: if 
 StartTimeAttributeName = "from"
@@ -271,8 +269,7 @@ The first one is for querying messages with filter query parameter with a query 
   "QueryTimeIntervalDelimiter": " and Timestamp lt "
 }
 ```
-The JSON above will fire a GET request to https://graph.microsoft.com/v1.0/me/messages?filter=TimeStamp gt 2019-09-01T09:00:00.0000000 and Timestamp lt 2019-09-01T17:00:00.0000000
-Of course time stamp will change each queryWindowInMin time.
+The JSON above will fire a GET request to `https://graph.microsoft.com/v1.0/me/messages?filter=TimeStamp gt 2019-09-01T09:00:00.0000000 and Timestamp lt 2019-09-01T17:00:00.0000000`. The time stamp will change each `queryWindowInMin` time.
 Same results can be achieved with this option:
 
 ```json
@@ -401,13 +398,13 @@ Create DCE here
 DataCollectionRuleImmutableId	true	String	On DCR creation, the response for the DCR will have its immutable id
 StreamName	true	string	Stream defined in DCR stream declaration for custom streams (prefix with “Custom-"), If stream is a standard stream prefix with “Microsoft-", for more information see docs
 
-## Unified example
+## Example CCP data connector
 
 Here's an example of all the components of the CCP data connector JSON together.
 
 ```json
 {
-              "id": "/subscriptions/{subscription id} /resourceGroups/{resource group name}/providers/Microsoft.OperationalInsights/workspaces/{workspace name /providers/Microsoft.SecurityInsights/dataConnectors/{data connector name} ",
+   "id": "/subscriptions/{{subscriptionId}}/resourceGroups/{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataconnector name}",
               "name": "DataConnectorExample",
               "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
               "kind": "RestApiPoller",

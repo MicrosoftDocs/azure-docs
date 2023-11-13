@@ -88,16 +88,16 @@ To understand how to create a complex DCR with multiple data flows, see the [exa
 
 ### Data connector user interface
 
-The data connector user interface uses the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API to configure the elements Microsoft Sentinel users experience when viewing the CCP data connector. Build this resource with the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
+The data connector user interface uses the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API to configure the elements Microsoft Sentinel users experience when viewing the CCP data connector. Build this resource with the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md).
 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
-2)	Since this is a type of API polling connector the `connectivityCriteria` set the type to `hasDataConnectors`
-3)	The `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+2)	Since this is a type of API polling connector, set the `connectivityCriteria` type to `hasDataConnectors`
+3)	The example `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
-Use Postman to call the data connector definitions API to create a data connector UI to validate in the data connectors gallery.
+Use Postman to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
-To learn from an example, see the [example section](#example-data-connector-ui-definition).
+To learn from an example, see the [Data connector definitions reference example section](connectorUIConfig-supplemental-reference.md#example-data-connector-definition).
 
 ### Data connection rules
 
@@ -106,7 +106,9 @@ This portion defines the connection rules including:
 - authentication
 - paging
 
-For more information on building this section, see the [RestApiPoller data connector reference](restapipoller-data-connector-reference.md).
+For more information on building this section, see the [Data connector connection rules reference](restapipoller-data-connector-reference.md).
+
+To learn from an example, see the [Data connector connection rules reference example](restapipoller-data-connector-reference.md#example-ccp-data-connector).
 
 Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -135,8 +137,8 @@ Each step in building the codeless connector is represented in the following exa
 - [Example data](#example-data)
 - [Example custom table](#example-custom-table)
 - [Example data collection rule](#example-data-collection-rule)
-- [Example data connector UI definition](#example-data-connector-ui-definition)
-- [Example data connection rules](#example-data-connection-rules)
+- [Example data connector UI definition](connectorUIConfig-supplemental-reference.md#example-data-connector-definition)
+- [Example data connection rules](restapipoller-data-connector-reference.md#example-ccp-data-connector)
 - [Use example data with example template](#example-deployment-solution-template)
 
 To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCP data connector.
@@ -311,154 +313,6 @@ To create this connector in a test environment, follow the [Data Collection Rule
   }
 }
 
-```
-
-### Example data connector UI definition
-
-
-```json
-{
-    "kind": "Customizable",
-    "properties": {
-        "connectorUiConfig": {
-          "title": "Data Connector Name",
-          "publisher": "My Company",
-          "descriptionMarkdown": "This is an example of data connector",
-          "graphQueries": [
-            {
-              "metricName": "Alerts received",
-              "legend": "My data connector alerts",
-              "baseQuery": "Custom-ExampleConnectorAlerts_CL"
-            },   
-           {
-              "metricName": "Events received",
-              "legend": "My data connector events",
-              "baseQuery": "ASIMFileEventLogs"
-            }
-          ],
-          "sampleQueries": [
-            {
-                "description": "All logs",
-                "query": "{{graphQueriesTableName}}\n | take 10"
-            }
-          ],
-          "dataTypes": [
-            {
-              "name": "Custom-ExampleConnectorAlerts_CL",
-              "lastDataReceivedQuery": "Custom-ExampleConnectorAlerts_CL \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
-            },
-             {
-              "name": "ASIMFileEventLogs",
-              "lastDataReceivedQuery": "ASIMFileEventLogs \n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
-             }
-          ],
-          "connectivityCriteria": [
-            {
-              "type": "HasDataConnectors"
-            }
-          ],
-          "permissions": {
-            "resourceProvider": [
-              {
-                "provider": "Microsoft.OperationalInsights/workspaces",
-                "permissionsDisplayText": "Read and Write permissions are required.",
-                "providerDisplayName": "Workspace",
-                "scope": "Workspace",
-                "requiredPermissions": {
-                  "write": true,
-                  "read": true,
-                  "delete": true
-                }
-              },
-            ],
-            "customs": [
-              {
-                "name": "Example Connector API Key",
-                "description": "The connector API key username and password is required"
-              }
-            ] 
-        },
-          "instructionSteps": [
-            {
-              "description": "To enable the connector provide the required information below and click on Connect.\n>",
-              "instructions": [
-               {
-                  "type": "Textbox",
-                  "parameters": {
-                    "label": "User name",
-                    "placeholder": "User name",
-                    "type": "text",
-                    "name": "username"
-                  }
-                },
-                {
-                  "type": "Textbox",
-                  "parameters": {
-                    "label": "Secret",
-                    "placeholder": "Secret",
-                    "type": "password",
-                    "name": "password"
-                  }
-                },
-                {
-                  "parameters": {
-                    "label": "toggle",
-                    "name": "toggle"
-                  },
-                  "type": "ConnectionToggleButton"
-                }
-              ],
-              "title": "Connect My Connector to Microsoft Sentinel"
-            }
-          ]
-        }
-    }
-}
-```
-
-### Example data connection rules
-
-```json
-{
-
-              "kind": "RestApiPoller",
-              "properties": {
-                "connectorDefinitionName": "ConnectorDefinitionExample",
-                "dcrConfig": {
-                  "streamName": "Custom-MyTable_CL",
-                  "dataCollectionEndpoint": "{DCE collection endpoint (https://...)}",
-                  "dataCollectionRuleImmutableId": "dcr-immutable id " 
-                },
-                "dataType": "ExampleLogs",
-                "auth": {
-                  "type": "Basic",
-                  "password": "xxxxx",
-                  "userName": "user1"
-                },
-                "request": {
-                  "apiEndpoint": "endpoint url (https://...) ",
-                  "rateLimitQPS": 10,
-                  "queryWindowInMin": 5,
-                  "httpMethod": "GET",
-                  "queryTimeFormat": "UnixTimestamp",
-                  "startTimeAttributeName": "t0",
-                  "endTimeAttributeName": "t1",
-                  "retryCount": 3,
-                  "timeoutInSeconds": 60,
-                  "headers": {
-                    "Accept": "application/json",
-                    "User-Agent": "Scuba"
-                  }
-                },
-                "paging": {
-                  "pagingType": "LinkHeader"
-                  
-                },
-                "response": {
-                  "eventsJsonPaths": ["$"]
-                }
-              }
-            }
 ```
 
 ### Example deployment solution template

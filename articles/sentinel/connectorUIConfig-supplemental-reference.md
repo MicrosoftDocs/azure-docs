@@ -393,7 +393,7 @@ This object includes the template spec name and version of the different connect
 | **TemplateSpecName** |	True  |String | The name of the template spec which contains the data connectors connections. The template includes ARM templates that can be created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
 | **TemplateSpecVersion** | True | String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (e.g., "1.0.0") |
 
-## Example data connector 
+## Example data connector definition
 
 The following example brings together some of the components defined in this article as a JSON body format to use with the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) data connector API.
 
