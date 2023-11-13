@@ -39,7 +39,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     ```bash
     az login
 
-    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-lnm-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-alpha.5 --release-train private-preview
+    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-lnm-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-preview --release-train preview
     ```
 
 1. To validate the installation was successful, run:

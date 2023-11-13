@@ -119,7 +119,7 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
     ```bash
     az login
 
-    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-e4in-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-alpha.5 --release-train private-preview
+    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-lnm-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-preview --release-train preview
     ```
 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.

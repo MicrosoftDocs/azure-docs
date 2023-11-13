@@ -103,17 +103,11 @@ You should complete this step in an *internet facing environment outside of the 
 ## Prepare an Ubuntu machine
 
 1. Ubuntu 22.04 LTS is the recommended version for the host machine.
-1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
-1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
-1. Install *connectedk8s* and other extensions.
 
-    ```bash
-    az extension add --name connectedk8s
-    az extension add --name k8s-extension
-    az extension add --name customlocation
-    ```
-1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
+1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
+
+1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
+
 1. Install `nfs-common` on the host machine.
 
     ```bash
@@ -139,6 +133,21 @@ You should complete this step in an *internet facing environment outside of the 
 1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
+
+1. Install the Azure CLI related backage. 
+    > You can install the Azure CLI directly onto the level 3 machine or on another devloper machine if you plan to access the level 3 cluster remotely through the "develop machine" or "jumpbox". If you choose to access the kubernetes cluster remotely to keep the cluster host clean, you will run the "kubectl" and "az" related commands from the developer machine for the rest of the steps in this page.
+
+    1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
+
+    1. Install *connectedk8s* and other extensions.
+
+        ```bash
+        az extension add --name connectedk8s
+        az extension add --name k8s-extension
+        az extension add --name customlocation
+        ```
+
+    1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
 
 ## Create the K3S cluster
 
