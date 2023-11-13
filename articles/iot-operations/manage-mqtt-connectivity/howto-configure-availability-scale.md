@@ -175,27 +175,6 @@ For example, to use an emptyDir volume with a capacity of 1 gigabytes, specify t
         maxSize: "1G"
 ```
 
-### Size limits
-
-By default, the container filesystem is used when no storage class is provided. Currently, there's no way to set a limit on the amount of data that's written. Use a storage class with size limits to reduce the chance of exhausting the disk space available on the node.
-
-To set up your persistent volume for the message buffer in your Broker CRD, follow this example:
-
-```yaml
-spec:
-  diskBackedMessageBufferSettings:
-    volumeClaimSpec:
-      storageClassName: "foo"
-      accessModes:
-        - "ReadWriteOnce"
-      resources:
-        requests:
-          storage: "1G"
-        limits:
-          storage: "1G"
-  # ...customize other properties of the `volumeClaimSpec` as needed.
-```
-
 ### Considerations for storage providers
 
 Consider the behavior of your chosen storage provider. For example, when using providers like `rancher.io/local-path`. If the provider doesn't support limits, filling up the volume consumes the node's disk space. This could lead to Kubernetes marking the node and all associated pods as unhealthy. It's crucial to understand how your storage provider behaves in such scenarios.
