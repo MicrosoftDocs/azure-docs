@@ -5,17 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/09/2023
+ms.date: 11/13/2023
 ms.author: cshoe
 ---
 
 # Introduction to serverless containers on Azure
 
-In serverless computing, you're able to deploy applications to a cloud platform, like Azure Container Apps, which handles scaling, security, infrastructure management for you - all while reducing costs. Once freed from server-related concerns, you're able to spend your time focusing on your application code.
+Serverless computing offers services that manage and maintain servers, which relive you of the burden of physically operating servers yourself. Azure Container Apps is a serverless platform that handles scaling, security, and infrastructure management for you - all while reducing costs. Once freed from server-related concerns, you're able to spend your time focusing on your application code.
 
 Container Apps make it easy to manage:
 
-1. **Automatic scaling**: Requests for your applications fluctuate. Container Apps keeps your systems running even during seasons of high demand. Container Apps meets the demand for your app at any level by [automatically creating new copies](scale-app.md) (called replicas) of your container. As demand falls, the runtime removes unneeded replicas on your behalf.
+1. **Automatic scaling**: As requests for your applications fluctuate, Container Apps keeps your systems running even during seasons of high demand. Container Apps meets the demand for your app at any level by [automatically creating new copies](scale-app.md) (called replicas) of your container. As demand falls, the runtime removes unneeded replicas on your behalf.
 
 1. **Security**: Application security is enforced throughout many layers. From [authentication and authorization](authentication.md) to [network-level security](networking.md), Container Apps allows you to be explicit about the users and requests allowed into your system.
 
@@ -23,7 +23,7 @@ Container Apps make it easy to manage:
 
 1. **Deployment flexibility**: You can deploy from GitHub, Azure DevOps, or from your local machine.
 
-1. **Changes**: As your containers change and evolve, you need a way to keep track of the changes. Container Apps catalogs changes as [revisions](revisions.md) to your containers. If you're experiencing a problem with a container, you can easily roll back to an older version.
+1. **Changes**: As your containers evolve, Container Apps catalogs changes as [revisions](revisions.md) to your containers. If you're experiencing a problem with a container, you can easily roll back to an older version.
 
 ## Where to go next
 
