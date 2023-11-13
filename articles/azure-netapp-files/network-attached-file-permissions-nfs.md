@@ -259,13 +259,13 @@ drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
 -rw-r--r--.  1 root     root            0 Apr 23 14:39 umask_file
 ```
 
-### Auxiliary/supplemental group limitations with NFS
+## Auxiliary/supplemental group limitations with NFS
 
 NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16. For AUTH_GSS (Kerberos), the maximum is 32. This is a known protocol limitation of NFS. 
 
 Azure NetApp Files provides the ability to increase the maximum number of auxiliary groups to 1,024. This is performed by avoiding truncation of the group list in the NFS packet by prefetching the requesting user’s group from a name service, such as LDAP.
 
-#### How it works 
+### How it works 
 
 The options to extend the group limitation work the same way the `-manage-gids` option for other NFS servers works. Rather than dumping the entire list of auxiliary GIDs a user belongs to, the option looks up the GID on the file or folder and returns that value instead.
 
@@ -283,11 +283,11 @@ When an access request is made, only 16 GIDs are passed in the RPC portion of th
 
 Any GID beyond the limit of 16 is dropped by the protocol. Extended GIDs in Azure NetApp Files can only be used with external name services such as LDAP.
 
-#### Potential performance impacts 
+### Potential performance impacts 
 
 Extended groups have a minimal performance penalty, generally in the low single digit percentages. Higher metadata NFS workloads would likely have more effect, particularly on the system’s caches. Performance can also be affected by the speed and workload of the name service servers. Overloaded name service servers are slower to respond, causing delays in prefetching the GID. For best results, use multiple name service servers to handle large numbers of requests.
 
-#### “Allow local users with LDAP” option
+### “Allow local users with LDAP” option
 
 When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit to 1,024). As a result, Azure NetApp files attempts to look up the numeric ID in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet.
 
