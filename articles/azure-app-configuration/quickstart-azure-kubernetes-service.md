@@ -216,7 +216,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     |Settings:FontColor|*Green*|
     |Settings:Message|*Hello from Azure App Configuration*|
 
-### Install App Configuration Kubernetes Provider to AKS cluster
+### Setup the App Configuration Kubernetes Provider
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
