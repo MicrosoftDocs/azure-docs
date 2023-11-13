@@ -262,7 +262,9 @@ When a mapping relationship already exists between source and target elements, y
 
 1. On the map, select the line for the mapping that you created.
 
-1. Move your pointer over the selected line, and select the **Insert function** plus sign (**+**) that appears.
+1. Move your pointer over the selected line, and select the **Insert function** plus sign (**+**) that appears, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/insert-function.png" alt-text="Screenshot shows Visual Studio Code with elements from source and target schemas with mapping relationship and option to Insert function." lightbox="media/create-maps-data-transformation-visual-studio-code/insert-function.png":::
 
 1. From the functions list that opens, find and select the function that you want to use. 
 
@@ -404,6 +406,10 @@ Visual Studio Code saves your map as the following artifacts:
 
 - A **<*your-map-name*>.yml** file in the **Artifacts** > **MapDefinitions** project folder
 - An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
+
+## Generate XSLT at any time
+
+To generate the **<*your-map-name*>.xslt** file at any time, on the map toolbar, select **Generate XSLT**.
 
 ## Test your map
 
