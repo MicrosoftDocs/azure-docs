@@ -65,7 +65,7 @@ Secret:
 
 After you complete these steps, you can use this integration name (MDCIntegrationSNOW in our example) to connect ServiceNow to Microsoft Defender for Cloud.
 
-## Create ServiceNow Integration with MDC
+## Create ServiceNow Integration with Microsoft Defender for Cloud
 
 1. Sign in to [the Azure portal](https://aka.ms/integrations) as at least a [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) and navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Click **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
@@ -114,11 +114,11 @@ You can review an integration, or all integrations, in [Azure Resource Graph (AR
 Security admins can now create and assign tickets directly from the Microsoft Defender for Cloud portal.
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** and select any recommendation with unhealthy resources that you want to create a ServiceNow ticket for and assign an owner to. 
-1. Click the resource from the unhealthy resources and click Create Assignment.
+1. Click the resource from the unhealthy resources and click **Create assignment**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/create-assignment.png" alt-text="Screenshot of how to create an assignment.":::
 
-1. Use the following details to complete Assignment type and Assignment details:
+1. Use the following details to complete the **Assignment type** and **Assignment details**:
 
    - Assignment Type – Choose **ServiceNow** from the drop-down menu.
    - Integration Instance – Select the integration instance you want to assign this recommendation to.
