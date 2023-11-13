@@ -198,10 +198,10 @@
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
-        items:
-          - name: Plan options
-            displayName: CSPM, cloud security, posture, management
-            href: concept-cloud-security-posture-management.md
+        displayName: CSPM, cloud security, posture, management
+        href: concept-cloud-security-posture-management.md
+      - name: Integrations
+        items:  
           - name: ServiceNow integration
             displayName: CSPM, cloud security, posture, management, ServiceNow
             href: integration-servicenow.md

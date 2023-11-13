@@ -3,15 +3,16 @@ title: Integrate ServiceNow with Microsoft Defender for Cloud
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: justinha
+ms.reviewer: safeenab
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/13/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
 
 ServiceNow is a cloud-based workflow automation and enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. ServiceNow helps to improve operational efficiencies by streamlining and automating routine work tasks and delivers resilient services that help increase your productivity.  
 
-ServiceNow is now integrated with Microsoft Defender for Cloud that will enable customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that impact your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.   
+ServiceNow is now integrated with Microsoft Defender for Cloud, which enables customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that impact your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.   
 
 ## Common use cases and scenarios
 
