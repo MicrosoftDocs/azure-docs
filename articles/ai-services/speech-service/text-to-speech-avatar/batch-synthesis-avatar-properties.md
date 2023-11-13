@@ -15,7 +15,7 @@ keywords: text to speech avatar batch synthesis
 
 [!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
 
-Batch synthesis properties can be grouped as: batch job related properties, text to speech related properties, avatar related properties, which are described in the following tables.
+Batch synthesis properties can be grouped as: avatar related properties, batch job related properties, and text to speech related properties,  which are described in the following tables.
 
 Some properties in JSON format are required when you create a new batch synthesis job. Other properties are optional. The batch synthesis response includes other properties to provide information about the synthesis status and results. For example, the `outputs.result` property contains the location from where you can download a video file containing the avatar video. From `outputs.summary`, you can access the summary and debug details. 
 
@@ -25,8 +25,8 @@ The following table describes the avatar properties.
 
 | Property  | Description |
 |------------------------------------------|------------------------------------------|
-| properties.talkingAvatarCharacter         | The character name of the talking avatar.<br/><br/>The supported avatar characters can be found [here](what-is-text-to-speech-avatar.md).<br/><br/>This property is required.|
-| properties.talkingAvatarStyle             | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](what-is-text-to-speech-avatar.md).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
+| properties.talkingAvatarCharacter         | The character name of the talking avatar.<br/><br/>The supported avatar characters can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required.|
+| properties.talkingAvatarStyle             | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
 | properties.customized                     | A bool value indicating whether the avatar to be used is customized avatar or not. True for customized avatar, and false for prebuilt avatar.<br/><br/>This property is optional, and the default value is `false`.|
 | properties.videoFormat                    | The format for output video file, could be mp4 or webm.<br/><br/>The `webm` format is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
 | properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background.<br/><br/>This property is optional, and the default value is hevc.|
@@ -54,7 +54,7 @@ The following table describes the batch synthesis job properties.
 | lastActionDateTime       | The most recent date and time when the status property value changed.<br/><br/>This property is read-only.|
 | properties               | A defined set of optional batch synthesis configuration settings.  |
 | properties.destinationContainerUrl | The batch synthesis results can be stored in a writable Azure container. If you don't specify a container URI with [shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) token, the Speech service stores the results in a container managed by Microsoft. SAS with stored access policies isn't supported. When the synthesis job is deleted, the result data is also deleted.<br/><br/>This optional property isn't included in the response when you get the synthesis job.|
-| properties.timeToLive    |A duration after the synthesis job is created, when the synthesis results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify PT12H for 12 hours. This optional setting is P31D (31 days) by default. The maximum time to live is 31 days. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the lastActionDateTime + timeToLive properties.<br/><br/>Otherwise, you can call the [delete synthesis method](../batch-synthesis.md#delete-batch-synthesis) to remove the job sooner. |
+| properties.timeToLive    |A duration after the synthesis job is created, when the synthesis results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify PT12H for 12 hours. This optional setting is P31D (31 days) by default. The maximum time to live is 31 days. The date and time of automatic deletion, for synthesis jobs with a status of "Succeeded" or "Failed" is calculated as the sum of the lastActionDateTime and timeToLive properties.<br/><br/>Otherwise, you can call the [delete synthesis method](../batch-synthesis.md#delete-batch-synthesis) to remove the job sooner. | 
 | status                   | The batch synthesis processing status.<br/><br/>The status should progress from "NotStarted" to "Running", and finally to either "Succeeded" or "Failed".<br/><br/>This property is read-only.|
 
 

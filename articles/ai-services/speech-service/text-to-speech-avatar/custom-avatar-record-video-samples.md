@@ -17,7 +17,7 @@ keywords: how to record video samples for custom text to speech avatar
 
 This article provides instructions on preparing high-quality video samples for creating a custom text to speech avatar.
 
-Custom text to speech avatar model building requires training on a video recording of a real human speaking. This person is the avatar talent. Customers must get sufficient consent under all relevant laws and regulations from the avatar talent to create a custom avatar from their talent's image or likeness.
+Custom text to speech avatar model building requires training on a video recording of a real human speaking. This person is the avatar talent. You must get sufficient consent under all relevant laws and regulations from the avatar talent to create a custom avatar from their talent's image or likeness.
 
 ## Recording environment
 
@@ -50,7 +50,7 @@ You need three types of basic video clips:
    - Actor speaks in status 0 but with natural hand gestures from time to time.
    - Hands should start from status 0 and return after making gestures.
    - Use natural and common gestures when speaking. Avoid meaningful gestures like pointing, applause, or thumbs up.
-   - Length: Minimum 5 minutes, maximum 30 minutes in total. At least one piece of 5-minutes continuous video recording is required. If recording multiple video clips, keep each clip under 10 minutes.
+   - Length: Minimum 5 minutes, maximum 30 minutes in total. At least one piece of 5-minute continuous video recording is required. If recording multiple video clips, keep each clip under 10 minutes.
 
 **Silent status:**
    - Maintain status 0 but don't speak.
