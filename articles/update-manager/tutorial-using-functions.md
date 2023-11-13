@@ -31,9 +31,8 @@ In this tutorial, you learn how to:
     1. On the **Function App**, select **App files**.
     1. Under the **host.json**, enable **ManagedDependecy** to **True**.
     1. Under the **requirements.psd1**, paste the following code: 
-      
-       ```
-        @{ 
+        ```
+        { 
          For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.         
          Uncomment the next line and replace the MAJOR_VERSION, 
          for example,     'Az' = '5.*' 
@@ -70,9 +69,9 @@ In this tutorial, you learn how to:
     $maintenanceConfigurationId = $preEvent.topic 
     $resourceSubscriptionIds = $preEvent.data.ResourceSubscriptionIds 
     $queryStr = "maintenanceresources 
-      | where type == 'microsoft.maintenance/applyupdates' 
-      | where properties.correlationId =~ '$correlationId' 
-      | project name, resourceId = properties.resourceId" 
+    | where type == 'microsoft.maintenance/applyupdates' 
+    | where properties.correlationId =~ '$correlationId' 
+    | project name, resourceId = properties.resourceId" 
      $argQueryResult = Search-Azgraph -Query $queryStr -Subscription $preEvent.data.ResourceSubscriptionIds 
      $mcName = ($maintenanceConfigurationId -split '/')
     [8].ToLower() 
