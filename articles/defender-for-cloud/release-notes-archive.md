@@ -366,7 +366,7 @@ Now, the new Defender for DevOps plan integrates source code management systems,
 
 Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
-Security teams can configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
+Security teams can configure pull request annotations, to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
 You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans:
 
@@ -1379,7 +1379,7 @@ Other changes in November include:
 
 ### Azure Security Center and Azure Defender become Microsoft Defender for Cloud
 
-According to the [2021 State of the Cloud report](https://info.flexera.com/CM-REPORT-State-of-the-Cloud#download), 92% of organizations now have a multicloud strategy. At Microsoft, our goal is to centralize security across these environments and help security teams work more effectively.
+According to the [2021 State of the Cloud report](https://info.flexera.com/CM-REPORT-State-of-the-Cloud#download), 92% of organizations now have a multicloud strategy. At Microsoft, our goal is to centralize security across environments, and to help security teams work more effectively.
 
 **Microsoft Defender for Cloud**  is a Cloud Security Posture Management (CSPM) and cloud workload protection (CWP) solution that discovers weaknesses across your cloud configuration, helps strengthen the overall security posture of your environment, and protects workloads across multicloud and hybrid environments.
 
@@ -1410,7 +1410,7 @@ Learn more in [Prioritize security actions by data sensitivity](information-prot
 
 ### Expanded security control assessments with Azure Security Benchmark v3
 
-Microsoft Defender for Cloud's security recommendations are enabled and supported by the Azure Security Benchmark.
+Microsoft Defender for Cloud's security recommendations are supported by the Azure Security Benchmark.
 
 [Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
