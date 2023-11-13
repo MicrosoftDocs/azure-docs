@@ -32,8 +32,7 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 
 ## Create an application registry in ServiceNOW
 
-To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Secret for the ServiceNow instance. If you don't have a Client ID and Client Secret, follow these steps 
-to create them: 
+To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Secret for the ServiceNow instance. If you don't have a Client ID and Client Secret, follow these steps to create them: 
 
 1. Sign in to ServiceNow with an account that has permission to modify the Application Registry.
 1. Browse to **System OAuth**, click **Application Registry**.
