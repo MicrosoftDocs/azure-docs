@@ -1,21 +1,21 @@
 ---
-title: AKS-managed Microsoft Entra integration
-description: Learn how to configure Microsoft Entra ID for your Azure Kubernetes Service (AKS) clusters.
+title: Enable Managed Identity Authentication
+description: Learn how to enable Microsoft Entra ID on AKS with kubelogin. Connect your clusters to authenticate Azure users with credentials or managed roles.
 ms.topic: article
-ms.date: 07/28/2023
+ms.date: 11/13/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
 
-# AKS-managed Microsoft Entra integration
+# Enable Azure Managed Identity Authentication for Kubernetes Clusters with Kubenet
 
-AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
+The AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
 Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Microsoft Entra authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [OpenID Connect documentation][open-id-connect].
 
 Learn more about the Microsoft Entra integration flow in the [Microsoft Entra documentation](concepts-identity.md#azure-ad-integration).
 
-## Limitations
+## Limitations of integration
 
 * AKS-managed Microsoft Entra integration can't be disabled.
 * Changing an AKS-managed Microsoft Entra integrated cluster to legacy Microsoft Entra ID isn't supported.
@@ -34,7 +34,7 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
 
 <a name='enable-aks-managed-azure-ad-integration-on-your-aks-cluster'></a>
 
-## Enable AKS-managed Microsoft Entra integration on your AKS cluster
+## Enable the integration on your AKS cluster
 
 ### Create a new cluster
 
@@ -65,7 +65,7 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
     }
     ```
 
-### Use an existing cluster
+### Add to an existing cluster
 
 Enable AKS-managed Microsoft Entra integration on your existing Kubernetes RBAC enabled cluster using the [`az aks update`][az-aks-update] command. Make sure to set your admin group to keep access on your cluster.
 
@@ -90,9 +90,9 @@ A successful activation of an AKS-managed Microsoft Entra ID cluster has the fol
 
 <a name='upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration'></a>
 
-### Upgrade a legacy Microsoft Entra ID cluster to AKS-managed Microsoft Entra integration
+### Migrate legacy cluster to integration
 
-If your cluster uses legacy Microsoft Entra integration, you can upgrade to AKS-managed Microsoft Entra integration using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Microsoft Entra integration, you can upgrade to AKS-managed Microsoft Entra integration through the [`az aks update`][az-aks-update] command.
 
 > [!WARNING]
 > Free tier clusters may experience API server downtime during the upgrade. We recommend upgrading during your nonbusiness hours. 
@@ -119,7 +119,7 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
 
 <a name='access-your-aks-managed-azure-ad-enabled-cluster'></a>
 
-## Access your AKS-managed Microsoft Entra ID enabled cluster
+## Access your Microsoft Entra ID enabled cluster
 
 1. Get the user credentials to access your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -169,7 +169,7 @@ There are some non-interactive scenarios that don't support `kubectl`. In these 
 
 <a name='troubleshoot-access-issues-with-aks-managed-azure-ad'></a>
 
-## Troubleshoot access issues with AKS-managed Microsoft Entra ID
+## Troubleshoot access issues
 
 > [!IMPORTANT]
 > The steps described in this section bypass the normal Microsoft Entra group authentication. Use them only in an emergency.
