@@ -403,8 +403,8 @@ Yes, Azure Front Door can be in a different subscription.
     
 ## See also
 
-Learn about [OAuth authorization requests](protocols-overview.md).
-Learn about [OpenID Connect authorization requests](openid-connect.md).
-Learn about [authorization code flow](authorization-code-flow.md).
+* Learn about [OAuth authorization requests](protocols-overview.md).
+* Learn about [OpenID Connect authorization requests](openid-connect.md).
+* Learn about [authorization code flow](authorization-code-flow.md).
 
 
