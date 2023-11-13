@@ -8,6 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: v-baolianzou
+ms.custom: references_regions
 keywords: text to speech avatar
 ---
 

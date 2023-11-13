@@ -52,7 +52,7 @@ The custom text to speech avatar model contains three components: text analyzer,
 - The audio synthesizer synthesizes the speech audio for input text, and these two parts are provided by text to speech or custom neural voice models. 
 - Finally, the neural text to speech avatar model predicts the image of lip sync with the speech audio, so that the synthetic video is generated. 
 
-:::image type="content" source="../media/avatar/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow" lightbox="../media/avatar/custom-avatar-workflow.png":::
+:::image type="content" source="./media/custom-avatar-workflow.png" alt-text="Screenshot of displaying an overview of the custom text to speech avatar workflow." lightbox="./media/custom-avatar-workflow.png":::
 
 The neural text to speech avatar models are trained using deep neural networks based on the recording samples of human videos in different languages. All languages of prebuilt voices and custom neural voices can be supported.
 

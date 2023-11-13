@@ -21,7 +21,7 @@ The synthetic avatar video will be generated asynchronously after the system rec
 
 This diagram provides a high-level overview of the workflow.
 
-:::image type="content" source="../media/avatar/batch-synthesis-workflow.png" alt-text="Screenshot of displaying a high-level overview of the batch synthesis workflow" lightbox="../media/avatar/batch-synthesis-workflow.png":::
+:::image type="content" source="./media/batch-synthesis-workflow.png" alt-text="Screenshot of displaying a high-level overview of the batch synthesis workflow." lightbox="./media/batch-synthesis-workflow.png":::
 
 To perform batch synthesis, you can use the following REST API operations.
 

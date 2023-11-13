@@ -33,7 +33,7 @@ Hello <bookmark mark='gesture.wave-left-1'/>, my name is Jenny, nice to meet you
 
 In this example, the avatar will start waving their hand at the left after the word "Hello".
 
-:::image type="content" source="../media/avatar/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left" lightbox="../media/avatar/gesture.png":::
+:::image type="content" source="./media/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left." lightbox="./media/gesture.png":::
 
 ## Supported pre-built avatar characters, styles and gestures
 
