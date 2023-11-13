@@ -285,9 +285,8 @@ The following table lists the supported environment attributes for conditions.
 
 Principal attributes are Microsoft Entra custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
 
-To use principal attributes, you must have **all** of the following:
+To use principal attributes, you must have the following:
 
-- Microsoft Entra ID P1 or P2 license
 - Microsoft Entra permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
 - Custom security attributes defined in Microsoft Entra ID
 

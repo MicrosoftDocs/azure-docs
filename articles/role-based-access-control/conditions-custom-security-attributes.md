@@ -22,7 +22,6 @@ In this article, you learn how to allow read access to blobs based on blob index
 
 To assign custom security attributes and add role assignments conditions in your Microsoft Entra tenant, you need:
 
-- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
