@@ -16,6 +16,10 @@ ms.date: 11/10/2023
 
 Azure IoT Layered Network Management is one of the Azure IoT Operations components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
+## Prerequisites
+Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
+- Arc-connected cluster and GitOps in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
+
 ## Set up Kubernetes cluster in Level 4
 
 To set up only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
