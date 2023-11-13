@@ -275,7 +275,7 @@ We're announcing the preview release of the Defender CSPM contextual cloud secur
 - **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
 - **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
-Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
 ### New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions
 

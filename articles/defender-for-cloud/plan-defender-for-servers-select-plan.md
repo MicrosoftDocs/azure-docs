@@ -27,7 +27,7 @@ You can choose from two Defender for Servers paid plans:
 
 - **Defender for Servers Plan 1** is entry-level and must be enabled at the subscription level. Features include:
 
-  - [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), which is provided free by Defender for Cloud.
+  - [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md), which is provided free by Defender for Cloud.
 
     - For Azure virtual machines and Amazon Web Services (AWS) and Google Cloud Platform (GCP) machines, you don't need a Defender for Cloud plan enabled to use foundational CSPM features.
     - For on-premises server, to receive configuration recommendations machines must be onboarded to Azure with Azure Arc, and Defender for Servers must be enabled.

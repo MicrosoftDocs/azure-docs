@@ -42,7 +42,7 @@ Security teams regularly face the challenge of how to triage incoming issues.
 
 Defender for Cloud includes two mechanisms to help prioritize recommendations and security alerts:
 
-- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](secure-score-security-controls.md).
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](alerts-overview.md#how-are-alerts-classified).
 

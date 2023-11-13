@@ -53,7 +53,7 @@ Microsoft Defender for Cloud now has built-in integrations to help you use third
 
 Integration streamlines your incident response process, and improves your ability to manage security incidents. You can track, prioritize, and resolve security incidents more effectively.
 
-You can choose which ticketing system to integrate. For preview, only ServiceNow integration is supported. For more information about how to configure ServiceNow integration, see [Integrate ServiceNow with Microsoft Defender for Cloud (preview)](integration-servicenow.md).
+You can choose which ticketing system to integrate. For preview, only ServiceNow integration is supported.
 
 
 ## Plan pricing

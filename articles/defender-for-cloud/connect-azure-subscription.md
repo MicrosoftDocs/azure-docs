@@ -42,7 +42,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 Defender for Cloud is now enabled on your subscription and you have access to the basic features provided by Defender for Cloud. These features include:
 
 - The [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan.
-- [Recommendations](security-policy-concept.md#what-is-a-security-recommendation).
+- [Recommendations](security-policy-concept.md).
 - Access to the [Asset inventory](asset-inventory.md).
 - [Workbooks](custom-dashboards-azure-workbooks.md).
 - [Secure score](secure-score-security-controls.md).

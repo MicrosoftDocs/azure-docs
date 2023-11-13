@@ -17,14 +17,14 @@ To get to the list of recommendations:
     - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
 
-You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
+You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Security posture management improvements](episode-four.md)
 
 ## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 
-Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that you've implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
+Your [secure score is calculated](secure-score-security-controls.md) based on the security recommendations that you've implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
 
 The list of recommendations shows the **Potential score increase** that you can achieve when you remediate all of the recommendations in the security control.
 

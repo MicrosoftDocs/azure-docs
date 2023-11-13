@@ -10,7 +10,7 @@ ms.date: 01/09/2023
 You can find your overall secure score, and your score per subscription, through the Azure portal or programmatically as described in the following sections:
 
 > [!TIP]
-> For a detailed explanation of how your scores are calculated, see [Calculations - understanding your score](secure-score-security-controls.md#calculations---understanding-your-score).
+> For a detailed explanation of how your scores are calculated, see [Calculations - understanding your score](secure-score-security-controls.md).
 
 ## Get your secure score from the portal
 

@@ -1810,7 +1810,7 @@ Learn more about [performing a CSV export of your security recommendations](cont
 
 The recommendations page now has two tabs to provide alternate ways to view the recommendations relevant to your resources:
 
-- **Secure score recommendations** - Use this tab to view the list of recommendations grouped by security control. Learn more about these controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+- **Secure score recommendations** - Use this tab to view the list of recommendations grouped by security control. Learn more about these controls in [Security controls and their recommendations](secure-score-security-controls.md).
 - **All recommendations** - Use this tab to view the list of recommendations as a flat list. This tab is also great for understanding which initiative (including regulatory compliance standards) generated the recommendation. Learn more about initiatives and their relationship to recommendations in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 :::image type="content" source="media/release-notes/recommendations-tabs.png" alt-text="Tabs to change the view of the recommendations list in Azure Security Center.":::
@@ -2316,7 +2316,7 @@ The recommendations listed below are being moved to the **Implement security bes
 - SQL servers should use customer-managed keys to encrypt data at rest
 - Storage accounts should use customer-managed key (CMK) for encryption
 
-Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md).
 
 ### 11 Azure Defender alerts deprecated
 
@@ -2365,7 +2365,7 @@ The Azure Defender dashboard's coverage area includes tiles for the relevant Azu
 
 The following recommendations were moved to different security controls. Security controls are logical groups of related security recommendations, and reflect your vulnerable attack surfaces. This move ensures that each of these recommendations is in the most appropriate control to meet its objective.
 
-Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md).
 
 |Recommendation |Change and impact  |
 |---------|---------|
@@ -2562,7 +2562,7 @@ If you're reviewing the list of recommendations on our [Security recommendations
 
 The recommendation **Sensitive data in your SQL databases should be classified** no longer affects your secure score. This is the only recommendation in the **Apply data classification** security control, so that control now has a secure score value of 0.
 
-For a full list of all security controls in Security Center, together with their scores and a list of the recommendations in each, see [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+For a full list of all security controls in Security Center, together with their scores and a list of the recommendations in each, see [Security controls and their recommendations](secure-score-security-controls.md).
 
 ### Workflow automations can be triggered by changes to regulatory compliance assessments (in preview)
 
@@ -2904,7 +2904,7 @@ Ensuring a web app requests a certificate certainly makes it more secure. Howeve
 
 With this change, the recommendation is now a recommended best practice that does not impact your score.
 
-Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md).
 
 ### Recommendations page has new filters for environment, severity, and available responses
 
