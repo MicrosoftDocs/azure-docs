@@ -34,7 +34,7 @@ This feature requires a GitHub connector in Defender for Cloud. See [how to onbo
 
 The REST API Static Security Testing action locates REST API contracts that follow the OpenAPI Specification (OAS, formerly known as Swagger) and runs thorough security checks on them. Both OAS v2 and v3 are supported, in both JSON and YAML format.
 
-The action is powered by [42Crunch API Security Audit](https://docs.42crunch.com/latest/content/concepts/api_contract_security_Audit.htm). Security Audit performs a static analysis of the API definition that includes more than 300 checks on best practices and potential vulnerabilities on how the API defines authentication, authorization, transport, and request/response schemas.
+The action is powered by [42Crunch API Security Audit](https://docs.42crunch.com/latest/content/concepts/api_contract_security_audit.htm). Security Audit performs a static analysis of the API definition that includes more than 300 checks on best practices and potential vulnerabilities on how the API defines authentication, authorization, transport, and request/response schemas.
 
 Install the 42Crunch API Security Audit plugin within your CI/CD pipeline through completing the following steps:
 
