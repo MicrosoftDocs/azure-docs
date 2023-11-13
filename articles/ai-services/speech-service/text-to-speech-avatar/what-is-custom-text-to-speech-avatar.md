@@ -37,7 +37,7 @@ Before you get started, here are some considerations:
 
 Here's an overview of the steps to create a custom text to speech avatar:
 
-1. **Get consent video:** Obtain a video recording of the consent statement. The consent statement is a video recording of the avatar talent reading a statement, giving consent to the usage of their speech data to train a custom text to speech avatar model.
+1. **Get consent video:** Obtain a video recording of the consent statement. The consent statement is a video recording of the avatar talent reading a statement, giving consent to the usage of their image and voice data to train a custom text to speech avatar model.
 
 1. **Prepare training data:** Ensure that the video recording is in the right format. It's a good idea to shoot the video recording in a professional-quality video shooting studio to get a clean background image. The quality of the resulting avatar heavily depends on the recorded video used for training. Factors like speaking rate, body posture, facial expression, hand gestures, consistency in the actor's position, and lighting of the video recording are essential to create an engaging custom text to speech avatar.
 
