@@ -20,7 +20,7 @@ Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive w
 * Another pod running on the same VM node
 * Cloud Service Providers (CSPs) and from guest applications through a separate trust model
 
-Confidential Containers also enables application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
+Confidential Containers also enable application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
 
 With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -38,7 +38,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - Run big data analytics using Apache Spark for fraud pattern recognition in the financial sector.
 - Running self-hosted GitHub runners to securely sign code as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
-- Machine Learning inferencing and training of ML models using an encrypted data set from a trusted source. It only decrypts inside a confidential container environment for the purpose of privacy preserving ML inference.
+- Machine Learning inferencing and training of ML models using an encrypted data set from a trusted source. It only decrypts inside a confidential container environment to preserve privacy.
 - Building big data clean rooms for ID matching as part of multi-party computation in industries like retail with digital advertising.
 - Building confidential computing Zero Trust landing zones to meet privacy regulations for application migrations to cloud.
 
@@ -53,11 +53,11 @@ The following are considerations with this preview of Confidential Containers:
 * Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. It includes `exec` in container
 log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
 * The policy generator tool doesn't support cronjob deployment types.
-* Due to container image layer measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers. It is also a restriction with the policy generator tool.
+* Due to container image layer measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers. It's also a restriction with the policy generator tool.
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
-* ConfigMaps and secrets values can't be changed if setting using the environment variable method after the pod is deployed. This is due to the security policy preventing it.
+* ConfigMaps and secrets values can't be changed if setting using the environment variable method after the pod is deployed. The security policy prevents it.
 * Pod termination logs aren't supported. While pods write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file aren't reflected on the host.
 
 ## Resource allocation overview
@@ -65,7 +65,7 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 It's important you understand the memory and processor resource allocation behavior in this release.
 
 * CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
-* Memory: The Kata-CC handler uses 2-GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The [Kata][kata-technical-documentation] handler uses 256-MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792-MB is added resulting in a 2-GB VM and 1,792-MB implicit memory for containers.
+* Memory: The Kata-CC handler uses 2 GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The [Kata][kata-technical-documentation] handler uses 256 MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added resulting in a 2 GB VM and 1,792 MB implicit memory for containers.
 
 In this release, specifying resource requests in the pod manifests aren't supported. The Kata container ignores resource requests from pod YAML manifest, and as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 

@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 
 # Deploy an AKS cluster with Confidential Containers and a default policy
 
-In this article, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster and configure Confidential Containers (preview) with a default security policy. You'll then deploy an application as a Confidential container. To learn more, read the [overview of AKS Confidential Containers][overview-confidential-containers].
+In this article, you use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster and configure Confidential Containers (preview) with a default security policy. You then deploy an application as a Confidential container. To learn more, read the [overview of AKS Confidential Containers][overview-confidential-containers].
 
 In general, getting started with AKS Confidential Containers involves the following steps.
 
@@ -24,13 +24,13 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
-- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. This is required to generate a [security policy][confidential-containers-security-policy].
+- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 
 - AKS supports Confidential Containers (preview) on version 1.25.0 and higher.
 
-- A workload identity and a federated identity credential. The workload identity credential enables Kubernetes applications access to Azure resources securely with Microsoft Entra ID based on annotated service accounts. If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][entra-id-workload-identity-overview] and review how [Workload Identity works with AKS][aks-workload-identity-overview].
+- A workload identity and a federated identity credential. The workload identity credential enables Kubernetes applications access to Azure resources securely with a Microsoft Entra ID based on annotated service accounts. If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][entra-id-workload-identity-overview] and review how [Workload Identity works with AKS][aks-workload-identity-overview].
 
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][cluster-access-and-identity-options].
 
@@ -95,7 +95,7 @@ az provider register --namespace "Microsoft.ContainerService"
    * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
    * **--enable-workload-identity**: Enables creating a Microsoft Entra Workload ID enabling pods to use a Kubernetes identity.
-   * **--enable-oidc-issuer**: Enables OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
+   * **--enable-oidc-issuer**: Enables OpenID Connect (OIDC) Issuer. It allows a Microsoft Entra ID or other cloud provider identity and access management platform the ability to discover the API server's public signing keys.
 
    The following example updates the cluster named *myAKSCluster* and creates a single system node pool in the *myResourceGroup*:
 
@@ -180,7 +180,7 @@ To configure the workload identity, perform the following steps described in the
 
 ## Deploy a trusted application with kata-cc and attestation container
 
-The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with Azure attestation secret provisioning container injected into the pod.
+The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with an Azure attestation secret provisioning container injected in to the pod.
 
 This configuration is basedon the following four components:
 
@@ -387,9 +387,9 @@ Encrypted Kafka Message:
 Msg 1: Azure Confidential Computing
 ```
 
-You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you are not running the consumer with kata-cc runtime class, you no longer need the policy.
+You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
 
-Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key cannot be retrieved. The key cannot be retrieved because the consumer is no longer running in a confidential environment, and the `aasp container` is missing, preventing decryption of messages.
+Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `aasp container` is missing, preventing decryption of messages.
 
 ## Cleanup
 
