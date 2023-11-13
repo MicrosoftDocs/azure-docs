@@ -55,11 +55,11 @@ We also recommend a tool like Postman to validate the data connector components.
 
 ## Build the data connector
 
-There are 4 components to the data connector.
+There are 4 components you must build for the CCP data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
-1. [Data connector user interface](#data-connector-definition)
+1. [Data connector user interface](#data-connector-user-interface)
 1. [Data connector connection rules](#data-connection-rules)
 
 ### Output table definition
@@ -74,9 +74,9 @@ If your data source doesn't conform to the schema of a standard table, you have 
 
 Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
 
-For more information on splitting your data to more than one table, see the [example section](#example).
+For more information on splitting your data to more than one table, see the [example section](#example-custom-table).
 
-### Data Collection Rule 
+### Data collection rule 
 
 Reference the latest information on DCRs in these articles:
 - [Data collection rules overview](../azure-monitor/essentials/data-collection-rule-overview.md)
@@ -86,11 +86,18 @@ For a tutorial demonstrating the creation of a DCE, including using sample data 
 
 To understand how to create a complex DCR with multiple data flows, see the [example section](#example-data-collection-rule).
 
-### Data connector definition
+### Data connector user interface
 
-The data connector definition is a resource created to configure the UI of the CCP data connector. Use the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API with kind `Customizable` and the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
+The data connector user interface uses the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API to configure the elements Microsoft Sentinel users experience when viewing the CCP data connector. Build this resource with the [connectorUIConfig supplemental reference](connectorUIConfig-supplemental-reference.md) to build your definition resource.
 
-Use Postman to call the data connector definitions API to create the data connector. Validate the UI in the data connectors gallery.
+Notes: 
+1)	The `kind` property for API polling connector should always be `Customizable`.
+2)	Since this is a type of API polling connector the `connectivityCriteria` set the type to `hasDataConnectors`
+3)	The `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+
+Use Postman to call the data connector definitions API to create a data connector UI to validate in the data connectors gallery.
+
+To learn from an example, see the [example section](#example-data-connector-ui-definition).
 
 ### Data connection rules
 
@@ -101,6 +108,8 @@ This portion defines the connection rules including:
 
 For more information on building this section, see the [RestApiPoller data connector reference](restapipoller-data-connector-reference.md).
 
+Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
+
 ## Create the solution deployment template
 
 Manually package the deployment using the [example template](#example-deployment-solution-template) as your guide.
@@ -110,18 +119,27 @@ Manually package the deployment using the [example template](#example-deployment
 Deploy your codeless connector solution as a custom template. 
 
 >[!TIP]
->Delete resources you created in previous steps. A n DCR and custom tables are created with the deployment making it easier to verify your template.
+>Delete resources you created in previous steps. The DCR and custom table is created with the deployment. If you don't remove those resources before deploying, it is more difficult to verify your template.
 
 1. Copy the contents of the [solution deployment template](#create-the-solution-deployment-template).
 1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
 ## Verify the codeless connector
 
-View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
+View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once successfully connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
 
 ## Example
 
-Each step in building the codeless connector is represented in the following example. To demonstrate a complex data source with ingestion to more than one table, the example features the  output table schema and multiple output streams for the DCR along with its transforms. Then it proceeds with the data connector UI definition and connection rules.
+Each step in building the codeless connector is represented in the following example sections. 
+
+- [Example data](#example-data)
+- [Example custom table](#example-custom-table)
+- [Example data collection rule](#example-data-collection-rule)
+- [Example data connector UI definition](#example-data-connector-ui-definition)
+- [Example data connection rules](#example-data-connection-rules)
+- [Use example data with example template](#example-deployment-solution-template)
+
+To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCP data connector.
 
 ### Example data
 
@@ -154,7 +172,7 @@ A data source returns the following JSON when connecting to its endpoint.
 
 This response contains `eventType` of **Alert** and **File**. The file events are to be ingested into the normalized standard table, **AsimFileEventLogs**, while the alert events are to be ingested into a custom table.
 
-### Example custom output table definition
+### Example custom table
 
 For more information on the structure of this table, see [Tables API](/rest/api/loganalytics/tables/create-or-update).
 
@@ -192,20 +210,22 @@ For more information on the structure of this table, see [Tables API](/rest/api/
 
 ### Example data collection rule
 
-The following DCR transforms the example data source into two output tables.
+The following DCR defines a single stream `{{Custom-ExampleConnectorInput}}` using the example data source and transforms the output into two tables.
 
 1. The first dataflow directs `eventType` = **Alert** to the custom `ExampleConnectorAlerts_CL` table.
 1. the second dataflow directs `eventType` = **File** to the normalized standard table,`ASimFileEventLogs`.
 
-For more information on the structure of this example, see [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create) and [Data collection rules - custom logs](../azure-monitor/essentials/data-collection-rule-structure.md#custom-logs).
+For more information on the structure of this example, see [Data collection rules - custom logs](../azure-monitor/essentials/data-collection-rule-structure.md#custom-logs).
+
+To create this connector in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables.
 
 ```json
 {
-  "location": "eastus",
+  "location": "{{location}}",
   "properties": {
-    "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
+    "dataCollectionEndpointId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.Insights/dataCollectionEndpoints/{{dataCollectionEndpointName}}",
     "streamDeclarations": {
-      "Custom-ExampleConnectorInput": {
+      "Custom-{{ExampleConnectorInput}}": {
         "columns": [
           {
             "name": "ts",
@@ -261,28 +281,28 @@ For more information on the structure of this example, see [Data Collection Rule
     "destinations": {
       "logAnalytics": [
         {
-          "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/centralTeamWorkspace",
-          "name": "UniqueFriendlyDestinationName"
+          "workspaceResourceId": "/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroupName}}/providers/microsoft.operationalinsights/workspaces/{{workspaceName}}",
+          "name": "{{uniqueFriendlyDestinationName}}"
         }
       ]
     },
     "dataFlows": [
       {
         "streams": [
-          "Custom-ExampleConnectorInput"
+          "Custom-{{ExampleConnectorInput}}"
         ],
         "destinations": [
-          "UniqueFriendlyDestinationName"
+          "{{uniqueFriendlyDestinationName}}"
         ],
         "transformKql": "source | where eventType == \"Alert\" | project TimeGenerated = ts, SourceIP = srcIp, DestIP = destIp, Message = message, Priority = priority \n",
         "outputStream": "Custom-ExampleConnectorAlerts_CL"
       },
       {
         "streams": [
-          " Custom-ExampleConnectorInput"
+          "Custom-{{ExampleConnectorInput}}"
         ],
         "destinations": [
-          "UniqueFriendlyDestinationName"
+          "{{uniqueFriendlyDestinationName}}"
         ],
         "transformKql": "source | where eventType == \"File\" | project-rename TimeGenerated = ts, EventOriginalType = eventType, SrcIpAddr = srcIp, DstIpAddr = destIp, FileContentType = fileType, FileSize = fileSizeBytes, EventOriginalSeverity = disposition \n",
         "outputStream": "Microsoft-ASimFileEventLogs"
@@ -293,12 +313,9 @@ For more information on the structure of this example, see [Data Collection Rule
 
 ```
 
-### Example data connector definition
+### Example data connector UI definition
 
-Notes: 
-1)	The `kind` property for API polling connector should always be `Customizable`.
-2)	Since this is a type of API polling connector the `connectivityCriteria` type should be `hasDataConnectors`
-3)	The `instructionsSteps` should include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+
 
 
 ```json
@@ -329,11 +346,11 @@ Notes:
           "dataTypes": [
             {
               "name": "Custom-ExampleConnectorAlerts_CL",
-              "lastDataReceivedQuery": " Custom-ExampleConnectorAlerts_CL '\n   | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)')"
+              "lastDataReceivedQuery": " Custom-ExampleConnectorAlerts_CL '\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)')"
             },
              {
               "name": "ASIMWebSessionLogs",
-              "lastDataReceivedQuery": " ASIMWebSessionLog \n   | where …. \n| summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+              "lastDataReceivedQuery": " ASIMWebSessionLog \n | where \n| summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
              }
           ],
           "connectivityCriteria": [

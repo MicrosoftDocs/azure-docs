@@ -1,5 +1,5 @@
 ---
-title: Data connector reference for the Codeless Connector Platform
+title: Data connectors reference for the Codeless Connector Platform
 description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
@@ -23,12 +23,13 @@ Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel 
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-solution-deployment-template).
 
-## Data Connectors - Create or Update 
+## Data Connectors - Create or update 
 
-Reference the Create or Update operation in the REST API docs, [here](/rest/api/securityinsights/data-connectors/create-or-update) to find the latest stable or preview API version. The difference between the *create* and the *update* operation is the update requires an **etag** value.
+Reference the [Create or Update](/rest/api/securityinsights/data-connectors/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the *create* and the *update* operation is the update requires the **etag** value.
 
+**PUT** method
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId}?api-version=2022-11-01
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataConnectorId}}?api-version=
 ```
 
 ## URI parameters
@@ -37,11 +38,11 @@ For more information, see [Data Connectors - Create or Update URI Parameters](/r
 
 |Name  | Description  |
 |---------|---------|
-| dataConnectorId | The data connector ID must be a unique name and is the same name parameter in the [request body](#request-body).|
-| resourceGroupName | The name of the resource group, not case sensitive.  |
-| subscriptionId | The ID of the target subscription. |
-| workspaceName | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
-| api-version | The API version to use for this operation. |
+| **dataConnectorId** | The data connector ID must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
+| **resourceGroupName** | The name of the resource group, not case sensitive.  |
+| **subscriptionId** | The ID of the target subscription. |
+| **workspaceName** | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
+| **api-version** | The API version to use for this operation. |
 
 ## Request body
 
@@ -49,7 +50,7 @@ The request body for the CCP data connector has the following structure:
 
 ```json
 {
-   "name": "{dataConnectorId}",
+   "name": "{{dataConnectorId}}",
    "kind": "RestApiPoller",
    "etag": "",
    "properties": {
@@ -65,20 +66,20 @@ The request body for the CCP data connector has the following structure:
 
 ```
 
-CodelessRestApiPollerConnector
+**CodelessRestApiPollerConnector** represents codeless API Poller connector.
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
-| name | True | string | The unique name of the connection which matches the URI parameter |
-| kind | True | string | Must be "RestApiPoller" |
-| etag |  | GUID | Leave empty for creation of new connectors. For update operations, the etag must match the existing connector's etag (GUID). |
-| properties.connectorDefinitionName |  | string | The name of the DataConnectorDefinition resource that defines the UI configuration of the data connector. For more information, see [Data Connector Definition](create-codeless-connector.md#data-connector-definition). |
-| dataType | ? | string | ?? |
-| properties.auth	| True | Nested JSON | Describes the authentication properties for polling the data. For more information, see [authentication configuration](#authentication-configuration). |
-| properties.request | True | Nested JSON | Describes the request payload for polling the data, such as the API endpoint. For more information, see [request configuration](#request-configuration). |
-| properties.response | True | Nested JSON | Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
-| properties.paging |  | Nested JSON | Describes the pagination payload when polling the data. For more information, see [paging configuration](#paging-configuration). |
-| properties.dcrConfig |  | Nested JSON | Required parameters when the data is sent to a Data Collection Rule (DCR). For more information, see [DCR configuration](#dcr-configuration). |
+| **name** | True | string | The unique name of the connection which matches the URI parameter |
+| **kind** | True | string | Must be "RestApiPoller" |
+| **etag** |  | GUID | Leave empty for creation of new connectors. For update operations, the etag must match the existing connector's etag (GUID). |
+| properties.connectorDefinitionName |  | string | The name of the DataConnectorDefinition resource that defines the UI configuration of the data connector. For more information, see [Data Connector Definition](create-codeless-connector.md#data-connector-user-interface). |
+| **dataType** | ? | string | ?? |
+| properties.**auth**	| True | Nested JSON | Describes the authentication properties for polling the data. For more information, see [authentication configuration](#authentication-configuration). |
+| properties.**request** | True | Nested JSON | Describes the request payload for polling the data, such as the API endpoint. For more information, see [request configuration](#request-configuration). |
+| properties.**response** | True | Nested JSON | Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
+| properties.**paging** |  | Nested JSON | Describes the pagination payload when polling the data. For more information, see [paging configuration](#paging-configuration). |
+| properties.**dcrConfig** |  | Nested JSON | Required parameters when the data is sent to a Data Collection Rule (DCR). For more information, see [DCR configuration](#dcr-configuration). |
 
 ## Authentication configuration
 
@@ -109,10 +110,10 @@ Example Basic auth:
 
 | Field | Required | Type | Description | Default value |
 | ---- | ---- | ---- | ---- | ---- |
-| ApiKey | Mandatory | string | user secret key | |
-| ApiKeyName | | string | name of the Uri header containing the ApiKey value | "Authorization" |
-| ApiKeyIdentifier | | string | string value to prepend the token | "token" |
-| IsApiKeyInPostPayload | | boolean | send secret in POST body instead of header | false |
+| **ApiKey** | Mandatory | string | user secret key | |
+| **ApiKeyName** | | string | name of the Uri header containing the ApiKey value | `Authorization` |
+| **ApiKeyIdentifier** | | string | string value to prepend the token | "token" |
+| **IsApiKeyInPostPayload** | | boolean | send secret in POST body instead of header | false |
 
 APIKey auth examples:
 ```json
@@ -150,18 +151,18 @@ After the user returns to the client via the redirect URL, the application will 
 
 |Field | Required | Type | Description |
 | ---- | ---- | ---- | ---- | 
-| ClientId | True	| String | The client id |
-| ClientSecret	| True | String | The client secret |
-| AuthorizationCode | Mandatory when grantType = `authorization_code` |	String | if grant type is `authorization_code` this will be the authorization code returned from the auth server |
-| Scope | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
-| RedirectUri | True | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
-| GrantType | True | String | `authorization_code` or `client_credentials` |
-| TokenEndpoint | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
-| TokenEndpointHeaders |  | Object | An optional key value object to send custom headers to token server |
-| TokenEndpointQueryParameters |  | Object | An optional key value object to send custom query params to token server |
-| AuthorizationEndpoint	| True | String | URL for user consent for `authorization_code` flow |
-| AuthorizationEndpointHeaders |	 | Object | An optional key value object to send custom headers to auth server |
-| AuthorizationEndpointQueryParameters	|  | Object | An optional key value pair used in OAuth2 authorization code flow request |
+| **ClientId** | True	| String | The client id |
+| **ClientSecret**	| True | String | The client secret |
+| **AuthorizationCode** | Mandatory when grantType = `authorization_code` |	String | if grant type is `authorization_code` this will be the authorization code returned from the auth server |
+| **Scope** | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
+| **RedirectUri** | True | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
+| **GrantType** | True | String | `authorization_code` or `client_credentials` |
+| **TokenEndpoint** | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
+| **TokenEndpointHeaders** |  | Object | An optional key value object to send custom headers to token server |
+| **TokenEndpointQueryParameters** |  | Object | An optional key value object to send custom query params to token server |
+| **AuthorizationEndpoint**	| True | String | URL for user consent for `authorization_code` flow |
+| **AuthorizationEndpointHeaders** |	 | Object | An optional key value object to send custom headers to auth server |
+| **AuthorizationEndpointQueryParameters**	|  | Object | An optional key value pair used in OAuth2 authorization code flow request |
 
 Example:
 OAuth2 auth code grant
@@ -204,10 +205,12 @@ The difference between code flow to client credentials is that code flow is for 
 ## Request configuration
 
 The request section includes the following parameters:
-Field	Required	Type	Description	Default value
-ApiEndpoint	True	String	URL for remote server. Defines the endpoint to pull data from	
-RateLimitQPS	False	Integer	Defines the number of calls or queries allowed in a second	
-QueryWindowInMin	False	Integer	Defines the available query window, in minutes.	Minimum is 1 minute. Default is 5 minutes. successStatusValue
+
+|Field |Required |Type |Description	|
+| ---- | ---- | ---- | ---- |
+| **apiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
+| **rateLimitQPS** | False | Integer | Defines the number of calls or queries allowed in a second. |
+| **queryWindowInMin** | False | Integer | Defines the available query window in minutes.	Minimum is 1 minute. Default is 5 minutes. successStatusValue
 
 HttpMethod	False	String	Defines the API method: GET or Post	GET
 QueryTimeFormat	False	String	Defines the date time presentation that the endpoint (remote server) expects. Possible values are the constants: "UnixTimestamp", "UnixTimestampInMills" or any other valid representation of date time, for example: "yyyy-MM-dd", "MM/dd/yyyy HH:mm:ss", etc..	ISO 8601 UTC
@@ -226,6 +229,7 @@ Then, the query sent to the remote server will look as follows:
  https://www.example.com?from={QueryTimeFormat}&until={QueryTimeFormat + QueryWindowInMin}	
 EndTimeAttributeName 		String	see StartTimeAttributeName	
 QueryTimeIntervalAttributeName	Depends on the scenario, 	String	In case the endpoint supports a special format of querying the data on a time frame, then this property may be used together with the QueryTimeIntervalPrepend parameter  and the QueryTimeIntervalDelimiter parameter. 
+
 For example:
 Setting   
 QueryTimeIntervalAttributeName = "interval"
@@ -240,7 +244,8 @@ QueryTimeIntervalPrepend		String	See QueryTimeIntervalAttributeName
 QueryTimeIntervalDelimiter		String	See QueryTimeIntervalAttributeName	
 QueryParametersTemplate	False	String	Defines the query parameters template to use when passing query parameters in advanced scenarios. 
 
-For example: "queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"
+For example: 
+"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"
 
 {_QueryWindowStartTime} and {_QueryWindowEndTime} are only supported in the queryParameters and queryParametersTemplate request parameters.
 

@@ -1,57 +1,98 @@
 ---
-title: Supplemental reference for the Data Connector Definition connectorUIConfig section
-description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definition API as part of the Codeless Connector Platform.
+title: Data connector definitions reference for the Codeless Connector Platform
+description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definitions API as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
-ms.date: 10/19/2023
+ms.date: 11/13/2023
 ms.author: austinmc
 
 ---
 
-# Supplemental reference for the Data Connector Definition API
+# Data connector definitions reference for the Codeless Connector Platform
 
-Your custom CCP connector has two primary JSON sections needed for deployment. Fill in these areas to define how your connector is displayed in the Azure portal and how it connects Microsoft Sentinel to your data source.
+To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connector Definitions](/rest/api/securityinsights/data-connector-definitions) reference docs. Specifically this reference document expands on the following details:
 
-- `connectorUiConfig`. Defines the visual elements and text displayed on the data connector page in Microsoft Sentinel. For more information, see [Configure your connector's user interface](#configure-your-connectors-user-interface).
+- `connectorUiConfig` - defines the visual elements and text displayed on the data connector page in Microsoft Sentinel.
+- `connectionsConfig` - defines the template name, usually the dataConnectors ARM templates.
 
-Then, if you deploy your codeless connector via ARM, you'll wrap these sections in the ARM template for data connectors.
+## Data connector definitions - Create or update
 
-Review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling) as examples or download the example template, [DataConnector_API_CCP_template.json (Preview)](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#build-the-connector).
+Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the *create* and the *update* operation is the update requires the **etag** value.
+
+**PUT** method
+```http
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{{dataConnectorDefinitionName}}?api-version=
+```
+
+## URI parameters
+
+For more information, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+
+|Name  | Description  |
+|---------|---------|
+| **dataConnectorDefinition** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
+| **resourceGroupName** | The name of the resource group, not case sensitive.  |
+| **subscriptionId** | The ID of the target subscription. |
+| **workspaceName** | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
+| **api-version** | The API version to use for this operation. |
+
+## Request body
+
+The request body for the CCP data connector definition has the following structure:
+
+```json
+{
+    "name": "{{dataConnectorDefinitionName}}",
+    "kind": "Customizable",
+    "type": "Microsoft.SecurityInsights/dataConnectorDefinitions",
+    "properties": {
+        "connectorUIConfig": {}, 
+        "connectionsConfig": {}
+    }
+}
+```
+
+**dataConnectorDefinition** has the following properties:
+
+|Name	|Required	|Type	|Description |
+| ---- | ---- | ---- | ---- |
+|Name	|True	|String	|A unique name of the connector definition|
+|Kind	|True	|String	|`Customizable` for API polling data connector or `Static` otherwise| 
+|type	|True	|String	|Must be `Microsoft.SecurityInsights/dataConnectorDefinitions`|
+|properties.connectorUiConfig	|True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
+|properties.connectionsConfig	|True for `Customizable`, for `Static` do not include	|Nested JSON<br>[connectionsConfig](#connectionsConfig) |The template spec of the data connector|
 
 ## Configure your connector's user interface
 
 This section describes the configuration options available to customize the user interface of the data connector page.
 
-The following image shows a sample data connector page, highlighted with numbers that correspond to notable areas of the user interface:
+The following screenshot shows a sample data connector page, highlighted with numbers that correspond to notable areas of the user interface.
 
-:::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page.":::
+:::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page with sections labeled 1 through 9.":::
 
-1. **Title**.  The title displayed for your data connector.
-1. **Logo**.   The icon displayed for your data connector. Customizing this is only possible when deploying as part of a solution. 
-1. **Status**.  Indicates whether or not your data connector is connected to Microsoft Sentinel.
-1. **Data charts**. Displays relevant queries and the amount of ingested data in the last two weeks.
-1. **Instructions tab**. Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and **Instructions**, to guide the user enablement of the connector. This section can include text, buttons, forms, tables, and other common widgets to simplify the process.  
-1. **Next steps tab**.   Includes useful information for understanding how to find data in the event logs, such as sample queries.
+Each of the following elements of the `connectorUiConfig` section needed to configure the user interface correspond to the [CustomizableConnectorUiConfig](/rest/api/securityinsights/data-connector-definitions/create-or-update#customizableconnectoruiconfig) portion of the API.
 
-Here's the `connectorUiConfig` sections and syntax needed to configure the user interface:
+|Field | Required | Type | Description | Screenshot notable area #|
+| ---- | ---- | ---- | ---- | ---- |
+| **title** | True | string | Title displayed in the data connector page | 1 |
+| **id** | | string | Id for internal usage | |
+| **logo** | | string | Path to image file in SVG format. If no value is configured, a default logo is used. | 2 |
+| **publisher** | True | string | The provider of the connector | 3 |
+| **descriptionMarkdown** | True | string in markdown | A description for the connector with the ability to add markdown language to enhance it. | 4 |
+| **sampleQueries** | True | Nested JSON<br>[sampleQueries](#samplequeries) | Queries for the customer to understand how to find the data in the event log. | |
+| **graphQueries** | True | Nested JSON<br>[graphQueries](#graphqueries) | Queries that present data ingestion over the last two weeks.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type. | 5 |
+| **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
+| **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivityCriteria) | An object that defines how to verify if the connector is connected. | 7 |
+| **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI which lists the permissions required to enable or disable the connector. | 8 |
+| **instructionSteps** | True | Nested JSON<br>[instructions](#instructions) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
 
-|Property Name  |Type  |Description  |
-|:---------|:---------|---------|
-|**availability**     | `{`<br>`"status": 1,`<br>`"isPreview":` Boolean<br>`}` | <br> **status**: **1** Indicates connector is generally available to customers. <br>**isPreview** Indicates whether to include (Preview) suffix to connector name. |
-|**connectivityCriteria**     |   `{`<br>`"type": SentinelKindsV2,`<br>`"value": APIPolling`<br>`}` | An object that defines how to verify if the connector is correctly defined. Use the values indicated here.|
-|**dataTypes**     | [dataTypes[]](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. |
-|**descriptionMarkdown**     |  String     |   A description for the connector with the ability to add markdown language to enhance it.      |
-|**graphQueries**     |   [graphQueries[]](#graphqueries)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
-|**graphQueriesTableName** | String | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`|
-|**instructionsSteps**     | [instructionSteps[]](#instructionsteps)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
-|**metadata**     |   [metadata](#metadata)      |  Metadata displayed under the connector description.       |
-|**permissions**     | [permissions[]](#permissions)        | The information displayed under the **Prerequisites** section of the UI which Lists the permissions required to enable or disable the connector. |
-|**publisher**     |    String     |  This is the text shown in the **Provider** section.  |
-|**sampleQueries**     | [sampleQueries[]](#samplequeries)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
-|**title**     |  String       |Title displayed in the data connector page.         |
+### connectivityCriteria
 
-Putting all these pieces together is complicated. Use the [connector page user experience validation tool](#validate-the-data-connector-page-user-experience) to test out the components you put together.
+| Field | Required | Type | Description |
+|---|---|---|---|
+|Type | True | String | One of the two following options: `HasDataConnectors` – use this value for API polling data connectors. Using this value the connector will be considered as connected when there is at least one active connection<br><br>`isConnectedQuery` – use this value for other types of data connectors. Using this value the connector will be considered as connected when the provided query returns data. | 
+|Value | True when type is `isConnectedQuery` | String | A query to determine if data is received within a certain time period. For example: `CommonSecurityLog | where DeviceVendor == \"Vectra Networks\"\n| where DeviceProduct == \"X Series\"\n  | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(7d)"` |
 
 ### dataTypes
 
@@ -62,7 +103,7 @@ Putting all these pieces together is complicated. Use the [connector page user e
 
 ### graphQueries
 
-Defines a query that presents data ingestion over the last two weeks in the **Data charts** pane.
+Defines a query that presents data ingestion over the last two weeks.
 
 Provide either one query for all of the data connector's data types, or a different query for each data type.
 
@@ -87,7 +128,7 @@ This section provides parameters that define the set of instructions that appear
 
 #### instructions
 
-Displays a group of instructions, with various options as parameters and the ability to nest more instructionSteps in groups.
+Displays a group of instructions, with various parameters and the ability to nest more instructionSteps in groups.
 
 | Parameter | Array property | Description |
 |-----------|--------------|-------------|
