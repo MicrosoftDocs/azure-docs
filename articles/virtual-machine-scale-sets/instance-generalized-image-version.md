@@ -19,6 +19,9 @@ Create a scale set from a generalized image version stored in an [Azure Compute 
 
 ## Create a scale set from an image in your gallery
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ### [CLI](#tab/cli)
 
 Replace resource names as needed in this example.
@@ -66,6 +69,7 @@ The **Select an image** page will open. Select **My images** if the image you wa
 
 
 ### [PowerShell](#tab/powershell)
+
 
 The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
 
