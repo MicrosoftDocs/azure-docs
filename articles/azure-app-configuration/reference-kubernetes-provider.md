@@ -74,7 +74,7 @@ The `spec.configuration.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|enabled|The setting that determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |monitoring|The key-values monitored for change detection, aka sentinel keys. The data from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed.|true|object|
 |interval|The interval at which the data will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
 
@@ -103,25 +103,25 @@ If the `spec.secret.auth` property isn't set, the system-assigned managed identi
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with keyVaults that don't have individual authentication methods specified.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with keyVaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
-|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with keyVaults that don't have individual authentication methods specified.|false|string|
-|keyVaults|The authentication methods for individual keyVaults.|false|object array|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
+|workloadIdentity|The settings of the workload identity used for authentication with Key Vaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
+|keyVaults|The authentication methods for individual Key Vaults.|false|object array|
 
-The authentication method of each *keyVault* can be specified with the following properties. One of `managedIdentityClientId`, `servicePrincipalReference` or `workloadIdentity` must be provided.
+The authentication method of each *Key Vault* can be specified with the following properties. One of `managedIdentityClientId`, `servicePrincipalReference` or `workloadIdentity` must be provided.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|uri|The URI of a keyVault.|true|string|
-|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a keyVault.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with a keyVault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
-|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a keyVault.|false|string|
+|uri|The URI of a Key Vault.|true|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a Key Vault.|false|string|
+|workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a Key Vault.|false|string|
 
 The `spec.secret.refresh` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|enabled|The setting that determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |interval|The interval at which the data will be refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.configuration.refresh`.|true|duration string|
 
 ## Examples
