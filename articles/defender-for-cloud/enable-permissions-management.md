@@ -68,18 +68,19 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 
 1. Enable the Defender CSPM plan. If the plan is already enabled, select **Settings**  and turn on the **Permissions Management** feature.
 1. Follow the wizard instructions to enable the plan with the new Permissions Management capabilities.
+
+   :::image type="content" source="media/enable-permissions-management/enable-permissions-management-aws.png" alt-text="Enable permissions management plan for AWS" lightbox="media/enable-permissions-management/enable-permissions-management-aws.png":::
+
 1. Select **Configure access**, and then choose the appropriate **Permissions** type. Choose the deployment method: **'AWS CloudFormation' \ 'Terraform' script**.
 1. The deployment template is autofilled with default role ARN names. You can customize the role names by selecting the hyperlink.
 1. Run the updated CFT \ terraform script on your AWS environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
 
-   :::image type="content" source="media/enable-permissions-management/enable-permissions-management-aws.png" alt-text="Enable permissions management plan for AWS" lightbox="media/enable-permissions-management/enable-permissions-management-aws.png":::
+    :::image type="content" source="media/enable-permissions-management/aws-policies.png" alt-text="Enable permissions management for AWS" lightbox="media/enable-permissions-management/aws-policies.png":::
 
 1. You'll see the applicable Permissions Management recommendations on your AWS security connector within a few hours.
 1. Go to the **Recommendations** page and make sure that the relevant environments filters are checked. Filter by **Initiative= "AWS CSPM (Preview)"** which returns the following recommendations (if applicable):
-
-    :::image type="content" source="media/enable-permissions-management/aws-policies.png" alt-text="Enable permissions management for AWS" lightbox="media/enable-permissions-management/aws-policies.png":::
 
 **AWS recommendations**:
 
