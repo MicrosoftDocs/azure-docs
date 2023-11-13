@@ -211,10 +211,10 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 
 Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    |**Key**|**Value**|
-    |---|---|
-    |Settings:FontColor|*Green*|
-    |Settings:Message|*Hello from Azure App Configuration*|
+|**Key**|**Value**|
+|---|---|
+|Settings:FontColor|*Green*|
+|Settings:Message|*Hello from Azure App Configuration*|
 
 ### Setup the App Configuration Kubernetes Provider
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
