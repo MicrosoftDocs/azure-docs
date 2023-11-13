@@ -45,9 +45,6 @@ Register the resource provider in your subscription using the following commands
 
 2. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
 
-> [!NOTE]
-> The portal URL should contain the query string ‘feature.Microsoft_Azure_ConfidentialLedger_managedccf=true’ to turn on the Managed CCF feature.
-
 1. On the Create confidential ledger section, provide the following information:
     - **Subscription**: Choose the desired subscription.
     - **Resource Group**: Choose the resource group created in the previous step.
