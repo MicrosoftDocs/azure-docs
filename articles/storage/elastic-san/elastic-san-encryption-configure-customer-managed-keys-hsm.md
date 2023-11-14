@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Configure Elastic SAN data encryption with customer-managed keys in Managed HSM
 
-Azure Storage encrypts all data in an Elastic SAN at rest. By default, data is encrypted with platform-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM). An Azure Key Vault Managed HSM is an FIPS 140-2 Level 3 validated HSM.
+Azure Storage encrypts all data in an Elastic SAN at rest. By default, data is encrypted with platform-managed keys. For more control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM). An Azure Key Vault Managed HSM is an FIPS 140-2 Level 3 validated HSM.
 
 This article shows how to configure encryption with customer-managed keys stored in a managed HSM by using Azure CLI. To learn how to configure encryption with customer-managed keys stored in a key vault, see [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-encryption-configure-customer-managed-keys-key-vault.md).
 
@@ -26,7 +26,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Assign an identity to the Elastic SAN volume group
 
-First, assign a system-assigned managed identity to the Elastic SAN volume group. You'll use this managed identity to grant the Elastic SAN volume group permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+First, assign a system-assigned managed identity to the Elastic SAN volume group. You use this managed identity to grant the Elastic SAN volume group permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 The following example assigns a managed identity with [az elastic-san volume-group update](/cli/azure/elastic-san/volume-group#az-elastic-san-volume-group-update). Replace the placeholder values in brackets and run the command:
 
@@ -93,7 +93,7 @@ az elastic-san volume-group update
     --encryption-key-vault $hsmurl
 ```
 
-When you manually update the key version, you'll need to update the Elastic SAN volume group's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az elastic-san volume-group update](/cli/azure/storage/account#az-storage-account-update) to update the Elastic SAN volume group's encryption settings to use the new version of the key, as shown in the previous example.
+When you manually update the key version, you need to update the Elastic SAN volume group's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az elastic-san volume-group update](/cli/azure/storage/account#az-storage-account-update) to update the Elastic SAN volume group's encryption settings to use the new version of the key, as shown in the previous example.
 
 ## Next steps
 
