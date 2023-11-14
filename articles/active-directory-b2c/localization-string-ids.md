@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/19/2022
+ms.date: 11/14/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -616,6 +616,7 @@ The following IDs are used for claims transformations error messages:
 | `UserMessageIfClaimsTransformationStringsAreNotEqual` |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 
 ### Claims transformations example 1:
+The below example shows localized messages for local account signup.
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -628,6 +629,7 @@ The following IDs are used for claims transformations error messages:
 ```
 
 ### Claims transformations example 2:
+The below example shows localized messages for local account password reset.
 
 ```xml
 <LocalizedResources Id="api.localaccountpasswordreset.en">
