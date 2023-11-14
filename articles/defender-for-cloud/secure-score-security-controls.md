@@ -26,11 +26,11 @@ Recommendations are issued based on assessment findings. Only built-in recommend
 
 When you view the Defender for Cloud **Overview** dashboard, you can see the secure score for all of your environments. The secure score is shown as a percentage value and the underlying values are also presented.
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal.":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Screenshot that shows the overall secure score as shown in the portal.":::
 
 In the Azure mobile app, the secure score is shown as a percentage value. Tap it to see details that explain the score.
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Overall secure score as shown in the Azure mobile app.":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Screenshot that shows the overall secure score as shown in the Azure mobile app.":::
 
 ## Exploring your security posture
 
@@ -48,7 +48,7 @@ On the **Security posture** page in Defender for Cloud, you can see the secure s
 
 On the **Recommendations** page > **Secure score recommendations** tab in Defender for Cloud, you can see how compliance controls within the MCSB contribute towards the overall security score.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score." lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Screenshot that shows security controls and their impact on your secure score." lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 Each control is calculated every eight hours for each Azure subscription, or AWS/GCP cloud connector. 
 
@@ -75,35 +75,37 @@ Here's how scores are calculated.
 
 ### Security control's current score
 
-[Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)
+
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-control.png" alt-text="Screenshot showing the equation for calculating a security control score." :::
+
 
 - Each individual security control contributes towards the secure score.
 - Each resource affected by a recommendation within the control, contributes towards the control's current score. Secure score doesn't include resources found in preview recommendations.
 - The current score for each control is a measure of the status of the resources *within* the control.
 
-    ![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)
+    :::image type="content" source="./media/secure-score-security-controls/security-control-scoring-tooltips.png" alt-text="Screenshot of tooltips showing the values used when calculating the security control's current score." :::
 
 
     In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.So, 6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score: 0.0769 * 4 = **0.31**<br><br>
 
 ### Secure score - single subscription, or connector
 
-![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of equation for calculating a subscription's secure score.":::
 
-![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of single subscription secure score with all controls enabled.":::
 
 In this example, there's a single subscription, or connector with all security controls available (a potential maximum score of 60 points).
 
 The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.
 
-![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot showing a list of controls and the potential score increase.":::
 
 This equation is the same equation for a connector with just the word subscription being replaced by the word connector. 
 
 
 ### Secure score - Multiple subscriptions, and connectors
 
-![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot showing equation for calculating the secure score for multiple subscriptions.":::
 
 
 - The combined score for multiple subscriptions and connectors includes a *weight* for each subscription, and connector.
@@ -111,7 +113,7 @@ This equation is the same equation for a connector with just the word subscripti
 - The current score for each subscription, a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.
 - When you view multiple subscriptions and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.
 
-    ![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-example-multiple-subs.png" alt-text="Screenshot showing secure score for multiple subscriptions with all controls enabled.":::
 
     The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>If you go to the **Recommendations** page and add up the potential points available, you find that it's the difference between the current score (22) and the maximum score available (58).
 

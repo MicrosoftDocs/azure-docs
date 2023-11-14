@@ -19,14 +19,14 @@ Each security standard consists of multiple compliance controls, which are logic
 
 Defender for Cloud continually assesses the environment-in-scope against any compliance controls that can be automatically assessed. Based on assessments, it shows resources as being compliant or non-compliant with controls.
 
-> [Note]
+> [!Note]
 > It's important to note that if standards have compliance controls that can't be automatically assessed, Defender for Cloud isn't able to decide whether a resource complies with the control. In this case, the control will show as greyed out.
 
 ## Viewing compliance standards
 
 The **Regulatory compliance** dashboard provides an interactive overview of compliance state.
 
-:::image type="content" source="media/concepts-regulatory-compliance-standards/compliance-standards.png" alt-text="Image showing the regulatory compliance dashboard." lightbox="media/concepts-regulatory-compliance-standards/compliance-standards.png":::
+:::image type="content" source="media/concepts-regulatory-compliance-standards/compliance-standards.png" alt-text="Screenshot showing the regulatory compliance dashboard." lightbox="media/concepts-regulatory-compliance-standards/compliance-standards.png":::
 
 
 In the dashboard you can:
