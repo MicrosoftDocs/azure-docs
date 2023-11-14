@@ -65,7 +65,7 @@ There are several different sources of data that you can use. The following sour
 * Blobs in an Azure storage container that you provide
 * Local files uploaded using the Azure OpenAI Studio
 
-You can additionally ingest your data from an existing Azure Cognitive Search service. Alternatively, you can use Azure Cosmos DB for MongoDB vCore.
+You can additionally ingest your data from an existing Azure Cognitive Search service, or use Azure Cosmos DB for MongoDB vCore.
 
 # [Azure Cognitive Search](#tab/ai-search)
 
