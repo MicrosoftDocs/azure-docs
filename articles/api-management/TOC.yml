@@ -328,6 +328,8 @@
     - name: API credentials overview
       displayName: OAuth, authorizations, SaaS, token
       href: credentials-overview.md
+    - name: Token credentials process flows
+      href: credentials-process-flow.md
     - name: Configure common credential providers
       href: credentials-configure-common-providers.md
     - name: Configure and use credential - Microsoft Entra ID
