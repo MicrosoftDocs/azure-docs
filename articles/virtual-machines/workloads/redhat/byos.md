@@ -126,7 +126,8 @@ The following instructions walk you through the initial deployment process for a
 
 The following script is an example. Replace the resource group, location, VM name, login information, and other variables with the configuration of your choice. Publisher and plan information must be lowercase.
 
->[!NOTE] All versions of the AzureRM PowerShell module are outdated. The Az PowerShell module is now the recommended PowerShell module for interacting with Azure
+>[!NOTE]
+>All versions of the AzureRM PowerShell module are outdated. The Az PowerShell module is now the recommended PowerShell module for interacting with Azure
 >For more information, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
 #### [AzureRM  ](#tab/AzureRM)
