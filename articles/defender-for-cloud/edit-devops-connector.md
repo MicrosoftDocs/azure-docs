@@ -1,6 +1,6 @@
 ---
 title: Edit your DevOps connector
-description: Learn how to make changes to the DevOps connectors onboarded to Defender for Cloud
+description: Learn how to make changes to the DevOps connectors onboarded to Defender for Cloud.
 ms.date: 11/03/2023
 ms.topic: how-to
 ms.custom: ignite-2023
