@@ -221,10 +221,10 @@ The following examples show how to set up the environment for the different supp
 **.NET**
 
 ```yaml
-    - name: Setup Dotnet 3.3.x
-      uses: actions/setup-dotnet@v1
+    - name: Setup Dotnet 6.0.x
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '3.3.x'
+        dotnet-version: '6.0.x'
 ```
 
 **ASP.NET**
@@ -251,7 +251,7 @@ The following examples show how to set up the environment for the different supp
 
 ```yaml
 env:
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -268,7 +268,7 @@ jobs:
 
 ```yaml
     - name: Setup Python 3.x 
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
 ```
@@ -363,7 +363,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -375,7 +375,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -494,7 +494,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -503,7 +503,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     - name: npm install, build, and test
@@ -574,7 +574,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -590,7 +590,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -716,7 +716,7 @@ name: Node.js
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -731,7 +731,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
     - name: Setup Node ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     
@@ -815,7 +815,7 @@ permissions:
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -833,7 +833,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -976,7 +976,7 @@ name: Node.js
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -993,7 +993,7 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         
     - name: Setup Node ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     
