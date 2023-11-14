@@ -176,8 +176,6 @@ When developing data flows, you'll be able to gain insights into each individual
 
 The service provides live and interactive feedback of your pipeline activities in the UI when debugging and unit testing in Azure Data Factory.
 
-For more advanced unit testing within your repository, refer to the blog [How to build unit tests for Azure Data Factory](https://towardsdatascience.com/how-to-build-unit-tests-for-azure-data-factory-3aa11b36c7af).
-
 ### Automated testing
 
 There are several tools available for automated testing that you can use with Azure Data Factory. Since the service stores objects in the service as JSON entities, it can be convenient to use the open-source .NET unit testing framework NUnit with Visual Studio. Refer to this post [Setup automated testing for Azure Data Factory](https://richardswinbank.net/adf/set_up_automated_testing_for_azure_data_factory) that provides an in-depth explanation of how to set up an automated unit testing environment for your factory. (Special thanks to Richard Swinbank for permission to use this blog.)
