@@ -364,6 +364,12 @@ mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t hello -m world -u '$sat' -P 
 
 The MQTT username must be set to `$sat`. The MQTT password must be set to the SAT itself.
 
+### Refresh service account tokens
+
+Service account tokens are valid for a limited time, configured with `expirationSeconds`. However, Kubernetes [automatically refreshes the token before it expires](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/). The token is refreshed in the background, and the client doesn't need to do anything other than to fetch it again.
+
+For example, if the client is a pod that uses the token mounted as a volume, like in the [test SAT authentication](#test-sat-authentication) example, then the latest token is available at the same path `/var/run/secrets/tokens/mqtt-client-token`. When making a new connection, the client can fetch the latest token and use it to authenticate. The client should also have a mechanism to handle MQTT unauthorized errors by fetching the latest token and retrying the connection.
+
 ## Custom authentication
 
 Extend client authentication beyond the provided authentication methods with custom authentication. It's *pluggable* since the service can be anything as long as it adheres to the API. 
@@ -378,7 +384,7 @@ A sample custom authentication server and instructions are available on [GitHub]
 
 #### API
 
-The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication.
+The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication. The OpenAPI specification is available on [GitHub](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/auth-server-template/api.yaml).
 
 #### HTTPS with TLS encryption is required
 
