@@ -200,7 +200,7 @@ Enter the database data fields to properly map your data for retrieval.
 * File name/title/URL: Used to display more information when a document is referenced in the chat.
 * Vector fields (required): Select the field in your database that contains the vectors.
 
-:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png.png":::
+:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
 ### Using the model
 
