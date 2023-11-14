@@ -1,6 +1,6 @@
 ---
 title: Manage business processes
-description: Learn how to edit details, duplicate, undeploy, or discard pending changes for a business process in an application group.
+description: Learn how to edit the description, make a copy, discard pending changes, or delete the deployment for a business process in an application group.
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
@@ -15,12 +15,12 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create a business process in an application group to describe the stages that show the flow through a real-world business scenario, you can manage various aspects of that process. This guide shows how to perform the following tasks:
+After you create a business process in an application group to describe the stages that show the flow through a real-world business scenario, you can manage various aspects of that business process. This guide shows how to perform the following tasks:
 
-- Edit the description for the business process.
-- Duplicate the business process by providing a new name.
-- Delete the deployment resource and tracking profile for a business process, but not the process itself.
-- Delete any pending or draft changes that you made to a deployed business process.
+- [Edit the description for a business process](#edit-description).
+- [Duplicate a business process by providing a new name](#copy-business-process).
+- [Delete any pending or draft changes that you made to a deployed business process](#discard-pending-changes).
+- [Delete the deployment resource and tracking profile for a business process, but leave the business process untouched](#delete-deployment).
 
 ## Prerequisites
 
