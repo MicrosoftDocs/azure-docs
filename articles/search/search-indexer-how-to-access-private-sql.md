@@ -6,6 +6,8 @@ description: Configure an indexer connection to access content in an Azure SQL M
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/29/2023
 ---

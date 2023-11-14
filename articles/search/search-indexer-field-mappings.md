@@ -8,6 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---

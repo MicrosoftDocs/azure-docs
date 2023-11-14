@@ -6,6 +6,8 @@ author: HeidiSteen
 manager: jlembicz
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/14/2022
 ---

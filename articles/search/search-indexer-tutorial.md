@@ -9,7 +9,10 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2022
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Tutorial: Index Azure SQL data using the .NET SDK

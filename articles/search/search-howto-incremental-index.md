@@ -1,10 +1,12 @@
 ---
-title: Enable caching for incremental enrichment (preview) 
+title: Enable caching for incremental enrichment (preview)
 titleSuffix: Azure AI Search
-description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline. 
+description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/31/2023
 ---

@@ -5,6 +5,8 @@ description: Learn about common design patterns for multitenant SaaS application
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/15/2022
 ---

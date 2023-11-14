@@ -9,7 +9,9 @@ manager: liamca
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: subject-rbac-steps, 
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
 # Set up an indexer connection to Azure Cosmos DB via a managed identity
