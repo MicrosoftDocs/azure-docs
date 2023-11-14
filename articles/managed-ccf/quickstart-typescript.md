@@ -96,6 +96,7 @@ const subscriptionId = "0000000-0000-0000-0000-000000000001";
 const rgName = "myResourceGroup";
 const ledgerId = "testApp";
 const memberCert0 = "-----BEGIN CERTIFICATE-----\nMIIBvjCCAUSgAwIBAg...0d71ZtULNWo\n-----END CERTIFICATE-----";
+const memberCert1 = "-----BEGIN CERTIFICATE-----\nMIIBwDCCAUagAwIBAgI...2FSyKIC+vY=\n-----END CERTIFICATE-----";
 
 async function main() {
     console.log("Creating a new instance.")
@@ -112,6 +113,13 @@ async function main() {
                 encryptionkey: "",
                 tags: { 
                     "owner":"member0"
+                }
+            },
+            <MemberIdentityCertificate>{
+                certificate: memberCert1,
+                encryptionkey: "",
+                tags: { 
+                    "owner":"member1"
                 }
             },
         ],
