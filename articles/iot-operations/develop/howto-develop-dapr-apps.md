@@ -6,7 +6,7 @@ author: timlt
 ms.author: timlt
 # ms.subservice: mq
 ms.topic: how-to 
-ms.date: 10/24/2023
+ms.date: 11/14/2023
 
 # CustomerIntent: As an developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
@@ -20,11 +20,11 @@ The Distributed Application Runtime (Dapr) is a portable, serverless, event-driv
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
 - State Management
 
-To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own pluggable component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Install Dapr runtime
 
-To install the Dapr runtime, use the following Helm command. You might have already installed the runtime if you used the provided Azure IoT Operations Preview quickstart.
+To install the Dapr runtime, use the following Helm command. If you completed the provided Azure IoT Operations Preview [quickstart](../get-started/quickstart-deploy.md), you already installed the runtime.
 
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
@@ -109,7 +109,7 @@ To create the yaml file, use the following component definitions:
     component.dapr.io/aio-mq-statestore created
     ```
 
-## Set up authorization policy between the your application and MQ
+## Set up authorization policy between the application and MQ
 
 To configure authorization policies to Azure IoT MQ, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
 
@@ -174,7 +174,7 @@ The first step is to write an application that uses a Dapr SDK to publish/subscr
 
 ### Package the application
 
-Once you have completed writing the Dapr applicationn, build the container:
+After you finish writing the Dapr application, build the container:
 
 1. To package the application into a container, run the following command:
 
@@ -184,7 +184,7 @@ Once you have completed writing the Dapr applicationn, build the container:
 
 1. Push it to your Container Registry of your choice, such as:
 
-    * [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/)
+    * [Azure Container Registry](/azure/container-registry/)
     * [GitHub Packages](https://github.com/features/packages)
     * [Docker Hub](https://docs.docker.com/docker-hub/)
 
@@ -291,7 +291,7 @@ To start, you create a yaml file that uses the following definitions:
 
 ## Troubleshooting
 
-If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that's automatically deployed with your Dapr application.
+If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that automatically deploys with your Dapr application.
 
 Run the following command to view the logs:
 

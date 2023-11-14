@@ -16,6 +16,8 @@ ms.date: 11/13/2023
 
 In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that's published to IoT MQ. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
 
+Azure IoT Operations can be deployed with the Azure CLI, Azure Portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
+
 ## Prepare your Kubernetes cluster
 
 This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codespace to help you get going quickly. If you want to use a different environment, all the artifacts are available in the [explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tutorials/mq-realtime-fabric-dashboard) GitHub repository so you can easily follow along. 
@@ -57,7 +59,7 @@ The resources deployed by the template include:
 
 ## Send test MQTT data and confirm cloud delivery
 
-1. Simulate test data by deploying a Kubernetes workload. The pod simulates a sensor by sending sample temperature, vibration, and pressure readings every 200 milliseconds to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
+1. Simulate test data by deploying a Kubernetes workload. The pod simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
 
     ```bash
     kubectl apply -f tutorials/mq-realtime-fabric-dashboard/simulate-data.yaml
@@ -67,7 +69,7 @@ The resources deployed by the template include:
 
 1. After about a minute, confirm the message delivery in Event Hubs metrics.
 
-    :::image type="content" source="media/event-hub-messages.png" alt-text="Confirm Event Hubs messages" lightbox="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png":::
+    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png" alt-text="Confirm Event Hubs messages." lightbox="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png":::
 
 ## Create and configure Microsoft Fabric event streams
 
@@ -85,24 +87,24 @@ The resources deployed by the template include:
 
 In a few seconds, you should see the data being ingested into KQL Database.
 
-:::image type="content" source="media/tutorial-real-time-dashboard-fabric/eventstream-ingesting.png" alt-text="Eventstream ingesting success" lightbox="media/tutorial-real-time-dashboard-fabric/eventstream-ingesting.png":::
+:::image type="content" source="media/tutorial-real-time-dashboard-fabric/eventstream-ingesting.png" alt-text="Eventstream ingesting success." lightbox="media/tutorial-real-time-dashboard-fabric/eventstream-ingesting.png":::
 
 ## Create Power BI report
 
 1. From the KQL Database, right-click on the *sensor-readings* table and select **Build Power BI report**.
 
-    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-report.png" alt-text="Create Power BI report" lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-report.png":::
+    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-report.png" alt-text="Create Power BI report." lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-report.png":::
 
 1. Drag the *∑ Temperature* onto the canvas and change the visualization to a line graph. Drag the *EventEnqueuedUtcTime* column onto the visual and save the report.
 
-    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-create.png" alt-text="Save Power BI report" lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-create.png":::
+    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-create.png" alt-text="Save Power BI report." lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-create.png":::
 
 1. Open the Power BI report to see the real-time dashboard, you can refresh the dashboard with latest sensor reading using the button on the top right.
 
-    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png" alt-text="View Power BI report" lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png":::
+    :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png" alt-text="View Power BI report." lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png":::
 
 In this walkthrough, you learned how to build a real-time dashboard in Microsoft Fabric using simulated MQTT data that is published to IoT MQ.
 
 ## Next steps
 
-[Configure MQTT bridge between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
+[Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
