@@ -476,7 +476,7 @@ module.exports = async function (context) {
 # [v2](#tab/python-v2)
 
 ```python
-# An HTTP-Triggered Function with a Durable Functions Client to read a value on a durable entity 
+# An HTTP-Triggered Function with a Durable Functions Client to retrieve the state of a durable entity
 @myApp.route(route="entityreadvalue")
 @myApp.durable_client_input(client_name="client")
 async def http_read(req: func.HttpRequest, client):
