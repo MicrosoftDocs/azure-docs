@@ -141,7 +141,7 @@ floor = "floor2"
 site = "site1"
 ```
 
-To encode the password using PBKDF2, download and install the [Azure IoT Operations CLI extension](../reference/about-iot-operations-cli.md), which includes the `az iot ops mq get-password-hash` command. It generates a PBKDF2 password hash from a password phrase using the SHA-512 algorithm and a 128-bit randomized salt.
+To encode the password using PBKDF2, download and install the [Azure IoT Operations CLI extension](../reference/about-iot-operations-cli.md), which includes the [az iot ops mq get-password-hash](/cli/azure/iot/ops/mq#az-iot-ops-mq-get-password-hash) command. It generates a PBKDF2 password hash from a password phrase using the SHA-512 algorithm and a 128-bit randomized salt.
 
 ```bash
 az iot ops mq get-password-hash --phrase TestPassword

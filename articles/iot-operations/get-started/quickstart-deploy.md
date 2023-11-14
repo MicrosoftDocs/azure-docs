@@ -48,7 +48,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```powershell
-  az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
+  az extension add --name az-iot-ops
   ```
 
 # [Linux](#tab/linux)
@@ -64,7 +64,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
+  az extension add --name az-iot-ops
   ```
 
 # [Virtual](#tab/codespaces)
@@ -298,6 +298,9 @@ You can use an existing key vault for your secrets, but verify that the **Permis
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+
+   >[!TIP]
+   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
 1. Return to the Azure portal and select **Review + Create**.
 

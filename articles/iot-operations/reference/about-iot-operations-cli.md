@@ -14,7 +14,17 @@ ms.date: 11/02/2023
 
 The Azure IoT Operations command-line interface (CLI) is a set of commands used to create and manage Azure IoT resources.
 
-Use the `az iot ops --help` for up to date help on the available commands.
+Use the `az iot ops --help` for up to date help on the available commands, or see [az iot ops](/cli/azure/iot/ops).
+
+## Add the extension
+
+The Azure IoT Operations extension requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+
+Add the extension to your Azure CLI instance:
+
+```bash
+az extension add --name az-iot-ops
+```
 
 ## az iot ops init
 
