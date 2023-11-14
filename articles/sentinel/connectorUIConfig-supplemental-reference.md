@@ -18,7 +18,7 @@ To create a data connector with the Codeless Connector Platform (CCP), use this 
 
 ## Data connector definitions - Create or update
 
-Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the *create* and the *update* operation is the update requires the **etag** value.
+Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the `create` and the `update` operation is the update requires the `etag` value.
 
 **PUT** method
 ```http
@@ -72,16 +72,16 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 |Field | Required | Type | Description | Screenshot notable area #|
 | ---- | ---- | ---- | ---- | ---- |
 | **title** | True | string | Title displayed in the data connector page | 1 |
-| **id** | | string | Sets custom connector id for internal usage | |
+| **id** | | string | Sets custom connector ID for internal usage | |
 | **logo** | | string | Path to image file in SVG format. If no value is configured, a default logo is used. | 2 |
 | **publisher** | True | string | The provider of the connector | 3 |
 | **descriptionMarkdown** | True | string in markdown | A description for the connector with the ability to add markdown language to enhance it. | 4 |
 | **sampleQueries** | True | Nested JSON<br>[sampleQueries](#samplequeries) | Queries for the customer to understand how to find the data in the event log. | |
 | **graphQueries** | True | Nested JSON<br>[graphQueries](#graphqueries) | Queries that present data ingestion over the last two weeks.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type. | 5 |
-| **graphQueriesTableName** | | Sets the name of the table the connector will insert the data to. This name can be used in other queries by specifying `{{graphQueriesTableName}}` placeholder in `graphQueries` and `lastDataReceivedQuery` values.|
+| **graphQueriesTableName** | | Sets the name of the table the connector inserts data to. This name can be used in other queries by specifying `{{graphQueriesTableName}}` placeholder in `graphQueries` and `lastDataReceivedQuery` values.|
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
 | **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivitycriteria) | An object that defines how to verify if the connector is connected. | 7 |
-| **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI which lists the permissions required to enable or disable the connector. | 8 |
+| **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI, which lists the permissions required to enable or disable the connector. | 8 |
 | **instructionSteps** | True | Nested JSON<br>[instructions](#instructionsteps) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
 
 ### connectivityCriteria
@@ -144,9 +144,10 @@ Displays a group of instructions, with various parameters and the ability to nes
 | Type | Array property | Description |
 |-----------|--------------|-------------|
 | **OAuthForm** | [OAuthForm](#oauthform) | Connect with OAuth |
+| **APIKey** | [APIKey](#apikey) | Add placeholders to the API secrets for your connector's UI configuration file. |
+| **BasicAuth** | [BasicAuth](#apikey) | Same format as APIKey, but type is `BasicAuth` |
 | **Textbox** | [Textbox](#textbox) | Basic text and labels |
 | **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. |
-| **APIKey** | [APIKey](#apikey) | Add placeholders to your connector's JSON configuration file. |
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
@@ -167,14 +168,6 @@ Displays a group of instructions, with various parameters and the ability to nes
 }
 ]
 ```
-
-|Name | Type | Description |
-| --| -- | -- |
-| **clientIdLabel** | string | ?? |
-| **clientSecretLabel** | ?? | ?? |
-| **connectButtonLabel** | string | ?? |
-| **disconnectButtonLabel** | string | ?? |
-
 #### Textbox
 
 ```json
@@ -201,14 +194,6 @@ Displays a group of instructions, with various parameters and the ability to nes
 }
 ]
 ```
-
-|Name | Type | Description |
-| --| -- | -- |
-| **label** | string | ?? |
-| **placeholder** | ?? | ?? |
-| **type** | string | ?? |
-| **name** | string | ?? |
-
 #### ConnectionToggleButton
 
 ```json
@@ -223,16 +208,11 @@ Displays a group of instructions, with various parameters and the ability to nes
 ]
 ```
 
-|Name | Type | Description |
-| --| -- | -- |
-| **label** | string | ?? |
-| **name** | string | ?? |
-
 #### APIKey
 
-You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
+Create the configuration with placeholders parameters, to reuse across multiple connectors, or to create a connector with data that you don't currently have.
 
-To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration] file, using the following syntax:
+To create placeholder parameters, define another array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration] file, using the following syntax:
 
 ```json
 "instructions": [
@@ -252,7 +232,6 @@ To create placeholder parameters, define an additional array named `userRequestP
 }
 ]
 ```
-
 The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 |Name  |Type  |Description  |
@@ -260,7 +239,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 |**DisplayText**     |  String       | Defines the text box display value, which is displayed to the user when connecting.       |
 |**RequestObjectKey** |String | Defines the ID in the request section of the **pollingConfig** to substitute the placeholder value with the user provided value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
 |**PollingKeyPaths** |String |Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
-|**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file. This can be any unique value, such as `{{placeHolder}}`. |
+|**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file as a unique value, such as `{{placeHolder}}`. |
 
 #### CopyableLabel
 
@@ -286,7 +265,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 | Array Value  |Type  |Description  |
 |---------------|------|-------------|
-|**fillWith**     |  ENUM       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId`      |
+|**fillWith**     |  ENUM       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId` |
 |**label**     |  String       |  Defines the text for the label above a text box.      |
 |**value**     |  String       |  Defines the value to present in the text box, supports placeholders.       |
 |**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
@@ -298,9 +277,9 @@ Here's an example of an inline information message:
 
 :::image type="content" source="media/create-codeless-connector/inline-information-message.png" alt-text="Screenshot of an inline information message.":::
 
-In contrast, the following image shows a *non*-inline information message:
+In contrast, the following image shows an information message that's not inline:
 
-:::image type="content" source="media/create-codeless-connector/non-inline-information-message.png" alt-text="Screenshot of a non-inline information message.":::
+:::image type="content" source="media/create-codeless-connector/non-inline-information-message.png" alt-text="Screenshot of an information message that's not inline.":::
 
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
@@ -325,7 +304,7 @@ For a detailed example, see the configuration JSON for the [Windows DNS connecto
 
 #### InstallAgent
 
-Some **InstallAgent** types appear as a button, others will appear as a link. Here are examples of both:
+Some **InstallAgent** types appear as a button, others appear as a link. Here are examples of both:
 
 :::image type="content" source="media/create-codeless-connector/link-by-button.png" alt-text="Screenshot of a link added as a button.":::
 
@@ -336,13 +315,13 @@ Some **InstallAgent** types appear as a button, others will appear as a link. He
 |**linkType**     |   ENUM      |  Determines the link type, as one of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
 |**policyDefinitionGuid**     | String        |  Required when using the **OpenPolicyAssignment** linkType. For policy-based connectors, defines the GUID of the built-in policy definition.        |
 |**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
-|**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as one of the following: `SecurityEvent`,  `ForwardEvent`       |
+|**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as either `SecurityEvent`, or `ForwardEvent`.     |
 
 ### permissions
 
 |Array value  |Type  |Description  |
 |---------|---------|---------|
-| **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`"name":`string`,`<br>`"description":`string<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel **Prerequisites** section with a blue informational icon. In the GitHub example, this correlates to the line  **GitHub API personal token Key: You need access to GitHub personal token...** |
+| **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`"name":`string`,`<br>`"description":`string<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel **Prerequisites** section with a blue informational icon. In the GitHub example, this value correlates to the line  **GitHub API personal token Key: You need access to GitHub personal token...** |
 | **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
 | **resourceProvider**	| [resourceProvider](#resourceprovider) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel **Prerequisites** section as: <br>**Workspace: read and write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | **tenant** | array of ENUM values<br>Example:<br><br>`"tenant": [`<br>`"GlobalADmin",`<br>`"SecurityAdmin"`<br>`]`<br> | Defines the required permissions, as one or more of the following values: `"GlobalAdmin"`, `"SecurityAdmin"`, `"SecurityReader"`, `"InformationProtection"` <br><br>Example:  displays the **tenant** value in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
@@ -352,7 +331,7 @@ Some **InstallAgent** types appear as a button, others will appear as a link. He
 |sub array value |Type  |Description  |
 |---------|---------|---------|
 | **provider** | 	ENUM	| Describes the resource provider, with one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
-| **providerDisplayName** | 	String	| A list item under **Prerequisites** that will display a red "x" or green checkmark when the **requiredPermissions** are validated in the connector page. Example, `"Workspace"` |
+| **providerDisplayName** | 	String	| A list item under **Prerequisites** that displays a red "x" or green checkmark when the **requiredPermissions** are validated in the connector page. Example, `"Workspace"` |
 | **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions that should correspond to the values configured in **requiredPermissions** |
 | **requiredPermissions** | `{`<br>`"action":`Boolean`,`<br>`"delete":`Boolean`,`<br>`"read":`Boolean`,`<br>`"write":`Boolean<br>`}` | Describes the minimum permissions required for the connector. |
 | **scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `"Subscription"`, `"ResourceGroup"`, `"Workspace"` |
@@ -366,7 +345,7 @@ Some **InstallAgent** types appear as a button, others will appear as a link. He
 
 ### Configure other link options
 
-To define an inline link using markdown, use the following example. Here a link is provided in an instruction description:
+To define an inline link using markdown, use the following example.
 
 ```json
 {
@@ -390,8 +369,8 @@ This object includes the template spec name and version of the different connect
 
 |Field |Required |Type |Description |
 |---|---|---|---|
-| **TemplateSpecName** |	True  |String | The name of the template spec which contains the data connectors connections. The template includes ARM templates that can be created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
-| **TemplateSpecVersion** | True | String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (e.g., "1.0.0") |
+| **TemplateSpecName** |	True  |String | The name of the template spec which contains the data connector connections. The template includes ARM templates created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
+| **TemplateSpecVersion** | True | String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (for example, "1.0.0") |
 
 ## Example data connector definition
 
