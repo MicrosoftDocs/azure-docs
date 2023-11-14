@@ -1,20 +1,20 @@
 ---
 title: Azure Migrate application and code assessment for Java
-description: How to assess and replatform any type of Java applications with the Azure Migrate application and code assessment tool to evaluate their readiness to migrate to Azure.
+description:
+Learn how to use the Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
 ms.author: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: conceptual
 ms.date: 11/15/2023
-keywords: java, azure, appCAT, assessment, replatform
 ---
 
 # Azure Migrate application and code assessment for Java
 
-This guide describes how to use the *Azure Migrate application and code assessment for Java* to assess and replatform any type of Java applications. The tool enables you to evaluate application readiness for replatforming and migration to Azure.
+This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure.
 
-`appcat` is a command-line tool from Azure Migrate to assess Java application binaries and/or source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications through identifying common use cases and code patterns and proposing recommended changes.
+`appcat` is a command-line tool from Azure Migrate to assess Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
 `appcat` discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
 
@@ -26,8 +26,8 @@ This guide describes how to use the *Azure Migrate application and code assessme
 
 With `appcat`, you can do the following tasks:
 
-* **Discover technology usage**: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
-* **Assess the code to a specific target**: Assess an application for a specific Azure target. Check the effort and the modifications you have to do in order to replatform your applications to Azure.
+* Discover technology usage: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
+* Assess the code to a specific target: Assess an application for a specific Azure target. Check the effort and the modifications you have to do in order to replatform your applications to Azure.
 
 ### Supported Azure targets
 
@@ -116,7 +116,7 @@ The discovery phase is useful when you don't have a specific Azure target in min
 
 ## Assess a Java application for a specific Azure target
 
-The assessment phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target.
+The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target.
 
 To check the available Azure targets, run the following command:
 
@@ -156,7 +156,7 @@ The landing page of the report lists all the technologies that are used in the a
 
 :::image type="content" source="media/java/report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/report-summary.png":::
 
-When you zoom in on the *Incidents by Category* pie chart, you can see the number of incidents by category: *Mandatory*, *Optional*, *Potential*, *Information*.
+When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, **Potential**, and **Information**.
 
 The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
 
@@ -164,7 +164,7 @@ The dashboard also shows the *story points*. The story points are an abstract me
 
 ### Discovery report
 
-The discovery report is a report that's generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about the technology that `appcat` has discovered.
+The discovery report is a report generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about the technology that `appcat` discovered.
 
 :::image type="content" source="media/java/report-discovery.png" alt-text="Screenshot of the appcat discovery report." lightbox="media/java/report-discovery.png":::
 
@@ -178,7 +178,7 @@ These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional
 
 ### Detailed information for a specific issue
 
-For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by clicking on it. You also get the list of all the files affected by this incident.
+For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this incident.
 
 :::image type="content" source="media/java/report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/report-assessment-detail.png":::
 
@@ -262,15 +262,15 @@ The complete guide for Rules Development is available at [azure.github.io/appcat
 
 ## License
 
-_Azure Migrate application and code assessment for Java_ is a free, open source tool at no-cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
+Azure Migrate application and code assessment for Java is a free, open source tool at no cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
 
 ## Frequently asked questions
 
-Q: Where can I download the latest version of the _Azure Migrate application and code assessment for Java_?
+Q: Where can I download the latest version of Azure Migrate application and code assessment for Java?
 
 You can download `appcat` from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
-Q: Where can I find more information about the _Azure Migrate application and code assessment for Java_?
+Q: Where can I find more information about Azure Migrate application and code assessment for Java?
 
 When you download `appcat`, you get a *docs* directory with all the information you need to get started.
 
@@ -280,7 +280,7 @@ All the Azure rules are available in the [appcat Rulesets GitHub repository](htt
 
 Q: Where can I find more information about creating custom rules?
 
-See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for the _Azure Migrate application and code assessment for Java_.
+See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for Azure Migrate application and code assessment for Java.
 
 Q: Where can I get some help when creating custom rules?
 

@@ -6,12 +6,11 @@ ms.author: brborges
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/15/2023
-keywords: dotnet, azure, appCAT, assessment, replatform
 ---
 
 # Azure Migrate application and code assessment for .NET
 
-Azure Migrate application and code assessment for .NET allows you to assess .NET source code, configurations and binaries of your application to identify migration opportunities to Azure. It helps you identify any issues your application might have when it is ported to Azure and improve the performance, scalability and security by suggesting modern, cloud-native solutions.
+Azure Migrate application and code assessment for .NET allows you to assess .NET source code, configurations, and binaries of your application to identify migration opportunities to Azure. It helps you identify any issues your application might have when ported to Azure and improve the performance, scalability, and security by suggesting modern, cloud-native solutions.
 
 :::image type="content" source="media/dotnet/visual-studio.png" alt-text="Screenshot of the Azure Migrate application and code assessment for .NET in Visual Studio." lightbox="media/dotnet/visual-studio.png":::
 
@@ -19,7 +18,7 @@ It discovers application technology usage through static code analysis, supports
 
 You can use Azure Migrate application and code assessment for .NET in Visual Studio or in the .NET CLI.
 
-## Install Visual Studio extension
+## Install the Visual Studio extension
 
 ### Prerequisites
 
@@ -30,11 +29,15 @@ You can use Azure Migrate application and code assessment for .NET in Visual Stu
 
 Use the following steps to install it from inside Visual Studio. Alternatively, you can download and install the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.appcat).
 
-  1. With Visual Studio opened, press the **Extensions > Manage Extensions** menu item, which opens the **Manage Extensions** window.
-  2. In the **Manage Extensions** window, enter **"Azure Migrate"** into the search input box.
-  3. Select the **Azure Migrate application and code assessment** item, and then select **Download**.
-  4. Once the extension has been downloaded, close Visual Studio. This starts the installation of the extension.
-  5. In the VSIX Installer dialog select **Modify** and follow the directions to install the extension.
+1. With Visual Studio opened, select the **Extensions > Manage Extensions** menu item, which opens the **Manage Extensions** window.
+
+1. In the **Manage Extensions** window, enter *Azure Migrate* into the search input box.
+
+1. Select **Azure Migrate application and code assessment**, and then select **Download**.
+
+1. After the extension downloads, close Visual Studio to start the installation of the extension.
+
+1. In the VSIX Installer dialog, select **Modify** and follow the directions to install the extension.
 
 ## Install the CLI tool
 
@@ -65,31 +68,31 @@ dotnet tool update -g dotnet-appcat
 
 ## Analyze applications with Visual Studio
 
-Once you installed the Visual Studio extension, you are ready to analyze your application in Visual Studio. You can do so by right click on any of the projects or a solution in the Solution Explorer window and select **Re-platform to Azure**.
+After you install the Visual Studio extension, you're ready to analyze your application in Visual Studio. To analyze an application, right click any of the projects or a solution in the Solution Explorer window and select **Re-platform to Azure**.
 
 :::image type="content" source="media/dotnet/replatform.png" alt-text="Screenshot of the Re-platform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
 
-Read this [step by step guide](https://aka.ms/appcat/dotnet/vs) for detailed instructions on the Visual Studio experience.
+For detailed instructions on the Visual Studio experience, see the [step by step guide](https://aka.ms/appcat/dotnet/vs).
 
 ## Analyze applications with .NET CLI
 
-Once you installed the CLI tool, you are ready to analyze your application in CLI. In CLI run the command:
+After you install the CLI tool, you're ready to analyze your application in the CLI. In the CLI, run the following command:
 
 ```dotnetcli
-appcat analyze <APPLICATION_PATH>
+appcat analyze <application-path>
 ```
 
-you can specify a path and a format (.html, .json, or .csv) for the report file that the tool will produce:
+You can specify a path and a format (*.html*, *.json*, or *.csv*) for the report file that the tool produces, as shown in the following example:
 
 ```dotnetcli
-appcat analyze <APPLICATION_PATH> --report MyAppReport --serializer html
+appcat analyze <application-path> --report MyAppReport --serializer html
 ```
 
-Read this [step by step guide](https://aka.ms/appcat/dotnet/cli) for detailed instructions on the CLI experience.
+For detailed instructions on the CLI experience, see the [step by step guide](https://aka.ms/appcat/dotnet/cli).
 
 ## Interpret reports
 
-Read this [Interpret the results guide](https://aka.ms/appcat/dotnet/report) for detailed description of the different parts of the reports and how to understand and interpret the data.
+For a detailed description of the different parts of the reports and how to understand and interpret the data, see the [Interpret the results guide](https://aka.ms/appcat/dotnet/report).
 
 ### Supported languages
 
@@ -107,4 +110,4 @@ It analyzes your code in the following project types:
 
 ### Supported Azure targets
 
-Currently application identifies potential issues for migration to Azure App Service, AKS, and Azure Container Apps. In the future the tool might have an ability to set the target explicitly and filter the exact issues and recommendations for each target separately.
+Currently, the application identifies potential issues for migration to Azure App Service, Azure Kubernetes Service (AKS), and Azure Container Apps.
