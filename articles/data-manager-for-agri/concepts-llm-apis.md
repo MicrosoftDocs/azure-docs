@@ -11,9 +11,9 @@ ms.custom: template-concept
 
 # About Azure Data Manager for Agriculture LLM APIs:
 
-Azure Data Manager for Agriculture provides industry-specific data connectors and capabilities to unify farm data from disparate sources, enabling organizations to leverage high quality datasets and accelerate the development of digital agriculture solutions. With new large language model (LLM) APIs, others can develop copilots that turn data into insights on yield, labor needs, harvest windows and more—bringing generative AI to life in agriculture.
+Azure Data Manager for Agriculture brings together and transforms data to simplify the process of building digital agriculture and sustainability applications. With new large language model (LLM) APIs, others can develop copilots that turn data into insights on yield, labor needs, harvest windows and more—bringing generative AI to life in agriculture.
 
-Our LLM capability enables seamless selection of APIs mapped to farm operations today. In the time to come we will add the capability to select APIs mapped to soil sensors, weather, and imagery type of data. The skills in our LLM capability allow for a combination of results, calculation of area, ranking, summarizing to help serve customer prompts. Our B2B customers can take the context from our data manager, add their own knowledge base, and get summaries, insights and answers to their data questions through our data manager LLM plugin using natural language.
+Our LLM capability enables seamless selection of APIs mapped to farm operations today. In the time to come we'll add the capability to select APIs mapped to soil sensors, weather, and imagery type of data. The skills in our LLM capability allow for a combination of results, calculation of area, ranking, summarizing to help serve customer prompts. Our B2B customers can take the context from our data manager, add their own knowledge base, and get summaries, insights and answers to their data questions through our data manager LLM plugin using natural language.
 
 > [!NOTE]
 >Azure may include preview, beta, or other pre-release features, services, software, or regions offered by Microsoft for optional evaluation ("Previews"). Previews are licensed to you as part of [**your agreement**](https://azure.microsoft.com/support) governing use of Azure, and subject to terms applicable to "Previews".
@@ -25,25 +25,25 @@ Our LLM capability enables seamless selection of APIs mapped to farm operations 
 ## Prerequisites:
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
 - An instance of [Azure Open AI](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription.
-- You will need [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-- You will need [Azure Container Registery](../container-registry/container-registry-get-started-portal.md)
+- You need [Azure Key Vault](../key-vault/general/quick-create-portal.md)
+- You need [Azure Container Registery](../container-registry/container-registry-get-started-portal.md)
 
 > [!TIP]
 >To get started with testing our Azure Data Manager for Agriculture LLM Plugin APIs please fill in this onboarding [**form**](https://forms.office.com/r/W4X381q2rd). In case you need help then reach out to us at madma@microsoft.com.
 
 ## High level architecture: 
-The customer has full control as key component deployment is within the customer tenant.  Our feature is available to customers via a docker container, which they will deploy to their Azure App Service. 
+The customer has full control as key component deployment is within the customer tenant.  Our feature is available to customers via a docker container, which needs to be deployed to the customers Azure App Service. 
 
 :::image type="content" source="./media/concepts-llm-apis/high-level-architecture.png" alt-text="Screenshot showing high level feature architecture":::
 
-We highly recommend that customers apply content and safety filters on your Azure OpenAI instance to ensure that the LLM capability is aligned with guidelines from Microsoft’s Office of Responsible AI. Please follow instructions on how to use content filters with Azure OpenAI service at this [link](../ai-services/openai/how-to/content-filters.md) to get started.
+We recommend that you apply content and safety filters on your Azure OpenAI instance. Taking this step ensures that the LLM capability is aligned with guidelines from Microsoft’s Office of Responsible AI. Follow instructions on how to use content filters with Azure OpenAI service at this [link](../ai-services/openai/how-to/content-filters.md) to get started.
 
 ## Flow diagram:
 :::image type="content" source="./media/concepts-llm-apis/flow-diagram.png" alt-text="Screenshot showing high level information flow":::
 
-The LLM capability uses a specialized orchestrator SDK – C# library, that wraps LLM capabilities of taking a user message in a natural language, enriching it with a relevant metadata on the user. Then apply a set of plugins to create natural language responses to the user, that answers his question within a chat experience. 
+The LLM capability uses a specialized orchestrator SDK – C# library that wraps LLM capabilities of taking a user message in a natural language enriching it with a relevant metadata on the user. Then apply a set of plugins to create natural language responses to the user that answers questions within a chat experience. 
 
-The SDK is built on top of Semantic Kernel, it supports GPT 4 and uses Azure open AI function calling capability. There are 3 steps in which the developer interacts with the orchestrator: 
+The SDK is built on top of Semantic Kernel, it supports GPT 4 and uses Azure open AI function calling capability. There are three steps in which the developer interacts with the orchestrator: 
 1.	System initialization – when the system starts, once for all chat instances. 
 2.	Chat initialization – when user starts a new chat, initializes an empty chat history. 
 3.	Chat loop – the chat conversation between the user and the system, triggered by user message. 
