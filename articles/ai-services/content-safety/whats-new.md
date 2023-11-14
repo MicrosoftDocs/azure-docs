@@ -22,8 +22,8 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 The new Jailbreak risk detection and Protected material detection APIs let you mitigate some of the risks when using generative AI.
 
-- Jailbreak risk detection scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. Quickstart tbd
-- Protected material text detection scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). Quickstart tbd
+- Jailbreak risk detection scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md)
+- Protected material text detection scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 
 ## October 2023
 

@@ -19,10 +19,15 @@ items:
   items:
   - name: Content Safety Studio
     href: studio-quickstart.md
-  - name: Text moderation
+  - name: Text detection
     href: quickstart-text.md
-  - name: Image moderation
+  - name: Image detection
     href: quickstart-image.md
+  - name: Jailbreak risk detection (new)
+    href: how-to/detect-jailbreak.md
+  - name: Protected material detection (new)
+    href: how-to/detect-protected-material.md
+
 - name: Samples 
   items: 
   - name: Content Safety Python samples
@@ -39,10 +44,6 @@ items:
   items:
   - name: Use a blocklist
     href: how-to/use-blocklist.md
-  - name: Detect jailbreak risk (new)
-    href: how-to/detect-jailbreak.md
-  - name: Detect protected material (new)
-    href: how-to/detect-protected-material.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
   - name: Migrate from public preview to GA
