@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 As a developer, when you work on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
 
-Azure Integration Environments reduces this complexity by providing a central place in Azure where you can organize and manage existing Azure resources by creating *integration environments*. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on.
+Azure Integration Environments reduces this complexity by providing a central area, similar to a dashboard, in the Azure portal where you create one or more *integration environments* to organize and manage existing Azure resources based on their business purpose or phase in the software lifecycle. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on.
 
 In an integration environment, you create application groups to further organize resources into smaller collections based on their business function or purpose, for example, employee onboarding, order processing, bank reconciliation, shipping notifications, and so on. For more information, see [Central organization and management](#central-resource).
 
@@ -31,7 +31,7 @@ The following diagram shows how you can represent a real-world business flow as 
 
 :::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram that shows a real-world business flow visualized as a business process that maps to Azure resources in an application group." lightbox="media/overview/business-process.png":::
 
-For this release, an integration environment offers the following capabilities as a unified, dashboard-like experience in the Azure portal:
+For this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
 
 - [Central organization and management](#central-resource)
 
