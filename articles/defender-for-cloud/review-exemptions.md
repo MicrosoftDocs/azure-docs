@@ -7,16 +7,17 @@ author: dcurwin
 ms.date: 01/02/2022
 ---
 
-# Review resources exempted from recommendations in Defender for Cloud
+# Review resources exempted from recommendations 
 
 In Microsoft Defender for Cloud, you can exempt protected resources from Defender for Cloud security recommendations. [Learn more](exempt-resource.md). This article describes how to review and work with exempted resources.
 
 
 ## Review exempted resources in the portal
 
-1. In Defender for Cloud, open the **Recommendations** page. 
-1. In the **All recommendations** tab, select the relevant recommendation.
-1. In the details page for the recommendation, select **View exemptions** to review all of the exemption rules.
+1. In Defender for Cloud, open the **Recommendations** page.
+1. Select **Add filter** > **Is exempt**.
+1. Select whether you want to see recommendations that have exempted resources, or those without exemptions.
+1. In the details page for the relevant recommendation, select **View exemptions** to review all of the exemption rules.
 
     :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources.":::
 
@@ -30,9 +31,7 @@ In Microsoft Defender for Cloud, you can exempt protected resources from Defende
 
 1. For each resource, the **Reason** column shows why the resource is exempted. To modify the exemption settings for a resource, select the ellipsis in the resource > **Manage exemption**.
 
-In addition to reviewing exempted resources in the details page for each recommendation, you can identify exempted resources on the Defender for Cloud > **Inventory** page.
-
-In the page, select **Add filter**. In the **Filter** dropdown list, select **Contains Exemptions** to find all resources that have been exempted from one or more recommendations.
+You can also review exempted resources on the Defender for Cloud > **Inventory** page. In the page, select **Add filter**. In the **Filter** dropdown list, select **Contains Exemptions** to find all resources that have been exempted from one or more recommendations.
 
 :::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions."  lightbox="media/exempt-resource/inventory-filter-exemptions.png":::
 
@@ -43,10 +42,7 @@ In the page, select **Add filter**. In the **Filter** dropdown list, select **Co
 
 To view all recommendations that have exemption rules:
 
-1. Open **Azure Resource Graph Explorer**.
-
-    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page."   lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
-
+1. In the **Recommendations** page, select **Open query**.
 1. Enter the following query and select **Run query**.
 
     ```kusto
