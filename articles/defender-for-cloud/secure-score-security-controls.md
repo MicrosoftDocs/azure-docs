@@ -12,7 +12,7 @@ Secure score in Microsoft Defender for Cloud helps you to assess and improve you
 
 When you turn on Defender for Cloud in a subscription, the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introduction) standard is applied by default in the subscription.  Assessment of resources in scope against the MCSB standard begins.
 
-Recommendations are issued based on assessment findings. Only built-in recommendations from the MSCB have an impact on the secure score.
+Recommendations are issued based on assessment findings. Only built-in recommendations from the MSCB impact the secure score.
 
 
 > [!Note]
@@ -39,7 +39,7 @@ On the **Security posture** page in Defender for Cloud, you can see the secure s
 :::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page." lightbox="media/secure-score-security-controls/security-posture-page.png":::
 
 - You can see the subscriptions, accounts, and projects that affect your overall score, information about unhealthy resources, and relevant recommendations.
-- You can  filter by environment (Azure, AWS, GCP, AzureDevOps), and drill down into each Azure subscription, AWS account, and GCP project.
+- You can  filter by environment (Azure, AWS, GCP, Azure DevOps), and drill down into each Azure subscription, AWS account, and GCP project.
 
 
 :::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
@@ -48,7 +48,7 @@ On the **Security posture** page in Defender for Cloud, you can see the secure s
 
 On the **Recommendations** page > **Secure score recommendations** tab in Defender for Cloud, you can see how compliance controls within the MCSB contribute towards the overall security score.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Screenshot that shows security controls and their impact on your secure score." lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Screenshot that shows security controls that impact your secure score." lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 Each control is calculated every eight hours for each Azure subscription, or AWS/GCP cloud connector. 
 
@@ -111,7 +111,7 @@ This equation is the same equation for a connector with just the word subscripti
 - The combined score for multiple subscriptions and connectors includes a *weight* for each subscription, and connector.
 - Defender for Cloud determines the relative weights for your subscriptions, and connectors based on factors such as the number of resources.
 - The current score for each subscription, a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.
-- When you view multiple subscriptions and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.
+- When you view multiple subscriptions and connectors, the secure score evaluates all resources within all enabled policies and groups them to show how together they impact each security control's maximum score.
 
     :::image type="content" source="./media/secure-score-security-controls/secure-score-example-multiple-subs.png" alt-text="Screenshot showing secure score for multiple subscriptions with all controls enabled.":::
 
@@ -132,7 +132,7 @@ To see how well your organization is securing each individual attack surface, re
 To improve your secure score:
 
 - Remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or use the **Fix** option (when available) to resolve an issue on multiple resources quickly. 
-- You can also [enforce or deny](prevent-misconfigurations.md) recommendations to improve your score, and to make sure your users don't create resources that negatively impact your score.
+- You can also [enforce or deny](prevent-misconfigurations.md) recommendations to improve your score, and to make sure your users don't create resources that negatively affect your score.
 
 
 ## Secure score controls
@@ -154,7 +154,7 @@ The table below lists the security controls in Microsoft Defender for Cloud. For
 2 | **Enable endpoint protection** - Defender for Cloud checks your organization’s endpoints for active threat detection and response solutions such as Microsoft Defender for Endpoint or any of the major solutions shown in this list.<br/><br/> If no Endpoint Detection and Response (EDR) solution is enabled, use these recommendations to deploy Microsoft Defender for Endpoint. Defender for Endpoint is included as part of the [Defender for Servers plan](defender-for-servers-introduction.md).<br/><br/>Other recommendations in this control help you deploy agents and configure [file integrity monitoring](file-integrity-monitoring-overview.md).
 1 | **Enable auditing and logging** - Detailed logs are a crucial part of incident investigations and many other troubleshooting operations. The recommendations in this control focus on ensuring you’ve enabled diagnostic logs wherever relevant.
 0 | **Enable enhanced security features** - Use these recommendations to enable any Defender for Cloud plans.
-0 | **Implement security best practices** - This control has no impact on your secure score. This collection of recommendations is important for your organizational security, but shouldn’t be used to assess your overall score.
+0 | **Implement security best practices** - This control doesn't affect your secure score. This collection of recommendations is important for your organizational security, but shouldn’t be used to assess your overall score.
 
 ## Next steps
 

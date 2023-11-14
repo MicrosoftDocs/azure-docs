@@ -1374,7 +1374,7 @@ Other changes in November include:
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Autoprovisioning of vulnerability assessment solutions released for general availability (GA)](#autoprovisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
-- [New AKS security policy added to default initiative – for use by private preview customers only](#new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only)
+- [New AKS security policy added to default initiative – private preview](#new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only)
 - [Inventory display of on-premises machines applies different template for resource name](#inventory-display-of-on-premises-machines-applies-different-template-for-resource-name)
 
 ### Azure Security Center and Azure Defender become Microsoft Defender for Cloud
@@ -1410,7 +1410,7 @@ Learn more in [Prioritize security actions by data sensitivity](information-prot
 
 ### Expanded security control assessments with Azure Security Benchmark v3
 
-Microsoft Defender for Cloud's security recommendations are supported by the Azure Security Benchmark.
+Security recommendations in Defender for Cloud are supported by the Azure Security Benchmark.
 
 [Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
@@ -1521,7 +1521,7 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 To ensure that Kubernetes workloads are secure by default, Defender for Cloud includes Kubernetes level policies and hardening recommendations, including enforcement options with Kubernetes admission control.
 
-As part of this project, we've added a policy and recommendation (disabled by default) for gating deployment on Kubernetes clusters. The policy is in the default initiative but is only relevant for organizations who register for the related private preview.
+As part of this project, we've added a policy and recommendation (disabled by default) for gating deployment on Kubernetes clusters. The policy is in the default initiative but is only relevant for organizations who register for the related private prevew.
 
 You can safely ignore the policies and recommendation ("Kubernetes clusters should gate deployment of vulnerable images") and there will be no impact on your environment.
 
@@ -1589,7 +1589,7 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes-archive.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts)
 
-As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for Servers](defender-for-servers-introduction.md).
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for Servers](defender-for-servers-introduction.md).
 
 With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
@@ -2191,7 +2191,7 @@ Updates in April include:
 - [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
-- [Twenty one recommendations moved between security controls](#twenty-one-recommendations-moved-between-security-controls)
+- [Twenty one recommendations were moved between security controls](#twenty-one-recommendations-moved-between-security-controls)
 
 ### Refreshed resource health page (in preview)
 
@@ -3118,7 +3118,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multifactor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -3152,7 +3152,7 @@ properties:  {
 }
 ```
 
-Whereas, Microsoft.Security/Assessments will hold a record for each such policy assessment as follows:
+Whereas Microsoft.Security/Assessments hold a record for each such policy assessment as follows:
 
 ```
 {
@@ -3354,7 +3354,7 @@ Security misconfigurations are a major cause of security incidents. Security Cen
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
-Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
+You can enforce a secure configuration, based on a specific recommendation, in two modes:
 
 - Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
 
@@ -3417,7 +3417,7 @@ The details page for recommendations now includes a freshness interval indicator
 Updates in August include:
 
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
@@ -3432,13 +3432,13 @@ You can use the view and its filters to explore your security posture data and t
 
 Learn more about [asset inventory](asset-inventory.md).
 
-### Added support for Azure Active Directory security defaults (for multi-factor authentication)
+### Added support for Azure Active Directory security defaults (for multifactor authentication)
 
 Security Center has added full support for [security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), Microsoft's free identity security protections.
 
 Security defaults provide preconfigured identity security settings to defend your organization from common identity-related attacks. Security defaults already protecting more than 5 million tenants overall; 50,000 tenants are also protected by Security Center.
 
-Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults.
+Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multifactor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults.
 
 Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](secure-score-security-controls.md).
 
@@ -3531,7 +3531,7 @@ Although you can now deploy the integrated vulnerability assessment extension (p
 
 Learn more about the [integrated vulnerability scanner for virtual machines (requires Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Learn more about using your own privately-licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
 
@@ -3859,7 +3859,7 @@ Security recommendations for identity and access on the Azure Security Center fr
 
 Examples of identity and access recommendations include:
 
-- "Multi-factor authentication should be enabled on accounts with owner permissions on your subscription."
+- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
 - "A maximum of three owners should be designated for your subscription."
 - "Deprecated accounts should be removed from your subscription."
 
@@ -3867,7 +3867,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
+Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 ## March 2020
 
