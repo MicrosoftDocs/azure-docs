@@ -24,17 +24,19 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 ## Limitations and known issues
 
-- The Data Mapper tool currently works only in Visual Studio Code running on Windows operating systems.
+- Data Mapper currently works only in Visual Studio Code running on Windows operating systems.
 
-- The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
+- Data Mapper is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
+
+- Data Mapper currently doesn't support comma-separated values (.csv) files.
+
+- The Data Mapper's **Code view** pane is currently read only.
+
+- The map layout and item position are currently automatic and read only.
 
 - To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
 - To use the maps that you create with the Data Mapper tool but in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
-
-- The Data Mapper tool's **Code view** pane is currently read only.
-
-- The map layout and item position are currently automatic and read only.
 
 ## Prerequisites
 
