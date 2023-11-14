@@ -121,11 +121,15 @@ When you create each stage, you specify the key business data property values to
 
 Next, you map each stage to the corresponding operation in a Standard logic app workflow and map the properties to the workflow operation outputs that provide the necessary data. If you're familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you use a read-only version of the workflow designer to select the operation and the dynamic content tokens that represent the operation outputs that you want.
 
-For example, the following screenshot shows the read-only workflow designer, the selected workflow operation, and mappings between previously specified business properties for the **Create_ticket** stage and the selected outputs from operations in a Standard logic app workflow:
+For example, the following screenshot shows the following items:
+
+- The read-only workflow designer for the Standard logic app resource and workflow in Azure Logic Apps
+- The selected workflow operation named **Send message**
+- The business properties for the **Create_ticket** stage with mappings to selected outputs from operations in the Standard logic app workflow
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-When you're done, your business process stage and properties are mapped to the corresponding Standard logic app workflow, operation, and outputs to use as data sources. When your workflows run, they populate the specified business properties:
+When you're done, your business process stage and properties are now mapped to the corresponding Standard logic app workflow, operation, and outputs to use as data sources. Now, when your workflows run in the deployed logic apps, the workflows populate the business properties that you specified:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
