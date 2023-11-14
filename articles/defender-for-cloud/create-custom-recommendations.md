@@ -8,7 +8,7 @@ ms.date: 03/26/2023
 
 # Create custom security standards and recommendations (AWS/GCP)
 
-[Security recommendations](security-policy-concept.md#security-recommendations) in Microsoft Defender for Cloud help you to improve and harden your security posture. Recommendations are based on assessments against [security standards](security-policy-concept.md) defined for Azure subscriptions, AWS accounts, and GCP projects that have Defender for Cloud enabled.
+[Security recommendations](security-policy-concept.md) in Microsoft Defender for Cloud help you to improve and harden your security posture. Recommendations are based on assessments against [security standards](security-policy-concept.md) defined for Azure subscriptions, AWS accounts, and GCP projects that have Defender for Cloud enabled.
 
 
 
@@ -87,11 +87,9 @@ Custom recommendations can be assigned to one or more custom standards.
 
 1. Select **Security policies** > **+ Create** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-aws-assessments-standards/create-custom-standard.png" alt-text="Screenshot that shows how to create a custom security standard for AWS." lightbox="media/how-to-manage-aws-assessments-standards//create-custom-standard.png":::
-
 1. In **Create new standard**, enter a name, description and select recommendations from the drop-down menu.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/create-standard-aws.png" alt-text="Screenshot of the window for creating a new standard.":::
+    :::image type="content" source="media/create-custom-recommendations/create-standard-aws.png" alt-text="Screenshot of the window for creating a new standard.":::
 
 1. Select **Create**.
 

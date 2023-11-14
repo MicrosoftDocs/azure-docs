@@ -80,4 +80,4 @@ After creating the exemption it can take up to 30 minutes to take effect. After 
 
 ## Next steps
 
-[Review exempted resources](review-exemptions.md) in Defender for Cloud. 
+[Review recommendations](review-security-recommendations.md) in Defender for Cloud. 

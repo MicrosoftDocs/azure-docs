@@ -9,7 +9,7 @@ ms.custom: ignite-2023
 # Assign security standards
 
 
-[Regulatory standards and benchmarks](concept-regulatory-compliance-standards.md) are represented in Microsoft Defender for Cloud as [security standards](security-policy-concept.md). Each standard is an initiative defined in Azure Policy.
+Regulatory standards and benchmarks are represented in Microsoft Defender for Cloud as [security standards](security-policy-concept.md). Each standard is an initiative defined in Azure Policy.
 
 
 In Defender for Cloud you assign security standards to  specific scopes such as Azure subscriptions, AWS accounts, and GCP projects that have Defender for Cloud enabled.
@@ -26,7 +26,7 @@ This article describes how to add regulatory compliance standards as security st
 
 ## Assign a standard (Azure)
 
-1. In the Defender for Cloud portal, select **Regulatory compliance**. For each standard, you can see the subscription in which its applied.
+1. In the Defender for Cloud portal, select **Regulatory compliance**. For each standard, you can see the subscription in which it's applied.
 
 1. From the top of the page, select **Manage compliance policies**.
 
@@ -80,6 +80,5 @@ The selected standard appears in the **Regulatory compliance** dashboard as enab
 
 ## Next steps
 
-- [Learn about](concept-regulatory-compliance-standards.md) regulatory standards.
 - Create custom standards for [Azure](custom-security-policies.md), [AWS, and GCP](create-custom-recommendations.md).
 - [Improve regulatory compliance](regulatory-compliance-dashboard.md)
