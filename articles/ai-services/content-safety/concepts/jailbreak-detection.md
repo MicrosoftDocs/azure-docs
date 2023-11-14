@@ -1,7 +1,7 @@
 ---
 title: "Jailbreak risk detection in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about jailbreak risk detection and the related flags that the Content Safety service returns.
+description: Learn about jailbreak risk detection and the related flags that the Azure AI Content Safety service returns.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -42,7 +42,7 @@ Azure AI Content Safety jailbreak risk detection recognizes four different class
 
 ## Next steps
 
-Follow the how-to guide to get started using Content Safety to detect jailbreak risks.
+Follow the how-to guide to get started using Azure AI Content Safety to detect jailbreak risks.
 
 > [!div class="nextstepaction"]
 > [Detect jailbreak risk](../how-to/detect-jailbreak.md)

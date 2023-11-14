@@ -1,10 +1,10 @@
 items:
-- name: Content Safety Documentation
+- name: Azure AI Content Safety Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Content Safety overview
+  - name: Azure AI Content Safety overview
     href: overview.md
   - name: Language support
     href: language-support.md
@@ -30,9 +30,9 @@ items:
 
 - name: Samples 
   items: 
-  - name: Content Safety Python samples
+  - name: Azure AI Content Safety Python samples
     href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety/samples
-  - name: Content Safety C# samples
+  - name: Azure AI Content Safety C# samples
     href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety/samples
 - name: Responsible use of AI
   items:
@@ -60,15 +60,15 @@ items:
     href: concepts/jailbreak-detection.md
 - name: Reference
   items:
-  - name: Content Safety REST API
+  - name: Azure AI Content Safety REST API
     href: https://aka.ms/content-safety-api
-  - name: Content Safety Python SDK
+  - name: Azure AI Content Safety Python SDK
     href: https://aka.ms/content-safety-python-sdk
-  - name: Content Safety C# SDK
+  - name: Azure AI Content Safety C# SDK
     href: https://aka.ms/content-safety-csharp-sdk
-  - name: Content Safety Java SDK
+  - name: Azure AI Content Safety Java SDK
     href: /java/api/overview/azure/ai-contentsafety-readme
-  - name: Content Safety JavaScript SDK
+  - name: Azure AI Content Safety JavaScript SDK
     href: https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1
   - name: Response codes
     href: concepts/response-codes.md

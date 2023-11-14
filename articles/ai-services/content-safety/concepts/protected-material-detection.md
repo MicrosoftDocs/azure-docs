@@ -1,7 +1,7 @@
 ---
 title: "Protected material detection in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about Protected material detection and the related flags that the Content Safety service returns.
+description: Learn about Protected material detection and the related flags that the Azure AI Content Safety service returns.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -27,7 +27,7 @@ For the protected material code model, the following additional information is r
 
 ## Next steps
 
-Follow the how-to guide to get started using Content Safety to detect protected material.
+Follow the how-to guide to get started using Azure AI Content Safety to detect protected material.
 
 > [!div class="nextstepaction"]
 > [Detect protected material](../how-to/detect-protected-material.md)

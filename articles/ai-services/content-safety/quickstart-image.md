@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze image content"
 titleSuffix: Azure AI services
-description: Get started using Content Safety to analyze image content for objectionable material.
+description: Get started using Azure AI Content Safety to analyze image content for objectionable material.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,7 +16,7 @@ keywords:
 
 # QuickStart: Analyze image content
 
-Get started with the Content Studio, REST API, or client SDKs to do basic image moderation. The Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
+Get started with the Content Studio, REST API, or client SDKs to do basic image moderation. The Azure AI Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
 
 > [!NOTE]
 > 

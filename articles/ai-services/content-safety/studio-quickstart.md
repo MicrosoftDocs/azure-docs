@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # QuickStart: Azure AI Content Safety Studio
 
-In this quickstart, get started with the Content Safety service using Content Safety Studio in your browser. 
+In this quickstart, get started with the Azure AI Content Safety service using Content Safety Studio in your browser. 
 
 > [!CAUTION]
 > Some of the sample content provided by Content Safety Studio may be offensive. Sample images are blurred by default. User discretion is advised.
@@ -102,7 +102,7 @@ If you want to clean up and remove an Azure AI services resource, you can delete
 
 ## Next steps
 
-Next, get started using Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into your application.
+Next, get started using Azure AI Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into your application.
 
 > [!div class="nextstepaction"]
 > [Quickstart: REST API and client SDKs](./quickstart-text.md)

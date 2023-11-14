@@ -1,7 +1,7 @@
 ---
 title: "Harm categories in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
+description: Learn about the different content moderation flags and severity levels that the Azure AI Content Safety service returns.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,7 +16,7 @@ keywords:
 
 # Harm categories in Azure AI Content Safety
 
-This guide describes all of the harm categories and ratings that Content Safety uses to flag content. Both text and image content use the same set of flags.
+This guide describes all of the harm categories and ratings that Azure AI Content Safety uses to flag content. Both text and image content use the same set of flags.
 
 ## Harm categories
 
@@ -163,7 +163,7 @@ Every harm category the service applies also comes with a severity level rating.
 
 ## Next steps
 
-Follow a quickstart to get started using Content Safety in your application.
+Follow a quickstart to get started using Azure AI Content Safety in your application.
 
 > [!div class="nextstepaction"]
 > [Content Safety quickstart](../quickstart-text.md)
