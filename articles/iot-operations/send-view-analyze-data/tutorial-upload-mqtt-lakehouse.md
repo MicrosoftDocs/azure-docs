@@ -14,7 +14,7 @@ ms.date: 11/13/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you send MQTT data from IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Detla Lake format. IoT MQ's datalake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
+In this walkthrough, you send MQTT data from IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
 Azure IoT Operations can be deployed with the Azure CLI, Azure Portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
@@ -59,13 +59,13 @@ The template deploys:
 
 From the deployment JSON outputs, note the name of the IoT MQ extension - it should look like 'mq-resource-group-name'.
 
-## Setup Microsoft Fabric resources
+## Set up Microsoft Fabric resources
 
-Next, create and setup the required Fabric resources. 
+Next, create and set up the required Fabric resources. 
 
 ### Create a Fabric workspace and give access to IoT MQ 
 
-Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to MQ's extension identity in teh **Add people** sidebar.
+Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to MQ's extension identity in the **Add people** sidebar.
 
 :::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Create workspace and give access" lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
 
@@ -92,9 +92,9 @@ Simulate test data by deploying a Kubernetes workload. It simulates a sensor by 
     ```
 
 
-## Deploy the datalake connector and topic map resources
+## Deploy the data lake connector and topic map resources
 
-Building on top of the previous Azure deployment, add the datalake connector and topicmap. Supply the names of the previously created resources using environment variables.
+Building on top of the previous Azure deployment, add the data lake connector and topic map. Supply the names of the previously created resources using environment variables.
 
 ```azurecli
 
@@ -119,12 +119,12 @@ fabricLakehouseName=xxx
 
 The template deploys:
 
-* [IoT MQ datalake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
-* [Datalake connector topic map](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L56)
+* [IoT MQ data lake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
+* [Data lake connector topic map](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L56)
 
-The datalake connector uses the MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials needed!
+The data lake connector uses the MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials needed!
 
-The topicmap provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the lakehouse and built-in enrichments the data like a receive timestamp and topic name.
+The topic map provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the lakehouse and built-in enrichments the data like a receive timestamp and topic name.
 
 
 ## Confirm lakehouse ingest
