@@ -44,7 +44,7 @@ This article contains known issues for Azure IoT Operations Preview.
     - aio_mq_frontend_replicas
     - aio_mq_frontend_replicas_current
 
-- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on certain topics, you'd probably still get messages from the self-test when you subscribe to `#`
+- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you'd probably still get messages from the self-test when you subscribe to `#` topic in the mqtt broker.
 
 - There are known intermittent issues with MQ's MQTT bridge connecting to Azure Event Grid.
 
