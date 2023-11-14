@@ -284,3 +284,8 @@ See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-deve
 Q: Where can I get some help when creating custom rules?
 
 The best way to get help is to [create an issue on the appcat-rulesets GitHub repository](https://github.com/azure/appcat-rulesets/issues).
+
+## Next steps
+
+* [CLI usage guide](https://azure.github.io/appcat-docs/cli/)
+* [Rules development guide](https://azure.github.io/appcat-docs/rules-development-guide/)

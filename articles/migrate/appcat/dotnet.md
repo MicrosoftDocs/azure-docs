@@ -111,3 +111,8 @@ It analyzes your code in the following project types:
 ### Supported Azure targets
 
 Currently, the application identifies potential issues for migration to Azure App Service, Azure Kubernetes Service (AKS), and Azure Container Apps.
+
+## Next steps
+
+- [CLI usage guide](https://azure.github.io/appcat-docs/cli/)
+- [Rules development guide](https://azure.github.io/appcat-docs/rules-development-guide/)
