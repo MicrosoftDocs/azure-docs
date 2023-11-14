@@ -54,9 +54,6 @@ There are different types of analysis available from this service. The following
 | Jailbreak risk detection (new) | Scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
 | Protected material text detection (new) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 
-tbd add links to quickstarts
-call new features "new" in toc and this table
-
 ## Content Safety Studio
 
 [Azure AI Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
@@ -130,7 +127,7 @@ To use the Azure AI Content Safety APIs, you must create your Content Safety res
 - UK South
 - West Europe
 - West US 2
-- tbd changes
+- Sweden Central
 
 Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 
