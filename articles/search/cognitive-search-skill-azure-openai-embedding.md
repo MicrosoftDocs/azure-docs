@@ -5,6 +5,8 @@ description: Connects to a deployed model on your Azure OpenAI resource.
 author: dharun1995
 ms.author: dhanasekars
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 10/26/2023
 ---

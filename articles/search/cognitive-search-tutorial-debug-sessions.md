@@ -7,6 +7,8 @@ ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 10/09/2023
 ---

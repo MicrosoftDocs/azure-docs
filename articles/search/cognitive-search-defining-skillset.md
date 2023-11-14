@@ -5,6 +5,8 @@ description: A skillset defines data extraction, natural language processing, an
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 07/14/2022
 ---

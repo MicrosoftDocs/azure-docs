@@ -1,10 +1,12 @@
 ---
-title: Entity Recognition cognitive skill (v3) 
+title: Entity Recognition cognitive skill (v3)
 titleSuffix: Azure AI Search
 description: Extract different types of entities using the machine learning models of Azure AI Language in an AI enrichment pipeline in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/17/2022
 ---

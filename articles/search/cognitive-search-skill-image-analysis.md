@@ -7,6 +7,8 @@ author: careyjmac
 ms.author: chalton
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 06/24/2022
 ---

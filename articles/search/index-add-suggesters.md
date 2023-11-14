@@ -9,7 +9,10 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/02/2022
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Configure a suggester to enable autocomplete and suggested results in a query

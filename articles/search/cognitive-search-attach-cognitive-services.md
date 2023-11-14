@@ -5,9 +5,10 @@ description: Learn how to attach an Azure AI multi-service resource to an AI enr
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 05/31/2023
-
 ---
 
 # Attach an Azure AI multi-service resource to a skillset in Azure AI Search

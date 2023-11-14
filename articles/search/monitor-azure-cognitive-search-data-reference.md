@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 02/08/2023
-ms.custom: subject-monitoring
+ms.custom:
+  - subject-monitoring
+  - ignite-2023
 ---
 
 # Azure AI Search monitoring data reference
