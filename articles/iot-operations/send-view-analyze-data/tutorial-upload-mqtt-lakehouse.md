@@ -10,7 +10,7 @@ ms.date: 11/13/2023
 #CustomerIntent: As an operator, I want to learn how to send MQTT data from the edge to a lakehouse in the cloud.
 ---
 
-# Build a real-time dashboard in Microsoft Fabric with MQTT data
+# Upload MQTT data to Microsoft Fabric lakehouse
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -57,7 +57,7 @@ The template deploys:
 * [IoT MQ Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L124)
 * [IoT MQ Broker and child resources](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L191)
 
-From the deployment JSON outputs, note the name of the IoT MQ extension - it should look like 'mq-<resource-group-name>'.
+From the deployment JSON outputs, note the name of the IoT MQ extension - it should look like 'mq-resource-group-name'.
 
 ## Setup Microsoft Fabric resources
 
@@ -122,17 +122,22 @@ The template deploys:
 * [IoT MQ datalake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
 * [Datalake connector topic map](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L56)
 
-The datalake connector uses the MQ's system-assigned managed identity to write data to the lakehouse. No manual credential management is neccessary!
+The datalake connector uses the MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials needed!
 
-The topicmap provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the Lakehouse. 
+The topicmap provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the lakehouse and built-in enrichments the data like a receive timestamp and topic name.
 
 
 ## Confirm lakehouse ingest
 
-In about a minute,
+In about a minute, you should see the MQTT payload along with the enriched fields in Fabric under the **Tables** folder:
 
-In this walkthrough, you learned how to build a real-time dashboard in Microsoft Fabric using simulated MQTT data that is published to IoT MQ.
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
+
+The data is now available in Fabric for cleaning, creating reports and further analysis.
+
+
+In this walkthrough, you learned how to upload MQTT messages from IoT MQ directly to a Fabric lakehouse.
 
 ## Next steps
 
-[Configure MQTT bridge between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
+[Bridge MQTT data between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)

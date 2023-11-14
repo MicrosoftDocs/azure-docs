@@ -107,4 +107,4 @@ In this walkthrough, you learned how to build a real-time dashboard in Microsoft
 
 ## Next steps
 
-[Configure MQTT bridge between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
+[Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
