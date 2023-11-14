@@ -38,13 +38,15 @@ Microsoft Sentinel has automated the process of creating a Key Vault for enrichm
 
 1. On the **Widgets Onboarding Page**, select **Create Key Vault**.
 
-    :::image type="content" source="media/enable-enrichment-widgets/widgets-onboarding-page.png" alt-text="Screenshot of widget onboarding page.":::
+    :::image type="content" source="media/enable-enrichment-widgets/create-key-vault.png" alt-text="Screenshot of widget onboarding page instructions to create a key vault.":::
 
     You will see an Azure portal notification when the Key Vault deployment is in progress, and again when it has completed.
 
     At that point you will also see that the **Create Key Vault** button is now grayed out, and beside it, the name of your new key vault appears as a link. You can access the key vault's page by selecting the link.
 
     Also, the section labeled **Step 2 - Add credentials**, previously grayed out, is now available.
+
+    :::image type="content" source="media/enable-enrichment-widgets/add-credentials.png" alt-text="Screenshot of widget onboarding page instructions to create a key vault.":::
 
 ### Step 2: Add relevant credentials to your widgets' Key Vault.
 
@@ -60,10 +62,14 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
 1. Select **Review + create**.
 
-1. Azure will review the request and present the terms of the agreement. Select **Create** to approve the terms.
+1. The **Review + create** tab will present a summary of the configuration, and possibly the terms of the agreement. Select **Create** to approve the terms.
+
+    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" border="false" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
 
 1. A new page will be displayed for your new secret, with a message that the deployment is complete.
-    
+
+    :::image type="content" source="media/enable-enrichment-widgets/deployment-complete.png" alt-text="Screenshot of completed secret deployment.":::
+
     Open a new browser tab and return to the widgets onboarding page. It’s recommended that you manage the onboarding for widgets in two separate browser tabs: one for the onboarding page itself with the list of all widget sources, and second for the deployment of each widget source secret to the key vault.
 
 1. Verify that your new secret was added to the key vault:
@@ -75,6 +81,9 @@ The data sources accessed by all the available widgets are listed on the **Widge
 ### Find your credentials for each widget source
 
 This section contains instructions for creating or finding your credentials for each of your widgets' data sources.
+
+> [!NOTE]
+> Not all widget data sources require credentials for Microsoft Sentinel to access them.
 
 #### Credentials for Virus Total
 
