@@ -5,12 +5,13 @@ description: Migrate managed online endpoint/deployment runtime to compute insta
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
 ms.date: 08/31/2023
-
 ---
 
 # Deprecation plan for managed online endpoint/deployment runtime

@@ -5,6 +5,8 @@ description: Learn how to create customized environment for runtime in prompt fl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen

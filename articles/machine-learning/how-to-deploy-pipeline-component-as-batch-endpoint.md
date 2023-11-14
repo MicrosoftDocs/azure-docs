@@ -8,6 +8,8 @@ ms.author: zhanxia
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 4/28/2023
 ---

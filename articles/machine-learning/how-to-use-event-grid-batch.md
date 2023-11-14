@@ -9,8 +9,10 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: mopeakande 
-ms.custom: devplatv2
+ms.reviewer: mopeakande
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ---
 
 # Run batch endpoints from Event Grid events in storage

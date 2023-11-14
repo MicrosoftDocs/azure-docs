@@ -1,7 +1,7 @@
 ---
 title: Secure training environments with virtual networks
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. 
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -10,7 +10,16 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 04/14/2023
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv2, event-tier1-build-2022, build-2023
+ms.custom:
+  - contperf-fy20q4
+  - tracking-python
+  - contperf-fy21q1
+  - references_regions
+  - devx-track-azurecli
+  - sdkv2
+  - event-tier1-build-2022
+  - build-2023
+  - ignite-2023
 ms.devlang: azurecli
 ---
 

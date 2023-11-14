@@ -10,7 +10,9 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2023
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ---
 
 # Run Azure Machine Learning models from Fabric, using batch endpoints (preview)

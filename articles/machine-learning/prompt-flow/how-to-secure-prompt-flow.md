@@ -1,10 +1,12 @@
 ---
-title: Network isolation in prompt flow 
+title: Network isolation in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to secure prompt flow with virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen

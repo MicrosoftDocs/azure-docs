@@ -5,6 +5,8 @@ description: Introduction to the prompt flow ecosystem, which includes the promp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 author: jiaochenlu
 ms.author: chenlujiao

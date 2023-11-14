@@ -7,7 +7,10 @@ services: machine-learning
 ms.topic: include
 ms.date: 10/23/2023
 ms.author: sgilley
-ms.custom: include file, build-2023
+ms.custom:
+  - include file
+  - build-2023
+  - ignite-2023
 ---
 
 > [!NOTE]

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get started with Azure Machine Learning"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
+description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 10/20/2023
-ms.custom: sdkv2, ignite-2022, build-2023, devx-track-python
+ms.custom:
+  - sdkv2
+  - ignite-2022
+  - build-2023
+  - devx-track-python
+  - ignite-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 

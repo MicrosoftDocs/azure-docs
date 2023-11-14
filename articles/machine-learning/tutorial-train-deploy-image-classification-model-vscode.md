@@ -10,7 +10,12 @@ author: ssalgadodev
 ms.author: tbombach
 ms.reviewer: ssalgado
 ms.date: 05/25/2021
-ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022, build-2023
+ms.custom:
+  - contperf-fy20q4
+  - cliv2
+  - event-tier1-build-2022
+  - build-2023
+  - ignite-2023
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 

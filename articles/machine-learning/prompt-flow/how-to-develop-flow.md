@@ -5,6 +5,8 @@ description: Learn how to develop a prompt flow with Azure Machine Learning stud
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: jinzhong
 ms.author: jinzhong

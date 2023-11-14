@@ -1,10 +1,11 @@
 ---
 title: Manage an Astro resource through the Azure portal
-description: This article describes management functions for Astro on the Azure portal. 
+description: This article describes management functions for Astro on the Azure portal.
 
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/13/2023
-
 ---
 
 # Manage your Astro (Preview) integration through the portal

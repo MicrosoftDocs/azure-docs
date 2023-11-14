@@ -11,7 +11,9 @@ ms.reviewer: scottpolly
 reviewer: s-polly
 ms.topic: how-to
 ms.date: 09/06/2023
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ---
 
 
