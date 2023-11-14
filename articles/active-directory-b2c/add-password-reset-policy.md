@@ -41,6 +41,8 @@ The default name of the **Change email** button in *selfAsserted.html* is **chan
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**,  select **Authentication methods**, ensure **Authentication contact info** is set. B2C users created via a SignUp flow will have this set by default. For users created via Azure Portal or by Graph API need to have this set for SSPR to work. 
+
 ### Hide the change email button
 
 After the email is verified, the user can still select **Change email**, enter another email address, and then repeat email verification. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML elements in the dialog. For example, you can add the following CSS entry to selfAsserted.html and [customize the user interface by using HTML templates](customize-ui-with-html.md):
