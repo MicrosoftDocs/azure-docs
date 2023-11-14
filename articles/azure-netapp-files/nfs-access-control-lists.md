@@ -178,8 +178,7 @@ A:g:GROUP@:rxtncy
 A::EVERYONE@:rxtncy
 ```
 
-
-Inherit flags are a way to more easily manage your NFSv4.x ACLs, rather than needing to explicitly set an ACL each time you need one.
+Inherit flags are a way to more easily manage your NFSv4.x ACLs, sparing you from explicitly setting an ACL each time you need one. 
 
 ### Administrative flags
 
@@ -198,7 +197,7 @@ With NFSv4.x ACLs, user and group principals define the specific objects that an
 Failed setxattr operation: Invalid argument
 ```
 
-You can check within Azure NetApp Files if a name can be resolved under the navigation menu for **Support + Troubleshooting** > **LDAP Group ID list**.
+You can check within Azure NetApp Files if a name can be resolved using the LDAP group ID list. Navigate to **Support + Troubleshooting** then **LDAP Group ID list**.
 
 ### Local user and group access via NFSv4.x ACLs
 
@@ -206,7 +205,7 @@ Local users and groups can also be used on an NFSv4.x ACL if only the numeric ID
 
 For instance:
 
-```dos
+```bash
 # nfs4_setfacl -a A:fdg:3003:rwaxtTnNcCy NFSACL
 # nfs4_getfacl NFSACL/
 A:fdg:3003:rwaxtTnNcCy
@@ -225,7 +224,6 @@ When a local user or group ACL is set, any user or group that corresponds to the
 
 The credentials passed from client to server can be seen via a packet capture as seen below.
 
-
 :::image type="content" source="../media/azure-netapp-files/client-server-credentials.png" alt-text="Image depicting sample packet capture with credentials." lightbox="../media/azure-netapp-files/client-server-credentials.png":::
 
 **Caveats:**
@@ -236,9 +234,12 @@ The credentials passed from client to server can be seen via a packet capture as
 * LDAP and full name@domain name strings are highly recommended when using NFSv4.x ACLs for better manageability and security. A centrally managed user and group repository is easier to maintain and harder to spoof, thus making unwanted user access less likely.
 
 ### NFSv4.x ID domain
+
 The ID domain is an important component of the principal, where an ID domain must match on both client and within Azure NetApp Files for user and group names (specifically, root) to show up properly on file/folder ownerships. 
+
 Azure NetApp Files defaults the NFSv4.x ID domain to the DNS domain settings for the volume. NFS clients also default to the DNS domain for the NFSv4.x ID domain. If the client’s DNS domain is different than the Azure NetApp Files DNS domain, then a mismatch occurs. When listing file permissions with commands such as `ls`, users/groups show up as “nobody".
-When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors such as the following:
+
+When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors similar to:
  
 ```bash
 August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
@@ -339,7 +340,7 @@ See [NFSv4.x permissions](#nfsv4x-permissions) for a table outlining all the per
 | Mode bit numeric | Corresponding NFSv4.x permissions |
 | -- | ----- | 
 | 1 – execute (x) | Execute, read attributes, read ACLs, sync I/O (xtcy) | 
-|  2 – write (w) | Write, append data, read attributes, write attributes, write named attributes, read ACLs, sync I/O (watTNcy) | 
+| 2 – write (w) | Write, append data, read attributes, write attributes, write named attributes, read ACLs, sync I/O (watTNcy) | 
 | 3 – write/execute (wx)	| Write, append data, execute, read attributes, write attributes, write named attributes, read ACLs, sync I/O (waxtTNcy) | 
 | 4 – read (r) | Read, read attributes, read named attributes, read ACLs, sync I/O (rtncy) | 
 | 5 – read/execute (rx) | Read, execute, read attributes, read named attributes, read ACLs, sync I/O (rxtncy) | 
@@ -348,17 +349,17 @@ See [NFSv4.x permissions](#nfsv4x-permissions) for a table outlining all the per
 
 ## How NFSv4.x ACLs work with Azure NetApp Files
 
-Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There isn'thing to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they don't provide the same level of security as ACLs used with an LDAP server.
+Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There isn't anything to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they don't provide the same level of security as ACLs used with an LDAP server.
 
 There are a few considerations to keep in mind with ACL functionality in Azure NetApp Files, as covered in the following sections.
 
 ### ACL inheritance
 
-In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL management with NFSv4.x ACLs. When an inheritance flag is set, ACLs on a parent directory can propagate down to subdirectories and files without further interaction. Azure NetApp Files implements standard ACL inherit behaviors as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530) For more detailed information about ACL inheritance with NFSv4.x, see the section above.
+In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL management with NFSv4.x ACLs. When an inheritance flag is set, ACLs on a parent directory can propagate down to subdirectories and files without further interaction. Azure NetApp Files implements standard ACL inherit behaviors as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530). For more detailed information about ACL inheritance with NFSv4.x, see the .
 
-### DENY ACEs
+### Deny ACEs
 
-DENY ACEs in Azure NetApp Files are used to explicitly restrict a user or group from accessing a file or folder. A subset of permissions can be defined to provide granular controls over the DENY ACE. These operate in the standard methods mentioned in [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
+Deny ACEs in Azure NetApp Files are used to explicitly restrict a user or group from accessing a file or folder. A subset of permissions can be defined to provide granular controls over the deny ACE. These operate in the standard methods mentioned in [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
 
 ### ACL preservation
 
@@ -367,6 +368,7 @@ When a chmod is performed on a file or folder in Azure NetApp Files, all existin
 ### NFSv4.x ACL behaviors in dual-protocol environments
 
 Dual protocol refers to the use of both SMB and NFS on the same Azure NetApp Files volume. Dual-protocol access controls are determined by which security style the volume is using, but username mapping ensures that Windows users and UNIX users that successfully map to one another have the same access permissions to data.
+
 When NFSv4.x ACLs are in use on UNIX security style volumes, the following behaviors can be observed when using dual-protocol volumes and accessing data from SMB clients.
 
 * Windows usernames need to map properly to UNIX usernames for proper access control resolution.

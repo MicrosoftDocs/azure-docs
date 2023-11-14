@@ -39,5 +39,5 @@ Folders can be assigned inheritance flags, which means that parent folder permis
 
 ## Next steps 
 
-* [Understand NFS file permissions]
-* [Understand SMB file permissions]
+* [Understand NFS file permissions](network-attached-file-permissions-nfs.md)
+* [Understand SMB file permissions](network-attached-file-permissions-smb.md)

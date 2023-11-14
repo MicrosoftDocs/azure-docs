@@ -44,13 +44,13 @@ The following table compares the permission granularity between NFSv3 mode bits 
 | - | - | 
 | <ul><li>Set user ID on execution (setuid)</li><li>Set group ID on execution (setgid)</li><li>Save swapped text (sticky bit)</li><li>Read permission for owner</li><li>Write permission for owner</li><li>Execute permission for owner on a file; or look up (search) permission for owner in directory</li><li>Read permission for group</li><li>Write permission for group</li><li>Execute permission for group on a file; or look up (search) permission for group in directory</li><li>Read permission for others</li><li>Write permission for others</li><li>Execute permission for others on a file; or look up (search) permission for others in directory</li></ul> | <ul><li>ACE types (Allow/Deny/Audit)</li><li>Inheritance flags:</li><li>directory-inherit</li><li>file-inherit</li><li>no-propagate-inherit</li><li>inherit-only</li><li>Permissions:</li><li>read-data (files) / list-directory (directories)</li><li>write-data (files) / create-file (directories)</li><li>append-data (files) / create-subdirectory (directories)</li><li>execute (files) / change-directory (directories)</li><li>delete </li><li>delete-child</li><li>read-attributes</li><li>write-attributes</li><li>read-named-attributes</li><li>write-named-attributes</li><li>read-ACL</li><li>write-ACL</li><li>write-owner</li><li>Synchronize</li></ul> |
 
-See [NFSv4.1 ACLs](#nfsv4x-acls) for more information.
+See [Understand NFSv4.x access control lists ACLs](nfs-access-control-lists.md) for more information.
 
-#### Sticky bits, setuid, and setgid 
+### Sticky bits, setuid, and setgid 
 
 When using mode bits with NFS mounts, the ownership of files and folders is based on the `uid` and `gid` of the user that created the files and folders. Additionally, when a process runs, it runs as the user that kicked it off, and thus, would have the corresponding permissions. With special permissions (such as `setuid`, `setgid`, sticky bit), this behavior can be controlled.
 
-##### Setuid 
+#### Setuid 
 
 The `setuid` bit (designated by an “s” in the execute portion of the owner bit of a permission) allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the /bin/passwd application has the `setuid` bit enabled by default. This means the application run as root when a user tries to change their password.
 
@@ -91,7 +91,7 @@ passwd: password updated successfully
 
 Setuid has no effect on directories.
 
-##### Setgid 
+#### Setgid 
 
 The `setgid` bit can be used on both files and directories.
 
@@ -156,7 +156,7 @@ drwxr-xr-x  2 user1 group1     4096 Oct 11 18:48 test
 $ mkdir user2-test
 bash: /usr/bin/mkdir: Permission denied
 ```
-##### Sticky bit 
+#### Sticky bit 
 
 The sticky bit is used for directories only and, when used, controls which files can be modified in that directory regardless of their mode bit permissions. When a sticky bit is set, only file owners (and root) can modify files, even if file permissions are shown as “777.”
 
@@ -259,41 +259,7 @@ drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
 -rw-r--r--.  1 root     root            0 Apr 23 14:39 umask_file
 ```
 
-## Auxiliary/supplemental group limitations with NFS
 
-NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16. For AUTH_GSS (Kerberos), the maximum is 32. This is a known protocol limitation of NFS. 
 
-Azure NetApp Files provides the ability to increase the maximum number of auxiliary groups to 1,024. This is performed by avoiding truncation of the group list in the NFS packet by prefetching the requesting user’s group from a name service, such as LDAP.
-
-### How it works 
-
-The options to extend the group limitation work the same way the `-manage-gids` option for other NFS servers works. Rather than dumping the entire list of auxiliary GIDs a user belongs to, the option looks up the GID on the file or folder and returns that value instead.
-
-The [command reference for `mountd`](http://man.he.net/man8/mountd) notes:
-
-```bash
--g or --manage-gids 
-
-Accept requests from the kernel to  map  user  id  numbers  into lists  of group  id  numbers for use in access control.  An NFS request will normally except when using Kerberos or other cryptographic  authentication)  contains  a  user-id  and  a list of group-ids.  Due to a limitation in the NFS protocol, at most  16 groups ids can be listed.  If you use the -g flag, then the list of group ids received from the client will be replaced by a list of  group ids determined by an appropriate lookup on the server.
-```
-
-When an access request is made, only 16 GIDs are passed in the RPC portion of the packet.
-
-:::image type="content" source="../media/azure-netapp-files/packet-output.png" alt-text="Output of RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/packet-output.png":::
-
-Any GID beyond the limit of 16 is dropped by the protocol. Extended GIDs in Azure NetApp Files can only be used with external name services such as LDAP.
-
-### Potential performance impacts 
-
-Extended groups have a minimal performance penalty, generally in the low single digit percentages. Higher metadata NFS workloads would likely have more effect, particularly on the system’s caches. Performance can also be affected by the speed and workload of the name service servers. Overloaded name service servers are slower to respond, causing delays in prefetching the GID. For best results, use multiple name service servers to handle large numbers of requests.
-
-### “Allow local users with LDAP” option
-
-When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit to 1,024). As a result, Azure NetApp files attempts to look up the numeric ID in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet.
-
-Due to that behavior, if that numeric ID can't be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
-
-The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It doesn't provide “local user creation/management” within Azure NetApp Files.
-
-For more information about the option, including how it behaves with different volume security styles in Azure NetApp files, see [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md).
+## Next steps 
 
