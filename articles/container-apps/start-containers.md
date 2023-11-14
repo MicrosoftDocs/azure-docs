@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 11/14/2023
 ms.author: cshoe
 ---
 
@@ -25,7 +25,7 @@ What is a container?
 
 Think for a moment about goods traveling around in a shipping container. When you see large metal boxes on cargo ships, you notice they're all the same size and shape. These containers make it easy to stack and move goods all around the world, regardless of what’s inside.
 
-Software containers work the same way, but in the digital world. Just like how a shipping container can hold toys, clothes, or electronics, a software container packages up everything an application needs to run. Whether on your  computer, in a test environment, or in production a cloud service like Microsoft Azure, a container works the same way in diverse contexts.
+Software containers work the same way, but in the digital world. Just like how a shipping container can hold toys, clothes, or electronics, a software container packages up everything an application needs to run. Whether on your computer, in a test environment, or in production a cloud service like Microsoft Azure, a container works the same way in diverse contexts.
 
 ## Benefits of using containers
 

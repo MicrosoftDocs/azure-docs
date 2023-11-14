@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 11/14/2023
 ms.author: cshoe
 ---
 

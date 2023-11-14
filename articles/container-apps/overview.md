@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 11/09/2023
+ms.date: 11/14/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
 ---
