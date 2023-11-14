@@ -49,8 +49,8 @@ There are different types of analysis available from this service. The following
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
-| Text detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Image detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Analyze text API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Analyze image API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
 | Jailbreak risk detection (new) | Scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
 | Protected material text detection (new) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 

@@ -19,9 +19,9 @@ items:
   items:
   - name: Content Safety Studio
     href: studio-quickstart.md
-  - name: Text detection
+  - name: Text moderation
     href: quickstart-text.md
-  - name: Image detection
+  - name: Image moderation
     href: quickstart-image.md
   - name: Jailbreak risk detection (new)
     href: how-to/detect-jailbreak.md
