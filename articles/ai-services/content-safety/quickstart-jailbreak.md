@@ -1,5 +1,5 @@
 ---
-title: "Detect jailbreak risks"
+title: "Quickstart: Detect jailbreak risk (preview)"
 titleSuffix: Azure AI services
 description: Learn how to detect large language model jailbreak attack risks and mitigate risk with Azure AI Content Safety.
 services: ai-services
@@ -12,13 +12,8 @@ ms.date: 11/07/2023
 ms.author: pafarley
 keywords: 
 ---
-TBD edit this to align language with AOAI's latest
-TBD add protectedMat to ACS
-TBD it's protected material (singular) everywhere
-TBD protectedMat lower limit is 110 chars. the limits of the request
-TBD enforce name "Azure" AI content safety
-tbd review this
-# Detect jailbreak risks (public preview)
+
+# Quickstart: Detect jailbreak risk (preview)
 
 Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect the risk of jailbreak attacks in your text content. For an overview of jailbreak risks, see the [jailbreak risk detection](../concepts/jailbreak-detection.md) guide.
 
@@ -29,7 +24,7 @@ Follow this guide to use the Azure AI Content Safety jailbreak risk detection AP
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
-## Analyze text content for Jailbreak risk detection
+## Analyze text content for jailbreak risk
 
 The following section walks through a sample request with cURL. Paste the command below into a text editor, and make the following changes.
 
@@ -81,5 +76,18 @@ The JSON fields in the output are defined here:
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
 | **jailbreakAnalysis**   | Each output class that the API predicts.  | String |
-| **detected** | A Jailbreak risk was detected or not.	  | Boolean |
+| **detected** | Whether a jailbreak risk was detected or not.	  | Boolean |
 
+## Clean up resources
+
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
+
+## Next steps
+
+Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+
+> [!div class="nextstepaction"]
+> [Content Safety Studio quickstart](./studio-quickstart.md)

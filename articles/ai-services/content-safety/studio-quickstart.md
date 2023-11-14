@@ -43,7 +43,7 @@ The service returns all the categories that were detected, with the severity lev
 
 The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you get a **Blocklist detection** panel under **Results**. It reports any matches with the blocklist.
 
-## Detect jailbreak risks
+## Detect jailbreak risk
 
 The **Jailbreak risk detection** panel lets you try out jailbreak risk detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
 
