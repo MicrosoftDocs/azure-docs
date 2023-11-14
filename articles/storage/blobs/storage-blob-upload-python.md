@@ -19,9 +19,12 @@ ms.custom: devx-track-python, devguide-python
 
 This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
 
+To upload using asynchronous HTTP requests, see [Upload blob data asynchronously](storage-blob-upload-blobs-async.md).
+
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- To use asynchronous HTTP requests in your code, see the requirements in the [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming) section.
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
@@ -106,6 +109,31 @@ Use the following method to write a blob by specifying the list of block IDs tha
 The following example reads data from a file and stages blocks to be committed as part of a blob:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
+
+## Upload blob data asynchronously
+
+The Azure Blob Storage client library for Python supports uploading blobs asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to upload a blob asynchronously:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that uploads the blob. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload-async.py" id="Snippet_create_client_async":::
+
+1. Add code to upload the blob. The following example uploads a blob from a local file path using a `ContainerClient` object. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `upload_blob` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload-async.py" id="Snippet_upload_blob_file":::
+
+With this basic setup in place, you can declare other methods in this article as coroutines using async/await syntax.
 
 ## Resources
 
