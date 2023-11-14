@@ -18,14 +18,14 @@ ms.author: anfdocs
 
 # Understand NFSv4.x access control lists in Azure NetApp Files
 
-The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which are similar in concept to those found in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
+The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
 :::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
 
 Each NFSv4.x ACL is created in the following manner: `type:flags:principal:permissions`
 
 * **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
-* **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see the section below.
+* **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see [NFSv4.x ACE flags](#nfsv4x-ace-flags).
 * **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL uses the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see the following section.
 * **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information on permissions, see the following section.
 
@@ -43,7 +43,7 @@ Access (A) and deny (D) flags are used to control security ACE types. An access 
 
 ### Inheritance flags 
 
-Inheritance flags control how ACLs behave on files created below a parent directory with the inheritance flag set. When an inheritance flag is set, files and/or directories inherit the ACLs from the parent folder. Inheritance flags can only be applied to directories, so when a sub-directory is created, it inherits the flag. Files created below a parent directory with an inheritance flag inherit ACLs, but not the inheritance flags.
+Inheritance flags control how ACLs behave on files created below a parent directory with the inheritance flag set. When an inheritance flag is set, files and/or directories inherit the ACLs from the parent folder. Inheritance flags can only be applied to directories, so when a subdirectory is created, it inherits the flag. Files created below a parent directory with an inheritance flag inherit ACLs, but not the inheritance flags.
 
 The following table describes available inheritance flags and their behaviors.
 
@@ -143,7 +143,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-When a “no-propogate” (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the sub-directory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
+When a "no-propogate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
 
 ```bash
 #  nfs4_getfacl /mnt/acl-dir
@@ -229,7 +229,7 @@ The credentials passed from client to server can be seen via a packet capture as
 **Caveats:**
 
 * Using local users and groups for ACLs means that every client accessing the files/folders need to have matching user and group IDs.
-* When using a numeric ID for an ACL, Azure NetApp Files implicitly trusts that the incoming request is valid and that the user requesting access is who they say they are and is a member of the groups they claim to be a member of. This means a user or group numeric can be spoofed if a bad actor knows the numeric ID and can access the network using a client with the ability to create users and groups locally.
+* When using a numeric ID for an ACL, Azure NetApp Files implicitly trusts that the incoming request is valid and that the user requesting access is who they say they are and is a member of the groups they claim to be a member of. A user or group numeric can be spoofed if a bad actor knows the numeric ID and can access the network using a client with the ability to create users and groups locally.
 * If a user is a member of more than 16 groups, then any group after the sixteenth group (in alphanumeric order) is denied access to the file or folder, unless LDAP and extended group support is used.
 * LDAP and full name@domain name strings are highly recommended when using NFSv4.x ACLs for better manageability and security. A centrally managed user and group repository is easier to maintain and harder to spoof, thus making unwanted user access less likely.
 
@@ -355,7 +355,7 @@ There are a few considerations to keep in mind with ACL functionality in Azure N
 
 ### ACL inheritance
 
-In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL management with NFSv4.x ACLs. When an inheritance flag is set, ACLs on a parent directory can propagate down to subdirectories and files without further interaction. Azure NetApp Files implements standard ACL inherit behaviors as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530). For more detailed information about ACL inheritance with NFSv4.x, see the .
+In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL management with NFSv4.x ACLs. When an inheritance flag is set, ACLs on a parent directory can propagate down to subdirectories and files without further interaction. Azure NetApp Files implements standard ACL inherit behaviors as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
 
 ### Deny ACEs
 
@@ -388,6 +388,7 @@ For more information, see [umask](network-attached-file-permissions-nfs.md#umask
 ### Chmod/chown behavior with NFSv4.x ACLs
 
 In Azure NetApp Files, you can use change ownership (chown) and change mode bit (chmod) commands to manage file and directory permissions on NFSv3 and NFSv4.x. 
+
 When using NFSv4.x ACLs, the more granular controls applied to files and folder lessens the need for chmod commands. Chown still has a place, as NFSv4.x ACLs don't assign ownership.
 
 When chmod is run in Azure NetApp Files on files and folders with NFSv4.x ACLs applied, mode bits are changed on the object. In addition, a set of system ACEs are modified to reflect those mode bits. If the system ACEs are removed, then mode bits are cleared. Examples and a more complete description can be found in the section on system ACEs below.
@@ -437,7 +438,7 @@ A:g:GROUP@:rwaxtTnNcy
 A::EVERYONE@:rwaxtTnNcy
 ```
 
-These correspond with the classic mode bits permissions you would see in NFSv3 and are directly associated with those permissions. When a chmod is run on an object, these system ACLs change to reflect those permissions.
+These ACEs correspond with the classic mode bits permissions you would see in NFSv3 and are directly associated with those permissions. When a chmod is run on an object, these system ACLs change to reflect those permissions.
 
 ```bash
 # nfs4_getfacl user1-file
@@ -467,13 +468,13 @@ If those system ACEs are removed, then the permission view changes such that the
 ----------  1 user1 group1     0 Jul 12 16:23 user1-file
 ```
 
-Removing system ACEs is a way to further secure files and folders, as only the user and group principals on the ACL (and root) are able to access the object, but it can break applications that rely on mode bit views for functionality.
+Removing system ACEs is a way to further secure files and folders, as only the user and group principals on the ACL (and root) are able to access the object. Removing system ACEs can break applications that rely on mode bit views for functionality.
 
 ### Root user behavior with NFSv4.x ACLs
 
-Root access with NFSv4.x ACLs can't be limited unless [root is squashed](#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
+Root access with NFSv4.x ACLs can't be limited unless [root is squashed](network-attached-storage-permissions#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
 
-To configure this, navigate to the “Export policy” menu on the volume and change “Root access” to “off” for the policy rule.
+To configure root squashing, navigate to the **Export policy** menu on the volume then change “Root access” to “off” for the policy rule.
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access off." lightbox="../media/azure-netapp-files/export-policy-root-access.png":::
 

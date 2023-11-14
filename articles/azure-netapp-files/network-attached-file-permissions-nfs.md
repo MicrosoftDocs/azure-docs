@@ -1,6 +1,6 @@
 ---
 title: Understand NFS file permissions in Azure NetApp Files
-description: Learn about NAS file permissions options in Azure NetApp Files.   
+description: Learn about NFS file permissions options in Azure NetApp Files.   
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -36,7 +36,7 @@ Numeric values are applied to different segments of an access control: owner, gr
 
 :::image type="content" source="../media/azure-netapp-files/control-number-diagram.png" alt-text="." lightbox="../media/azure-netapp-files/control-number-diagram.png":::
 
-Azure NetApp Files doesn't support POSIX ACLs, so granular ACLs are only possible with NFSv3 when using an NTFS security style volume with valid UNIX to Windows name mappings via a name service such as Active Directory LDAP. Alternately, you can use NFSv4.1 with Azure NetApp Files and NFSv4.1 ACLs.
+Azure NetApp Files doesn't support POSIX ACLs. Thus granular ACLs are only possible with NFSv3 when using an NTFS security style volume with valid UNIX to Windows name mappings via a name service such as Active Directory LDAP. Alternately, you can use NFSv4.1 with Azure NetApp Files and NFSv4.1 ACLs.
 
 The following table compares the permission granularity between NFSv3 mode bits and NFSv4.x ACLs. 
 
@@ -44,7 +44,7 @@ The following table compares the permission granularity between NFSv3 mode bits 
 | - | - | 
 | <ul><li>Set user ID on execution (setuid)</li><li>Set group ID on execution (setgid)</li><li>Save swapped text (sticky bit)</li><li>Read permission for owner</li><li>Write permission for owner</li><li>Execute permission for owner on a file; or look up (search) permission for owner in directory</li><li>Read permission for group</li><li>Write permission for group</li><li>Execute permission for group on a file; or look up (search) permission for group in directory</li><li>Read permission for others</li><li>Write permission for others</li><li>Execute permission for others on a file; or look up (search) permission for others in directory</li></ul> | <ul><li>ACE types (Allow/Deny/Audit)</li><li>Inheritance flags:</li><li>directory-inherit</li><li>file-inherit</li><li>no-propagate-inherit</li><li>inherit-only</li><li>Permissions:</li><li>read-data (files) / list-directory (directories)</li><li>write-data (files) / create-file (directories)</li><li>append-data (files) / create-subdirectory (directories)</li><li>execute (files) / change-directory (directories)</li><li>delete </li><li>delete-child</li><li>read-attributes</li><li>write-attributes</li><li>read-named-attributes</li><li>write-named-attributes</li><li>read-ACL</li><li>write-ACL</li><li>write-owner</li><li>Synchronize</li></ul> |
 
-See [Understand NFSv4.x access control lists ACLs](nfs-access-control-lists.md) for more information.
+For more information, see [Understand NFSv4.x access control lists ACLs](nfs-access-control-lists.md).
 
 ### Sticky bits, setuid, and setgid 
 
@@ -52,7 +52,7 @@ When using mode bits with NFS mounts, the ownership of files and folders is base
 
 #### Setuid 
 
-The `setuid` bit (designated by an “s” in the execute portion of the owner bit of a permission) allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the /bin/passwd application has the `setuid` bit enabled by default. This means the application run as root when a user tries to change their password.
+The `setuid` bit is designated by an "s" in the execute portion of the owner bit of a permission. The `setuid` bit allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the `/bin/passwd` application has the `setuid` bit enabled by default, therefore the application runs as root when a user tries to change their password.
 
 ```bash
 # ls -la /bin/passwd 
@@ -219,7 +219,7 @@ Root, however, still can remove the files.
 # rm UNIX-file 
 ```
 
-To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. See [“root squashing”](#root-squashing) for more information.
+To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. For more information, see [“root squashing”](networking-attached-storage-permissions#root-squashing).
 
 ### Umask 
 
@@ -244,7 +244,7 @@ Umask is a functionality that allows an administrator to restrict the level of p
 # umask -S
 u=rwx,g=rx,o=rx 
 ```
-However, many operating systems don't allow files to be created with execute permissions, but they do allow folders to have the correct permissions. Thus, files created with a umask of 0022 might end up with permissions of 0644. The following is an example using RHEL 6.5:
+However, many operating systems don't allow files to be created with execute permissions, but they do allow folders to have the correct permissions. Thus, files created with a umask of 0022 might end up with permissions of 0644. The following example uses RHEL 6.5:
 
 ```bash
 # umask
