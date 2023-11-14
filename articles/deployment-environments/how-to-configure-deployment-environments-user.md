@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In Azure Deployment Environments, development team members must have access to a project before they can create deployment environments. By using the built-in roles, Deployment Environments User and Deployment Environments Reader, you can assign permissions to Active Directory users or groups at either the project level or the environment type level. 
 
-When assigned at the project level, a developer who has the Deployment Environments User role can perform the following actions on all environment types enabled at the project level:
+When assigned at the project level, a developer who has the Deployment Environments User role can perform the following actions on all project environment types:
 
 * View the project environment types. 
 * Create an environment.
