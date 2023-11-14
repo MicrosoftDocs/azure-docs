@@ -21,11 +21,10 @@ Artifact Streaming is only available in the **Premium** SKU [service tiers](cont
 
 This article is part one in a four-part tutorial series. In this tutorial, you learn how to:
 
-> [!div class="checklist"]
->*  [Artifact Streaming (Preview)](tutorial-artifact-streaming.md)
-> * [Artifact Streaming - Azure CLI](tutorial-artifact-streaming-cli.md)
-> * [Artifact Streaming - Azure Portal](tutorial-artifact-streaming-portal.md)
-> * [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)
+*  [Artifact Streaming (Preview)](tutorial-artifact-streaming.md)
+* [Artifact Streaming - Azure CLI](tutorial-artifact-streaming-cli.md)
+* [Artifact Streaming - Azure Portal](tutorial-artifact-streaming-portal.md)
+* [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)
 
 ## Preview limitations
 
@@ -44,22 +43,22 @@ Artifact Streaming is currently in preview. The following limitations apply:
 
 Here are some benefits of enabling and using Artifact Streaming at registry level:
 
-1. Reduce image pull latency and fast container start up.
-1. Seamless and agile experience for software developers and system architects.
-1. Time and performance effective scaling mechanism to design, build, and deploy container applications and cloud solutions at high scale.
-1. Simplify the process of deploying containerized applications to multiple regions using a single container registry and streaming container images to multiple regions.
-1. Supercharging the process of deploying containerized platforms by simplifying the process of deploying and managing container images.
+* Reduce image pull latency and fast container startup.
+* Seamless and agile experience for software developers and system architects.
+* Time and performance effective scaling mechanism to design, build, and deploy container applications and cloud solutions at high scale.
+* Simplify the process of deploying containerized applications to multiple regions using a single container registry and streaming container images to multiple regions.
+* Supercharging the process of deploying containerized platforms by simplifying the process of deploying and managing container images.
 
 ## Brief considerations before use of Artifact Streaming
 
-Here is a brief on how to use Artifact Streaming with Azure Container Registry (ACR). 
+Here is a brief overview on how to use Artifact Streaming with Azure Container Registry (ACR). 
 
->* Customers with new and existing registries can enable Artifact Streaming for specific repositories or tags. 
->* Once the Artifact Streaming is enabled, two versions of the artifact will be stored in the customer's ACR: the original artifact and the Artifact Streaming artifact. 
->* If the user disables or turns off Artifact Streaming for repositories or artifacts, the Artifact Streaming copy will still be present, but it will not delete the original artifact.
->* If a customer deletes a repository or artifact with Artifact Streaming and Soft Delete enabled, then both the original and Artifact Streaming versions will be deleted. However, only the original version will be available on the soft delete blade.
+* Customers with new and existing registries can enable Artifact Streaming for specific repositories or tags. 
+* Once the Artifact Streaming is enabled, two versions of the artifact will be stored in the customer's ACR: the original artifact and the Artifact Streaming artifact. 
+* If the user disables or turns off Artifact Streaming for repositories or artifacts, the Artifact Streaming copy will still be present, but it will not delete the original artifact.
+* If a customer deletes a repository or artifact with Artifact Streaming and Soft Delete enabled, then both the original and Artifact Streaming versions will be deleted. However, only the original version will be available on the soft delete blade.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable Artifact Streaming- Azure CLI](tutorial-artifact-streaming-cli.md)
+[!div class="nextstepaction"]
+[Enable Artifact Streaming- Azure CLI](tutorial-artifact-streaming-cli.md)
