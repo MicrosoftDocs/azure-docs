@@ -73,7 +73,7 @@ With the local container filesystem backed by VM memory, writing to the containe
 
 ## Next steps
 
-* See the overview of [Confidential Containers security policy][confidential-containers-security-policy] to learn about how worklaods and their data in a pod is protected.
+* See the overview of [Confidential Containers security policy][confidential-containers-security-policy] to learn about how workloads and their data in a pod is protected.
 * [Deploy Confidential Containers on AKS][deploy-confidential-containers-default-aks] with a default security policy.
 * Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
