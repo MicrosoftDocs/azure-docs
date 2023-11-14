@@ -5,6 +5,8 @@ description: A tutorial introducing how to use Document intelligence with Logic 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: bemabonsu

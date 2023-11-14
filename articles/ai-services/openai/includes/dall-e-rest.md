@@ -5,9 +5,11 @@ description: Learn how to generate images with Azure OpenAI Service by using the
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 08/08/2023
-keywords: 
+keywords:
 ---
 
 Use this guide to get started calling the Azure OpenAI Service image generation REST APIs by using Python.

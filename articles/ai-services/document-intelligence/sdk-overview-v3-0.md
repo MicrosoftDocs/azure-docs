@@ -5,7 +5,9 @@ description: Document Intelligence v3.0 software development kits (SDKs) expose 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar

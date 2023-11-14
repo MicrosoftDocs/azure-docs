@@ -5,6 +5,8 @@ description: This article introduces the Faiss Index Lookup tool for flows in Az
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur
@@ -85,4 +87,3 @@ The following JSON format response is an example returned by the tool that inclu
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

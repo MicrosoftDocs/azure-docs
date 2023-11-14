@@ -5,6 +5,8 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: pafarley

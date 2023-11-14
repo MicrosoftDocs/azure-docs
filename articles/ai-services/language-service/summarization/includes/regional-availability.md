@@ -6,7 +6,10 @@ ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/06/2022
 ms.author: aahi
-ms.custom: references_regions, ignite-2022
+ms.custom:
+  - references_regions
+  - ignite-2022
+  - ignite-2023
 ---
 
 > [!IMPORTANT]

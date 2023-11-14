@@ -6,10 +6,12 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: whats-new
 ms.date: 10/16/2023
 recommendations: false
-keywords:  
+keywords:
 ---
 
 # What's new in Azure OpenAI Service

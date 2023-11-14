@@ -6,6 +6,8 @@ services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: mbullwin

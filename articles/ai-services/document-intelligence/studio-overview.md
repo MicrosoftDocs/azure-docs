@@ -5,6 +5,8 @@ description: Learn how to set up and use Document Intelligence Studio to test fe
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: lajanuar
