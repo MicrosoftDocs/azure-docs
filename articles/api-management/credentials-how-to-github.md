@@ -33,7 +33,6 @@ You learn how to:
 1. Sign in to GitHub. 
 1. In your account profile, go to **Settings > Developer Settings > OAuth Apps.** Select **New OAuth app**. 
 
-    
     :::image type="content" source="media/credentials-how-to-github/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
     1. Enter an **Application name** and **Homepage URL** for the application. For this example, you can supply a placeholder URL such as `http://localhost`.
     1. Optionally, add an **Application description**.
@@ -103,7 +102,7 @@ You learn how to:
     <policies>
         <inbound>
             <base />
-            <get-authorization-context provider-id="github-01" authorization-id="first-connecton" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
+            <get-authorization-context provider-id="github-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
             <set-header name="Authorization" exists-action="override">
                 <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
             </set-header>
@@ -125,7 +124,7 @@ You learn how to:
 
 The preceding policy definition consists of three parts:
    
-* The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that were created earlier. 
+* The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that you created earlier. 
 * The first [set-header](set-header-policy.md) policy creates an HTTP header with the fetched authorization token.
 * The second [set-header](set-header-policy.md) policy creates a `User-Agent` header (GitHub API requirement).
 

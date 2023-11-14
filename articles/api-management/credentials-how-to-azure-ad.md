@@ -73,7 +73,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |---------|---------|
     |**Credential provider name**     |  A name of your choice, such as *MicrosoftEntraID-01*       |
     |**Identity provider**     |   Select **Azure Active Directory v1**      |
-    |**Grant type**     | Select **credential code**        |
+    |**Grant type**     | Select **Authorization code**        |
     |**Authorization URL** | Optional for Microsoft Entra identity provider. Default is `https://login.microsoftonline.com`. |
     |**Client ID**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
