@@ -427,11 +427,13 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 1. Expand the folder that has your workflow name. From the **workflow.json** file's shortcut menu, select **Open Designer**.
 
-1. On the workflow designer, either after the step or between the steps where you want to perform the transformation, select the plus sign (**+**) > **Add an action**.
+1. On the workflow designer, follow these [general steps to add the **Data Mapper Operations** built-in action named **Transform using Data Mapper XSLT**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. On the **Add an action** pane, in the search box, enter **data mapper**. Select the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**.
+1. On the designer, select the **Transform using Data Mapper XSLT** action.
 
-1. In the action information box, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
+1. On the action information pane that appears, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visaul Studio Code, Standard workflow designer, with selected actionnamed Transform using Data Mapper XSLT and action properties.":::
 
 To use the same **Transform using Data Mapper XSLT** action in the Azure portal, add the map to either of the following resources:
 
