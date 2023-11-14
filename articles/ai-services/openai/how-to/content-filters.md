@@ -53,23 +53,23 @@ The following steps show how to set up a customized content filtering configurat
 
 1. Create a new customized content filtering configuration.
 
-   :::image type="content" source="../media/content-filters/create-filter.png" alt-text="Screenshot of the content filtering configuration UI with create selected" lightbox="../media/content-filters/create-filter.png":::
+   :::image type="content" source="../media/content-filters/create-filter.jpg" alt-text="Screenshot of the content filtering configuration UI with create selected" lightbox="../media/content-filters/create-filter.jpg":::
 
     This leads to the following configuration view, where you can choose a name for the custom content filtering configuration.
 
-    :::image type="content" source="../media/content-filters/filter-view.png" alt-text="Screenshot of the content filtering configuration UI" lightbox="../media/content-filters/filter-view.png":::
+    :::image type="content" source="../media/content-filters/filter-view.jpg" alt-text="Screenshot of the content filtering configuration UI" lightbox="../media/content-filters/filter-view.jpg":::
 
 1. This is the view of the default content filtering configuration, where content is filtered at medium and high severity levels for all categories. You can modify the content filtering severity level for both user prompts and model completions separately (configuration for prompts is in the left column and configuration for completions is in the right column, as designated with the blue boxes below) for each of the four content categories (content categories are listed on the left side of the screen, as designated with the green box below). There are three severity levels for each category that are configurable: Low, medium, and high. You can use the slider to set the severity threshold.
 
-    :::image type="content" source="../media/content-filters/severity-level.png" alt-text="Screenshot of the content filtering configuration UI with user prompts and model completions highlighted" lightbox="../media/content-filters/severity-level.png":::
+    :::image type="content" source="../media/content-filters/severity-level.jpg" alt-text="Screenshot of the content filtering configuration UI with user prompts and model completions highlighted" lightbox="../media/content-filters/severity-level.jpg":::
 
 1. If you determine that your application or usage scenario requires  stricter filtering for some or all content categories, you can configure the settings, separately for prompts and completions, to filter at more severity levels than the default setting. An example is shown in the image below, where the filtering level for user prompts is set to the strictest configuration for hate and sexual, with low severity content filtered along with content classified as medium and high severity (outlined in the red box below). In the example, the filtering levels for model completions are set at the strictest configuration for all content categories (blue box below). With this modified filtering configuration in place, low, medium, and high severity content will be filtered for the hate and sexual categories in user prompts; medium and high severity content will be filtered for the self-harm and violence categories in user prompts; and low, medium, and high severity content will be filtered for all content categories in model completions.
 
-    :::image type="content" source="../media/content-filters/settings.png" alt-text="Screenshot of the content filtering configuration with low, medium, high, highlighted." lightbox="../media/content-filters/settings.png":::
+    :::image type="content" source="../media/content-filters/settings.jpg" alt-text="Screenshot of the content filtering configuration with low, medium, high, highlighted." lightbox="../media/content-filters/settings.jpg":::
 
 1. If your use case was approved for modified content filters as outlined above, you will receive full control over content filtering configurations and can can choose to turn filtering partially or fully off. In the image below, filtering is turned off for violence (green box below), while default configurations are retained for other categories. While this disabled the filter functionality for violence, content will still be annotated. To turn all filters and annotations off, toggle off Filters and annotations (red box below).
 
-    :::image type="content" source="../media/content-filters/off.png" alt-text="Screenshot of the content filtering configuration with self harm and violence set to off." lightbox="../media/content-filters/off.png":::
+    :::image type="content" source="../media/content-filters/off.jpg" alt-text="Screenshot of the content filtering configuration with self harm and violence set to off." lightbox="../media/content-filters/off.jpg":::
 
     You can create multiple content filtering configurations as per your requirements.
 
@@ -89,7 +89,7 @@ The following steps show how to set up a customized content filtering configurat
 
 1. Select **Save and close** to apply the selected configuration to the deployment.
 
-    :::image type="content" source="../media/content-filters/select-filter.jpg" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.jpg":::
+    :::image type="content" source="../media/content-filters/select-filter.png" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.png":::
 
 1. You can also edit and delete a content filter configuration if required. To do this, navigate to the content filters tab and select the desired action (options outlined near the top of the screen in the red box below). You can edit/delete only one filtering configuration at a time.  
 
