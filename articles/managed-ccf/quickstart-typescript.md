@@ -31,16 +31,13 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 [!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
 
 ### Initialize a new npm project
-Begin by initializing a new `npm` project in a folder. You may skip this step if you have an existing node project. 
+In a terminal or command prompt, create a suitable project folder and initialize an `npm` project. You may skip this step if you have an existing node project. 
 ```terminal
 cd <work folder>
 npm init -y
 ```
 
 ### Install the packages
-
-In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
-
 Install the Azure Active Directory identity client library.
 
 ```terminal
