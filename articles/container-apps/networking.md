@@ -133,7 +133,7 @@ If you're using the Azure CLI with a Consumption only environment and the [platf
 
 Different environment types have different subnet requirements:
 
-# Workload profiles environment
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 - `/27` is the minimum subnet size required for virtual network integration.
 
@@ -147,7 +147,7 @@ Different environment types have different subnet requirements:
 
   - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, one IP address may be assigned to multiple replica. However, when determining how many IP addresses are required for your app, account for 1 IP address per replica.
 
-- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
+- When you make a [change to a revision](./revisions#revision---scope-changes), the required address space is doubled for a short period of time. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 
 | Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (nodes/replicas)<sup>2</sup>|
 |--|--|--|
@@ -161,7 +161,7 @@ Different environment types have different subnet requirements:
 <sup>2</sup> This is accounting for 1 IP address per node/replica on scale out. 
 <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. If additional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
 
-# Consumption only environment
+# [Consumption only environment](#tab/consumption-only-env)
 
 - `/23` is the minimum subnet size required for virtual network integration.
 
@@ -169,13 +169,13 @@ Different environment types have different subnet requirements:
 
 - As your apps scale, a new IP address is allocated for each new replica.
 
-- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affect the real, available supported replicas for a given subnet size.
+- When you make a [change to a revision](./revisions#revision---scope-changes), the required address space is doubled for a short period of time. This affect the real, available supported replicas for a given subnet size.
 
 ---
 
 ### Subnet address range restrictions
 
-# Workload profiles environment
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
 
@@ -191,7 +191,7 @@ In addition, a workload profiles environment reserves the following addresses:
 - 100.100.160.0/19
 - 100.100.192.0/19
 
-# Consumption only environment
+# [Consumption only environment](#tab/consumption-only-env)
 
 Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
 
