@@ -51,6 +51,8 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     MinPressure = CALCULATE(MINX(OPCUA, OPCUA[Pressure]))
     MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
     ```
+
+    Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
 
@@ -81,17 +83,17 @@ These steps are for Power BI Desktop, so open that application now.
 
 1. Optional: To view the script that imports the asset data, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button." lightbox="media/quickstart-get-insights/power-bi-edit-query.png":::
     
-    You'll see a few queries on the new page that comes up (the Transform page). Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
+    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
     
-    When you're finished, exit the Transform page.
+    When you're finished, exit the Power Query Editor window.
 
 ### Configure remaining report visuals
 
-At this stage, some of the visuals in the Power BI report still display an error. That's because you still need to get the telemetry data.
+At this point, the visuals in the Power BI report still display errors. That's because you need to get the telemetry data.
 
 1. Select **File** > **Options and Settings** > **Data source settings**.  
 1. Select **Change Source**. 
@@ -104,11 +106,11 @@ At this stage, some of the visuals in the Power BI report still display an error
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
 
-    Close the data source settings.
+    Close the data source settings. The dashboard should now load visual data.
 
 1. In the left pane menu, select the icon for **Model view**.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button." lightbox="media/quickstart-get-insights/power-bi-model-view.png":::
 
 1. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
 
@@ -124,7 +126,11 @@ At this stage, some of the visuals in the Power BI report still display an error
 
 In this section, you'll review the report that was created and consider how such reports can be used in your business.
 
-The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. On Page 2, you can view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period. Select your assets by using *CTRL+Select* on the assets you want to view. Explore the various filters for each visual to explore and do more with your data.
+The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. Page 2 allows you to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
+
+:::image type="content" source="media/quickstart-get-insights/power-bi-page-2.png" alt-text="Screenshot of Power BI showing page 2 of the report view." lightbox="media/quickstart-get-insights/power-bi-page-2.png":::
+
+For this quickstart, you only created one asset. However, if you experiment with adding other assets, you'll be able to select them independently on this report page by using *CTRL+Select*. Take some time to explore the various filters for each visual to explore and do more with your data.
 
 With data connected from various sources at the edge being related to one another in Power BI, the visualizations and interactive features in the report allow you to gain deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 
