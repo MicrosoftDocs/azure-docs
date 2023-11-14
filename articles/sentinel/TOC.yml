@@ -1010,9 +1010,9 @@
   items:
   - name: Overview
     href: incident-investigation.md 
-  - name: Investigate incidents (Preview)
+  - name: Investigate incidents (New)
     href: investigate-incidents.md
-  - name: Investigate incidents (GA)
+  - name: Investigate incidents (Legacy)
     href: investigate-cases.md
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
