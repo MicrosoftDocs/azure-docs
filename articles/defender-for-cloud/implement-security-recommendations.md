@@ -10,7 +10,7 @@ ms.date: 10/20/2022
 
 Resources and workloads protected by Microsoft Defender for Cloud are assessed against built-in and custom security standards enabled in your Azure subscriptions, AWS accounts, and GCP projects. Based on those assessments, security recommendations provide practical steps to remediate security issues, and improve security posture.
 
-This article describes how to remediate security recommendations in your Defender for Cloud deployment.
+This article describes how to remediate security recommendations in your Defender for Cloud deployment using the latest version of the portal experience.
 
 ## Before you start
 
