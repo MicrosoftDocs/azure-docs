@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 10/17/2023
+ms.date: 11/14/2023
 recommendations: false
 ---
 
@@ -61,15 +61,16 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Ingesting your data
 
+There are several different sources of data that you can use. The following sources will be connected to Azure Cognitive Search: 
+* Blobs in an Azure storage container that you provide
+* Local files uploaded using the Azure OpenAI Studio
+
+You can additionally ingest your data from an existing Azure Cognitive Search service.
+
 # [Azure Cognitive Search](#tab/ai-search)
 
 > [!TIP]
 > For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
-
-
-There are two different sources of data that you can use with Azure Cognitive Search. 
-* Blobs in an Azure storage container that you provide
-* Local files uploaded using the Azure OpenAI Studio
 
 Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
 
