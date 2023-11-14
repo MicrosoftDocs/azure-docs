@@ -106,13 +106,15 @@ To build a brand new dashboard with Prometheus metrics:
 
 ## Remove an Azure Monitor workspace
 
-If you no longer need it, you can remove an Azure Monitor workspace from your Azure Managed Grafana workspace.
+If you no longer need it, you can remove an Azure Monitor workspace from your Azure Managed Grafana workspace:
 
 1. In your Azure Managed Grafana workspace, select **Integrations** > **Azure Monitor workspaces (Preview**) from the left menu.
 1. Select the row  with the resource to delete and select **Delete** > **Yes**.
-1. Go to the Azure Monitor workspace resource and remove the role assignment that was previously added:
-    1. In the Azure Monitor workspace resource, select **Access control (IAM)** > **Role assignments**.
-    1. Under **Monitoring Data Reader**, select the row with the name of your Azure Managed Grafana resource and select **Remove** > **OK**.
+
+Optionally also remove the role assignment that was previously added in the Azure Monitor workspace:
+
+1. In the Azure Monitor workspace resource, select **Access control (IAM)** > **Role assignments**.
+1. Under **Monitoring Data Reader**, select the row with the name of your Azure Managed Grafana resource and select **Remove** > **OK**.
 
 To learn more about Azure Monitor managed service for Prometheus, read the [Azure Monitor managed service for Prometheus guide](../azure-monitor/essentials/prometheus-metrics-overview.md).
 
