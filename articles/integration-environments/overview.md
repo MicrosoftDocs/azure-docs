@@ -101,17 +101,19 @@ Suppose you're a business analyst at a power company, and you work with a develo
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-To organize the deployed Azure resources that are used by the work order processor service, the lead developer on your team created an integration environment and an application group that includes the resources for this solution. Now, you can make the relationship more concrete between the work order processor service implementation and the real-world power outage business flow. The application group provides a process designer for you to create a business process that visualizes the power outage business flow and its stages, for example:
-
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process flow chart in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
+To organize and manage the deployed Azure resources that are used by the work order processor service, the lead developer on your team creates an integration environment and an application group that includes the resources for the processor service. Now, you can make the relationship more concrete between the processor service implementation and the real-world power outage business flow. The application group provides a process designer for you to create a business process that visualizes the business flow and to map the stages in the process to the resources that impelement the work order processor service.
 
 > [!NOTE]
 >
-> When you create a new business process, you must specify a business identifer for a transaction 
+> When you create a business process, you must specify a business identifer for a transaction 
 > that's available across all the stages in the business process to correlate these stages together. 
 > For example, a business identifier can be an order number, ticket number, case number, and so on.
 >
 > :::image type="content" source="media/overview/create-business-process.png" alt-text="Screenshot shows business processes page with opened pane to create a business process with a business identifier." lightbox="media/overview/create-business-process.png":::
+
+For example, the following business process visualizes the power outage business flow and its stages:
+
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process flow chart in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
 When you create each stage, you specify the key business data property values to capture and track. For example, the **Create_ticket** stage defines the following business property values for tracking in your deployed resources:
 
