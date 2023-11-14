@@ -573,7 +573,6 @@ module.exports = df.orchestrator(function*(context){
 ```python
 @myApp.orchestration_trigger(context_name="context")
 def orchestrator(context: df.DurableOrchestrationContext):
-    logging.info("Orch entity started")
     entityId = df.EntityId("Counter", "myCounter")
     context.signal_entity(entityId, "add", 3)
     logging.info("signaled entity")
