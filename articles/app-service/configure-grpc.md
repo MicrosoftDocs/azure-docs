@@ -23,14 +23,14 @@ Follow the steps below to configure a gRPC application with Azure App Service on
 
 
 ## Prerequsite
-Create your [Web App](https://learn.microsoft.com/azure/app-service/getting-started?pivots=stack-net) as you normally would.  Choose your preferred Runtime stack and **Linux** as your Operating System.
+Create your [Web App](/getting-started.md) as you normally would.  Choose your preferred Runtime stack and **Linux** as your Operating System.
 
 After your Web App is created, you'll need to configure the following to enable gRPC before deploying your application:
 
 > [!NOTE]
 > If you are deploying a .NET gRPC app to App Service with Visual Studio, skip to step 3.  Visual Studio will set the HTTP version and HTTP 2.0 Proxy configuration for you. 
 
-### 1. Enable HTTP version
+## 1. Enable HTTP version
 The first setting you need to configure is the HTTP version
 1. Navigate to **Configuration** under **Settings** in the left pane of your web app
 2. Click on the **General Settings** tab and scroll down to **Platform settings**
@@ -39,14 +39,14 @@ The first setting you need to configure is the HTTP version
 
 This restarts your application and configure the front end to allow clients to make HTTP/2 calls.
 
-### 2. Enable HTTP 2.0 Proxy
+## 2. Enable HTTP 2.0 Proxy
 Next, you'll need to configure the HTTP 2.0 Proxy:
 1. Under the same **Platform settings** section, find the **HTTP 2.0 Proxy** setting and select **gRPC Only**.
 2. Click **save**
 
 Once turned on, this setting configures your site to be forwarded HTTP/2 requests.
 
-### 3. Add HTTP20_ONLY_PORT application setting
+## 3. Add HTTP20_ONLY_PORT application setting
 App Service requires an application setting that specifically listens for HTTP/2 traffic in addition to the HTTP/1.1 port.  The HTTP/2 port will be defined in the App Settings.   
 1. Navigate to the **Environment variables** under **Settings** on the left pane of your web app.  
 2. Under the **App settings** tab, add the following app setting to your application.
