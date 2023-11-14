@@ -39,7 +39,6 @@ In the Defender for Cloud portal > **Overview** dashboard, get a holistic look a
 
 1. In the **Recommendations** page, select the recommendation.
 1. In the recommendation page, review the details:
-1. 
     - **Description** - A short description of the security issue.
     - **Attack Paths** - The number of attack paths.
     - **Scope** - The affected subscription or resource.
