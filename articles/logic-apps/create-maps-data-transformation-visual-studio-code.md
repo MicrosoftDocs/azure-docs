@@ -61,6 +61,8 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 
+- To use the **Run XSLT** function, your XSLT snippets must exist in files that use either the **.xml** or **.xslt** file name extension. You must put your XSLT snippets in the **InlineXslt** folder in your local project folder structure: **Artifacts** > **DataMapper** > **Extensions** > **InlineXslt**. If this folder structure doesn't exist, create the missing folders.
+
 ## Create a data map
 
 1. On the Visual Studio Code left menu, select the **Azure** icon.
