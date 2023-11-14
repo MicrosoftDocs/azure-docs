@@ -246,7 +246,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 1. Open _wwwroot\index.html_ and replace the code that prompts for the username with code to use the cookie returned by the authentication controller.
 
-  Update the code inside function `getUserName` in _index.html_ to the following to use cookies:
+    Update the code inside function `getUserName` in _index.html_ to the following to use cookies:
 
     ```javascript
     function getUserName() {
