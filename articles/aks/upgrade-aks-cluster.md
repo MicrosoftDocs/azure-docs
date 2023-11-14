@@ -132,6 +132,7 @@ During the cluster upgrade process, AKS performs the following operations:
 
 * Add a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
 * [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
+* For long running pods, you can configure the node drain timeout, which allows for custom wait time on the eviction of pods and graceful termination per node. If not specified, the default is 30 minutes.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
 * This process repeats until all nodes in the cluster have been upgraded.
 * At the end of the process, the last buffer node is deleted, maintaining the existing agent node count and zone balance.
@@ -228,6 +229,24 @@ AKS accepts both integer values and a percentage value for max surge. An integer
     # Update max surge for an existing node pool 
     az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
     ```
+
+#### Set node drain timeout value
+
+When you have a long running workload on a certain pod, it may result in one of the following cases:
+- Your pod takes a long time to come up, such as when restoring a database.
+- Your pod uses graceful termination to take a long time to shut down.
+
+In these scenarios, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If you prefer your upgrades to be fast and are confident in your pod startup/terminate times being fast, you may want to set a low drain timeout. Otherwise, higher drain timeouts will affect how long you wait before discovering an issue. If no node drain timeout value is specified, the default is 30 minutes.
+
+To set a node drain timeout for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update] command:
+
+```azurecli-interactive
+# Set drain timeout for a new node pool
+az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster  --drainTimeoutInMinutes 100
+    
+# Update drain timeout for an existing node pool
+az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drainTimeoutInMinutes 45
+```
 
 ## View upgrade events
 
