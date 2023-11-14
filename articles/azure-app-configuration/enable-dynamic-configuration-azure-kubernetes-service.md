@@ -5,16 +5,16 @@ services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
-ms.topic: quickstart
-ms.date: 10/17/2023
-ms.author: junbchen
+ms.custom: devx-track-csharp
+ms.topic: tutorial
+ms.date: 11/14/2023
+ms.author: linglingye
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
-# Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider
+# Tutorial: Use dynamic configuration in Azure Kubernetes Service
 
-This tutorial shows how you can enable dynamic configuration updates in Azure App Configuration Kubernetes Provider. It builds on the web app introduced in the quickstart. Your app in Azure Kubernetes Service can use this tutorial to get updated data from Azure App Configuration automatically. Before you continue, finish [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) first.
+If you use Azure Kubernetes Service (AKS), this tutorial will show you how to enable dynamic configuration for your workloads in AKS by leveraging Azure App Configuration and its Kubernetes Provider. The tutorial assumes that you have already worked through the quickstart and have an App Configuration Kubernetes Provider set up, so before proceeding, make sure you have completed the [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) quickstart.
 
 
 ## Prerequisites
@@ -28,13 +28,15 @@ Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service]
 
 A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
 
-1. In the Azure portal, open your App Configuration store and select **Configuration Explorer > Create > Key-value**.
-1. For **Key**, enter *Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
-1. Select **Apply**.
+Add the following key-value to your App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+
+| Key | Value |
+|---|---|
+| Settings:Sentinel | 1 |
 
 ## Reload data from App Configuration
 
-1. Update the *appConfigurationProvider.yaml* in *Deployment* directory with the following content to enable the dynamic data refresh. Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and the value of the `spec.auth.workloadIdentity.managedIdentityClientId` field with the client ID of the user-assigned managed identity you created before.
+1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property as shown below. It enables configuration refresh by monitoring the sentinel key.
 
     ```yaml
     apiVersion: azconfig.io/v1
@@ -47,7 +49,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
           type: json
-          key: demosettings.json
+          key: mysettings.json
       auth:
         workloadIdentity:
           managedIdentityClientId: <your-managed-identity-client-id>
@@ -58,7 +60,11 @@ A *sentinel key* is a key that you update after you complete the change of all o
             keyValues:
             - key: Settings:Sentinel
     ```
-1. Modify the *deployment.yaml* file in the *Deployment* directory to include `DOTNET_USE_POLLING_FILE_WATCHER` which monitors changes to mounted ConfigMap.
+
+    > [!TIP]
+    > By default, the Kubernetes provider polls the monitoring key-values every 30 seconds for change detection. However, you can change this behavior by setting the `interval` property of the `refresh`. If you want to reduce the number of requests to your App Configuration store, you can adjust it to a higher value.
+
+1. Modify the *deployment.yaml* file in the *Deployment* directory to include [`DOTNET_USE_POLLING_FILE_WATCHER`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher?view=dotnet-plat-ext-7.0). It's required to effectively watch for mounted file changes.
 
     Add `env` section with the following content in `spec.containers` section.
     ```yaml
@@ -73,25 +79,27 @@ A *sentinel key* is a key that you update after you complete the change of all o
    kubectl apply -f ./Deployment -n appconfig-demo
    ```
 
-1. Select **Configuration explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
+1. Open a browser window, and navigate to the IP address obtained in the [previous step](./quickstart-azure-kubernetes-service.md#deploy-the-application). The web page looks like this:
+
+    ![Screenshot of the web app with old values](./media/quickstarts/kubernetes-provider-app-launch-dynamic-before.png)
+
+
+1. Update the following key-values in your App Configuration store, ensuring to update the sentinel key last.
 
     | Key | Value |
     |---|---|
-    | Settings:FontColor | lightGray |
     | Settings:Message | Hello from Azure App Configuration - now with live updates! |
     | Settings:Sentinel | 2 |
 
-1. Refresh the browser, you should see the updated values.
+1. After refreshing the browser a few times, you will see the updated content once the ConfigMap is updated in 30 seconds.
 
-    ![Screenshot of the web app with updated values](./media/quickstarts/kubernetes-provider-app-launch-dynamic.png)
+    ![Screenshot of the web app with updated values](./media/quickstarts/kubernetes-provider-app-launch-dynamic-after.png)
 
-    > [!TIP]
-    > You can set `refresh.interval` field to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests to your App Configuration store.
+## Reload ConfigMap and Secret
 
-    > [!IMPORTANT]
-    > Azure App Configuration Kubernetes provider updates the data in ConfigMap dynamically, when ConfigMap is used as mounted file, the kubelet checks whether the mounted ConfigMap is fresh on every periodic sync, therefore it will receive ConfigMap updates automatically without restart. Use Azure App Configuration Kubernetes Provider to generate a [file-style configMap](./reference-kubernetes-provider.md#configmap-consumption) would be helpful to consume the key-values as a file to avoid workloads restart.
-    >
-    > When ConfigMap's data is used as container environment variables, restarting the deployment is required to pick up the changes in the ConfigMap. That's because environment variables are injected into the pods just at the start-up-time. There're third party solutions (for example [stakater/Reloader](https://github.com/stakater/Reloader)) which can be leveraged to automatically restart the workloads by watching the configMap update. 
+App Configuration Kubernetes provider generates ConfigMaps or Secrets that can be used as environment variables or volume-mounted files. This tutorial demonstrates how to load configuration from a JSON file using the [.NET JSON configuration provider](https://learn.microsoft.com/en-us/dotnet/core/extensions/configuration-providers#json-configuration-provider) and [Polling File Watcher](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher?view=dotnet-plat-ext-7.0&viewFallbackFrom=dotnet-plat-ext-1.1), which automatically reload the configuration whenever a change is detected in the mounted file. As a result, your application gets the updated configuration automatically whenever the App Configuration Kubernetes provider updates the ConfigMap.
+
+If your application is dependent on environment variables for configuration, it may require a restart to pick up any updated values. In Kubernetes, the application restart can be orchestrated using rolling updates on the corresponding pods or containers. To automate configuration updates, you may leverage third-party tools like [stakater/Reloader](https://github.com/stakater/Reloader), which can automatically trigger rolling updates upon any changes made to ConfigMaps or Secrets.
 
 ## Next steps
 
