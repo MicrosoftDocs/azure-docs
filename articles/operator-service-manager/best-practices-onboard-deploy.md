@@ -205,7 +205,7 @@ For VNFs
  
 ## High availability and disaster recovery considerations
 
-AOSM is a regional service deployed across availability zones in regions that support them. For all regions where AOSM is available please refer to  [Azure Products by Region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=operator-service-manager,azure-network-function-manager&regions=all). For the list of Azure regions which have availability zones please refer to [Choose the Right Azure Region for You](https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/#geographies).
+AOSM is a regional service deployed across availability zones in regions that support them. For all regions where AOSM is available please refer to  [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-service-manager,azure-network-function-manager&regions=all). For the list of Azure regions which have availability zones please refer to [Choose the Right Azure Region for You](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 - To provide geo redundancy make sure you have a publisher in every region where you’re planning to deploy network functions. Consider using pipelines to make sure publisher artifacts and resources are kept in sync across the regions.
 - Keep in mind that the publisher name must be unique per region per Azure AD tenant.
 
