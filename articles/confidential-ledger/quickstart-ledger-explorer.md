@@ -11,26 +11,32 @@ ms.topic: how-to
 
 # Quickstart: Upload, view and list ledger data with the Azure ledger explorer
 
-In this quickstart, learn how to use the [Azure portal](https://portal.azure.com) to  The ledger explorer is a web-based tool that allows you to view and query the data stored on your Azure confidential ledger. You can use the ledger explorer to:
+In this quickstart, learn how to use the [Azure portal](https://portal.azure.com) to list, view and verify the integrity and authenticity of the data stored in your Azure confidential ledger. 
 
-- Browse the transactions and entries on your ledger
-- Verify the integrity and authenticity of your ledger data using cryptographic proofs
+## Prerequisites
 
-The ledger explorer is accessible through the Azure Portal for your confidential ledger resource. You need to have a Reader, Contributor or Administrator role assigned for the logged in user in the ledger to gain access to the ledger explorer.
+The ledger explorer is accessible through the Azure Portal for your confidential ledger resource. You need to be logged in with an Entra ID user which has a Reader, Contributor or Administrator role assigned to access the ledger explorer. For help managing Entra ID users for your ledger, please see [Manage Microsoft Entra token-based users in Azure confidential ledger](./manage-azure-ad-token-based-users.md)
 
 
 ## How to use the ledger explorer
 To use the ledger explorer, follow these steps:
 
-1) Open the Azure portal and log in as a user who has a Reader, Contributor or Administrator role assigned for the confidential ledger resource.
+1) Open the Azure portal and log in as an Entra ID user who has a Reader, Contributor or Administrator role assigned for the confidential ledger resource.
 1) On the Overview page, navigate to the "Ledger explorer (preview)" tab
-1) Once you are logged in, you can see the dashboard of the ledger explorer, which shows the summary of your ledger data, such as the number of transactions, the latest transaction ID, and the ledger status.
+![Alt text](./media/ledger-explorer-entry.png)
 
-The ledger explorer allows you to see data such a
+The ledger explorer allows you to a list of all transactions on your ledger with their IDs and contents, filtered by collections. You can click on a transaction row to see more details, such as the transaction ID, the transaction receipt, and the cryptographic proof. 
 
-- Transaction data: A list of all transactions on your ledger with their IDs and contents. You can click on a transaction to see more details, such as the transaction ID, the transaction receipt, and the cryptographic proof.
-- Search: This page allows you to search for transactions or entries by ID. You can use the filters and the search box to specify your query criteria. You can also sort the results by ID or timestamp.
--Export: This panel allows you to copy the contents of the transaction receipts and the cryptographic proofs to the clipboard
+As the ledger is an append-only, sequential datastore, data fetched sequentially starting from Transaction ID `2.1`, the start of the ledger.
+
+### Searching for a transaction
+- Search: You can use the filters and the search box to start your transaction search from any Transaction ID. ![Alt text](./media/ledger-explorer-search.png) 
+
+[CCF Transaction IDs](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#verifying-transactions) require both a view and a sequence number, separated by a `.`. e.g. `2.15`
+
+If you have previously recorded the specific Transaction ID of a past transaction, you may enter that Transaction ID in the search box to jump to that transaction. 
+
+Valid Transaction IDs start at `2.1`. Your transactions will receive a unique sequence number assigned by the system, and will be associated with a view. A v
 
 ## How to verify your ledger data
 One of the key features of Azure confidential ledger is that it provides cryptographic evidence that your ledger data has not been tampered with. You can use the ledger explorer to verify the integrity and authenticity of your ledger data using the following methods:
