@@ -15,23 +15,27 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As a developer, when you work on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
+As a developer who works on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
 
-Azure Integration Environments reduces this complexity by providing a central area, similar to a dashboard, in the Azure portal where you create one or more *integration environments* to organize and manage existing Azure resources based on their business purpose or phase in the software lifecycle. For example, you might create integration environments based on your organization's business units, such as Finance or Operations. Or, you might create integration environments based on your infrastructure landscapes for development, test, staging, production, and so on.
+Azure Integration Environments simplifies this complexity by providing a central area in the Azure portal where you can create *integration environments* to help you organize and manage your deployed Azure resources. Within an integration environment, you create application groups to further arrange resources into smaller collections.
 
-In an integration environment, you create application groups to further organize resources into smaller collections based on their business function or purpose, for example, employee onboarding, order processing, bank reconciliation, shipping notifications, and so on. For more information, see [Central organization and management](#central-resource).
+For example, your integration environments might be based on your organization's business units, such as Operations, Customer Service, or Finance. Or, your environments might be based on your infrastructure landscapes for development, test, staging, and production. Your application groups might based on a specific business or customer scenario, such as employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
 
-The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on their business function:
+The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on business or customer scenario:
 
-:::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into application groups based on business function." lightbox="media/overview/organize-conceptual.png":::
+:::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into application groups based on business or customer scenario." lightbox="media/overview/organize-conceptual.png":::
 
-To include business information about an application group, a business analyst can add flow charts that show the business processes and stages implemented by the Azure resources in each group. For each business process, they must also provide a business identifier such as an order number, case number, or ticket number, for a transaction that's available across all the business stages to correlate these stages together. To get insights about business data flowing through each stage in a business process, they define the key business properties to capture and track in deployed resources. You then map each business stage, the specified business properties, and the business identifier to actual Azure resources and data sources. For more information, see [Business process design and tracking](#business-process-design-tracking).
+For more information, see [Central organization and management](#central-resource).
+
+As a business analyst, you can include business information about an application group by adding flow charts that show the business processes and stages implemented by the Azure resources in each group. For each business process, you provide a business identifier, such as an order number, case number, or ticket number, for a transaction that's available across all the business stages to correlate these stages together. To get insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each business stage, the specified business properties, and the business identifier to actual Azure resources and data sources.
 
 The following diagram shows how you can represent a real-world business flow as a business process in an application group, and map each stage in the business process to the Azure resources in the same application group:
 
 :::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram that shows a real-world business flow visualized as a business process that maps to Azure resources in an application group." lightbox="media/overview/business-process.png":::
 
-For this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
+For more information, see [Business process design and tracking](#business-process-design-tracking).
+
+In this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
 
 - [Central organization and management](#central-resource)
 
@@ -41,11 +45,11 @@ For this release, an integration environment offers the following capabilities a
 
 ## Central organization and management
 
-In Azure, integration environment gives you a centralized way to organize and manage the Azure resources that your development team uses to implement solutions that integrate the services and systems used by your organization. At the next level in an integration environment, application groups provide a way to organize resources into smaller collections based on their business function or scenario. For example, an integration environment can have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
+In Azure, an integration environment gives you a centralized way to organize the Azure resources used by your development team to build solutions that integrate the services and systems used by your organization. At the next level in your integration environment, application groups provide a way to sort resources into smaller collections based on specific business scenarios. For example, an integration environment can have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
 
-This architecture offers the flexibility for you to use integration environments based on your organization's conventions, standards, and principles. For example, your organization might create integration environments based on business units or teams such as Finance, Marketing, Operations, Corporate Services, and so on. Or, your organization might create integration environments based on infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility to meet your organization's needs.
+This architecture offers the flexibility for you to create and use integration environments based on your organization's conventions, standards, and principles. For example, you can have integration environments that are based on business units or teams such as Operations, Customer Service, Marketing, Finance, HR, Corporate Services, and so on. Or, you might have integration environments based on infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility to meet your organization's needs.
 
-For example, suppose you're a developer who works on solutions that integrate various services and systems used at a power company. You create an integration environment that contains application groups for the Azure resources that implement the following business scenarios:
+Suppose you're a developer who works on solutions that integrate various services and systems used at a power company. You create an integration environment that contains application groups for the Azure resources that implement the following business scenarios:
 
 | Business scenario | Application group |
 |-------------------|-------------------|
@@ -68,7 +72,7 @@ To get started, see [Create an integration environment](create-integration-envir
 
 ### Supported Azure resources
 
-The following table lists the currently supported Azure resources that you can include in an application group:
+The following table lists the currently supported Azure resources that you can include in an application group during this release:
 
 | Azure service | Resources |
 |---------------|-----------|
@@ -93,7 +97,7 @@ To evaluate how key business data moves through deployed resources and to captur
 
 When you're done, you deploy each business process as a separate Azure resource along with an individual tracking profile that Azure adds to the deployed resources. That way, you can decouple the business process design from your implementation and don't have to embed any tracking information inside your code, resources, or solution.
 
-For example, suppose you're a business analyst at a power company, and you work with a developer team that creates solutions to integrate various services and systems used by your organization. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. To resolve a customer ticket for a power outage, the following diagram shows the business flow that the company's customer service team follows:
+Suppose you're a business analyst at a power company, and you work with a developer team that creates solutions to integrate various services and systems used by your organization. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. To resolve a customer ticket for a power outage, the following diagram shows the business flow that the company's customer service team follows:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
@@ -105,7 +109,9 @@ To organize the deployed Azure resources that are used by the work order process
 >
 > When you create a new business process, you must specify a business identifer for a transaction 
 > that's available across all the stages in the business process to correlate these stages together. 
-> For exaple, this business identifier can be an order number, ticket number, or case number.
+> For example, a business identifier can be an order number, ticket number, case number, and so on.
+>
+> :::image type="content" source="media/overview/create-business-process.png" alt-text="Screenshot shows business processes page with opened pane to create a business process with a business identifier." lightbox="media/overview/create-business-process.png":::
 
 When you create each stage, you specify the key business data property values to capture and track. For example, the **Create_ticket** stage defines the following business property values for tracking in your deployed resources:
 
