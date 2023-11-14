@@ -25,15 +25,38 @@ Another benefit of Azure Data Lake Storage is that it connects to [Microsoft Fab
 
 To learn more about analytics with imaging data, see [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md).
 
-## Service architecture
+## Service architecture & APIs
 
-The new architecture provides you with the option to specify an Azure Data Lake Storage account and container at the time the DICOM service is deployed.  This storage container is used by the DICOM service to store DICOM files received by the DICOMweb APIs.  Likewise, the DICOM service retrieves data from search and retrieve queries from the storage account, allowing full DICOMweb interoperability with your DICOM data.  What's new in this architecture is that the storage container remains in your control and is directly accessible using familiar Azure storage APIs and tools.  
+The new architecture provides you with the option to specify an Azure Data Lake Storage account and container at the time the DICOM service is deployed.  This storage container is used by the DICOM service to store DICOM files received by the DICOMweb APIs.  Likewise, the DICOM service retrieves data from the storage account to fulfill search and retrieve queries, allowing full DICOMweb interoperability with your DICOM data.  What's new in this architecture is that the storage container remains in your control and is directly accessible using familiar [Azure storage APIs](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) and tools. 
 
 :::image type="content" source="media/data-lake-layer-diagram.png" alt-text="Architecture diagram showing the relationship of the DICOMweb APIs, the DICOM service, Azure Data Lake Storage, and Azure Storage APIs." lightbox="media/data-lake-layer-diagram.png":::
 
+## Data contracts
+
+The DICOM service stores data in predictable locations in the data lake, following this convention:
+
+```
+AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
+```
+
+If partitions are not specified, all DICOM data will be stored in the default partition, named `Microsoft.Default`. 
+
+> [!NOTE]
+> During public preview, the DICOM service will write data to the storage container and read data that it has written, but user added data will not be read and indexed by the DICOM service.  Similarly, if DICOM data written by the DICOM service is modified or removed, it may result in errors when access data via the DICOMweb APIs.
+
 ## Permissions
 
-The DICOM service is granted access to the data like any other service or application accessing data in a storage account, and that access can be revoked at any time without affecting a customer’s ability to access their data. 
+The DICOM service is granted access to the data like any other service or application accessing data in a storage account, and that access can be revoked at any time without affecting a customer’s ability to access their data.  Specifically, the DICOM service will need to be granted the [Storage Blob Data Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role via a system-assigned or user-assigned managed identity.  
+
+## Limitations
+
+During public preview, the DICOM service with data lake storage has the following limitations:  
+
+- [Bulk Import](import-files.md) is not supported.
+- [Private link](../healthcare-apis-configure-private-link.md) is not yet supported.  
+- UPS-RS work items are not stored in the data lake storage account.  
+- User data added to the data lake storage account will not be read and indexed by the DICOM service.  It is possible that a filename collision could occur, so it is recommended to not write data to the folder structure used by the DICOM service.
+- If DICOM data written by the DICOM service is modified or removed, it may result in errors when access data via the DICOMweb APIs.
 
 ## Next steps
 
