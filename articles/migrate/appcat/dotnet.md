@@ -14,7 +14,7 @@ Azure Migrate application and code assessment for .NET allows you to assess .NET
 
 :::image type="content" source="media/dotnet/visual-studio.png" alt-text="Screenshot of the Azure Migrate application and code assessment for .NET in Visual Studio." lightbox="media/dotnet/visual-studio.png":::
 
-It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code re-platforming, helping you move .NET applications to Azure.
+It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move .NET applications to Azure.
 
 You can use Azure Migrate application and code assessment for .NET in Visual Studio or in the .NET CLI.
 
@@ -70,7 +70,7 @@ dotnet tool update -g dotnet-appcat
 
 After you install the Visual Studio extension, you're ready to analyze your application in Visual Studio. To analyze an application, right click any of the projects or a solution in the Solution Explorer window and select **Re-platform to Azure**.
 
-:::image type="content" source="media/dotnet/replatform.png" alt-text="Screenshot of the Re-platform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
+:::image type="content" source="media/dotnet/replatform.png" alt-text="Screenshot of the Replatform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
 
 For detailed instructions on the Visual Studio experience, see the [step by step guide](https://aka.ms/appcat/dotnet/vs).
 
