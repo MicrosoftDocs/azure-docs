@@ -299,7 +299,7 @@ If key access is lost for less than 30 minutes, data is automatically recovered.
 If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
 
 ## Update the DICOM service after changing a managed identity
-If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
+If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
 
 :::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
 
