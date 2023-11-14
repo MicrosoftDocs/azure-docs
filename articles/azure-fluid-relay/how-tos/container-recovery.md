@@ -1,8 +1,6 @@
 ---
-author: hickeys
 description: Learn how to recover container data
 title: Recovering Fluid data
-ms.author: hickeys
 ms.date: 06/22/2022
 ms.service: azure-fluid
 ms.topic: reference

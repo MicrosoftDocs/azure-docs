@@ -16,12 +16,12 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-[!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
+[!INCLUDE [prepare-spring-project-event-driven](prepare-spring-project-event-driven.md)]
 
 ## 3. Prepare the cloud environment
 
-[!INCLUDE [prepare-cloud-environment-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-cloud-environment-event-driven.md)]
+[!INCLUDE [prepare-cloud-environment-event-driven](prepare-cloud-environment-event-driven.md)]
 
 ## 4. Deploy the app to Azure Spring Apps
 
-[!INCLUDE [deployment-event-driven](../../includes/quickstart-deploy-event-driven-app/deploy-app-azure-spring-apps-event-driven.md)]
+[!INCLUDE [deployment-event-driven](deploy-app-azure-spring-apps-event-driven.md)]

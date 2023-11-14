@@ -337,9 +337,9 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
 
 ### Example - decode blob metadata
 
- Some Azure storage clients automatically URL-encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
+Some Azure storage clients automatically URL-encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
 
- ```JSON
+```json
 "fieldMappings" : [
   {
     "sourceFieldName" : "UrlEncodedMetadata",
@@ -348,9 +348,9 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
       "name" : "urlDecode"
     }
   }]
- ```
+```
  
- <a name="fixedLengthEncodeFunction"></a>
+<a name="fixedLengthEncodeFunction"></a>
 
 ### fixedLengthEncode function
  

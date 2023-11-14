@@ -77,6 +77,8 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-from-compute.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-launch-vs-code-remote/vs-code-from-compute.png":::
 
+If you don't see these options, make sure you've enabled the **Connect compute instances to Visual Studio Code for the Web** preview feature, as shown in the [Prerequisites](#prerequisites) section.
+
 # [Studio -> VS Code (Desktop)](#tab/vscode-desktop)
 
 This option launches the VS Code desktop application, connected to your compute instance.

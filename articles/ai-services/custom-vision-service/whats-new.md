@@ -5,8 +5,7 @@ description: This article contains news about Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: whats-new
 ms.date: 09/27/2021
 ms.author: pafarley

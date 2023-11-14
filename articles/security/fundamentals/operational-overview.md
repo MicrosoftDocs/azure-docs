@@ -4,18 +4,18 @@ title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
 documentationcenter: na
-author: unifycloud
+author: terrylanfear
 manager: rkarlin
-editor: tomsh
+
 
 ms.assetid:
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
-ms.author: tomsh
+ms.date: 08/29/2023
+ms.author: terrylan
 
 ---
 
@@ -51,15 +51,17 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 [Azure Site Recovery](../../site-recovery/index.yml) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-[Azure Active Directory (Azure AD)](../../active-directory/manage-apps/what-is-application-management.md) is a comprehensive identity service that:
+## Microsoft Entra ID
+
+[Microsoft Entra ID](../../active-directory/manage-apps/what-is-application-management.md) is a comprehensive identity service that:
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
 -	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
-Azure AD also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
+Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
@@ -70,7 +72,7 @@ Azure AD also includes a full suite of [identity management capabilities](./iden
 - [Rich auditing](../../active-directory/reports-monitoring/concept-audit-logs.md)
 - [Security monitoring and alerting](../../security-center/security-center-managing-and-responding-alerts.md)
 
-With Azure Active Directory, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
+With Microsoft Entra ID, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
 ## Microsoft Defender for Cloud
 

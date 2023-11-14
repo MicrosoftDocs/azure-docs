@@ -17,7 +17,7 @@ The default authentication method is to use Shared Access Signature(SAS) to acce
 With this approach, you can capture data to destinations resources that are in the same subscription only. 
 
 ## Use Managed Identity 
-With [managed identity](../active-directory/managed-identities-azure-resources/overview.md), users can seamlessly capture data to a preferred destination by using Azure Active Directory based authentication and authorization. 
+With [managed identity](../active-directory/managed-identities-azure-resources/overview.md), users can seamlessly capture data to a preferred destination by using Microsoft Entra ID based authentication and authorization. 
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-msi.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using Managed Identity":::
 
@@ -52,7 +52,7 @@ The Event Hubs Capture feature also support capturing data to a capture destinat
 
 For that you can use the same ARM templates given in [enabling capture with ARM template guide](./event-hubs-resource-manager-namespace-event-hub-enable-capture.md) with corresponding managed identity. 
 
-For example, following ARM template can be used to create an event hub with capture enabled. Azure Storage or Azure Data Lake Storage Gen 2 can be used as the capture destination and system assigned identity is used as the authentication method. The resource ID of the destination can point to a resource in a different subscription. 
+For example, following ARM template can be used to create an event hub with capture enabled. Azure Storage or Azure Data Lake Storage Gen 2 can be used as the capture destination and user assigned identity is used as the authentication method. The resource ID of the destination can point to a resource in a different subscription. 
 
 ```json
 "resources":[
@@ -86,9 +86,6 @@ For example, following ARM template can be used to create an event hub with capt
           "dependsOn": [
             "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
           ],
-          "identity": {
-            "type": "SystemAssigned",
-          },
           "properties": {
             "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
             "partitionCount": "[parameters('partitionCount')]",
@@ -104,7 +101,13 @@ For example, following ARM template can be used to create an event hub with capt
                   "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
                   "blobContainer": "[parameters('blobContainerName')]",
                   "archiveNameFormat": "[parameters('captureNameFormat')]"
-                }
+                },
+               "identity": {
+                 "type": "UserAssigned",
+                 "userAssignedIdentities": {
+                   "xxxxxxxx": {}
+                  }
+          						}
               }
             }
           }
@@ -113,4 +116,3 @@ For example, following ARM template can be used to create an event hub with capt
     }
   ]
 ```
-

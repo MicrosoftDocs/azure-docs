@@ -1,13 +1,13 @@
 ---
 title: How to set or edit Azure API Management policies | Microsoft Docs
-description: Learn how to use the Azure portal to set or edit policies in an Azure API Management instance. Policies are defined in XML documents that contain a sequence of statements that are run sequentially on the request or response of an API.
+description: Configure policies at different scopes in an Azure API Management instance using the policy editor in the Azure portal.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 10/18/2023
 ms.author: danlep
 ---
 
@@ -149,6 +149,8 @@ Product scope is configured for a selected product.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
+
+
 ### API scope
 
 API scope is configured for **All operations** of the selected API.
@@ -221,7 +223,7 @@ To modify the policy evaluation order using the policy editor:
 
     A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
 
-## Next steps
+## Related content
 
 For more information about working with policies, see:
 

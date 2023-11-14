@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/19/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -37,13 +37,13 @@ The token was obtained from the original tenant, but the service is in guest ten
 
 #### Recommendation
 
-You should use the token issued from guest tenant. For example, you have to assign the same Azure Active Directory to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
+You should use the token issued from guest tenant. For example, you have to assign the same Microsoft Entra ID to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
 
 ### Template parameters in the parameters file aren't  valid
 
 #### Issue
 
-If we delete a trigger in Dev branch, which is already available in Test or Production branch with **same** configuration (like frequency and interval), then release pipeline deployment succeeds and corresponding trigger will be deleted in respective environments. But if you have **different** configuration (like frequency and interval) for trigger in Test/Production environments and if you delete the same trigger in Dev, then deployment fails with an error.
+If we delete a trigger in Dev branch, which is already available in Test or Production branch with **same** configuration (like frequency and interval), then release pipeline deployment succeeds and corresponding trigger are deleted in their respective environments. But if you have **different** configuration (like frequency and interval) for trigger in Test/Production environments and if you delete the same trigger in Dev, then deployment fails with an error.
 
 #### Cause
 
@@ -55,9 +55,9 @@ CI/CD Pipeline fails with the following error:
 
 #### Recommendation
 
-The error occurs because we often delete a trigger, which is parameterized, therefore, the parameters will not be available in the Azure Resource Manager (ARM) template (because the trigger does not exist anymore). Since the parameter is not in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
+The error occurs because we often delete a trigger, which is parameterized, therefore, the parameters won't be available in the Azure Resource Manager (ARM) template (because the trigger doesn't exist anymore). Since the parameter isn't in the ARM template anymore, we have to update the overridden parameters in the DevOps pipeline. Otherwise, each time the parameters in the ARM template change, they must update the overridden parameters in the DevOps pipeline (in the deployment task).
 
-### Updating property type is not supported
+### Updating property type isn't supported
 
 #### Issue
 
@@ -111,7 +111,7 @@ Detach Git configuration and set it up again, and make sure NOT to check the "im
 
 #### Issue
 
-You are unable to move a data factory from one Resource Group to another, failing with the following error:
+You're unable to move a data factory from one Resource Group to another, failing with the following error:
 `
 {
     "code": "ResourceMoveProviderValidationFailed",
@@ -140,23 +140,23 @@ Unable to export and import ARM template. No error was on the portal, however, i
 
 #### Cause
 
-You have created a customer role as the user and it did not have the necessary permission. When the UI is loaded, a series of exposure control values is checked. In this case, the user's access role does not have permission to access *queryFeaturesValue* API. To access this API, the global parameters feature is turned off. The ARM export code path is partly relying on the global parameters feature.
+You have created a customer role as the user and it didn't have the necessary permission. When the UI is loaded, a series of exposure control values is checked. In this case, the user's access role doesn't have permission to access *queryFeaturesValue* API. To access this API, the global parameters feature is turned off. The ARM template export code path is partly relying on the global parameters feature.
 
 #### Resolution
 
 In order to resolve the issue, you need to add the following permission to your role: *Microsoft.DataFactory/factories/queryFeaturesValue/action*. This permission is included by default in the **Data Factory Contributor** role for Data Factory, and the **Contributor** role In Synapse Analytics.
 
-###  Cannot automate publishing for CI/CD 
+###  Can't automate publishing for CI/CD 
 
 #### Cause
 
-Until recently, the it was only possible to publish a pipeline for deployments by clicking the UI in the Portal. Now, this process can be automated.
+Until recently, it was only possible to publish a pipeline for deployments by clicking the UI in the Portal. Now, this process can be automated.
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and select a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4-MB ARM template limit  
+###  Can't publish because of 4-MB ARM template limit  
 
 #### Issue
 
@@ -174,17 +174,17 @@ For small to medium solutions, a single template is easier to understand and mai
 
 #### Issue
 
-While publishing ADF resources, the azure pipeline triggers twice or more instead of once.
+While publishing resources, the Azure pipeline triggers twice or more instead of once.
 
 #### Cause
  
-Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20-MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
 Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigger once instead of twice or more.
 
-### Cannot connect to GIT Enterprise  
+### Can't connect to GIT Enterprise  
 
 ##### Issue
 
@@ -197,16 +197,16 @@ You can't connect to GIT Enterprise because of permission issues. You can see er
 
 #### Resolution 
 
-You  grant  Oauth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service will try *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
+You  grant  Oauth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service tries *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it tries *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
  
-### Cannot recover from a deleted instance
+### Can't recover from a deleted instance
 
 #### Issue
 An instance of the service, or the resource group containing it, was deleted and needs to be recovered.
 
 #### Cause
 
-It is possible to recover the instance only if source control was configured for it with DevOps or Git. This action will bring all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there is no Source control, recovering a deleted instance from the Azure backend isn't  possible because once the service receives the delete command, the instance is permanently deleted without any backup.
+It's possible to recover the instance only if source control was configured for it with DevOps or Git. This action brings all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there's no Source control, recovering a deleted instance from the Azure backend isn't  possible because once the service receives the delete command, the instance is permanently deleted without any backup.
 
 #### Resolution
 
@@ -232,7 +232,7 @@ While npm packages can be consumed in various ways, one of the primary benefits 
 
 #### Resolution
 
-Following section is not valid because package.json folder is not valid.
+Following section isn't valid because package.json folder isn't valid.
 
 ```
 - task: Npm@1
@@ -248,10 +248,10 @@ It should have DataFactory included in customCommand like *'run build validate $
 ### Extra  left "[" displayed in published JSON file
 
 #### Issue
-When publishing with DevOps, there is an extra "[" displayed. The service adds one more "[" in an ARMTemplate in DevOps automatically. You will see an expression like "[[" in JSON file.
+When publishing with DevOps, there's an extra "[" displayed. The service adds one more "[" in an ARM template in DevOps automatically. You'll see an expression like "[[" in JSON file.
 
 #### Cause
-Because [ is a reserved character for ARM, an extra [ is added automatically to escape "[".
+Because [ is a reserved character for ARM templates, an extra [ is added automatically to escape "[".
 
 #### Resolution
 This is normal behavior during the publishing process for CI/CD.
@@ -276,14 +276,14 @@ You want to perform unit testing during development and deployment of your pipel
 During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically retesting all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
  
 #### Resolution
-Because customers may have different unit testing requirements with different skillsets, usual practice is to follow following steps:
+Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
 
 1. Setup Azure DevOps CI/CD project or develop  .NET/PYTHON/REST type SDK driven test strategy.
 2. For CI/CD, create a build artifact containing all scripts and deploy resources in release pipeline. For an SDK driven approach, develop Test units using PyTest in Python, Nunit in C# using .NET SDK and so on.
 3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
 
 For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
-You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production instance. 
+You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you don't use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you're satisfied with the results, you can finally publish the pipeline to a production instance. 
 
 
 ### Pipeline runs temporarily fail after CI/CD deployment or authoring updates
@@ -293,13 +293,13 @@ After some amount of time, new pipeline runs begin to succeed without any user a
 
 #### Cause
 
-There are several scenarios, which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
+There are several scenarios, which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline calls the new version of the child pipeline, and the expected parameters won't be passed. This causes the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
 
 #### Resolution
 
 New runs of the parent pipeline will automatically begin succeeding, so typically no action is needed. However, to prevent these errors, customers should consider dependencies while authoring and planning deployments to avoid breaking changes. 
 
-### Cannot parameterize integration run time in linked service
+### Can't parameterize integration run time in linked service
 
 #### Issue
 Need to parameterize linked service integration run time
@@ -316,7 +316,7 @@ You have to select manually and set an integration runtime. You can use PowerShe
 Changing Integration runtime name during CI/CD deployment.  
  
 #### Cause
-Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) isn't  supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
+Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) isn't  supported.  Changing the runtime name during deployment causes the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
  
 #### Resolution
 Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
@@ -330,12 +330,12 @@ ARM template deployment fails with an error such as DataFactoryPropertyUpdateNot
 The ARM template deployment is attempting to change the type of an existing integration runtime. This isn't  allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
 
 ##### Resolution
-If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
+If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, see [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
 
 ### GIT publish may fail because of PartialTempTemplates files
 
 #### Issue
-When you've 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+When you have 1000 s of old temporary ARM template json files in PartialTemplates folder, publish may fail.
 
 #### Cause
 On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
@@ -343,17 +343,17 @@ On publish, ADF fetches every file inside each folder in the collaboration branc
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
  
-###  Include global parameters in ARM template option does not work
+###  Include global parameters in ARM template option doesn't work
 
 #### Issue
-If you are using old default parameterization template, new way to include global paramaters from **Manage Hub** will not work.
+If you're using old default parameterization template, new way to include global parameters from **Manage Hub** won't work.
 
 #### Cause
 Default parameterization template should include all values from global parameter list.
 
 #### Resolution
-* Use updated  [default parameterization template.](./continuous-integration-delivery-resource-manager-custom-parameters.md#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
-* Update the template parameter names in CI/CD pipeline if you are already overriding the template parameters (for global parameters).
+* Use updated  [default parameterization template.](./continuous-integration-delivery-resource-manager-custom-parameters.md#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you're already overriding the template parameters there.
+* Update the template parameter names in CI/CD pipeline if you're already overriding the template parameters (for global parameters).
  
 ### Error code: InvalidTemplate
 	
@@ -361,11 +361,11 @@ Default parameterization template should include all values from global paramete
 Message says *Unable to parse expression.* The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
 
 #### Cause
-Dynamic content is not written as per expression language requirements. 
+Dynamic content isn't written as per expression language requirements. 
 
 #### Resolution 
 * For debug run, check expressions in pipeline within current git branch.
-* For Triggered run, check expressions in pipeline within *Live* mode .
+* For Triggered run, check expressions in pipeline within *Live* mode.
  
 ## Next steps
 

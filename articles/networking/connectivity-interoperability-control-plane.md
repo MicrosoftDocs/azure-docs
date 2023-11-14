@@ -77,7 +77,7 @@ For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-abou
 
 ## Next steps
 
-Learn about [data plane analysis](./connectivty-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
+Learn about [data plane analysis](./connectivity-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 

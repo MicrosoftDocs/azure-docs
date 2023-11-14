@@ -16,9 +16,9 @@ This article lists supported Azure and third-party data source schemas, with lin
 
 | Type                             | Data source             | Log Analytics tablename | Schema reference |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
-| **Azure**                            | Azure Active Directory | SigninEvents           | [Azure AD activity reports sign-in properties](/graph/api/resources/signin#properties) |
-| **Azure**                            | Azure Active Directory | AuditLogs              | [Azure Monitor AuditLogs reference](/azure/azure-monitor/reference/tables/auditlogs) |
-| **Azure**                            | Azure Active Directory | AzureActivity          | [Azure Monitor AzureActivity reference](/azure/azure-monitor/reference/tables/azureactivity) |
+| **Azure**                            | Microsoft Entra ID | SigninEvents           | [Microsoft Entra activity reports sign-in properties](/graph/api/resources/signin#properties) |
+| **Azure**                            | Microsoft Entra ID | AuditLogs              | [Azure Monitor AuditLogs reference](/azure/azure-monitor/reference/tables/auditlogs) |
+| **Azure**                            | Microsoft Entra ID | AzureActivity          | [Azure Monitor AzureActivity reference](/azure/azure-monitor/reference/tables/azureactivity) |
 | **Azure**                            | Office                 | OfficeActivity         | Office 365 Management Activity API schemas: <br>- [Common schema](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange Admin schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange Mailbox schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint Base schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint file operations](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
 | **Azure**                            | Azure Key Vault         | AzureDiagnostics       | [Azure Monitor AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) |
 | **Host**                             | Linux                  | Syslog                 | [Azure Monitor Syslog reference](/azure/azure-monitor/reference/tables/syslog) |
@@ -48,7 +48,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network**	| Zscaler |	Nano Streaming Service (NSS)|	CommonSecurityLog |	[Formatting NSS Feeds](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (Web, Firewall, DNS, and Tunnel logs only) |
 | **Network**	|F5	| BigIP LTM|	CommonSecurityLog|	[Event Messages and Attack Types](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-external-monitoring-implementations-13-0-0/15.html)  |
 | **Network** |	F5	| BigIP ASM|	CommonSecurityLog|	[Logging Application Security Events](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/14.html)                                                           |
-| **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
+| **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146)  |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
 |**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/appendices/syslog-mapping-cef.aspx) |
 

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to set up and use Document Intelligence Studio to test features of Azure AI Document Intelligence on the web.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar

@@ -3,13 +3,14 @@ title: Manage a custom IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 05/27/2023
-ms.author: allensu
+
 ---
 
 # Manage a custom IP address prefix
@@ -50,7 +51,7 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 
 The example derivation of a public IP prefix from a custom IP prefix using PowerShell is shown as follows:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Set-AzContext -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 $customprefix = Get-AzCustomIpPrefix -Name myBYOIPPrefix -ResourceGroupName myResourceGroup
 Set-AzContext -Subscription yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
@@ -91,12 +92,12 @@ The operation is asynchronous. You can check the status by reviewing the **Commi
 
 Use the following example PowerShell to put a custom IP prefix range into this state.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Update-AzCustomIpPrefix 
 (other arguments)
 -Commission
 -NoInternetAdvertise
- ```
+```
 
 ## View a custom IP prefix
 
@@ -136,12 +137,12 @@ A custom IP prefix must be clear of public IP prefixes before it can be put into
 
 The command is similar as the one from earlier on this page:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Update-AzCustomIpPrefix 
 (other arguments)
 -Decommission
 -NoInternetAdvertise
- ```
+```
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range is partially advertised while still in the **InternetDecommissioningInProgress** status.
 

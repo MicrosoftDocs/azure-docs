@@ -156,14 +156,14 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
     | An internal server error occurred while running the query.   |   |
     | The query execution timed out.   |   |
     | A table referenced in the query was not found.   | Verify that the relevant data source is connected.   |
-    | A semantic error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | A semantic error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | A function called by the query is named with a reserved word.   | Remove or rename the function.   |
-    | A syntax error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | A syntax error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | The workspace does not exist.   |   |
-    | This query was found to use too many system resources and was prevented from running.   |   |
+    | This query was found to use too many system resources and was prevented from running.   | Review and tune the analytics rule. Consult our Kusto Query Language [overview](kusto-overview.md) and [best practices](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) documentation. |
     | A function called by the query was not found.   | Verify the existence in your workspace of all functions called by the query.   |
     | The workspace used in the query was not found.   | Verify that all workspaces in the query exist.   |
-    | You don't have permissions to run this query.   | Try resetting the alert rule by editing and saving it (without changing any settings).   |
+    | You don't have permissions to run this query.   | Try resetting the analytics rule by editing and saving it (without changing any settings).   |
     | You don't have access permissions to one or more of the resources in the query.   |   |
     | The query referred to a storage path that was not found.   |   |
     | The query was denied access to a storage path.   |   |

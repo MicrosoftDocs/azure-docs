@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
@@ -38,7 +37,7 @@ ms.author: eur
 |zh-CN-XiaozhenNeural|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
 |zh-CN-YunfengNeural|`angry`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
 |zh-CN-YunhaoNeural<sup>2</sup>|`advertisement-upbeat`|Not supported|
-|zh-CN-YunjianNeural<sup>3,4</sup>|`angry`, `cheerful`, `depressed`, `disgruntled`, `narration-relaxed`, `sad`, `serious`, `sports-commentary`, `sports-commentary-excited`|Not supported|
+|zh-CN-YunjianNeural<sup>3,4</sup>|`angry`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `narration-relaxed`, `sad`, `serious`, `sports-commentary`, `sports-commentary-excited`|Not supported|
 |zh-CN-YunxiaNeural|`angry`, `calm`, `cheerful`, `fearful`, `sad`|Not supported|
 |zh-CN-YunxiNeural|`angry`, `assistant`, `chat`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `newscast`, `sad`, `serious`|`Boy`, `Narrator`, `YoungAdultMale`|
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Not supported|

@@ -5,15 +5,63 @@ description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: whats-new
-ms.date: 07/27/2023
+ms.date: 10/16/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## October 2023
+
+### New fine-tuning models (preview)
+
+- `gpt-35-turbo-0613` is [now available for fine-tuning](./how-to/fine-tuning.md).
+
+- `babbage-002` and `davinci-002` are [now available for fine-tuning](./how-to/fine-tuning.md). These models replace the legacy ada, babbage, curie, and davinci base models that were previously available for fine-tuning.
+
+- Fine-tuning availability is limited to certain regions. Check the [models page](concepts/models.md#fine-tuning-models-preview), for the latest information on model availability in each region.
+
+- Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
+
+- [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
+
+## September 2023
+
+### GPT-4
+GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers. Customers no longer need to apply for the waitlist to use GPT-4 and GPT-4-32k (the Limited Access registration requirements continue to apply for all Azure OpenAI models). Availability might vary by region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### GPT-3.5 Turbo Instruct
+
+Azure OpenAI Service now supports the GPT-3.5 Turbo Instruct model. This model has performance comparable to `text-davinci-003` and is available to use with the Completions API. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### Whisper public preview
+
+Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whisper model. Get AI-generated text based on the speech audio you provide. To learn more, check out the [quickstart](./whisper-quickstart.md).
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../speech-service/batch-transcription-create.md#using-whisper-models) guide. Check out [What is the Whisper model?](../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
+
+### New Regions
+
+- Azure OpenAI is now also available in the Sweden Central, and Switzerland North regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### Regional quota limits increases
+
+- Increases to the max default quota limits for certain models and regions. Migrating workloads to [these models and regions](./quotas-limits.md#regional-quota-limits) will allow you to take advantage of higher Tokens per minute (TPM).  
+
+## August 2023
+
+### Azure OpenAI on your own data (preview) updates
+
+- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
+- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 
 ## July 2023
 
@@ -66,7 +114,7 @@ keywords:
 - General availability support for:
   - Chat Completion API version `2023-05-15`.
   - GPT-35-Turbo models.
-  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  - GPT-4 model series. 
   
 If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 

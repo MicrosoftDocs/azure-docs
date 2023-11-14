@@ -44,7 +44,7 @@ In Azure Logic Apps, an on-premises data gateway supports [on-premises connector
 * [Apache Impala](/connectors/impala)
 * [BizTalk Server](/connectors/biztalk)
 * [File System](/connectors/filesystem)
-* [HTTP with Azure AD](/connectors/webcontents)
+* [HTTP with Microsoft Entra ID](/connectors/webcontents)
 * [IBM DB2](/connectors/db2)
 * [IBM Informix](/connectors/informix)
 * [IBM MQ](/connectors/mq)
@@ -66,11 +66,11 @@ Azure Logic Apps supports read and write operations through the data gateway, bu
 
 * You already [installed an on-premises data gateway on a local computer](logic-apps-gateway-install.md). This gateway installation must exist before you can create a gateway resource that links to this installation. You can install only one data gateway per local computer.
 
-* You have the [same Azure account and subscription](logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
+* You have the [same Azure account and subscription](logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
   * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
 
-  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Azure AD tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Microsoft Entra tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
 
     > [!NOTE]
     > Currently, you can't share a gateway resource or installation across multiple subscriptions. 
@@ -100,7 +100,7 @@ After you install a gateway on a local computer, create the Azure resource for y
    | **Resource group** | Select the [Azure resource group](../azure-resource-manager/management/overview.md) that you want to use. |
    | **Name** | Enter a name for your gateway resource that contains only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), or periods (`.`). |
    | **Region** | Select the same region or location that you selected for the gateway cloud service during [gateway installation](logic-apps-gateway-install.md). Otherwise, your gateway installation doesn't appear in the **Installation Name** list. Your logic app resource location can differ from your gateway resource location. |
-   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that you used for the gateway installation. <p><p>For more information, see [Frequently asked questions](#frequently-asked-questions). |
+   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that you used for the gateway installation. <p><p>For more information, see [Frequently asked questions](#frequently-asked-questions). |
 
    The following example shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
 
@@ -131,7 +131,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
       Your logic app resource and gateway resource don't have to exist in the same Azure subscription. You can select from other Azure subscriptions that each have a gateway resource, but only if:
 
-      * These subscriptions exist in the same Azure AD tenant or directory as your logic app resource.
+      * These subscriptions exist in the same Microsoft Entra tenant or directory as your logic app resource.
       * You have administrator permissions on the gateway, which another administrator can set up for you.
      
       For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
@@ -196,7 +196,7 @@ To create a different gateway resource, link your gateway installation to a diff
 
 * Your Azure account isn't the same account that you used for the gateway installation on your local computer. Check that you signed in to the Azure portal with the same identity that you used for the gateway installation. Only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
-* Your Azure account doesn't belong to only a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). Check that you're using the same Azure AD tenant or directory that you used during gateway installation.
+* Your Azure account doesn't belong to only a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). Check that you're using the same Microsoft Entra tenant or directory that you used during gateway installation.
 
 * Your gateway resource and gateway installation don't exist in the same region. Make sure that your gateway installation uses the same region where you want to create the gateway resource in Azure. However, your logic app resource's location can differ from your gateway resource location.
 

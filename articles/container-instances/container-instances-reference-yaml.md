@@ -405,12 +405,15 @@ The following tables describe the values you need to set in the schema.
 |  name | string | No | Name of the header. |
 |  value | string | No | Value of the header. |
 
+> [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
+
 ### GpuResource object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  count | integer | Yes | The count of the GPU resource. |
-|  sku | enum | Yes | The SKU of the GPU resource. - K80, P100, V100 |
+|  sku | enum | Yes | The SKU of the GPU resource. - V100 |
 
 ## Next steps
 

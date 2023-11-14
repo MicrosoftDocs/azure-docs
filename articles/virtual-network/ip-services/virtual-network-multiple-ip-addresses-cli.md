@@ -3,12 +3,12 @@ title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 04/19/2023
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-linux
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
@@ -187,7 +187,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys

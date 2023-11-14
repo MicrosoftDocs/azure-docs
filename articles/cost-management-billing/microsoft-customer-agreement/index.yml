@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 04/05/2023
+  ms.date: 09/05/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,8 +27,8 @@ landingContent:
         url: ../understand/mca-overview.md
     - linkListType: get-started
       links:
-      - text: Key next steps after accepting agreement
-        url: microsoft-customer-agreement-get-started.md
+      - text: Onboard to the Microsoft Customer Agreement
+        url: onboard-microsoft-customer-agreement.md
     - linkListType: how-to-guide
       links:
 #      - text: Access subscriptions (placeholder)

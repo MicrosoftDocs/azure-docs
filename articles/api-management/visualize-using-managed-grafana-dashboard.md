@@ -33,7 +33,7 @@ You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize A
 
     * The Managed Grafana instance must be in the same subscription as the API Management instance.
     
-    * When created, the Grafana workspace is automatically assigned an Azure Active Directory managed identity, which is assigned the Monitor Reader role on the subscription. This gives you immediate access to Azure Monitor from the new Grafana workspace without needing to set permissions manually. Learn more about [configuring data sources](../managed-grafana/how-to-data-source-plugins-managed-identity.md) for Managed Grafana.
+    * When created, the Grafana workspace is automatically assigned a Microsoft Entra managed identity, which is assigned the Monitor Reader role on the subscription. This gives you immediate access to Azure Monitor from the new Grafana workspace without needing to set permissions manually. Learn more about [configuring data sources](../managed-grafana/how-to-data-source-plugins-managed-identity.md) for Managed Grafana.
 
     
 ## Import API Management dashboard
@@ -60,7 +60,3 @@ Review the default visualizations on the dashboard, which will appear similar to
 
 * For more information about managing your Grafana dashboard, see the [Grafana docs](https://grafana.com/docs/grafana/v9.0/dashboards/).
 * Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).
-
-
-
-

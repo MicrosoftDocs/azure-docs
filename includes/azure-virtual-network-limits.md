@@ -34,7 +34,7 @@ The following limits apply only for networking resources managed through **Azure
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
 | NSG rules per NSG |1,000 |
-| IP addresses and ranges specified for source or destination in a security group |4,000 |
+| IP addresses and ranges specified for source or destination in a security group (The limit applies separately to source and destination) |4,000 |
 | Application security groups |3,000 |
 | Application security groups per IP configuration, per NIC | 20 |
 | Application security groups referenced as source/destination per NSG rule | 10 |
@@ -53,8 +53,9 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
+| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
+| Custom IP prefixes | 5 | Contact support. |
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 

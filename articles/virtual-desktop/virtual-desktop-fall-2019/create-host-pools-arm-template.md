@@ -63,7 +63,7 @@ After that, add users to the desktop application group with this cmdlet:
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-The user's UPN should match the user's identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
+The user's UPN should match the user's identity in Microsoft Entra ID (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 
 After you've completed these steps, users added to the desktop application group can sign in to Azure Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 

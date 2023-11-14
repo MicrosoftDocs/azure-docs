@@ -5,10 +5,9 @@ description: 'Use this guide to set up your platform for C# Unity with the Speec
 services: cognitive-services
 author: markamos
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 09/05/2023
 ms.author: eur
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
@@ -27,17 +26,16 @@ This guide requires:
 - For Windows ARM64 support, installation of the [optional build tools for ARM64 and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 - On Android, an ARM-based Android device (API 23: Android 6.0 Marshmallow or later) enabled for development with a working microphone.
 - On iOS, an iOS device (ARM64) enabled for development with a working microphone.
-- On macOS, a Mac device (x64) and the latest LTS version of Unity 2019 (or later) for integrated support for microphone access in Unity Player settings.
+- On macOS, a Mac device (x64) and the latest LTS version of Unity 2019 or later for integrated support for microphone access in Unity Player settings.
 
 ### Install the Speech SDK for Unity
 
 To install the Speech SDK for Unity, follow these steps:
 
-1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage). It's packaged as a Unity asset package (.unitypackage) and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog appears. You might need to create and open an empty project for this step to work.   
+1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage). It's packaged as a Unity asset package (*.unitypackage*) and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears. You might need to create and open an empty project for this step to work.
 
 1. Ensure that all files are selected, and then select **Import**. After a few moments, the Unity asset package is imported into your project.
 
-   [![Screenshot of the Import Unity Package dialog in the Unity Editor.](~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png)](~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png" alt-text="Screenshot of the Import Unity Package dialog box in the Unity Editor." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png":::
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
-

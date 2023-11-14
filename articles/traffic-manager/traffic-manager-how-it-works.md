@@ -1,13 +1,13 @@
 ---
 title: How Azure Traffic Manager works
-description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications.
+description: This article helps you understand how Traffic Manager routes traffic for high performance and availability of your web applications.
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/27/2023
+ms.date: 08/14/2023
 ms.author: greglin
 ms.custom: template-concept
 ---
@@ -25,6 +25,8 @@ When a client attempts to connect to a service, it must first resolve the DNS na
 
 **The most important point to understand is that Traffic Manager works at the DNS level which is at the Application layer (Layer-7).**  Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint **directly**. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
 
+Traffic Manager uses profiles to control traffic to your cloud services or website endpoints. For more information about profiles, see [Manage an Azure Traffic Manager profile](traffic-manager-manage-profiles.md).
+
 ## Traffic Manager example
 
 Contoso Corp have developed a new partner portal. The URL for this portal is `https://partners.contoso.com/login.aspx`. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
@@ -41,7 +43,7 @@ To achieve this configuration, they complete the following steps:
 ![Traffic Manager DNS configuration][1]
 
 > [!NOTE]
-> When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards do not allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend hosting your DNS domain on [Azure DNS](../dns/dns-overview.md) and using [Alias records](../dns/tutorial-alias-tm.md) to point to your traffic manager profile. Alternatively you can use a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
+> When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend hosting your DNS domain on [Azure DNS](../dns/dns-overview.md) and using [Alias records](../dns/tutorial-alias-tm.md) to point to your traffic manager profile. Alternatively you can use a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
 
 ### How clients connect using Traffic Manager
 

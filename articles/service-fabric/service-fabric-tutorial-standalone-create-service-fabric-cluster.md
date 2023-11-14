@@ -39,13 +39,13 @@ Next, update the three ipAddress lines that occur in the file on lines 8, 15, an
 After updating the nodes, they appear as follows:
 
 ```json
-        {
-            "nodeName": "vm0",
-            "ipAddress": "172.31.27.1",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD0"
-        }
+{
+  "nodeName": "vm0",
+  "ipAddress": "172.31.27.1",
+  "nodeTypeRef": "NodeType0",
+  "faultDomain": "fd:/dc1/r0",
+  "upgradeDomain": "UD0"
+}
 ```
 
 Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`

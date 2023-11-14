@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/17/2022
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
 ---
@@ -136,7 +136,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -159,7 +159,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 
 ---
@@ -337,8 +337,8 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 
 1. Open your Application Insights resource in the Azure Portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
-   > [!TIP]
-      > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
+    > [!TIP]
+    > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
    
 1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
 

@@ -5,9 +5,8 @@ description: Integrate the Text Translation API into your applications, websites
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-translator
 ms.topic: overview
-ms.subservice: translator-text
 ms.date: 07/18/2023
 ms.author: lajanuar
 ---

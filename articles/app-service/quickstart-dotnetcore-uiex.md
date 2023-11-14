@@ -8,21 +8,23 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-other, devx-track-dotnet
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
+author: cephalin
+ms.author: cephalin
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
 
 ::: zone pivot="platform-windows"  
 
-In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. App Service supports .NET 5.0 apps.
+In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to  Azure App Service (An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.). App Service supports .NET 5.0 apps.
 
-When you're finished, you'll have an Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>, consisting of an <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr> and an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr> with a deployed sample ASP.NET Core application.
+When you're finished, you'll have an Azure  resource group (A logical container for related Azure resources that you can manage as a unit.) consisting of an App Service plan (The plan that specifies the location, size, and features of the web server farm that hosts your app.) and on App Service app (The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.) with a deployed sample ASP.NET Core application.
 
 <hr/> 
 
 ## 1. Prepare your environment
 
-- **Get an Azure account** with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- **Get an Azure account** with an active  subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - **Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** with the **ASP.NET and web development** workload.
 
 <details>
@@ -174,7 +176,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-This quickstart shows how to create a [.NET Core](/aspnet/core/) app on <abbr title="App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.">App Service on Linux</abbr>. You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux (App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.). You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
 
 <hr/> 
 

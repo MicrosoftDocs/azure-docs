@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
+
 # API Management policy reference
 This section provides links to reference articles for all API Management policies.
 
@@ -28,7 +29,7 @@ More information about policies:
 -   [Restrict caller IPs](ip-filter-policy.md) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](quota-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](quota-by-key-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--    [Validate Azure Active Directory token](validate-azure-ad-token-policy.md) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
+-    [Validate Microsoft Entra token](validate-azure-ad-token-policy.md) - Enforces existence and validity of a Microsoft Entra JWT extracted from either a specified HTTP header, query parameter, or token value.
 -   [Validate JWT](validate-jwt-policy.md) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header, query parameter, or token value.
 -   [Validate client certificate](validate-client-certificate-policy.md) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
@@ -85,7 +86,7 @@ More information about policies:
 -   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
 -   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
 -   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
--   [Set body](set-body-policy.md) - Sets the message body for incoming and outgoing requests.
+- [Set body](set-body-policy.md) - Sets the message body for a request or response.
 -   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 -   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
 -   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.

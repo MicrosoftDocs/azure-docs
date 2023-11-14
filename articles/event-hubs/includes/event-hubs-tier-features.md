@@ -20,7 +20,11 @@ The following table shows the list of features that are available (or not availa
 | Customer-managed key <br/>(Bring your own key) | N/A | N/A | Yes | Yes |
 | Capture | N/A | Priced separately | Included | Included |
 | Dynamic Partition scale out | N/A | N/A | Yes | Yes |
-| Ingress events | Pay per million events | Pay per million events | Included | Included
+| Ingress events | Pay per million events | Pay per million events | Included | Included |
+| Runtime audit logs | N/A | N/A | Yes | Yes |
+| Availablity Zone | Yes | Yes | Yes | Yes |
+| Geo disaster | N/A | Yes | Yes | Yes |
+| IP Firewall | N/A | Yes | Yes | Yes |
 
 > [!NOTE]
 > **Included** in the table means the feature is available and there's no separate charge for using it. 

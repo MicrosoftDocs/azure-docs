@@ -18,7 +18,7 @@ To create resource management private link, send the following request:
   ### Example
   ```azurecli
   # Login first with az login if not using Cloud Shell
-  az resourcemanagement private-link create --location WestUS --resource-group PrivateLinkTestRG --name NewRMPL --public-network-access enabled
+  az resourcemanagement private-link create --location WestUS --resource-group PrivateLinkTestRG --name NewRMPL
   ```
    
 # [PowerShell](#tab/azure-powershell)

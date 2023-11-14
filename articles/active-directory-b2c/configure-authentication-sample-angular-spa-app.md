@@ -58,7 +58,7 @@ The following diagram describes the app registrations and the app architecture.
 Before you follow the procedures in this article, make sure that your computer is running:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or any other code editor.
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
 * [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
@@ -82,9 +82,7 @@ In this step, you create the registrations for the Angular SPA and the web API a
 Follow these steps to create the Angular app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **MyApp**.

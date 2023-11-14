@@ -1,8 +1,6 @@
 ---
 title: Data encryption in Azure Fluid Relay
 description: Better understand the data encryption in Fluid Relay Server
-author: hickeys
-ms.author: hickeys
 ms.date: 10/08/2021
 ms.service: app-service
 ms.topic: reference

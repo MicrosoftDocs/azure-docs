@@ -5,7 +5,7 @@ description: Get started with Azure AI services by using Azure CLI commands to c
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
 ms.date: 06/06/2022
@@ -125,4 +125,4 @@ To remove the resource group and its associated resources, use the az group dele
 az group delete --name ai-services-resource-group
 ```
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).

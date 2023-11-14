@@ -2,13 +2,13 @@
 title: Configure hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environments.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
 
-Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS). This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Supported configurations
 
@@ -16,7 +16,6 @@ The following configurations are officially supported with Container insights. I
 
 - Environments:
     - Kubernetes on-premises.
-    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or in other cloud environments.
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 - The following container runtimes are supported: Moby and CRI compatible runtimes such CRI-O and ContainerD.
@@ -268,7 +267,7 @@ In this section, you install the containerized agent for Container insights. Bef
     --set amalogsagent.secret.wsid=<logAnalyticsWorkspaceId>,amalogsagent.secret.key=<logAnalyticsWorkspaceKey>,amalogsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
-    If the Log Analytics workspace is in Microsoft Azure operated by 21Vianet, run the following command:
+    If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
     ```
     $ helm install --name myrelease-1 \

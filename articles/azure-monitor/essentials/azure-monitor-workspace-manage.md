@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 03/28/2023
 ---
 
@@ -31,7 +32,7 @@ This article shows you how to create and delete an Azure Monitor workspace. When
 Use the following command to create an Azure Monitor workspace using Azure CLI.
 
 ```azurecli
-az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties {}
+az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties "{}"
 ```
 
 ### [Resource Manager](#tab/resource-manager)
@@ -164,6 +165,13 @@ To set up an Azure monitor workspace as a data source for Grafana using a Resour
 If your Grafana instance is self managed, see [Use Azure Monitor managed service for Prometheus as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and managed service for Prometheus?
+        
+Yes. When you use managed service for Prometheus, you can create your Azure Monitor workspace in any of the supported regions. Your Azure Kubernetes Service clusters can be in any region and send data into an Azure Monitor workspace in a different region. Azure Managed Grafana can also be in a different region than where you created your Azure Monitor workspace. 
 
 
 

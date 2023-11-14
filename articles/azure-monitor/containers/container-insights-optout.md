@@ -1,14 +1,14 @@
 ---
-title: Stop monitoring your Azure Kubernetes Service cluster | Microsoft Docs
+title: Disable Container insights on your Azure Kubernetes Service (AKS) cluster
 description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 08/21/2023
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ms.reviewer: aul
 ---
 
-# Stop monitoring your Azure Kubernetes Service cluster with Container insights
+# Disable Container insights on your Azure Kubernetes Service (AKS) cluster
 
 After you enable monitoring of your Azure Kubernetes Service (AKS) cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows you how to do this task by using the Azure CLI or the provided Azure Resource Manager templates (ARM templates).
 
@@ -114,8 +114,8 @@ If you choose to use the Azure CLI, you must install and use the CLI locally. Yo
     ```
 
 1. Edit the values for **aksResourceId** and **aksResourceLocation** by using the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
-
-    ![Screenshot that shows the Container properties page.](media/container-insights-optout/container-properties-page.png)
+    <!-- convertborder later -->
+    :::image type="content" source="media/container-insights-optout/container-properties-page.png" lightbox="media/container-insights-optout/container-properties-page.png" alt-text="Screenshot that shows the Container properties page." border="false":::
 
     While you're on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace isn't performed as part of this process.
 
@@ -132,7 +132,7 @@ To remove the solution and clean up the configuration on your AKS cluster, run t
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters ./OptOutParam.json  
 ```
 
 The configuration change can take a few minutes to finish. The result is returned in a message similar to the following example:

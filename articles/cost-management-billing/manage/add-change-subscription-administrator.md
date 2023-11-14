@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 10/13/2023
 ms.author: banders
 
 ---
@@ -36,7 +36,7 @@ To identify accounts for which you're a billing administrator, visit the [Cost M
 
 If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then look under **Settings**. Select **Properties** and the account administrator of the subscription is shown in the **Account Admin** box. 
 
-If you don't see **Account Admin**, you might have a Microsoft Customer Agreement or Enterprise Agreement account. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement) or see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
+If you don't see **Account Admin**, you might have a Microsoft Customer Agreement. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement).
 
 ## Assign a subscription administrator
 
@@ -63,5 +63,5 @@ If you still need help, [contact support](https://portal.azure.com/?#blade/Micro
 
 * [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Administrator role permissions in Azure Active Directory](../../active-directory/roles/permissions-reference.md)
+* [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Administrator role permissions in Microsoft Entra ID](../../active-directory/roles/permissions-reference.md)

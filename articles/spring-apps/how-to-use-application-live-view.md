@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use Application Live View for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
+This article shows you how to use Application Live View for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
 [Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
@@ -255,9 +255,9 @@ az spring dev-tool create \
 
 ---
 
-## Use Application Live View in VS Code 
+## Use Application Live View in VS Code
 
-You can access Application Live View directly in VS Code to monitor your apps in Azure Spring Apps Enterprise tier.
+You can access Application Live View directly in VS Code to monitor your apps in the Azure Spring Apps Enterprise plan.
 
 ### Prerequisites
 
@@ -290,7 +290,7 @@ If you try to open Application Live View for a service instance or an app that h
 
   :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message showing Application Live View not enabled and public endpoint not accessible." lightbox="media/how-to-use-application-live-view/visual-studio-code-not-enabled.png":::
 
-To enable Application Live View and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section.
+To enable Application Live View and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage Application Live View in existing Enterprise plan instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section.
 
 ## Next steps
 

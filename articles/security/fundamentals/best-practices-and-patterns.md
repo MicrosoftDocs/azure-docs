@@ -4,26 +4,28 @@ description: This article links you to security best practices and patterns for 
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/02/2022
+ms.date: 11/13/2023
 ms.author: terrylan
 
 ---
 # Azure security best practices and patterns
 
-The articles below contain security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
+This article contains security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
 
-The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+## Best practices
 
-* [Azure boundary security best practices](./network-best-practices.md#adopt-a-zero-trust-approach)
+These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+
+* [Best practices for protecting secrets](secrets-best-practices.md)
 * [Azure database security best practices](/azure/azure-sql/database/security-best-practice)
 * [Azure data security and encryption best practices](data-encryption-best-practices.md)
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
@@ -37,7 +39,6 @@ The best practices are intended to be a resource for IT pros. This might include
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
 * [Securing PaaS web and mobile applications using Azure App Service](paas-applications-using-app-services.md)
 * [Securing PaaS web and mobile applications using Azure Storage](paas-applications-using-storage.md)
-* [Security best practices for IaaS workloads in Azure](iaas.md)
 
 ## Next steps
 

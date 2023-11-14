@@ -55,7 +55,7 @@ Deploy the VMs in Azure by using:
 - Azure PowerShell cmdlets.
 - The Azure CLI.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md) or with the automation released on [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](../../virtual-machines/mv2-series.md).

@@ -34,6 +34,8 @@ items:
     items:
     - name: Configure authentication and permissions
       href: how-to-authentication-permissions.md
+    - name: Sync teams with Microsoft Entra groups
+      href: how-to-sync-teams-with-azure-ad-groups.md
     - name: Share a workspace
       href: how-to-share-grafana-workspace.md
   - name: Data sources
@@ -45,6 +47,8 @@ items:
       href: how-to-permissions.md
     - name: Enable Grafana Enterprise
       href: how-to-grafana-enterprise.md
+    - name: Manage plugins
+      href: how-to-manage-plugins.md
   - name: Dashboards
     expanded: false
     items:
@@ -80,7 +84,7 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
-    - name: Create and manage API keys
+    - name: Create and manage API keys (Deprecated)
       href: how-to-create-api-keys.md
     - name: Monitor Azure Managed Grafana
       href: how-to-monitor-managed-grafana-workspace.md

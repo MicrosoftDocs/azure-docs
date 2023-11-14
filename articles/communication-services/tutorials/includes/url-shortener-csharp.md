@@ -21,7 +21,7 @@ You can find the completed code for this tutorial on [GitHub](https://github.com
 -	An Azure Communication Services phone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md). You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) so it can send messages with URLs. 
 -	Deployed [AzUrlShortener](https://github.com/microsoft/AzUrlShortener). Click [Deploy to Azure](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) button for quick deploy.
     -  [*Optional*] Deploy the [Admin web app](https://github.com/microsoft/AzUrlShortener/blob/main/src/Cloud5mins.ShortenerTools.TinyBlazorAdmin/README.md) to manage and monitor links in UI.
--	For this tutorial, SMS requests are routed to an Azure Function. You could always use an existing service, different framework like express or just run the tutorial as a C# console app. To follow this tutorial with an Azure Function, see instructions to set it up: [Azure Function for C#](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp).
+-	For this tutorial, SMS requests are routed to an Azure Function. You could always use an existing service, different framework like express or just run the tutorial as a C# console app. To follow this tutorial with an Azure Function, see instructions to set it up: [Azure Function for C#](/azure/azure-functions/create-first-function-vs-code-csharp).
 
 ## Architecture overview
 
@@ -31,7 +31,7 @@ In this tutorial, the focus is to set up a middleware that orchestrates requests
 
 ## Set up the Azure Function
 
-To get started, you need to create a new Azure Function. You can create the Azure Function by following the steps in the [Azure Functions documentation](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp). If you aren't using an Azure Function and instead are using a different framework, skip this step and continue to the next section.
+To get started, you need to create a new Azure Function. You can create the Azure Function by following the steps in the [Azure Functions documentation](/azure/azure-functions/create-first-function-vs-code-csharp). If you aren't using an Azure Function and instead are using a different framework, skip this step and continue to the next section.
 
 Once the Azure Function is set up, go to the `local.settings.json` file and add three more values that you need to store: the Azure Communication Services connection string, phone number (Ex. +15555555555) and URL Shortener endpoint (Ex. `https://<Azure_Function_URL>/api/UrlCreate`). These variables are all values you generated from the prerequisites at the beginning of the document.
 
@@ -79,7 +79,7 @@ namespace Company.Function
 
 ## Shorten the URL
 
-Now that you have the phone number and URL, you can use the Azure URL Shortener service to shorten the URL. Ensure you have [deployed](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) this service already. The service contains several endpoints, but for this tutorial the focus is on the `UrlCreate` endpoint. Use the `PostAsync` method to place a `POST` request to the Azure URL Shortener service with the URL you want to shorten. The service returns a JSON object with the shortened URL. Store the shortened URL in a variable called `shortUrl`. In the snippet, insert the endpoint of your deployed Azure URL Shortener service. For information on how to to get the endpoint, see [Validate the deployment](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener#validate-the-deployment).
+Now that you have the phone number and URL, you can use the Azure URL Shortener service to shorten the URL. Ensure you have [deployed](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) this service already. The service contains several endpoints, but for this tutorial the focus is on the `UrlCreate` endpoint. Use the `PostAsync` method to place a `POST` request to the Azure URL Shortener service with the URL you want to shorten. The service returns a JSON object with the shortened URL. Store the shortened URL in a variable called `shortUrl`. In the snippet, insert the endpoint of your deployed Azure URL Shortener service. For information on how to get the endpoint, see [Validate the deployment](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener#validate-the-deployment).
 
 ```csharp
 ...
@@ -140,7 +140,7 @@ dotnet add package Azure.Communication.Sms
 
 ```
 
-This method sends the SMS to the phone number provided in the query parameters. The SMS contains the shortened URL. For more information on how to send SMS, see [Send SMS](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?pivots=programming-language-csharp).
+This method sends the SMS to the phone number provided in the query parameters. The SMS contains the shortened URL. For more information on how to send SMS, see [Send SMS](/azure/communication-services/quickstarts/sms/send?pivots=programming-language-csharp).
 
 ```csharp
 ...
@@ -218,6 +218,6 @@ Then using a tool like [Postman](https://www.postman.com/), you can test your fu
 
 ## Deploy to Azure
 
-To deploy your Azure Function, you can follow [step by step instructions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp?pivots=programming-language-dotnet#sign-in-to-azure).
+To deploy your Azure Function, you can follow [step by step instructions](/azure/azure-functions/create-first-function-vs-code-csharp?pivots=programming-language-dotnet#sign-in-to-azure).
 
 Once deployed, you can access the function through a similar method as you did when testing locally. You need to provide the phone number and URL as query parameters. For example, if your Azure Function is deployed to Azure, you can make a request to `https://<YOUR AZURE FUNCTION NAME>.azurewebsites.net/api/<FUNCTION NAME>?phoneNumber=%2B15555555555&url=https://www.microsoft.com`. You should receive a response with the shortened URL and a status of `Success`.

@@ -115,4 +115,4 @@ The following optional parameters are available in Azure CLI.
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
 Also, you can use a list of recipients with `--cc` and `--bcc` similar to `--to`. There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
-
+ 

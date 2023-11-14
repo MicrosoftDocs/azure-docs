@@ -17,7 +17,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 
-In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security](https://www.transmitsecurity.com/bindid) BindID, a passwordless authentication solution. BindID uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security](https://transmitsecurity.com/solutions/password-mfa-replacement) BindID, a passwordless authentication solution. BindID uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
 
 ## Scenario description
 
@@ -36,12 +36,12 @@ The following architecture diagram illustrates the implementation.
 
 To get started, you need:
 
-* An Azure AD subscription
+* A Microsoft Entra subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
 * A BindID tenant
-  * Go to transmitsecurity.com to [get started](https://www.transmitsecurity.com/developer?utm_signup=dev_hub#try)
+  * Go to transmitsecurity.com to [get started](https://developer.transmitsecurity.com/#try?utm_signup=dev_hub)
 * Register a web application in the Azure portal
   * [Tutorial: Register a web application in Azure Active Directory B2C](./tutorial-register-applications.md) 
 * Azure AD B2C custom policies
@@ -287,4 +287,4 @@ For additional information, review the following articles:
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-- [TransmitSecurity/azure-ad-b2c-bindid-integration](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration
+- [`TransmitSecurity/azure-ad-b2c-bindid-integration`](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration

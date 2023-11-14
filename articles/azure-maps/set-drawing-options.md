@@ -2,8 +2,8 @@
 title: Drawing tools module
 titleSuffix: Microsoft Azure Maps
 description: This article describes how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/15/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -85,9 +85,7 @@ The following image is an example of drawing mode of the `DrawingManager`. Selec
 :::image type="content" source="./media/set-drawing-options/drawing-mode.gif"alt-text="A screenshot of a map showing central park in New York City where the drawing manager is demonstrated by drawing line.":::
 
 <!--------------------------------
-<iframe height="500" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygon</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true]
 -------------------------------->
 
 ### Set the interaction type
@@ -113,9 +111,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 <br/>
 
-<iframe height="500" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-hand drawing</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------>
 
 ### Customizing drawing options
@@ -127,8 +123,7 @@ The [Drawing manager options] can be used to test out customization of all optio
 :::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map of Seattle with a panel on the left showing the drawing manager options that can be selected to see the effects they make to the map.":::
 
 <!------------------------------
-<iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result]
 ------------------------------>
 
 ### Put a shape into edit mode

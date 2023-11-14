@@ -145,7 +145,7 @@ The replication strategy you use depends on your storage solution. The following
 * [Gluster](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/)
 * [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)
 * [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)
-* [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) 
+* [Portworx](https://docs.portworx.com/portworx-enterprise/operations/operate-kubernetes/storage-operations/kubernetes-storage-101/volumes.html) 
 
 Typically, you provide a common storage point where applications write their data. This data is then replicated across regions and accessed locally.
 

@@ -1,14 +1,15 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint
+titleSuffix: Azure CDN
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
 author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 04/06/2022
+ms.date: 08/14/2023
 ms.author: duau
-ms.custom: mvc, mode-other
 ---
+
 # Quickstart: Create an Azure CDN profile and endpoint
 
 In this quickstart, you enable Azure Content Delivery Network (CDN) by creating a new CDN profile, which is a collection of one or more CDN endpoints. After you've created a profile and an endpoint, you can start delivering content to your customers.
@@ -56,10 +57,10 @@ After you've created a CDN profile, you use it to create an endpoint.
 
     :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
     
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
+   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Edgio** and **Premium Edgio** in up to 30 minutes.
 
 > [!NOTE]
-> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
+> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
 
 ## Clean up resources
 

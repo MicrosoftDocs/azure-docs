@@ -25,7 +25,7 @@ Currently, API Management supports resolvers that can access the following data 
 * A resolver is a resource containing a policy definition that's invoked only when a matching object type and field in the schema is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
-
+* You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
 
 > [!IMPORTANT]
 > * If you use the preview `set-graphql-resolver` policy in policy definitions, you should migrate to the managed resolvers described in this article.
@@ -59,13 +59,36 @@ The following steps create a resolver using an HTTP-based data source. The gener
     
         :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal." lightbox="media/configure-graphql-resolver/configure-resolver-policy.png":::
 
-1. The resolver is attached to the field. Go to the **Resolvers** tab to list and manage the resolvers configured for the API. You can also create resolvers from the **Resolvers** tab.
+    The resolver is attached to the field and appears on the **Resolvers** tab. 
+
 
     :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/list-resolvers.png":::
 
-    > [!TIP]
-    > * The **Linked** column indicates whether the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
-    > * You can clone a listed resolver to quickly create a similar resolver that targets a different type and field. In the context menu (**...**), select **Clone**. 
+## Manage resolvers
+
+List and manage the resolvers for a GraphQL API on the API's **Resolvers** tab. 
+
+:::image type="content" source="media/configure-graphql-resolver/resolvers-tab.png" alt-text="Screenshot of managing resolvers for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/resolvers-tab.png":::
+
+On the **Resolvers** tab:
+
+* The **Linked** column indicates whether the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
+
+* In the context menu (**...**) for a resolver, find commands to **Clone**, **Edit**, or **Delete** a resolver.  Clone a listed resolver to quickly create a similar resolver that targets a different type and field. 
+
+* You can create a new resolver by selecting **+ Create**.
+
+## Edit and test a resolver
+
+When you edit a single resolver, the **Edit resolver** page opens. You can:
+
+* Update the resolver policy and optionally the data source. Changing the data source overwrites the current resolver policy.
+
+* Change the type and field that the resolver targets. 
+
+* Test and debug the resolver's configuration. As you edit the resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
+
+    :::image type="content" source="media/configure-graphql-resolver/edit-resolver.png" alt-text="Screenshot of editing a resolver in the portal." lightbox="media/configure-graphql-resolver/edit-resolver.png":::
 
 ## GraphQL context
 
@@ -77,7 +100,7 @@ The `context` variable that is passed through the request and response pipeline 
 
 ### context.GraphQL.parent
 
-The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
+The `context.GraphQL.parent` is set to the parent object for the current resolver execution.  Consider the following partial schema:
 
 ``` graphql
 type Comment {

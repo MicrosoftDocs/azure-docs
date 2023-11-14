@@ -7,6 +7,8 @@ ms.topic: tutorial
 ms.date: 07/28/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Create and manage an App Service certificate for your web app
@@ -126,7 +128,7 @@ By default, App Service certificates have a one-year validity period. Before and
    > [!div class="mx-imgBorder"]
    > ![Screenshot of specified certificate's auto renewal settings.](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
-1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
+1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [the maximum expiration date will be 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
 1. After the renew operation completes, select **Sync**.
 

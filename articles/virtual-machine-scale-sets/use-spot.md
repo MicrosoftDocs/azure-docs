@@ -104,7 +104,7 @@ The process to create a scale set with Azure Spot Virtual Machines is the same a
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --upgrade-policy-mode automatic \
     --single-placement-group false \
     --admin-username azureuser \

@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Monitor
 description: Sample Azure Resource Graph queries for Azure Monitor showing the use of resource types and tables to access Azure Monitor-related resources and properties.
-ms.date: 07/07/2022
+ms.date: 08/09/2023
 ms.topic: sample
 author: bwren
 ms.author: bwren

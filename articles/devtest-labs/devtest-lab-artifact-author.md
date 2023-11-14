@@ -4,7 +4,7 @@ description: Learn how to create and use artifacts to deploy and set up applicat
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/11/2022
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

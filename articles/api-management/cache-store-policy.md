@@ -44,6 +44,7 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 ### Usage notes
 
+- API Management only caches responses to HTTP GET requests.
 - This policy can only be used once in a policy section.
 
 

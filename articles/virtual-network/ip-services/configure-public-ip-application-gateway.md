@@ -2,12 +2,12 @@
 title: Manage a public IP address with an Azure Application Gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change and manage the configuration.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/28/2021
+ms.date: 11/13/2023
 ms.custom: template-how-to 
 ---
 
@@ -17,7 +17,7 @@ Azure Application Gateway is a web traffic load balancer that manages traffic to
 
 An Application Gateway frontend can be a private IP address, public IP address, or both.  The V1 SKU of Application Gateway supports basic dynamic public IPs.  The V2 SKU supports standard SKU public IPs that are static only. Application Gateway V2 SKU doesn't support an internal IP address as it's only frontend.  For more information, see [Application Gateway frontend IP address configuration](../../application-gateway/configuration-frontend-ip.md).  
 
-In this article, you'll learn how to create an Application Gateway using an existing public IP in your subscription. 
+In this article, you learn how to create an Application Gateway using an existing public IP in your subscription. 
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to create an Application Gateway using an exis
 
 ## Create Application Gateway existing public IP
 
-In this section, you'll create an Application Gateway resource. You'll select the IP address you created in the prerequisites as the public IP for the Application Gateway.
+In this section, you create an Application Gateway resource. You select the IP address you created in the prerequisites as the public IP for the Application Gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -106,7 +106,7 @@ Application gateway doesn't support changing the public IP address after creatio
 
 ## Caveats
 
-* Public IPv6 addresses aren't supported on Application Gateways at this time.  
+* Azure Application Gateway support for a [frontend public IPv6 address](../../application-gateway/ipv6-application-gateway-portal.md) is currently in public preview.  
 
 ## Next steps
 

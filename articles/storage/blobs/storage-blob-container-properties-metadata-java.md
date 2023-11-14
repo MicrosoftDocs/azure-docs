@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: pauljewell
@@ -14,6 +14,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Manage container properties and metadata with Java
+
+[!INCLUDE [storage-dev-guide-selector-manage-properties-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-container.md)]
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

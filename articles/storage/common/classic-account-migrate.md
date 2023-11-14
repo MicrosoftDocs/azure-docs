@@ -3,12 +3,12 @@ title: How to migrate your classic storage accounts to Azure Resource Manager
 titleSuffix: Azure Storage
 description: Learn how to migrate your classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/02/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---
@@ -75,7 +75,7 @@ For more information about errors that may occur when deleting disk artifacts an
 
 # [PowerShell](#tab/azure-powershell)
 
-To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account).
+To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account).
 
 ---
 

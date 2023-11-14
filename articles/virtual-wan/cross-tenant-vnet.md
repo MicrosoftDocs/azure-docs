@@ -8,7 +8,7 @@ author: wtnlee
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/24/2023
 ms.author: wellee
 ---
 # Connect cross-tenant virtual networks to a Virtual WAN hub
@@ -36,7 +36,7 @@ To use the steps in this article, you must have the following configuration alre
 * A virtual WAN and virtual hub in your parent subscription
 * A virtual network configured in a subscription in a different (remote) tenant
 
-Make sure that the virtual network address space in the remote tenant does not overlap with any other address space within any other virtual networks already connected to the parent virtual hub.
+Make sure that the virtual network address space in the remote tenant doesn't overlap with any other address space within any other virtual networks already connected to the parent virtual hub.
 
 ### Working with Azure PowerShell
 
@@ -144,7 +144,7 @@ In the following steps, you'll use commands to add a static route to the virtual
 
        ```
        
-       This update command will remove the previous manual configuration route in your routing table.
+       This update command removes the previous manual configuration route in your routing table.
        
     1. Verify that the static route is established to a next-hop IP address.
 

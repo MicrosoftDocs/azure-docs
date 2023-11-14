@@ -28,10 +28,10 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - Windows 10 IoT Enterprise
   - Windows Server 2019
   - Windows Server 2016
-  - Windows Server 2012 R2
    
    > [!IMPORTANT]
-   > Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*
@@ -106,9 +106,9 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
-## Windows Insider
+## Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Windows Insider releases](client-features-windows.md#enable-windows-insider-releases).
+If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
 
 ## Next steps
 

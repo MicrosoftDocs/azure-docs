@@ -1,9 +1,6 @@
 ---
 title: 'How to: Provision an Azure Fluid Relay service'
 description: How to provision an Azure Fluid Relay service using the Azure portal
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 01/18/2023
 ms.topic: article
 ms.service: azure-fluid

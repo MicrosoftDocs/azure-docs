@@ -4,6 +4,7 @@ description: Explains how to restore Arc-enabled PostgreSQL server. You can rest
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
+ms.custom: devx-track-azurecli
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray

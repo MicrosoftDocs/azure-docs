@@ -4,7 +4,7 @@ description: How to obtain help and support for questions and problems when you 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: pafarley
@@ -146,7 +146,7 @@ To request new features, post them on https://feedback.azure.com. Share your ide
 Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Azure AI services.
 
 * Learn more about product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services).
-* News about Azure AI services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
+* News about Azure AI services is shared in the [Azure blog](https://azure.microsoft.com/blog/product/azure-ai/).
 * [Join the conversation on Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) about Azure AI services.
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/29/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -230,7 +230,7 @@ If your runbook normally runs within a time constraint, have the script implemen
 Runbooks often make calls to remote systems such as Azure via ARM, Azure Resource Graph, SQL services and other web services.
 When the system that the runbooks are calling is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
 
-For more information, refer [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) and [General REST and retry guidelines](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
+For more information, refer [Retry pattern](/azure/architecture/patterns/retry) and [General REST and retry guidelines](/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
 
 ### Example 1: If your runbook makes only one or two calls
 
@@ -501,6 +501,7 @@ foreach ($item in $output) {
 
 ## Next steps
 
+* For sample queries, see [Sample queries for job logs and job streams](automation-manage-send-joblogs-log-analytics.md#job-streams)
 * To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
 * To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

@@ -24,13 +24,15 @@ For business continuity and recovery from disasters at a regional level, plan on
 
 ## High availability
 
-In Cognitive Search, replicas are copies of your index. A search service is installed with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
+In Cognitive Search, replicas are copies of your index. A search service is commissioned with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
 
 For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria:
 
 + Two replicas for high availability of read-only workloads (queries)
 
 + Three or more replicas for high availability of read-write workloads (queries and indexing) 
+
+The system has internal mechanisms for monitoring replica health and partition integrity. If you provision a specific combination of replicas and partitions, the system ensures that level of capacity for your service.
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 

@@ -1,13 +1,13 @@
 ---
 title: Connect using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Create a managed identity for your search service and use Azure Active Directory authentication and role-based-access controls for connections to other cloud services.
+description: Create a managed identity for your search service and use Microsoft Entra authentication and role-based-access controls for connections to other cloud services.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 12/08/2022
 ---
@@ -20,11 +20,11 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ An Azure resource that accepts incoming requests from an Azure Active Directory login that has a valid role assignment.
++ An Azure resource that accepts incoming requests from a Microsoft Entra login that has a valid role assignment.
 
 ## Supported scenarios
 
-Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user-assigned managed identity is specified through an "identity" property.
+Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of a Microsoft Entra ID-aware service or application. A user-assigned managed identity is specified through an "identity" property.
 
 A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
@@ -215,7 +215,7 @@ Once a managed identity is defined for the search service and given a role assig
 
 [**Blob data source (system):**](search-howto-managed-identities-storage.md)
 
-An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string specifying the unique resource ID of a storage account. Azure AD will authenticate the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
+An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string specifying the unique resource ID of a storage account. Microsoft Entra ID will authenticate the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
 
 ```json
 "credentials": {
@@ -289,5 +289,5 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 + [Security overview](search-security-overview.md)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Indexers overview](search-indexer-overview.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
-+ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
++ [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
++ [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)

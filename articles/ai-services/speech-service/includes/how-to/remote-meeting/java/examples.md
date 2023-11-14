@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/25/2022
 ms.author: eur
@@ -16,7 +16,7 @@ This example code shows how to create meeting transcriber for asynchronous-only 
 // Create the speech config object
 // Substitute real information for "YourSubscriptionKey" and "Region"
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
-speechConfig.setProperty("MeetingTranscriptionInRoomAndOnline", "true");
+speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);

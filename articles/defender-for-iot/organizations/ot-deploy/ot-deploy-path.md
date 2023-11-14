@@ -24,7 +24,7 @@ While teams and job titles differ across different organizations, all Defender f
 
 Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT.
 
-For more information, see [Add an OT plan to your Azure subscription](../getting-started.md).
+For more information, see [Start a Microsoft Defender for IoT trial](../getting-started.md).
 
 ## Planning and preparing
 

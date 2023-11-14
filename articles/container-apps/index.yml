@@ -11,7 +11,7 @@ metadata:
   ms.custom: event-tier1-build-2022, ignite-2022, build-2023
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/08/2021
+  ms.date: 05/24/2023
 landingContent:
   - title: About Azure Container Apps
     linkLists:
@@ -65,6 +65,8 @@ landingContent:
             url: quotas.md
       - linkListType: concept
         links:
+          - text: What's new in Dapr?
+            url: whats-new.md
           - text: Dapr integration
             url: dapr-overview.md
   - title: Apps and microservices

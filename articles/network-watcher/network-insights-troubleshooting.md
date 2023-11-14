@@ -1,58 +1,43 @@
 ---
-title: Azure Monitor Network Insights troubleshooting
-description: Troubleshooting steps for issues that may arise while using Network insights
-ms.topic: conceptual
-ms.service: network-watcher
-ms.custom: ignite-2022, engagement-fy23
+title: Troubleshoot network insights
+titleSuffix: Azure Monitor
+description: Learn how to troubleshoot some of the common issues that you may encounter when using Azure Monitor network insights.
 author: halkazwini
 ms.author: halkazwini
-ms.date: 09/29/2022
+ms.service: network-watcher
+ms.topic: how-to
+ms.date: 09/29/2023
+
+#CustomerIntent: As an Azure administrator, I want learn how to troubleshoot some of the common issues that I may have when using Azure Monitor network insights so that I can resolve those issue.
 ---
 
-# Troubleshooting Network Insights
+# Troubleshoot network insights
 
-For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
+For general troubleshooting guidance, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md).
 
-This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor Network Insights. 
+This article helps you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor network insights. 
 
 ## How do I resolve performance problems or failures?
 
-To learn about troubleshooting any networking-related problems you identify with Azure Monitor Network Insights, see the troubleshooting documentation for the malfunctioning resource. 
+To learn about troubleshooting any networking-related problems you identify using Azure Monitor network insights, see the troubleshooting documentation for the malfunctioning resource.
 
-For more troubleshooting articles about these services, see the other articles in the Troubleshooting section of the table of contents for the service.
-- Application Gateway
-- Azure ExpressRoute
-- Azure Firewall
-- Azure Private Link
-- Connections
-- Load Balancer
-- Local Network Gateway
-- Network Interface
-- Network Security Groups
-- Public IP addresses
-- Route Table / UDR
-- Traffic Manager
-- Virtual Network
-- Virtual Network NAT
-- Virtual WAN
-- ER/VPN Gateway
-- Virtual Hub
-
-## How do I make changes or add visualizations to Azure Monitor Network Insights?
+## How do I make changes or add visualizations to Azure Monitor network insights?
 
 To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
 
 ## What's the time grain after I pin any part of the workbooks?
 
-Azure Monitor Network Insights uses the **Auto** time grain, so the time grain is based on the selected time range.
+Azure Monitor network insights uses the **Auto** time grain, so the time grain is based on the selected time range.
 
 ## What's the time range when any part of a workbook is pinned?
 
 The time range depends on the dashboard settings.
 
-## What if I want to see other data or make my own visualizations? How can I make changes to Azure Monitor Network Insights?
+## What if I want to see other data or make my own visualizations? How can I make changes to Azure Monitor network insights?
 
 You can edit the workbook you see in any side-panel or detailed metric view by using the edit mode. You can then save your changes as a new workbook.
 
-## Next steps
-- Learn more about network monitoring: [What is Azure Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md)
+## Related content
+
+- To learn more about network insights, see [Azure Monitor network insights](network-insights-overview.md).
+- To learn more about Azure Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md)

@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 07/31/2023
+ms.date: 11/07/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -22,6 +22,75 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## October 2023
+### Packet core 2310
+
+**Type:** New release
+
+**Date available:** October 7, 2023
+
+The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
+
+### Optional N2/N3/S1/N6 gateway
+This feature makes the N2, N3 and N6 gateways optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to use AP5GC without gateways if there's direct connectivity available with the RAN and/or DN.
+
+### Improved software download time
+This feature improves overall AP5GC software download time by reducing the size of underlying software packages. The overall size of the software image is reduced by around 40%.
+
+### Per-UE information in Azure portal and API
+This feature allows you to view UE-level information in the Azure portal, including a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
+
+### Per gNB metrics in Azure portal
+This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
+
+### Combined 4G/5G on a single packet core
+This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
+
+
+## September 2023
+### Packet core 2308
+
+**Type:** New release
+
+**Date available:** September 21, 2023
+
+The 2308 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2308 release notes](azure-private-5g-core-release-notes-2308.md).
+
+### 10 DNs
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the number of supported data networks (DNs) increases from three to ten, including with layer 2 traffic separation. If more than 6 DNs are required, a shared switch for access and core traffic is needed.
+
+### Default MTU values 
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the default MTU values are changed as follows:
+- UE MTU: 1440 (was 1300)
+-	Access MTU: 1500 (was 1500)
+-	Data MTU: 1440 (was 1500)
+
+Customers upgrading to 2308 see a change in the MTU values on their packet core.
+
+If the UE MTU is set to any valid value (see API Spec) then the other MTUs will be set to:
+- Access MTU: UE MTU + 60
+- Data MTU: UE MTU
+  
+Rollbacks to Packet Core versions earlier than 2308 aren't possible if the UE MTU field is changed following an upgrade.
+
+### MTU Interop setting
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the MTU Interop setting is deprecated and can't be set for Packet Core versions 2308 and above.
+
 ## July 2023
 ### Packet core 2307
 
@@ -31,6 +100,21 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 The 2307 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2307 release notes](azure-private-5g-core-release-notes-2307.md).
 
+### UE usage tracking
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file container format, which enables you to consume these events via Power BI or Azure Stream Analytics (ASA). If you want to enable this feature for your deployment, contact your support representative.
+
+### Unknown User cause code mapping in 4G deployments
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+In this release, the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 ### 2023-06-01 API
 
 **Type:** New release
@@ -44,7 +128,17 @@ If you use the Azure portal to manage your deployment and all your resources wer
 ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
 ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
  
-Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API can't go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
+### New cloud monitoring option - Azure Monitor Workbooks
+
+**Type:** New feature
+
+**Date available:** July 12, 2023
+
+You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
+
+See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
 
 ## June 2023
 
@@ -61,7 +155,7 @@ The 2306 release for the Azure Private 5G Core packet core is now available. For
 
 **Date available:** July 10, 2023
 
-It is now possible to:
+It's now possible to:
 - attach a new or existing data network
 - modify an attached data network's configuration
   
@@ -106,7 +200,7 @@ For details, see [Create more Packet Core instances for a site using the Azure p
 
 **Date available:** May 1, 2023
 
-It is now possible to add multiple packet cores in the same site using the Azure portal. 
+It's now possible to add multiple packet cores in the same site using the Azure portal. 
 
 For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
 
@@ -219,7 +313,7 @@ It's now possible to secure access to a site’s local monitoring tools with a c
 This feature has the following limitations:
 
 - Certificate deletion requires a pod restart to be reflected at the edge.
-- User-assigned managed identities are not currently supported for certificate provisioning.
+- User-assigned managed identities aren't currently supported for certificate provisioning.
 - Actions on key vaults and certificates not involving a modification on the **Packet Core Control Plane** object can take up to an hour to be reflected at the edge.
 
 You can add a custom certificate to secure access to your local monitoring tools during [site creation](collect-required-information-for-a-site.md#collect-local-monitoring-values). For existing sites, you can add a custom HTTPS certificate by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
@@ -238,7 +332,7 @@ If you use the Azure portal to manage your deployment and all your resources wer
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used an API version older than 2022-04-01-preview to create any of your resources, you need to take action to prevent them from becoming unmanageable. As soon as possible, delete these resources and redeploy them using the new 2022-11-01 API. You can redeploy the resources using the Azure portal or by upgrading your ARM templates as described in [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api). These instructions may not be comprehensive for older templates.
+If you used an API version older than 2022-04-01-preview to create any of your resources, you need to take action to prevent them from becoming unmanageable. As soon as possible, delete these resources and redeploy them using the new 2022-11-01 API. You can redeploy the resources using the Azure portal or by upgrading your ARM templates as described in [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api). These instructions might not be comprehensive for older templates.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 

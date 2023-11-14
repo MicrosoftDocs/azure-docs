@@ -3,9 +3,9 @@ title: Get storage account configuration information
 titleSuffix: Azure Storage
 description: Use the Azure portal, PowerShell, or Azure CLI to retrieve storage account configuration properties, including the Azure Resource Manager resource ID, account location, account type, or replication SKU.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.author: tamram
+ms.author: akashdubey
 ms.date: 12/12/2022
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -140,7 +140,7 @@ You can use a connection string to authorize access to Azure Storage with the ac
 > [!IMPORTANT]
 > Your storage account access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others. Rotate your keys if you believe they may have been compromised.
 >
-> Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests against blob and queue data if possible, rather than using the account keys (Shared Key authorization). Authorization with Azure AD provides superior security and ease of use over Shared Key authorization. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+> Microsoft recommends using Microsoft Entra ID to authorize requests against blob and queue data if possible, rather than using the account keys (Shared Key authorization). Authorization with Microsoft Entra ID provides superior security and ease of use over Shared Key authorization. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 # [Portal](#tab/portal)
 

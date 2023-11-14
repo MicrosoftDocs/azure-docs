@@ -7,6 +7,8 @@ ms.topic: article
 ms.date: 04/20/2023
 ms.reviewer: yutlin
 ms.custom: seodec18, devx-track-azurepowershell
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Secure a custom DNS name with a TLS/SSL binding in Azure App Service
 
@@ -43,7 +45,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 1. In **TLS/SSL type**, choose between **SNI SSL** and **IP based SSL**.
 
     - **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**: Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
-    - - **IP based SSL**: Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [2. Remap records for IP based SSL](#2-remap-records-for-ip-based-ssl).<br/>IP SSL is supported only in **Standard** tier or higher.
+    - - **IP based SSL**: Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [2. Remap records for IP based SSL](#2-remap-records-for-ip-based-ssl).<br/>IP SSL is supported only in **Basic** tier or higher.
 
 1. When adding a new certificate, validate the new certificate by selecting **Validate**.
 

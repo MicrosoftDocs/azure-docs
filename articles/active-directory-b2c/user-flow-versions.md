@@ -54,7 +54,7 @@ Standard user flows (previously referred to as V1) user flows, previously known 
 
 To switch from a legacy version of a user flow to the **Recommended** version, follow these steps:
 
-1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure Active Directory](tutorial-create-user-flows.md). While creating the user flow, select the **Recommended** version.
+1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure AD B2C](tutorial-create-user-flows.md). While creating the user flow, select the **Recommended** version.
 
 3. Configure your new user flow with the same settings that were configured in the legacy policy.
 

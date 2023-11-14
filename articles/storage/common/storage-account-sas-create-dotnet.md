@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 09/21/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
@@ -16,6 +16,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create an account SAS with .NET
+
+[!INCLUDE [storage-dev-guide-selector-account-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-account-sas.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 

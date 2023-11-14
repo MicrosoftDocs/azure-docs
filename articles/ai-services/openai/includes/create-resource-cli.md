@@ -1,107 +1,121 @@
 ---
-title: 'How to use the Azure CLI to create an Azure OpenAI Service resource and manage deployments'
+title: 'Create and manage Azure OpenAI Service deployments with the Azure CLI'
 titleSuffix: Azure OpenAI
-description: Step by step guide for using the Azure CLI to deploy an Azure OpenAI Resource and manage deployments
+description: Learn how to use the Azure CLI to create an Azure OpenAI resource and manage deployments with the Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 6/30/2022
+ms.date: 08/25/2023
 keywords:
 ---
 
 ## Prerequisites
 
-- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
+- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to Azure OpenAI in the desired Azure subscription.
+- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
+- The Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- Azure CLI. [Installation guide](/cli/azure/install-azure-cli)
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repository to contact Microsoft.
 
-## Sign in to the CLI
+## Sign in to the Azure CLI
 
-run the az login command to log in, `az login`
+[Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI or select **Open Cloudshell** in the following steps.
 
-## Create a new Azure Resource Group
-You must have an Azure resource group in order to create an OpenAI resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group. You can create a new resource group in the Azure CLI using the `az group create` command. The example below creates a new resource group in the eastus location. you can find the full [reference documentation here](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create).
+## Create an Azure resource group
 
-```azurecli
+To create an Azure OpenAI resource, you need an Azure resource group. When you create a new resource through the Azure CLI, you can also create a new resource group or instruct Azure to use an existing group. The following example shows how to create a new resource group named _OAIResourceGroup_ with the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) command. The resource group is created in the East US location. 
+
+```azurecli-interactive
 az group create \
 --name OAIResourceGroup \
 --location eastus
 ```
 
 ## Create a resource
-Run the following command to create an OpenAI resource in the new resource group. In this example, we create a resource called MyOpenAIResource in the resource group called OAIResourceGroup. Make sure to update with your own values for the resource group, resource name and your Azure Subscription ID. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create).
+
+Use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create) command to create an Azure OpenAI resource in the resource group. In the following example, you create a resource named _MyOpenAIResource_ in the _OAIResourceGroup_ resource group. When you try the example, update the code to use your desired values for the resource group and resource name, along with your Azure subscription ID _\<subscriptionID>_.
 
 ```azurecli
 az cognitiveservices account create \
--n MyOpenAIResource \
--g OAIResourceGroup \
--l eastus \
+--name MyOpenAIResource \
+--resource-group OAIResourceGroup \
+--location eastus \
 --kind OpenAI \
 --sku s0 \
---subscription 00000000-0000-0000-0000-000000000000
+--subscription <subscriptionID>
 ```
 
-## Retrieve information from your resource
-Once your resource has been created, you can use the Azure CLI to find useful information about your service such as your REST API endpoint base URL and the access keys. Below are examples on how to do both. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true).
+## Retrieve information about the resource
 
-1.	**Retrieve your endpoint**: 
+After you create the resource, you can use different commands to find useful information about your Azure OpenAI Service instance. The following examples demonstrate how to retrieve the REST API endpoint base URL and the access keys for the new resource.
 
-    ```azurecli
-    az cognitiveservices account show \
-    -n $myResourceName \
-    -g $myResourceGroupName \
-    | jq -r .properties.endpoint
-    ```
-1.	**Retrieve your primary API key**:
-    ```azurecli
-    az cognitiveservices account keys list \
-    -n $myResourceName \
-    -g $myResourceGroupName 
-    | jq -r .key1
-    ```
+### Get the endpoint URL
+
+Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-show) command to retrieve the REST API endpoint base URL for the resource. In this example, we direct the command output through the [jq](https://jqlang.github.io/jq/) JSON processor to locate the `.properties.endpoint` value.
+
+When you try the example, update the code to use your values for the resource group _\<myResourceGroupName>_ and resource _\<myResourceName>_.
+
+```azurecli
+az cognitiveservices account show \
+--name <myResourceName> \
+--resource-group  <myResourceGroupName> \
+| jq -r .properties.endpoint
+```
+
+### Get the primary API key
+
+To retrieve the access keys for the resource, use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-keys-list) command. In this example, we direct the command output through the [jq](https://jqlang.github.io/jq/) JSON processor to locate the `.key1` value.
+
+When you try the example, update the code to use your values for the resource group and resource.
+
+```azurecli
+az cognitiveservices account keys list \
+--name <myResourceName> \
+--resource-group  <myResourceGroupName> \
+| jq -r .key1
+```
 
 ## Deploy a model
 
-To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You don't need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true).
-
+To deploy a model, use the [az cognitiveservices account deployment create](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-create) command. In the following example, you deploy an instance of the `text-embedding-ada-002` model and give it the name _MyModel_. When you try the example, update the code to use your values for the resource group and resource. You don't need to change the `model-version`, `model-format` or `sku-capacity`, and `sku-name` values. 
 
 ```azurecli
 az cognitiveservices account deployment create \
-   -g $myResourceGroupName \
-   -n $myResourceName \
-   --deployment-name MyModel \
-   --model-name text-curie-001 \
-   --model-version "1"  \
-   --model-format OpenAI \
-   --scale-settings-scale-type "Standard"
+--name <myResourceName> \
+--resource-group  <myResourceGroupName> \
+--deployment-name MyModel \
+--model-name text-embedding-ada-002 \
+--model-version "1"  \
+--model-format OpenAI \
+--sku-capacity "1" \
+--sku-name "Standard"
 ```
 
 ## Delete a model from your resource
 
-You can delete any model you've deployed from your resource. To do so, you can use the Azure CLI to run the following command. In this example, we delete a model called MyModel. Make sure to update with your own values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete).
+You can delete any model deployed from your resource with the [az cognitiveservices account deployment delete](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete) command. In the following example, you delete a model named _MyModel_. When you try the example, update the code to use your values for the resource group, resource, and deployed model. 
 
 ```azurecli
 az cognitiveservices account deployment delete \
-  -g $myResourceGroupName \
-  -n $myResourceName \
-  --deployment-name MyModel
+--name <myResourceName> \
+--resource-group  <myResourceGroupName> \
+--deployment-name MyModel
 ```
 
 ## Delete a resource
-If you want to clean up and remove your OpenAI resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
 
-To remove the resource group and its associated resources, use the `az group delete` command.
+If you want to clean up after these exercises, you can remove your Azure OpenAI resource by deleting the resource through the Azure CLI. You can also delete the resource group. If you choose to delete the resource group, all resources contained in the group are also deleted.
 
-If you're not going to continue to use this application, delete your resource  with the following steps:
+To remove the resource group and its associated resources, use the [az cognitiveservices account delete](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-delete) command.
+
+If you're not going to continue to use the resources created in these exercises, run the following command to delete your resource group. Be sure to update the example code to use your values for the resource group and resource.
 
 ```azurecli
 az cognitiveservices account delete \
---name MyOpenAIResource  \
--g OAIResourceGroup
+--name <myResourceName> \
+--resource-group  <myResourceGroupName>
 ```
-

@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
 ms.custom: event-tier1-build-2022
-ms.date: 07/26/2022 
+ms.date: 07/26/2022
 ---
 
 # Backup and restore in Azure Database for MySQL - Flexible Server
@@ -84,7 +84,7 @@ The Backup and Restore blade in the Azure portal provides a complete list of the
 In Azure Database for MySQL, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
-- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to the geo-paired region. Geo-restore to other regions is not supported currently. 
+- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other azure supported region where flexible server is available. Currently, Geo-restore is not supported for regions like  `Brazil South`, `USGov Virginia` and `West US 3`.
 
 The estimated time for the recovery of the server depends on several factors: 
 
@@ -129,19 +129,16 @@ The estimated time of recovery depends on several factors including the database
 
 ## Geo-restore
 
-You can restore a server to it's [geo-paired region](overview.md#azure-regions) where the service is available if you have configured your server for geo-redundant backups. Geo-restore to other regions is not supported currently. 
+You can restore a server to it's [geo-paired region](overview.md#azure-regions) where the service is available if you have configured your server for geo-redundant backups or any other azure supported region where flexible server is available. Ability to restore to any non-paired Azure supported region (except `Brazil South`, `USGov Virginia` and `West US 3)` is known as "Universal Geo-restore"
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. 
-
-During geo-restore, the server configurations that can be changed include only security configuration (firewall rules and virtual network settings). Changing other server configurations such as compute, storage or pricing tier (Basic, General Purpose, or Business Critical) during geo-restore is not supported. 
 
 Geo-restore can also be performed on a stopped server leveraging Azure CLI. Read [Restore Azure Database for MySQL - Azure Database for MySQL - Flexible Server with Azure CLI](how-to-restore-server-cli.md) to learn more about geo-restoring a server with Azure CLI.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. 
 
 > [!NOTE]
-> If you are geo-restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the geo-paired region and the same zone as your primary server, and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
-
+> If you are geo-restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the geo-paired region and the same zone as your primary server and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 > [!IMPORTANT]
 > When primary region is down, one cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
 > With the primary region down one can still geo-restore the source server to the geo-paired region by disabling the geo-redundancy option in the Compute + Storage Configure Server settings in the restore portal experience and restore as a locally redundant server to ensure business continuity.  
@@ -161,45 +158,34 @@ After a restore from either **latest restore point** or **custom restore point**
 
 - **How do I backup my server?**
 By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7-day retention period. You can also trigger a manual backup using On-Demand backup feature. The other way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
-
 - **Can I configure automatic backups to be retained for long term?**
 No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
-
 - **What are the backup windows for my server? Can I customize it?**
 The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes. Backup windows are inherently managed by Azure and cannot be customized.
-
 - **Are my backups encrypted?**
 All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled.
-
 - **Can I restore a single/few database(s)?**
 Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then extract the table(s) or database(s) needed.
-
 - **Is my server available during the backup window?**
 Yes. Backups are online operations and are snapshot-based. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server.
-
 - **When setting up the maintenance window for the server do we need to account for backup window?**
 No, backups are triggered internally as part of the managed service and have no bearing to the Managed Maintenance Window.
-
 - **Where are my automated backups stored and how do I manage their retention?**
 Azure Database for MySQL automatically creates server backups and stores them in user-configured, locally redundant storage or in geo-redundant storage. These backup files can't be exported. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
-
 - **How can I validate my backups?**
 The best way to validate availability of successfully completed backups is to view the full-automated backups taken within the retention period in the Backup and Restore blade. If a backup fails it will not be listed in the available backups list and our backup service will try every 20 mins to take a backup until a successful backup is taken. These backup failures are due to heavy transactional production loads on the server.
-
 - **Where can I see the backup usage?**
 In the Azure portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](./concepts-monitoring.md) metric which can help you monitor the total backup usage.
-
 - **What happens to my backups if I delete my server?**
 If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
-
 - **How will I be charged and billed for my use of backups?**
 Azure Database for MySQL - Flexible Server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/server/). Backup storage billing is also governed by the backup retention period selected and backup redundancy option chosen apart from the transactional activity on the server which impacts the total backup storage used directly.
-
 - **How are backups retained for stopped servers?**
 No new backups are performed for stopped servers. All older backups (within the retention window) at the time of stopping the server are retained until the server is restarted post which backup retention for the active server is governed by it’s backup retention window.
-
 - **How will I be billed for backups for a stopped server?**
 While your server instance is stopped, you are charged for provisioned storage (including Provisioned IOPS) and backup storage (backups stored within your specified retention window). Free backup storage is limited to the size of your provisioned database and only applies to active servers.
+- **How is my backup data protected?**
+Azure database for MySQL Flexible server protects your backup data by blocking any operations that could lead to loss of recovery points for the duration of configured   retention period. Backup's taken during the retention period can only be read for the purpose of restoration and is deleted post retention period. Additionally, all backups in Azure Database for MySQL Flexible server is encrypted using AES 256-bit encryption for the data stored at rest.
 
 ### Restore related questions
 
@@ -222,3 +208,8 @@ The estimated time for the recovery of the server depends on several factors:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
+
+
+
+

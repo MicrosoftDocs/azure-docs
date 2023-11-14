@@ -2,10 +2,10 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
-ms.date: 04/16/2023
+ms.date: 09/08/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Blob storage trigger for Azure Functions
@@ -17,6 +17,9 @@ The Blob storage trigger starts a function when a new or updated blob is detecte
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"  
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -30,8 +33,6 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models. 
 
-> [!IMPORTANT]   
-> The Python v2 programming model is currently in preview.  
 ::: zone-end   
 
 ## Example
@@ -40,7 +41,13 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -55,12 +62,6 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
 
 For more information about the `BlobTrigger` attribute, see [Attributes](#attributes).
-
-# [Isolated process](#tab/isolated-process)
-
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
 
 ---
 
@@ -84,7 +85,34 @@ public void run(
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a blob trigger [TypeScript code](functions-reference-node.md). The function writes a log when a blob is added or updated in the `samples-workitems` container.
+
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTrigger1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a blob trigger [JavaScript code](functions-reference-node.md). The function writes a log when a blob is added or updated in the `samples-workitems` container.
+
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTrigger1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -116,6 +144,8 @@ module.exports = async function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -221,8 +251,15 @@ The attribute's constructor takes the following parameters:
 |**BlobPath** | The path to the blob.|
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 |**Access** | Indicates whether you will be reading or writing.|
+|**Source** | Sets the source of the triggering event. Use `BlobTriggerSource.EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `BlobTriggerSource.LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Here's an `BlobTrigger` attribute in a method signature:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#blob-name-patterns). Here's an example:
 
@@ -237,12 +274,6 @@ public static void Run(
 ```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-Here's an `BlobTrigger` attribute in a method signature:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
 
 ---
 
@@ -261,15 +292,16 @@ For Python v2 functions defined using decorators, the following properties on th
 |`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`path`  | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |`connection` | The storage account connection string. |
+|`source` | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details. Use the `source` property to set the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -277,7 +309,35 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.storageBlob()` method.
+
+| Property | Description |
+|---------|----------------------|
+|**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**source** | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** | Must be set to `blobTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|**name** |  The name of the variable that represents the blob in function code. |
+|**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**source** | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property |Description|
@@ -287,6 +347,7 @@ The following table explains the binding configuration properties that you set i
 |**name** |  The name of the variable that represents the blob in function code. |
 |**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**source** | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 
 ::: zone-end  
 
@@ -313,9 +374,8 @@ public static void Run(string myBlob, string blobTrigger, ILogger log)
 } 
 ```
 ::: zone-end
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ## Metadata
-
 
 The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. 
 
@@ -326,6 +386,16 @@ The blob trigger provides several metadata properties. These properties can be u
 |`properties` |The blob's system properties. |
 |`metadata`   |The user-defined metadata for the blob.|
 
+# [Model v4](#tab/nodejs-v4)
+
+Metadata can be obtained from the `triggerMetadata` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
+
+```javascript
+context.log(`Full blob path: ${context.triggerMetadata.blobTrigger}`);
+```
+
+# [Model v3](#tab/nodejs-v3)
+
 Metadata can be obtained from the `bindingData` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
 
 ```javascript
@@ -333,6 +403,8 @@ module.exports = async function (context, myBlob) {
     context.log("Full blob path:", context.bindingData.blobTrigger);
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -347,13 +419,13 @@ Metadata is available through the `$TriggerMetadata` parameter.
 
 The binding types supported by Blob trigger depend on the extension package version and the C# modality used in your function app.
 
-# [In-process](#tab/in-process)
-
-See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 [!INCLUDE [functions-bindings-storage-blob-trigger-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-trigger-dotnet-isolated-types.md)]
+
+# [In-process model](#tab/in-process)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
 
 ---
 
@@ -367,8 +439,16 @@ If you get an error message when trying to bind to one of the Storage SDK types,
 ::: zone pivot="programming-language-java"
 The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+# [Model v4](#tab/nodejs-v4)
+
+Access the blob data as the first argument to your function.
+
+# [Model v3](#tab/nodejs-v3)
+
 Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.

@@ -86,12 +86,24 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 |--|--|--|
 |E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure the load balancer in your cluster or consider setting `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
 |E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you have fewer than three nodes. |
-|E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, only AKS support the internal load balancer. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster.|
+|E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, only AKS support the internal load balancer, and we only support the `azure` type. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster. |
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
 |E45002 | PROMETHEUS_CONFLICT | The Prometheus Operator installed is conflict with your existing Prometheus Operator. For more information, see [Prometheus operator](#prometheus-operator) |
 |E45003 | BAD_NETWORK_CONNECTIVITY | You need to meet [network-requirements](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).|
 |E45004 | AZUREML_FE_ROLE_CONFLICT |Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
-|E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
+|E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to run the command below this form to delete the legacy azureml-fe components, more detail you can referto [here](v1/how-to-create-attach-kubernetes.md#update-the-cluster).|
+
+Commands to delete the legacy azureml-fe components in the AKS cluster:
+```shell
+kubectl delete sa azureml-fe
+kubectl delete clusterrole azureml-fe-role
+kubectl delete clusterrolebinding azureml-fe-binding
+kubectl delete svc azureml-fe
+kubectl delete svc azureml-fe-int-http
+kubectl delete deploy azureml-fe
+kubectl delete secret azuremlfessl
+kubectl delete cm azuremlfeconfig
+```
 
 ## Open source components integration
 
@@ -286,7 +298,20 @@ To update the extension with a custom controller class:
 ```
 az ml extension update --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
 ```
+#### Nginx ingress controller installed with the Azure Machine Learning extension crashes due to out-of-memory (OOM) errors
 
+**Symptom**
 
+ The nginx ingress controller installed with the Azure Machine Learning extension crashes due to out-of-memory (OOM) errors even when there is no workload. The controller logs do not show any useful information to diagnose the problem.
 
+**Possible Cause**
 
+This issue may occur if the nginx ingress controller runs on a node with many CPUs. By default, the nginx ingress controller spawns worker processes according to the number of CPUs, which may consume more resources and cause OOM errors on nodes with more CPUs. This is a known [issue](https://github.com/kubernetes/ingress-nginx/issues/8166) reported on GitHub
+
+**Resolution**
+
+To resolve this issue, you can:
+*  Adjust the number of worker processes by installing the extension with the parameter `nginxIngress.controllerConfig.worker-processes=8`.
+*  Increase the memory limit by using the parameter `nginxIngress.resources.controller.limits.memory=<new limit>`. 
+
+Ensure to adjust these two parameters according to your specific node specifications and workload requirements to optimize your workloads effectively.

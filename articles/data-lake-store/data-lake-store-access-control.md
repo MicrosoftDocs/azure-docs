@@ -86,7 +86,7 @@ Every file and folder has distinct permissions for these identities:
 * Named groups
 * All other users
 
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
+The identities of users and groups are Microsoft Entra identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean a Microsoft Entra user or a Microsoft Entra security group.
 
 ### The super-user
 
@@ -264,15 +264,15 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### When I look at ACLs in the Azure portal I see user names but through APIs, I see GUIDs, why is that?
 
-Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. The APIs return the GUIDs as is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
+Entries in the ACLs are stored as GUIDs that correspond to users in Microsoft Entra ID. The APIs return the GUIDs as is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
 
 ### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
-A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Also, ensure that you're using the right ID for setting ACLs (details in question below).
+A GUID is shown when the user doesn't exist in Microsoft Entra anymore. Usually this happens when the user has left the company or if their account has been deleted in Microsoft Entra ID. Also, ensure that you're using the right ID for setting ACLs (details in question below).
 
 ### When using service principal, what ID should I use to set ACLs?
 
-On the Azure Portal, go to **Azure Active Directory -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
+On the Azure Portal, go to **Microsoft Entra ID -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 

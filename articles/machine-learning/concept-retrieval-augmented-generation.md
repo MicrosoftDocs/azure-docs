@@ -68,7 +68,7 @@ To implement RAG, a few key requirements must be met. First, data should be form
 
 ## Conclusion
 
-Azure Machine Learning allows you to incorporate RAG in your AI using the Azure AI Studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with open source offerings like LangChain. 
+Azure Machine Learning allows you to incorporate RAG in your AI using the Azure Machine Learning Studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with open source offerings like LangChain. 
 
 ## Next steps
 

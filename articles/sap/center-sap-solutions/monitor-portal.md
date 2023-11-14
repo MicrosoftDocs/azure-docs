@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to set up monitoring for my Virtual Instance for SAP solutions, so that I can monitor the health and status of my SAP system in Azure Center for SAP solutions.
 ---
 
@@ -173,7 +173,7 @@ You can also set up or register Azure Monitor for SAP solutions to monitor SAP p
 
 1. In the sidebar menu for the VIS, under **Monitoring**, select **Azure Monitor for SAP solutions**.
 
-1. Select whether you want to [create a new Azure Monitor for SAP solutions instance](#create-new-Azure Monitor for SAP solutions-resource), or [register an existing Azure Monitor for SAP solutions instance](#register-existing-Azure Monitor for SAP solutions-resource). If you don't see this option, you've already configured this setting.
+1. Select whether you want to [create a new Azure Monitor for SAP solutions instance](#create-new-azure-monitor-for-sap-solutions-resource), or [register an existing Azure Monitor for SAP solutions instance](#register-existing-azure-monitor-for-sap-solutions-resource). If you don't see this option, you've already configured this setting.
 
     :::image type="content" source="media/monitor-portal/monitoring-setup.png" lightbox="media/monitor-portal/monitoring-setup.png" alt-text="Screenshot of Azure Monitor for SAP solutions page inside a VIS resource in the Azure portal, showing the option to create or register a new instance.":::
 

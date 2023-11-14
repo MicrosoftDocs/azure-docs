@@ -1,8 +1,8 @@
 ---
 title: "How to query for predictions using a browser - LUIS"
 description: In this article, use an available public LUIS app to determine a user's intention from conversational text in a browser.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme

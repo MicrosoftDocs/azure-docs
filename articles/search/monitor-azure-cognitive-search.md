@@ -52,7 +52,7 @@ For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman
 
 In Azure Cognitive Search, [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) reflect control plane activity, such as service creation and configuration, or API key usage or management. 
 
-Activity logs are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
+Activity logs are collected [free of charge](../azure-monitor/cost-usage.md#pricing-model), with no configuration required. Data retention is 90 days, but you can configure durable storage for longer retention.
 
 1. In the Azure portal, find your search service. From the menu on the left, select **Activity logs** to view the logs for your search service. See [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md) for general guidance on working with activity logs.
 
@@ -68,7 +68,7 @@ The following screenshot shows the activity log signals that can be configured i
 
 In Azure Cognitive Search, [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) measure query performance, indexing volume, and skillset invocation.
 
-Metrics are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of platform metrics data on any single chart.
+Metrics are collected [free of charge](../azure-monitor/cost-usage.md#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of platform metrics data on any single chart.
 
 In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Metrics** to open metrics explorer.
 
@@ -84,7 +84,7 @@ The following links provide more information about working with platform metrics
 
 ## Set up alerts
 
-Alerts help you to identify and address issues before they become a problem for application users. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [resource logs](../azure-monitor/alerts/alerts-unified-log.md), and [activity logs](../azure-monitor/alerts/activity-log-alerts.md). Alerts are billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details).
+Alerts help you to identify and address issues before they become a problem for application users. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [resource logs](../azure-monitor/alerts/alerts-unified-log.md), and [activity logs](../azure-monitor/alerts/activity-log-alerts.md). Alerts are billable (see the [Pricing model](../azure-monitor/cost-usage.md#pricing-model) for details).
 
 1. In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Alerts** to open metrics explorer.
 
@@ -107,7 +107,7 @@ In Azure Cognitive Search, [**resource logs**](../azure-monitor/essentials/resou
 
 Resource Logs aren't collected and stored until you create a diagnostic setting. A diagnostic setting specifies data collection and storage. You can create multiple settings if you want to keep metrics and log data separate, or if you want more than one of each type of destination.
 
-Resource logging is billable (see the [Pricing model](../azure-monitor/usage-estimated-costs.md#pricing-model) for details), starting when you create a diagnostic setting. See [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for general guidance.
+Resource logging is billable (see the [Pricing model](../azure-monitor/cost-usage.md#pricing-model) for details), starting when you create a diagnostic setting. See [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for general guidance.
 
 1. In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Diagnostic settings**.
 
@@ -115,7 +115,7 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 
 1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one setting.
 
-1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
+1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "audit", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
    + See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
@@ -128,6 +128,8 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 1. Optionally, select [other destinations](../azure-monitor/essentials/diagnostic-settings.md#destinations).
 
 1. Select **Save**.
+
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
 
 Once the workspace contains data, you can run log queries:
 

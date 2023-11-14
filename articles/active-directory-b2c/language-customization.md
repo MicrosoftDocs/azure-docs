@@ -423,8 +423,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 ### Upload the custom policy
 
 1. Save the extensions file.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
@@ -472,7 +471,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD B2C includes support for the following languages by using ISO 639-1 codes. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C includes support for the following languages by using ISO 639-1 codes. User flow languages are provided by Azure AD B2C. The multifactor authentication notification languages are provided by [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

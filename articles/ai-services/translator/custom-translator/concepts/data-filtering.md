@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: conceptual

@@ -26,13 +26,13 @@ There's no perfect solution for every use case and every team. The following exp
 ## Container option comparisons
 
 ### Azure Container Apps
-Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
+Azure Container Apps enables you to build serverless microservices and jobs based on containers. Distinctive features of Container Apps include:
 
 * Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
 * Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
 * Supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md).
 * Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md).
-* Support of long running processes and can run [background tasks](background-processing.md).
+* Supports running on demand, scheduled, and event-driven [jobs](jobs.md).
 
 Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](../aks/intro-kubernetes.md). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
 

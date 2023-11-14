@@ -5,8 +5,7 @@ description: Learn about how to label your data for use with the custom text cla
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/10/2022
 ms.author: aahi

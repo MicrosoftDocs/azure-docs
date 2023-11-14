@@ -3,7 +3,7 @@ author: baanders
 description: prerequisites for Azure Digital Twins tutorials
 ms.service: digital-twins
 ms.topic: include
-ms.date: 9/26/2022
+ms.date: 9/12/2023
 ms.author: baanders
 ---
 
@@ -11,7 +11,7 @@ ms.author: baanders
 
 Before beginning this tutorial, start with these prerequisites:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* This tutorial uses .NET Core 3.1. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* This tutorial uses .NET. You can download the latest version of the .NET SDK for multiple platforms from [Download .NET](https://dotnet.microsoft.com/download).
 
 Then, continue through the rest of this section to set up the remaining prerequisites.
 

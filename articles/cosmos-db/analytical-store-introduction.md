@@ -336,7 +336,10 @@ Here's a map of MongoDB data types and their representations in the analytical s
 
 * Expect different behavior in regard to `timestamp` values:
   * Spark pools in Azure Synapse will read these values as `TimestampType`, `DateType`, or `Float`. It depends on the range and how the timestamp was generated.
-  * SQL Serverless pools in Azure Synapse will read these values as `DATETIME2`. Data will be truncated if the timestamp is beyond the DATETIME2 range in Synapse SQL Serverless supported data types. That's because MongoDB range is bigger than SQL range.
+  * SQL Serverless pools in Azure Synapse will read these values as `DATETIME2`, ranging from `0001-01-01` through `9999-12-31`. Values beyond this range are not supported and will cause an execution failure for your queries. If this is your case, you can:
+    *  Remove the column from the query. To keep the representation, you can create a new property mirroring that column but within the supported range. And use it in your queries.
+    *  Use [Change Data Capture from analytical store](analytical-store-change-data-capture.md), at no RUs cost, to transform and load the data into a new format, within one of the supported sinks. 
+   
 
 ##### Using full fidelity schema with Spark
 

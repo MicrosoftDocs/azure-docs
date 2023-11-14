@@ -100,6 +100,15 @@ The response to this request looks like the following example:
 }
 ```
 
+The following table shows how the status value for a device in the UI maps to the values used by the REST API to interact with devices:
+
+| UI Device status | Notes | REST API Get |
+| ---------------- | ----- | ------------ |
+| Waiting for approval | The auto-approve option is disabled in the device connection group and the device was not added through the UI. <br/> A user must manually approve the device through the UI before it can be used. | `Provisioned: false` <br/> `Enabled: false` |
+| Registered | A device has been approved either automatically or manually. | `Provisioned: false` <br/> `Enabled: true` |
+| Provisioned | The device has been provisioned and can connect to your IoT Central application. | `Provisioned: true` <br/> `Enabled: true` |
+| Blocked | The device is not allowed to connect to your IoT Central application. You can block a device that is in any of the other states. | `Provisioned:` depends on `Waiting for approval`/`Registered`/`Provisioned status` <br/> `Enabled: false` |
+
 ### Get device credentials
 
 Use the following request to retrieve credentials of a device from your application:

@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the C# REST SDK
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -62,19 +62,21 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps].
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Microsoft Entra ID.  For more information on authentication, see [Authentication with Azure Maps].
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
 
 ```powershell
 dotnet add package Azure.Identity 
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -369,13 +371,13 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure.Maps Namespace]: /dotnet/api/azure.maps
-[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
+[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme#defaultazurecredential
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+[Identity library .NET]: /dotnet/api/overview/azure/identity-readme
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples

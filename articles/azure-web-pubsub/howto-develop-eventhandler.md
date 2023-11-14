@@ -4,17 +4,17 @@ description: Guidance about event handler concepts and integration introduction 
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 01/27/2023
 ---
 
 # Event handler in Azure Web PubSub service
 
-The event handler handles the incoming client events. Event handlers are registered and configured in the service through the Azure portal or Azure CLI.  When a client event is triggered, the service can send the event to the appropriate event handler. The Web PubSub service now supports the event handler as the server-side, which exposes the publicly accessible endpoint for the service to invoke when the event is triggered. In other words, it acts as a **webhook**. 
+The event handler handles the incoming client events. Event handlers are registered and configured in the service through the Azure portal or Azure CLI. When a client event is triggered, the service can send the event to the appropriate event handler. The Web PubSub service now supports the event handler as the server-side, which exposes the publicly accessible endpoint for the service to invoke when the event is triggered. In other words, it acts as a **webhook**.
 
 The Web PubSub service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
-For every event, the service formulates an HTTP POST request to the registered upstream endpoint and expects an HTTP response. 
+For every event, the service formulates an HTTP POST request to the registered upstream endpoint and expects an HTTP response.
 
 The data sending from the service to the server is always in CloudEvents `binary` format.
 
@@ -35,8 +35,8 @@ For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/
 You can use any of these methods to authenticate between the service and webhook.
 
 - Anonymous mode
-- Simple Auth with `?code=<code>` is provided through the configured Webhook URL as query parameter.
-- Azure Active Directory(Azure AD) authentication.  For more information, see [Use a managed identity in client events](howto-use-managed-identity.md#use-a-managed-identity-in-client-events-scenarios).
+- Simple authentication with `?code=<code>` is provided through the configured Webhook URL as query parameter.
+- Microsoft Entra authorization. For more information, see [Use a managed identity in client events](howto-use-managed-identity.md#use-a-managed-identity-in-client-events-scenarios).
 
 ## Configure event handler
 
@@ -46,21 +46,16 @@ You can add an event handler to a new hub or edit an existing hub.
 
 To configure an event handler in a new hub:
 
-1. Go to your Azure Web PubSub service page in the **Azure portal**. 
-1. Select **Settings** from the menu. 
+1. Go to your Azure Web PubSub service page in the **Azure portal**.
+1. Select **Settings** from the menu.
 1. Select **Add** to create a hub and configure your server-side webhook URL. Note: To add an event handler to an existing hub, select the hub and select **Edit**.
 
    :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
 1. Enter your hub name.
 1. Select **Add** under **Configure Even Handlers**.
-1. In the event handler page, configure the following fields:
-    1. Enter the server webhook URL in the **URL Template** field.
-    1. Select the **System events** that you want to subscribe to.
-    1. Select the **User events** that you want to subscribe to.
-    1. Select **Authentication** method to authenticate upstream requests. 
-    1. Select **Confirm**.
-:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler.":::
+1. In the event handler page, configure the following fields: 1. Enter the server webhook URL in the **URL Template** field. 1. Select the **System events** that you want to subscribe to. 1. Select the **User events** that you want to subscribe to. 1. Select **Authentication** method to authenticate upstream requests. 1. Select **Confirm**.
+   :::image type="content" source="media/howto-develop-eventhandler/configure-event-handler.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler.":::
 
 1. Select **Save** at the top of the **Configure Hub Settings** page.
 
@@ -70,13 +65,13 @@ To configure an event handler in a new hub:
 
 Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub/hub) group commands to configure the event handler settings.
 
-Commands | Description
---|--
-`create` | Create hub settings for WebPubSub Service.
-`delete` | Delete hub settings for WebPubSub Service.
-`list`   | List all hub settings for WebPubSub Service.
-`show`   | Show hub settings for WebPubSub Service.
-`update` | Update hub settings for WebPubSub Service.
+| Commands | Description                                  |
+| -------- | -------------------------------------------- |
+| `create` | Create hub settings for WebPubSub Service.   |
+| `delete` | Delete hub settings for WebPubSub Service.   |
+| `list`   | List all hub settings for WebPubSub Service. |
+| `show`   | Show hub settings for WebPubSub Service.     |
+| `update` | Update hub settings for WebPubSub Service.   |
 
 Here's an example of creating two webhook URLs for hub `MyHub` of `MyWebPubSub` resource:
 

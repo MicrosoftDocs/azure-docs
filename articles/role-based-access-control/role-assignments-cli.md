@@ -32,7 +32,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 
 **User**
 
-For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+For a Microsoft Entra user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az-ad-user-show).
 
 ```azurecli
 az ad user show --id "{principalName}" --query "id" --output tsv
@@ -40,7 +40,7 @@ az ad user show --id "{principalName}" --query "id" --output tsv
 
 **Group**
 
-For an Azure AD group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az-ad-group-show) or [az ad group list](/cli/azure/ad/group#az-ad-group-list).
+For a Microsoft Entra group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az-ad-group-show) or [az ad group list](/cli/azure/ad/group#az-ad-group-list).
 
 ```azurecli
 az ad group show --group "{groupName}" --query "id" --output tsv
@@ -48,7 +48,7 @@ az ad group show --group "{groupName}" --query "id" --output tsv
 
 **Service principal**
 
-For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). For a service principal, use the object ID and **not** the application ID.
+For a Microsoft Entra service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). For a service principal, use the object ID and **not** the application ID.
 
 ```azurecli
 az ad sp list --all --query "[].{displayName:displayName, id:id}" --output tsv

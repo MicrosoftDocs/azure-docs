@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 06/29/2023
-ms.custom: engagement-fy23
+ms.date: 08/17/2023
+ms.custom: engagement-fy24
 ---
 
 
@@ -30,6 +30,14 @@ In this tutorial, you learn how to:
 - Before you follow this tutorial to assess your SQL Server instances for migration to Azure SQL, make sure you've discovered the SQL instances you want to assess using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md).
 - If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
+## Decide which sizing criteria to use
+
+Decide whether you want to run an assessment using sizing criteria based on SQL Server configuration data/metadata that's collected as on-premises, or based on dynamic performance data.
+
+**Assessment** | **Details** | **Recommendation**
+--- | --- | ---
+**As on-premises** | Assess based on SQL Server configuration data/metadata.  | Recommended Azure SQL configuration  is based on the on-premises SQL Server configuration, which includes cores allocated, total memory allocated and database sizes. This can be useful when the workload characteristics require a longer duration to capture a comprehensive performance metric profile.
+**Performance-based** | Assess based on collected performance data. | Recommended Azure SQL configuration is based on performance data of SQL Server instances and databases, which includes CPU usage, core counts, database file organization and size, file IOs, and memory usage by each database. You can get optimal recommendations that are right-sized for the SQL workload.
 
 ## Run an assessment
 Run an assessment as follows:
@@ -58,7 +66,7 @@ Run an assessment as follows:
    Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
    Target and pricing settings | **VM uptime** | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for SQL Server on Azure VM where you're aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
    Target and pricing settings | **Azure Hybrid Benefit** | Specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have a SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
-   Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. 
+   Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration.<br/><br/> You can change this to *As on-premises* to get recommendations based on just the on-premises SQL Server configuration without the performance metric based optimizations.
    Assessment criteria | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Assessment criteria | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    Assessment criteria | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage.
@@ -72,10 +80,10 @@ Run an assessment as follows:
    Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
    Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
    Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
-   High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) of the Target Location. In the unlikely event that the chosen Target Location doesn't yet have such a pair, the specified Target Location itself is chosen as the default disaster recovery region.
-   High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
-   High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?view=azuresql&tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
-   High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.
+   High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-paired-regions) of the Target Location. In the unlikely event that the chosen Target Location doesn't yet have such a pair, the specified Target Location itself is chosen as the default disaster recovery region.
+   High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
+   High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?view=azuresql&preserve-view=true&tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
+   High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.
 
 1. Select **Save** if you made changes.
 
@@ -139,6 +147,19 @@ Even when SQL Server credentials are not available, this report will provide rig
 
 1. **Migrate all SQL databases to Azure SQL Database**
 In this strategy, you can see how you can migrate individual databases to Azure SQL Database and review the readiness and cost estimates.
+
+### Review support status
+
+This indicates the support status of SQL servers, instances, and databases that were assessed in this assessment.
+
+The Supportability section displays the support status of the SQL licenses.
+The Discovery details section gives a graphic representation of the number of discovered SQL instances and their SQL editions.
+
+1. Select the graph in the **Supportability** section to view a list of the assessed SQL instances.
+2. The **Database instance license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right, which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
+   - To view the remaining duration of support, that is, the number of months for which the license is valid, 
+select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months. 
+
 
 
 ### Review readiness

@@ -2,8 +2,8 @@
 title: Fail over VMware VMs to Azure with Site Recovery - Classic
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Classic
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 08/19/2021
+ms.topic: how-to
+ms.date: 09/22/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -12,24 +12,16 @@ author: ankitaduttaMSFT
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Classic.
 
-For information about failover in modernized release, [see this article](vmware-azure-tutorial-failover-failback-modernized.md).
+- Learn how to [failover in modernized release](vmware-azure-tutorial-failover-failback-modernized.md).
+- Learn how to [fail over VMs and physical servers](site-recovery-failover.md).
+- Learn about the [different types of failover](failover-failback-overview.md#types-of-failover). 
+- Learn how to [fail over multiple VMs in a recovery plan](site-recovery-failover.md).
 
-In this tutorial, you learn how to:
+## Prerequisites
 
-> [!div class="checklist"]
-> * Verify that the VMware VM properties conform with Azure requirements.
-> * Fail over specific VMs to Azure.
+Ensure the following:
 
-> [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible and don't show all possible settings and paths. If you want to learn about failover in detail, see [Fail over VMs and physical servers](site-recovery-failover.md).
-
-[Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
-
-## Before you start
-
-Complete the previous tutorials:
-
-1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
+1. Ensure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
 3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
@@ -98,6 +90,5 @@ In some scenarios, failover requires additional processing that takes around 8 t
 
 After failover, reprotect the Azure VMs to on-premises. Then, after the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
 
-> [!div class="nextstepaction"]
-> [Reprotect Azure VMs](vmware-azure-reprotect.md)
-> [Fail back from Azure](vmware-azure-failback.md)
+- [Reprotect Azure VMs](vmware-azure-reprotect.md)
+- [Fail back from Azure](vmware-azure-failback.md)

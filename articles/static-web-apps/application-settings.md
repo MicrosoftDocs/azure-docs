@@ -115,7 +115,7 @@ In a terminal or command line, execute the following command to delete a setting
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Define configuration for Azure Static Web Apps in the _staticwebapp.config.json_ file](configuration.md)
+> [Define configuration for Azure Static Web Apps in the  _staticwebapp.config.json_  file](configuration.md)
 
 ## Related articles
 

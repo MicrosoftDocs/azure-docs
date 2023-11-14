@@ -1353,7 +1353,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 Identifies requests that match the specified URL. The entire URL is evaluated, including the protocol and query string, but not the fragment. You can specify multiple values to match, which will be combined using OR logic.
 
 > [!TIP]
-> When you use this rule condition, be sure to include the protocol. For example, use `https://www.contoso.com` instead of just `www.contoso.com`.
+> When you use this rule condition, be sure to include the protocol and a trailing forward slash `/`. For example, use `https://www.contoso.com/` instead of just `www.contoso.com`.
 
 ### Properties
 

@@ -13,12 +13,6 @@ ms.author: kesheth
 # Import Operation
 Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. 
 
-> [!IMPORTANT]
-> Incremental import mode is currently in public preview and offered free of charge. With General Availability, use of Incremental import will incur charges. 
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> 
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Using $import operation
 
 > [!NOTE]
