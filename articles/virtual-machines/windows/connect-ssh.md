@@ -35,7 +35,11 @@ Following the Windows Server documentation page
 run the command `Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0`
 to enable the built-in capability, start the service, and open the Windows Firewall port.
 
-You can use the Azure RunCommand extension to complete this task.
+If the service doesn't start automatically, you can use `Set-Service -Name sshd -StartupType 'Automatic'`.
+
+To check port 22, use `nestat -n -p TCP`.
+
+You can also use the Azure RunCommand extension to complete this task.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -46,7 +50,7 @@ az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShell
 # [Azure PowerShell](#tab/azurepowershell-interactive)
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 | Start-Service sshd"
 ```
 
 # [ARM template](#tab/json)
