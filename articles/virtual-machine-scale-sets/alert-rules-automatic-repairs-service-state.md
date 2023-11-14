@@ -10,7 +10,7 @@ ms.date: 11/14/2023
 
 # Use Azure Alert Rules to monitor changes in Automatic Instance Repairs ServiceState
 
-This article shows you how to use [Alert Rules from Azure Monitor](./azure-monitor/alerts/alerts-overview.md) to receive custom notifications every time the ServiceState for Automatic Repairs is updated on your scale set. This will help track if Automatic Repairs become _Suspended_ due to VM instances remaining unhealthy after multiple repair operations. To learn more about Azure Monitor alerts, see the [alerts overview](./azure-monitor/alerts/alerts-overview.md). 
+This article shows you how to use [Alert Rules from Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to receive custom notifications every time the ServiceState for Automatic Repairs is updated on your scale set. This will help track if Automatic Repairs become _Suspended_ due to VM instances remaining unhealthy after multiple repair operations. To learn more about Azure Monitor alerts, see the [alerts overview](../azure-monitor/alerts/alerts-overview.md). 
 
 To follow this tutorial, ensure that you have a Virtual Machine scale set with [Automatic Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md) enabled.
 
@@ -18,10 +18,10 @@ To follow this tutorial, ensure that you have a Virtual Machine scale set with [
 1.	In the [portal](https://portal.azure.com/), navigate to your VM scale set resource
 2.	Select **Alerts** from the left pane, and then select **+ Create > Alert rule**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture1.png" alt-text="Create monitoring alert in the Azure portal":::
 3.	Under the **Condition** tab, select **See all signals** and choose the signal name called “Sets the state of an orchestration service in a Virtual Machine Scale set”. Select **Apply**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture2.png" alt-text="Select alert signal to monitor scale set orchestration service state":::
-4.	Set **Event Level** to “Informational” and **Status** to “Succeeded”. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture4.png" alt-text="Configure event level and status for alert rule":::
+4.	Set **Event Level** to “Informational” and **Status** to “Succeeded”. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture3.png" alt-text="Configure event level and status for alert rule":::
 5.	Under the **Actions** tab, select an existing action group or see [Create action group](#creating-an-action-group) 
 6.	Under the **Details** tab > **Alert rule name**, set a name for your alert. Then select **Review + create** > **Create** to create your alert.
-:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture3.png" alt-text="Review and create alert rule":::
+:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture4.png" alt-text="Review and create alert rule":::
 Once the alert is created and enabled on your scale set, you'll receive a notification every time a change to the ServiceState is detected on your scale set.
 
 Sample Email Notification from alert
