@@ -102,7 +102,6 @@ When defining a user function, there are some restrictions:
 
 * The function can't access variables.
 * The function can only use parameters that are defined in the function.
-* The function can't call other user-defined functions.
 * The function can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
 

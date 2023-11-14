@@ -6,14 +6,14 @@ items:
 - name: DICOM conformance statements
   expanded: false
   items: 
-  - name: V2
-    href: dicom-services-conformance-statement-v2.md
-  - name: V1
-    href: dicom-services-conformance-statement.md
+    - name: V2
+      href: dicom-services-conformance-statement-v2.md
+    - name: V1
+      href: dicom-services-conformance-statement.md
 - name: Get started
   expanded: true
   items: 
-    - name: Create an Azure workspace
+    - name: Get started with the DICOM service
       href: get-started-with-dicom.md
     - name: Deploy the DICOM service
       href: deploy-dicom-services-in-azure.md
@@ -43,10 +43,13 @@ items:
       href: enable-diagnostic-logging.md
     - name: Import DICOM files
       href: import-files.md
+    - name: Export DICOM files
+      href: export-files.md
 - name: API reference
   expanded: true
   items: 
     - name: DICOMweb APIs
+      expanded: false
       items: 
         - name: DICOMweb standard APIs
           href: dicomweb-standard-apis-with-dicom-services.md
@@ -57,12 +60,14 @@ items:
         - name: Use DICOMweb standard APIs with Python
           href: dicomweb-standard-apis-python.md
     - name: Custom APIs
+      expanded: false
       items: 
         - name: Change feed overview
           href: dicom-change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
+      expanded: false
       items: 
         - name: API versioning policies
           href: api-versioning-dicom-service.md

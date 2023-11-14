@@ -3,7 +3,7 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 09/05/2022
+ms.date: 10/31/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
@@ -33,7 +33,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server version 6.7, 7 or 8.
+- vCenter Server version 7 or 8.
 
 - A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 

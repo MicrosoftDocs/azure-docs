@@ -176,6 +176,9 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
 
+    > [!NOTE]
+    > If you select **Management account** to create a connector to a management account, then the tab to onboard with Terraform is not visible in the UI, but you can still onboard using Terraform, similar to what's covered at [Onboarding your AWS/GCP environment to Microsoft Defender for Cloud with Terraform - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/onboarding-your-aws-gcp-environment-to-microsoft-defender-for/ba-p/3798664).
+
 1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you need to run the CloudFormation template both as Stack and as StackSet. Connectors are created for the member accounts up to 24 hours after the onboarding.
 
 1. Select **Next: Review and generate**.
@@ -221,7 +224,7 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
     ```
 
     > [!NOTE]
-    > When running the CloudFormation StackSets when onboarding an AWS management account, you may encounter the following error message:
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you might encounter the following error message:
     > `You must enable organizations access to operate a service managed stack set`
     >
     > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).

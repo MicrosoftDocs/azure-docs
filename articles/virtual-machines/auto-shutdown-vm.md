@@ -5,9 +5,8 @@ author: ericd-mst-github
 ms.author: erd
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 09/27/2023
-
 ---
 
 # Auto-shutdown the VM

@@ -36,7 +36,7 @@ Use the following table to compare feature and functional differences between th
 | Logging | [ILogger&lt;T&gt;]/[ILogger] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)| [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via [dependency injection](functions-dotnet-dependency-injection.md) |
 | Application Insights dependencies | [Supported](./dotnet-isolated-process-guide.md#application-insights) | [Supported](functions-monitoring.md#dependencies) |
 | Cancellation tokens | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) | [Supported](functions-dotnet-class-library.md#cancellation-tokens) |
-| Cold start times<sup>2</sup> | [Configurable optimizations (preview)](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
+| Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.

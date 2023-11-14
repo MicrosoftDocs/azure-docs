@@ -110,7 +110,7 @@ The following instructions describe how to provision an Azure Cache for Redis an
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
+You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 
 To deploy this template, follow these steps:
 

@@ -573,12 +573,15 @@ items:
     href: /powershell/module/az.springcloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Pipelines task
     href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Policy built-in definitions
+    href: policy-reference.md
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/spring-apps/
   - name: Resources
     href: resources.md
   - name: Frequently asked questions
     href: faq.md
-  - name: REST API reference
-    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: policy-reference.md

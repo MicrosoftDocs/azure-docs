@@ -1,7 +1,7 @@
 ---
 title: Detect exposed secrets in code
 
-description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
+description: Prevent passwords and other secrets that might be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.date: 01/31/2023
@@ -79,25 +79,25 @@ If your Azure service is listed, you can [manage your identities for Azure resou
 
 ## Suppress false positives
 
-When the scanner runs, it may detect credentials that are false positives. Inline-suppression tools can be used to suppress false positives. 
+When the scanner runs, it might detect credentials that are false positives. Inline-suppression tools can be used to suppress false positives. 
 
 Some reasons to suppress false positives include:
 
 - Fake or mocked credentials in the test files. These credentials can't access resources.
 
-- Placeholder strings. For example, placeholder strings may be used to initialize a variable, which is then populated using a secret store such as AKV.
+- Placeholder strings. For example, placeholder strings might be used to initialize a variable, which is then populated using a secret store such as AKV.
 
 - External library or SDKs that 's directly consumed. For example, openssl.
 
 - Hard-coded credentials for an ephemeral test resource that only exists for the lifetime of the test being run.
 
-- Self-signed certificates that are used locally and not used as a root. For example, they may be used when running localhost to allow HTTPS.
+- Self-signed certificates that are used locally and not used as a root. For example, they might be used when running localhost to allow HTTPS.
 
 - Source-controlled documentation with non-functional credential for illustration purposes only
 
 - Invalid results. The output isn't a credential or a secret.
 
-You may want to suppress fake secrets in unit tests or mock paths, or inaccurate results. We don't recommend using suppression to suppress test credentials. Test credentials can still pose a security risk and should be securely stored.
+You might want to suppress fake secrets in unit tests or mock paths, or inaccurate results. We don't recommend using suppression to suppress test credentials. Test credentials can still pose a security risk and should be securely stored.
 
 > [!NOTE]
 > Valid inline suppression syntax depends on the language, data format and CredScan version you are using. 
@@ -121,4 +121,5 @@ To suppress the secret found in the next line, add the following code as a comme
 ```
 
 ## Next steps
-+ Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.
+
+- Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.

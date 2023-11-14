@@ -17,11 +17,16 @@ VM insights monitors key operating system performance indicators related to proc
 - Support tuning and optimization to achieve efficiency.
 - Support capacity planning.
 
+> [!NOTE]
+> The network chart on the Performance tab looks different from the network chart on the Azure VM overview page because the overview page displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights are based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
+
+
 ## Limitations
 Limitations in performance collection with VM insights:
 
 - Available memory isn't available in all Linux versions, including Red Hat Linux (RHEL) 6 and CentOS 6. It will be available in Linux versions that use [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html) or higher. It might be available in some kernel versions between 3.0 and 3.14.
 - Metrics are only available for data disks on Linux virtual machines that use XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
+- Collecting performance metrics from network shared drives is unsupported.
 
 ## Multi-VM perspective from Azure Monitor
 

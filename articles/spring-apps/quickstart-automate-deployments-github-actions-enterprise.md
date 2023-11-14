@@ -111,15 +111,15 @@ The automation associated with the sample application requires a Storage account
 
 ## Automate with GitHub Actions
 
-Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
+Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/provision.png"
 
-Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
+Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png"
 
-The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
+The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png"
 

@@ -27,7 +27,7 @@ Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a c
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. ACS uses this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. Azure Communication Services uses this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -39,16 +39,16 @@ devtunnel host
 
 Then open the `application.yml` file in the `/resources` folder to configure the following values:
 
-- `connectionstring`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
+- `connectionstring`: The connection string for your Azure Communication Services resource. You can find your Azure Communication Services connection string using the instructions [here](../../create-communication-resource.md). 
 - `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
-- `callerphonenumber`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `callerphonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 ```yaml
 acs:
-  connectionstring: <YOUR ACS CONNECTION STRING>
+  connectionstring: <YOUR Azure Communication Services CONNECTION STRING>
   basecallbackuri: <YOUR DEV TUNNEL ENDPOINT>
-  callerphonenumber: <YOUR ACS PHONE NUMBER>
+  callerphonenumber: <YOUR Azure Communication Services PHONE NUMBER>
   targetphonenumber: <YOUR TARGET PHONE NUMBER>
 ```
 
@@ -104,7 +104,7 @@ for (CallAutomationEventBase event : events) {
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service plays this message upon the `CallConnected` event. 
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
 Next we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizingWithResponse`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
 
@@ -127,7 +127,7 @@ client.getCallConnection(callConnectionId)
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```java
 else if (event instanceof RecognizeCompleted) {

@@ -155,4 +155,4 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 ## Next steps
 
-Learn about [Azure Backup service to back up database instances (preview)](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview).
+Learn about [Azure Backup service to back up database instances](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances).
