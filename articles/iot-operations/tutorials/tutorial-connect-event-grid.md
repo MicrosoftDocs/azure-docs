@@ -280,7 +280,7 @@ Here, you see the messages are published to the local IoT MQ broker to the `tuto
 
 You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, navigate to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local IoT MQ broker.
 
-:::image type="content" source="media/tutorial-connect-event-grid/eg-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
+:::image type="content" source="media/tutorial-connect-event-grid/event-grid-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
 
 ## Next steps
 
