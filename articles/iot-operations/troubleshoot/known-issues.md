@@ -36,14 +36,16 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - There are known intermittent issues with MQ's MQTT bridge connecting to Azure Event Grid.
 
-- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You may also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pod(s): 
+- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You might also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pods:
+
     ```bash
     kubectl -n azure-iot-operations delete pods <pod-name>
     ```
 
-- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic in the mqtt broker.
+- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic in the MQTT broker.
 
-- You can't currently access these [observability metrics](.././reference/observability-metrics-mq.md) for IoT MQ
+- You can't currently access these [observability metrics](../reference/observability-metrics-mq.md) for IoT MQ.
+
     - aio_mq_backend_replicas
     - aio_mq_backend_replicas_current
     - aio_mq_frontend_replicas
@@ -61,10 +63,10 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. You may also see errors such as `service account token expired`.. If you notice this happening, run the following commands:
+It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
 
 ```bash
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
+kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
