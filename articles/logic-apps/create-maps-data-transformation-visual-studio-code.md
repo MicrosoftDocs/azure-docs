@@ -508,11 +508,11 @@ To create your own function that you can use with the Data Mapper tool, follow t
 
 1. On your local computer, open the folder for your Standard logic app project.
 
-1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper ** > **Extensions** > **Functions**.
+1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper** > **Extensions** > **Functions**.
 
 1. In the **Functions** folder, save your function's XML file.
 
-1. Now, you can find your custom function in the Data Mapper tool's functions list, under the **Custom functions** collection.
+1. To find your custom function in the Data Mapper tool's functions list, search for the function, or expand the **Custom functions** collection.
 
 ## Next steps
 
