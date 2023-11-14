@@ -42,7 +42,7 @@ This article contains known issues for Azure IoT Operations Preview.
     kubectl -n azure-iot-operations delete pods <pod-name>
     ```
 
-- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic in the MQTT broker.
+- Even though MQ's [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - You can't currently access these [observability metrics](../reference/observability-metrics-mq.md) for IoT MQ.
 
