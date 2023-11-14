@@ -56,9 +56,9 @@ The following steps clone the GitHub repository containing the sample and then u
 
 To consume the application in your Kubernetes cluster, you need to push this to a container registry such as the [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli). You could also push to a local container registry such as [minikube](https://minikube.sigs.k8s.io/docs/handbook/registry/) or [Docker](https://hub.docker.com/_/registry).
 
-> | Component | Description |
-> |-|-|
-> | `container-alias` | The image alias containing the fully qualified path to your registry |
+| Component | Description |
+|-|-|
+| `container-alias` | The image alias containing the fully qualified path to your registry |
 
 ```bash
 docker tag mq-coldpath-dapr {container-alias}
@@ -71,12 +71,12 @@ At this point, you can deploy the Dapr application. When you register the compon
 
 To start, you create a yaml file that uses the following definitions:
 
-> | Component | Description |
-> |-|-|
-> | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
-> | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
-> | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
-> | `containers.mq-event-driven` | The pre-built dapr application container. **Replace this with your own container if desired**. | 
+| Component | Description |
+|-|-|
+| `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
+| `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
+| `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
+| `containers.mq-event-driven` | The pre-built dapr application container. **Replace this with your own container if desired**. | 
 
 1. Save the following deployment yaml to a file named `app.yaml`:
 

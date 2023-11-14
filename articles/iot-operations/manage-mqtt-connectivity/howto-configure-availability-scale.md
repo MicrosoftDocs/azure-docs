@@ -184,9 +184,9 @@ Tailor the broker message buffer options by adjusting the following settings:
 
 - **Configure the volume**: Specify a persistent volume claim template to mount a dedicated storage volume for your message buffer.
 
-  - **Select a storage class**: Define the desired *StorageClass* using the `storageClassName` property.
+    - **Select a storage class**: Define the desired *StorageClass* using the `storageClassName` property.
 
-  - **Define access modes**: Determine the access modes you need for your volume. For more information, see [persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
+    - **Define access modes**: Determine the access modes you need for your volume. For more information, see [persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
 
 Use the following sections to understand the different volume modes.
 
