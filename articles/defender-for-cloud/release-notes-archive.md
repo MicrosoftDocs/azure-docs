@@ -366,7 +366,7 @@ Now, the new Defender for DevOps plan integrates source code management systems,
 
 Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
-You can configure pull request annotations, to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
+You can configure annotations on pull requests, to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
 You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans:
 
@@ -1589,7 +1589,7 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes-archive.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts)
 
-As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for Servers](defender-for-servers-introduction.md).
+During reorganization of Defender plans, we moved alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for Servers](defender-for-servers-introduction.md).
 
 With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
@@ -2188,10 +2188,10 @@ Updates in April include:
 - [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Four new recommendations related to guest configuration (in preview)](#four-new-recommendations-related-to-guest-configuration-in-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
-- [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
+- [Eleven Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
-- [Twenty one recommendations were moved between security controls](#twenty-one-recommendations-moved-between-security-controls)
+- [Recommendations were moved between security controls](#twenty-one-recommendations-moved-between-security-controls)
 
 ### Refreshed resource health page (in preview)
 
@@ -2319,7 +2319,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 ### 11 Azure Defender alerts deprecated
 
-The 11 Azure Defender alerts listed below have been deprecated.
+The eleven Azure Defender alerts listed below have been deprecated.
 
 - New alerts will replace these two alerts and provide better coverage:
 
@@ -2368,7 +2368,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 |Recommendation |Change and impact  |
 |---------|---------|
-|Vulnerability assessment should be enabled on your SQL servers<br>Vulnerability assessment should be enabled on your SQL managed instances<br>Vulnerabilities on your SQL databases should be remediated new<br>Vulnerabilities on your SQL databases in VMs should be remediated     |Moving from Remediate vulnerabilities (worth 6 points)<br>to Remediate security configurations (worth 4 points).<br>Depending on your environment, these recommendations will have a reduced impact on your score.|
+|Vulnerability assessment should be enabled on your SQL servers<br>Vulnerability assessment should be enabled on your SQL managed instances<br>Vulnerabilities on your SQL databases should be remediated new<br>Vulnerabilities on your SQL databases in VMs should be remediated     |Moving from Remediate vulnerabilities (worth six points)<br>to Remediate security configurations (worth four points).<br>Depending on your environment, these recommendations will have a reduced impact on your score.|
 |There should be more than one owner assigned to your subscription<br>Automation account variables should be encrypted<br>IoT Devices - Auditd process stopped sending events<br>IoT Devices - Operating system baseline validation failure<br>IoT Devices - TLS cipher suite upgrade needed<br>IoT Devices - Open Ports On Device<br>IoT Devices - Permissive firewall policy in one of the chains was found<br>IoT Devices - Permissive firewall rule in the input chain was found<br>IoT Devices - Permissive firewall rule in the output chain was found<br>Diagnostic logs in IoT Hub should be enabled<br>IoT Devices - Agent sending underutilized messages<br>IoT Devices - Default IP Filter Policy should be Deny<br>IoT Devices - IP Filter rule large IP range<br>IoT Devices - Agent message intervals and size should be adjusted<br>IoT Devices - Identical Authentication Credentials<br>IoT Devices - Audited process stopped sending events<br>IoT Devices - Operating system (OS) baseline configuration should be fixed|Moving to **Implement security best practices**.<br>When a recommendation moves to the Implement security best practices security control, which is worth no points, the recommendation no longer affects your secure score.|
 
 ## March 2021
@@ -2457,7 +2457,7 @@ We provide three Azure Policy 'DeployIfNotExist' policies that create and config
 There are two updates to the features of these policies:
 
 - When assigned, they will remain enabled by enforcement.
-- You can now customize these policies and update any of the parameters even after they have already been deployed. For example, if a user wants to add another assessment key, or edit an existing assessment key, they can do so.
+- You can now customize these policies and update any of the parameters even after they have already been deployed. For example you can add or edit an assessment key.
 
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
@@ -2674,7 +2674,7 @@ Subdomain takeovers are a common, high-severity threat for organizations. A subd
 
 Subdomain takeovers enable threat actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
-Azure Defender for App Service now detects dangling DNS entries when an App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a non-existent resource, and your website is vulnerable to a subdomain takeover. These protections are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+Azure Defender for App Service now detects dangling DNS entries when an App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a resource that doesn't exist, and your website is vulnerable to a subdomain takeover. These protections are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
 
 Learn more:
 
@@ -2770,7 +2770,7 @@ Learn more in [Security recommendations in Azure Security Center](review-securit
 
 ### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
 
-Previously, resources that were evaluated for a recommendation and found to be **not applicable** appeared in Azure Policy as "Non-compliant". No user actions could change their state to "Compliant". With this change, they're reported as "Compliant" for improved clarity.
+Previously, resources that were evaluated for a recommendation and found to be **not applicable** appeared in Azure Policy as "Non-compliant". No user actions could change their state to "Compliant." With this change, they're reported as "Compliant" for improved clarity.
 
 The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
@@ -2909,7 +2909,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country/region.
 
-As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [Twenty nine preview recommendations added to increase coverage of Azure Security Benchmark](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 
 With the growing list, there's a need to filter the recommendations to find the ones of greatest interest. In November, we added filters to the recommendations page (see [Recommendations list now includes filters](release-notes-archive.md#recommendations-list-now-includes-filters)).
 
@@ -3263,7 +3263,7 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets l
 
 **Azure Defender for Key Vault** provides Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. By extension, Azure Defender for Key Vault is consequently protecting many of the resources dependent upon your Key Vault accounts.
 
-The optional plan is now GA. This feature was in preview as "advanced threat protection for Azure Key Vault".
+The optional plan is now GA. This feature was in preview as "advanced threat protection for Azure Key Vault."
 
 Also, the Key Vault pages in the Azure portal now include a dedicated **Security** page for **Security Center** recommendations and alerts.
 
@@ -3465,7 +3465,7 @@ To ensure a consistent experience for all users, regardless of the scanner type 
 |**A vulnerability assessment solution should be enabled on your virtual machines**|Replaces the following two recommendations:<br> ***** Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys (now deprecated) (Included with standard tier)<br> ***** Vulnerability assessment solution should be installed on your virtual machines (now deprecated) (Standard and free tiers)|
 |**Vulnerabilities in your virtual machines should be remediated**|Replaces the following two recommendations:<br>***** Remediate vulnerabilities found on your virtual machines (powered by Qualys) (now deprecated)<br>***** Vulnerabilities should be remediated by a Vulnerability Assessment solution (now deprecated)|
 
-Now you'll use the same recommendation to deploy Security Center's vulnerability assessment extension or a  privately licensed solution ("BYOL") from a partner such as Qualys or Rapid7.
+Now you'll use the same recommendation to deploy Security Center's vulnerability assessment extension or a  privately licensed solution ("BYOL") from a partner such as Qualys or Rapid 7.
 
 Also, when vulnerabilities are found and reported to Security Center, a single recommendation will alert you to the findings regardless of the vulnerability assessment solution that identified them.
 
@@ -3514,7 +3514,7 @@ Private Community](https://aka.ms/SecurityPrP) and select from the following opt
 
 Updates in July include:
 
-- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Vulnerability assessment for virtual machines is now available for images that aren't in the marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
@@ -3590,7 +3590,7 @@ The adaptive application controls feature has received two significant updates:
 
 - Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
 
-  - Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
+  - Using a wildcard at the end of a path to allow all executables within this folder and subfolders.
 
   - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
 
@@ -3752,7 +3752,7 @@ Security Center includes an optional feature to protect the management ports of 
 
 This update brings the following changes to this feature:
 
-- The recommendation that advises you to enable JIT on a VM was renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control".
+- The recommendation that advises you to enable JIT on a VM was renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control."
 
 - The recommendation is triggered only if there are open management ports.
 
@@ -3760,9 +3760,9 @@ Learn more about [the JIT access feature](just-in-time-access-usage.md).
 
 ### Custom recommendations have been moved to a separate security control
 
-One security control introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control.
+One security control introduced with the enhanced secure score was "Implement security best practices." Any custom recommendations created for your subscriptions were automatically placed in that control.
 
-To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
+To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations." This control has no impact on your secure score.
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
@@ -3782,7 +3782,7 @@ Learn more about security controls in [Enhanced secure score (preview) in Azure 
 
 ### Expanded security control "Implement security best practices"
 
-One security control introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score.
+One security control introduced with the enhanced secure score is "Implement security best practices." When a recommendation is in this control, it doesn't impact the secure score.
 
 With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
 
@@ -3909,7 +3909,7 @@ The popular, open-source platform Kubernetes is adopted so widely that it's now 
 The Security Center defense includes:
 
 - **Discovery and visibility** - Continuous discovery of managed AKS instances within the subscriptions registered to Security Center.
-- **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they're viewed as a part of your organization's security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
+- **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they're viewed as a part of your organization's security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster."
 - **Threat protection** - Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
 
 Learn more about [Azure Kubernetes Services' integration with Security Center](defender-for-kubernetes-introduction.md).
