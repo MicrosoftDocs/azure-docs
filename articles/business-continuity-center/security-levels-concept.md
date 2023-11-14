@@ -4,6 +4,8 @@ description: An overview of the levels of Security available in Azure Business C
 ms.topic: conceptual
 ms.date: 10/25/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -41,5 +43,3 @@ In the Azure Business Continuity center, you can view the security level:
 ## Next steps
 - [Manage vaults](manage-vault.md).
 - [Review security posture](tutorial-view-protected-items-and-perform-actions.md).
-
-

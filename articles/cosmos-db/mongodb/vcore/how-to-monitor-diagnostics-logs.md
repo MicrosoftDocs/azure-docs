@@ -7,6 +7,8 @@ ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/31/2023
 # CustomerIntent: As a operations engineer, I want to review diagnostic logs so that I troubleshoot issues as they occur.

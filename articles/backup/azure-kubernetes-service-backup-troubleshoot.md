@@ -4,6 +4,8 @@ description: Symptoms, causes, and resolutions of Azure Kubernetes Service backu
 ms.topic: troubleshooting
 ms.date: 03/15/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

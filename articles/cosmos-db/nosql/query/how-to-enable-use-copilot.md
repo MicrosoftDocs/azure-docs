@@ -7,6 +7,8 @@ ms.author: jacodel
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/10/2023
 # CustomerIntent: As a developer, I want to use Copilot so that I can write queries faster and easier.

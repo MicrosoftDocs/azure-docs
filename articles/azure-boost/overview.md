@@ -5,10 +5,11 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
-
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
 ---
 

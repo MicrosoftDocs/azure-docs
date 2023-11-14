@@ -6,6 +6,8 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: container-apps
+  ms.custom:
+    - ignite-2023
   ms.date: 04/14/2023
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions

@@ -4,7 +4,9 @@ description: This article explains how to back up Azure Kubernetes Service (AKS)
 ms.topic: how-to
 ms.service: backup
 ms.date: 06/20/2023
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -1,9 +1,11 @@
 ---
-title: Quickstart - Configure backup of an AKS cluster 
+title: Quickstart - Configure backup of an AKS cluster
 description: In this quickstart, learn how to configure backup of an AKS cluster and utilize Azure Backup to back up specific items from the cluster.
 ms.topic: quickstart
 ms.date: 11/14/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -6,6 +6,8 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: markjbrown
 ms.service: cosmos-db
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/08/2023
 ---

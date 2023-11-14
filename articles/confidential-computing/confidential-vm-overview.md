@@ -5,6 +5,8 @@ author: mamccrea
 ms.author: mmcrey
 ms.service: virtual-machines
 ms.subservice: confidential-computing
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
 ---

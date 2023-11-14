@@ -6,6 +6,8 @@ ms.date: 10/30/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.service: backup
+ms.custom:
+  - ignite-2023
 ---
 
 # Recover deleted item (preview)
@@ -51,5 +53,3 @@ Follow these steps to initiate the recovery for Azure VMs:
 ## Next steps
 
 [Monitor progress of recover action](tutorial-monitor-protection-summary.md).
-
-

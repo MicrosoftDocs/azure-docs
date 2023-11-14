@@ -4,7 +4,9 @@ description: Azure Business Continuity center is a cloud-native unified business
 ms.topic: overview
 ms.service: backup
 ms.date: 04/01/2023
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

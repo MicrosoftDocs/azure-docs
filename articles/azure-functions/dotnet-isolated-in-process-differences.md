@@ -1,9 +1,11 @@
 ---
 title: Differences between in-process and isolate worker process .NET Azure Functions
-description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process. 
+description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet
-ms.topic: conceptual 
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
+ms.topic: conceptual
 ms.date: 08/03/2023
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.

@@ -7,7 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: include
 ms.date: 11/03/2023
-ms.custom: include file, build-2023
+ms.custom:
+  - include file
+  - build-2023
+  - ignite-2023
 ---
 
 The `pgvector` extension adds an open-source vector similarity search to PostgreSQL.

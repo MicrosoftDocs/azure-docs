@@ -1,10 +1,12 @@
 ---
-title: Back up Azure Kubernetes Service (AKS) using Azure PowerShell 
+title: Back up Azure Kubernetes Service (AKS) using Azure PowerShell
 description: This article explains how to back up Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: how-to
 ms.service: backup
 ms.date: 05/05/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
