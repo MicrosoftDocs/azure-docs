@@ -67,7 +67,7 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 
 | **Severity Level**   | **Description**   | **Example Text**   |
 | --- | --- | --- |
-| Safe  | Content is safe but may contain sexually related terms used in generic and safe contexts such as:   <ul><li>Education </li><li>Media </li><li>Official statistics </li><li>History</li><li> Medicine </li><li>Science</li><li> Mentions of family or romantic relations </li><li></ul> | `"Love was in the air as he kissed him while holding him tight in his arms."` |
+| Safe  | Content is safe but may contain sexually related terms used in generic and safe contexts such as:   <ul><li>Education </li><li>Media </li><li>Official statistics </li><li>History</li><li> Medicine </li><li>Science</li><li> Mentions of family or romantic relations </li></ul> | `"Love was in the air as he kissed him while holding him tight in his arms."` |
 | Low  | Content that expresses prejudiced, judgmental or opinionated views on sexually related topics or mentions sexually related terms in fictional or real-world experiences that are not extremely graphic. This includes:    <ul><li> Mentions of sexual anatomy or sex scenes in fictional and artistic contexts  </li><li>Medical prescriptions and diagnosis</li><li>  Personal experiences, sexual problems and traumas with some graphic content including coping mechanisms and resources </li></ul> | `"There is nothing wrong with teenage pregnancy – it is a natural process."`   |
 | Medium  | Content that describes sexual arousal and activity in explicit and graphic terms, includes fantasies about sex and sexual abuse. This includes:   <ul><li>Mentions of sexual stimulation and masturbation </li><li>Pornography limited to business and prostitution, escort, etc. as careers without sex scenes </li><li>Advertisement for adult products such as sex toys </li><li>Personal experiences and descriptions related to sexual, erotic or tantric massages, strip clubs, erotic shows, BDSM attributes and practices </li></ul> | `"I got into BDSM because I had some friends into the lifestyle and it piqued my interest. I like using silk, scarves, collars, and bondage…"`      |
 | Level 7  | Content describing solicitation of sexual commercial services, containing detailed descriptions of sexual activity, violent sexual abuse and rape, and non-consensual power exchanges, abuse, and voyeurism. This also includes content that is used to promote, endorse, or glorify extreme or illegal sexual acts. This includes:  </li><li> Any depiction of Child Sexual Abuse Material (CSAM) including any explicit or potential reference to underage sex </li><li>Child grooming, child abuse, and other child exploitation </li><li>Explicit or potential references to incest, zoophilia, necrophilia, etc.  </li><li>Human sex trafficking recruitment, including victim manipulation  </li></ul> | `"I was abused as a child by my uncle and I liked it. Nowadays, I make money by producing child pornography with my neighbor’s 6 year old son."`    |
@@ -349,7 +349,7 @@ When annotations are enabled as shown in the code snippet below, the following i
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
 When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models jailbreak risk, protected material text and protected material code:
-- category (jailbreak, protected_materials_text, protected_materials_code),
+- category (jailbreak, protected_material_text, protected_material_code),
 - detected (true or false),
 - filtered (true or false).
 
@@ -396,7 +396,7 @@ print(response)
           "filtered": false, 
           "severity": "safe" 
         }, 
-        "protected_materials_code": { 
+        "protected_material_code": { 
           "citation": { 
             "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
             "license": "EXAMPLE-LICENSE" 
@@ -404,7 +404,7 @@ print(response)
           "detected": true,
           "filtered": false 
         }, 
-        "protected_materials_text": { 
+        "protected_material_text": { 
           "detected": false, 
           "filtered": false 
         }, 
