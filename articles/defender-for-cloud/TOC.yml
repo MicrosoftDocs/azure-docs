@@ -315,7 +315,7 @@
       href: create-custom-recommendations.md
     - name: Manage MCSB recommendations
       href: manage-mcsb.md
-    - name: Exempt recommendations
+    - name: Exempt resources from recommendations
       displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md
     - name: Manage AWS assessments and standards
