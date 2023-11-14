@@ -28,7 +28,7 @@ You must have the **Contributor** role for the workspace’s resource group to c
 
 Microsoft Sentinel has automated the process of creating a Key Vault for enrichment widgets. To enable the widgets experience, take the following two steps: 
 
-### Step 1: Create a dedicated Key Vault to store credentials.
+### Step 1: Create a dedicated Key Vault to store credentials
 
 1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
@@ -46,9 +46,9 @@ Microsoft Sentinel has automated the process of creating a Key Vault for enrichm
 
     Also, the section labeled **Step 2 - Add credentials**, previously grayed out, is now available.
 
-    :::image type="content" source="media/enable-enrichment-widgets/add-credentials.png" alt-text="Screenshot of widget onboarding page instructions to create a key vault.":::
+    :::image type="content" source="media/enable-enrichment-widgets/add-credentials.png" alt-text="Screenshot of widget onboarding page instructions to add secrets to your key vault.":::
 
-### Step 2: Add relevant credentials to your widgets' Key Vault.
+### Step 2: Add relevant credentials to your widgets' Key Vault
 
 The data sources accessed by all the available widgets are listed on the **Widgets Onboarding Page**, under **Step 2 - Add credentials**. You need to add each data source's credentials one at a time. To do so, take the following steps for each data source:
 
@@ -64,7 +64,7 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
 1. The **Review + create** tab will present a summary of the configuration, and possibly the terms of the agreement. Select **Create** to approve the terms.
 
-    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" border="false" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
+    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
 
 1. A new page will be displayed for your new secret, with a message that the deployment is complete.
 
