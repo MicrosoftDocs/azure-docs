@@ -166,63 +166,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     }
     ```
 
-# [Go](#tab/go-postgres-mi)
-
-1. Install dependencies.
-
-    ```bash
-    go get github.com/lib/pq
-    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
-    ```
-
-1. In code, get access token via `azidentity`, then use it as password to connect to Azure PostgreSQL along with connection information provided by Service Connector. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
-
-    ```go
-    import (
-    "database/sql"
-    "fmt"
-    "os"
-    
-    "context"
-     
-    "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-
-	_ "github.com/lib/pq"
-    )    
-    
-    // Uncomment the following lines according to the authentication type.
-    // For system-assigned identity.
-    // cred, err := azidentity.NewDefaultAzureCredential(nil)
-    
-    // For user-assigned identity.
-    // clientid := os.Getenv("AZURE_POSTGRESQL_CLIENTID")
-    // azidentity.ManagedIdentityCredentialOptions.ID := clientid
-    // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
-    // cred, err := azidentity.NewManagedIdentityCredential(options)
-
-    if err != nil {
-        // error handling
-    }
-
-    // Acquire the access token
-    ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-    token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-        Scopes: []string("https://ossrdbms-aad.database.windows.net/.default"),
-    })
-
-    // Combine the token with the connection string from the environment variables added by Service Connector to establish the connection.
-    connectionString := os.Getenv("AZURE_POSTGRESQL_CONNECTIONSTRING") + " password=" + token.Token
-    
-    conn, err := sql.Open("postgres", connectionString)
-	if err != nil {
-		panic(err)
-	}
-
-	conn.Close()
-    ```
-
 # [NodeJS](#tab/nodejs-postgres-mi)
 
 1. Install dependencies.
@@ -283,44 +226,6 @@ For PHP, get an access token for the managed identity and use it as the password
     $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);
     $dbconn = pg_connect($conn_string);
     ?>
-    ```
-
-# [Ruby](#tab/ruby-potgres-me)
-
-For Ruby, get an access token for the managed identity and use it as the password to connect to the database. The access token can be acquired using an Azure REST API.
-
-1. Install dependencies.
-
-    ```bash
-    gem install pg
-    ```
-
-1. In code, get the access token using REST API and PostgreSQL connection information from the environment variables added by Service Connector. Combine them to establish the connection.When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
-
-    App Service and Azure Container Apps provide an internally accessible REST endpoint to retrieve tokens for managed identities. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).
-
-    ```ruby
-    require 'pg'
-    require 'dotenv/load'
-    require 'net/http'
-    require 'json'
-    
-    # Uncomment the following lines according to the authentication type.
-    # For system-assigned identity.
-    # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
-    # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
-
-    # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
-    # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
-    
-    parsed = JSON.parse(res.body)
-    access_token = parsed["access_token"]
-    
-    # Use the token and the connection string from the environment variables added by Service Connector to establish the connection.
-    conn = PG::Connection.new(
-        connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password="  + access_token,
-    )
     ```
 
 -----
