@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 11/03/2023
  ms.author: kgremban
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 Use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster without installing anything on your local machine. Use the **explore-iot-operations** codespace that is preconfigured with:

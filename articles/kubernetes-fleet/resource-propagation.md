@@ -6,6 +6,8 @@ ms.date: 10/31/2023
 author: phealy
 ms.author: pahealy
 ms.service: kubernetes-fleet
+ms.custom:
+  - ignite-2023
 ---
 
 # Using cluster resource propagation (preview)

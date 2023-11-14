@@ -10,7 +10,12 @@ ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
-ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2, build-2023
+ms.custom:
+  - ignite-fall-2021
+  - event-tier1-build-2022
+  - cliv2
+  - build-2023
+  - ignite-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---

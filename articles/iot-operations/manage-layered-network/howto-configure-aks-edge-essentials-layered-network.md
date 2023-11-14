@@ -5,6 +5,8 @@ description: Configure Layered Network Management service to enable Azure IoT Op
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/30/2023
 
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.

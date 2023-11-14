@@ -8,7 +8,13 @@ services: iot
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.author: kgremban
-ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: IoT Device"
+  - "Role: Cloud Development"
+  - iot
+  - ignite-2023
 ---
 
 # Communicate with an IoT hub using the MQTT protocol
@@ -448,4 +454,3 @@ To learn more about planning your IoT Hub deployment, see:
 * [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
 * [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md)
 * [Choose the right IoT Hub tier for your solution](../iot-hub/iot-hub-scaling.md)
-

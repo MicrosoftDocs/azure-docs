@@ -5,6 +5,8 @@ description: Understand how to use the BrokerListener resource to secure Azure I
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 11/05/2023
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.

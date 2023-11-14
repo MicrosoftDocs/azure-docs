@@ -9,7 +9,9 @@ ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ms.date: 04/01/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---

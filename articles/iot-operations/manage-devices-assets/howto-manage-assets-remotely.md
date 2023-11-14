@@ -3,7 +3,9 @@ title: Manage asset configurations remotely
 description: Use the Azure IoT Operations portal to manage your asset configurations remotely and enable data to flow from your assets to an MQTT broker.
 author: dominicbetts
 ms.author: dobett
-ms.topic: how-to 
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.

@@ -4,6 +4,8 @@ description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban
 ms.topic: troubleshooting-general
+ms.custom:
+  - ignite-2023
 ms.date: 09/20/2023
 ---
 

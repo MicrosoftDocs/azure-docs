@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/03/2023
 
 #CustomerIntent: As an operator, I want to aggregate data in a pipeline so that I can down-sample or batch messages.

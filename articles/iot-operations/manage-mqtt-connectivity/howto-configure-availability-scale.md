@@ -5,6 +5,8 @@ description: Configure MQTT Broker availability and scale.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/27/2023
 
 #CustomerIntent: As an operator, I want to understand availability and scale options for MQTT broker.
@@ -86,4 +88,3 @@ Medium is the default profile.
 
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
-

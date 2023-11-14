@@ -5,6 +5,8 @@ description: Learn how to develop highly available distributed applications that
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 10/26/2023
 
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.

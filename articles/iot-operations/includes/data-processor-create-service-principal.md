@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 10/09/2023
  ms.author: dobett
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 1. Use the following Azure CLI command to create a service principal.

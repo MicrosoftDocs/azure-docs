@@ -5,6 +5,8 @@ description: Configure TLS with automatic certificate management to secure MQTT 
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/29/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.

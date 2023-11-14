@@ -3,6 +3,8 @@
  description: Learn about MQTT 5 support in IoT Hub
  services: iot
  ms.service: iot
+ms.custom:
+  - ignite-2023
  author: kgremban
  ms.author: kgremban
  ms.topic: conceptual

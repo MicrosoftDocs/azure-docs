@@ -5,6 +5,8 @@ description: Learn how to use common and standard MQTT tools to test connectivit
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/01/2023
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my Azure IoT MQ broker correctly.
