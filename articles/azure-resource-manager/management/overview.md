@@ -124,7 +124,7 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
 ### Resource group location alignment
-To reduce the likelihood of being impacted by region outages, if they occur, it's recommended to co-locate your resources with their resource group. 
+To reduce the likelihood of being impacted by region outages, if they occur, it's recommended to co-locate your resources with their resource group in the same region together. 
 The resource group location is used to determine the location where Azure Resource Manager will store metadata related to all the resources within the resource group, which is then used for routing and caching. For instance, when you list your resources at the subscription or resource group scopes, Azure Resource Manager responds based off this cache.
 When the resource group's region is unavailable, Azure Resource Manager may be unable to update your resource's metadata and may block your write calls. By co-locating your resource and resource group region, you can reduce your chance of being affected by region unavailability since your resource and resource management metadata will all be stored in one region instead of multiple.
 
