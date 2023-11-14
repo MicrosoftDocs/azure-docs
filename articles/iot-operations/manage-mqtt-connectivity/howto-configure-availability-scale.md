@@ -198,7 +198,7 @@ If you don't want to use the disk-backed message buffer, don't include the `disk
 
 ### Ephemeral volume
 
-[Ephemeral volume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) is the preferred option for your message buffer.
+[Ephemeral volume](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes#generic-ephemeral-volumes) is the preferred option for your message buffer.
 
 For *ephemeral* volume, follow the advice in the [Considerations for storage providers](#considerations-for-storage-providers) section.
 
