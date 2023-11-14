@@ -365,13 +365,10 @@ For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressrou
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door Standard and Premium tiers are available in public preview in Azure Government regions US Gov Arizona and US Gov Texas. During public preview, the following Azure Front Door **features aren't supported** in Azure Government:
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
 
-- Managed certificate for enabling HTTPS; instead, you need to use your own certificate.
-- [Migration](../frontdoor/tier-migration.md) from classic to Standard/Premium tier.
-- [Managed identity integration](../frontdoor/managed-identity.md) for Azure Front Door Standard/Premium access to Azure Key Vault for your own certificate.
-- [Tier upgrade](../frontdoor/tier-upgrade.md) from Standard to Premium.
-- Web Application Firewall (WAF) policies creation via WAF portal extension; instead, WAF policies can be created via Azure Front Door Standard/Premium portal extension. Updates and deletions to WAF policies and rules are supported on WAF portal extension.
+- Managed certificate for enabling HTTPS; instead use your own certificate.
+
 
 ### [Private Link](../private-link/index.yml)
 
