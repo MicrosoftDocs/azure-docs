@@ -59,7 +59,7 @@ The resources deployed by the template include:
 
 ## Send test MQTT data and confirm cloud delivery
 
-1. Simulate test data by deploying a Kubernetes workload. The pod simulates a sensor by sending sample temperature, vibration, and pressure readings every 200 milliseconds to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
+1. Simulate test data by deploying a Kubernetes workload. The pod simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
 
     ```bash
     kubectl apply -f tutorials/mq-realtime-fabric-dashboard/simulate-data.yaml
