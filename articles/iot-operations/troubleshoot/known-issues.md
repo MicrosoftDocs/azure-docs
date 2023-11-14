@@ -34,19 +34,20 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Full persistence support isn't currently available.
 
+- There are known intermittent issues with MQ's MQTT bridge connecting to Azure Event Grid.
+
 - It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You may also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pod(s): 
     ```bash
     kubectl -n azure-iot-operations delete pods <pod-name>
     ```
+
+- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic in the mqtt broker.
+
 - You can't currently access these [observability metrics](.././reference/observability-metrics-mq.md) for IoT MQ
     - aio_mq_backend_replicas
     - aio_mq_backend_replicas_current
     - aio_mq_frontend_replicas
     - aio_mq_frontend_replicas_current
-
-- Even though the [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you'd probably still get messages from the self-test when you subscribe to `#` topic in the mqtt broker.
-
-- There are known intermittent issues with MQ's MQTT bridge connecting to Azure Event Grid.
 
 ## Azure IoT Data Processor (preview)
 
