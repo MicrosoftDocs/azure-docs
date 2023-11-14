@@ -117,9 +117,9 @@ sections:
       - question: |
           How can I create exceptions for some of the policies in the regulatory compliance dashboard?
         answer: |
-          For policies are built into Defender for Cloud and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+          For MCSB recommendations that are included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
 
-          For other policies, you can create an exemption directly in the policy itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
+          For other recommendations, you can create an exemption directly in the recommendation itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 
           
       - question: |
