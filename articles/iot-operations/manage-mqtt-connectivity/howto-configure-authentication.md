@@ -384,7 +384,7 @@ A sample custom authentication server and instructions are available on [GitHub]
 
 #### API
 
-The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication.
+The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication. The OpenAPI specification is available on [GitHub](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/auth-server-template/api.yaml).
 
 #### HTTPS with TLS encryption is required
 
