@@ -129,7 +129,7 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using.
+Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, kubernetes online endpoints, and batch endpoints).
 
 | **Resource** | **Limit** | **Allows exception** |
 | --- | --- | --- |
@@ -169,6 +169,19 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | Max request time-out at endpoint level  | 300 seconds |
 
 The sum of kubernetes online endpoint, managed online endpoint, and managed batch endpoint under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments and managed batch deployments under each subscription can't exceed 200.
+
+### Azure Machine Learning batch endpoints
+
+Azure Machine Learning batch endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, kubernetes online endpoints, and batch endpoints).
+
+| **Resource** | **Limit** | **Allows exception** |
+| --- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
+| Number of endpoints per subscription | 100 | Yes |
+| Number of deployments per subscription | 500 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 50 | Yes |
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
