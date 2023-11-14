@@ -14,6 +14,7 @@ ms.author: mmitrik
 By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the DICOM&reg; service. 
 
 ## Prerequisites
+- Make sure you're familiar with [best practices for customer-managed keys](customer-managed-keys.md).
 
 - Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
@@ -63,7 +64,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Service Encrypt
    
 4. Select **Next**.
 
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-crypto-officer-role.png" alt-text="Screenshot showing the Key Vault Crypto Officer role selected on the role assignments tab." lightbox="media/configure-customer-managed-keys/key-vault-crypto-officer-role.png":::
+:::image type="content" source="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png" alt-text="Screenshot showing the Key Vault Crypto Officer role selected on the role assignments tab." lightbox="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png":::
 
 5. On the Members tab, select **Managed Identity** and then select **+Select members**.
 
@@ -93,7 +94,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
 
-#### Update the key by using the Azure portal
+### Update the key by using the Azure portal
 
 1. In the Azure portal, go to the DICOM service and then select **Encryption** from the left pane.
 
@@ -107,7 +108,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/configure-encryption-portal.png" alt-text="Screenshot of the Encryption view, showing the selection of the Customer-managed key option, key vault settings, identity type settings, and Save button." lightbox="media/configure-customer-managed-keys/configure-encryption-portal.png":::
 
-#### Update the key by using an ARM template
+### Update the key by using an ARM template
 
    Use the Azure portal to **Deploy a custom template** and use one of the ARM templates to update the key. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
@@ -300,11 +301,9 @@ If key access is lost for more than 30 minutes, you need to contact customer sup
 ## Update the DICOM service after changing a managed identity
 If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
 
-When the deployment completes, the DICOM service data is encrypted with the key you provided.  You can verify the encryption settings from the Encryption page for the DICOM service.
-
 :::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
 
-## Configure a key when creating the DICOM service
+## Configure a key when you create the DICOM service
 
 If you use a user-assigned managed identity with the DICOM service, you can configure customer-managed keys at the same time you create the DICOM service.  
 
@@ -318,20 +317,13 @@ If you use a user-assigned managed identity with the DICOM service, you can conf
 
 4. Choose **Select from key vault** or **Enter key URI** and then enter the key.  
 
-5. Choose **Select an identity** to use the user-assigned managed identity.
+5. Choose **Select an identity** to use the user-assigned managed identity. On the Select user assigned managed identity page, filter for and then select the managed identity. Choose **Add**.
 
+6. On the **Security** tab, choose **Review + create**.
   :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
-1. On the Select user assigned managed identity page, filter for and then select the managed identity. Choose **Add**.
-
-2. On the **Security** tab, choose **Review + create**.
-
-3. On the **Review + create** tab, review the summary of the configuration options and the validation success message.  Choose **Create** to deploy the DICOM service with customer-managed keys.
+7. On the **Review + create** tab, review the summary of the configuration options and the validation success message. Choose **Create** to deploy the DICOM service with customer-managed keys.
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
-
-## Rotate keys
-
-Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
