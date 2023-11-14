@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 11/17/2023
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---
@@ -25,10 +25,14 @@ The following table shows whether these uses of the Provisioning API are require
 |Microsoft Teams Direct Routing |Required| Optional |
 |Operator Connect|Optional|Optional|
 |Teams Phone Mobile|Not supported|Not supported|
+|Zoom Phone Cloud Peering |Required | Optional |
 
 ## Configuring numbers for specific communications services
 
-For Microsoft Teams Direct Routing, you must provision Azure Communications Gateway with the numbers that you want to assign to each of your customers and enable each number for Microsoft Teams Direct Routing. This information allows Azure Communications Gateway to update SIP messages with information that Microsoft Phone System requires to match calls to tenants. For more information about this process, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
+For Microsoft Teams Direct Routing and Zoom Phone Cloud Peering, you must provision Azure Communications Gateway with the numbers that you want to assign to each of your customers and enable each number for the chosen communications service. This information allows Azure Communications Gateway to:
+
+- Route calls to the correct communications service.
+- Update SIP messages for Microsoft Teams Direct Routing with the information that Microsoft Phone System requires to match calls to tenants. For more information about this process, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
 
 Enabling numbers for Operator Connect is optional; if you don't select a communications service for a number, Azure Communications Gateway defaults to Operator Connect for fixed-line calls.
 
