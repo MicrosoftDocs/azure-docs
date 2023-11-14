@@ -68,7 +68,7 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
     > [!NOTE]
     >
-> Before you select **Create** to approve the terms and create the secret, it's a good idea to duplicate the current browser tab, and then select **Create** in the new tab. This is recommended because creating the secret will, for now, take you outside of the Microsoft Sentinel context and into the Key Vault context, with no direct way back. This way, you'll have the old tab remain on the Widgets Onboarding Page, and the new tab for managing your key vault secrets.
+    > Before you select **Create** to approve the terms and create the secret, it's a good idea to duplicate the current browser tab, and then select **Create** in the new tab. This is recommended because creating the secret will, for now, take you outside of the Microsoft Sentinel context and into the Key Vault context, with no direct way back. This way, you'll have the old tab remain on the Widgets Onboarding Page, and the new tab for managing your key vault secrets.
 
     Select **Create** to approve the terms and create the secret.
 
