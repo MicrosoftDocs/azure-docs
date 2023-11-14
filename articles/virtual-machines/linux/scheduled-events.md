@@ -126,7 +126,7 @@ previous_list_of_scheduled_events = current_list_of_scheduled_events
 As scheduled events are often used for applications with high availability requirements, there are a few exceptional cases that should be considered:
 
 1. Once a scheduled event is completed and removed from the array, there will be no further impacts without a new event including another EventStatus:"Scheduled" event
-2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event will goes directly from “Scheduled” to being removed from the events array
+2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event will go directly from “Scheduled” to being removed from the events array
 3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
 4. While the event is still in EventStatus:"Started" state, there may be another impact of a shorter duration than what was advertised in the scheduled event.
 
