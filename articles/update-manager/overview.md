@@ -4,7 +4,7 @@ description: This article tells what Azure Update Manager in Azure is and the sy
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/25/2023
+ms.date: 11/13/2023
 ms.topic: overview
 ---
 
@@ -94,7 +94,7 @@ Actions |Permission |Scope |
 
 For more information, see the [list of supported operating systems and VM images](support-matrix.md#supported-operating-systems).
 
-- [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) - Azure Update Manager now supports scheduled patching and periodic assessment for VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
+ Azure Update Manager supports [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery.
 
 Currently, Update Manager has the following limitation regarding operating system support:
 
