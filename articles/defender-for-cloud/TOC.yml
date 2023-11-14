@@ -191,28 +191,30 @@
         href: plan-multicloud-security-automate-connector-deployment.md
   - name: Improve your cloud security posture
     items:
-      - name: Policies, initiatives, and recommendations
+      - name: Cloud Security Posture Management (CSPM)
+        displayName: CSPM, cloud security, posture, management
+        href: concept-cloud-security-posture-management.md
+      - name: Security policies
         displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
       - name: Secure score
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
-      - name: Cloud Security Posture Management (CSPM)
-        displayName: CSPM, cloud security, posture, management
-        href: concept-cloud-security-posture-management.md
-      - name: Microsoft cloud security benchmark (MCSB)
+      - name: Regulatory compliance standards
+        href: concept-regulatory-compliance-standards.md
+      - name: Microsoft Cloud Security Benchmark (MCSB)
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
-      - name: Identify and analyze risks across your environment
+      - name: Investigating risks with security explorer/attack paths
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
         href: concept-attack-path.md
-      - name: External attack surface management (EASM)
+      - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Agentless scanning
+      - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Common questions about CSPM and agentless scanning
+      - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
   - name: Improve your data security posture
