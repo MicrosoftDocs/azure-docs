@@ -26,7 +26,7 @@ Our LLM capability enables seamless selection of APIs mapped to farm operations 
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
 - An instance of [Azure Open AI](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription.
 - You need [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-- You need [Azure Container Registery](../container-registry/container-registry-get-started-portal.md)
+- You need [Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
 
 > [!TIP]
 >To get started with testing our Azure Data Manager for Agriculture LLM Plugin APIs please fill in this onboarding [**form**](https://forms.office.com/r/W4X381q2rd). In case you need help then reach out to us at madma@microsoft.com.
@@ -50,7 +50,7 @@ The SDK is built on top of Semantic Kernel, it supports GPT 4 and uses Azure ope
 
 The orchestrator adds the messages and their responses to the history and returns the updated history to the caller. 
 
-## API design
+### API design
 Chat Initiate
 ```azurecli
 curl -X 'POST' \
