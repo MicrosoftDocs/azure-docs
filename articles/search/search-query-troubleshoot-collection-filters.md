@@ -6,9 +6,10 @@ description: Learn approaches for resolving OData collection filter errors in Az
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/30/2023
-
 ---
 # Troubleshooting OData collection filters in Azure AI Search
 

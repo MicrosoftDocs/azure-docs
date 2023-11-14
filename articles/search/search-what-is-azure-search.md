@@ -9,7 +9,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/07/2023
-ms.custom: contperf-fy21q1, build-2023, build-2023-dataai
+ms.custom:
+  - contperf-fy21q1
+  - build-2023
+  - build-2023-dataai
+  - ignite-2023
 ---
 # What's Azure AI Search?
 

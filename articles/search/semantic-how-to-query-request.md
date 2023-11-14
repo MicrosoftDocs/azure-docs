@@ -1,12 +1,14 @@
 ---
 title: Configure semantic ranking
 titleSuffix: Azure AI Search
-description: Set a semantic query type to attach the deep learning models of semantic ranking. 
+description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/26/2023
 ---

@@ -1,6 +1,8 @@
 ---
 author: mattchenderson
 ms.service: azure-functions
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 07/31/2023
 ms.author: mahender

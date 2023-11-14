@@ -6,7 +6,10 @@ ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.date: 11/14/2023
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom:
+  - engagement-fy23
+  - devx-track-linux
+  - ignite-2023
 ---
 
 # What's new in Site Recovery

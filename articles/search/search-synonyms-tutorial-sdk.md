@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2022
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
 # Example: Add synonyms for Azure AI Search in C#

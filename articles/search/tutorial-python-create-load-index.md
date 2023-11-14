@@ -1,5 +1,5 @@
 ---
-title: "Load an index (Python tutorial)" 
+title: "Load an index (Python tutorial)"
 titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with Python using the PYPI package SDK azure-search-documents.
 manager: nitinme
@@ -8,7 +8,10 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
 ms.devlang: python
 ---
 

@@ -1,14 +1,16 @@
 ---
 title: "Explore code (Python tutorial)"
 titleSuffix: Azure AI Search
-description: Understand the Python SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
+description: Understand the Python SDK Search integration queries used in the Search-enabled website with this cheat sheet.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/21/2023
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.devlang: python
 ---
 

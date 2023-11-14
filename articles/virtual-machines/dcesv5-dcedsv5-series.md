@@ -1,14 +1,15 @@
 ---
 title: Azure DCesv5 and DCedsv5-series confidential virtual machines
-description: Specifications for Azure Confidential Computing's DCesv5 and DCedsv5-series confidential virtual machines. 
+description: Specifications for Azure Confidential Computing's DCesv5 and DCedsv5-series confidential virtual machines.
 author: michamcr
 ms.author: mmcrey
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/14/2023
-
 ---
 
 # DCesv5 and DCedsv5-series confidential VMs

@@ -6,6 +6,8 @@ description: Learn strategies for chunking PDFs, HTML files, and other large doc
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/30/2023
 ---
