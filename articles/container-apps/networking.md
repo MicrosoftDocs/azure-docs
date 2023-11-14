@@ -143,17 +143,17 @@ Different environment types have different subnet requirements:
 
 - When you make a [change to a revision](revisions.md#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 
-        | Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (single revision mode)<sup>2</sup>|
-        |--|--|--|
-        | /23 | 501 | 250<sup>3</sup> |
-        | /24 | 245 | 122<sup>3</sup> |
-        | /25 | 117 | 58 |
-        | /26 | 53 | 26 |
-        | /27 | 21 | 10 |
-        
-        <sup>1</sup> The available IP addresses is the size of the subnet minus the 11 IP addresses required for Azure Container Apps infrastructure.  
-        <sup>2</sup> This is accounting for 1 IP address per node/replica on scale out.  
-        <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. If additional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
+    | Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (single revision mode)<sup>2</sup>|
+    |--|--|--|
+    | /23 | 501 | 250<sup>3</sup> |
+    | /24 | 245 | 122<sup>3</sup> |
+    | /25 | 117 | 58 |
+    | /26 | 53 | 26 |
+    | /27 | 21 | 10 |
+    
+    <sup>1</sup> The available IP addresses is the size of the subnet minus th11 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>2</sup> This is accounting for 1 IP address per node/replica on scalout.  
+    <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. Iadditional quota is needed, please follow steps in [Quotas for AzurContainer Apps](./quotas.md).
 
 # [Consumption only environment](#tab/consumption-only-env)
 
