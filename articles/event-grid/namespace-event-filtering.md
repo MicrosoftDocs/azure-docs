@@ -1,7 +1,9 @@
 ---
 title: Event filtering for Azure Event Grid namespaces
-description: Describes how to filter events when creating subscriptions to Azure Event Grid namespace topics. 
+description: Describes how to filter events when creating subscriptions to Azure Event Grid namespace topics.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 10/19/2023
 ---
 

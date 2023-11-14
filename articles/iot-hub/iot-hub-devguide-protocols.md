@@ -7,7 +7,12 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 11/21/2022
-ms.custom: [amqp, mqtt,'Role: Cloud Development','Role: IoT Device']
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - ignite-2023
 ---
 
 # Choose a device communication protocol

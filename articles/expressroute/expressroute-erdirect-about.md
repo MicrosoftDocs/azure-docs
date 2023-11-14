@@ -4,7 +4,9 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: duau

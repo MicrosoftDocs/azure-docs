@@ -4,6 +4,8 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to generate Visual Studio caches for your customized Dev Box image.
 services: dev-box
 ms.service: dev-box
+ms.custom:
+  - ignite-2023
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 11/14/2023

@@ -5,6 +5,8 @@ ms.author: jafernan
 title: Concepts for Event Grid namespace topics
 description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ---
 
 # Azure Event Grid namespace concepts

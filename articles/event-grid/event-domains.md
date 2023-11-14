@@ -2,6 +2,8 @@
 title: Event Domains in Azure Event Grid
 description: This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 10/09/2023
 ---
 

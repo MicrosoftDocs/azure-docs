@@ -2,6 +2,8 @@
 title: Azure Event Grid - Subscribe to Microsoft Entra ID events
 description: This article explains how to subscribe to events published by Microsoft Entra ID via Microsoft Graph API.
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/09/2023
 ---
 
