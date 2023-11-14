@@ -35,12 +35,6 @@ The following diagram shows how you can represent a real-world business flow as 
 
 For more information, see [Business process design and tracking](#business-process-design-tracking).
 
-In this release, an integration environment offers the following capabilities as a unified experience in the Azure portal:
-
-- [Central organization and management](#central-resource)
-
-- [Business process design and tracking](#business-process-design-tracking)
-
 <a name="central-resource"></a>
 
 ## Central organization and management
