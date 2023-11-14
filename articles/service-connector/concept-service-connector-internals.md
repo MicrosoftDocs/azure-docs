@@ -109,7 +109,7 @@ Service Connector offers three network solutions for users to choose from when c
 - The compute resource must have virtual network integration enabled. For Azure App Service, it can be configured in its networking settings; for Azure Spring Apps, users must set VNet injection during the resource creation stage.
 - The target service must support private endpoints. For a list of supported services, refer to [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource).
 
-	When selecting this option, Service Connector doesn't perform any more configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if not found. For convenience, users can select the "New Private Endpoint" checkbox in the Azure Portal when creating a connection. With it, Service Connector automatically creates all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
+	When selecting this option, Service Connector doesn't perform any more configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if not found. For convenience, users can select the "New Private Endpoint" checkbox in the Azure portal when creating a connection. With it, Service Connector automatically creates all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Python function with Storage Table as output'
+title: 'Tutorial: Python function with Azure Table Storage as output'
 description: Learn how you can connect a Python function to a storage table as output using Service Connector
 author: houk-ms
 ms.author: honc

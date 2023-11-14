@@ -50,7 +50,7 @@ The `connection` used by Azure Functions bindings corresponds to the `configurat
 
 ## Connecting Azure Functions to other cloud services using Service Connector
 
-Service Connector reduces the amount of efforts needed to connect Azure Functions to cloud services using bindings or SDKs. It takes over cloud resource configurations like App Settings, network, identity and permission assignment, so that users can focus on function business logics. The following sections describe how Service Connector helps simplify function connections with different connection mechanisms and authentication methods.
+Service Connector reduces the amount of effort needed to connect Azure Functions to cloud services using bindings or SDKs. It takes over cloud resource configurations like App Settings, network, identity and permission assignment, so that users can focus on function business logics. The following sections describe how Service Connector helps simplify function connections with different connection mechanisms and authentication methods.
 
 ### Binding
 
@@ -69,10 +69,10 @@ Service Connector reduces the amount of efforts needed to connect Azure Function
 | -------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------- |
 | Local project  | Add binding            | Add a binding in a function according to the target service type and binding type (in/out/trigger).                                                | User                      | User                   |
 |                | Consume binding        | Set a connection string for authentication in `local.settings.json`, and change the function code to consume the variable defined in the binding. | User                      | User                   |
-| Cloud resource | Configure app settings | Configure the the Azure Function's identity settings, such as service endpoints.                                                                      | User                      | Service Connector      |
+| Cloud resource | Configure app settings | Configure the Azure Function's identity settings, such as service endpoints.                                                                      | User                      | Service Connector      |
 |                | Configure network      | Make sure the target service's network configuration allows access from the function resource.                                                        | User                      | Service Connector      |
 |                | Configure identity     | Make sure system identity is enabled when using system identity to authenticate.                                                                      | User                      | Service Connector      |
-|                | Permission assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                                                     | User                      | Service Connector      |
+|                | Permission assignment  | Assign the identity necessary roles so that it can access the target service.                                                                     | User                      | Service Connector      |
 
 When using Service Connector with function bindings, pay special attention to the function's key name configured by Service Connector. Make sure it's the same key name as the one defined in `connection` property in the binding file. If it's different, change the name in the binding file or use Service Connector's `customize keys` feature to customize [Service Connector&#39;s default configuration names](./how-to-integrate-storage-blob.md).
 
@@ -96,11 +96,11 @@ When using Service Connector with function bindings, pay special attention to th
 | Cloud resource | Configure app settings | Configure a connection string as an app setting in the function's configuration.                                                | User                      | Service Connector      |
 |                | Configure network      | Make sure the target service's network configuration allows access from the function resource.                                  | User                      | Service Connector      |
 |                | Configure identity     | Make sure system identity is enabled when using system identity to authenticate.                                                | User                      | Service Connector      |
-|                | Permission assignment  | Assign the identity necessary AAD roles so that it can access the target service.                                               | User                      | Service Connector      |
+|                | Permission assignment  | Assign the identity necessary roles so that it can access the target service.                                               | User                      | Service Connector      |
 
 ## Next steps
 
-Learn how to integrate different target services and read about the their configuration settings and authentication methods.
+Learn how to integrate different target services and read about their configuration settings and authentication methods.
 
 > [!div class="nextstepaction"]
 > [Learn about how to integrate storage blob](./how-to-integrate-storage-blob.md)

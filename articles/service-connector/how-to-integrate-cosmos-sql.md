@@ -15,7 +15,7 @@ This page shows the supported authentication types and client types for the Azur
 ## Supported compute services
 
 - Azure App Service
-- Azure Funtions
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
