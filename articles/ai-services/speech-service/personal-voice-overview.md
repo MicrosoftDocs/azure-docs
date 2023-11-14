@@ -1,5 +1,5 @@
 ---
-title: What is personal voice
+title: What is personal voice?
 titleSuffix: Azure AI services
 description: With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds.
 author: eric-urban
@@ -8,6 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: eur
+ms.custom: references_regions
 ---
 
 # What is personal voice (preview) for text to speech? 
@@ -15,7 +16,7 @@ ms.author: eur
 With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than locales.  
 
 > [!NOTE]
-> Personal Voice is available in these regions: West Europe, East US, and South East Asia. 
+> Personal voice is available in these regions: West Europe, East US, and South East Asia. 
 
 The following table summarizes the difference between custom neural voice pro and personal voice.  
  
