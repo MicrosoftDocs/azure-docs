@@ -10,7 +10,7 @@ ms.date: 11/14/2023
 
 # Use Azure Alert Rules to monitor changes in Automatic Instance Repairs ServiceState
 
-This article shows you how to use [Alert Rules from Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview) to receive custom notifications every time the ServiceState for Automatic Repairs is updated on your scale set. This will help track if Automatic Repairs become _Suspended_ due to VM instances remaining unhealthy after multiple repair operations. To learn more about Azure Monitor alerts, see the [alerts overview](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview). 
+This article shows you how to use [Alert Rules from Azure Monitor](./azure-monitor/alerts/alerts-overview) to receive custom notifications every time the ServiceState for Automatic Repairs is updated on your scale set. This will help track if Automatic Repairs become _Suspended_ due to VM instances remaining unhealthy after multiple repair operations. To learn more about Azure Monitor alerts, see the [alerts overview](./azure-monitor/alerts/alerts-overview). 
 
 To follow this tutorial, ensure that you have a Virtual Machine scale set with [Automatic Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md) enabled.
 
