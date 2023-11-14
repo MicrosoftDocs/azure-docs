@@ -141,7 +141,7 @@ Different environment types have different subnet requirements:
 
   - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, one IP address may be assigned to multiple replicas. However, when determining how many IP addresses are required for your app, account for 1 IP address per replica.
 
-- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
+- When you make a [change to a revision](./revisions#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 
 | Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (single revision mode)<sup>2</sup>|
 |--|--|--|
@@ -163,7 +163,7 @@ Different environment types have different subnet requirements:
 
 - As your apps scale, a new IP address is allocated for each new replica.
 
-- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affect the real, available supported replicas for a given subnet size.
+- When you make a [change to a revision](./revisions#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas for a given subnet size.
 
 ---
 
