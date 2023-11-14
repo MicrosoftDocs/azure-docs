@@ -24,9 +24,9 @@ items:
   - name: Image moderation
     href: quickstart-image.md
   - name: Jailbreak risk detection (new)
-    href: how-to/detect-jailbreak.md
+    href: quickstart-jailbreak.md
   - name: Protected material detection (new)
-    href: how-to/detect-protected-material.md
+    href: quickstart-protected-material.md
 
 - name: Samples 
   items: 

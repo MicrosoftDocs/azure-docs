@@ -15,7 +15,7 @@ keywords:
 
 # Quickstart: Detect jailbreak risk (preview)
 
-Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect the risk of jailbreak attacks in your text content. For an overview of jailbreak risks, see the [jailbreak risk detection](../concepts/jailbreak-detection.md) guide.
+Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect the risk of jailbreak attacks in your text content. For an overview of jailbreak risks, see the [jailbreak risk detection](./concepts/jailbreak-detection.md) guide.
 
 ## Prerequisites
 
