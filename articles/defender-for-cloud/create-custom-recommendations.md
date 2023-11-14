@@ -51,9 +51,6 @@ Create custom recommendations, including steps for remediation, severity, and th
 1. In **Recommendation query**, write a KQL query, or select **Open query editor** to structure your query. If you want to use the query editor, follow the instructions below.
 1. After the query is ready, select **Next**.
 1. In **Standards**, select the custom standards to which you want to add the custom recommendation.
-
-    :::image type="content" source="./media/create-custom-recommendations/select-add-standard.png" alt-text="Screenshot showing the custom standards to add." lightbox="./media/create-custom-recommendations/select-add-standard.png":::
-
 1. and in **Review and create**, review the recommendations details. 
     
     :::image type="content" source="./media/create-custom-recommendations/review-recommendation.png" alt-text="Screenshot showing where to review the recommendation details." lightbox="./media/create-custom-recommendations/review-recommendation.png":::
