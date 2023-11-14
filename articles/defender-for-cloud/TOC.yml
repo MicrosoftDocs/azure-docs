@@ -106,9 +106,6 @@
   - name: Improve your regulatory compliance
     displayName: regulatory, compliance, remediate, assessment, reports, certificates, export, workflow, automation
     href: regulatory-compliance-dashboard.md
-  - name: Choose standards for your compliance dashboard
-    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
-    href: update-regulatory-compliance-packages.md
   - name: Manage security policies
     displayName: security, policies, edit, disable
     href: tutorial-security-policy.md
@@ -277,8 +274,6 @@
     - name: Programmatic ways to track your secure score
       displayName: secure score, rest api, resource graph, 
       href: secure-score-access-and-track.md
-    - name: Create custom recommendations and security standards
-      href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
       displayName: windows, admin, center
       href: windows-admin-center-integration.md
@@ -308,11 +303,21 @@
     items:
     - name: Onboard agentless containers for CSPM
       href: how-to-enable-agentless-containers.md
-  - name: Security recommendations
+  - name: Manage security standards and recommendations
     items:
-    - name: Create custom Azure security initiatives and policies
+    - name: Assign security standards
+      displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
+      href: update-regulatory-compliance-packages.md
+    - name: Create custom standards/recommendations (Azure)
       displayName: initiatives, custom, policies
       href: custom-security-policies.md
+    - name: Create custom standards/recommendations (AWS/GCP)
+      href: create-custom-recommendations.md
+    - name: Manage MCSB recommendations
+      href: manage-mcsb.md
+    - name: Exempt recommendations
+      displayName: disable, resource, exempt, recommendation
+      href: exempt-resource.md
     - name: Manage AWS assessments and standards
       displayName: aws, assessments, standards, custom, standard, built-in, query
       href: how-to-manage-aws-assessments-standards.md
@@ -337,9 +342,6 @@
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
       href: tutorial-security-policy.md#disable-a-security-recommendation
-    - name: Exempt recommendations
-      displayName: disable, resource, exempt, recommendation
-      href: exempt-resource.md
   - name: Built-in security protections
     items:
     - name: Leverage Purview to protect sensitive data
