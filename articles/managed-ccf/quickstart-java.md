@@ -133,7 +133,7 @@ az group delete --resource-group myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Managed CCF resource by using the Azure Python SDK for Confidential Ledger. To learn more about Azure Managed CCF and how to integrate it with your applications, continue on to these articles:
+In this quickstart, you created a Managed CCF resource by using the Azure SDK for Java. To learn more about Azure Managed CCF and how to integrate it with your applications, continue on to these articles:
 
 - [Azure Managed CCF overview](overview.md)
 - [Quickstart: Azure portal](quickstart-portal.md)
