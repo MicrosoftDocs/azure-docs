@@ -33,7 +33,7 @@ Recommendations are displayed in groups of risk levels.
 1. Review critical and other recommendations to understand the recommendation and remediation steps. Use the graph to understand the risk to your business, including which resources are exploitable, and the effect that the recommendation has on your business.
 
 
-## Remediate recommendatoins
+## Remediate recommendations
 
 After reviewing recommendations by risk, decide which one to remediate first.
 
@@ -61,7 +61,7 @@ To simplify remediation and improve your environment's security (and increase yo
 1. Follow the rest of the remediation steps.
 
 
-It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
+After remediation completes, it can take several minutes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
 
 ## Next steps
 
