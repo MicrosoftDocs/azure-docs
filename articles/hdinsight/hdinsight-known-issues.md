@@ -67,7 +67,7 @@ As part of the proactive reliability management of Azure HDInsight, we recently 
 
 #### Issue background
 
-In HDInsight images dated before March 2022, a known bug was discovered on one particular AzLinux build. The Microsoft Azure Linux Agent (`waagent`), a lightweight process that manages virtual machines, was unstable and resulted in VM outages. HDInsight clusters that consumed the AzLinux build have experienced service outages, job failures, and adverse effects on features like IPsec and autoscale.
+In HDInsight images dated before March 2022, a known bug was discovered on one particular Azure Linux build. The Microsoft Azure Linux Agent (`waagent`), a lightweight process that manages virtual machines, was unstable and resulted in VM outages. HDInsight clusters that consumed the Azure Linux build have experienced service outages, job failures, and adverse effects on features like IPsec and autoscale.
 
 #### Required action
 
