@@ -188,6 +188,8 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: tutorials/tutorial-real-time-dashboard-fabric.md
+      - name: Build a cold-path pipeline using Dapr
+        href: tutorials/tutorial-coldpath-with-dapr.md        
 
     - name: Developer guide
       items:
