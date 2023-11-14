@@ -419,9 +419,7 @@ Once your deployment completes, use the following command to make a scoring requ
 
 # [Studio](#tab/azure-studio)
 
-Azure Machine Learning studio provides the ability to test endpoints with JSON. However, serialized JSON is not currently included for this example. 
-
-To test an endpoint using Azure Machine Learning studio, click `Test` from the Endpoint page. 
+Triton Inference Server requires using Triton Client for inference, and it supports tensor-typed input. Azure Machine Learning studio doesn't currently support this. Instead, use CLI or SDK to invoke endpoints with Triton.
 
 --- 
 
