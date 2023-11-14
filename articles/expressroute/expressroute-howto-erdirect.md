@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 11/14/2023
 ms.author: duau
 ---
 
