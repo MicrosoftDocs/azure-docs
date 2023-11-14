@@ -1,7 +1,7 @@
 ---
 title: Use Azure Alert Rules to monitor changes in Automatic Instance Repairs ServiceState
 description: Learn how to use Azure Alert Rules to get notified of changes to Automatic Instance Repairs ServiceState.
-author: hilaryw
+author: hilarywang
 ms.author: hilaryw29
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
@@ -19,24 +19,21 @@ To follow this tutorial, please ensure that you have a Virtual Machine scale set
 
 ## Azure Portal
 1.	In the [portal](https://portal.azure.com/), navigate to your VM scale set resource
-2.	Select **Alerts** from the left pane, and then select **+ Create > Alert rule**.
-[Insert picture 1 here]
-3.	Under the **Condition** tab, select **See all signals** and choose the signal name called “Sets the state of an orchestration service in a Virtual Machine Scale set”. Click **Apply**.
-[Insert picture 2 here]
-4.	Set **Event Level** to “Informational” and **Status** to “Succeeded”.
-[Insert picture 4 here]
+2.	Select **Alerts** from the left pane, and then select **+ Create > Alert rule**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture1.png" alt-text="Create monitoring alert in the Azure portal":::
+3.	Under the **Condition** tab, select **See all signals** and choose the signal name called “Sets the state of an orchestration service in a Virtual Machine Scale set”. Click **Apply**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture2.png" alt-text="Select alert signal to monitor scale set orchestration service state":::
+4.	Set **Event Level** to “Informational” and **Status** to “Succeeded”. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture4.png" alt-text="Configure event level and status for alert rule":::
 5.	Under the **Actions** tab, select an existing action group or see Create [action group](#create-action-group) //TODO: make sure this works
 6.	Under the **Details** tab > **Alert rule name**, set a name for your alert. Then click **Review + create** > **Create** to create your alert.
-[Insert picture 3 here]
+:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture3.png" alt-text="Review and create alert rule":::
 Once the alert is created and enabled on your scale set, you will receive a notification every time a change to the ServiceState is detected on your scale set.
 
 Sample Email Notification from alert
-[Insert picture 5 here]
+:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture5.png" alt-text="Sample email notification from alert rule":::
 
 ## Creating an Action Group
 1. Under the **Actions** tab, select **Create action group**.
-[insert picture 6 here]
+:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture6.png" alt-text="Create action group on portal":::
 2. In the **Basics** tab, provide an **Action group name** and **Display name**.
 3. Under the **Notifications** tab **> Notification type**, select “Email/SMS message/Push/Voice”. Click the **edit** button to configure how you’d like to be notified.
-[insert picture 7 here]
+:::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture7.png" alt-text="Configure notification type for action group":::
 4. Click **Review + Create > Create**
