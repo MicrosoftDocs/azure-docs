@@ -25,11 +25,11 @@ An environment definition is combined of least two files:
 >[!NOTE]
 > Azure Deployment Environments currently supports only ARM templates.
 
-The IaC template contains the environment definition (template), and the manifest file provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
+The IaC template contains the environment definition (template), and the environment file provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
 
 We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
-After you [add a catalog](how-to-configure-catalog.md) to your dev center, the service scans the specified folder path to identify folders that contain an ARM template and an associated manifest file. The specified folder path should be a folder that contains subfolders that hold the environment definition files.
+After you [add a catalog](how-to-configure-catalog.md) to your dev center, the service scans the specified folder path to identify folders that contain an ARM template and an associated environment file. The specified folder path should be a folder that contains subfolders that hold the environment definition files.
 
 In this article, you learn how to:
 
@@ -60,7 +60,7 @@ To add an environment definition:
       - [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md): Describes the structure of an ARM template and the properties that are available in the different sections of a template.
       - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates): Describes how to use linked templates with the new ARM template `relativePath` property to easily modularize your templates and share core components between environment definitions.
 
-   - A manifest as a YAML file.
+   - A environment as a YAML file.
 
       The *environment.yaml* file contains metadata related to the ARM template.
 
@@ -78,7 +78,7 @@ To add an environment definition:
        > [!NOTE]
        > The `version` field is optional. Later, the field will be used to support multiple versions of environment definitions.
 
-      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and a manifest file.":::
+      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and an environment file.":::
 
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
 
@@ -154,7 +154,7 @@ To update any metadata related to the ARM template, modify *environment.yaml*, a
 
 ## Delete an environment definition
 
-To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated manifest YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog) in Azure Deployment Environments.
+To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated environment YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog) in Azure Deployment Environments.
 
 After you delete an environment definition, development teams can no longer use the specific environment definition to deploy a new environment. Update the environment definition reference for any existing environments that were created by using the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
