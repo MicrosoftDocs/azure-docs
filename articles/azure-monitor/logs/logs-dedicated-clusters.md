@@ -208,7 +208,7 @@ When a Log Analytics workspace is linked to a dedicated cluster, the workspace b
  
 When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
-A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+A cluster can be linked to up to 1,000 workspaces. Linked workspaces must be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
 
