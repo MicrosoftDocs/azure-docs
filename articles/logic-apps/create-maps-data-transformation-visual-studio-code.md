@@ -34,8 +34,6 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - The map layout and item position are currently automatic and read only.
 
-- The Data Mapper tool currently works only with schemas in flat folder-structured projects.
-
 ## Prerequisites
 
 - [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
