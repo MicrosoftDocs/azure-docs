@@ -60,7 +60,8 @@ You can perform a number of actions to interact with recommendations. If an opti
 1. Select **Open query** to view detailed information about the affected resources using an Azure Resource Graph Explorer query.1. Select **View policy definition** to view the Azure Policy entry for the underlying recommendation (if relevant).
 1. In **Review findings**, you can review affiliated findings by severity.
     
-        :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
+     :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
+
 1. In **Take action**:
     - **Remediate**: A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select **View remediation logic** before applying the suggested fix to your resources.
      - **Assign owner and due date**: If you have a [governance rule](governance-rules.md) turned on for the recommendation, you can assign an owner and due date.
