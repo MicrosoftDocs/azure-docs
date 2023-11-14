@@ -33,7 +33,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
-    :::image type="content" source="media/get-started/defender-for-cloud-search.png" alt-text="Screenshot of the Azure portal with Microsoft Defender for Cloud entered in the search bar and highlighted in the drop down menu." lightbox="media/get-started/defender-for-cloud-search.png":::
+    :::image type="content" source="media/get-started/defender-for-cloud-search.png" alt-text="Screenshot of the Azure portal with Microsoft Defender for Cloud selected." lightbox="media/get-started/defender-for-cloud-search.png":::
 
     The Defender for Cloud's overview page opens.
 

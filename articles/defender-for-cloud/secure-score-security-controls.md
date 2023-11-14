@@ -100,7 +100,7 @@ The score shows 28 points out of a possible 60 and the remaining 32 points are r
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot showing a list of controls and the potential score increase.":::
 
-This equation is the same equation for a connector with just the word subscription being replaced by the word connector. 
+This equation is the same equation for a connector with just the word subscription replaced by the word connector. 
 
 
 ### Secure score - Multiple subscriptions, and connectors
@@ -145,16 +145,16 @@ The table below lists the security controls in Microsoft Defender for Cloud. For
 8 | **Secure management ports** - Brute force attacks often target management ports. Use these recommendations to reduce your exposure with tools like [just-in-time VM access](just-in-time-access-overview.md) and [network security groups](../virtual-network/network-security-groups-overview.md).
 6 | **Apply system updates** - Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. Use these recommendations to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for your end users. To deploy system updates, you can use the [Update Management solution](../automation/update-management/overview.md) to manage patches and updates for your machines.
 4 | **Remediate security configurations** - Misconfigured IT assets have a higher risk of being attacked. Use these recommendations to harden the identified misconfigurations across your infrastructure.
-4 | **Manage access and permissions** - A core part of a security program is ensuring your users have the necessary access to do their jobs but no more than that: the least privilege access model. Use these recommendations to manage your identity and access requirements.
+4 | **Manage access and permissions** - A core part of a security program is ensuring your users have just the necessary access to do their jobs: the least privilege access model. Use these recommendations to manage your identity and access requirements.
 4 | **Enable encryption at rest** - Use these recommendations to ensure you mitigate misconfigurations around the protection of your stored data.
 4 | **Encrypt data in transit** - Use these recommendations to secure data that’s moving between components, locations, or programs. Such data is susceptible to man-in-the-middle attacks, eavesdropping, and session hijacking.
 4 | **Restrict unauthorized network access** - Azure offers a suite of tools designed to ensure accesses across your network meet the highest security standards.<br/><br/> Use these recommendations to manage Defender for Cloud's [adaptive network hardening](adaptive-network-hardening.md), ensure you’ve configured [Azure Private Link](../private-link/private-link-overview.md) for all relevant PaaS services, enable [Azure Firewall](../firewall/overview.md) on virtual networks, and more.
 3 | **Apply adaptive application control** - Adaptive application control is an intelligent, automated, end-to-end solution to control which applications can run on your machines. It also helps to harden your machines against malware.
 2 | **Protect applications against DDoS attacks** - Azure’s advanced networking security solutions include Azure DDoS Protection, Azure Web Application Firewall, and the Azure Policy Add-on for Kubernetes. Use these recommendations to ensure your applications are protected with these tools and others.
-2 | **Enable endpoint protection** - Defender for Cloud checks your organization’s endpoints for active threat detection and response solutions such as Microsoft Defender for Endpoint or any of the major solutions shown in this list.<br/><br/> When an Endpoint Detection and Response (EDR) solution isn’t found, you can use these recommendations to deploy Microsoft Defender for Endpoint (included as part of Defender for Cloud's [Defender for Servers plan](defender-for-servers-introduction.md)).<br/><br/>Other recommendations in this control help you deploy agents and configure [file integrity monitoring](file-integrity-monitoring-overview.md).
+2 | **Enable endpoint protection** - Defender for Cloud checks your organization’s endpoints for active threat detection and response solutions such as Microsoft Defender for Endpoint or any of the major solutions shown in this list.<br/><br/> If no Endpoint Detection and Response (EDR) solution is enabled, use these recommendations to deploy Microsoft Defender for Endpoint. Defender for Endpoint is included as part of the [Defender for Servers plan](defender-for-servers-introduction.md).<br/><br/>Other recommendations in this control help you deploy agents and configure [file integrity monitoring](file-integrity-monitoring-overview.md).
 1 | **Enable auditing and logging** - Detailed logs are a crucial part of incident investigations and many other troubleshooting operations. The recommendations in this control focus on ensuring you’ve enabled diagnostic logs wherever relevant.
 0 | **Enable enhanced security features** - Use these recommendations to enable any Defender for Cloud plans.
-0 | **Implement security best practices** - This control has no impact on your secure score. It's collection of recommendations which are important for your organizational security, but that shouldn’t be used to assess your overall score.
+0 | **Implement security best practices** - This control has no impact on your secure score. This collection of recommendations is important for your organizational security, but shouldn’t be used to assess your overall score.
 
 ## Next steps
 
