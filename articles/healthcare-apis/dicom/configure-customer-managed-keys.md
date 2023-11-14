@@ -294,9 +294,7 @@ For the DICOM service to operate properly, it must always have access to the key
 
 In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
 
-If key access is lost for less than 30 minutes, data is automatically recovered. After access is re-enabled, allow 5 to 10 minutes for your DICOM service to become available again.
-
-If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
+If key access is lost, ensure you have updated the key and required resources so they're accessible by the DICOM service. For more information, see [Create or update REST API for the DICOM service](/rest/api/healthcareapis/dicom-services/create-or-update). Make sure to match all the properties and identities with your current DICOM service.
 
 ## Update the DICOM service after changing a managed identity
 If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
