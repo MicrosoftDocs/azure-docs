@@ -7,7 +7,6 @@ ms.date: 11/06/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
-ms.custom: references_regions
 ---
 
 # Encrypt an Azure Elastic SAN Preview
@@ -26,27 +25,24 @@ When you configure a volume group, you can choose to use either platform-managed
 
 ## Customer-managed keys
 
-If you use customer-managed keys, you must use either an [Azure Key Vault](../../key-vault/general/overview.md) to store them.
+If you use customer-managed keys, you must use either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md) to store it. The process for configuring customer-managed keys in a managed HSM is the same as for configuring customer-managed keys in a key vault, but the permissions are slightly different. For more information, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](elastic-san-encryption-configure-customer-managed-keys-hsm.md). For more information about managed HSMs, see [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md).
 
-You can either create and import your own RSA keys and store them in your Azure Key Vault, or you can generate new RSA keys using Azure Key Vault. You can use the Azure Key Vault APIs or management interfaces to generate your keys. The Elastic SAN and the key vault can be in different regions and subscriptions, but they must be in the same Microsoft Entra ID tenant.
+You can either create and import [your own RSA keys](../../key-vault/keys/hsm-protected-keys.md) and store them in your Azure Key Vault or managed HSM, or you can generate new RSA keys using Azure Key Vault. You can use the Azure Key Vault APIs or management interfaces to generate your keys. The Elastic SAN and the key vault or managed HSM can be in different regions and subscriptions, but they must be in the same Microsoft Entra ID tenant.
 
-The following diagram shows how Azure Elastic SAN uses Microsoft Entra ID and a key vault to make requests using the customer-managed key:
+The following diagram shows how Azure Elastic SAN uses Microsoft Entra ID and a key vault or managed HSM to make requests using the customer-managed key:
 
 :::image type="content" source="media/customer-managed-keys-overview/encryption-customer-managed-keys-diagram.png" alt-text="Diagram showing how customer-managed keys work in Azure Elastic SAN." lightbox="media/customer-managed-keys-overview/encryption-customer-managed-keys-diagram.png":::
 
 The following list explains the numbered steps in the diagram:
 
-1. An Azure Key Vault admin grants permissions to a managed identity to access the key vault that contains the encryption keys. The managed identity can be either a user-assigned identity that you create and manage, or a system-assigned identity that is associated with the volume group.
+1. An Azure Key Vault admin grants permissions to a managed identity to access the key vault that contains the encryption keys. The managed identity may be either a user-assigned identity that you create and manage, or a system-assigned identity that is associated with the volume group.
 1. An Azure [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) configures encryption with a customer-managed key for the volume group.
 1. Azure Elastic SAN uses the managed identity granted permissions in step 1 to authenticate access to the key vault via Microsoft Entra ID.
 1. Azure Elastic SAN wraps the data encryption key with the customer-managed key from the key vault.
 1. For read/write operations, Azure Elastic SAN sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
-### Regional availability
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
-
 ## Next steps
 
-- [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-configure-customer-managed-keys.md)
+- [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-encryption-configure-customer-managed-keys-key-vault.md)
+- [Configure Elastic SAN data encryption with customer-managed keys stored in Azure Key Vault Managed HSM](elastic-san-encryption-configure-customer-managed-keys-hsm.md)
 - [Manage customer keys for Azure Elastic SAN data encryption](elastic-san-encryption-manage-customer-keys.md)
