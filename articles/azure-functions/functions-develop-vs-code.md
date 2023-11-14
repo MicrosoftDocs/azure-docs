@@ -93,7 +93,6 @@ These prerequisites are only required to [run and debug your functions locally](
 
 + [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 ::: zone-end  
 
 ## Create an Azure Functions project
