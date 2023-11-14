@@ -52,7 +52,7 @@ After you create a business process in an application group to describe the stag
 
 ## Duplicate a business process
 
-The following steps copies an existing business process using a new name.
+The following steps copy an existing business process using a new name.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 
@@ -74,7 +74,7 @@ The following steps copies an existing business process using a new name.
 
 ## Discard pending changes
 
-The following steps deletes any pending or draft changes that you made to a deployed business process.
+The following steps delete any pending or draft changes that you made to a deployed business process.
 
 > [!NOTE]
 >
@@ -98,7 +98,7 @@ The following steps deletes any pending or draft changes that you made to a depl
 
 ## Delete deployment for a business process
 
-The following steps only removes the deployment resource and tracking profile for a deployed business process, leaving the actual business process untouched in the application group.
+The following steps remove only the deployment resource and tracking profile for a deployed business process, leaving the actual business process untouched in the application group.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 
@@ -116,4 +116,4 @@ The following steps only removes the deployment resource and tracking profile fo
 
 ## Next steps
 
-- [What is Azure Integration Enviroments](overview.md)?
+- [What is Azure Integration Environments](overview.md)?
