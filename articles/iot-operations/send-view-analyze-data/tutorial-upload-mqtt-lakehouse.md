@@ -28,7 +28,7 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 1. Once the Codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-    :::image type="content" source="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png" alt-text="Open VS Code desktop" lightbox="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png":::
+    :::image type="content" source="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png" alt-text="Screenshot of opening VS Code desktop." lightbox="../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png":::
 
 1. [Connect the cluster to Azure Arc](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster).
 
@@ -67,21 +67,21 @@ Next, create and set up the required Fabric resources.
 
 Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to IoT MQ's extension identity in the **Add people** sidebar.
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Create workspace and give access" lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Screenshot showing adding contributor to workspace and grant access." lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
 
 That's all the steps you need to do start sending data from IoT MQ.
 
 ### Create a new lakehouse
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png" alt-text="Screenshot showing dialot to create a new lakehouse." lightbox="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png":::
 
 ### Make note of the resource names
 
 Note the following names for later use: **Fabric workspace name**, **Fabric lakehouse name**, and **Fabric endpoint URL**. You can get the endpoint URL from the **Properties** of one of the precreated lakehouse folders.
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Get lakehouse name" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Screenshot of properties shortcut menu to get lakehouse name." lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
 
-The URL should look like `https://xxx.dfs.fabric.microsoft.com`.
+The URL should look like *https:\/\/xyz\.dfs\.fabric\.microsoft\.com*.
 
 ## Simulate MQTT messages 
 
@@ -127,7 +127,7 @@ The topic map provides the mapping between the JSON fields in the MQTT payload a
 
 In about a minute, you should see the MQTT payload along with the enriched fields in Fabric under the **Tables** folder.
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Confirm lakehouse ingest" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Screenshot showing fields with data in a Delta table." lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
 
 The data is now available in Fabric for cleaning, creating reports, and further analysis.
 
