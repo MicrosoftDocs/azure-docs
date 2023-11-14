@@ -114,7 +114,7 @@ The following example reads data from a file and stages blocks to be committed a
 
 The Azure Blob Storage client library for Python supports uploading blobs asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
 
-Follow these steps to upload a blob asynchronously:
+Follow these steps to upload a blob using asynchronous APIs:
 
 1. Add the following import statements:
 
@@ -133,7 +133,7 @@ Follow these steps to upload a blob asynchronously:
 
     :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload-async.py" id="Snippet_upload_blob_file":::
 
-With this basic setup in place, you can declare other methods in this article as coroutines using async/await syntax.
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
 ## Resources
 
