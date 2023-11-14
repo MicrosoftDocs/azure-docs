@@ -39,8 +39,8 @@ Customers are responsible for ensuring that applications integrating Azure OpenA
 |Filter category  |Default setting  |Applied to prompt or completion?  |Description  |
 |---------|---------|---------|---------|
 |Jailbreak risk detection     |    Off     |   Prompt      |   Can be turned on to filter or annotate user prompts that may present a Jailbreak Risk. For more information about consuming annotations visit [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=python#annotations-preview) |
-| Protected materials - code | off | Completion | Can be turned on to get the example citation and license information in annotations for code snippets that match any public code sources. For more information about consuming annotations, see the [content filtering concepts guide](/azure/ai-services/openai/concepts/content-filter#annotations-preview) |
-| Protected materials - text | off | Completion | Can be turned on to identify and block known text content from being displayed in the model output (for example, song lyrics, recipes, and selected web content).  |
+| Protected material - code | off | Completion | Can be turned on to get the example citation and license information in annotations for code snippets that match any public code sources. For more information about consuming annotations, see the [content filtering concepts guide](/azure/ai-services/openai/concepts/content-filter#annotations-preview) |
+| Protected material - text | off | Completion | Can be turned on to identify and block known text content from being displayed in the model output (for example, song lyrics, recipes, and selected web content).  |
 
 
 ## Configuring content filters via Azure OpenAI Studio (preview)
