@@ -1,7 +1,7 @@
 ---
 title: Configure core MQTT broker settings
 # titleSuffix: Azure IoT MQ
-description: Configure core MQTT broker settings for high availability and scale.
+description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -17,7 +17,6 @@ ms.date: 11/13/2023
 The **Broker** resource is the main resource that defines the overall settings for Azure IoT MQ's MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
-
 
 ## Configure scaling settings
 
@@ -40,11 +39,10 @@ The `cardinality` field is a nested field that has these subfields:
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
   - `workers`: The number of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 
-
 ## Configure memory profile
 
 > [!IMPORTANT]
-> At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
+> At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed.
 
 To configure the memory profile settings Azure IoT MQ MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
@@ -81,16 +79,92 @@ Medium is the default profile.
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
-
 ### High
 
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
+## Default broker
+
+By default, Azure IoT Operations deploys a default Broker resource named `broker`. It is deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+
+```bash
+kubectl get broker broker -n azure-iot-operations -o yaml
+```
+
+### Modify default broker by redeploying
+
+Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-memory-profile) are configurable with Azure portal or Azure CLI during initial deployment. Other settings and can only be configured by modifying the YAML file and redeploying the broker.
+
+To delete the default broker, run the following command:
+
+```bash
+kubectl delete broker broker -n azure-iot-operations
+```
+
+Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with 2 frontend replicas and 2 backend chains with 2 partitions and 2 workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: Broker
+metadata:
+  name: broker
+  namespace: azure-iot-operations
+spec:
+  authImage:
+    pullPolicy: Always
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
+    tag: 0.1.0-preview
+  brokerImage:
+    pullPolicy: Always
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
+    tag: 0.1.0-preview
+  memoryProfile: medium
+  mode: distributed
+  cardinality:
+    backendChain:
+      partitions: 2
+      redundancyFactor: 2
+      workers: 2
+    frontend:
+      replicas: 2
+      workers: 2
+  encryptInternalTraffic: false
+```
+
+Then, run the following command to deploy the broker:
+
+```bash
+kubectl apply -f <path-to-yaml-file>
+```
+
+## Configure encryption of internal traffic
+
+> [!IMPORTANT]
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+
+The **encryptInternalTraffic** feature is used to encrypt the internal traffic between the frontend and backend pods. To use this feature, cert-manager must be installed in the cluster, which is installed by default when using the Azure IoT Operations.
+
+The benefits include:
+
+- **Secure internal traffic**: All internal traffic between the frontend and backend pods is encrypted.
+
+- **Secure data at rest**: All data at rest is encrypted.
+
+- **Secure data in transit**: All data in transit is encrypted.
+
+- **Secure data in memory**: All data in memory is encrypted.
+
+- **Secure data in the message buffer**: All data in the message buffer is encrypted.
+
+- **Secure data in the message buffer on disk**: All data in the message buffer on disk is encrypted.
+
+By default, the **encryptInternalTraffic** feature is enabled. To disable the feature, set the `encryptInternalTraffic` field to `false` in the spec of the *Broker* custom resource when redeploying the broker.
+
 ## Configure disk-backed message buffer behavior
 
 > [!IMPORTANT]
-> At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the Azure IoT MQ distributed MQTT broker. The benefits include:
 
@@ -104,7 +178,7 @@ In rare cases where there are many slow subscribers or connectors have extended 
 
 Understanding and configuring the **diskBackedMessageBufferSettings** feature maintains a robust and reliable message queuing system. Proper configuration is important in scenarios where message processing speed and connectivity are critical factors.
 
-## Configuration options
+### Configuration options
 
 Tailor the broker message buffer options by adjusting the following settings:
 
@@ -179,6 +253,6 @@ For example, to use an emptyDir volume with a capacity of 1 gigabytes, specify t
 
 Consider the behavior of your chosen storage provider. For example, when using providers like `rancher.io/local-path`. If the provider doesn't support limits, filling up the volume consumes the node's disk space. This could lead to Kubernetes marking the node and all associated pods as unhealthy. It's crucial to understand how your storage provider behaves in such scenarios.
 
-## Persistence
+### Persistence
 
 It's important to understand that the **diskBackedMessageBufferSettings** feature isn't synonymous with *persistence*. In this context, *persistence* refers to data that survives across pod restarts. However, this feature provides temporary storage space for data to be saved to disk, preventing memory overflows and data loss during pod restarts.
