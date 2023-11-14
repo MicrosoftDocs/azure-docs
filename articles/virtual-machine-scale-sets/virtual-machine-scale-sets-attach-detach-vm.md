@@ -77,7 +77,22 @@ New-AzVm `
 
 ### Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
-> Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 will incur no downtime. 
+Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 will incur no downtime. 
+
+#### Enroll in the Preview
+
+Register for the `SingleFDAttachDetachVMToVmss` feature flag using the [az feature register][/cli/azure/feature#az-feature-register] command:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
+```
+
+It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][/cli/azure/feature#az-feature-register] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
+```
+
 
 > [!NOTE]
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer. Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
