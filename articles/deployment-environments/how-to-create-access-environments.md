@@ -71,7 +71,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev environment-definition list --dev-center <name> --project-name <name> -o table
    ```
 
-1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [manifest.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
+1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name>

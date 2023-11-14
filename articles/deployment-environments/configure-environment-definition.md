@@ -20,7 +20,7 @@ In Azure Deployment Environments, you can use a [catalog](concept-environments-k
 An environment definition is combined of least two files:
 
 - An [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) in JSON file format. For example, *azuredeploy.json*.
-- A manifest YAML file (*manifest.yaml*).
+- An environment YAML file (*environment.yaml*).
 
 >[!NOTE]
 > Azure Deployment Environments currently supports only ARM templates.
@@ -62,9 +62,9 @@ To add an environment definition:
 
    - A manifest as a YAML file.
 
-      The *manifest.yaml* file contains metadata related to the ARM template.
+      The *environment.yaml* file contains metadata related to the ARM template.
 
-       The following script is an example of the contents of a *manifest.yaml* file:
+       The following script is an example of the contents of a *environment.yaml* file:
 
        ```yaml
            name: WebApp
@@ -90,7 +90,7 @@ The service scans the repository to find new environment definitions. After you 
 
 You can specify parameters for your environment definitions to allow developers to customize their environments. 
 
-Parameters are defined in the manifest.yaml file. You can use the following options for parameters: 
+Parameters are defined in the environment.yaml file. You can use the following options for parameters: 
 
 |Option  |Description  |
 |---------|---------|
@@ -99,9 +99,9 @@ Parameters are defined in the manifest.yaml file. You can use the following opti
 |description     |Enter a description for the parameter.|
 |default     |Optional. Enter a default value for the parameter. The default value can be overwritten at creation.|
 |type     |Enter the data type for the parameter.|
-|required|Enter `true` for a value that's required, and  `false` for a value that's not required.|
+|required|Enter `true` for a required value, and  `false` for an optional value.|
 
-The following script is an example of a *manifest.yaml* file that includes two parameters; `location` and `name`: 
+The following script is an example of a *environment.yaml* file that includes two parameters; `location` and `name`: 
 
 ```YAML
 name: WebApp
@@ -145,11 +145,12 @@ az devcenter dev environment create --environment-definition-name
                                     [--user-id]
 ```
 Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details of the `az devcenter dev environment create` command.
+
 ## Update an environment definition
 
-To modify the configuration of Azure resources in an existing environment definition in Azure Deployment Environments, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific environment definition. The update also is applied when you redeploy an environment that's associated with that environment definition.
+To modify the configuration of Azure resources in an existing environment definition in Azure Deployment Environments, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific environment definition. The update also is applied when you redeploy an environment associated with that environment definition.
 
-To update any metadata related to the ARM template, modify *manifest.yaml*, and then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
+To update any metadata related to the ARM template, modify *environment.yaml*, and then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
 ## Delete an environment definition
 
