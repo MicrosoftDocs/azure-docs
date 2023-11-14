@@ -109,7 +109,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         >[!NOTE]
         >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
 
-3. Click **Protocol**, and then complete the following actions:  
+3. Select **Protocol** then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
@@ -133,7 +133,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
+4. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  

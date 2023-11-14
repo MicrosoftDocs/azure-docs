@@ -27,6 +27,9 @@ The Developer SKU has different requirements and limitations than the other SKU 
 
 [!INCLUDE [Developer SKU regions](../../includes/bastion-developer-sku-regions.md)]
 
+> [!NOTE]
+> VNet peering isn't currently supported for the Developer SKU.
+
 ### Specify SKU
 
 | Method | SKU Value | Links |

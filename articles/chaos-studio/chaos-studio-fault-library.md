@@ -1,6 +1,6 @@
 ---
-title: Azure Chaos Studio Preview fault and action library
-description: Understand the available actions you can use with Azure Chaos Studio Preview, including any prerequisites and parameters.
+title: Azure Chaos Studio  fault and action library
+description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -10,9 +10,9 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Azure Chaos Studio Preview fault and action library
+# Azure Chaos Studio fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio Preview](./chaos-studio-fault-providers.md).
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
@@ -1614,3 +1614,72 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
+## Start load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Start-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Starts a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Stop load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Stops a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+

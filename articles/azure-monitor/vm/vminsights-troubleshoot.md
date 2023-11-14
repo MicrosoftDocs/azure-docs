@@ -44,8 +44,8 @@ If you don't see both the extensions for your operating system in the list of in
 
 ### Do you have connectivity issues?
 For Windows machines, you can use the TestCloudConnectivity tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemDrive%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It returns results and highlights where the test fails.
-
-![Screenshot that shows the TestCloudConnectivity tool.](media/vminsights-troubleshoot/test-cloud-connectivity.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-troubleshoot/test-cloud-connectivity.png" lightbox="media/vminsights-troubleshoot/test-cloud-connectivity.png" alt-text="Screenshot that shows the TestCloudConnectivity tool." border="false":::
 
 ### More agent troubleshooting
 
