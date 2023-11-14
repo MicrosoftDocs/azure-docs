@@ -40,7 +40,7 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 
 ## Key concepts
 
-### Provisioned Throughput Units**
+### Provisioned Throughput Units
 
 Provisioned Throughput Units (PTU) are units of model processing capacity that customers you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
 
