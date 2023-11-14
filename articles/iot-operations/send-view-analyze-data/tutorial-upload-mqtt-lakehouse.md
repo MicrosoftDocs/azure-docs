@@ -14,9 +14,9 @@ ms.date: 11/13/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you send MQTT data from IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
+In this walkthrough, you send MQTT data from Azure IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
-Azure IoT Operations can be deployed with the Azure CLI, Azure Portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
+Azure IoT Operations can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
 ## Prepare your Kubernetes cluster
 
@@ -57,19 +57,19 @@ The template deploys:
 * [IoT MQ Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L124)
 * [IoT MQ Broker and child resources](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L191)
 
-From the deployment JSON outputs, note the name of the IoT MQ extension - it should look like 'mq-resource-group-name'.
+From the deployment JSON outputs, note the name of the IoT MQ extension. It should look like *mq-resource-group-name*.
 
 ## Set up Microsoft Fabric resources
 
-Next, create and set up the required Fabric resources. 
+Next, create and set up the required Fabric resources.
 
 ### Create a Fabric workspace and give access to IoT MQ 
 
-Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to MQ's extension identity in the **Add people** sidebar.
+Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to IoT MQ's extension identity in the **Add people** sidebar.
 
 :::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Create workspace and give access" lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
 
-That's all you need to do start sending data from IoT MQ!
+That's all the steps you need to do start sending data from IoT MQ.
 
 ### Create a new lakehouse
 
@@ -77,27 +77,25 @@ That's all you need to do start sending data from IoT MQ!
 
 ### Make note of the resource names
 
-Note the following names for later use - **Fabric workspace name**, **Fabric lakehouse name** and **Fabric endpoint URL**. You can get the endpoint URL from the **Properties** of one of the pre-created lakehouse folders -
+Note the following names for later use: **Fabric workspace name**, **Fabric lakehouse name**, and **Fabric endpoint URL**. You can get the endpoint URL from the **Properties** of one of the precreated lakehouse folders.
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Get lakehouse name" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
 
 The URL should look like *https://xxx.dfs.fabric.microsoft.com*
 
 ## Simulate MQTT messages 
 
-Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
+Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Run the following command in the Codespace terminal:
 
-    ```bash
-    kubectl apply -f tutorials/mq-onelake-upload/simulate-data.yaml
-    ```
-
+```bash
+kubectl apply -f tutorials/mq-onelake-upload/simulate-data.yaml
+```
 
 ## Deploy the data lake connector and topic map resources
 
 Building on top of the previous Azure deployment, add the data lake connector and topic map. Supply the names of the previously created resources using environment variables.
 
 ```azurecli
-
 TEMPLATE_FILE_NAME=./tutorials/mq-onelake-upload/deployDatalakeConnector.bicep
 RESOURCE_GROUP=xxx
 mqInstanceName=mq-instance
@@ -106,7 +104,7 @@ fabricEndpointUrl=xxx
 fabricWorkspaceName=xxx
 fabricLakehouseName=xxx
 
- az deployment group create --name dl-resources \
+az deployment group create --name dl-resources \
     --resource-group $RESOURCE_GROUP \
     --template-file $TEMPLATE_FILE_NAME \
     --parameters mqInstanceName=$mqInstanceName \
@@ -114,7 +112,6 @@ fabricLakehouseName=xxx
     --parameters fabricEndpointUrl=$fabricEndpointUrl \
     --parameters fabricWorkspaceName=$fabricWorkspaceName \
     --parameters fabricLakehouseName=$fabricLakehouseName
-
 ```
 
 The template deploys:
@@ -122,19 +119,17 @@ The template deploys:
 * [IoT MQ data lake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
 * [Data lake connector topic map](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L56)
 
-The data lake connector uses the MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials needed!
+The data lake connector uses the IoT MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials are needed.
 
 The topic map provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the lakehouse and built-in enrichments the data like a receive timestamp and topic name.
 
-
 ## Confirm lakehouse ingest
 
-In about a minute, you should see the MQTT payload along with the enriched fields in Fabric under the **Tables** folder:
+In about a minute, you should see the MQTT payload along with the enriched fields in Fabric under the **Tables** folder.
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Confirm lakehouse ingest" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
 
-The data is now available in Fabric for cleaning, creating reports and further analysis.
-
+The data is now available in Fabric for cleaning, creating reports, and further analysis.
 
 In this walkthrough, you learned how to upload MQTT messages from IoT MQ directly to a Fabric lakehouse.
 

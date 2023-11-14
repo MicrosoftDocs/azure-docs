@@ -106,7 +106,9 @@ spec:
 
 ## Service name and service type
 
-If you have multiple BrokerListener resources with the same `serviceType` and `serviceName`, the resources share the same Kubernetes service. This means that the service exposes all the ports of all the listeners. For example, if you have two listeners with the same `serviceType` and `serviceName`, one on port 1883 and the other on port 8883, the service exposes both ports. Clients can connect to the broker on either port. There are two important rules to follow when sharing service name:
+If you have multiple BrokerListener resources with the same `serviceType` and `serviceName`, the resources share the same Kubernetes service. This means that the service exposes all the ports of all the listeners. For example, if you have two listeners with the same `serviceType` and `serviceName`, one on port 1883 and the other on port 8883, the service exposes both ports. Clients can connect to the broker on either port. 
+
+There are two important rules to follow when sharing service name:
 
 1. Listeners with the same `serviceType` must share the same `serviceName`.
 
@@ -117,8 +119,8 @@ Notably, the service for the default listener on port 8883 is `clusterIp` and na
 | New listener `serviceType` | New listener `serviceName` | Result |
 | --- | --- | --- |
 | `clusterIp` | `aio-mq-dmqtt-frontend` | The new listener creates successfully, and the service exposes both ports. |
-| `clusterIp` | `my-service` | The new listener fails to create because the service name conflicts with the default listener. |
-| `loadBalancer` or `nodePort` | `aio-mq-dmqtt-frontend` | The new listener fails to create because the service type conflicts with the default listener. |
+| `clusterIp` | `my-service` | The new listener fails to create because the service type conflicts with the default listener. |
+| `loadBalancer` or `nodePort` | `aio-mq-dmqtt-frontend` | The new listener fails to create because the service name conflicts with the default listener. |
 | `loadBalancer` or `nodePort` | `my-service` | The new listener creates successfully, and a new service is created. |
 
 ## Related content
