@@ -60,6 +60,7 @@ To create the yaml file, use the following component definitions:
     kind: Component
     metadata:
       name: aio-mq-pubsub
+      namespace: azure-iot-operations
     spec:
       type: pubsub.aio-mq-pubsub-pluggable # DO NOT CHANGE
       version: v1
@@ -80,6 +81,7 @@ To create the yaml file, use the following component definitions:
     kind: Component
     metadata:
       name: aio-mq-statestore
+      namespace: azure-iot-operations
     spec:
       type: state.aio-mq-statestore-pluggable # DO NOT CHANGE
       version: v1

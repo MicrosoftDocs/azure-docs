@@ -372,7 +372,7 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 ## Azure Event Grid MQTT broker support
 
-To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker.
+To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../event-grid/mqtt-overview.md).
 
 For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../send-view-analyze-data/tutorial-connect-event-grid.md).
 
