@@ -79,7 +79,7 @@ That's all you need to do start sending data from IoT MQ!
 
 Note the following names for later use - **Fabric workspace name**, **Fabric lakehouse name** and **Fabric endpoint URL**. You can get the endpoint URL from the **Properties** of one of the pre-created lakehouse folders -
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Get lakehouse name" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
 
 The URL should look like *https://xxx.dfs.fabric.microsoft.com*
 
@@ -87,9 +87,9 @@ The URL should look like *https://xxx.dfs.fabric.microsoft.com*
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Execute the following command in the Codespace terminal:
 
-    ```bash
-    kubectl apply -f tutorials/mq-onelake-upload/simulate-data.yaml
-    ```
+```bash
+kubectl apply -f tutorials/mq-onelake-upload/simulate-data.yaml
+```
 
 
 ## Deploy the data lake connector and topic map resources
@@ -131,7 +131,7 @@ The topic map provides the mapping between the JSON fields in the MQTT payload a
 
 In about a minute, you should see the MQTT payload along with the enriched fields in Fabric under the **Tables** folder:
 
-:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png" alt-text="Confirm lakehouse ingest" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-table.png":::
 
 The data is now available in Fabric for cleaning, creating reports and further analysis.
 
