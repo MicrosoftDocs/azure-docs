@@ -38,51 +38,24 @@ The customer has full control as key component deployment is within the customer
 
 We recommend that you apply content and safety filters on your Azure OpenAI instance. Taking this step ensures that the LLM capability is aligned with guidelines from Microsoft’s Office of Responsible AI. Follow instructions on how to use content filters with Azure OpenAI service at this [link](../ai-services/openai/how-to/content-filters.md) to get started.
 
-## Flow diagram:
-:::image type="content" source="./media/concepts-llm-apis/flow-diagram.png" alt-text="Screenshot showing high level information flow":::
+## Current uses cases
 
-The LLM capability uses a specialized orchestrator SDK – C# library that wraps LLM capabilities of taking a user message in a natural language enriching it with a relevant metadata on the user. Then apply a set of plugins to create natural language responses to the user that answers questions within a chat experience. 
+We support seamless selection of APIs mapped to farm operations today. This enables use cases that are based on tillage, planting, applications and harvesting type of farm operations. Here's a sample list of queries that you can test and use: 
 
-The SDK is built on top of Semantic Kernel, it supports GPT 4 and uses Azure open AI function calling capability. There are three steps in which the developer interacts with the orchestrator: 
-1.	System initialization – when the system starts, once for all chat instances. 
-2.	Chat initialization – when user starts a new chat, initializes an empty chat history. 
-3.	Chat loop – the chat conversation between the user and the system, triggered by user message. 
+* Show me active fields
+* What crop was planted in my field (use field name) 
+* Tell me the application details for my field (use field name)
+* Give me a list of all fields with planting dates
+* Give me a list of all fields with application dates
+* What is the delta between planted and harvested fields
+* Which farms were harvested
+* What is the area of harvested fields
+* Convert area to acres/hectares 
+* What is the average yield for my field (use field name) with crop (use crop name)
+* What is the effect of planting dates on yield for crop (use crop name) 
 
-The orchestrator adds the messages and their responses to the history and returns the updated history to the caller. 
+These use cases help input providers to plan equipment, seeds, applications and related services and engage better with the farmer.
 
-### API design
-Chat Initiate
-```azurecli
-curl -X 'POST' \
-  'https://admacopilot.azurewebsites.net/Test/chatSession/create' \
-  -H 'accept: text/plain' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "partyId": "your-demo"
-}'
-
-{"chatSession": {"title": "AgCopilot @ 9/19/2023, 2:19:46 PM", "partyId": "your-demo", "id": "<chatId>", "createdOn": "10/4/2023 3:18:29 PM"}}
-```
-Chat
-```azurecli
-curl -X 'POST' \
-  'https://admacopilot.azurewebsites.net/Test/chat' \
-  -H 'accept: text/plain' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "input": "I would like to see fields that have been planted for partyId your-demo",
-  "variables": [
-    {
-      "key": "chat",
-      "value": "true"
-    },
-    {
-      "key": "chatId",
-      "value": "<chatId>"
-    }
-  ]
-}'
-```
 ## Next steps
 
 * Fill this onboarding [**form**](https://forms.office.com/r/W4X381q2rd) to get started with testing our LLM feature.
