@@ -62,15 +62,23 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
 1. Select **Review + create**.
 
-1. The **Review + create** tab will present a summary of the configuration, and possibly the terms of the agreement. Select **Create** to approve the terms.
+1. The **Review + create** tab will present a summary of the configuration, and possibly the terms of the agreement. 
 
-    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
+    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" border="false" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
+
+    > [!NOTE]
+    >
+> Before you select **Create** to approve the terms and create the secret, it's a good idea to duplicate the current browser tab, and then select **Create** in the new tab. This is recommended because creating the secret will, for now, take you outside of the Microsoft Sentinel context and into the Key Vault context, with no direct way back. This way, you'll have the old tab remain on the Widgets Onboarding Page, and the new tab for managing your key vault secrets.
+
+    Select **Create** to approve the terms and create the secret.
 
 1. A new page will be displayed for your new secret, with a message that the deployment is complete.
 
     :::image type="content" source="media/enable-enrichment-widgets/deployment-complete.png" alt-text="Screenshot of completed secret deployment.":::
 
-    Open a new browser tab and return to the widgets onboarding page. It’s recommended that you manage the onboarding for widgets in two separate browser tabs: one for the onboarding page itself with the list of all widget sources, and second for the deployment of each widget source secret to the key vault.
+    Return to the Widgets Onboarding Page (in your original browser tab).
+
+    (If you didn't duplicate the browser tab as directed in the Note above, open a new browser tab and return to the widgets onboarding page.)
 
 1. Verify that your new secret was added to the key vault:
 
@@ -122,6 +130,30 @@ Microsoft Sentinel aspires to offer a broad collection of widgets, making them a
 ## Remove the widgets experience
 
 To remove the widgets experience from Microsoft Sentinel, simply delete the Key Vault that you created in [Step 1 above](#step-1-create-a-dedicated-key-vault-to-store-credentials).
+
+## Troubleshooting
+
+### Errors in widget configuration
+
+If in one of your widgets you see an error message about the widget configuration, for example as shown in the following screenshot, check that you followed the [configuration instructions above](#step-2-add-relevant-credentials-to-your-widgets-key-vault) and the [specific instructions for your widget](#find-your-credentials-for-each-widget-source).
+
+:::image type="content" source="media/enable-enrichment-widgets/widget-not-configured.png" alt-text="Screenshot of widget configuration error message.":::
+
+### Failure to create Key Vault
+
+If you receive an error message when creating the Key Vault, there could be multiple reasons:
+
+- You don't have the **Contributor** role on your resource group.
+
+- Your subscription is not registered to the Key Vault resource provider.
+
+### Failure to deploy secrets to your Key Vault
+
+If you receive an error message when deploying a secret for your widget data source, check the following:
+
+- Check that you entered the source credentials correctly.
+
+- The provided ARM template may have changed.
 
 ## Next steps
 
