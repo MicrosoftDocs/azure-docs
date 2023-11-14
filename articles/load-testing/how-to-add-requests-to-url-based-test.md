@@ -274,7 +274,7 @@ The following screenshot shows how to refer to a `token` variable in an HTTP hea
 :::image type="content" source="./media/how-to-add-requests-to-url-based-test/url-load-test-request-variables.png" alt-text="Screenshot that shows the request details page in the Azure portal, highlighting a variable reference in an HTTP header." lightbox="./media/how-to-add-requests-to-url-based-test/url-load-test-request-variables.png":::
 
 > [!NOTE]
-> If you specify certificates, Azure Load Testing automatically passes the certicates in each HTTP request.
+> If you specify certificates, Azure Load Testing automatically passes the certificates in each HTTP request.
 
 ### Use response variables for dependent requests
 

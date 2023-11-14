@@ -86,7 +86,7 @@ keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/r
 
 If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a JMeter test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
 
-### HTTP Requests
+### HTTP requests
 
 The requests JSON file uses the following properties for defining requests in the `requests` property:
 

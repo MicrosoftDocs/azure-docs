@@ -33,7 +33,7 @@ Get started by [cloning or downloading the samples project from GitHub](https://
 In this section, you configure your Apache JMeter script to reference the external CSV file. You use a [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) to read data from a CSV file.
 
 > [!IMPORTANT]
-> Azure Load Testing uploads the JMX file and all related files in a single folder. When you reference an external file in your JMeter script, verify that *remove any file path references* in your test script.
+> Azure Load Testing uploads the JMX file and all related files in a single folder. When you reference an external file in your JMeter script, verify that you have no file path references in your test script.
 
 Modify the JMeter script by using the Apache JMeter GUI:
 
