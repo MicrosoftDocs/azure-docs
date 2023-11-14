@@ -28,7 +28,6 @@ The application subscribes to the topic `sensor/data` for incoming sensor data, 
 1. [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
 1. [Setup Dapr and MQ Pluggable Components](../develop/howto-develop-dapr-apps.md)
 1. [Docker](https://docs.docker.com/engine/install/) - for building the application container
-1. [Mosquitto_sub](https://mosquitto.org/download/) - for monitoring the MQTT broker traffic
 1. A Container registry - for hosting the application container
 
 ## Creating the Dapr application
@@ -70,7 +69,7 @@ docker push {container-alias}
 
 At this point you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a Deployment to group the containerized Dapr application and the two components together.
 
-To start, you create a yaml file that uses the following component definitions:
+To start, you create a yaml file that uses the following definitions:
 
 > | Component | Description |
 > |-|-|
@@ -113,13 +112,13 @@ To start, you create a yaml file that uses the following component definitions:
               sources:
                 - serviceAccountToken:
                     path: mqtt-client-token
-                    audience: aio-mq-dmqtt
+                    audience: aio-mq
                     expirationSeconds: 86400
 
           # Certificate chain for Dapr to validate the MQTT broker
-          - name: aio-mq-ca-cert-chain
+          - name: aio-ca-trust-bundle
             configMap:
-              name: aio-mq-ca-cert-chain
+              name: aio-ca-trust-bundle-test-only
 
           containers:
           # Container for the dapr quickstart application 
@@ -134,8 +133,8 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
-            - name: aio-mq-ca-cert-chain
-              mountPath: /certs/aio-mq-ca-cert/
+            - name: aio-ca-trust-bundle
+              mountPath: /var/run/certs/aio-mq-ca-cert/
 
           # Container for the State Management component
           - name: aio-mq-statestore-pluggable
@@ -145,8 +144,8 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
-            - name: aio-mq-ca-cert-chain
-              mountPath: /certs/aio-mq-ca-cert/
+            - name: aio-ca-trust-bundle
+              mountPath: /var/run/certs/aio-mq-ca-cert/
     ```
 
 1. Deploy the application by running the following command:
@@ -203,20 +202,68 @@ The repository contains a deployment for a simulator which will generate sensor 
     Messages published in the last 10 seconds: 10
     ```
 
-## Verify the Dapr application output
+## Deploy an MQTT client
 
-1. Deploy the simulator
+To verify the MQTT bridge is working, deploy an MQTT client to the cluster. 
 
-    In the example used for this article, the application subscribes to the `orders` topic and watches for odd number orders, then republishes them to the `odd-number-orders` topic. The simplest way to verify that the application works is to use a `mosquitto` client to publish an odd number order and see if it's republished as expected.
+1. In a new file named `client.yaml`, specify the client deployment:
 
-1. Subscribe to the `sensor/window_data` topic to see the output from the Dapr application:
-
-    ```bash
-    mosquitto_sub -h localhost -p 8883 -t "sensor/window_data" --insecure
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: mqtt-client
+      namespace: azure-iot-operations
+    spec:
+      serviceAccountName: mqtt-client
+      containers:
+      - image: alpine
+        name: mqtt-client
+        command: ["sh", "-c"]
+        args: ["apk add mosquitto-clients mqttui && sleep infinity"]
+        volumeMounts:
+        - name: mqtt-client-token
+          mountPath: /var/run/secrets/tokens
+        - name: aio-ca-trust-bundle
+          mountPath: /var/run/certs/aio-mq-ca-cert/
+      volumes:
+      - name: mqtt-client-token
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: mqtt-client-token
+              audience: aio-mq
+              expirationSeconds: 86400
+      - name: aio-ca-trust-bundle
+        configMap:
+          name: aio-ca-trust-bundle-test-only
     ```
 
-    > [!NOTE]
-    > Depending on your Kubernetes setup, your cluster may not be on `localhost` and you may need to port forward port `8883`
+1. Apply the deployment file with kubectl.
+
+    ```bash
+    kubectl apply -f client.yaml
+    ```
+
+    Verify output:
+
+    ```output
+    pod/mqtt-client created
+    ```
+
+## Verify the Dapr application output
+
+1. Start a shell in the mosquitto client pod:
+
+    ```bash
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. Subscribe to the `sensor/window_data` topic to see the publish output from the Dapr application:
+
+    ```bash
+    mosquitto_sub -L mqtts://aio-mq-dmqtt-frontend/sensor/window_data -u '$sat' -P $(cat /var/run/secrets/tokens/mqtt-client-token) --cafile /var/run/certs/aio-mq-ca-cert/ca.crt 
+    ```
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors:
 
