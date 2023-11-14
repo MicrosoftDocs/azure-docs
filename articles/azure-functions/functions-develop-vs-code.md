@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 09/01/2023
+ms.date: 11/14/2023
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -519,8 +519,6 @@ To learn more, see [Streaming logs](functions-monitoring.md?tabs=vs-code#streami
 You should monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
-
-[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 ### Enable emulation in Visual Studio Code
 
