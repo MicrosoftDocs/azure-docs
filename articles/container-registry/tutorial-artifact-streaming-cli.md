@@ -18,81 +18,63 @@ This article is part two in a four-part tutorial series. In this tutorial, you l
 
 ## Prerequisites
 
-> * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
 ## Push/Import the image and generate the streaming artifact  - Azure CLI
 
 Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure CLI (version 2.54.0 or above). To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Enable Artifact Streaming, by following these general steps:
+Enable Artifact Streaming by following these general steps:
 
 >[!NOTE]
 > If you already have a premium container registry, you can skip this step. If the user is on Basic of Standard SKUs, the following commands will fail. 
 > The code is written in Azure CLI and can be executed in an interactive mode. 
 > Please note that the placeholders should be replaced with actual values before executing the command.
 
-1. Create a new Azure Container Registry (ACR) using the premium SKU through:
-
-For example, run the [az group create] command to create an Azure Resource Group with name `my-streaming-test` in the West US region and then run the [az acr create] command to create a premium Azure Container Registry with name `mystreamingtest` in that resource group.
+Use the following command to create an Azure Resource Group with name `my-streaming-test` in the West US region and a premium Azure Container Registry with name `mystreamingtest` in that resource group.
 
 ```azurecli-interactive
 az group create -n my-streaming-test -l westus
 az acr create -n mystreamingtest -g my-streaming-test -l westus --sku premium
 ```
 
-1. Push or import an image to the registry through:
-
-For example, run the [az configure] command to configure the default ACR and [az acr import] command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
+To push or import an image to the registry, run the `az configure` command to configure the default ACR and `az acr import` command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az configure --defaults acr="mystreamingtest"
 az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
 ```
 
-1. Create a streaming Artifact from the Image
-
-Initiates the creation of a streaming artifact from the specified image.
-
-For example, run the [az acr artifact-streaming create] commands to create a streaming artifact from the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+Use the following command to create a streaming artifact from the specified image. This example creates a streaming artifact from the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
 ```
 
-1. Verify the generated Artifact Streaming in the Azure CLI.
-
-For example, run the [az acr manifest list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+To verify the generated Artifact Streaming in the Azure CLI, run the `az acr manifest list-referrers` command. This command lists the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
 ```
 
-1. Cancel the Artifact Streaming creation (if needed)
-
-Cancel the streaming artifact creation if the conversion is not finished yet. It will stop the operation.
-
-For example, run the [az acr artifact-streaming operation cancel] command to cancel the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+If you need to cancel the streaming artifact creation, run the `az acr artifact-streaming operation cancel` command. This command stops the operation. For example, this command cancels the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming operation cancel --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
 ```
 
-1. Enable auto-conversion on the repository
-
-Enables auto-conversion in the repository for newly pushed or imported images. When enabled, new images pushed into that repository will trigger the generation of streaming artifacts.
+Enable auto-conversion in the repository for newly pushed or imported images. When enabled, new images pushed into that repository trigger the generation of streaming artifacts.
 
 >[!NOTE]
 Auto-conversion does not apply to existing images. Existing images can be manually converted.
 
-For example, run the [az acr artifact-streaming update] command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
+For example, run the `az acr artifact-streaming update` command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming true
 ```
 
-1. Verify the streaming conversion progress, after pushing a new image `jupyter/all-spark-notebook:newtag` to the above repository.
-
-For example, run the [az acr artifact-streaming operation show] command to check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
+Use the `az acr artifact-streaming operation show` command to verify the streaming conversion progress. For example, this command check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
