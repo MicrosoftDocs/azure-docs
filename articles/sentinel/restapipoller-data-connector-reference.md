@@ -112,8 +112,8 @@ Example Basic auth:
 | ---- | ---- | ---- | ---- | ---- |
 | **ApiKey** | Mandatory | string | user secret key | |
 | **ApiKeyName** | | string | name of the Uri header containing the ApiKey value | `Authorization` |
-| **ApiKeyIdentifier** | | string | string value to prepend the token | "token" |
-| **IsApiKeyInPostPayload** | | boolean | send secret in POST body instead of header | false |
+| **ApiKeyIdentifier** | | string | string value to prepend the token | `token` |
+| **IsApiKeyInPostPayload** | | boolean | send secret in POST body instead of header | `false` |
 
 APIKey auth examples:
 ```json
@@ -199,11 +199,13 @@ Example:
     "grantType": "client_credentials"
 }
 ```
-The difference between code flow to client credentials is that code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with the application permissions. The data server grant access / permissions to the application, there is no user, that is why in client credentials flow we don't need authorization endpoint, only a token endpoint for retrieving tokens.
+Auth code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with application permissions. The data server grants access to the application. Since there is no user in client credentials flow, no authorization endpoint is needed, only a token endpoint.
 
 ## Request configuration
 
-The request section includes the following parameters:
+The request section defines how the CCP data connector will send requests to your data source. This section includes some available built-in variables.
+- `_QueryWindowStartTime`
+- `_QueryWindowEndTime`
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
@@ -218,29 +220,11 @@ The request section includes the following parameters:
 | **Headers** | False | Object | Key value pairs that define the request headers |
 | **QueryParameters** | False | Object | Key value pairs that define the request query parameters |
 | **StartTimeAttributeName** | Depends | String | Defines the query parameter name for query Start time. |
-
-For example: if 
-StartTimeAttributeName = "from"
-and EndTimeAttributeName = "until"
-and ApiEndpoint = "https://www.example.com"
-Then, the query sent to the remote server will look as follows: 
- https://www.example.com?from={QueryTimeFormat}&until={QueryTimeFormat + QueryWindowInMin}	
-EndTimeAttributeName 		String	see StartTimeAttributeName	
-QueryTimeIntervalAttributeName	Depends on the scenario, 	String	In case the endpoint supports a special format of querying the data on a time frame, then this property may be used together with the QueryTimeIntervalPrepend parameter  and the QueryTimeIntervalDelimiter parameter. 
-
-For example:
-Setting   
-QueryTimeIntervalAttributeName = "interval"
-and QueryTimeIntervalPrepend = "time:"
-and
-QueryTimeIntervalDelimiter = ".."
-and
-ApiEndpoint = "https://www.example.com"
-Will results in the following query:
-https://www.example.com?interval="time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}"	
-QueryTimeIntervalPrepend		String	See QueryTimeIntervalAttributeName	
-QueryTimeIntervalDelimiter		String	See QueryTimeIntervalAttributeName	
-QueryParametersTemplate	False	String	Defines the query parameters template to use when passing query parameters in advanced scenarios. 
+| **EndTimeAttributeName** | String | | see `StartTimeAttributeName` |
+| **QueryTimeIntervalAttributeName** | Depends on the scenario | String | If the endpoint requires a specialized format for querying the data on a time frame, then use this property with the `QueryTimeIntervalPrepend` and the `QueryTimeIntervalDelimiter` parameters. | 
+| **QueryTimeIntervalPrepend** | String | See `QueryTimeIntervalAttributeName` |
+| **QueryTimeIntervalDelimiter** | String | See `QueryTimeIntervalAttributeName` |
+| **QueryParametersTemplate** | False | String | Query template to use when passing parameters in advanced scenarios. | 
 
 For example: 
 "queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"
@@ -252,6 +236,24 @@ For example:
 Examples: 
 Let’s take 2 examples for getting data from Microsoft Graph API:
 The first one is for querying messages with filter query parameter with a query syntax as shown in the docs :
+
+For example: if 
+StartTimeAttributeName = "from"
+and EndTimeAttributeName = "until"
+and ApiEndpoint = "https://www.example.com"
+Then, the query sent to the remote server will look as follows: 
+ https://www.example.com?from={QueryTimeFormat}&until={QueryTimeFormat + QueryWindowInMin}
+
+For example:
+Setting   
+QueryTimeIntervalAttributeName = "interval"
+and QueryTimeIntervalPrepend = "time:"
+and
+QueryTimeIntervalDelimiter = ".."
+and
+ApiEndpoint = "https://www.example.com"
+Will results in the following query:
+https://www.example.com?interval="time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}"	
 
 ```json
 "request": {
@@ -331,24 +333,24 @@ This example will send a POST request with parameters in the body.
 ## Response configuration
 
 The response section includes the following parameters:
-Field	Required	Type	Description	Default Value
-EventsJsonPaths	True	List of Strings	Defines the path to the message in the response JSON. 
-A JSON path expression specifies a path to an element, or a set of elements, in a JSON structure 	
-SuccessStatusJsonPath	False	String	Defines the path to the success message in the response JSON.
-When this parameter is defined then SuccessStatusValue parameter should also be defined 	
-SuccessStatusValue	False	String	Defines the path to the success message value in the response JSON	
-IsGzipCompressed	False	Boolean	Determines whether the response is compressed in a gzip file	False
-format	True	String	"json" or "csv" or "xml"	
-CompressionAlgo	False	String	Can be either "multi-gzip" or "deflate". For gzip you can use IsGzipCompressed	
-CsvDelimiter	False	String	If response format is CSV and you want to change the default CSV delimiter ","	","
-HasCsvBoundary	False	Boolean	indicate if CSV data has a boundary	False
-HasCsvHeader	False	Boolean	indicate if CSV data has a header	True
-CsvEscape	False	String	Escape char for bound a field, for example double quote, 
-CSV with headers id,name,avg
-1, "my name", 5.5	‘"’ (double quotes)
-ConvertChildPropertiesToArray	False	Boolean	Special case in which the remote server returns an object instead of a list of events which each property has data in it.	False
 
-Note: CSV format type is parsed by this specification (RFC4180).
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **EventsJsonPaths** | True | List of Strings | Defines the path to the message in the response JSON. A JSON path expression specifies a path to an element, or a set of elements, in a JSON structure |
+| **SuccessStatusJsonPath** |  | String | Defines the path to the success message in the response JSON. When this parameter is defined then `SuccessStatusValue` parameter should also be defined |
+| **SuccessStatusValue** |  | String | Defines the path to the success message value in the response JSON |
+| **IsGzipCompressed** |  | Boolean | Determines whether the response is compressed in a gzip file	|
+| **format** | True | String | `json` or `csv` or `xml` |
+| **CompressionAlgo** |  | String | The compressions algorithm, either `multi-gzip` or `deflate`. For gzip compression algorithm, just configure `IsGzipCompressed` to `True` instead of setting a value for this parameter. |
+| **CsvDelimiter** |  | String | If response format is CSV and you want to change the default CSV delimiter of `","` |
+| **HasCsvBoundary** |  | Boolean | Indicate if CSV data has a boundary |
+| **HasCsvHeader** |  | Boolean | Indicate if CSV data has a header, default is `True` |
+| **CsvEscape** |  | String | Escape character for a field boundary, default is `"`<br><br>For example, a CSV with headers `id,name,avg` and a row of data containing spaces like `1,"my name",5.5` requires the `"` field boundary. |
+| **ConvertChildPropertiesToArray** |  | Boolean | Special case in which the remote server returns an object instead of a list of events where each property has data in it. |
+
+> [!NOTE]
+> CSV format type is parsed by the [RFC4180](https://www.rfc-editor.org/rfc/rfc4180) specification.
+
 Examples: 
 For server that response with JSON format and the data is inside a property called "value", also an indication for success call is in the response in property "status" and should only ingest the data if the value is "success"
 
@@ -375,6 +377,7 @@ Another example for response in CSV format with no header:
 ## Paging configuration
 
 The paging section includes the following parameters based on the paging type:
+
 PagingType:  LinkHeader / PersistentLinkHeader
 This is the most common paging type – see specification here.
 In LinkHeader pagination, the API response includes links in the HTTP header, typically named "Link," that provide URLs to the next and previous pages of data. Clients can extract the next page URL from the header and make a new request to retrieve the next page of data.
