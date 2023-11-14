@@ -362,4 +362,4 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
     
 ## Next steps
 
-* [Run OpenAI models in batch endpoints to compute completions](how-to-use-batch-model-openai-completions.md)
+* [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
