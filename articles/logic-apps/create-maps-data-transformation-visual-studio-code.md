@@ -30,6 +30,8 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
+- To use the maps that you create with the Data Mapper tool but in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
 - The Data Mapper tool's **Code view** pane is currently read only.
 
 - The map layout and item position are currently automatic and read only.
@@ -91,7 +93,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
       The map surface now shows data types from the target schema.
 
-   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts** **Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
+   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts**\/**Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
 
    When you're done, your map looks similar to the following example:
 
@@ -405,13 +407,17 @@ Visual Studio Code saves your map as the following artifacts:
 - A **<*your-map-name*>.yml** file in the **Artifacts** > **MapDefinitions** project folder
 - An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
 
-## Generate XSLT at any time
+<a name="generate-xslt"></a>
+
+## Generate XSLT file at any time
 
 To generate the **<*your-map-name*>.xslt** file at any time, on the map toolbar, select **Generate XSLT**.
 
 ## Test your map
 
 To confirm that the transformation works as you expect, you'll need sample input data.
+
+1. Before you test your map, make sure to [generate the latest **<*your-map-name*>.xslt** file](#generate-xslt).
 
 1. On your map toolbar, select **Test**.
 
@@ -433,10 +439,7 @@ To confirm that the transformation works as you expect, you'll need sample input
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visual Studio Code, Standard workflow designer, with selected action named Transform using Data Mapper XSLT and action properties.":::
 
-To use the same **Transform using Data Mapper XSLT** action in the Azure portal, add the map to either of the following resources:
-
-- An integration account for a Consumption or Standard logic app resource
-- The Standard logic app resource itself
+   To use the same **Transform using Data Mapper XSLT** action in the Azure portal, you must [add the map to the Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 <a name="create-custom-function"></a>
 

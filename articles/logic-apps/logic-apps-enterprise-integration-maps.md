@@ -324,7 +324,7 @@ The following steps apply only if you want to add a map directly to your Standar
 
 #### Azure portal
 
-1. On your logic app resource's menu, under **Settings**, select **Maps**.
+1. On your logic app resource's menu, under **Artifacts**, select **Maps**.
 
 1. On the **Maps** pane toolbar, select **Add**.
 
