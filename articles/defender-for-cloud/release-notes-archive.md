@@ -3677,7 +3677,7 @@ The policy definitions can be found in Azure Policy:
 
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
 
 ### New recommendation for using NSGs to protect non-internet-facing virtual machines
 
