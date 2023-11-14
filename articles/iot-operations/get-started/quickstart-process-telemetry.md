@@ -4,6 +4,8 @@ description: "Quickstart: Use a Data Processor pipeline to process data from you
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 10/11/2023
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.

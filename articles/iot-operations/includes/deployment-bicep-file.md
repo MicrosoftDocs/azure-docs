@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 10/19/2023
  ms.author: kgremban
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 ```bicep

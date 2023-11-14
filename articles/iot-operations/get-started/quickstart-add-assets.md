@@ -4,6 +4,8 @@ description: "Quickstart: Add OPC UA assets that publish messages to the Azure I
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.

@@ -8,9 +8,10 @@ author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - ignite-2023
 ms.date: 07/27/2023
 ms.topic: conceptual
-
 ---
 
 # Vector stores in Azure Machine Learning (preview)

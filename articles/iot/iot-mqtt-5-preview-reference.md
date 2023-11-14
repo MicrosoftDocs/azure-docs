@@ -1,13 +1,14 @@
 ---
- title: Azure IoT Hub MQTT 5 API reference (preview)
- description: Learn about the IoT Hub MQTT 5 preview API
- services: iot
- ms.service: iot
- author: kgremban
- ms.author: kgremban
- ms.topic: reference
- ms.date: 04/24/2023
-
+title: Azure IoT Hub MQTT 5 API reference (preview)
+description: Learn about the IoT Hub MQTT 5 preview API
+services: iot
+ms.service: iot
+ms.custom:
+  - ignite-2023
+author: kgremban
+ms.author: kgremban
+ms.topic: reference
+ms.date: 04/24/2023
 ---
 
 # IoT Hub data plane MQTT 5 API reference (preview)
@@ -560,4 +561,3 @@ operation timed out before it could be completed
 | trace-id | string | no | trace ID for correlation with other diagnostics for the error |
 
 **Payload**: empty
-

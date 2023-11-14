@@ -5,6 +5,8 @@ description: Use Azure IoT MQ to publish and subscribe to messages. Destinations
 author: PatAltimore
 ms.author: patricka
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 10/30/2023
 
 #CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.

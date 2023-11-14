@@ -5,6 +5,8 @@ description: Learn about the Azure IoT Operations CLI.
 author: PatAltimore
 ms.author: patricka
 ms.topic: reference
+ms.custom:
+  - ignite-2023
 ms.date: 11/02/2023
 
 #CustomerIntent: As an IT admin or operator, I want to learn about the Azure IoT Operations CLI so that I can manage my IoT deployments.

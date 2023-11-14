@@ -9,7 +9,13 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom:
+  - devx-track-python
+  - sdkv2
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - ignite-2023
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2

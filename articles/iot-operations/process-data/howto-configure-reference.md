@@ -5,6 +5,8 @@ author: dominicbetts
 # ms.subservice: data-processor
 ms.author: dobett
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 09/21/2023
 
 #CustomerIntent: As an operator, I want to configure a reference dataset so that I can use the reference data to enrich and contextualize the messages in my pipeline.

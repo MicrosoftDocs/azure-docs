@@ -5,6 +5,8 @@ description: Configure Azure IoT MQ authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/28/2023
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.

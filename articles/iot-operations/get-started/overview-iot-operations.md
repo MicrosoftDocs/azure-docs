@@ -4,6 +4,8 @@ description: Azure IoT Operations is a unified data plane for the edge. It's com
 author: dominicbetts
 ms.author: dobett
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 10/18/2023
 ---
 

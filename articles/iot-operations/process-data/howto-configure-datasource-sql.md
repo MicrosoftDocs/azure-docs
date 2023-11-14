@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/23/2023
 
 #CustomerIntent: As an operator, I want to configure a SQL Server source stage so that I can read messages from an SQL Server database for processing.

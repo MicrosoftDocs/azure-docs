@@ -1,14 +1,16 @@
 ---
-title: Detect assets with Azure IoT Akri 
+title: Detect assets with Azure IoT Akri
 description: Understand how Azure IoT Akri enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: timlt
 ms.author: timlt
 # ms.subservice: akri
-ms.topic: concept-article 
+ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 10/26/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how Azure IoT Akri 
-# enables me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster. 
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how Azure IoT Akri
+# enables me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
 ---
 
 # Detect assets with Azure IoT Akri
