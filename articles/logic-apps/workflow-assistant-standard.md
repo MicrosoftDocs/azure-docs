@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 11/17/2023
 ---
 
 # Get help for Standard workflows by asking the workflow assistant in Azure Logic Apps (preview)
