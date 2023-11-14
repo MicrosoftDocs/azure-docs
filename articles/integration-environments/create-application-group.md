@@ -29,7 +29,7 @@ After you create an integration environment, create one or more application grou
 
 - An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 
-  This Azure resource is required to create an application group. The database is used after you create a data process flow in your application group, specify key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process.
+  This Azure resource is required to create an application group. Your application group uses this database to store specific business property values that you want to capture and track for business process tracking scenarios. After you create a business process in your application group, specify the key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process, you specify a database table to create or use for storing the desired data.
 
   > [!NOTE]
   >

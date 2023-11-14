@@ -21,7 +21,7 @@ Azure Integration Environments simplifies this complexity by providing a central
 
 For example, your integration environments might be based on your organization's business units, such as Operations, Customer Service, or Finance. Or, your environments might be based on your infrastructure landscapes for development, test, staging, and production. Your application groups might be based on a specific business or customer scenario, such as employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
 
-The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on business or customer scenario:
+The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on business or customer scenarios:
 
 :::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into application groups based on business or customer scenario." lightbox="media/overview/organize-conceptual.png":::
 
@@ -129,9 +129,11 @@ When you're done, your business process stage and properties are mapped to the c
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
+To get started after you set up an integration environment and application groups, see [Create business process](create-business-process.md).
+
 ## Pricing information
 
-Azure Integration Environments doesn't incur charges during preview. However, when you create an application group, you're required to provide information for an existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). Your application group uses this database if you create a business process flow chart in your application group, specify key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process. The database stores the specified business property values that you want to capture and track for business process tracking scenarios.
+Azure Integration Environments doesn't incur charges during preview. However, when you create an application group, you're required to provide information for an existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). Your application group uses this database to store specific business property values that you want to capture and track for business process tracking scenarios. After you create a business process in your application group, specify the key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process, you specify a database table to create or use for storing the desired data.
 
 Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
