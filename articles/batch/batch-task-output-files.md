@@ -41,7 +41,11 @@ CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContain
 await container.CreateIfNotExists();
 ```
 
-## Get a shared access signature for the container
+## Specify output files for task output
+
+To specify output files for a task, create a collection of [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) objects and assign it to the [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) property when you create the task. You can use a Shared Access Signature (SAS) or managed identity to authenticate access to the container.
+
+### Using a Shared Access Signature
 
 After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container. The SAS grants access with a specified set of permissions and over a specified time interval. The Batch service needs an SAS with write permissions to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/common/storage-sas-overview.md).
 
@@ -58,10 +62,6 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
 
 string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
-
-## Specify output files for task output
-
-To specify output files for a task, create a collection of [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) objects and assign it to the [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) property when you create the task.
 
 The following C# code example creates a task that writes random numbers to a file named `output.txt`. The example creates an output file for `output.txt` to be written to the container. The example also creates output files for any log files that match the file pattern `std*.txt` (_e.g._, `stdout.txt` and `stderr.txt`). The container URL requires the SAS that was created previously for the container. The Batch service uses the SAS to authenticate access to the container.
 
@@ -92,7 +92,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 > [!NOTE]
 > If using this example with Linux, be sure to change the backslashes to forward slashes.
 
-## Specify output files using managed identity
+### Using Managed Identity
 
 Instead of generating and passing a SAS with write access to the container to Batch, a managed identity can be used to authenticate with Azure Storage. The identity must be [assigned to the Batch Pool](managed-identity-pools.md), and also have the `Storage Blob Data Contributor` role assignment for the container to be written to. The Batch service can then be told to use the managed identity instead of a SAS to authenticate access to the container.
 
@@ -164,6 +164,12 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
 For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-blobs-in-a-container).
+
+### Many Output Files
+
+When a task specifies numerous output files, you may encounter limits imposed by the Azure Batch API. It is advisable to keep your tasks small and keep the number of output files low.
+
+If you encounter limits, consider reducing the number of output files by employing [File Patterns](#specify-a-file-pattern-for-matching) or using file containers such as tar or zip to consolidate the output files. Alternatively, utilize mounting or other approaches to persist output data (see [Persist job and task output](batch-task-output.md)).
 
 ## Diagnose file upload errors
 
