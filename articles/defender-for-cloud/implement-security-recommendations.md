@@ -48,17 +48,17 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources.
 
-1. Select a recommendation that shows the **Fix** action icon, :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
+1. Select a recommendation that shows the **Fix** action icon: :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
 
     :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
 1. Follow the rest of the remediation steps.
 
 > [!NOTE]
-    > It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
+> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
 
 > [!NOTE]
-    > It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
+> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
 
 ## Next steps
 

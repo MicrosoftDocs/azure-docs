@@ -21,7 +21,7 @@ In the **Regulatory compliance** dashboard, you manage and interact with complia
 
 ## Before you start
 
-- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, [these standards are enabled](concept-regulatory-compliance-standards.md#default-compliance-standards). Other compliance standards can only be enabled when one or more Defender for Cloud paid plans are enabled.
+- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, [these standards are enabled](concept-regulatory-compliance-standards.md). Other compliance standards can only be enabled when at least one paid plan is enabled in Defender for Cloud.
 - You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 

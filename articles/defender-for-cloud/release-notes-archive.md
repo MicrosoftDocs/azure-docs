@@ -2086,7 +2086,7 @@ Learn more in [Identify vulnerable container images in your CI/CD workflows](def
 
 ### More Resource Graph queries available for some recommendations
 
-All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg).
+All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md).
 
 Security Center includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
 
@@ -2925,7 +2925,7 @@ The filters added this month provide options to refine the recommendations list 
     >
     > Learn more about each of these response options:
     >
-    > - [Fix button](implement-security-recommendations.md#fix-button)
+    > - [Fix button](implement-security-recommendations.md)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control." lightbox="./media/release-notes/added-recommendations-filters.png":::
