@@ -434,11 +434,10 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 
 The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
+
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure Cognitive search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
-| `endpoint` | string | Required | null | The data source endpoint. |
-| `key` | string | Required | null | One of the Azure Cognitive Search admin keys for your service. |
 | `indexName` | string | Required | null | The search index to be used. |
 | `fieldsMapping` | dictionary | Optional for Azure Cognitive Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
@@ -451,6 +450,19 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
+
+
+**The following parameters are used for Azure Cognitive Search only**
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `endpoint` | string | Required | null | Azure Cognitive Search only. The data source endpoint. |
+| `key` | string | Required | null | Azure Cognitive Search. One of the Azure Cognitive Search admin keys for your service. |
+
+**The following parameters are used for Azure Cosmos DB for MongoDB vCore**
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
 | `type` (found inside of `authentication`) | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The authentication to be used For. Azure Cosmos Mongo vCore, the value is `ConnectionString` |
 | `connectionString` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The connection string to be used for authenticate Azure Cosmos Mongo vCore Account. |
 | `databaseName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore database name. |
