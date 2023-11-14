@@ -24,6 +24,9 @@ The provisioned throughput capability allows you to specify the amount of throug
 
 An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. A deployment provides customer access to a model for inference and integrates additional features like Content Moderation ([See content moderation documentation](content-filter.md)).
 
+> [!NOTE]
+> Provisioned Throughput Units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
+
 ## What do you get?
 
 |Topic | Provisioned|

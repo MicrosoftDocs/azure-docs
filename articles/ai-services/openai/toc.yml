@@ -49,6 +49,8 @@ items:
       href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
+    - name: Provisioned throughput units (PTU)
+      href: ./concepts/provisioned-throughput.md
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data (preview)
