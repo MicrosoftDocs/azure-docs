@@ -4,6 +4,8 @@ titleSuffix: Azure AI services
 description: Learn about using customer-managed keys to improve data security with Azure AI services.
 author: deeikele
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: deeikele

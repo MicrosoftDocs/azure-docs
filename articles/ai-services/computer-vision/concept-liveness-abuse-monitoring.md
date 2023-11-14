@@ -10,7 +10,8 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 11/05/2023
 ms.author: pafarley
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ---
 
 # Abuse monitoring in Face liveness detection

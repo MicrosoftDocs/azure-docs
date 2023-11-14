@@ -5,6 +5,8 @@ author: laujan
 ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/15/2023
 ---

@@ -12,7 +12,9 @@ ms.topic: how-to
 ms.date: 05/01/2019
 ms.author: nitinme
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Scale to handle more enrolled users

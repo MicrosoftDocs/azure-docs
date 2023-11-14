@@ -8,7 +8,11 @@ ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 01/19/2023
 ms.author: aahi
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - ignite-2023
 ---
 
 # Quickstart: Create an Azure AI services resource using Bicep

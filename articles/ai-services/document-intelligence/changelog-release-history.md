@@ -5,6 +5,8 @@ description: A version-based description of Document Intelligence feature and ca
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 11/15/2023
 ms.author: lajanuar

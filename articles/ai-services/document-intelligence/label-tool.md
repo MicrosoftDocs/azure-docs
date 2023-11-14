@@ -5,6 +5,8 @@ description: How to use the Document Intelligence sample tool to analyze documen
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

@@ -10,7 +10,9 @@ ms.topic: how-to
 ms.date: 11/06/2023
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: cogserv-non-critical-vision
+ms.custom:
+  - cogserv-non-critical-vision
+  - ignite-2023
 ---
 
 # Mitigate latency and improve performance

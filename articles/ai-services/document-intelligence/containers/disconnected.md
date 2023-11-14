@@ -3,6 +3,8 @@ title: Use Document Intelligence (formerly Form Recognizer) containers in discon
 titleSuffix: Azure AI services
 description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 author: laujan
 manager: nitinme
 ms.topic: reference

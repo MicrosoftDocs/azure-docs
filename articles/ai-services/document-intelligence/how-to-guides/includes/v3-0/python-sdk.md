@@ -7,7 +7,9 @@ ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/21/2023
 ms.author: lajanuar
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 <!-- markdownlint-disable MD001 -->

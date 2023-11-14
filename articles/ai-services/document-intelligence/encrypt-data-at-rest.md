@@ -8,7 +8,9 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: egeaney
-ms.custom: applied-ai-non-critical-form
+ms.custom:
+  - applied-ai-non-critical-form
+  - ignite-2023
 monikerRange: '<=doc-intel-4.0.0'
 ---
 
