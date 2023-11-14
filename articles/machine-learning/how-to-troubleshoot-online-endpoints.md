@@ -452,6 +452,7 @@ You can also check if the blobs are present in the workspace storage account.
 #### MLFlow model format with private network is unsupported
 
 At this time, the private network feature cannot be used in conjunction with an MLFlow model format.
+This error happens when you try to deploy an MLflow model with a no-code deployment approach in conjunction with the [legacy network isolation method for managed online endpoints](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method). This private network feature cannot be used in conjunction with an MLFlow model format if you are using the **legacy** network isolation method. If you need to deploy an MLflow model with the no-code deployment approach, try using [workspace managed VNet](concept-secure-online-endpoint.md#secure-outbound-access-with-workspace-managed-virtual-network).
 
 #### Resource requests greater than limits
 
