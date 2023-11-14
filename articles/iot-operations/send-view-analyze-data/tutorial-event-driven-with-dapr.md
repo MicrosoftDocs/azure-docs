@@ -33,7 +33,7 @@ The application subscribes to the topic `sensor/data` for incoming sensor data, 
 ## Create the Dapr application
 
 > [!TIP]
-> For convenience, a pre-built application container is available in the container registry `ghcr.io/azure-samples/explore-iot-operations/mq-coldpath-dapr`. You can use this container to follow along if you haven't built your own.
+> For convenience, a pre-built application container is available in the container registry `ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr`. You can use this container to follow along if you haven't built your own.
 
 ### Build the container
 
@@ -48,8 +48,8 @@ The following steps clone the GitHub repository containing the sample and then u
 1. Change to the Dapr sample directory and build the image
 
     ```bash
-    cd explore-iot-operations/tutorials/mq-coldpath-dapr
-    docker build docker build . -t mq-coldpath-dapr
+    cd explore-iot-operations/tutorials/mq-event-driven-dapr
+    docker build docker build . -t mq-event-driven-dapr
     ```
 
 ### Push to container registry
@@ -61,7 +61,7 @@ To consume the application in your Kubernetes cluster, you need to push the imag
 | `container-alias` | The image alias containing the fully qualified path to your registry |
 
 ```bash
-docker tag mq-coldpath-dapr {container-alias}
+docker tag mq-event-driven-dapr {container-alias}
 docker push {container-alias}
 ```
 
