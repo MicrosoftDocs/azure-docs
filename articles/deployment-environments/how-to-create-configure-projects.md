@@ -168,8 +168,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     ```
 
 
-> [!NOTE]
-> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 ## Next steps
 

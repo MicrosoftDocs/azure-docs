@@ -26,8 +26,7 @@ Creating an environment automatically creates the required resources and a resou
 
 Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 
-> [!NOTE]
-> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions can create an environment.
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 1. Sign in to the Azure CLI:
 

@@ -66,8 +66,7 @@ The users can now view the project and manage all the environment types that you
 
 The users can now view the project and manage only the specific environment type that you've granted them access to. DevCenter Project Admin users can also [create environments by using the Azure CLI](./quickstart-create-access-environments.md).
 
-> [!NOTE]
-> Only users who have the Deployment Environments User role, the DevCenter Project Admin role, or a built-in role with appropriate permissions can create environments.
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 ## Next steps
 
