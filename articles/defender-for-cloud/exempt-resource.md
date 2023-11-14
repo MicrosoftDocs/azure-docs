@@ -29,7 +29,7 @@ For the scope you need, you can create an exemption rule to:
 This feature is in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]. This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future. [Review Azure cloud support](support-matrix-cloud-environment.md).
 
 - You need the following permissions to make exemptions:
-    - *Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
+    - **Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
     - To create a rule, you need permissions to edit policies in Azure Policy. [Learn more](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 - You can create exemptions for recommendations included in Defender for Cloud's default [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) standard, or any of the supplied regulatory standards.
@@ -74,7 +74,7 @@ After creating the exemption it can take up to 30 minutes to take effect. After 
 - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
 - If you've exempted a recommendation, it will be hidden by default on Defender for Cloud's recommendations page. This is because the default options of the **Recommendation status** filter on that page are to exclude **Not applicable** recommendations. The same is true if you exempt all recommendations in a security control.
 
-    :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls." lightbox="media/exempt-resource/recommendations-filters-hiding-not-applicable.png":::
+    :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Screenshot showing default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls." lightbox="media/exempt-resource/recommendations-filters-hiding-not-applicable.png":::
 
 
 
