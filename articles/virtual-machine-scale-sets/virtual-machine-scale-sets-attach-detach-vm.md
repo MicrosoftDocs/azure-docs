@@ -30,7 +30,7 @@ Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creati
 > [!NOTE]
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 
-#### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal-1)
 
 1. Go to **Virtual Machines**.
 1. Select **Create**
@@ -39,7 +39,7 @@ Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creati
 4. In the **Virtual Machine Scale Set** dropdown, select the scale set to which you want to add this virtual machine.
 5. Optionally, specify the Availability zone or Fault domain to place the VM.
 
-#### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli-1)
 
 ```azurecli-interactive
 az vm create 
@@ -50,7 +50,7 @@ az vm create
   --platform-fault-domain 1
 ```
 
-#### [Azure PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell-1)
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -98,7 +98,7 @@ az feature show --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMTo
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer. Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 >
 
-#### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal-2)
 
 1. Go to **Virtual Machines**.
 2. Select the name of the virtual machine you'd like to attach to your scale set.
@@ -107,7 +107,7 @@ az feature show --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMTo
 5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the scale set you'd like to attach the VM to in the **Select a VMSS dropdown**. 
 6. Select the **Attach** button at the bottom to attach the VM.
 
-#### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli-2)
 
 ```azurecli-interactive
 az vm update 
@@ -116,7 +116,7 @@ az vm update
   --set virtualMachineScaleSet.id='/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}'
 ```
 
-#### [Azure PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell-2)
 
 ```azurepowershell-interactive
 #Get VM information
@@ -147,7 +147,7 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 > [!NOTE]
 > Detaching VMs created by the scale set will require the VM to be `Stopped` prior to the detach.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal-3)
 
 1. Go to **Virtual Machines**.
 2. If your VM was created by the scale set, ensure the VM is `Stopped`. If the VM was created as a standalone VM, you can continue regardless of if the VM is `Running` or `Stopped`.
@@ -157,7 +157,7 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 6. When prompted to confirm, select the **Detach** button.
 7. Portal sends a notification when the VM has successfully detached.
 
-### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli-3)
 
 ```azurecli-interactive
 az vm update 
@@ -166,7 +166,7 @@ az vm update
   --set virtualMachineScaleSet.id=null 
 ```
 
-### [Azure PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell-3)
 
 ```azurepowershell-interactive
 #Get VM information
