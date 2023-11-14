@@ -9,19 +9,23 @@ ms.date: 06/18/2023
 
 Microsoft Defender for Cloud helps you to meet regulatory compliance requirements by continuously assessing resources against compliance controls, and identifying issues that are blocking you from achieving a particular compliance certification.
 
-In the **Regulatory compliance** dashboard, you manage and interact with compliance standards. In the **Regulatory compliance** dashboard, you can see which compliance standards are assigned, turn standards on and off for Azure, AWS, and GCP, review the status of assessments against standards, and more.
+In the **Regulatory compliance** dashboard, you manage and interact with compliance standards. You can see which compliance standards are assigned, turn standards on and off for Azure, AWS, and GCP, review the status of assessments against standards, and more.
 
+## Integration with Purview
 
+Compliance data from Defender for Cloud now seamlessly integrates with [Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager), allowing you to centrally assess and manage compliance across your organization's entire digital estate.
 
-> [!TIP]
-> Compliance data from Defender for Cloud now seamlessly integrates with [Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager), allowing you to centrally assess and manage compliance across your organization's entire digital estate. When you add any standard to your compliance dashboard (including compliance standards monitoring other clouds like AWS and GCP), the resource-level compliance data is automatically surfaced in Compliance Manager for the same standard. Compliance Manager thus provides improvement actions and status across your cloud infrastructure and all other digital assets in this central tool. For more information, see [Multicloud support in Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager-multicloud).
+When you add any standard to your compliance dashboard (including compliance standards monitoring other clouds like AWS and GCP), the resource-level compliance data is automatically surfaced in Compliance Manager for the same standard.
+
+Compliance Manager thus provides improvement actions and status across your cloud infrastructure and all other digital assets in this central tool. For more information, see [multicloud support in Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager-multicloud).
 
 
 
 
 ## Before you start
 
-- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, the MCSB plan is enabled. You can add additional non-default compliance standards when at least one paid plan is enabled in Defender for Cloud.
+- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, the MCSB plan is enabled
+- You can add additional non-default compliance standards when at least one paid plan is enabled in Defender for Cloud.
 - You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 
@@ -32,9 +36,9 @@ The **Regulatory compliance** dashboard shows which compliance standards are ena
 The dashboard helps you to focus on gaps in standards, and to monitor compliance over time.
 
 
-1. Open the Defender for Cloud portal > **Regulatory compliance**.
+1. In the Defender for Cloud portal open the **Regulatory compliance** page.
 
-:::image type="content" source="./media/regulatory-compliance-dashboard/compliance-drilldown.png" alt-text="Screenshot that shows the exploration of the details of compliance with a specific standard." lightbox="media/regulatory-compliance-dashboard/compliance-drilldown.png":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-drilldown.png" alt-text="Screenshot that shows the exploration of the details of compliance with a specific standard." lightbox="media/regulatory-compliance-dashboard/compliance-drilldown.png":::
 
 1. Use the dashboard in accordance with the numbered items in the image.
 
@@ -94,8 +98,8 @@ The regulatory compliance has both automated and manual assessments that might n
 
 1. After you take action to resolve recommendations, you'll see the result in the compliance dashboard report because your compliance score improves.
 
-    > [!NOTE]
-    > Assessments run approximately every 12 hours, so you will see the impact on your compliance data only after the next run of the relevant assessment.
+
+Assessments run approximately every 12 hours, so you will see the impact on your compliance data only after the next run of the relevant assessment.
 
 ## Remediate a manual assessment
 
@@ -118,26 +122,26 @@ The regulatory compliance has automated and manual assessments that might need t
 
 ## Generate compliance status reports and certificates
 
-- To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
+1. To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
 
     The report provides a high-level summary of your compliance status for the selected standard based on Defender for Cloud assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
     :::image type="content" source="./media/regulatory-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download compliance reports.":::
 
-- To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option.
+1. To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option.
 
     :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
 
-    Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
+1. Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
 
     :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports using tabs and filters.":::
 
     For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate.
 
-    > [!NOTE]
-    > When you download one of these certification reports, you'll be shown the following privacy notice:
-    >
-    > _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
+
+ When you download one of these certification reports, you'll be shown the following privacy notice:
+    
+ _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
 
 ### Check compliance offerings status
 
@@ -153,17 +157,17 @@ Transparency provided by the compliance offerings (currently in preview), allows
 
     :::image type="content" source="media/regulatory-compliance-dashboard/search-service.png" alt-text="Screenshot of the compliance offering screen with the search bar highlighted." lightbox="media/regulatory-compliance-dashboard/search-service.png":::
 
-## Continuously export compliance status data
+## Continuously export compliance status 
 
 If you want to track your compliance status with other monitoring tools in your environment, Defender for Cloud includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hubs or a Log Analytics workspace. Learn more in [continuously export Defender for Cloud data](continuous-export.md).
 
 Use continuous export data to an Azure Event Hubs or a Log Analytics workspace:
 
-- Export all regulatory compliance data in a **continuous stream**:
+1. Export all regulatory compliance data in a **continuous stream**:
 
     :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-stream.png" alt-text="Continuously export a stream of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-stream.png":::
 
-- Export **weekly snapshots** of your regulatory compliance data:
+1. Export **weekly snapshots** of your regulatory compliance data:
 
     :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Continuously export a weekly snapshot of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png":::
 
