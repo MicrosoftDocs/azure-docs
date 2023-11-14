@@ -22,8 +22,8 @@ Follow the steps below to configure a gRPC application with Azure App Service on
 > For gRPC client and server samples for each supported language, please visit the [documentation on GitHub](https://github.com/Azure/app-service-linux-docs/tree/master/HowTo/gRPC). 
 
 
-## Prerequsite
-Create your [Web App](/getting-started.md) as you normally would.  Choose your preferred Runtime stack and **Linux** as your Operating System.
+## Prerequisite
+Create your [Web App](getting-started.md) as you normally would.  Choose your preferred Runtime stack and **Linux** as your Operating System.
 
 After your Web App is created, you'll need to configure the following to enable gRPC before deploying your application:
 
