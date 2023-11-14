@@ -135,19 +135,21 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 | --- | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
-| Number of endpoints per subscription | 50 | Yes |
+| Number of endpoints per subscription | 100 <sup>2</sup> | Yes |
 | Number of deployments per subscription | 200 | Yes |
 | Number of deployments per endpoint | 20 | Yes |
-| Number of instances per deployment | 20 <sup>2</sup> | Yes |
+| Number of instances per deployment | 20 <sup>3</sup> | Yes |
 | Max request time-out at endpoint level  | 180 seconds | - |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>4</sup> | Yes |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
+<sup>2</sup> Limit shared with other types of endpoints.
+
+<sup>3</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
 
 <sup>3</sup> The default limit for some subscriptions may be different. For example, when you request a limit increase it may show 100 instead. If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include that limit increase in the same request.
 
@@ -178,10 +180,14 @@ Azure Machine Learning batch endpoints have limits described in the following ta
 | --- | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
-| Number of endpoints per subscription | 100 | Yes |
+| Number of endpoints per subscription | 100 <sup>2</sup> | Yes |
 | Number of deployments per subscription | 500 | Yes |
 | Number of deployments per endpoint | 20 | Yes |
 | Number of instances per deployment | 50 | Yes |
+
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+
+<sup>2</sup> Limit shared with other types of endpoints.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
