@@ -70,7 +70,7 @@ We recommend using the query editor to create a recommendation query.
 1. Use the example query template with its instructions, or select an example built-in recommendation query to get started.
 
 
-:::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
+    :::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
 
 1. Select **Run query** to test the query you've created.
 1. When the query is ready, cut and paste it from the editor into the **Recommendations query** pane.
