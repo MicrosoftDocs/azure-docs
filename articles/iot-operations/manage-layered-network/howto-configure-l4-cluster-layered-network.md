@@ -189,6 +189,16 @@ Create the Layered Network Management custom resource.
           destinationType: external
         - destinationUrl: "msit-onelake.pbidedicated.windows.net"
           destinationType: external
+        - destinationUrl: "*.vault.azure.net"
+          destinationType: external
+        - destinationUrl: "*.k8s.io"
+          destinationType: external
+        - destinationUrl: "*.pkg.dev"
+          destinationType: external
+        - destinationUrl: "github.com"
+          destinationType: external
+        - destinationUrl: "raw.githubusercontent.com"
+          destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0
