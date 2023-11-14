@@ -20,7 +20,7 @@ The Distributed Application Runtime (Dapr) is a portable, serverless, event-driv
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
 - State Management
 
-To use Dapr plug-able components, define all the components, then add plug-able component containers to your [deployments](https://docs.dapr.io/operations/components/plug-able-components-registration/). The Dapr component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ plug-able components.
+To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own pluggable component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Install Dapr runtime
 
@@ -35,9 +35,9 @@ helm upgrade --install dapr dapr/dapr --version=1.11 --namespace dapr-system --c
 > [!IMPORTANT]
 > **Dapr v1.12** is currently not supported.
 
-## Register MQ's plug-able components
+## Register MQ's pluggable components
 
-To register MQ's plug-able Pub/sub and State Management components, create the component manifest yaml, and apply it to your cluster. 
+To register MQ's pluggable Pub/sub and State Management components, create the component manifest yaml, and apply it to your cluster. 
 
 To create the yaml file, use the following component definitions:
 
@@ -45,7 +45,7 @@ To create the yaml file, use the following component definitions:
 > | Component | Description |
 > |-|-|
 > | `metadata.name` | The component name is important and is how a Dapr application references the component. |
-> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/plug-able-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
+> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
 > | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. Defaults to `8883` is MQ's default MQTT port with TLS enabled. |
 > | `spec.metadata.satTokenPath` | The Service Account Token is used to authenticate the Dapr components with the MQTT broker |
 > | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
@@ -61,7 +61,7 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-pubsub
     spec:
-      type: pubsub.aio-mq-pubsub-plug-able # DO NOT CHANGE
+      type: pubsub.aio-mq-pubsub-pluggable # DO NOT CHANGE
       version: v1
       metadata:
       - name: url
@@ -81,7 +81,7 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-statestore
     spec:
-      type: state.aio-mq-statestore-plug-able # DO NOT CHANGE
+      type: state.aio-mq-statestore-pluggable # DO NOT CHANGE
       version: v1
       metadata:
       - name: url
@@ -199,7 +199,7 @@ To start, you create a yaml file that uses the following definitions:
 > | Component | Description |
 > |-|-|
 > | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
-> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr plug-able components with the MQ broker and State Store |
+> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 > | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 > | `containers.mq-event-driven` | The pre-built dapr application container. **Replace this with your own container if desired**. | 
 
@@ -251,7 +251,7 @@ To start, you create a yaml file that uses the following definitions:
             image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
 
           # Container for the Pub/sub component
-          - name: aio-mq-pubsub-plug-able
+          - name: aio-mq-pubsub-pluggable
             image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
@@ -262,7 +262,7 @@ To start, you create a yaml file that uses the following definitions:
               mountPath: /var/run/certs/aio-mq-ca-cert/
 
           # Container for the State Management component
-          - name: aio-mq-statestore-plug-able
+          - name: aio-mq-statestore-pluggable
             image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
             volumeMounts:
             - name: dapr-unix-domain-socket

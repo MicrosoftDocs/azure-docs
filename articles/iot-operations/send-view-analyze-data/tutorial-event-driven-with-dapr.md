@@ -74,7 +74,7 @@ To start, create a yaml file that uses the following definitions:
 | Component | Description |
 |-|-|
 | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
-| `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr plug-able components with the MQ broker and State Store |
+| `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt dapr application container. **Replace this with your own container if desired**. | 
 
@@ -126,7 +126,7 @@ To start, create a yaml file that uses the following definitions:
             image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
 
           # Container for the Pub/sub component
-          - name: aio-mq-pubsub-plug-able
+          - name: aio-mq-pubsub-pluggable
             image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
@@ -137,7 +137,7 @@ To start, create a yaml file that uses the following definitions:
               mountPath: /var/run/certs/aio-mq-ca-cert/
 
           # Container for the State Management component
-          - name: aio-mq-statestore-plug-able
+          - name: aio-mq-statestore-pluggable
             image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
