@@ -1,10 +1,12 @@
 ---
-title: How to deploy large language models with Azure AI Studio 
+title: How to deploy large language models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to deploy large language models with Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur

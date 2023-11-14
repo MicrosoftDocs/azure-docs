@@ -5,6 +5,8 @@ description: Learn how to add and manage data in your Azure AI project
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur

@@ -5,6 +5,8 @@ description: Form and document processing, data extraction, and analysis using D
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
 ms.author: lajanuar

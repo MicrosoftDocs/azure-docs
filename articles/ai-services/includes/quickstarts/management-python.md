@@ -5,6 +5,8 @@ services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 10/5/2023
 ms.author: eur

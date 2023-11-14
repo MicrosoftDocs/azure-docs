@@ -5,7 +5,8 @@ description: Learn about how to construct system messages also know as metapromp
 ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 11/07/2023
-ms.custom: 
+ms.custom:
+  - ignite-2023
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin

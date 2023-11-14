@@ -5,6 +5,8 @@ description: Learn how errors are represented in Document Intelligence and find 
 author: paulhsu
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: paulhsu

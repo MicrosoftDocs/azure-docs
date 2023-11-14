@@ -9,7 +9,10 @@ ms.service: azure-ai-services
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: eur
-ms.custom: build-2023, build-2023-dataai
+ms.custom:
+  - build-2023
+  - build-2023-dataai
+  - ignite-2023
 ---
 
 # What are Azure AI services?
