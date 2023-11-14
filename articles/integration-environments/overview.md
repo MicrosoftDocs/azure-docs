@@ -101,7 +101,7 @@ Suppose you're a business analyst at a power company, and you work with a develo
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-To organize and manage the deployed Azure resources that are used by the work order processor service, the lead developer on your team creates an integration environment and an application group that includes the resources for the processor service. Now, you can make the relationship more concrete between the processor service implementation and the real-world power outage business flow. The application group provides a process designer for you to create a business process that visualizes the business flow and to map the stages in the process to the resources that impelement the work order processor service.
+To organize and manage the deployed Azure resources that are used by the work order processor service, the lead developer on your team creates an integration environment and an application group that includes the resources for the processor service. Now, you can make the relationship more concrete between the processor service implementation and the real-world power outage business flow. The application group provides a process designer for you to create a business process that visualizes the business flow and to map the stages in the process to the resources that implement the work order processor service.
 
 > [!NOTE]
 >
