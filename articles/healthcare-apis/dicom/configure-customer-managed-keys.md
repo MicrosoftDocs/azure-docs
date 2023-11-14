@@ -5,19 +5,29 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 11/20/2023
 ms.author: mmitrik
 ---
 
 # Configure customer-managed keys for the DICOM service
 
-With customer-managed keys (CMK), you can protect and control access to your organization's data using keys that you create and manage. 
+By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the DICOM&reg; service. 
 
 ## Prerequisites
 
-- Make sure you're familiar with [Best practices for using customer-managed keys](customer-managed-keys.md).
+- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
-- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
+   - The key is versioned.
+  
+   - The key type is **RSA-HSM** or **RSA**.
+  
+   - The key is **2048-bit** or **3072-bit**.
+  
+   - The key vault is located in the same Azure tenant as the DICOM service.
+  
+   - When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
+
+   - To prevent losing the encryption key for the DICOM service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
 ## Enable a managed identity for the DICOM service
 
@@ -256,5 +266,30 @@ After you add the key, you need to update the DICOM service with the key URL.
 When the deployment completes, the DICOM service data is encrypted with the key you provided.
 
 :::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
+
+## Recover from lost key access
+
+For the DICOM service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
+
+- The key is disabled or deleted from the key vault.
+
+- The DICOM service system-assigned managed identity is disabled.
+
+- The DICOM service system-assigned managed identity loses access to the key vault.
+
+In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
+
+If key access is lost for less than 30 minutes, data is automatically recovered. After access is re-enabled, allow 5 to 10 minutes for your DICOM service to become available again.
+
+If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
+
+## Best practices
+
+#### Rotate keys often
+
+Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
+
+#### Update the DICOM service after changing a managed identity
+If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
