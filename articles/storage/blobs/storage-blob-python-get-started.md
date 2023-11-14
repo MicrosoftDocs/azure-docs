@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 11/14/2023
 ms.custom: devx-track-python, devguide-python
 ---
 
