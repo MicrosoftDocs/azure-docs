@@ -9,7 +9,7 @@ ms.date: 10/29/2023
 
 # Drive remediation with governance rules
 
-While your security team is responsible for improving the security posture, team members might not actually implement security recommendations.
+While the security team is responsible for improving the security posture, team members might not actually implement security recommendations.
 
 Using governance rules driven by the security team helps you to drive accountability and an SLA around the remediation process.
 
