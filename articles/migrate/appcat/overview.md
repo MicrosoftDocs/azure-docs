@@ -5,7 +5,7 @@ author: yenchiho
 ms.service: azure-migrate
 ms.workload: infrastructure and App Innovation
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 11/15/2023
 ms.author: yenchiho
 ms.custom: overview
 ---

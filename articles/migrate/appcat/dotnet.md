@@ -5,7 +5,7 @@ author: brborges
 ms.author: brborges
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/10/2023
+ms.date: 11/15/2023
 keywords: dotnet, azure, appCAT, assessment, replatform
 ---
 
@@ -67,7 +67,7 @@ dotnet tool update -g dotnet-appcat
 
 Once you installed the Visual Studio extension, you are ready to analyze your application in Visual Studio. You can do so by right click on any of the projects or a solution in the Solution Explorer window and select **Re-platform to Azure**.
 
-:::image type="content" source="media/dotnet/replatform.png" alt-text="[Screenshot of the Re-platform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
+:::image type="content" source="media/dotnet/replatform.png" alt-text="Screenshot of the Re-platform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
 
 Read this [step by step guide](https://aka.ms/appcat/dotnet/vs) for detailed instructions on the Visual Studio experience.
 

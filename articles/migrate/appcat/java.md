@@ -6,7 +6,7 @@ ms.author: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 11/15/2023
 keywords: java, azure, appCAT, assessment, replatform
 ---
 
@@ -154,19 +154,19 @@ The following sections provide more information about the report.
 
 The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
 
-:::image type="content" source="../media/appcat/report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="../media/appcat/report-summary.png":::
+:::image type="content" source="media/java/report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/report-summary.png":::
 
 When you zoom in on the *Incidents by Category* pie chart, you can see the number of incidents by category: *Mandatory*, *Optional*, *Potential*, *Information*.
 
 The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
 
-:::image type="content" source="../media/appcat/report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="../media/appcat/report-summary-incident.png":::
+:::image type="content" source="media/java/report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/report-summary-incident.png":::
 
 ### Discovery report
 
 The discovery report is a report that's generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about the technology that `appcat` has discovered.
 
-:::image type="content" source="../media/appcat/report-discovery.png" alt-text="Screenshot of the appcat discovery report." lightbox="../media/appcat/report-discovery.png":::
+:::image type="content" source="media/java/report-discovery.png" alt-text="Screenshot of the appcat discovery report." lightbox="media/java/report-discovery.png":::
 
 ### Assessment report
 
@@ -174,17 +174,17 @@ The assessment report gives an overview of the transformation issues that would 
 
 These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, *Potential*, or *Information*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
 
-:::image type="content" source="../media/appcat/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="../media/appcat/report-assessment.png":::
+:::image type="content" source="media/java/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/report-assessment.png":::
 
 ### Detailed information for a specific issue
 
 For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by clicking on it. You also get the list of all the files affected by this incident.
 
-:::image type="content" source="../media/appcat/report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="../media/appcat/report-assessment-detail.png":::
+:::image type="content" source="media/java/report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/report-assessment-detail.png":::
 
 Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
 
-:::image type="content" source="../media/appcat/report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="../media/appcat/report-assessment-code.png":::
+:::image type="content" source="media/java/report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/report-assessment-code.png":::
 
 ## Custom rules
 
@@ -256,7 +256,7 @@ The following XML shows the custom rule definition:
 
 After executing this rule through `appcat`, rerun the analysis to review the generated report. As with other incidents, the assessment report lists the identified issues and affected files related to this rule.
 
-:::image type="content" source="../media/appcat/rule.png" alt-text="Screenshot of the appcat with a rule being executed." lightbox="../media/appcat/rule.png":::
+:::image type="content" source="media/java/rule.png" alt-text="Screenshot of the appcat with a rule being executed." lightbox="media/java/rule.png":::
 
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
