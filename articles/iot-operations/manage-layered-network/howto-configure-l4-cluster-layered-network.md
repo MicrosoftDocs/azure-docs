@@ -40,7 +40,7 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
     az extension add --name k8s-extension
     ```
 
-1. [Install Azure CLI extension](/cli/azure/iot/ops).
+1. [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
 
 ## Create the AKS Edge Essentials cluster
 
