@@ -18,6 +18,7 @@ To use gRPC on your application, you'll need to configure your application by se
 
 Follow the steps below to configure a gRPC application with Azure App Service on Linux.
 
+> [!NOTE]
 > For gRPC client and server samples for each supported language, please visit the [documentation on GitHub](https://github.com/Azure/app-service-linux-docs/tree/master/HowTo/gRPC). 
 
 
@@ -26,8 +27,8 @@ Create your [Web App](https://learn.microsoft.com/azure/app-service/getting-star
 
 After your Web App is created, you'll need to configure the following to enable gRPC before deploying your application:
 
->
-> Note If you are deploying a .NET gRPC app to App Service with Visual Studio, skip to step 3.  Visual Studio will set the HTTP version and HTTP 2.0 Proxy configuration for you. 
+> [!NOTE]
+> If you are deploying a .NET gRPC app to App Service with Visual Studio, skip to step 3.  Visual Studio will set the HTTP version and HTTP 2.0 Proxy configuration for you. 
 
 ### 1. Enable HTTP version
 The first setting you need to configure is the HTTP version
@@ -63,25 +64,16 @@ For Python applications only, you'll also need to set a custom startup command.
 
 ## FAQ
 
->
-> Note gRPC is not a supported feature on ASEv2 SKUs.  Please use an ASEv3 SKU.
+> [!NOTE]
+> gRPC is not a supported feature on ASEv2 SKUs.  Please use an ASEv3 SKU.
 
-### OS support
-Currently gRPC is a Linux only feature.  Support for Windows is coming in 2024 for .NET workloads.
-
-### Language support
-gRPC is supported for each language that supports gRPC.  
-
-### Client Certificates
-HTTP/2 enabled on App Service doesn't currently support client certificates.  Client certificates will need to be ignored when using gRPC.
-
-### Secure calls
-gRPC must make secure HTTP calls to App Service.  You cannot make insecure calls.
-
-### Activity Timeout
-gRPC requests on App Service have a timeout request limit.  gRPC requests will time out after 20 minutes of inactivity.
-
-### Custom Containers
-HTTP/2 & gRPC support is in addition to App Service HTTP/1.1 support.  Custom containers that would like to support HTTP/2 must still support HTTP/1.1.  
+| Topic | Answer |
+| --- | --- |
+| **OS support** | Currently gRPC is a Linux only feature.  Support for Windows is coming in 2024 for .NET workloads. |
+| **Language support** | gRPC is supported for each language that supports gRPC.  |
+| **Client Certificates** | HTTP/2 enabled on App Service doesn't currently support client certificates.  Client certificates will need to be ignored when using gRPC. |
+| **Secure calls** | gRPC must make secure HTTP calls to App Service.  You cannot make insecure calls. |
+| **Activity Timeout** | gRPC requests on App Service have a timeout request limit.  gRPC requests will time out after 20 minutes of inactivity. |
+| **Custom Containers** | HTTP/2 & gRPC support is in addition to App Service HTTP/1.1 support.  Custom containers that would like to support HTTP/2 must still support HTTP/1.1.   |
 
 
