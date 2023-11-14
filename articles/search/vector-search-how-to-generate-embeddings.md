@@ -6,6 +6,8 @@ description: Learn how to generate embeddings for downstream indexing into an Az
 author: farzad528
 ms.author: fsunavala
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/30/2023
 ---

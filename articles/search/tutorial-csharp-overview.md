@@ -1,14 +1,17 @@
 ---
 title: "Add search to web sites (.NET tutorial)"
 titleSuffix: Azure AI Search
-description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App with .NET. 
+description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App with .NET.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ms.devlang: csharp
 ---
 

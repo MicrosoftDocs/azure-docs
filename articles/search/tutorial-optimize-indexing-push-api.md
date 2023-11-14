@@ -7,7 +7,9 @@ ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 1/05/2023
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Tutorial: Optimize indexing with the push API

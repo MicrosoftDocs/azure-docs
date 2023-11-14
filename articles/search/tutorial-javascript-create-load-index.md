@@ -1,5 +1,5 @@
 ---
-title: "Load an index (JavaScript tutorial)" 
+title: "Load an index (JavaScript tutorial)"
 titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with JavaScript using the npm SDK @azure/search-documents.
 manager: nitinme
@@ -8,7 +8,11 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-js
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: javascript
 ---
 

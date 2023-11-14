@@ -9,7 +9,9 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 08/24/2023
-ms.custom: FY23 content-maintenance
+ms.custom:
+  - FY23 content-maintenance
+  - ignite-2023
 ---
 
 # Default outbound access in Azure

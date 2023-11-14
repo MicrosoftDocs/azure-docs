@@ -6,7 +6,9 @@ ms.date: 11/02/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Server-side encryption of Azure Disk Storage

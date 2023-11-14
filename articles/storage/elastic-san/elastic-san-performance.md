@@ -3,6 +3,8 @@ title: Azure Elastic SAN Preview and virtual machine performance
 description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines.
 author: roygara
 ms.service: azure-elastic-san-storage
+ms.custom:
+  - ignite-2023-elastic-SAN
 ms.topic: overview
 ms.date: 11/06/2023
 ms.author: rogarana

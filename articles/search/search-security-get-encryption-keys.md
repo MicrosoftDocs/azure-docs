@@ -7,8 +7,10 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/09/2022 
+ms.date: 09/09/2022
 ---
 
 # Find encrypted objects and information

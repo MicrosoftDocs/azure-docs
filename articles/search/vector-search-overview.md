@@ -6,6 +6,8 @@ description: Describes concepts, scenarios, and availability of the vector searc
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/01/2023
 ---

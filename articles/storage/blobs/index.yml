@@ -9,12 +9,13 @@ metadata:
   services: storage
   ms.service: azure-storage
   ms.subservice: blobs
+  ms.custom:
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   author: normesta
   ms.author: normesta
   ms.date: 08/05/2022
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:

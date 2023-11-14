@@ -1,5 +1,5 @@
 ---
-title: Query types 
+title: Query types
 titleSuffix: Azure AI Search
 description: Learn about the types of queries supported in Azure AI Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
@@ -7,6 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/09/2023
 ---

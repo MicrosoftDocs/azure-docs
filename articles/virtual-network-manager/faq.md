@@ -7,7 +7,11 @@ ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 11/07/2023
 ms.author: mbender
-ms.custom: references_regions, ignite-fall-2021, engagement-fy23
+ms.custom:
+  - references_regions
+  - ignite-fall-2021
+  - engagement-fy23
+  - ignite-2023
 ---
 
 # Azure Virtual Network Manager FAQ
