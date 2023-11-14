@@ -151,9 +151,9 @@ Different environment types have different subnet requirements:
     | /26 | 53 | 26 |
     | /27 | 21 | 10 |
     
-    <sup>1</sup> The available IP addresses is the size of the subnet minus th11 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 11 IP addresses required for Azure Container Apps infrastructure.  
     <sup>2</sup> This is accounting for 1 IP address per node/replica on scalout.  
-    <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. Iadditional quota is needed, please follow steps in [Quotas for AzurContainer Apps](./quotas.md).
+    <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. Iadditional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
 
 # [Consumption only environment](#tab/consumption-only-env)
 
