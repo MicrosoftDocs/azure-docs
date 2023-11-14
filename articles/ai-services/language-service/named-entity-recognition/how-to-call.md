@@ -23,11 +23,6 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 
 ## Determine how to process the data (optional)
 
-### Specify the NER model
-
-By default, this feature uses the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
-
-
 ### Input languages
 
 When you submit documents to be processed, you can specify which of [the supported languages](language-support.md) they're written in. if you don't specify a language, key phrase extraction defaults to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../concepts/multilingual-emoji-support.md). 
@@ -112,6 +107,10 @@ This method returns all `Location` entities only falling under the `GPE` tag and
 ```
 
 Using these parameters we can successfully filter on only `Location` entity types, since the `GPE` entity tag included in the `includeList` parameter, falls under the `Location` type. We then filter on only Geopolitical entities and exclude any entities tagged with `Continent` or `CountryRegion` tags.
+
+## Specify the NER model
+
+By default, this feature uses the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
 ## Service and data limits
 

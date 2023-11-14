@@ -16,6 +16,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## November 2023
+
+* [Named Entity Recognition Container](./named-entity-recognition/how-to/use-containers.md) is now Generally Available (GA).
+
 ## July 2023
 
 * [Custom sentiment analysis](./sentiment-opinion-mining/overview.md) is now available in preview.

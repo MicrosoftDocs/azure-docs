@@ -53,9 +53,10 @@ Azure AI containers provide the following set of Docker containers, each of whic
 | [Language service][ta-containers-language] |  **Text Language Detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/language/about)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-sentiment] | **Sentiment Analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/about)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-health] |  **Text Analytics for health** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/healthcare/about))| Extract and label medical information from unstructured clinical text. | Generally available |
+| [Language service][ta-containers-ner] | **Named Entity Recognition** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/ner/about))| Extract named entities from text. | Generally available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-cner] |  **Custom Named Entity Recognition** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/customner/about))| Extract named entities from text, using a custom model you create using your data. | Preview |
 | [Language service][ta-containers-summarization] | **Summarization** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/summarization/about))| Summarize text from various sources. | Generally available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Translator][tr-containers] | **Translator** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about))| Translate text in several languages and dialects. | Generally available. Gated - [request access](https://aka.ms/csgate-translator). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). | 
+| [Translator][tr-containers] | **Translator** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about))| Translate text in several languages and dialects. | Generally available. Gated - [request access](https://aka.ms/csgate-translator). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 
 ### Speech containers
 
@@ -116,7 +117,6 @@ Install and explore the functionality provided by containers in Azure AI service
 * [Speech Service API containers][sp-containers]
 * [Language service containers][ta-containers]
 * [Translator containers][tr-containers]
-* [Summarization containers][su-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -137,5 +137,6 @@ Install and explore the functionality provided by containers in Azure AI service
 [ta-containers-health]: language-service/text-analytics-for-health/how-to/use-containers.md
 [ta-containers-cner]: language-service/custom-named-entity-recognition/how-to/use-containers.md
 [ta-containers-summarization]: language-service/summarization/how-to/use-containers.md
+[ta-containers-ner]: language-service/named-entity-recognition/how-to/use-containers.md
 [tr-containers]: translator/containers/translator-how-to-install-container.md
 [request-access]: https://aka.ms/csgate
