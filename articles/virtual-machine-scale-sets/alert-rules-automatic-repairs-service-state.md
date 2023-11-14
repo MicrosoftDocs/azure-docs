@@ -5,10 +5,7 @@ author: hilarywang
 ms.author: hilaryw29
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: repairs //TODO: confirm if this is correct
 ms.date: 11/14/2023
-ms.reviewer: //TODO: What to put
-ms.custom: //TODO: What to put
 ---
 
 # Use Azure Alert Rules to monitor changes in Automatic Instance Repairs ServiceState
