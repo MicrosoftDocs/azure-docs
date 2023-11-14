@@ -86,7 +86,7 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations deploys a default Broker resource named `broker`. It is deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
 kubectl get broker broker -n azure-iot-operations -o yaml
@@ -102,7 +102,7 @@ To delete the default broker, run the following command:
 kubectl delete broker broker -n azure-iot-operations
 ```
 
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with 2 frontend replicas and 2 backend chains with 2 partitions and 2 workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
+Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -204,7 +204,7 @@ For *ephemeral* volume, follow the advice in the [Considerations for storage pro
 
 The value of the *ephemeralVolumeClaimSpec* property is used as the ephemeral.*volumeClaimTemplate.spec* property of the volume in the StatefulSet specs of the backend chains.
 
-For example, to use an ephemeral volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
+For example, to use an ephemeral volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
 diskBackedMessageBufferSettings:
@@ -224,7 +224,7 @@ For *persistent* volume, follow the advice in [Considerations for storage provid
 
 The value of the *persistentVolumeClaimSpec* property is used as the *volumeClaimTemplates.spec* property of the *StatefulSet* specs of the backend chains.
 
-For example, to use a *persistent* volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
+For example, to use a *persistent* volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml 
 diskBackedMessageBufferSettings:
@@ -242,7 +242,7 @@ Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#em
 
 Only use *emptyDir* volume when using a cluster with filesystem quotas. For more information, see details in the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does *periodic scanning* that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy. 
 
-For example, to use an emptyDir volume with a capacity of 1 gigabytes, specify the following parameters in your Broker CRD:
+For example, to use an emptyDir volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
       diskBackedMessageBufferSettings:
