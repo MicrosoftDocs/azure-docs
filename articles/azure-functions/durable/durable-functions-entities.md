@@ -576,7 +576,7 @@ def orchestrator(context: df.DurableOrchestrationContext):
     logging.info("Orch entity started")
     entityId = df.EntityId("Counter", "myCounter")
     context.signal_entity(entityId, "add", 3)
-    logging.info("Orch signal entity")
+    logging.info("signaled entity")
     state = yield context.call_entity(entityId, "get")
     return state
 ```
