@@ -50,7 +50,7 @@ Microsoft Sentinel has automated the process of creating a Key Vault for enrichm
 
 The data sources accessed by all the available widgets are listed on the **Widgets Onboarding Page**, under **Step 2 - Add credentials**. You need to add each data source's credentials one at a time. To do so, take the following steps for each data source:
 
-1. Select the **Find your credentials** link for a given data source. This will redirect you to specific instructions for finding or creating credentials for that data source. When you have the credentials, copy them aside and proceed to the next step.
+1. See the [instructions in the section below](#find-your-credentials-for-each-widget-source) for finding or creating credentials for a given data source. (Alternatively, you can select the **Find your credentials** link on the Widgets Onboarding Page for a given data source, which will redirect you to the same instructions below.) When you have the credentials, copy them aside and proceed to the next step.
 
 1. Select **Add credentials** for that data source. The **Custom deployment** wizard will open in a side panel on the right side of the page.  
 
