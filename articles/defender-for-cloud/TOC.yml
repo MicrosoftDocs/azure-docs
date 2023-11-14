@@ -103,12 +103,6 @@
   - name: Investigate and respond to security alerts
     displayName: triage, security, alerts, investigate, 
     href: tutorial-security-incident.md
-  - name: Choose standards for your compliance dashboard
-    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
-    href: update-regulatory-compliance-packages.md
-  - name: Manage security policies
-    displayName: security, policies, edit, disable
-    href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     displayName: health, resources, outstanding, security, issues, 
     href: investigate-resource-health.md
@@ -282,6 +276,17 @@
     - name: Integrate security solutions and data sources
       displayName: security, solutions, integrate, integrated, data sources
       href: partner-integration.md
+    - name: Security graph
+      items:
+      - name: Identify and remediate attack paths
+        displayName: attack paths, paths, investigate, easm, 
+        href: how-to-manage-attack-path.md
+      - name: Build queries with cloud security explorer
+        displayName: queries, security explorer, explorer, templates, query
+        href: how-to-manage-cloud-security-explorer.md
+      - name: Testing the attack path and security explorer
+        displayName: attack paths, paths, security explorer, test 
+        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
   - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture
@@ -305,9 +310,21 @@
     - name: Manage GCP assessments and standards
       displayName: gcp, assessment, standards, built-in, compliance, standard, custom, assessment, query
       href: how-to-manage-gcp-assessments-standards.md
+    - name: Review your security recommendations
+      displayName: security, recommendations, owner, azure, resource, graph, azure resource graph, csv report
+      href: review-security-recommendations.md
+    - name: Remediate recommendations
+      displayName: remediation, steps, recommendations, fix, actions, activity log
+      href: implement-security-recommendations.md
+    - name: Improve your security posture with recommendation governance
+      displayName: security, posture, recommendation, governance, automated, rules, owners, status, progress
+      href: governance-rules.md
     - name: Prevent misconfigurations with Enforce/Deny
       displayName: recommendations, enforce, deny
       href: prevent-misconfigurations.md
+    - name: Automate responses to recommendations
+      displayName: workflow, triggers, logic app, automation, policies, breaking change
+      href: workflow-automation.md
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
       href: tutorial-security-policy.md#disable-a-security-recommendation
@@ -321,8 +338,6 @@
       - name: Review security recommendations
         displayName: security, recommendations, owner, azure, resource, graph, azure resource graph, csv report
         href: review-security-recommendations.md
-      - name: Review exempted resources
-        href: review-exemptions.md
       - name: Remediate recommendations
         displayName: remediation, steps, recommendations, fix, actions, activity log
         href: implement-security-recommendations.md
@@ -335,18 +350,6 @@
     - name: Improve regulatory compliance
       displayName: regulatory, compliance, remediate, assessment, reports, certificates, export, workflow, automation
       href: regulatory-compliance-dashboard.md
-    - name: Investigate with cloud security explorer/attack paths
-      items:
-      - name: Identify and remediate attack paths
-        displayName: attack paths, paths, investigate, easm, 
-        href: how-to-manage-attack-path.md
-      - name: Build queries with cloud security explorer
-        displayName: queries, security explorer, explorer, templates, query
-        href: how-to-manage-cloud-security-explorer.md
-      - name: Test cloud security explorer/attack paths
-        displayName: attack paths, paths, security explorer, test 
-        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
-
   - name: Built-in security protections
     items:
     - name: Leverage Purview to protect sensitive data
@@ -623,7 +626,7 @@
               href: powershell-sample-vulnerability-assessment-baselines.md
             - name: Express configuration PowerShell wrapper module
               href: express-configuration-sql-commands.md
-            - name: Example - express configuration 
+            - name: Example express configuration PowerShell commands reference
               href: express-configuration-powershell-commands.md
           - name: Azure CLI examples
             href: express-configuration-azure-commands.md
@@ -708,7 +711,7 @@
           href: defender-for-storage-azure-portal-enablement.md  
       - name: Advanced configurations for malware scanning
         href: advanced-configurations-for-malware-scanning.md
-      - name: Set up response to malware scanning
+      - name: Setup response to malware scanning
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a proof of concept
         href: defender-for-storage-test.md
