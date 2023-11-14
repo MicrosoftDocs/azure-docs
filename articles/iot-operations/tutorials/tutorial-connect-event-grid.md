@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid"
+title: Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid
 # titleSuffix: Azure IoT MQ
-description: Learn how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS
+description: Learn how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS.
 author: PatAltimore
 ms.author: patricka
 ms.topic: tutorial
-ms.date: 11/29/2023
+ms.date: 11/13/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
@@ -22,7 +22,7 @@ In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT brid
 
 ## Create Event Grid namespace with MQTT broker enabled
 
-First, [create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. Replace `<EG_NAME>`, `<RESOURCE_GROUP>`, and `<LOCATION>` with your own values. The location should be the same as the one you used to deploy Azure IoT Operations.
+[Create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. Replace `<EG_NAME>`, `<RESOURCE_GROUP>`, and `<LOCATION>` with your own values. The location should be the same as the one you used to deploy Azure IoT Operations.
 
 ```azurecli
 az eventgrid namespace create -n <EG_NAME> -g <RESOURCE_GROUP> --location <LOCATION> --topic-spaces-configuration "{state:Enabled,maximumClientSessionsPerAuthenticationName:3}"
@@ -31,9 +31,9 @@ az eventgrid namespace create -n <EG_NAME> -g <RESOURCE_GROUP> --location <LOCAT
 By setting the `topic-spaces-configuration`, this command creates a namespace with:
 
 * MQTT broker **enabled**
-* Maximum client sessions per authentication name as **3**
+* Maximum client sessions per authentication name as **3**.
 
-The max client sessions option allows IoT MQ to spawn multiple instances and still be able to connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
+The max client sessions option allows IoT MQ to spawn multiple instances and still connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
 ## Create a topic space
 
@@ -68,7 +68,7 @@ az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Publi
 > [!TIP]
 > The scope matches the `id` of the topic space you created with `az eventgrid namespace topic-space create` in the previous step, and you can find it in the output of the command.
 
-## Note the Event Grid MQTT broker hostname
+## Event Grid MQTT broker hostname
 
 Use Azure CLI to get the Event Grid MQTT broker hostname. Replace `<EG_NAME>` and `<RESOURCE_GROUP>` with your own values.
 
@@ -76,7 +76,7 @@ Use Azure CLI to get the Event Grid MQTT broker hostname. Replace `<EG_NAME>` an
 az eventgrid namespace show -g <RESOURCE_GROUP> -n <EG_NAME> --query topicSpacesConfiguration.hostname -o tsv
 ```
 
-Take note of the output value for `topicSpacesConfiguration.hostname`, which is a hostname value that looks like:
+Take note of the output value for `topicSpacesConfiguration.hostname` that is a hostname value that looks like:
 
 ```output
 example.region-1.ts.eventgrid.azure.net
@@ -84,7 +84,7 @@ example.region-1.ts.eventgrid.azure.net
 
 ## Create an MQTT bridge connector and topic map resources
 
-In a new file `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the placeholder value in `endpoint` with the Event Grid MQTT hostname from previous step.
+In a new file named `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the placeholder value in `endpoint` with the Event Grid MQTT hostname from the previous step.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -135,7 +135,7 @@ spec:
       qos: 1
 ```
 
-Here, you configure the MQTT bridge connector to:
+You configure the MQTT bridge connector to:
 
 * Use the Event Grid MQTT broker as the remote broker
 * Use the local IoT MQ broker as the local broker
@@ -145,12 +145,15 @@ Here, you configure the MQTT bridge connector to:
 * Use the topic map to map the `tutorial/local` topic to the `telemetry/iot-mq` topic on the remote broker
 * Use the topic map to map the `telemetry/#` topic on the remote broker to the `tutorial/cloud` topic on the local broker
 
-So, when you publish to the `tutorial/local` topic on the local IoT MQ broker, the message is bridged to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker. Then, the message is bridged back to the `tutorial/cloud` topic on the local IoT MQ broker. Similarly, when you publish to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker, the message is bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
+When you publish to the `tutorial/local` topic on the local IoT MQ broker, the message is bridged to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker. Then, the message is bridged back to the `tutorial/cloud` topic on the local IoT MQ broker. Similarly, when you publish to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker, the message is bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
 
 Apply the deployment file with kubectl.
 
-```console
-$ kubectl apply -f bridge.yaml
+```bash
+kubectl apply -f bridge.yaml
+```
+
+```output
 mqttbridgeconnector.mq.iotoperations.azure.com/tutorial-bridge created
 mqttbridgetopicmap.mq.iotoperations.azure.com/tutorial-topic-map created
 ```
@@ -159,8 +162,11 @@ mqttbridgetopicmap.mq.iotoperations.azure.com/tutorial-topic-map created
 
 Use kubectl to check the two bridge instances are ready and running.
 
-```console
-$ kubectl get pods -n azure-iot-operations -l app=aio-mq-mqttbridge
+```bash
+kubectl get pods -n azure-iot-operations -l app=aio-mq-mqttbridge
+```
+
+```output
 NAME                       READY   STATUS    RESTARTS   AGE
 aio-mq-tutorial-bridge-0   1/1     Running   0          45s
 aio-mq-tutorial-bridge-1   1/1     Running   0          45s
@@ -170,7 +176,7 @@ You can now publish on the local broker and subscribe to the Event Grid MQTT Bro
 
 ## Deploy MQTT client
 
-To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as IoT MQ. In a new file `client.yaml`, specify the client deployment.
+To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as IoT MQ. In a new file named `client.yaml`, specify the client deployment:
 
 ```yaml
 apiVersion: v1
@@ -205,8 +211,11 @@ spec:
 
 Apply the deployment file with kubectl.
 
-```console
-$ kubectl apply -f client.yaml
+```bash
+kubectl apply -f client.yaml
+```
+
+```output
 pod/mqtt-client created
 ```
 
@@ -218,7 +227,7 @@ Use `kubectl exec` to start a shell in the mosquitto client pod.
 kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
-Inside the shell, start a subscriber to the IoT MQ broker on the `tutorial/#` topic space with mqttui.
+Inside the shell, start a subscriber to the IoT MQ broker on the `tutorial/#` topic space with *mqttui*.
 
 ```bash
 mqttui log "tutorial/#" \
@@ -269,9 +278,9 @@ Here, you see the messages are published to the local IoT MQ broker to the `tuto
 
 ## Check Event Grid metrics to verify message delivery
 
-You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, navigate to the Event Grid namespace you created. Under **Metrics**, **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local IoT MQ broker.
+You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, navigate to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local IoT MQ broker.
 
-![Screenshot of the metrics view in Azure portal to show successful MQTT messages](media/eg-metrics.png)
+:::image type="content" source="media/tutorial-connect-event-grid/eg-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
 
 ## Next steps
 
