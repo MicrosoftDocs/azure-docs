@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Create a telemetry coldpath with Dapr
+title: Create a telemetry coldpath with Dapr
 # titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: PatAltimore
