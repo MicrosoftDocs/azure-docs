@@ -49,8 +49,13 @@ There are different types of analysis available from this service. The following
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
-| Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Text detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Image detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Jailbreak risk detection (new) | Scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. |
+| Protected material text detection (new) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). |
+
+tbd add links to quickstarts
+call new features "new" in toc and this table
 
 ## Content Safety Studio
 
@@ -125,6 +130,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 - UK South
 - West Europe
 - West US 2
+- tbd changes
 
 Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 

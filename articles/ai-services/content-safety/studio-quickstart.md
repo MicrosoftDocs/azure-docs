@@ -41,9 +41,9 @@ The **Use blocklist** tab on the right lets you create, edit, and add a blocklis
 
 ## Detect jailbreak risks
 
-The **Jailbreak risk detection** panel lets you try out jailbreak detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
+The **Jailbreak risk detection** panel lets you try out jailbreak risk detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
 
-:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with jailbreak detection panel selected.":::
+:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with jailbreak risk detection panel selected.":::
 
 1. Select the **Jailbreak risk detection** panel.
 1. Select a sample text on the page, or input your own content for testing. You can also upload a CSV file to do a batch test.

@@ -39,8 +39,10 @@ items:
   items:
   - name: Use a blocklist
     href: how-to/use-blocklist.md
-  - name: Detect jailbreak attacks
+  - name: Detect jailbreak risk (new)
     href: how-to/detect-jailbreak.md
+  - name: Detect protected material (new)
+    href: how-to/detect-protected-material.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
   - name: Migrate from public preview to GA

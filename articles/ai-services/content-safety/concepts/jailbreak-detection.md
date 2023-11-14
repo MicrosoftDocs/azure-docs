@@ -42,7 +42,7 @@ Azure AI Content Safety jailbreak risk detection recognizes four different class
 
 ## Next steps
 
-Follow the how-to guide to get started using Content Safety to detect jailbreak attacks.
+Follow the how-to guide to get started using Content Safety to detect jailbreak risks.
 
 > [!div class="nextstepaction"]
-> [Detect jailbreak attacks](../how-to/detect-jailbreak.md)
+> [Detect jailbreak risk](../how-to/detect-jailbreak.md)
