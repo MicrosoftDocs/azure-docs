@@ -1,21 +1,26 @@
 ---
-title: "Detect jailbreak attacks"
+title: "Detect jailbreak risks"
 titleSuffix: Azure AI services
-description: Learn how to detect large language model jailbreak attacks and mitigate risk with Azure AI Content Safety.
+description: Learn how to detect large language model jailbreak attack risks and mitigate risk with Azure AI Content Safety.
 services: ai-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: 
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/07/2023
 ms.author: pafarley
 keywords: 
 ---
+TBD edit this to align language with AOAI's latest
+TBD add protectedMat to ACS
+TBD it's protected material (singular) everywhere
+TBD protectedMat lower limit is 110 chars. the limits of the request
+TBD enforce name "Azure" AI content safety
+tbd review this
+# Detect jailbreak risks (public preview)
 
-# Detect jailbreak attacks (public preview)
-
-Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect jailbreak attacks in your text content. For an overview of jailbreak attack risks, see the [jailbreak detection](../concepts/jailbreak-detection.md) guide.
+Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect the risk of jailbreak attacks in your text content. For an overview of jailbreak risks, see the [jailbreak risk detection](../concepts/jailbreak-detection.md) guide.
 
 ## Prerequisites
 
@@ -61,7 +66,7 @@ Open a command prompt window and run the cURL command.
 
 ### Interpret the API response
 
-You should see the jailbreak detection results displayed as JSON data in the console output. For example:
+You should see the jailbreak risk detection results displayed as JSON data in the console output. For example:
 
 ```json
 {
@@ -76,5 +81,5 @@ The JSON fields in the output are defined here:
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
 | **jailbreakAnalysis**   | Each output class that the API predicts.  | String |
-| **detected** | A Jailbreak Attack was detected or not.	  | Boolean |
+| **detected** | A Jailbreak risk was detected or not.	  | Boolean |
 
