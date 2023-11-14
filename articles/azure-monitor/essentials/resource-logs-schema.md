@@ -38,7 +38,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 | `callerIpAddress` | Optional | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
 | `correlationId` | Optional | A GUID that's used to group together a set of related events. Typically, if two events have the same `operationName` value but two different statuses (for example, `Started` and `Succeeded`), they share the same `correlationID` value. This might also represent other relationships between events. |
 | `identity` | Optional | A JSON blob that describes the identity of the user or application that performed the operation. Typically, this field includes the authorization and claims or JWT token from Active Directory. |
-| `Level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
+| `level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
 | `location` | Optional | The region of the resource emitting the event; for example, `East US` or `France South`. |
 | `properties` | Optional | Any extended properties related to this category of events. All custom or unique properties must be put inside this "Part B" of the schema. |
 

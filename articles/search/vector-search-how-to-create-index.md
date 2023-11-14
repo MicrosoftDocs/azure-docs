@@ -276,7 +276,7 @@ In the following REST API example, "title" and "content" contain textual content
 
 REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) enables vector scenarios. This version adds:
 
-In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
 
 > [!TIP]
 > Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.

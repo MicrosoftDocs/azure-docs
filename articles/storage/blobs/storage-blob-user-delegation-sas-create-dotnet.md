@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a blob with Microsoft Entra credentials by using the .NET client library for Blob Storage.
 services: storage
 author: pauljewellmsft
-
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/22/2023
-ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet

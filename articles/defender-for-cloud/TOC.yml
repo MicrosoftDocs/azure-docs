@@ -423,7 +423,7 @@
     - name: Overview
       displayName: auto, provisioning, auto-provisioning, Settings & monitoring
       href: monitoring-components.md
-    - name: Deploy the Azure Monitor agent
+    - name: Azure Monitor Agent in Defender for Cloud
       displayName: AMA, Azure monitor agent
       href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent
@@ -757,6 +757,9 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
+    - name: DevOps posture management
+      displayName: DevOps posture management
+      href: concept-devops-posture-management-overview.md
     - name: Protect DevOps environments
       items: 
       - name: Connect GitHub repositories

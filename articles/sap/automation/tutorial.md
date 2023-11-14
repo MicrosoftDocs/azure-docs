@@ -648,7 +648,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     ```yaml
 
     bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    kv_name:                       <Deployer KeyVault Name>
+    deployer_kv_name:              <Deployer KeyVault Name>
 
     ```
 
@@ -659,7 +659,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     ```yaml
 
     bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    kv_name:                       <Deployer KeyVault Name>
+    deployer_kv_name:              <Deployer KeyVault Name>
     BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
 
     ```
@@ -723,7 +723,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
         --subscription "${ARM_SUBSCRIPTION_ID}"               \
         --spn_id "${ARM_CLIENT_ID}"                           \
         --spn_secret "${ARM_CLIENT_SECRET}"                   \
-            --tenant_id "${ARM_TENANT_ID}"
+        --tenant_id "${ARM_TENANT_ID}"
     ```
 
 ## Prepare the workload zone deployment
