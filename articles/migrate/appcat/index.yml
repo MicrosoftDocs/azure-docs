@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Migrate application and code assessment
-summary: Tools to assess applications' binaries and source code for cloud readiness.
+summary: Tools to assess application binaries and source code for cloud readiness.
 
 metadata:
   title: Azure Migrate application and code assessment
@@ -16,7 +16,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Migrate application and code assessment
+  - title: About
     linkLists:
       - linkListType: overview
         links:
@@ -26,3 +26,14 @@ landingContent:
             url: java.md
           - text: Assess .NET applications and code
             url: dotnet.md
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: FAQ
+            url: faq.yml
+          - text: CLI usage guide
+            url: https://azure.github.io/appcat-docs/cli/
+          - text: Rules development guide
+            url: https://azure.github.io/appcat-docs/rules-development-guide/
