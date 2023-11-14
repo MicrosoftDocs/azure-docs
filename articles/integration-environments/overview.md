@@ -19,7 +19,7 @@ As a developer who works on solutions that integrate services and systems in the
 
 Azure Integration Environments simplifies this complexity by providing a central area in the Azure portal where you can create *integration environments* to help you organize and manage your deployed Azure resources. Within an integration environment, you create application groups to further arrange resources into smaller collections.
 
-For example, your integration environments might be based on your organization's business units, such as Operations, Customer Service, or Finance. Or, your environments might be based on your infrastructure landscapes for development, test, staging, and production. Your application groups might based on a specific business or customer scenario, such as employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
+For example, your integration environments might be based on your organization's business units, such as Operations, Customer Service, or Finance. Or, your environments might be based on your infrastructure landscapes for development, test, staging, and production. Your application groups might be based on a specific business or customer scenario, such as employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
 
 The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on business or customer scenario:
 
