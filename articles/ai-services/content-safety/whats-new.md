@@ -16,6 +16,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## November 2023
+
+### Jailbreak risk and Protected material detection
+
+The new Jailbreak risk detection and Protected material detection APIs let you mitigate some of the risks when using generative AI.
+
+- Jailbreak risk detection scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection) on a Large Language Model. Quickstart tbd
+- Protected material text detection scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). Quickstart tbd
+
 ## October 2023
 
 ### Content Safety is generally available (GA)
