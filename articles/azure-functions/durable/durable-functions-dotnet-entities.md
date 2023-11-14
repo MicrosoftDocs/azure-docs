@@ -76,6 +76,9 @@ The `EntityTrigger` Function, `Run` in this sample, doesn't need to reside withi
 ::: zone-end
 
 ::: zone pivot="isolated"
+> [!NOTE]
+> You need [Azure Functions Core Tools](../../../includes/functions-install-core-tools.md) version `4.0.5455` or above to run entities in the isolated model.
+
 There are two ways of defining an entity as a class in the C# isolated worker model. They produce entities with different state serialization structures. 
 
 With the following approach, the entire object is serialized when defining an entity.  
