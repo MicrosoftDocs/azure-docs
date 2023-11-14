@@ -1,5 +1,5 @@
 ---
-title: Create a telemetry coldpath with Dapr
+title: Tutorial: Build event-driven apps with Dapr
 # titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: PatAltimore
@@ -10,7 +10,7 @@ ms.date: 11/13/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Tutorial: Create a Telemetry Coldpath with Dapr
+# Tutorial: Build event-driven apps with Dapr
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -20,11 +20,15 @@ The Dapr application in this tutorial is stateless, and will use the Distributed
 
 The application subscribes to the topic `sensor/data` for incoming sensor data, and then publishes to `sensor/window_data` every 60 seconds.
 
+> [!TIP]
+> This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe to raw MQTT events.
+
 ## Prerequisites
 
 1. [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
 1. [Setup Dapr and MQ Pluggable Components](../develop/howto-develop-dapr-apps.md)
 1. [Docker](https://docs.docker.com/engine/install/) - for building the application container
+1. [Mosquitto_sub](https://mosquitto.org/download/) - for monitoring the MQTT broker traffic
 1. A Container registry - for hosting the application container
 
 ## Creating the Dapr application
@@ -62,7 +66,7 @@ docker tag mq-coldpath-dapr {container-alias}
 docker push {container-alias}
 ```
 
-## Deploy a Dapr application
+## Deploy the Dapr application
 
 At this point you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a Deployment to group the containerized Dapr application and the two components together.
 
@@ -71,33 +75,33 @@ To start, you create a yaml file that uses the following component definitions:
 > | Component | Description |
 > |-|-|
 > | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
-> | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQTT broker |
+> | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 > | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
-> | `containers.dapr-app` | The pre-built coldpath container image. **Replace this with your own image if desired**. | 
+> | `containers.mq-event-driven` | The pre-built dapr application container. **Replace this with your own container if desired**. | 
 
-1. Save the following deployment yaml to a file named `dapr-app.yaml`:
+1. Save the following deployment yaml to a file named `app.yaml`:
 
     ```yml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: mq-dapr-coldpath
+      name: mq-event-driven-dapr
       namespace: azure-iot-operations
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: mq-dapr-coldpath
+          app: mq-event-driven-dapr
       template:
         metadata:
           labels:
-            app: mq-dapr-coldpath
+            app: mq-event-driven-dapr
           annotations:
             dapr.io/enabled: "true"
             dapr.io/unix-domain-socket-path: "/tmp/dapr-components-sockets"
-            dapr.io/app-id: "mq-dapr-coldpath"
+            dapr.io/app-id: "mq-event-driven-dapr"
             dapr.io/app-port: "6001"
-            dapr.io/app-protocol: "grpc"        
+            dapr.io/app-protocol: "grpc"
         spec:
           volumes:
           - name: dapr-unix-domain-socket
@@ -116,12 +120,11 @@ To start, you create a yaml file that uses the following component definitions:
           - name: aio-mq-ca-cert-chain
             configMap:
               name: aio-mq-ca-cert-chain
-          containers:
 
+          containers:
           # Container for the dapr quickstart application 
-          - name: mq-dapr-coldpath
-            image: ghcr.io/azure-samples/explore-iot-operations/mq-coldpath-dapr:latest
-            imagePullPolicy: Never
+          - name: mq-event-driven-dapr
+            image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
 
           # Container for the Pub/sub component
           - name: aio-mq-pubsub-pluggable
@@ -133,7 +136,7 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /var/run/secrets/tokens
             - name: aio-mq-ca-cert-chain
               mountPath: /certs/aio-mq-ca-cert/
-          
+
           # Container for the State Management component
           - name: aio-mq-statestore-pluggable
             image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
@@ -158,7 +161,7 @@ To start, you create a yaml file that uses the following component definitions:
     kubectl get pods -w
     ```
 
-    Expecting the following output:
+    With the following output:
 
     ```output
     pod/dapr-workload created
@@ -175,7 +178,7 @@ The repository contains a deployment for a simulator which will generate sensor 
 1. Deploy the simulator:
 
     ```bash
-    kubectl apply -f simulate-data.yaml
+    kubectl apply -f ./yaml/simulate-data.yaml
     ```
 
 1. Confirm the simulator is running:
@@ -184,7 +187,7 @@ The repository contains a deployment for a simulator which will generate sensor 
     kubectl logs deployment/mqtt-publisher-deployment -f 
     ```
 
-    Expecting the following output:
+    With the following output:
 
     ```output
     Get:1 http://deb.debian.org/debian stable InRelease [151 kB]
@@ -200,11 +203,11 @@ The repository contains a deployment for a simulator which will generate sensor 
     Messages published in the last 10 seconds: 10
     ```
 
-## Verify the Dapr application works
+## Verify the Dapr application output
 
 1. Deploy the simulator
 
-In the example used for this article, the application subscribes to the `orders` topic and watches for odd number orders, then republishes them to the `odd-number-orders` topic. The simplest way to verify that the application works is to use a `mosquitto` client to publish an odd number order and see if it's republished as expected.
+    In the example used for this article, the application subscribes to the `orders` topic and watches for odd number orders, then republishes them to the `odd-number-orders` topic. The simplest way to verify that the application works is to use a `mosquitto` client to publish an odd number order and see if it's republished as expected.
 
 1. Subscribe to the `sensor/window_data` topic to see the output from the Dapr application:
 
@@ -212,10 +215,13 @@ In the example used for this article, the application subscribes to the `orders`
     mosquitto_sub -h localhost -p 8883 -t "sensor/window_data" --insecure
     ```
 
+    > [!NOTE]
+    > Depending on your Kubernetes setup, your cluster may not be on `localhost` and you may need to port forward port `8883`
+
 1. Verify the application is outputting a sliding windows calculation for the various sensors:
 
-    ```output
-    {"data":"{\"temperature\": {\"min\": 551.439, \"max\": 598.551, \"mean\": 573.713, \"median\": 572.7139999999999, \"count\": 6}, \"pressure\": {\"min\": 290.288, \"max\": 299.71, \"mean\": 294.7425, \"median\": 294.5425, \"count\": 6}, \"vibration\": {\"min\": 0.00111508, \"max\": 0.00488408, \"mean\": 0.00289702, \"median\": 0.002817095, \"count\": 6}}","datacontenttype":"text/plain","id":"994d6b8a-978c-42a3-9460-6b4285122d52","pubsubname":"aio-mq-pubsub","source":"mq-dapr-coldpath","specversion":"1.0","time":"2023-11-14T01:07:36Z","topic":"sensor/window_data","traceid":"00-00000000000000000000000000000000-0000000000000000-00","traceparent":"00-00000000000000000000000000000000-0000000000000000-00","tracestate":"","type":"com.dapr.event.sent"}
+    ```json
+    {"timestamp": "2023-11-14T05:21:49.807684+00:00", "window_size": 30, "temperature": {"min": 551.805, "max": 599.746, "mean": 579.929, "median": 581.917, "75_per": 591.678, "count": 29}, "pressure": {"min": 290.361, "max": 299.949, "mean": 295.98575862068964, "median": 296.383, "75_per": 298.336, "count": 29}, "vibration": {"min": 0.00114438, "max": 0.00497965, "mean": 0.0033943155172413792, "median": 0.00355337, "75_per": 0.00433423, "count": 29}}
     ```
 
 ## Troubleshooting
@@ -227,7 +233,3 @@ Run the following command to view the logs:
 ```bash
 kubectl logs dapr-workload daprd
 ```
-
-## Related content
-
-- [Develop highly available applications](concept-about-distributed-apps.md)

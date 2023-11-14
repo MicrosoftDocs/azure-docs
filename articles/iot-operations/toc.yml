@@ -188,8 +188,8 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: tutorials/tutorial-real-time-dashboard-fabric.md
-      - name: Build a cold-path pipeline using Dapr
-        href: tutorials/tutorial-coldpath-with-dapr.md
+      - name: Build event-driven apps with Dapr
+        href: tutorials/tutorial-event-driven-with-dapr.md          
       - name: Configure MQTT bridge between IoT MQ and Azure Event Grid
         href: tutorials/tutorial-connect-event-grid.md
 
