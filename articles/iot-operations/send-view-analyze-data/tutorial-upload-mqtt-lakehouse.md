@@ -81,7 +81,7 @@ Note the following names for later use: **Fabric workspace name**, **Fabric lake
 
 :::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Get lakehouse name" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
 
-The URL should look like *https://xxx.dfs.fabric.microsoft.com*
+The URL should look like `https://xxx.dfs.fabric.microsoft.com`.
 
 ## Simulate MQTT messages 
 
