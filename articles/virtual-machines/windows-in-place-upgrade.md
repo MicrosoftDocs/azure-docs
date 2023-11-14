@@ -57,11 +57,14 @@ To start an in-place upgrade the upgrade media must be attached to the VM as a M
 | diskName | Name of the Managed Disk that will contain the upgrade media |
 | sku | Windows Server upgrade media version. This must be either:  `server2016Upgrade` or `server2019Upgrade` or `server2022Upgrade` or `server2012Upgrade` |
 
+If you have more than one subscription, you should run `Set-AzsSubscription -SubscriptionId <String>` to specify which subscription to use.
+
 ### PowerShell script 
 
 ```azurepowershell-interactive
 #
-# Customer specific parameters 
+# Customer specific parameters
+
 
 # Resource group of the source VM
 $resourceGroup = "WindowsServerUpgrades"
