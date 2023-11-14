@@ -25,7 +25,7 @@ An environment definition is combined of least two files:
 >[!NOTE]
 > Azure Deployment Environments currently supports only ARM templates.
 
-The IaC template contains the environment definition (template), and the environment file provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
+The IaC template contains the environment definition (template), and the environment file, that provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
 
 We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
