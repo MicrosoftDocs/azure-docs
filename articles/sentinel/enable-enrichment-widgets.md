@@ -18,8 +18,6 @@ Enrichment widgets are components that help you retrieve, visualize, and underst
 > Enrichment widgets are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Learn more about enrichment widgets (link to entity pages doc?)
- 
 ## Enable enrichment widgets 
 
 Widgets require using credentials to access and maintain connections to their data sources. These credentials can be in the form of API keys, username/password, or other secrets, and they are stored in a dedicated Azure Key Vault that you create for this purpose.
