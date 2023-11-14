@@ -72,7 +72,7 @@ After you install the Visual Studio extension, you're ready to analyze your appl
 
 :::image type="content" source="media/dotnet/replatform.png" alt-text="Screenshot of the Replatform to Azure menu item in Visual Studio." lightbox="media/dotnet/replatform.png":::
 
-For detailed instructions on the Visual Studio experience, see the [step by step guide](https://aka.ms/appcat/dotnet/vs).
+For more information, see [Analyze applications with Visual Studio](/dotnet/azure/migration/appcat/visual-studio).
 
 ## Analyze applications with .NET CLI
 
@@ -88,11 +88,11 @@ You can specify a path and a format (*.html*, *.json*, or *.csv*) for the report
 appcat analyze <application-path> --report MyAppReport --serializer html
 ```
 
-For detailed instructions on the CLI experience, see the [step by step guide](https://aka.ms/appcat/dotnet/cli).
+For more information, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli).
 
 ## Interpret reports
 
-For a detailed description of the different parts of the reports and how to understand and interpret the data, see the [Interpret the results guide](https://aka.ms/appcat/dotnet/report).
+For a detailed description of the different parts of the reports and how to understand and interpret the data, see [Interpret the analysis results](/dotnet/azure/migration/appcat/interpret-results).
 
 ### Supported languages
 
