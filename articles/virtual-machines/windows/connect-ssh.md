@@ -220,13 +220,13 @@ and making sure the file has correct permissions.
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [Azure PowerShell](#tab/azurepowershell-interactive)
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [ARM template](#tab/json)
@@ -238,9 +238,10 @@ Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -Command
   "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
   "location": "[parameters('location')]",
   "properties": {
+    "timeoutInSeconds":600
     "source": {
-      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'",
-    },
+      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys -Encoding UTF8';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+    }
   }
 }
 ```
@@ -253,8 +254,9 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
   location: resourceGroup().location
   parent: virtualMachine
   properties: {
+    timeoutInSeconds: 600
     source: {
-      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
     }
   }
 }
