@@ -112,6 +112,11 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
 
 Replace `"Your input text"` with the text content you'd like to use.
 
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
+
 #### [Visual Studio IDE](#tab/visual-studio)
 
 Build and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**).

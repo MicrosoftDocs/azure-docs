@@ -80,6 +80,10 @@ The following section walks through a sample request with the Python SDK.
         analyze_text()
     ```
 1. Replace `"Your input text"` with the text content you'd like to use.
+    > [!TIP]
+    > Text size and granularity
+    >
+    > The default maximum length for text submissions is **10K** characters.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console

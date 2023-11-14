@@ -33,6 +33,10 @@ The [Moderate text content](https://contentsafety.cognitive.azure.com/text) page
 
 1. Select the **Moderate text content** panel.
 1. Add text to the input field, or select sample text from the panels on the page.
+    > [!TIP]
+    > Text size and granularity
+    >
+    > The default maximum length for text submissions is **10K** characters.
 1. Select **Run test**.
 
 The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.

@@ -57,6 +57,11 @@ Your app's `package.json` file will be updated with the dependencies.
 
 Create a new file in your directory, *index.js*. Open it in your preferred editor or IDE and paste in the following code. Replace `<your text sample>` with the text content you'd like to use.
 
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
+
 ```JavaScript
 const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
   { isUnexpected } = require("@azure-rest/ai-content-safety");

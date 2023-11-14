@@ -78,6 +78,11 @@ dependencies {
 
 Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace `<your text sample>` with the text content you'd like to use.
 
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
+
 ```Java
 import com.azure.ai.contentsafety.models.AnalyzeTextOptions;
 import com.azure.ai.contentsafety.models.AnalyzeTextResult;
