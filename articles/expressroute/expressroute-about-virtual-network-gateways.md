@@ -4,10 +4,11 @@ description: Learn about virtual network gateways for ExpressRoute, their SKUs, 
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: duau
-
 ---
 # About ExpressRoute virtual network gateways
 

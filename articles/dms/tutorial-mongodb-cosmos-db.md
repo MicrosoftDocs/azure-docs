@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - ignite-2022
   - sql-migration-content
+  - ignite-2023
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB RU offline using Azure Database Migration Service

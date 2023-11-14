@@ -7,7 +7,9 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 11/03/2022
-ms.custom: mqtt
+ms.custom:
+  - mqtt
+  - ignite-2023
 ---
 
 # Azure IoT Hub concepts overview

@@ -1,7 +1,9 @@
 ---
 title: Dead lettering for event subscriptions to namespace topics
-description: Describes the dead lettering feature for event subscriptions to namespace topics in Azure Event Grid. 
+description: Describes the dead lettering feature for event subscriptions to namespace topics in Azure Event Grid.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 09/29/2023
 ---
 
