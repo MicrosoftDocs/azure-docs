@@ -448,7 +448,7 @@ To create your own function that you can use with the Data Mapper tool, follow t
 
    If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
 
-1. In each file, you must use the following schema for the function definition:
+1. In your XML file, you must use the following schema for the function definition:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
