@@ -35,6 +35,7 @@ This article describes requirements and considerations about [using the volume c
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You can't delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can revert a source or destination volume of a cross-region replication to a snapshot, provided the snapshot is newer than the most recent SnapMirror snapshot. Snapshots older than the SnapMirror snapshot can't be used for a volume revert operation. For more information, see [Revert a volume using snapshot revert](snapshots-revert-volume.md). 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
+* If you use the cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)

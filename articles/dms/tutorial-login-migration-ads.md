@@ -2,8 +2,8 @@
 title: "Tutorial: Migrate SQL Server logins (preview) to Azure SQL in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server logins (preview) to Azure SQL by using Azure Data Studio and Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
 ms.service: dms
@@ -44,8 +44,8 @@ In this tutorial, you learn how to:
 
 Before you begin the tutorial:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 
 - Create a target instance of [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) or [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
 
@@ -81,7 +81,7 @@ Before you begin the tutorial:
   > [!IMPORTANT]  
   > For large number of logins, we recommend using automation. With PowerShell or Azure CLI you can use the `CSVFilePath` switch, that allows you to pass a CSV file type as a list of logins to be migrated.
   >
-  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the the login selection screen.
+  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the login selection screen.
 
 ## Open the Login Migration wizard in Azure Data Studio
 

@@ -152,6 +152,9 @@ Starting with version 2.1.5 or above, the self-hosted gateway provides observabi
 - [API Inspector](api-management-howto-api-inspector.md) will show additional steps when HTTP(S) proxy is being used and its related interactions.
 - Verbose logs are provided to provide indication of the request proxy behavior.
 
+> [!NOTE]
+> Due to a known issue with HTTP proxies using basic authentication, using certificate revocation list (CRL) validation is not supported. Learn more in our [Self-Hosted Gateway settings reference](self-hosted-gateway-settings-reference.md) how to configure it appropriately.
+
 > [!Warning]
 > Ensure that the [infrastructure requirements](self-hosted-gateway-overview.md#fqdn-dependencies) have been met and that the self-hosted gateway can still connect to them or certain functionality will not work properly.
 
