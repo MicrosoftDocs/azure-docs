@@ -53,6 +53,8 @@ Some of the key benefits include:
 
 - **Unified API for Microsoft Security products**: Customers can now export their security alerts data into their systems of choice using a single API, as Microsoft Defender for Cloud alerts and incidents are now part of Microsoft 365 Defender's public API.
 
+The integration between Defender for Cloud and Microsoft 365 Defender is available to all new and existing Defender for Cloud customers.
+
 ### General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
 
 November 15, 2023
