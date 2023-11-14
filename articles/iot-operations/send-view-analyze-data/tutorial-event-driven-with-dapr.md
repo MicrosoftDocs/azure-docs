@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Build event-driven apps with Dapr
+title: Build event-driven apps with Dapr
 # titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: PatAltimore
@@ -14,9 +14,9 @@ ms.date: 11/13/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this tutorial, you will learn how to subscribe to sensor data on an MQTT topic, and aggregate the data in a sliding window to then publish to a new topic.
+In this tutorial, you learn how to subscribe to sensor data on an MQTT topic, and aggregate the data in a sliding window to then publish to a new topic.
 
-The Dapr application in this tutorial is stateless, and will use the Distributed State Store to cache historical data used for the sliding window calculations.
+The Dapr application in this tutorial is stateless, and uses the Distributed State Store to cache historical data used for the sliding window calculations.
 
 The application subscribes to the topic `sensor/data` for incoming sensor data, and then publishes to `sensor/window_data` every 60 seconds.
 
@@ -37,9 +37,9 @@ The application subscribes to the topic `sensor/data` for incoming sensor data, 
 
 ### Building the container
 
-The following steps will clone the GitHub repository containing the sample and then use docker to build the container:
+The following steps clone the GitHub repository containing the sample and then use docker to build the container:
 
-1. Clone the [Explore IoT Operations github](https://github.com/Azure-Samples/explore-iot-operations)
+1. Clone the [Explore IoT Operations GitHub](https://github.com/Azure-Samples/explore-iot-operations)
 
     ```bash
     git clone https://github.com/Azure-Samples/explore-iot-operations
@@ -54,7 +54,7 @@ The following steps will clone the GitHub repository containing the sample and t
 
 ### Push to container registry
 
-To consume the application in your Kubernetes cluster, you will need to push this to a container registry such as the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). You could also push to a local container registry such as [minikube](https://minikube.sigs.k8s.io/docs/handbook/registry/) or [Docker](https://hub.docker.com/_/registry).
+To consume the application in your Kubernetes cluster, you need to push this to a container registry such as the [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli). You could also push to a local container registry such as [minikube](https://minikube.sigs.k8s.io/docs/handbook/registry/) or [Docker](https://hub.docker.com/_/registry).
 
 > | Component | Description |
 > |-|-|
@@ -67,7 +67,7 @@ docker push {container-alias}
 
 ## Deploy the Dapr application
 
-At this point you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a Deployment to group the containerized Dapr application and the two components together.
+At this point, you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a Deployment to group the containerized Dapr application and the two components together.
 
 To start, you create a yaml file that uses the following definitions:
 
@@ -154,7 +154,7 @@ To start, you create a yaml file that uses the following definitions:
     kubectl apply -f app.yaml
     ```
 
-1. Check the application has deployed successfully. The pod should report all containers are ready after a short interval, as shown below:
+1. Check the application has deployed successfully. The pod should report all containers are ready after a short interval, as shown with the following command:
 
     ```bash
     kubectl get pods -w
@@ -172,7 +172,7 @@ To start, you create a yaml file that uses the following definitions:
 
 ## Deploy the simulator
 
-The repository contains a deployment for a simulator which will generate sensor data to the `sensor/data` topic.
+The repository contains a deployment for a simulator that generates sensor data to the `sensor/data` topic.
 
 1. Deploy the simulator:
 

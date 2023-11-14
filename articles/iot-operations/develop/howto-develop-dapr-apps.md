@@ -184,7 +184,7 @@ Once you have completed writing the Dapr applicationn, build the container:
 
 1. Push it to your Container Registry of your choice, such as:
 
-    * [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/)
+    * [Azure Container Registry](/azure/container-registry/)
     * [GitHub Packages](https://github.com/features/packages)
     * [Docker Hub](https://docs.docker.com/docker-hub/)
 
