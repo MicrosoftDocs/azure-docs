@@ -19,7 +19,6 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
 [!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
 ## Create a resource group
