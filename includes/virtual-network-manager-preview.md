@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 11/01/2023
  ms.author: mbender-ms
-  ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 > [!IMPORTANT]
