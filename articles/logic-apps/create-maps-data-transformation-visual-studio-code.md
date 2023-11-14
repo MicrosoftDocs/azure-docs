@@ -444,9 +444,9 @@ To use the same **Transform using Data Mapper XSLT** action in the Azure portal,
 
 To create your own function that you can use with the Data Mapper tool, follow these steps:
 
-1. For each function, create an XML (.xml) file that has a meaningful name.
+1. Create an XML (.xml) file that has a meaningful name that describes your function's purpose.
 
-   Although you can use a single file to define multiple functions, consider the recommendation to create a separate file for each function. You can use any file name, but make sure to use a meaningful name.
+   If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
 
 1. In each file, you must use the following schema for the function definition:
 
