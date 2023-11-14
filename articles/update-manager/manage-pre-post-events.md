@@ -16,7 +16,7 @@ Pre and post events allows you to execute user-defined actions before and after 
 
 ## Timeline of schedules for pre and post events
 
-We recommend that you go through the the following example to understand the timeline for schedules with pre and post events.
+We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
 
 For example, if a maintenance schedule is set to start at **3:00 p.m. IST**: 
 
