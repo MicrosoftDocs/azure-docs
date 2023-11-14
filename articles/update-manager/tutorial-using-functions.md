@@ -33,14 +33,14 @@ In this tutorial, you learn how to:
     1. Under the **requirements.psd1**, paste the following code: 
         ```
         { 
-         For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.         
-         Uncomment the next line and replace the MAJOR_VERSION, 
-         for example,     'Az' = '5.*' 
-         'Az' = '5.*' 
-         'Az.ResourceGraph' = '0.13.0' 
-         'Az.Resources' = '6.*' 
+		For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.        
+         Uncomment the next line and replace the MAJOR_VERSION,
+         for example,'Az'='5.*' 
+		 'Az'='5.*' 
+		 'Az.ResourceGraph'='0.13.0' 
+		 'Az.Resources'='6.*' 
             }
-       ```
+        ```
        
 [Learn more](https://aka.ms/functions) on how to enable modules so that they're automatically managed by the Functions service. 
 
@@ -62,21 +62,21 @@ In this tutorial, you learn how to:
    To start and stop VMs for all the machines that are part of a given maintenance configuration/schedule:
    
    ``` 
-   param($preEvent, $TriggerMetadata) 
-    # Make sure to pass hashtables to Out-String so they're logged correctly
-    $preEvent | Out-String | Write-Host 
-    $correlationId = $preEvent.id 
-    $maintenanceConfigurationId = $preEvent.topic 
-    $resourceSubscriptionIds = $preEvent.data.ResourceSubscriptionIds 
-    $queryStr = "maintenanceresources 
-    | where type == 'microsoft.maintenance/applyupdates' 
-    | where properties.correlationId =~ '$correlationId' 
-    | project name, resourceId = properties.resourceId" 
-     $argQueryResult = Search-Azgraph -Query $queryStr -Subscription $preEvent.data.ResourceSubscriptionIds 
-     $mcName = ($maintenanceConfigurationId -split '/')
+   param($preEvent $TriggerMetadata) 
+    # Makesure to pass hashtables to Out-String so they're logged correctly
+    $preEvent|Out-String|Write-Host 
+    $correlationId=$preEvent.id 
+    $maintenanceConfigurationId=$preEvent.topic 
+    $resourceSubscriptionIds=$preEvent.data.ResourceSubscriptionIds 
+    $queryStr ="maintenanceresources 
+	|where type=='microsoft.maintenance/applyupdates' 
+	|where properties.correlationId=~'$correlationId' 
+	|project name, resourceId=properties.resourceId" 
+    $argQueryResult=Search-Azgraph-Query$queryStr-Subscription$preEvent.data.ResourceSubscriptionIds 
+    $mcName=($maintenanceConfigurationId-split'/')
     [8].ToLower() 
-    $tagKey = "preevent_$mcName" 
-    ```
+    $tagKey="preevent_$mcName" 
+   ```
 1. Select **Integration** from the left menu and edit the **Event Trigger parameter name** under **Trigger**. Use the same parameter name given in the **Code+Test** window. In the example, the parameter is pre-Event. 
 1. Select **Save**
 

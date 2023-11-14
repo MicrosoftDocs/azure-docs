@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
         1. Select **Post Maintenance Event** for a post-event.
             - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure and Endpoint**.
             - Provide the appropriate details such as post-event webhook **URL** to trigger the event.
-
+1. Select **Create**.
 
 ## Next steps
 Learn about [managing multiple machines](manage-multiple-machines.md).
