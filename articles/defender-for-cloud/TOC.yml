@@ -345,7 +345,7 @@
         href: workflow-automation.md
     - name: Improve regulatory compliance
       displayName: regulatory, compliance, remediate, assessment, reports, certificates, export, workflow, automation
-    href: regulatory-compliance-dashboard.md
+      href: regulatory-compliance-dashboard.md
   - name: Built-in security protections
     items:
     - name: Leverage Purview to protect sensitive data
