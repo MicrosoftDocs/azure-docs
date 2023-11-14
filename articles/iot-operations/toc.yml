@@ -188,8 +188,8 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: send-view-analyze-data/tutorial-real-time-dashboard-fabric.md
-      - name: Upload MQTT data to a Lakehouse
-        href: send-view-analyze-data/tutorial-lakehouse-upload-fabric.md
+      - name: Upload MQTT data to a lakehouse
+        href: send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md
       - name: Build event-driven apps with Dapr
         href: send-view-analyze-data/tutorial-event-driven-with-dapr.md
       - name: Bridge MQTT data between IoT MQ and Azure Event Grid
