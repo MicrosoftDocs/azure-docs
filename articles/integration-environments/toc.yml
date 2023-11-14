@@ -25,3 +25,5 @@ items:
       href: Map-business-process-workflow.md
     - name: Deploy business process and tracking
       href: deploy-business-process.md
+    - name: Manage business process
+      href: manage-business-process.md
