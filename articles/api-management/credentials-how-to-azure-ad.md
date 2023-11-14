@@ -1,6 +1,6 @@
 ---
 title: Create credential to Microsoft Graph API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a credential to the Microsoft Graph API in Azure API Management. The credential manages credential tokens to an OAuth 2.0 backend service. 
+description: Learn how to create and use a managed token credential to the Microsoft Graph API in Azure API Management. The credential manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management

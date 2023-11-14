@@ -46,17 +46,6 @@ Using OAuth token credentials managed in API Management, customers can easily co
 
 The credential manager supports the following scenarios, depending on whether the credential connection is preconfigured or created dynamically at runtime. 
 
-
-### Scenario 1: Access using API Management managed identity 
-
-
-### Scenario 2: Access on behalf of a Microsoft Entra user or group
-
-
-## How do token credentials work?
-
-Credentials consist of two parts, **management** and **runtime**.
-
 * The **management** part in credential manager takes care of setting up and configuring a *credential provider* and its associated *credential store* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. For details, see [Process flow - management](credentials-process-flow.md#process-flow---management).
 
 
