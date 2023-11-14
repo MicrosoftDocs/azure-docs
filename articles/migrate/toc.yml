@@ -233,7 +233,7 @@ items:
   - name: Assess
     items:
     - name: Azure Migrate application and code assessment
-      href: appcat/index
+      href: appcat/index.yml
     - name: Add assessment tools
       href: how-to-assess.md
     - name: Group machines for assessment
