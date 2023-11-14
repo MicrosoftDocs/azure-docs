@@ -1,7 +1,7 @@
 ---
 title: 'Python tutorial: AI on Azure blobs'
 titleSuffix: Azure AI Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure AI Search REST APIs. 
+description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure AI Search REST APIs.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,7 +10,9 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs

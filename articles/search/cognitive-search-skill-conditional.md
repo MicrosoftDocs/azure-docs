@@ -5,6 +5,8 @@ description: The conditional skill in Azure AI Search enables filtering, creatin
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/12/2021
 ---

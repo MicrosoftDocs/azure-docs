@@ -5,6 +5,8 @@ description: Tips and troubleshooting for setting up AI enrichment pipelines in 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---

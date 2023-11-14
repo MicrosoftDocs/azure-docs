@@ -5,6 +5,8 @@ description: Extend capabilities of Azure AI Search skillsets by calling out to 
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/20/2022
 ---

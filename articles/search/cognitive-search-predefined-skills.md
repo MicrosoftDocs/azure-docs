@@ -5,6 +5,8 @@ description: Data extraction, natural language, and image processing skills add 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/28/2023
 ---

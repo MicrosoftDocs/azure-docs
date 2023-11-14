@@ -7,6 +7,8 @@ manager: jennmar
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/17/2022
 ---

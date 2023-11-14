@@ -5,6 +5,8 @@ description: Evaluates unstructured text, and for each record, returns a list of
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 12/09/2021
 ---

@@ -5,9 +5,10 @@ description: Extract different custom entities from text in an Azure AI Search e
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 09/07/2022
-
 ---
 
 # Custom Entity Lookup cognitive skill

@@ -6,6 +6,8 @@ description: Learn the tools and techniques for efficiently scaling out a custom
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---

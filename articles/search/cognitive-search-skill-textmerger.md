@@ -5,6 +5,8 @@ description: Merge text from a collection of fields into one consolidated field.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 04/20/2023
 ---

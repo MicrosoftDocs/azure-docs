@@ -7,6 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 06/29/2023
 ---

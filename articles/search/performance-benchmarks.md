@@ -5,6 +5,8 @@ description: Learn about the performance of Azure AI Search through various perf
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---

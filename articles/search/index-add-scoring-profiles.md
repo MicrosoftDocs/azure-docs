@@ -7,6 +7,8 @@ manager: nitinme
 author: shmed
 ms.author: ramero
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/06/2023
 ---

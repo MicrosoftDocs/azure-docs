@@ -6,6 +6,8 @@ author: careyjmac
 manager: jiantaosun
 ms.author: chalton
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/26/2023
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'C# tutorial: AI on Azure blobs'
 titleSuffix: Azure AI Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure AI Search .NET SDK. 
+description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure AI Search .NET SDK.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -9,7 +9,10 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
