@@ -23,7 +23,7 @@ Azure Monitor has its own [alert system](../azure-monitor/alerts/alerts-overview
 
 * Scalability: Azure Monitor alerts are evaluated in the Azure Monitor platform that's been architected to autoscale to your needs.
 * Compliance: Azure Monitor alerts and [action groups](../azure-monitor/alerts/action-groups.md) are governed by Azure's compliance standards on privacy, including unsubscribe support.
-* Customized notifications and actions: Azure Monitor alerts use action groups to send notifications by email, SMS, push and voice notifications. These events can be configured to trigger further actions implemented in Functions, Logic apps, webhook, and other supported action types.
+* Customized notifications and actions: Azure Monitor alerts use action groups to send notifications by email, SMS, voice, and push notifications. These events can be configured to trigger further actions implemented in Functions, Logic apps, webhook, and other supported action types.
 * Consistent resource management: Azure Monitor alerts are managed as Azure resources. They can be created, updated and viewed using Azure APIs and tools, such as ARM templates, Azure CLI or SDKs.
 
 For any Azure Monitor service, including Azure Monitor Managed Service for Prometheus, you should define and manage your alert rules in Azure Monitor. You can view fired and resolved alerts in the [Azure Alert Consumption dashboard](https://grafana.com/grafana/dashboards/15128-azure-alert-consumption/) included in Azure Managed Grafana.
