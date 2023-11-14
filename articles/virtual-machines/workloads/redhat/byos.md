@@ -127,7 +127,7 @@ The following instructions walk you through the initial deployment process for a
 The following script is an example. Replace the resource group, location, VM name, login information, and other variables with the configuration of your choice. Publisher and plan information must be lowercase.
 
 >[!NOTE] All versions of the AzureRM PowerShell module are outdated. The Az PowerShell module is now the recommended PowerShell module for interacting with Azure
->For more information, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az?view=azps-10.4.1#option-2-use-compatibility-mode-with-enable-azurermalias).
+>For more information, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az?view=azps-10.4.1).
 
 #### [AzureRM  ](#tab/AzureRM)
 
@@ -140,7 +140,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87 | Set-AzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location
