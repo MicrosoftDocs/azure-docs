@@ -34,15 +34,15 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Full persistence support isn't currently available.
 
-- There are known intermittent issues with MQ's MQTT bridge connecting to Azure Event Grid.
+- There are known intermittent issues with IoT MQ's MQTT bridge connecting to Azure Event Grid.
 
-- It's possible for an MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You might also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pods:
+- It's possible for an IoT MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You might also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pods:
 
     ```bash
     kubectl -n azure-iot-operations delete pods <pod-name>
     ```
 
-- Even though MQ's [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+- Even though IoT MQ's [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - You can't currently access these [observability metrics](../reference/observability-metrics-mq.md) for IoT MQ.
 
@@ -63,7 +63,7 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
+It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
 
 ```bash
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
@@ -84,7 +84,7 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## OPC PLC simulator
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQ broker, try the following command:
+If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, try the following command:
 
 - Patch the asset endpoint with `autoAcceptUntrustedServerCertificates=true`:
 
@@ -111,7 +111,7 @@ done
 > [!WARNING]
 > Don't use untrusted certificates in production environments.
 
-If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
