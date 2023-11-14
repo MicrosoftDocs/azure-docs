@@ -15,13 +15,15 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by modeling the business processes that these resources implement. If your organization wants to capture and track key business data in a business process stage, define the specific business properties to capture so that you can later map these properties to operations and data in Standard logic app workflows. For more information, see [What is Azure Integration Environments](overview.md)?
+After you create an integration environment and an application group with existing Azure resources, you can add business information about these resources by visualizing the business processes that these resources implement. A business process is a sequence of stages that show the flow through a real-world business scenario. This business process also specifies a single business identiifer, such as an order number, ticket number, or case number, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
 
-For example, suppose you're an integration developer at a power company. Your customer service team has the following business process to resolve a customer ticket for a power outage:
+If your organization wants to capture and track key business data that moves through a business process stage, you can define the specific business properties to capture so that you can later map these properties to operations and data in Standard logic app workflows. For more information, see [What is Azure Integration Environments](overview.md)?
+
+For example, suppose you're a business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-With the business process designer in your integration environment, you can visually describe this business process, for example:
+For each application group, you can use the process designer to add a flow chart that visually describes this business process, for example:
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
