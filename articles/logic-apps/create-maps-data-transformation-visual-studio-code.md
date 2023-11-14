@@ -433,7 +433,7 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 1. On the action information pane that appears, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
 
-   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visaul Studio Code, Standard workflow designer, with selected actionnamed Transform using Data Mapper XSLT and action properties.":::
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visual Studio Code, Standard workflow designer, with selected action named Transform using Data Mapper XSLT and action properties.":::
 
 To use the same **Transform using Data Mapper XSLT** action in the Azure portal, add the map to either of the following resources:
 
