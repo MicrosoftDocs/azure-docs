@@ -174,8 +174,6 @@ The **diskBackedMessageBufferSettings** feature is used for efficient management
 
 - **Handling connectivity challenges**: Cloud connectors are treated as subscribers with persistent sessions that can face connectivity challenges when unable to communicate with external systems like Event Grid MQTT broker due to network disconnect. In such scenarios, messages (PUBLISHes) accumulate. The Azure IoT MQ broker intelligently buffers these messages to memory or disk until connectivity is restored, ensuring message integrity.
 
-In rare cases where there are many slow subscribers or connectors have extended communication challenges, the disk space allocated for queue buffering can become a limitation. [Configuring the `memoryProfile` to `low`](#configure-memory-profile) temporarily offers a solution, optimizing memory usage until the persistence feature is fully implemented and enhancing system resilience.
-
 Understanding and configuring the **diskBackedMessageBufferSettings** feature maintains a robust and reliable message queuing system. Proper configuration is important in scenarios where message processing speed and connectivity are critical factors.
 
 ### Configuration options
