@@ -19,7 +19,7 @@ To learn more, Watch [this episode](episode-fifteen.md) of the Defender for Clou
 
 You can define rules that assign an owner and a due date for addressing recommendations for specific resources. This provides resource owners with a clear set of tasks and deadlines for remediating recommendations.
 
-You can review the progress of the remediation tasks by subscription, recommendation, or owner so you can follow up with tasks that need more attention.
+For tracking, you can review the progress of the remediation tasks by subscription, recommendation, or owner so you can follow up with tasks that need more attention.
 
 - Governance rules can identify resources that require remediation according to specific recommendations or severities.
 - The rule assigns an owner and due date to ensure the recommendations are handled. Many governance rules can apply to the same recommendations, so the rule with lower priority value is the one that assigns the owner and due date.
@@ -44,7 +44,7 @@ You can review the progress of the remediation tasks by subscription, recommenda
 
 To define a governance rule that assigns an owner and due date.
 
-1. In Defender for Cloud, open the **Environment settings** page, and select **Government rules**.
+1. In Defender for Cloud, open the **Environment settings** page, and select **Governance rules**.
 1. Select **Create governance rule**.
 1. In **Create governance rule** > **General details**, specify a rule name, and the scope in which the rule applies.
 
@@ -70,36 +70,12 @@ To define a governance rule that assigns an owner and due date.
 
     :::image type="content" source="./media/governance-rules/create-rule-conditions.png" alt-text="Screenshot of page for adding conditions for a governance rule.":::
 
-Note that:
 
 - If there are existing recommendations that match the definition of the governance rule, you can either:
 
     - Assign an owner and due date to recommendations that don't already have an owner or due date.
     - Overwrite the owner and due date of existing recommendations.
 - When you delete or disable a rule, all existing assignments and notifications remain.
-
-## Assign recommendations with owner/due date
-
-1. In Defender for Cloud, open the **Recommendations** page, and select a recommendation for which you want to assign an owner/due date.
-
-1. In the recommendation details page, select the resource on which you want to set a recommendation owner and due date. Select **Create assignment**.
-
-1. In **Assignment type**, select the Defender for Cloud built-in option, or **Service Now**.
-
-
-1. If you select **Service Now**, in **Integration instance**, specify the name of the integration (custom, dev-in, prod-instance). In **Service Now ticket type**, specify whether it's an incident, change_request, or problem.
-
-1. If you select the Defender for Cloud built-in option:
-
-    - In **Email address**, specify the email address for the resource/recommendation owner.
-    - In **Remediation timeframe**, specify the due date for fixing the recommendation on the resource.
-    - If it's an MCSB recommendation and you don't want it to affect secure score until it's overdue, turn on **Secure score not affected**.
-    - In **Set email notifications**, specify whether you want to notify the owner/owner's manager for the resource recommendation, and on which day you want to send the weekly mail.
-
-
-    :::image type="content" source="./media/governance-rules/assign-rule-recommendation.png" alt-text="Screenshot of page for assigning an owner and due date to a recommendation.":::
-
-1. Select **Create** to apply the owner and due date settings. 
 
 
 ## View effective rules
@@ -111,41 +87,11 @@ You can view the effect of government rules in your environment.
 1. You can search for rules, or filter rules.
      - Filter on **Environment** to identify rules for Azure, AWS, and GCP.
      - Filter on rule name, owner, or time between the recommendation being issued and due date.
-     - Filter on **Grace period** to find MCSB recommendations that won't affect your secure score until their due date is expired.
+     - Filter on **Grace period** to find MCSB recommendations that won't affect your secure score.
      - Identify by status.
 
         :::image type="content" source="./media/governance-rules/view-filter-rules.png" alt-text="Screenshot of page for viewing and filtering rules.":::
 
-## Review recommendation owners
-
-1. In the Defender for Cloud portal, open the **Security posture** page.
-1. Select the **Owner** tab to see the list of owners and the number of overdue recommendations for each owner.
-
-    - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
-
-    - If the owner email address is found in the organizational Microsoft Entra ID, you see the full name and picture of the owner.
-
-1. Select **View recommendations** to go to the list of recommendations associated with the owner.
-
-
-## Track recommendation status
-
-You can review the progress that the owners are making in remediating recommendations.
-
-1. In Defender for Cloud, the **Overview** dashboard and the **Security posture** page shows the number of unassigned and overdue recommendations.
-
-    :::image type="content" source="./media/governance-rules/governance-in-security-posture.png" alt-text="Screenshot of governance status in the security posture.":::
-
-1. Select **Overdue recommendations** or **Unassigned recommendations** to drill down into the recommendations.
-1. On the **Recommendations**, you can track governance status.
-
-     - The **Status** column shows you whether the recommendation is unassigned or overview.
-     - You can also filter on **Recommendation status** to identify assigned/unassigned, and overdue recommendations.
-
-    :::image type="content" source="./media/governance-rules/governance-in-recommendations.png" alt-text="Screenshot of recommendations with their governance status." lightbox="media/governance-rules/governance-in-recommendations.png":::
- 
-> [!NOTE]
-> Manual assignments will not appear on this report. To see all assignments by owner, use the Owner tab on the Security Posture page.
 
 
 
@@ -160,20 +106,6 @@ The governance report lets you select subscriptions that have governance rules a
      :::image type="content" source="./media/governance-rules/governance-in-workbook.png" alt-text="Screenshot of governance status by rule and owner in the governance workbook." lightbox="media/governance-rules/governance-in-workbook.png":::
 
 1. From the governance report, you drill down into recommendations by rule and owner.
-
-
-## Review overdue recommendations
-
-1. In Defender for Cloud portal > open the **Security posture** page.
-1. In the recommendations 
-
-
-
-:::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="Screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
-
-By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Microsoft Entra ID, the owner's manager receives a weekly email showing any overdue recommendations by default.
-
-:::image type="content" source="./media/governance-rules/add-governance-rules.png" alt-text="Screenshot of fields required to add a governance rule." lightbox="media/governance-rules/add-governance-rules.png":::
 
 
 ## Next steps
