@@ -5,6 +5,8 @@ description: Vector DB Lookup is a vector search tool that allows users to searc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

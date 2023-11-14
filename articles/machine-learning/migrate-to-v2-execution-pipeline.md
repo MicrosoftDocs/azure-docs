@@ -10,7 +10,9 @@ author: cloga
 ms.author: lochen
 ms.date: 09/16/2022
 ms.reviewer: sgilley
-ms.custom: migration
+ms.custom:
+  - migration
+  - ignite-2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 

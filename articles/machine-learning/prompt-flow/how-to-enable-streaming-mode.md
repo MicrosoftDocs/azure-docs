@@ -5,7 +5,9 @@ description: Learn how use streaming when you consume the endpoints in Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: how-to
 author: likebupt
 ms.author: keli19

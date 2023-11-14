@@ -11,7 +11,10 @@ ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
 ms.date: 05/09/2022
-ms.custom: references_regions, event-tier1-build-2022
+ms.custom:
+  - references_regions
+  - event-tier1-build-2022
+  - ignite-2023
 ---
 
 # Azure Machine Learning feature availability across clouds regions

@@ -7,8 +7,9 @@ metadata:
   title: Apache Airflow on Astro – An Azure Native ISV Service
   description: Apache Airflow on Astro – An Azure Native ISV Service integrates with Azure to combine the benefits of Apache Airflow on Astro with the Azure cloud.
   ms.topic: landing-page
+  ms.custom:
+    - ignite-2023
   ms.date: 10/25/2023
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

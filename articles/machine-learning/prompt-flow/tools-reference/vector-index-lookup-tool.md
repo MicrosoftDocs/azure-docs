@@ -5,6 +5,8 @@ description: Vector Index Lookup is a tool tailored for querying within an Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

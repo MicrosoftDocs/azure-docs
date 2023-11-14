@@ -7,6 +7,8 @@ ms.reviewer: maghan
 ms.date: 11/06/2023
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ---
 

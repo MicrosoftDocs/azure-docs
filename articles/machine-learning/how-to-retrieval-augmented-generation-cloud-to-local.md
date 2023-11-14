@@ -10,8 +10,9 @@ author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
 ms.date: 09/12/2023
-ms.custom: prompt-flow
-
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # RAG from cloud to local - bring your own data QnA (preview)

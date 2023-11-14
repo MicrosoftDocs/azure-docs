@@ -5,6 +5,8 @@ description: Learn how to submit batch run and use built-in evaluation methods i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang

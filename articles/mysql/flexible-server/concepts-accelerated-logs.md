@@ -10,6 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
   - references_regions
+  - ignite-2023
 ---
 
 # Accelerated logs feature in Azure Database for MySQL - Flexible Server (Preview)

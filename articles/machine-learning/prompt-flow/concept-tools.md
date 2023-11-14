@@ -5,6 +5,8 @@ description: Learn about how tools are the fundamental building blocks of a flow
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
