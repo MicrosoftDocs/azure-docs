@@ -1,26 +1,26 @@
 ---
-title: Build a real-time dashboard in Microsoft Fabric with MQTT data
+title: Upload MQTT data to Microsoft Fabric lakehouse
 # titleSuffix: Azure IoT MQ
-description: Learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from IoT MQ
+description: Learn how to upload MQTT data from the edge to a Fabric lakehouse
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
 ms.date: 11/13/2023
 
-#CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from IoT MQ.
+#CustomerIntent: As an operator, I want to learn how to send MQTT data from the edge to a lakehouse in the cloud.
 ---
 
 # Build a real-time dashboard in Microsoft Fabric with MQTT data
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that's published to IoT MQ. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
+In this walkthrough, you send MQTT data from IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Detla Lake format. IoT MQ's datalake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
 Azure IoT Operations can be deployed with the Azure CLI, Azure Portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
 ## Prepare your Kubernetes cluster
 
-This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codespace to help you get going quickly. If you want to use a different environment, all the artifacts are available in the [explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tutorials/mq-realtime-fabric-dashboard) GitHub repository so you can easily follow along. 
+This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codespace to help you get going quickly. If you want to use a different environment, all the artifacts are available in the [explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tutorials/mq-onelake-upload) GitHub repository so you can easily follow along. 
 
 1. Create the Codespace, optionally entering your Azure details to store them as environment variables for the terminal.
 
@@ -32,19 +32,80 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 1. [Connect the cluster to Azure Arc](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster).
 
-## Deploy edge and cloud Azure resources
+## Deploy base edge resources
 
-The MQTT broker and north-bound cloud connector components can be deployed as regular Azure resources as they have Azure Resource Provider (RPs) implementations. A single Bicep template file from the *explore-iot-operations* repository deploys all the required edge and cloud resources and Azure role-based access assignments. Run this command in your Codespace terminal:
+IoT MQ resources can be deployed as regular Azure resources as they have Azure Resource Provider (RP) implementations. First, deploy the base broker resources. Run this command in your Codespace terminal:
 
 ```azurecli
-CLUSTER_NAME=<arc-connected-cluster-name>
-TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep'
 
- az deployment group create \ 
-    --name az-resources \
+TEMPLATE_FILE_NAME=./tutorials/mq-onelake-upload/deployBaseResources.bicep
+CLUSTER_NAME=xxx
+RESOURCE_GROUP=xxx
+
+az deployment group create --name az-resources \
     --resource-group $RESOURCE_GROUP \
     --template-file $TEMPLATE_FILE_NAME \
     --parameters clusterName=$CLUSTER_NAME
+
+```
+
+From the deployment JSON outputs, note the name of the IoT MQ extension - it should look like 'mq-<resource-group-name>'.
+
+## Setup Microsoft Fabric resources
+
+Next, create and setup the required Fabric resources. 
+
+### Create a Fabric workspace and give access to IoT MQ 
+
+Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to MQ's extension identity in teh **Add people** sidebar.
+
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Create workspace and give access" lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
+
+That's all you need to do start sending data from IoT MQ!
+
+### Create a new lakehouse
+
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/new-lakehouse.png":::
+
+### Make note of the resource names
+
+Note the following names for later use - Fabric workspace name, Fabric lakehouse name and Fabric endpoint URL. You can get the endpoint URL from the **Properties** of one of the pre-created lakehouse folders -
+
+:::image type="content" source="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png" alt-text="Create new lakehouse" lightbox="media/tutorial-upload-mqtt-lakehouse/lakehouse-name.png":::
+
+The URL should look like *https://xxx.dfs.fabric.microsoft.com*
+
+## Generate simulated data 
+
+
+
+## Deploy the datalake connector and topic map resources
+
+Building on top of the previous Azure deployment, add the datalake connector and 
+
+
+TEMPLATE_FILE_NAME=./tutorials/mq-onelake-upload/deployDatalakeConnector.bicep
+RESOURCE_GROUP=urban-succotash-jrjj4v4jv4whppvq
+mqInstanceName=mq-instance
+customLocationName=urban-succotash-jrjj4v4jv4whppvq-cl
+fabricEndpointUrl=https://msit-onelake.dfs.fabric.microsoft.com
+fabricWorkspaceName=mq-upload-workspace
+fabricLakehouseName=mq_upload
+
+ az deployment group create --name dl-resources \
+    --resource-group $RESOURCE_GROUP \
+    --template-file $TEMPLATE_FILE_NAME \
+    --parameters mqInstanceName=$mqInstanceName \
+    --parameters customLocationName=$customLocationName \
+    --parameters fabricEndpointUrl=$fabricEndpointUrl \
+    --parameters fabricWorkspaceName=$fabricWorkspaceName \
+    --parameters fabricLakehouseName=$fabricLakehouseName
+
+
+
+```
+
+
 ```
 
 > [!IMPORTANT]
