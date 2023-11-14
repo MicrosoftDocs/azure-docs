@@ -56,7 +56,8 @@ In the Defender for Cloud portal > **Overview** dashboard, get a holistic look a
 You can perform a number of actions to interact with recommendations. If an option isn't available, it isn't relevant for the recommendation.
 
 1. In the **Recommendations** page, select a recommendation.
-1. Select **Open query** to view detailed information about the affected resources using an Azure Resource Graph Explorer query.1. Select **View policy definition** to view the Azure Policy entry for the underlying recommendation (if relevant).
+1. Select **Open query** to view detailed information about the affected resources using an Azure Resource Graph Explorer query
+1. Select **View policy definition** to view the Azure Policy entry for the underlying recommendation (if relevant).
 1. In **Review findings**, you can review affiliated findings by severity.
     
      :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
@@ -83,6 +84,7 @@ Defender for Cloud support governance rules for recommendations, to specify a re
 [Learn more](governance-rules.md) about configuring governance rules.
 
 Manage recommendations assigned to you as follows:
+
 1. In the Defender for Cloud portal > **Recommendations** page, select **Add filter** > **Owner**.
 
 1. Select your user entry.

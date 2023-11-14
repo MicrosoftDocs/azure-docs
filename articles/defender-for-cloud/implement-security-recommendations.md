@@ -42,7 +42,8 @@ In addition to risk level, we recommend that you prioritize the security control
 
 1. In the **Recommendations** page, select the recommendation you want to remediate.
 
-1. In **Take action** > **Remediate**, follow remediation instructions.
+1. In the recommendation details page, select **Take action** > **Remediate**.
+1. Follow the remediation instructions.
 
 As an example, the following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
@@ -58,6 +59,7 @@ To simplify remediation and improve your environment's security (and increase yo
 
     :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
+1. In **Take action**, select **Fix**.
 1. Follow the rest of the remediation steps.
 
 
