@@ -55,10 +55,10 @@ To simplify remediation and improve your environment's security (and increase yo
 1. Follow the rest of the remediation steps.
 
 > [!NOTE]
-> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
+> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
 
 > [!NOTE]
-> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. To view the remediation actions, check the [activity log](#activity-log).
+> It can take several minutes after remediation completes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
 
 ## Next steps
 
