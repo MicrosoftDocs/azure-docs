@@ -3,12 +3,13 @@ title: Azure Cosmos DB Gremlin indexer
 titleSuffix: Azure AI Search
 description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
 
-author: mgottein 
+author: mgottein
 ms.author: magottei
 manager: nitinme
 
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/18/2023
 ---

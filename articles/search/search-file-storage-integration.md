@@ -6,6 +6,8 @@ manager: nitinme
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/07/2022
 ---

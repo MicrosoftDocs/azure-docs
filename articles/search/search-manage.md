@@ -7,6 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 tags: azure-portal
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/12/2023

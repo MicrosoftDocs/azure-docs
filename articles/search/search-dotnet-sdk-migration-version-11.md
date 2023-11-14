@@ -1,7 +1,7 @@
 ---
 title: Upgrade to .NET SDK version 11
 titleSuffix: Azure AI Search
-description: Migrate your search application code from older SDK versions to the Azure AI Search .NET SDK version 11. 
+description: Migrate your search application code from older SDK versions to the Azure AI Search .NET SDK version 11.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,7 +10,10 @@ ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 10/19/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Upgrade to Azure AI Search .NET SDK version 11
