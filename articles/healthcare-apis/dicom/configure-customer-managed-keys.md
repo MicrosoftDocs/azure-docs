@@ -68,6 +68,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Service Encrypt
 5. On the Members tab, select **Managed Identity** and then select **+Select members**.
 
 6. On the **Select managed identities** pane, select **DICOM service** from the **Managed identity** drop-down list. Select your DICOM service.
+   
 7. On the **Select managed identities** pane, choose **Select**. 
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/configure-customer-managed-keys/key-vault-add-role-assignment.png":::
@@ -296,66 +297,41 @@ If key access is lost for less than 30 minutes, data is automatically recovered.
 
 If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
 
-## Best practices
-
-#### Rotate keys often
-
-Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
-
-#### Update the DICOM service after changing a managed identity
-If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
-
-## Recover from lost key access
-
-For the DICOM service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
-
-- The key is disabled or deleted from the key vault.
-
-- The DICOM service system-assigned managed identity is disabled.
-
-- The DICOM service system-assigned managed identity loses access to the key vault.
-
-In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
-
-If key access is lost for less than 30 minutes, data is automatically recovered. After access is re-enabled, allow 5 to 10 minutes for your DICOM service to become available again.
-
-If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
-
-## Best practices
-
-#### Rotate keys often
-
-Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
-
-#### Update the DICOM service after changing a managed identity
+## Update the DICOM service after changing a managed identity
 If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
 
 When the deployment completes, the DICOM service data is encrypted with the key you provided.  You can verify the encryption settings from the Encryption page for the DICOM service.
 
 :::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
 
-## Configuring an encryption key during creation of the DICOM service
+## Configure a key when creating the DICOM service
 
-If you're opting to use a user-assigned managed identity with the DICOM service, you can choose to configure customer-managed keys while creating the DICOM service.  
+If you use a user-assigned managed identity with the DICOM service, you can configure customer-managed keys at the same time you create the DICOM service.  
 
-1. On the Create DICOM service page, enter in the **DICOM service name** and then select **Next: Security**.  
+1. On the **Create DICOM service** page, enter the **DICOM service name**.
+   
+2. Choose **Next: Security**.  
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create DICOM service view with the DICOM service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
 
-2. On the Security tab, select **Customer-managed key** for the Encryption type.
+3. On the **Security** tab, in the **Encryption section** select **Customer-managed key**.
 
-3. Select a key vault and key or enter the Key URI for the key that was created previously.  
+4. Choose **Select from key vault** or **Enter key URI** and then enter the key.  
 
-4. Select the **Select an identity** option to select the user-assigned managed identity.
+5. Choose **Select an identity** to use the user-assigned managed identity.
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
-5. On the Select user assigned managed identity panel, filter for an select the managed identity you want to use, then select **Add**.
+1. On the Select user assigned managed identity page, filter for and then select the managed identity. Choose **Add**.
 
-6. On the Security tab, select **Review + create** to review the settings.
+2. On the **Security** tab, choose **Review + create**.
 
-7. On the Review + create tab, you'll see the summary of the configuration options and a Validation success message if all of the settings are configured correctly.  Select **Create** to deploy the DICOM service with customer-managed keys.
+3. On the **Review + create** tab, review the summary of the configuration options and the validation success message.  Choose **Create** to deploy the DICOM service with customer-managed keys.
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
+
+## Rotate keys
+
+Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
