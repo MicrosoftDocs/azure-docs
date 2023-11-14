@@ -4,6 +4,8 @@ description: Learn how to configure backup of an AKS cluster and utilize Azure B
 ms.topic: tutorial
 ms.date: 11/14/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

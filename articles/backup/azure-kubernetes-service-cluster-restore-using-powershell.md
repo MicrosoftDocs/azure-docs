@@ -1,10 +1,12 @@
 ---
-title: Restore Azure Kubernetes Service (AKS) using PowerShell 
+title: Restore Azure Kubernetes Service (AKS) using PowerShell
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure PowerShell.
 ms.topic: how-to
 ms.service: backup
 ms.date: 05/05/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -111,4 +113,3 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
-

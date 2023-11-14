@@ -4,7 +4,9 @@ description: Build your container app from a local or GitHub source repository a
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 03/29/2023
 ms.author: cshoe

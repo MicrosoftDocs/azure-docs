@@ -6,6 +6,8 @@ author: tarabhatiamsft
 ms.author: tarabhatia
 ms.reviewer: sidandrews
 ms.service: cosmos-db
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/01/2022
 # CustomerIntent: As a database adminstrator, I want to fine tune autoscaler for specific regions or partitions so that I can balance an uneven workload.

@@ -1,10 +1,14 @@
 ---
 title: Guide for running C# Azure Functions in an isolated worker process
-description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
+description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.
 ms.service: azure-functions
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/02/2023
-ms.custom: template-concept, devx-track-dotnet, devx-track-azurecli
+ms.custom:
+  - template-concept
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---

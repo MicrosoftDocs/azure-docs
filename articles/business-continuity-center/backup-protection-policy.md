@@ -4,6 +4,8 @@ description: In this article, you'll learn how to create backup and replication 
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

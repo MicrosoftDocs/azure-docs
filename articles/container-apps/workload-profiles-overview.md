@@ -7,7 +7,9 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 10/11/2023
 ms.author: cshoe
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Workload profiles in Azure Container Apps

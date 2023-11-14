@@ -4,6 +4,8 @@ description: In this article, you learn how to create Recovery Services vault (o
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -39,4 +41,3 @@ Follow these steps to create a vault:
  
 - [Create protection policies](./backup-protection-policy.md)
 - [Manage vaults](./manage-vault.md)
-

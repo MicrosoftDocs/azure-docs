@@ -3,7 +3,12 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
-ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom:
+  - build-2023
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.date: 11/14/2023
 ms.author: bspendolini
 ms.reviewer: glenga

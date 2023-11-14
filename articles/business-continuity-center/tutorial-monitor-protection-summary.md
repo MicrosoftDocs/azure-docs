@@ -1,9 +1,11 @@
 ---
 title: Tutorial - Monitor protection summary
-description: In this tutorial, learn how to monitor protection estate using Azure business continuity center overview pane. 
+description: In this tutorial, learn how to monitor protection estate using Azure business continuity center overview pane.
 ms.topic: tutorial
 ms.date: 10/19/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

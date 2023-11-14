@@ -7,6 +7,8 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/01/2023
 # CustomerIntent: As a security administrator, I want to use Azure Private Link so that I can ensure that database connections occur over privately-managed virtual network endpoints.

@@ -4,6 +4,9 @@ description: Learn about scenarios where Microsoft Copilot for Azure (preview) c
 ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure
+ms.custom:
+  - ignite-2023
+  - ignite-2023-copilotinAzure
 ms.author: jenhayes
 author: JnHs
 ---

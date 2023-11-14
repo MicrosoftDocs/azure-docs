@@ -8,9 +8,11 @@ metadata:
   title: Microsoft Copilot for Azure (preview)
   description: Manage operations from cloud to edge with an AI assistant.
   ms.service: azure
+  ms.custom:
+    - ignite-2023
+    - ignite-2023-copilotinAzure
   ms.topic: hub-page
   ms.date: 11/15/2023
-
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
@@ -83,5 +85,3 @@ conceptualContent:
             - url: ./author-api-management-policies.md
               itemType: get-started
               text: Author API Management policies
-
-

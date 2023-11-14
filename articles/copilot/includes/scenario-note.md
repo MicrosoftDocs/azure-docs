@@ -2,6 +2,8 @@
 author: JnHs
 ms.author: jenhayes
 ms.service: azure
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/15/2023
 ---
