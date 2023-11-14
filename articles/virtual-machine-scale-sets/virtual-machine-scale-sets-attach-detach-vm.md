@@ -81,13 +81,13 @@ Attach an existing virtual machine to a Virtual Machine Scale Set after the time
 
 #### Enroll in the Preview
 
-Register for the `SingleFDAttachDetachVMToVmss` feature flag using the [az feature register][/cli/azure/feature#az-feature-register] command:
+Register for the `SingleFDAttachDetachVMToVmss` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
 ```
 
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][/cli/azure/feature#az-feature-register] command:
+It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show](/cli/azure/feature#az-feature-register) command:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
