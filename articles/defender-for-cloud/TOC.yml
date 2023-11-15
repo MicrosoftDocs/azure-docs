@@ -840,11 +840,11 @@
         href: concept-devops-environment-posture-management-overview.md
       - name: Onboard
         items:
-          - name: Connect your Azure DevOps organization
+          - name: Connect your Azure DevOps environment
             href: quickstart-onboard-devops.md
-          - name: Connect your GitHub organization
+          - name: Connect your GitHub environment
             href: quickstart-onboard-github.md
-          - name: Connect your GitLab group
+          - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
             href: azure-devops-extension.md
