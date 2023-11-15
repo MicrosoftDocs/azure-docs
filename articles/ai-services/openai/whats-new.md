@@ -6,13 +6,25 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: whats-new
 ms.date: 10/16/2023
 recommendations: false
-keywords:  
+keywords:
 ---
 
 # What's new in Azure OpenAI Service
+
+## November 2023
+
+### DALL-E 3 public preview
+
+DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
+
+DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 ## October 2023
 
@@ -57,9 +69,9 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 ### Azure OpenAI on your own data (preview) updates
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
-- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
-- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support-azure-ai-search-only) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-ai-search-only).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
 - [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 

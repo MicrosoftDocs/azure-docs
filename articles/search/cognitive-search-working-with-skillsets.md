@@ -1,20 +1,21 @@
 ---
 title: Skillset concepts
-titleSuffix: Azure Cognitive Search
-description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
+titleSuffix: Azure AI Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure AI Search. Learn important concepts and details about skillset composition.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/08/2023
 ---
 
-# Skillset concepts in Azure Cognitive Search
+# Skillset concepts in Azure AI Search
 
 This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [AI enrichment](cognitive-search-concept-intro.md).
 
-A skillset is a reusable resource in Azure Cognitive Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable resource in Azure AI Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
 The following diagram illustrates the basic data flow of skillset execution. 
 
@@ -168,7 +169,7 @@ The "sourceFieldName" property specifies either a field in your data source or a
 
 ## Enrichment example
 
-Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
+Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
 
 This example also shows:
 
