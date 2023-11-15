@@ -37,8 +37,8 @@ A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to p
 
 Once resources are selected, multiple types of placement are available:
 
-- `PickAll` will place the resources into all available member clusters. This policy is useful for placing infrastructure workloads, like cluster monitoring or reporting applications.
-- `PickFixed` will place the resources into a specific list of member clusters by name.
+- `PickAll` places the resources into all available member clusters. This policy is useful for placing infrastructure workloads, like cluster monitoring or reporting applications.
+- `PickFixed` places the resources into a specific list of member clusters by name.
 - `PickN` is the most flexible placement option and allows for selection of clusters based on affinity or topology spread constraints, and is useful when spreading workloads across multiple appropriate clusters to ensure availability is desired.
 
 ### Using a `PickAll` placement policy
@@ -269,7 +269,7 @@ The Fleet scheduler prioritizes the stability of existing workload placements, a
   - A new cluster becoming eligible may trigger placement if it meets the placement policy - for example, a `PickAll` policy.
   - A cluster with a placement is removed from the fleet will attempt to re-place all affected workloads without affecting their other placements.
 
-Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) will be refected in existing placements but will **not** trigger rescheduling of the workload.
+Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) will be reflected in existing placements but will **not** trigger rescheduling of the workload.
 
 ## Next steps
 
