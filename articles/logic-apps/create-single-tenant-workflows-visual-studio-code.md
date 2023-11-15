@@ -687,7 +687,7 @@ To test your logic app workflow, follow these steps to start a debugging session
 
    1. After the command palette appears, enter **Azurite: Start**.
 
-   For more information about Azurite commands, see the [documenation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
+   For more information about Azurite commands, see the [documentation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
 
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
