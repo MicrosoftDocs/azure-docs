@@ -28,7 +28,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't fully support the `DALL-E2` model when used with Azure OpenAI. `DALL-E2` with Azure OpenAI is still supported with `0.28.1`. **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
+- **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
 - You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/) for the OpenAI Python library.
 
