@@ -209,6 +209,8 @@ items:
       href: troubleshoot/known-issues.md
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
+      - name: Azure IoT Operations Arc Jumpstart scenario
+        href: https://aka.ms/ArcJumpstartAIO
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
       - name: Available metrics for observability
