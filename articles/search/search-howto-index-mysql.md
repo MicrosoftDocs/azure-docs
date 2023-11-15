@@ -1,7 +1,7 @@
 ---
 title: Azure DB for MySQL (preview)
-titleSuffix: Azure Cognitive Search
-description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -9,7 +9,9 @@ manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
+ms.custom:
+  - kr2b-contr-experiment
+  - ignite-2023
 ms.date: 06/10/2022
 ---
 
@@ -18,9 +20,9 @@ ms.date: 06/10/2022
 > [!IMPORTANT] 
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no portal support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure AI Search.
 
-This article supplements [Creating indexers in Azure Cognitive Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Database for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
+This article supplements [Creating indexers in Azure AI Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Database for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
 
 - Create a data source
 - Create an index
@@ -115,12 +117,12 @@ If the primary key in the source table matches the document key (in this case, "
 
 ### Mapping data types
 
-The following table maps the MySQL database to Cognitive Search equivalents. For more information, see [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
+The following table maps the MySQL database to Azure AI Search equivalents. For more information, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
 > [!NOTE]
 > The preview does not support geometry types and blobs. 
 
-| MySQL data types |  Cognitive Search field types |
+| MySQL data types |  Azure AI Search field types |
 | --------------- | -------------------------------- |
 | `bool`, `boolean` | Edm.Boolean, Edm.String |
 | `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |
