@@ -62,7 +62,7 @@ AdmitAllParticipantsResult result = await callLobby?.AdmitAllAsync();
 Trace.WriteLine("Admit all result. success count: " + result.SuccessCount + ", failure count: " + result.FailureCount);
 ```
 
-### Handle lobby updated event
+### Handle CallLobby updated event
 You could subscribe to the `LobbyParticipantsUpdated` event to handle the changes in the `Participants` collection. This event is triggered when the participants are added or removed from the CallLobby and it provides the added or removed participants list.
 ```csharp
 //When call.State == CallState.Connected
