@@ -1,17 +1,19 @@
 ---
 title: Configure BM25 relevance scoring
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Enable Okapi BM25 ranking to upgrade the search ranking and relevance behavior on older Azure Search services.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/25/2023
 ---
 
 # Configure BM25 relevance scoring
 
-In this article, learn how to configure the [BM25 relevance scoring algorithm](https://en.wikipedia.org/wiki/Okapi_BM25) used by Azure Cognitive Search for full text search queries. It also explains how to enable BM25 on older search services.
+In this article, learn how to configure the [BM25 relevance scoring algorithm](https://en.wikipedia.org/wiki/Okapi_BM25) used by Azure AI Search for full text search queries. It also explains how to enable BM25 on older search services.
 
 BM25 applies to:
 
@@ -24,7 +26,7 @@ BM25 has defaults for weighting term frequency and document length. You can cust
 
 ## Default scoring algorithm
 
-Depending on the age of your search service, Azure Cognitive Search supports two [scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
+Depending on the age of your search service, Azure AI Search supports two [scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
 
 + Okapi BM25 algorithm (after July 15, 2020)
 + Classic similarity algorithm (before July 15, 2020)
@@ -52,7 +54,7 @@ BM25 ranking provides two parameters for tuning the relevance score calculation.
 
 1. If the index is live, append the `allowIndexDowntime=true` URI parameter on the request, shown on the previous example.
 
-   Because Cognitive Search doesn't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
+   Because Azure AI Search doesn't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
 
 1. Set `"b"` and `"k1"` to custom values, and then send the request.
 
@@ -106,8 +108,8 @@ PUT [service-name].search.windows.net/indexes/[index name]?api-version=2020-06-3
 
 ## See also  
 
-+ [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Add scoring profiles to your index](index-add-scoring-profiles.md)
 + [Create Index API](/rest/api/searchservice/create-index)
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)
++ [Azure AI Search .NET SDK](/dotnet/api/overview/azure/search)
