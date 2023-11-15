@@ -86,7 +86,7 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 ```
 
 ## Durable entities
-Durable entities is supported in the .NET isolated worker. See [developer's guide](./durable-functions-dotnet-entities.md).
+Durable entities are supported in the .NET isolated worker. See [developer's guide](./durable-functions-dotnet-entities.md).
 
 ## Migration guide
 
