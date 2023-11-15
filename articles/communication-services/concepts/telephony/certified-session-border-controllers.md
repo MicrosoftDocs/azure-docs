@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
