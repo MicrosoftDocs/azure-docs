@@ -48,8 +48,8 @@ With HTTP ingress enabled, your container app has:
 
 - Support for TLS termination
 - Support for HTTP/1.1 and HTTP/2
-- Support for  WebSocket and gRPC
-- HTTPS endpoints that always use TLS 1.2, terminated at the ingress point
+- Support for WebSocket and gRPC
+- HTTPS endpoints that always use TLS 1.2 or 1.3, terminated at the ingress point
 - Endpoints that expose ports 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
 - A fully qualified domain name (FQDN)
