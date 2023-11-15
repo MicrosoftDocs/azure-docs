@@ -1,26 +1,28 @@
 ---
 title: 'Tutorial: Index semi-structured data in JSON blobs'
-titleSuffix: Azure Cognitive Search
-description: Learn how to index and search semi-structured Azure JSON blobs using Azure Cognitive Search REST APIs and Postman.
+titleSuffix: Azure AI Search
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure AI Search REST APIs and Postman.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 01/18/2023
-#Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
+#Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure AI Search.
 ---
 
 # Tutorial: Index JSON blobs from Azure Storage using REST
 
-Azure Cognitive Search can index JSON documents and arrays in Azure Blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
+Azure AI Search can index JSON documents and arrays in Azure Blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
 This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Configure an Azure Cognitive Search data source for an Azure blob container
-> * Create an Azure Cognitive Search index to contain searchable content
+> * Configure an Azure AI Search data source for an Azure blob container
+> * Create an Azure AI Search index to contain searchable content
 > * Configure and run an indexer to read the container and extract searchable content from Azure Blob Storage
 > * Search the index you just created
 
@@ -41,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob Storage to provide the data. 
+This tutorial uses Azure AI Search for indexing and queries, and Azure Blob Storage to provide the data. 
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -59,7 +61,7 @@ If possible, create both in the same region and resource group for proximity and
 
    + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Azure AI services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure AI Search and Azure AI services. A single location voids bandwidth charges.
 
    + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
@@ -81,15 +83,15 @@ If possible, create both in the same region and resource group for proximity and
 
 After the upload completes, the files should appear in their own subfolder inside the data container.
 
-### Azure Cognitive Search
+### Azure AI Search
 
-The next resource is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+The next resource is Azure AI Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
 As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
 ### Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -105,7 +107,7 @@ Start Postman and set up an HTTP request. If you are unfamiliar with this tool, 
 
 The request methods for every call in this tutorial are **POST** and **GET**. You'll make three API calls to your search service to create a data source, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
 
-In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
+In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure AI Search service. Once you set the headers, you can use them for every request in this exercise.
 
   :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
@@ -113,7 +115,7 @@ URIs must specify an api-version and each call should return a **201 Created**. 
 
 ## 3 - Create a data source
 
-The [Create Data Source API](/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
+The [Create Data Source API](/rest/api/searchservice/create-data-source) creates an Azure AI Search object that specifies what data to index.
 
 1. Set the endpoint of this call to `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Replace `[service name]` with the name of your search service. 
 
@@ -156,7 +158,7 @@ The [Create Data Source API](/rest/api/searchservice/create-data-source) creates
 
 ## 4 - Create an index
 
-The second call is [Create Index API](/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](/rest/api/searchservice/create-index), creating an Azure AI Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
 1. Set the endpoint of this call to `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
 
@@ -310,7 +312,7 @@ You can start searching as soon as the first document is loaded.
             . . . 
     ```
 
-1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
+1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  For this query, 100 documents match, but by default, Azure AI Search only returns 50 in the results.
 
    :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Parameterized query" border="false":::
 
@@ -325,7 +327,7 @@ You can also use Logical operators (and, or, not) and comparison operators (eq, 
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure AI Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
 

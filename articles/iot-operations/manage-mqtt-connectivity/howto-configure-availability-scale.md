@@ -5,7 +5,9 @@ description: Configure core MQTT broker settings for high availability, scale, m
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.custom:
+  - ignite-2023
+ms.date: 10/27/2023
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
