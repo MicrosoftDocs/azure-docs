@@ -58,7 +58,7 @@ The DICOM service is granted access to the data like any other service or applic
 
 You can manage costs for imaging data stored by the DICOM service using Azure Storage access tiers for the data lake storage account.  Currently, the DICOM service only supports online access tiers (either hot, cool, or cold), and can retrieve imaging data in those tiers immediately.  The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently, but that still must be available for reading and writing.
 
-To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/articles/storage/blobs/access-tiers-overview.md)
+To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](https://learn.microsoft.com/azure/storage/blobs/access-tiers-overview)
 
 ## Limitations
 
