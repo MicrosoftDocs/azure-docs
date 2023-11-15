@@ -20,6 +20,15 @@ The listed features were released in the last three months. For information abou
 > `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## November 2023
+
+- [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
+
+### Near-real-time rules now generally available
+
+Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
+
 ## October 2023
 
 - [Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel](#microsoft-applied-skill-available-for-microsoft-sentinel)
