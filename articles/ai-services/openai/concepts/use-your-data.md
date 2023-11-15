@@ -165,7 +165,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](#using-the-web-app)
-* [REST API](../reference.md#azure-cognitive-search)
+* [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample08_UseYourOwnData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
 * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
