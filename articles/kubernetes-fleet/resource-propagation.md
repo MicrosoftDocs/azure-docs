@@ -13,7 +13,7 @@ ms.service: kubernetes-fleet
 Azure Kubernetes Fleet Manager (Fleet) resource propagation, based on an [open-source cloud-native multi-cluster solution][fleet-github] allows for deployment of any Kubernetes objects to fleet member clusters according to specified criteria. Workload orchestration can handle many use cases where an application needs to be deployed across multiple clusters, including the following and more:
 
 - An infrastructure application that needs to be on all clusters in the fleet
-- A web application that should be deployed into multiple clusters in different regions for high availability, and should have updates rolled out in a non-disruptive manner
+- A web application that should be deployed into multiple clusters in different regions for high availability, and should have updates rolled out in a nondisruptive manner
 - A batch compute application that should be deployed into clusters with inexpensive spot node pools available
 
 Fleet workload placement can deploy any Kubernetes objects to clusters In order to deploy resources to hub member clusters, the objects must be created in a Fleet hub cluster, and a `ClusterResourcePlacement` object must be created to indicate how the objects should be placed.
@@ -25,11 +25,11 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 # Requirements
 
 - A Kubernetes Fleet with a hub cluster and member clusters (see the [quickstart](quickstart-create-fleet-and-members.md) for provisioning instructions).
-- Member clusters must be labelled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
+- Member clusters must be labeled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
 
 # Resource placement with `ClusterResourcePlacement` resources
 
-A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to place a given set cluster-scoped objects from the hub cluster into member clusters. Namespace-scoped objects like Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, and PersistentVolumeClaims will be included when a namespace is selected. Multiple methods of selection can be used:
+A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to place a given set of cluster-scoped objects from the hub cluster into member clusters. Namespace-scoped objects like Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, and PersistentVolumeClaims are included when their containing namespace is selected. Multiple methods of selection can be used:
 
 - Group, version, and kind - select and place all resources of the given type
 - Group, version, kind, and name - select and place one particular resource of a given type
@@ -37,13 +37,13 @@ A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to p
 
 Once resources are selected, multiple types of placement are available:
 
-- `PickAll` - place the resources into all available member clusters. This is useful for placing infrastructure workloads.
-- `PickFixed` - place the resources into a specific list of member clusters by name.
-- `PickN` - this is the most flexible placement option and allows for selection of clusters based on affinity or topology spread constraints, and is useful when spreading workloads out across multiple appropriate clusters to ensure availability is desired.
+- `PickAll` will place the resources into all available member clusters. This policy is useful for placing infrastructure workloads, like cluster monitoring or reporting applications.
+- `PickFixed` will place the resources into a specific list of member clusters by name.
+- `PickN` is the most flexible placement option and allows for selection of clusters based on affinity or topology spread constraints, and is useful when spreading workloads across multiple appropriate clusters to ensure availability is desired.
 
 ## Using a `PickAll` placement policy
 
-To deploy a workload across all member clusters in the fleet (optionally matching a set of criteria), a `PickAll` placement policy can be used. To deploy the `test-deployment` Namespace and all of the objects in it across all of the clusters labelled with `environment: production`, create a `ClusterResourcePlacement` object as follows:
+To deploy a workload across all member clusters in the fleet (optionally matching a set of criteria), a `PickAll` placement policy can be used. To deploy the `test-deployment` Namespace and all of the objects in it across all of the clusters labeled with `environment: production`, create a `ClusterResourcePlacement` object as follows:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -67,11 +67,11 @@ spec:
       version: v1
 ```
 
-This simple policy will take the `test-deployment` namespace and all resources contained within it and deploy it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, remove the `affinity` term entirely.
+This simple policy takes the `test-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, remove the `affinity` term entirely.
 
 ## Using a `PickFixed` placement policy
 
-If a workload should be deployed into a known set of member clusters, a `PickFixed` policy can be used to select the clsuters by name. Using the same namespace as before, this `ClusterResourcePlacement` would deploy it into `cluster1` and `cluster2`:
+If a workload should be deployed into a known set of member clusters, a `PickFixed` policy can be used to select the clusters by name. This `ClusterResourcePlacement` deploys the `test-deployment` namespace into member clusters `cluster1` and `cluster2`:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -97,9 +97,9 @@ The `PickN` placement policy is the most flexible option and allows for placemen
 
 ### `PickN` with affinities
 
-Using affinities with `PickN` functions very similarly to using affinities with pod scheduling. Both required and preferred affinities can be set. Required affinities will prevent placement to clusters that do not match them; preferred affinities allow for ordering the set of valid clusters when a placement decision is being made.
+Using affinities with `PickN` functions similarly to using affinities with pod scheduling. Both required and preferred affinities can be set. Required affinities prevent placement to clusters that don't match them; preferred affinities allow for ordering the set of valid clusters when a placement decision is being made.
 
-As an example, the following `ClusterResourcePlacement` object will place a workload into 3 clusters. Only clusters that have the label `critical-allowed: "true"` will be valid placement targets, with preference being given to clusters with the label `critical-level: 1`:
+As an example, the following `ClusterResourcePlacement` object places a workload into three clusters. Only clusters that have the label `critical-allowed: "true"` are valid placement targets, with preference given to clusters with the label `critical-level: 1`:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -129,9 +129,9 @@ spec:
 
 ### `PickN` with topology spread constraints:
 
-Topology spread constraints can be used to force the division of the cluster placements across topology boundaries to satisfy availability requirements (for example, splitting placements across regions or update rings). Topology spread constraints can also be configured to prevent scheduling if the constraint cannot be met (`whenUnsatisfiable: DoNotSchedule`) or schedule as best possible (`whenUnsatisfiable: ScheduleAnyway`).
+Topology spread constraints can be used to force the division of the cluster placements across topology boundaries to satisfy availability requirements (for example, splitting placements across regions or update rings). Topology spread constraints can also be configured to prevent scheduling if the constraint can't be met (`whenUnsatisfiable: DoNotSchedule`) or schedule as best possible (`whenUnsatisfiable: ScheduleAnyway`).
 
-This `ClusterResourcePlacement` will spread a given set of resources out across multiple regions and will attempt to schedule across different update days as well:
+This `ClusterResourcePlacement` object spreads a given set of resources out across multiple regions and attempts to schedule across member clusters with different update days:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -156,9 +156,12 @@ For more details on how placement works with topology spread constraints, review
 
 # Placement status
 
-The fleet scheduler will update details and status on placement decisions onto the `ClusterResourcePlacement` object. This information can be viewed via the `kubectl describe crp <name>` command. The output details both the conditions that currently apply to the placement, which include if the placement has been successfully completed, as well as all of the placement statuses on each member cluster and the current state.
+The fleet scheduler updates details and status on placement decisions onto the `ClusterResourcePlacement` object. This information can be viewed via the `kubectl describe crp <name>` command. The output includes the following information:
 
-The example below shows a `ClusterResourcePlacement` that deployed the `test` namespace and the `test-1` ConfigMap it contained into two member clusters using `PickN`. The placement has been successfully completed and the resources were placed into the `aks-member-1` and `aks-member-2` clusters.
+- The conditions that currently apply to the placement, which include if the placement was successfully completed
+- A placement status section for each member cluster, which shows the status of deployment to that cluster
+
+This example shows a `ClusterResourcePlacement` that deployed the `test` namespace and the `test-1` ConfigMap it contained into two member clusters using `PickN`. The placement was successfully completed and the resources were placed into the `aks-member-1` and `aks-member-2` clusters.
 
 ```yaml
 Name:         crp-1
@@ -261,7 +264,7 @@ Events:
 The Fleet scheduler prioritizes the stability of existing workload placements, and thus the number of changes that cause a workload to be removed and rescheduled is limited.
 
 - Placement policy changes in the `ClusterResourcePlacement` object can trigger removal and rescheduling of a workload
-  - Scale out operations (increasing `numberOfClusters` with no other changes) will only place workloads on new clusters and will not affect existing placements.
+  - Scale out operations (increasing `numberOfClusters` with no other changes) will only place workloads on new clusters and won't affect existing placements.
 - Cluster changes
   - A new cluster becoming eligible may trigger placement if it meets the placement policy - for example, a `PickAll` policy.
   - A cluster with a placement is removed from the fleet will attempt to re-place all affected workloads without affecting their other placements.
