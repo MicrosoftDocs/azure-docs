@@ -148,6 +148,15 @@ In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. Th
 
 When the script is completed, it brings up an Arc-enabled K3s cluster on your machine.
 
+Run the following commands to check that the deployment was successful:
+
+```powershell
+Import-Module AksEdge
+Get-AksEdgeDeploymentInfo
+```
+
+In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
+
 # [Linux](#tab/linux)
 
 On Ubuntu Linux, use K3s to create a Kubernetes cluster.
