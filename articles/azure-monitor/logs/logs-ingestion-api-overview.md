@@ -7,7 +7,7 @@ ms.date: 09/14/2023
 ---
 
 # Logs Ingestion API in Azure Monitor
-The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace using either a [REST API call](#rest-api-call) or [client libraries](#client-libraries). The API allows you to send data to [supported Azure tables](#supported-tables) or to [custom tables that you create](../logs/create-custom-table.md#create-a-custom-table). You can even [extend the schema of Azure tables with custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column) to accept additional data.
+The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace using either a [REST API call](#rest-api-call) or [client libraries](#client-libraries). The API allows you to send data to [supported Azure tables](#supported-tables) or to [custom tables that you create](../logs/create-custom-table.md#create-a-custom-table). You can also [extend the schema of Azure tables with custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column) to accept additional data.
 
 ## Basic operation
 Data can be sent to the Logs Ingestion API from any application that can make a REST API call. This may be a custom application that you create, or it may be an application or agent that understands how to send data to the API.
@@ -32,10 +32,20 @@ Data sent to the ingestion API can be sent to the following tables:
 > [!NOTE]
 > Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
 
+## Required components
+Before you can use the Logs Ingestion API, you must configure the following components in Azure. See [Configure Logs Ingestion API in Azure Monitor](logs-ingestion-api-configure.md) for details on configuring these components.
+
+| Component | Function |
+|:---|:---|
+| App registration and secret | Used to authenticate the API call. The app registration must be granted permission to the DCR. |
+| Data collection endpoint (DCE) | Provides an endpoint for the application to send to. |
+| Table in Log Analytics workspace | The table in the Log Analytics workspace must exist before you can send data to it. |
+| Data collection rule (DCR) | Azure Monitor uses the DCR to understand the structure of the incoming data and what to do with it. |
+
 
 ## Authentication
 
-Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described above.
+Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described above. The application must have access to the DCR specified by the API call.
 
 When developing a custom client to obtain an access token from Microsoft Entra ID for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
 
@@ -56,32 +66,49 @@ In addition to making a REST API call, you can use the following client librarie
 - [Python](/python/api/overview/azure/monitor-ingestion-readme)
 
 ## REST API call
-To send data to Azure Monitor with a REST API call, make a POST call to the DCE over HTTP. Details of the call are described in the following sections. For a sample, see [Sample code to send data to Azure Monitor](../logs/tutorial-logs-ingestion-code.md?tabs=powershell)
+To send data to Azure Monitor with a REST API call, make a POST call to the DCE over HTTP. Details of this call are described in this section. 
+
+> [!NOTE]
+> For configuration that must be performed before you can make the API call, see [Configure Logs Ingestion API in Azure Monitor](logs-ingestion-api-configure.md)
+> For sample calls, see [Sample code to send data to Azure Monitor](../logs/tutorial-logs-ingestion-code.md?tabs=powershell).
 
 **Endpoint URI**
+
 The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
 {Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
 ```
 
-> [!NOTE]
-> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from the DCR](tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
+For example:
 
-Headers
+```
+https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2021-11-01-preview
+```
+
+**Headers**
+The following table describes that headers for your API call.
 
 | Header | Required? | Value | Description |
 |:---|:---|:---|:---|
-| Authorization     | Yes | Bearer (bearer token obtained through the client credentials flow)  | |
-| Content-Type      | Yes | `application/json` | |
+| Authorization     | Yes | Bearer token obtained through the client credentials flow  | See [Sample code](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for sample code to generate the bearer token. |
+| Content-Type      | Yes | `application/json` |  |
 | Content-Encoding  | No  | `gzip` | Use the gzip compression scheme for performance optimization. |
 | x-ms-client-request-id | No | String-formatted GUID |  Request ID that can be used by Microsoft for any troubleshooting purposes.  |
 
 **Body**
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Additionally, it is important to ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
 
+For example:
 
+```json
+{
+    "TimeGenerated": "2023-11-14 15:10:02",
+    "Column01": "Value01",
+    "Column02": "Value02"
+}
+```
 
 ## Limits and restrictions
 

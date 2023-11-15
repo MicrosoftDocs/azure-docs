@@ -18,6 +18,9 @@ In this tutorial, you learn how to:
 > * Apply changes to a Data Collection Rule using ARM API call
 > * Automate the process of DCR update using PowerShell scripts
 
+> [!NOTE]
+> This tutorial walks through one method for editing an existing DCR. See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for other methods.
+
 ## Prerequisites
 To complete this tutorial you need the following:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).

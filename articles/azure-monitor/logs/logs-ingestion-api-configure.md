@@ -10,7 +10,10 @@ ms.date: 09/14/2023
 The [Logs Ingestion API](./logs-ingestion-api-overview.md) in Azure Monitor lets you send data to a Log Analytics workspace from a custom application. Before you send data using the API, you must configure several components in Azure. This article describes the steps you must take to configure the API to receive data.
 
 > [!NOTE]
-> See [Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API](set-up-logs-ingestion-api-prerequisites.md) for a script that automates the steps described in this article.
+> - See [Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API](set-up-logs-ingestion-api-prerequisites.md) for a script that automates the steps described in this article.
+> - See [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md) for a complete tutorial that walks through configuration and use ot the Logs Ingestion API using the Azure portal.
+> - See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a complete tutorial that walks through configuration and use ot the Logs Ingestion API using ARM templates.
+  
 
 ## 1. Create an app registration and secret
 The application registration is used to authenticate the API call. It must be granted permission to the DCR. The API call includes the **Application (client) ID**  and **Directory (tenant) ID** of the application and the **Value** of an application secret.
@@ -47,9 +50,9 @@ To manually create the DCR, start with the [Sample DCR for Logs Ingestion API](.
 |:---|:---|
 | `region` | Region to create your DCR. This must match the region of the DCE and the Log Analytics workspace. |
 | `dataCollectionEndpointId` | Resource ID of your DCE. |
-| `StreamDeclarations` | Change the column list to the columns in your incoming data. You don't need to change the name of the stream since this just needs to match the `streams` name in `dataFlows`. |
+| `streamDeclarations` | Change the column list to the columns in your incoming data. You don't need to change the name of the stream since this just needs to match the `streams` name in `dataFlows`. |
 | `workspaceResourceId` | Resource ID of your Log Analytics workspace. You don't need to change the name since this just needs to match the `destinations` name in `dataFlows`.  |
-| transformKql | KQL query to be applied to the incoming data. If the schema of the incoming data matches the schema of the table, then you can use `source` for the transformation. Otherwise, use a query that will transform the data to match the table schema. |
+| `transformKql` | KQL query to be applied to the incoming data. If the schema of the incoming data matches the schema of the table, then you can use `source` for the transformation which will pass on the incoming data unchanged. Otherwise, use a query that will transform the data to match the table schema. |
 | `outputStream` | Name of the table to send the data. For a custom table, add the prefix *Custom-\<table-name\>*. For a built-in table, add the prefix *Microsoft-\<table-name\>*. |
 
 

@@ -9,16 +9,14 @@ ms.reviwer: nikeist
 ---
 
 # Structure of a data collection rule in Azure Monitor
-[Data collection rules (DCRs)](data-collection-rule-overview.md) are sets of instructions that determine how to collect and process telemetry sent to Azure Monitor. Some DCRs will be created and managed by Azure Monitor. You might create other DCRs to customize data collection for your particular requirements. 
-
-This article describes the JSON properties of DCRs for creating and editing them in those cases where you need to work with them directly. 
+[Data collection rules (DCRs)](data-collection-rule-overview.md) are sets of instructions that determine how to collect and process telemetry sent to Azure Monitor. Some DCRs will be created and managed by Azure Monitor. This article describes the JSON properties of DCRs for creating and editing them in those cases where you need to work with them directly. 
 
 - See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for details working with the JSON described here.
-- See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
+- See [Sample data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
 
 
 ## `dataCollectionEndpointId` 
-Specifies the [data collection [endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.
+Specifies the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.
 
 **Scenarios**
 - Azure Monitor agent
@@ -60,10 +58,12 @@ Unique source of monitoring data that has its own format and method of exposing 
 
 | Data source type | Description | 
 |:---|:---|
+| eventHub | Data from Azure Event Hubs |
 | extension | VM extension-based data source, used exclusively by Log Analytics solutions and Azure services ([View agent supported services and solutions](../agents/azure-monitor-agent-overview.md#supported-services-and-features)) |
-| performanceCounters | Performance counters for both Windows and Linux |
-| syslog | Syslog events on Linux |
-| windowsEventLogs | Windows event log |
+| logFiles | Text log on a virtual machine |
+| performanceCounters | Performance counters for both Windows and Linux virtual machines |
+| syslog | Syslog events on Linux virtual machines |
+| windowsEventLogs | Windows event log on virtual machines |
 
 **Scenarios**
 - Azure Monitor agent
@@ -71,19 +71,19 @@ Unique source of monitoring data that has its own format and method of exposing 
 
 
 ## `dataFlows`
-Matches the streams and the destinations and specifies a transformation and target table.
+Matches streams with destinations and optionally specifies a transformation.
 
 ### `dataFlows/Streams`
-Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream can be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams, for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace.
+One or more streams defined in the previous section. You may include multiple streams in a single data flow if you want to send multiple data sources to the same destination. Only use a single stream though if the data flow includes a transformation. One stream can also be used by multiple data flows when you want to send a particular data source to multiple tables in the same Log Analytics workspace. 
 
 ### `dataFlows/destinations`
-Set of destinations that indicate where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. Multiple destinations are allowed for multi-homing scenarios.
+One or more destinations from the `destinations` section above. Multiple destinations are allowed for multi-homing scenarios.
 
 ### `dataFlows/transformKql`
-The [transformation](data-collection-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
+Optional [transformation](data-collection-transformations.d) applied to the incoming stream. The transformation must understand the schema of the incoming data and output data in the schema of the target table. If you use a transformation, the data flow should only use a single stream.
 
 ### `dataFlows/outputStream`
-Describes which table in the workspace specified under the `destination` property the data will be sent to. The value of `outputStream` has the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.<br><br>This property isn't used for known data sources from Azure Monitor such as events and performance data since these are sent to specific tables. |
+Describes which table in the workspace specified under the `destination` property the data will be sent to. The value of `outputStream` has the format `Microsoft-[tableName]` when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom table. Only one destination is allowed per stream.<br><br>This property isn't used for known data sources from Azure Monitor such as events and performance data since these are sent to predefined tables. |
 
 **Scenarios**
 
