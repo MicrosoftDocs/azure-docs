@@ -17,7 +17,7 @@ This article shows you how to set up an advanced Ingress configuration to encryp
 
 The application routing add-on with nginx delivers the following:
 
-* Easy configuration of managed nginx Ingress controllers based on [Kubernetes nginx Ingress controller][kubernetes-nginx-ingress].
+* Easy configuration of managed nginx Ingress controllers.
 * Integration with an external DNS such as [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in a key vault, such as [Azure Key Vault][azure-key-vault-overview].
 
