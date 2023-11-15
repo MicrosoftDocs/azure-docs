@@ -1,7 +1,7 @@
 ---
 title: Technical onboarding guide for 42Crunch (preview)
 description: Learn how to use 42Crunch with Microsoft Defender.
-ms.date: 11/05/2023
+ms.date: 11/15/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -17,7 +17,7 @@ Unlike traditional DAST tools that are used to scan web and mobile applications,
 
 Scans can run automatically as part of a CI/CD pipeline or manually through an IDE or the 42Crunch cloud platform.
 
-Because the quality of the API specification largely determines the scan coverage and effectiveness, it's important to ensure that your OpenAPI specification is well-defined. 42Crunch **Audit** performs a static analysis of the OpenAPI specification file aimed at helping the developer to improve the security and quality of the specification. The Audit determines a composite security score from 0-100 for each specification file. As developers remediate security and semantic issues identified by the Audit, the score improves. 42Crunch recommends an [Audit score of at least 70 before running a conformance scan](https://docs.42crunch.com/latest/content/concepts/data_dictionaries.htm).
+Because the quality of the API specification largely determines the scan coverage and effectiveness, it's important to ensure that your OpenAPI specification is well-defined. 42Crunch **Audit** performs a static analysis of the OpenAPI specification file aimed at helping the developer to improve the security and quality of the specification. The Audit determines a composite security score from 0-100 for each specification file. As developers remediate security and semantic issues identified by the Audit, the score improves. 42Crunch recommends an [Audit score of at least 70 before running a Conformance scan](https://docs.42crunch.com/latest/content/concepts/data_dictionaries.htm).
 
 ## Enablement
 
@@ -90,7 +90,7 @@ The scan requires a non-production live API endpoint, and the required credentia
 
 ### How does 42Crunch help developers identify and remediate API security issues?
 
-The 42Crunch security Audit and conformance scan identify potential vulnerabilities that exist in APIs early on in the development lifecycle. Scan results include rich context including a description of the vulnerability and associated exploit, and detailed remediation guidance. Scans can be executed automatically in the CI/CD platform or incrementally by the developer within their IDE through one of the [42Crunch IDE extensions](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
+The 42Crunch security Audit and Conformance scan identify potential vulnerabilities that exist in APIs early on in the development lifecycle. Scan results include rich context including a description of the vulnerability and associated exploit, and detailed remediation guidance. Scans can be executed automatically in the CI/CD platform or incrementally by the developer within their IDE through one of the [42Crunch IDE extensions](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
 
 ### Can 42Crunch be used to enforce compliance with minimum quality and security standards for developers?
 
@@ -100,21 +100,21 @@ The free version of 42Crunch uses default SQGs for both Audit and Scan whereas t
 
 ### What data is stored within 42Crunch's SaaS service?
 
-A limited free trial version of the 42Crunch security Audit and conformance scan can be deployed in CI/CD, which generates reports locally without the need for a 42Crunch SaaS connection. In this version, there is no data shared with the 42Crunch platform.
+A limited free trial version of the 42Crunch security Audit and Conformance scan can be deployed in CI/CD, which generates reports locally without the need for a 42Crunch SaaS connection. In this version, there is no data shared with the 42Crunch platform.
 
 For the full enterprise version of the 42Crunch platform, the following data is stored in the SaaS platform:
 
 - First name, Last name, email addresses of users of the 42Crunch platform.
 - OpenAPI/Swagger files (descriptions of customer APIs).
-- Reports that are generated during the security Audit and conformance scan tasks performed by 42Crunch.
+- Reports that are generated during the security Audit and Conformance scan tasks performed by 42Crunch.
 
 ### How is 42Crunch licensed?
 
-42Crunch is licensed based on a combination of the number of APIs and the number of developers that are provisioned on the platform. For example pricing bundles, see the marketplace listing as follows. Custom pricing is available through private offers on the Azure commercial marketplace. For a custom quote, reach out to sales@42crunch.com.
+42Crunch is licensed based on a combination of the number of APIs and the number of developers that are provisioned on the platform. For example pricing bundles, see [this marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/42crunch1580391915541.42crunch_developer_first_api_security_platform?tab=overview). Custom pricing is available through private offers on the Azure commercial marketplace. For a custom quote, reach out to sales@42crunch.com.
 
 ### What's the difference between the free and paid version of 42Crunch?
 
-42Crunch offers both a free limited version and paid enterprise version of the security Audit and conformance scan.
+42Crunch offers both a free limited version and paid enterprise version of the security Audit and Conformance scan.
 
 For the free version of 42Crunch, the 42Crunch CI/CD plugins work standalone, with no requirement to sign in to the 42Crunch platform. Audit and scanning results are then made available in Microsoft Defender for Cloud, as well as within the CI/CD platform. Audits and scans are limited to up to 25 executions per month each, per repo, with a maximum of 3 repositories.
 
