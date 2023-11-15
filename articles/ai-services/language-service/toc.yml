@@ -266,6 +266,18 @@ items:
         items:
         - name: Call NER
           href: named-entity-recognition/how-to-call.md
+        - name: Use containers
+          items:
+          - name: Use Docker containers
+            href: language-detection/how-to/use-containers.md
+          - name: Configure containers
+            href: concepts/configure-containers.md
+          - name: Use container instances
+            href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+          - name: Use containers in disconnected environments
+            href: ../containers/disconnected-containers.md
+          - name: Azure AI containers overview
+            href: ../cognitive-services-container-support.md
       - name: Concepts
         items:
         - name: Recognized entity categories
