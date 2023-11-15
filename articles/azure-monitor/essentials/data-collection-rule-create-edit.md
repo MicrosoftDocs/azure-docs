@@ -4,7 +4,7 @@ description: Details on creating and editing data collection rules (DCRs) in Azu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/03/2023
+ms.date: 11/15/2023
 ms.reviewer: nikeist
 ms.custom: references_regions
 ---

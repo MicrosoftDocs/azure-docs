@@ -2,7 +2,7 @@
 title: Sample data collection rules (DCRs) in Azure Monitor
 description: Sample data collection rule for different Azure Monitor data collection scenarios.
 ms.topic: sample
-ms.date: 07/19/2023
+ms.date: 11/15/2023
 ms.custom: references_region
 ms.reviewer: jeffwo
 
@@ -119,7 +119,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
       "destinations": {
         "logAnalytics": [
           {
-            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
+            "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
             "name": "centralWorkspace"
           }
         ]
@@ -147,7 +147,7 @@ The sample data collection rule below is used to collect [text logs using Azure 
 {
     "location": "eastus",
     "properties": {
-        "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyLogFileFormat": {
                 "columns": [
@@ -199,8 +199,8 @@ The sample data collection rule below is used to collect [text logs using Azure 
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                    "name": "[parameters('workspaceName')]"
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
+                    "name": "MyDestination"
                 }
             ]
         },
@@ -210,7 +210,7 @@ The sample data collection rule below is used to collect [text logs using Azure 
                     "Custom-MyLogFileFormat"
                 ],
                 "destinations": [
-                    "[parameters('workspaceName')]"
+                    "MyDestination"
                 ],
                 "transformKql": "source",
                 "outputStream": "Custom-MyTable_CL"
@@ -221,13 +221,13 @@ The sample data collection rule below is used to collect [text logs using Azure 
 ```
 
 ## Event Hubs
-The sample data collection rule below is used to collect [text logs using Azure Monitor agent](../agents/data-collection-text-log.md).
+The sample data collection rule below is used to collect [data from an event hub](../logs/ingest-logs-event-hub.md).
 
 ```json
 {
     "location": "eastus",
     "properties": {
-        "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyEventHubStream": {
                 "columns": [
@@ -249,7 +249,7 @@ The sample data collection rule below is used to collect [text logs using Azure 
         "dataSources": {
             "dataImports": {
                 "eventHub": {
-                            "consumerGroup": "[parameters('consumerGroup')]",
+                            "consumerGroup": "<consumer-group>",
                             "stream": "Custom-MyEventHubStream",
                             "name": "myEventHubDataSource1"
                             }
@@ -258,7 +258,7 @@ The sample data collection rule below is used to collect [text logs using Azure 
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
                     "name": "MyDestination"
                 }
             ]
@@ -272,7 +272,7 @@ The sample data collection rule below is used to collect [text logs using Azure 
                     "MyDestination"
                 ],
                 "transformKql": "source",
-                "outputStream": "[concat('Custom-', parameters('tableName'))]"
+                "outputStream": "Custom-MyTable_CL"
             }
         ]
     }
@@ -344,7 +344,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
                     "name": "clv2ws1"
                 }
             ]
