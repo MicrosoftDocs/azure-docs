@@ -205,6 +205,13 @@
         - name: Cloud Security Posture Management (CSPM)
           displayName: CSPM, cloud security, posture, management
           href: concept-cloud-security-posture-management.md
+        - name: Enable Permissions Management (Preview)
+          href: enable-permissions-management.md
+        - name: Integrations
+          items:  
+            - name: ServiceNow integration
+              displayName: CSPM, cloud security, posture, management, ServiceNow
+              href: integration-servicenow.md
         - name: Microsoft cloud security benchmark (MCSB)
           displayName: mcsb, azure, security, benchmark
           href: concept-regulatory-compliance.md
@@ -463,6 +470,12 @@
       href: faq-defender-for-apis.yml
     - name: Classify APIs with sensitive data exposure
       href: data-classification.md
+    - name: Partners
+      items:
+      - name: Partner applications
+        href: defender-partner-applications.md
+      - name: Onboard 42Crunch (preview)
+        href: onboarding-guide-42crunch.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
