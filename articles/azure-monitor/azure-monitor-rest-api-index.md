@@ -25,10 +25,10 @@ Organized by subject area.
 | [Metric alert baseline](/rest/api/monitor/baselines) | List the metric baselines used in alert rules with [dynamic thresholds](./alerts/alerts-dynamic-thresholds.md). |
 | [Metric alerts](/rest/api/monitor/metric-alerts) | Manages and lists [metric alert rules](./alerts/alerts-overview.md). |
 | [Metric alerts status](/rest/api/monitor/metric-alerts-status) | Lists the status of [metric alert rules](./alerts/alerts-overview.md). |
-| [Log alert scheduled query rules - 2023-03-15 (preview)](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2023-03-15-preview) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
-| [Prometheus rule groups] | Manages and lists [Prometheus rule groups](./essentials/prometheus-rule-groups.md) (alert rules and recording rules). |
-| [Scheduled query rules - 2018-04-16](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2018-04-16) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
-| [Scheduled query rules - 2021-08-01](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2021-08-01) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Prometheus rule groups](/rest/api/monitor/prometheus-rule-groups) | Manages and lists [Prometheus rule groups](./essentials/prometheus-rule-groups.md) (alert rules and recording rules). |
+| [Scheduled query rules - 2023-03-15 (preview)](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2023-03-15-preview&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Scheduled query rules - 2018-04-16](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2018-04-16&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Scheduled query rules - 2021-08-01](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2021-08-01&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
 | [Smart Detector alert rules](/rest/api/monitor/smart-detector-alert-rules) | Manages and lists [smart detection alert rules](./alerts/alerts-types.md#smart-detection-alerts). |
 | ***Application Insights*** |  |
 | [Components](/rest/api/application-insights/components) | Enables you to manage components that contain Application Insights data. |
@@ -54,7 +54,7 @@ Organized by subject area.
 | [Subscription diagnostic settings](/rest/api/monitor/subscription-diagnostic-settings) | COMING SOON |
 | ***Manage Log Analytics workspaces and related resources*** |  |
 | [Available service tiers](/rest/api/loganalytics/available-service-tiers) | Retrieve the available service tiers for a Log Analytics workspace. |
-| [Clusters]/rest/api/loganalytics/clusters | Manage Log Analytics clusters. |
+| [Clusters](/rest/api/loganalytics/clusters) | Manage Log Analytics clusters. |
 | [Data Collector Logs (Preview)](/rest/api/loganalytics/data%20collector%20logs%20%28preview%29) | Delete or retrieve a data collector log tables for a Log Analytics workspace and retrieve all data collector log tables for a Log Analytics workspace. |
 | [Data exports](/rest/api/loganalytics/data-exports) | Manage a data export for a Log Analytics workspace or retrieve the data export instances within a Log Analytics workspace. |
 | [Data Sources](/rest/api/loganalytics/data-sources) | Create or update data sources. |
@@ -62,7 +62,7 @@ Organized by subject area.
 | [Gateways](/rest/api/loganalytics/gateways) | Delete a Log Analytics gateway. |
 | [Intelligence Packs](/rest/api/loganalytics/intelligence-packs) | Enable or disable an intelligence pack for a Log Analytics workspace or retrieve all intelligence packs for a Log Analytics workspace. |
 | [Linked Services](/rest/api/loganalytics/linked-services) | Create or update linked services. |
-| [Linked Storage Accounts](/rest/api/loganalytics/linked-storage-accounts) | COMING SOON |
+| [Linked Storage Accounts](/rest/api/loganalytics/linked-storage-accounts) | Manage a link relation between a workspace and storage accounts and retrieve all linked storage accounts associated with a workspace. |
 | [Management Groups](/rest/api/loganalytics/management-groups) | Retrieve all management groups connected to a Log Analytics workspace. |
 | [Metadata](/rest/api/loganalytics/metadata) | Retrieve the metadata information for a Log Analytics workspace. |
 | [Operation Statuses](/rest/api/loganalytics/operation-statuses) | Retrieve the status of a long running azure asynchronous operation. |
@@ -94,7 +94,7 @@ Organized by subject area.
 | ***Query log data*** |  |
 | [Data Access](./logs/api/overview.md) | Query Log Analytics data. |
 | ***Send Custom Log Data to Log Analytics*** |  |
-| [Logs Ingestion](./logs/logs-ingestion-api-overview.md) | COMING SOON |
+| [Logs Ingestion](./logs/logs-ingestion-api-overview.md) | Lets you send data to a Log Analytics workspace using either a [REST API call](#rest-api-call) or [client libraries](#client-libraries). |
 | ***Retired or being retired*** |  |
 | [Alerts (classic) rule incidents](/rest/api/monitor/alert-rule-incidents) | [Being retired in 2019](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement) in the public cloud. Older classic alerts functions. Gets an incident associated to a [classic metric alert rule](./alerts/alerts-classic.overview.md). When an alert rule fires because the threshold is crossed in the up or down direction, an incident is created and an entry added to the [Activity Log](./essentials/platform-logs-overview.md). |
 | [Alert (classic) rules](/rest/api/monitor/alert-rules) | [Being retired in 2019](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement) in the public cloud. Provides operations for managing [classic alert](./alerts/alerts-classic.overview.md) rules. |
