@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -31,9 +31,17 @@ The services deployed in this quickstart include:
 
 ## Prerequisites
 
-Review the prerequisites based on the environment you use to host the Kubernetes cluster for this quickstart.
+Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Linux devices, use K3s. Or, if you don't want to install new tools, you can use GitHub Codespaces as a virtual environment that runs in the browser or in Visual Studio Code desktop.
+For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use AKS Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+
+# [Virtual](#tab/codespaces)
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
+
+* A [GitHub](https://github.com) account.
 
 # [Windows](#tab/windows)
 
@@ -69,14 +77,6 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
   az extension add --name azure-iot-ops
   ```
 
-# [Virtual](#tab/codespaces)
-
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-
-* A [GitHub](https://github.com) account.
-
 ---
   
 ## What problem will we solve?
@@ -90,7 +90,13 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use either AKS Edge Essentials on Windows, K3s on Ubuntu Linux, or GitHub Codespaces.
+Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use GitHub Codespaces, AKS Edge Essentials on Windows, or K3s on Ubuntu Linux.
+
+# [Virtual](#tab/codespaces)
+
+[!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 # [Windows](#tab/windows)
 
@@ -195,12 +201,6 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
    sudo sysctl -p
    ```
-
-[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
-
-# [Virtual](#tab/codespaces)
-
-[!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
 [!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
