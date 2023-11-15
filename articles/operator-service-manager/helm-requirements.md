@@ -2,7 +2,7 @@
 title: About Helm package requirements for Azure Operator Service Manager
 description: Learn about the Helm package requirements for  Azure Operator Service Manager.
 author: sherrygonz
-ms.author: sushrao
+ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
