@@ -1,19 +1,19 @@
 ---
 title: Configure customer-managed keys (CMK) for the FHIR service in Azure Health Data Services
 description: Use customer-managed keys (CMK) to encrypt data in the FHIR service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
-author: mmitrik
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023
-ms.author: mmitrik
+ms.author: kesheth
 ---
 
 # Configure customer-managed keys for the FHIR service
 
 By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
-Customer-managed keys enable organizations to:
+Customer-managed keys enable you to:
 
 - Create your own encryption keys and store them in a key vault, or use the [Azure Key Vault API](/rest/api/keyvault/) to generate keys.
   
@@ -272,20 +272,6 @@ After you add the key, you need to update the FHIR service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
 
-## Recover from lost key access
-
-For the FHIR service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
-
-- The key is disabled or deleted from the key vault.
-
-- The FHIR service system-assigned managed identity is disabled.
-
-- The FHIR service system-assigned managed identity loses access to the key vault.
-
-In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
-
-If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
-
 ## Configure a key when you create the FHIR service
 
 If you use a user-assigned managed identity with the FHIR service, you can configure customer-managed keys at the same time you create the FHIR service.  
@@ -303,10 +289,25 @@ If you use a user-assigned managed identity with the FHIR service, you can confi
 5. Choose **Select an identity** to use the user-assigned managed identity. On the Select user assigned managed identity page, filter for and then select the managed identity. Choose **Add**.
 
 6. On the **Security** tab, choose **Review + create**.
+  
   :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
 7. On the **Review + create** tab, review the summary of the configuration options and the validation success message. Choose **Create** to deploy the FHIR service with customer-managed keys.
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
+
+## Recover from lost key access
+
+For the FHIR service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
+
+- The key is disabled or deleted from the key vault.
+
+- The FHIR service system-assigned managed identity is disabled.
+
+- The FHIR service system-assigned managed identity loses access to the key vault.
+
+In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
+
+If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

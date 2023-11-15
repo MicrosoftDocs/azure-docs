@@ -1,12 +1,12 @@
 ---
 title: Best practices for customer-managed keys for the FHIR service in Azure Health Data Services
 description: Encrypt your data with customer-managed keys (CMK) in the FHIR service in Azure Health Data Services. Get tips on requirements, best practices, limitations, and troubleshooting.
-author: mmitrik
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023
-ms.author: mmitrik
+ms.author: kesheth
 ---
 
 # Best practices for using customer-managed keys for the FHIR service
