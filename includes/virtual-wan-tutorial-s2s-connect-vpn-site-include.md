@@ -56,6 +56,6 @@ ms.topic: include
    * Download the VPN configuration file specific to this site. If you instead want to download the configuration file for sites connected to this hub, select **Download VPN Config** from the menu at the top of the page.
 
 
-1.You can then click on the VPN Site to see the connectivity status per each link connection.
+1. You can then click on the VPN Site to see the connectivity status per each link connection.
    :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/link-connectivity-status.png" alt-text="Screenshot shows link connections for a given VPN site." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/link-connectivity-status.png":::
 
