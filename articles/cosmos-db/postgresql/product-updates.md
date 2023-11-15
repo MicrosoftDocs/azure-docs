@@ -159,13 +159,13 @@ Azure Cosmos DB for PostgreSQL offers
 previews for unreleased features. Preview versions are provided
 without a service level agreement, and aren't recommended for
 production workloads. Certain features might not be supported or
-might have constrained capabilities.  For more information, see
+might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 * [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
 * [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
-* [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 
 ## Contact us
 
