@@ -1,6 +1,6 @@
 ---
-title: Configure customer-managed keys (CMK) for the DICOM service in Azure Health Data Services
-description: Use customer-managed keys (CMK) to encrypt data in the DICOM service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
+title: Configure customer-managed keys (CMK) for the FHIR service in Azure Health Data Services
+description: Use customer-managed keys (CMK) to encrypt data in the FHIR service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,14 +9,14 @@ ms.date: 11/20/2023
 ms.author: mmitrik
 ---
 
-# Configure customer-managed keys for the DICOM service
+# Configure customer-managed keys for the FHIR service
 
-By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the DICOM&reg; service. 
+By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
 ## Prerequisites
 - Make sure you're familiar with [best practices for customer-managed keys](customer-managed-keys.md).
 
-- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
+- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
    - The key is versioned.
   
@@ -24,19 +24,19 @@ By using customer-managed keys (CMK), you can protect and control access to your
   
    - The key is **2048-bit** or **3072-bit**.
   
-   - The key vault is located in the same Azure tenant as the DICOM service.
+   - The key vault is located in the same Azure tenant as the FHIR service.
   
    - When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
 
-   - To prevent losing the encryption key for the DICOM service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
+   - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
-## Enable a managed identity for the DICOM service
+## Enable a managed identity for the FHIR service
 
  You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
 
 #### System-assigned managed identity
 
-1. In the Azure portal, go to the DICOM instance. Select **Identity** from the left pane.
+1. In the Azure portal, go to the FHIR instance. Select **Identity** from the left pane.
 
 2. On the **Identity** page, select the **System assigned** tab.
    
@@ -68,7 +68,7 @@ The system-assigned managed identity needs the [Key Vault Crypto Service Encrypt
 
 5. On the Members tab, select **Managed Identity** and then select **+Select members**.
 
-6. On the **Select managed identities** pane, select **DICOM service** from the **Managed identity** drop-down list. Select your DICOM service.
+6. On the **Select managed identities** pane, select **FHIR service** from the **Managed identity** drop-down list. Select your FHIR service.
    
 7. On the **Select managed identities** pane, choose **Select**. 
 
@@ -78,15 +78,15 @@ The system-assigned managed identity needs the [Key Vault Crypto Service Encrypt
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-review.png" alt-text="Screenshot of the role assignment with the review + assign action." lightbox="media/configure-customer-managed-keys/key-vault-add-role-review.png":::
 
-## Update the DICOM service with the encryption key
+## Update the FHIR service with the encryption key
 
-After you add the key, you need to update the DICOM service with the key URL.  
+After you add the key, you need to update the FHIR service with the key URL.  
 
 1. In the key vault, select **Keys**.
    
-2. Select the key for the DICOM service.  
+2. Select the key for the FHIR service.  
 
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-list.png" alt-text="Screenshot of the Keys page and the key to use with the DICOM service." lightbox="media/configure-customer-managed-keys/key-vault-list.png":::
+:::image type="content" source="media/configure-customer-managed-keys/key-vault-list.png" alt-text="Screenshot of the Keys page and the key to use with the FHIR service." lightbox="media/configure-customer-managed-keys/key-vault-list.png":::
 
 3. Select the key version.
 
@@ -96,7 +96,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 ### Update the key by using the Azure portal
 
-1. In the Azure portal, go to the DICOM service and then select **Encryption** from the left pane.
+1. In the Azure portal, go to the FHIR service and then select **Encryption** from the left pane.
 
 1. Select **Customer-managed key** for the Encryption type.
 
@@ -104,7 +104,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 1. Select an identity type, either System-assigned or User-assigned, that matches the type of managed identity configured previously.
 
-1. Select **Save** to update the DICOM service to use the customer-managed key.  
+1. Select **Save** to update the FHIR service to use the customer-managed key.  
 
 :::image type="content" source="media/configure-customer-managed-keys/configure-encryption-portal.png" alt-text="Screenshot of the Encryption view, showing the selection of the Customer-managed key option, key vault settings, identity type settings, and Save button." lightbox="media/configure-customer-managed-keys/configure-encryption-portal.png":::
 
@@ -273,7 +273,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 }
 ```
 
-1. When prompted, select the values for the resource group, region, workspace, and DICOM service name.  
+1. When prompted, select the values for the resource group, region, workspace, and FHIR service name.  
 
     * If you're using a system-assigned managed identity, enter the **Key Identifier** you copied from the key vault in the **Key Encryption Key Url** field.
     * If you're using a user-assigned managed identity, enter the values for the key vault name, key name, user assigned identity name, and tenant ID.
@@ -284,32 +284,32 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 ## Recover from lost key access
 
-For the DICOM service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
+For the FHIR service to operate properly, it must always have access to the key in the key vault. However, there are scenarios where the service could lose access to the key, including:
 
 - The key is disabled or deleted from the key vault.
 
-- The DICOM service system-assigned managed identity is disabled.
+- The FHIR service system-assigned managed identity is disabled.
 
-- The DICOM service system-assigned managed identity loses access to the key vault.
+- The FHIR service system-assigned managed identity loses access to the key vault.
 
-In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
+In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
 
-If key access is lost, ensure you have updated the key and required resources so they're accessible by the DICOM service. For more information, see [Create or update REST API for the DICOM service](/rest/api/healthcareapis/dicom-services/create-or-update). Make sure to match all the properties and identities with your current DICOM service.
+If key access is lost, ensure you have updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
 
-## Update the DICOM service after changing a managed identity
-If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
+## Update the FHIR service after changing a managed identity
+If you change the managed identity in any way, such as moving your FHIR service to a different tenant or subscription, the FHIR service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
 
 :::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
 
-## Configure a key when you create the DICOM service
+## Configure a key when you create the FHIR service
 
-If you use a user-assigned managed identity with the DICOM service, you can configure customer-managed keys at the same time you create the DICOM service.  
+If you use a user-assigned managed identity with the FHIR service, you can configure customer-managed keys at the same time you create the FHIR service.  
 
-1. On the **Create DICOM service** page, enter the **DICOM service name**.
+1. On the **Create FHIR service** page, enter the **FHIR service name**.
    
 2. Choose **Next: Security**.  
 
-  :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create DICOM service view with the DICOM service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
+  :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create FHIR service view with the FHIR service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
 
 3. On the **Security** tab, in the **Encryption section** select **Customer-managed key**.
 
@@ -320,8 +320,8 @@ If you use a user-assigned managed identity with the DICOM service, you can conf
 6. On the **Security** tab, choose **Review + create**.
   :::image type="content" source="media/configure-customer-managed-keys/deploy-security-tab.png" alt-text="Screenshot of the Security tab with the Customer-managed key option selected." lightbox="media/configure-customer-managed-keys/deploy-security-tab.png":::
 
-7. On the **Review + create** tab, review the summary of the configuration options and the validation success message. Choose **Create** to deploy the DICOM service with customer-managed keys.
+7. On the **Review + create** tab, review the summary of the configuration options and the validation success message. Choose **Create** to deploy the FHIR service with customer-managed keys.
 
   :::image type="content" source="media/configure-customer-managed-keys/deploy-review.png" alt-text="Screenshot of the Review + create tab with the selected options and validation success message shown." lightbox="media/configure-customer-managed-keys/deploy-review.png":::
 
-[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
