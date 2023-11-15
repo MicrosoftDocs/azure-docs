@@ -10,7 +10,7 @@ This article provides troubleshooting tips and recommendations for a few issues 
 
 ## Connectivity issues
 
-### Timeout when connecting to service
+### Time out when connecting to service
 Depending on the host environment and network, a connectivity issue might present to applications as either a `TimeoutException`, `OperationCanceledException`, or a `ServiceBusException` with `Reason` of `ServiceTimeout` and most often occurs when the client can't find a network path to the service.
 
 To troubleshoot:
@@ -26,7 +26,7 @@ To troubleshoot:
 This error can occur when an intercepting proxy is used. To verify, We recommend that you test the application in the host environment with the proxy disabled.
 
 ### Socket exhaustion errors
-Applications should prefer treating the Service Bus types as singletons, creating and using a single instance through the lifetime of the application. Each new [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) created results in a new AMQP connection, which uses a socket. The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) type manages the connection for all types created from that instance. Each [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) manages its own AMQP link for the associated Service Bus entity. When using a [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor), multiple AMQP links are established depending on the number of sessions that are being processed concurrently.
+Applications should prefer treating the Service Bus types as singletons, creating and using a single instance through the lifetime of the application. Each new [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) created results in a new AMQP connection, which uses a socket. The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) type manages the connection for all types created from that instance. Each [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) manages its own AMQP link for the associated Service Bus entity. When you use [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor), multiple AMQP links are established depending on the number of sessions that are being processed concurrently.
 
 The clients are safe to cache when idle; they'll ensure efficient management of network, CPU, and memory use, minimizing their impact during periods of inactivity. It's also important that either `CloseAsync` or `DisposeAsync` be called when a client is no longer needed to ensure that network resources are properly cleaned up.
 
@@ -50,7 +50,7 @@ The Service Bus client logs are available to any `EventListener` by opting into 
 For more information, see: [Logging with the Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/sdk/logging).
 
 ### Distributed tracing
-The Service Bus client library supports distributed tracing though integration with the Application Insights SDK. It also has **experimental** support for the OpenTelemetry specification via the .NET [ActivitySource](/dotnet/api/system.diagnostics.activitysource) type introduced in .NET 5. In order to enable `ActivitySource` support for use with OpenTelemetry, see [ActivitySource support](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#activitysource-support).
+The Service Bus client library supports distributed tracing thorugh integration with the Application Insights SDK. It also has **experimental** support for the OpenTelemetry specification via the .NET [ActivitySource](/dotnet/api/system.diagnostics.activitysource) type introduced in .NET 5. In order to enable `ActivitySource` support for use with OpenTelemetry, see [ActivitySource support](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#activitysource-support).
 
 In order to use the GA DiagnosticActivity support, you can integrate with the Application Insights SDK. More details can be found in [ApplicationInsights with Azure Monitor](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#applicationinsights-with-azure-monitor).
 
@@ -90,7 +90,7 @@ In the above screenshot, you see the end-to-end transaction that can be viewed i
 
 ### Can't send batch with multiple partition keys
 
-When sending to a partition-enabled entity, all messages included in a single send operation must have the same `PartitionKey`. If your entity is session-enabled, the same requirement holds true for the `SessionId` property. In order to send messages with different `PartitionKey` or `SessionId` values, group the messages in separate [ServiceBusMessageBatch][ServiceBusMessageBatch] instances or include them in separate calls to the [SendMessagesAsync][SendMessages] overload that takes a set of [ServiceBusMessage] instances.
+When an app sends a batch to a partition-enabled entity, all messages included in a single send operation must have the same `PartitionKey`. If your entity is session-enabled, the same requirement holds true for the `SessionId` property. In order to send messages with different `PartitionKey` or `SessionId` values, group the messages in separate [ServiceBusMessageBatch][ServiceBusMessageBatch] instances or include them in separate calls to the [SendMessagesAsync][SendMessages] overload that takes a set of [ServiceBusMessage] instances.
 
 ### Batch fails to send
 
@@ -137,7 +137,7 @@ Further reading:
 
 ### Session processor takes too long to switch sessions
 
-This can be configured using the [SessionIdleTimeout][SessionIdleTimeout], which tells the processor how long to wait to receive a message from a session, before giving up and moving to another one. This is useful if you have many sparsely populated sessions, where each session only have a few messages. If you expect that each session will have many messages that trickle in, setting this too low can be counter productive, as it will result in unnecessary closing of the session.
+This can be configured using the [SessionIdleTimeout][SessionIdleTimeout], which tells the processor how long to wait to receive a message from a session, before giving up and moving to another one. This is useful if you have many sparsely populated sessions, where each session only has a few messages. If you expect that each session will have many messages that trickle in, setting this too low can be counter productive, as it will result in unnecessary closing of the session.
 
 ### Processor stops immediately
 
@@ -157,7 +157,7 @@ A transaction times out after a [period of time][TransactionTimeout], so it's im
 
 ### Operations in a transaction aren't retried
 
-This is by design. Consider the following scenario - you're attempting to complete a message within a transaction, but there's some transient error that occurs, for example, `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`. Suppose the request does actually make it to the service. If the client were to retry, the service would see two complete requests. The first complete won't be finalized until the transaction is committed. The second complete isn't able to even be evaluated before the first complete finishes. The transaction on the client is waiting for the complete to finish. This creates a deadlock where the service is waiting for the client to complete the transaction, but the client is waiting for the service to acknowledge the second complete operation. The transaction will eventually timeout after 2 minutes, but this is a bad user experience. For this reason, we don't retry operations within a transaction.
+This is by design. Consider the following scenario - you're attempting to complete a message within a transaction, but there's some transient error that occurs, for example, `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`. Suppose the request does actually make it to the service. If the client were to retry, the service would see two complete requests. The first complete won't be finalized until the transaction is committed. The second complete isn't able to even be evaluated before the first complete finishes. The transaction on the client is waiting for the complete to finish. This creates a deadlock where the service is waiting for the client to complete the transaction, but the client is waiting for the service to acknowledge the second complete operation. The transaction will eventually time out after 2 minutes, but this is a bad user experience. For this reason, we don't retry operations within a transaction.
 
 ### Transactions across entities are not working
 
