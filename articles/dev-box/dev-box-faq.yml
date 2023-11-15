@@ -18,6 +18,9 @@ summary: This article provides answers to some of the most commonly asked questi
 sections:
   - name: General FAQ
     questions:
+      - question: How many Microsoft Intune licenses do I need for Dev Box?
+        answer: Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. 
+
       - question: Which repository providers does Dev Box support?
         answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
                 For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
