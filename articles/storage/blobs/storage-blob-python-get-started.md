@@ -49,7 +49,7 @@ Blob client library information:
 
 ### Asynchronous programming
 
-The Azure Blob Storage client library for Python supports both synchronous and asynchronous APIs. The asynchronous APIs are based on Python's [asyncio](https://docs.python.org/3/library/asyncio.html) library and require Python 3.5 or later. 
+The Azure Blob Storage client library for Python supports both synchronous and asynchronous APIs. The asynchronous APIs are based on Python's [asyncio](https://docs.python.org/3/library/asyncio.html) library. 
 
 Follow these steps to use the asynchronous APIs in your project:
 
@@ -66,9 +66,11 @@ Follow these steps to use the asynchronous APIs in your project:
 
     from azure.identity.aio import DefaultAzureCredential
     from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
-    ```        
+    ```
 
-- Create a client object using `async with` to begin working with data resources. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool. In this example, we create a `BlobServiceClient` object using `async with`, and then create a `ContainerClient` object:
+    The `import asyncio` statement is only required if you're using the library in your code. It's added here for clarity, as the examples in the [developer guide articles](#build-your-application) use the `asyncio` library.
+
+- Create a client object using `async with` to begin working with data resources. Only the top level client needs to use `async with`, as other clients created from it share the same connection pool. In this example, we create a `BlobServiceClient` object using `async with`, and then create a `ContainerClient` object:
 
     ```python
     async with BlobServiceClient(account_url, credential=credential) as blob_service_client:
@@ -93,7 +95,7 @@ You can authorize a `BlobServiceClient` object by using a Microsoft Entra author
 
 ## [Microsoft Entra ID](#tab/azure-ad)
 
-To authorize with Microsoft Entra ID, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
@@ -197,6 +199,6 @@ The following guides show you how to work with data resources and perform specif
 | [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
 | [List blobs](storage-blobs-list-python.md) | List blobs in different ways. |
 | [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
 | [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |
