@@ -223,7 +223,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     from azure.ai.ml import command 
     from azure.ai.ml import MLClient # Handle to the workspace
     from azure.identity import DefaultAzureCredential # Authentication package
-    from azure.ai.ml.entities import ResourceConfiguration 
+    from azure.ai.ml.entities import JobResourceConfiguration 
 
     credential = DefaultAzureCredential()
     # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
@@ -236,7 +236,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     job = command(
         command="echo 'hello world'",
         environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-        resources = ResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
+        resources = JobResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
     )
     # submit the command job
     ml_client.create_or_update(job)
