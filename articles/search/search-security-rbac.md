@@ -371,7 +371,7 @@ If you're already a Contributor or Owner of your search service, you can present
 1. Get a bearer token for the current user:
 
     ```azurecli
-    az account get-access-token https://search.azure.com/.default
+    az account get-access-token --scope https://search.azure.com/.default
     ```
 
 1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
