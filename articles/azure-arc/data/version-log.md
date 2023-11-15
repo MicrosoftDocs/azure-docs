@@ -7,7 +7,9 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.custom: event-tier1-build-2022
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2023
 ms.date: 10/10/2023
 ms.topic: conceptual
 #Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
@@ -480,5 +482,3 @@ This release introduces general availability for Azure Arc-enabled SQL Managed I
 |`arcdata` Azure CLI extension version                   | 1.0 |
 |Arc enabled Kubernetes helm chart extension version     | 1.0.16701001, release train: stable |
 |Arc Data extension for Azure Data Studio                | 0.9.5 |
-
-

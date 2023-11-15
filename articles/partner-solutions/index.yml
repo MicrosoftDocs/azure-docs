@@ -9,9 +9,10 @@ metadata:
   description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
   author: flang-msft
   ms.topic: hub-page
+  ms.custom:
+    - ignite-2023
   ms.date: 06/06/2023
   ms.author: franlanglois
-
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -85,4 +86,3 @@ productDirectory:
       links:
         - url: ./astronomer/astronomer-overview.md
           text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
-

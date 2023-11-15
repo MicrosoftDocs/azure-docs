@@ -5,6 +5,8 @@ description: The prompt tool in prompt flow offers a collection of textual templ
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

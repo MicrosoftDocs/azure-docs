@@ -9,6 +9,8 @@ metadata:
   ms.reviewer: sidandrews
   ms.service: cosmos-db
   ms.subservice: nosql
+  ms.custom:
+    - ignite-2023
   ms.topic: faq
   ms.date: 11/10/2023
 title: Frequently asked questions about Microsoft Copilot for Azure in Cosmos DB (preview).

@@ -5,6 +5,8 @@ ms.author: alkuchar
 author: AlicjaKucharczyk
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

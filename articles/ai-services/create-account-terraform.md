@@ -6,7 +6,9 @@ services: cognitive-services
 ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform
+ms.custom:
+  - devx-track-terraform
+  - ignite-2023
 author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 

@@ -2,6 +2,8 @@
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 06/09/2023
 ---

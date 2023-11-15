@@ -5,6 +5,8 @@ description: This article introduces the Content Safety tool for flows in Azure 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur
@@ -78,4 +80,3 @@ You can use the following parameters as inputs for this tool:
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

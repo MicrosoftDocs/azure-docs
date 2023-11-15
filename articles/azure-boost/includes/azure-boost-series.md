@@ -6,7 +6,9 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 11/07/2023
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 | Size Series | Series Type | Deployment Status |

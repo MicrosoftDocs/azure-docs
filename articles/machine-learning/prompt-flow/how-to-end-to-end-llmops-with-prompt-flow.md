@@ -5,6 +5,8 @@ description: Learn about using Azure Machine Learning to set up an end-to-end LL
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: abeomor
 ms.author: osomorog

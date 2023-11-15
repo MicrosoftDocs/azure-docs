@@ -4,7 +4,9 @@ ms.date: 07/18/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 ---
 
 Create a new search resource from the command line using either the Azure CLI or Azure PowerShell. You also retrieve a query key used for read-access to the index, and get the built-in admin key used for adding objects.

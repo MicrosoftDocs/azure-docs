@@ -8,7 +8,9 @@ ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
 ms.date: 11/15/2023
 ms.author: lajanuar
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 <!-- markdownlint-disable MD024 -->

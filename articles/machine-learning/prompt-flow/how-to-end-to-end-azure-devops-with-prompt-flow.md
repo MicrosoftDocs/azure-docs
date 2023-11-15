@@ -10,7 +10,10 @@ ms.subservice: prompt-flow
 ms.topic: how-to
 ms.reviewer: lagayhar
 ms.date: 10/24/2023
-ms.custom: cli-v2, sdk-v2
+ms.custom:
+  - cli-v2
+  - sdk-v2
+  - ignite-2023
 ---
 
 # Set up end-to-end LLMOps with prompt flow and Azure DevOps (preview)
@@ -278,9 +281,3 @@ More details on how to use the template can be found in the [GitHub repository](
 * [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
 * [Install and set up Python CLI v2](../how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
-
-
-
-
-
-

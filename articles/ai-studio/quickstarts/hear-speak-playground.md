@@ -5,6 +5,8 @@ description: Hear and speak with chat models in the Azure AI Studio playground.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
 ms.author: eur
@@ -117,5 +119,3 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 - [Learn more about Azure OpenAI](../../ai-services/openai/overview.md)
 - [Learn more about Azure AI Speech](../../ai-services/speech-service/overview.md)
-
-

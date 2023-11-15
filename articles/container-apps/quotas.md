@@ -4,7 +4,9 @@ description: Learn about quotas for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: cshoe

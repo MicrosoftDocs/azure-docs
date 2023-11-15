@@ -6,6 +6,8 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 07/28/2023
 ms.author: aahi

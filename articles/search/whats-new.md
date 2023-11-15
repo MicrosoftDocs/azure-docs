@@ -7,16 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/07/2023
-ms.custom: references_regions
+ms.date: 11/15/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # What's new in Azure AI Search
 
-Azure Cognitive Search is now **Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
-
-> [!NOTE]
-> Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+**Azure Cognitive Search is now Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
 
 ## November 2023
 
@@ -33,6 +32,9 @@ Azure Cognitive Search is now **Azure AI Search**. Learn about the latest update
 | [**Text Split skill (preview)**](cognitive-search-skill-textsplit.md) | Skill | Updated in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to support native data chunking. |
 | [**How vector search and semantic ranking improve your GPT prompts**](https://www.youtube.com/watch?v=Xwx1DJ0OqCk)| Video | Watch this short video to learn how hybrid retrieval gives you optimal grounding data for generating useful AI responses and enables search over both concepts and keywords. |
 | [**Access Control in Generative AI applications**](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)  | Blog | Explains how to use Microsoft Entra ID and Microsoft Graph API to roll out granular user permissions on chunked content in your index. |
+
+> [!NOTE]
+> Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
 
 ## October 2023
 

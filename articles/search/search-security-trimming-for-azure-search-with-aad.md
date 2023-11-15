@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 # Security filters for trimming Azure AI Search results using Microsoft Entra tenants and identities
 

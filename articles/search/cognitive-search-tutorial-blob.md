@@ -5,6 +5,8 @@ description: Step through an example of text extraction and natural language pro
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 09/13/2023
 ---

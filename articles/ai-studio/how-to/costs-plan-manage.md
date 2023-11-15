@@ -5,6 +5,8 @@ description: Learn how to plan for and manage costs for Azure AI services by usi
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur

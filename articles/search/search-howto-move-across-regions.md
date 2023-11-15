@@ -8,7 +8,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.custom: subject-moving-resources
+ms.custom:
+  - subject-moving-resources
+  - ignite-2023
 ms.date: 01/30/2023
 ---
 

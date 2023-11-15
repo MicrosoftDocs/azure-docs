@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 11/03/2023
  ms.author: dobett
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 [Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.

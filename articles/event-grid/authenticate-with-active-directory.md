@@ -1,8 +1,10 @@
 ---
 title: Authenticate Event Grid publishing clients using Microsoft Entra ID
-description: This article describes how to authenticate Azure Event Grid publishing client using Microsoft Entra ID.  
+description: This article describes how to authenticate Azure Event Grid publishing client using Microsoft Entra ID.
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 08/17/2023
 ---
 

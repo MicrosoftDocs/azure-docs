@@ -1,14 +1,16 @@
 ---
 title: "Explore code (JavaScript tutorial)"
 titleSuffix: Azure AI Search
-description: Understand the JavaScript SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
+description: Understand the JavaScript SDK Search integration queries used in the Search-enabled website with this cheat sheet.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - ignite-2023
 ms.devlang: javascript
 ---
 

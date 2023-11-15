@@ -7,9 +7,10 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/20/2023
-
 ---
 
 # Add spell check to queries in Azure AI Search

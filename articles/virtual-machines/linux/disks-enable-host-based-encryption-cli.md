@@ -6,7 +6,11 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: rogarana
-ms.custom: references_regions, devx-track-azurecli, devx-track-linux
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - devx-track-linux
+  - ignite-2023
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
@@ -141,12 +145,15 @@ az vm update -n $vmName \
 
 Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=LinuxImageURN  
+image=Ubuntu2204  
 diskEncryptionSetName=yourDiskEncryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -155,7 +162,6 @@ az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
 --image $image \
---upgrade-policy automatic \
 --admin-username azureuser \
 --generate-ssh-keys \
 --os-disk-encryption-set $diskEncryptionSetId \
@@ -167,18 +173,20 @@ az vmss create -g $rgName \
 
 Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys. 
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=LinuxImageURN 
+image=Ubuntu2204 
 
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
 --image $image \
---upgrade-policy automatic \
 --admin-username azureuser \
 --generate-ssh-keys \
 --data-disk-sizes-gb 64 128 \

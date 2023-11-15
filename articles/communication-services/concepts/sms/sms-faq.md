@@ -94,6 +94,9 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Alphanumeric sender ID
+> [!IMPORTANT]
+> Effective **November 30, 2023**, unregistered alphanumeric sender IDs sending messages to Australia and Italy phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
+
 ### How should an alphanumeric sender ID be formatted?
 **Formatting guidelines**:
 - Must contain at least one letter
@@ -114,6 +117,13 @@ We recommend waiting for 10 minutes before you start sending messages for best r
 Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier does not support alphanumeric sender ID. This is done to ensure high delivery rate.  
 
 ## Toll-Free Verification
+
+> [!IMPORTANT]
+> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
+
+> [!IMPORTANT]
+> Effective **January 31, 2024**, only fully verified toll-free numbers will be able to send traffic. Unverified toll-free numbers sending messages to US and CA phone numbers will have its traffic **blocked**. 
+
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
 
@@ -122,9 +132,6 @@ This verification is **required** for best SMS delivery experience.
 ### What happens if I don't verify my toll-free numbers?
 
 #### SMS to US phone numbers
-> [!IMPORTANT]
-> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
-
 Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for pending toll-free numbers.
 
 New limits are as follows:
@@ -147,13 +154,12 @@ New limits are as follows:
 > 
 > The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
 
-
 #### SMS to Canadian phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
 
 ### What do the different application statuses (verified, pending and unverified) mean? 
 - **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number is not automatically blocked.
-- **Pending**: Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers remain in this pending state until a decision has been made on verification status.
+- **Pending**: Numbers in a submitted application get into pending state 2-3 days after application is submitted. Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content, URLs, or there can be an automatic block of all traffic from the number. These numbers remain in this pending state until a decision has been made on verification status.
 - **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
@@ -165,7 +171,7 @@ After submission of the form, we will coordinate with our downstream peer to get
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around eight weeks to get approved.
 
-Updates for changes and the status of your applications will be communicated via the email you provide in the application. For more questions about your submitted application, please email acstns@microsoft.com. 
+Updates for changes and the status of your applications will be communicated via the regulatory blade in Azure portal.
 
 ### How do I submit a toll-free verification?
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Select on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.

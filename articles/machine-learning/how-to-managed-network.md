@@ -10,7 +10,10 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: build-2023, devx-track-azurecli
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Workspace managed virtual network isolation

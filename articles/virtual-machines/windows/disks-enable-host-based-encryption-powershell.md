@@ -6,7 +6,11 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: rogarana
-ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
+ms.custom:
+  - references_regions
+  - devx-track-azurepowershell
+  - ignite-fall-2021
+  - ignite-2023
 ---
 
 # Use the Azure PowerShell module to enable end-to-end encryption using encryption at host
@@ -189,6 +193,10 @@ Update-AzVM -VM $VM -ResourceGroupName $ResourceGroupName -EncryptionAtHost $fal
 
 ### Create a Virtual Machine Scale Set with encryption at host enabled with customer-managed keys. 
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
 
 ```powershell
@@ -214,7 +222,7 @@ $ipConfig = New-AzVmssIpConfig -Name "myIPConfig" -SubnetId $Vnet.Subnets[0].Id
 
 # Enable encryption at host by specifying EncryptionAtHost parameter
 
-$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic' -EncryptionAtHost
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -EncryptionAtHost
 
 $VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
 
@@ -232,6 +240,10 @@ $VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lu
 ```
 
 ### Create a Virtual Machine Scale Set with encryption at host enabled with platform-managed keys. 
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys. 
 
@@ -257,7 +269,7 @@ $ipConfig = New-AzVmssIpConfig -Name "myIPConfig" -SubnetId $Vnet.Subnets[0].Id
 
 # Enable encryption at host by specifying EncryptionAtHost parameter
 
-$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic' -EncryptionAtHost
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -EncryptionAtHost
 
 $VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
  

@@ -7,7 +7,10 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2023
-ms.custom: subject-reliability, references_regions
+ms.custom:
+  - subject-reliability
+  - references_regions
+  - ignite-2023
 ---
 
 # Reliability in Azure AI Search

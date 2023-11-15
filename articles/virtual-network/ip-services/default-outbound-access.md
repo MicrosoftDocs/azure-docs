@@ -9,7 +9,9 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 08/24/2023
-ms.custom: FY23 content-maintenance
+ms.custom:
+  - FY23 content-maintenance
+  - ignite-2023
 ---
 
 # Default outbound access in Azure
@@ -93,7 +95,9 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 * Public connectivity is required for Windows Activation and Windows Updates.  It is recommended to set up an explicit form of public outbound connectivity.
 
-* Default outbound access IP doesn't support fragmented packets. 
+* Default outbound access IP doesn't support fragmented packets.
+
+* Default outbound access IP doesn't support ICMP pings.
 
 ## Next steps
 
