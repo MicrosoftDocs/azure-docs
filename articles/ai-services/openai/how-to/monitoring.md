@@ -55,7 +55,7 @@ The following table summarizes the current subset of metrics available in Azure 
 | `Generated Completion Tokens` | Usage | Sum | Number of generated tokens (output) from an OpenAI model. Applies to PayGo, PTU, and PTU-manged SKUs | `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed FineTuned Training Hours` | Usage |Sum| Number of Training Hours Processed on an OpenAI FineTuned Model |  `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed Inference Tokens` | Usage | Sum|  Number of inference tokens processed by an OpenAI model. Calculated as prompt tokens (input) + generated tokens. Applies to PayGo, PTU, and PTU-manged SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
-| `Processed Input Tokens` | Usage | Sum | Total number of prompt tokens (input) processed on an OpenAI model. Applies to PayGo, PTU, and PTU-managed SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`||
+| `Processed Input Tokens` | Usage | Sum | Total number of prompt tokens (input) processed on an OpenAI model. Applies to PayGo, PTU, and PTU-managed SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Provision-managed Utilization` | Usage | Average | Provision-managed utilization is the utilization percentage for a given provisioned-managed deployment. Calculated as (PTUs consumed/PTUs deployed)*100. When utilization is at or above 100%, calls are throttled and return a 429 error code. | `ModelDeploymentName`,`ModelName`,`ModelVersion`, `Region`, `StreamType`|
 
 ## Configure diagnostic settings
