@@ -32,6 +32,7 @@ The following table presents criteria to consider when you design your workspace
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
+|[Reslience](#resilience)| To ensure that data in your workspace is available in the event of a region failure, you can ingest data into multiple workspaces in different regions.|
 
 ### Operational and security data
 The decision whether to combine your operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace depends on your security requirements and the potential cost implications for your environment.
@@ -118,6 +119,17 @@ For example, you might grant access to only specific tables collected by Microso
 
 - **If you don't require granular access control by table:** Grant the operations and security team access to their resources and allow resource owners to use resource-context RBAC for their resources.
 - **If you require granular access control by table:** Grant or deny access to specific tables by using table-level RBAC.
+
+### Resilience
+
+To ensure that critical data in your workspace is available in the event of a region failure, you can ingest some or all of your data into multiple workspaces in different regions.
+
+This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
+
+You might also want to:
+
+* Create the same monitoring artifacts - dashboards, queries, workbooks, alerts, and so on - in each region.
+* Use cross-workspace queries to target both workspaces - use the [union operator with isfuzzy=true](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) - and de-duplicate the results to avoid getting the same record twice.
 
 ## Work with multiple workspaces
 Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
