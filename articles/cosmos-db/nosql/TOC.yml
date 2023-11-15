@@ -220,6 +220,12 @@
               href: distribute-throughput-across-partitions.md
             - name: Distribute throughput across partitions FAQ
               href: distribute-throughput-across-partitions-faq.yml
+        - name: Priority-based execution (preview)
+          items:
+            - name: Priority-based execution overview
+              href: ../priority-based-execution.md
+            - name: Priority-based execution FAQ
+              href: ../priority-based-execution-faq.yml
     - name: Containers and items
       items:
         - name: Getting started with SQL query
@@ -461,7 +467,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
         - name: Move data between containers
-          href: ../intra-account-container-copy.md
+          href: ../container-copy.md
         - name: Partial document update
           items:
             - name: Partial document update overview

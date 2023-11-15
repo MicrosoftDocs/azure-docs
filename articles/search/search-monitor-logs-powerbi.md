@@ -6,6 +6,8 @@ ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/15/2022
 ---

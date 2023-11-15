@@ -512,7 +512,7 @@ items:
         href: custom-disaster-recovery-client-side.md
       - name: Subscribe to Azure Resource Notifications - Health Resources events
         href: subscribe-to-resource-notifications-health-resources-events.md
-      - name: Subscribe to Azure Resource Notifications - Resources events
+      - name: Subscribe to Azure Resource Notifications - Resource Management events
         href: subscribe-to-resource-notifications-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json

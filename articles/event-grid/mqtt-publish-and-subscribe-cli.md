@@ -2,7 +2,10 @@
 title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
 description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
-ms.custom: build-2023, devx-track-azurecli
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan

@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
+ms.custom:
+  - ignite-2023
 ms.date: 09/07/2023
 
 #CustomerIntent: As an operator I want to understand common configuration patterns so I can configure a pipeline to process my data.

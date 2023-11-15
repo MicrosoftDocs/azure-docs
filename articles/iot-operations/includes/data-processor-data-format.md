@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 10/23/2023
  ms.author: dobett
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 In a Data Processor pipeline, the [format](../process-data/concept-supported-formats.md) field in the source stage specifies how to deserialize the incoming data. By default, the Data Processor pipeline uses the `raw` format that means it doesn't convert the incoming data. To use many Data Processor features such as `Filter` or `Enrich` stages in a pipeline, you must deserialize your data in the input stage. You can choose to deserialize your incoming data from `JSON`, `jsonStream`, `MessagePack`, `CBOR`, `CSV`, or `Protobuf` formats into a Data Processor readable message in order to use the full Data Processor functionality.

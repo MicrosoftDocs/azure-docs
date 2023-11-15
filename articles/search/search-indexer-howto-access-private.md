@@ -7,6 +7,8 @@ manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/24/2023
 ---

@@ -1,14 +1,16 @@
 ---
 title: "Add search to web sites (JavaScript tutorial)"
 titleSuffix: Azure AI Search
-description: Technical overview and setup for adding search to a website and deploying to an Azure Static Web Apps. 
+description: Technical overview and setup for adding search to a website and deploying to an Azure Static Web Apps.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - ignite-2023
 ms.devlang: javascript
 ---
 

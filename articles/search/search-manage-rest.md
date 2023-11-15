@@ -5,6 +5,8 @@ description: Create and configure an Azure AI Search service with the Management
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 05/09/2023
 ---

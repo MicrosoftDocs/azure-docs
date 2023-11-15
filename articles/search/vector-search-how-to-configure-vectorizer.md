@@ -6,6 +6,8 @@ description: Steps for adding a vectorizer to a search index in Azure AI Search.
 author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/10/2023
 ---

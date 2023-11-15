@@ -4,6 +4,8 @@ description: "Quickstart: Use a Data Processor pipeline to process data from you
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 10/11/2023
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
@@ -118,7 +120,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
+1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to enter insert mode, _ESC_ to exit insert mode, and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
@@ -241,7 +243,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | -------------- | --------------------------------- |
     | Display name   | `output data`             |
     | Broker         | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication | `none`                            |
+    | Authentication | `Service account token (SAT)`      |
     | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
     | Path           | `.payload`                        |
@@ -274,7 +276,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | ------------- | ----------------------------------- |
     | Name          | `reference data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication| `none`                  |
+    | Authentication| `Service account token (SAT)`       |
     | Topic         | `reference_data`                    |
     | Data format   | `JSON`                              |
 

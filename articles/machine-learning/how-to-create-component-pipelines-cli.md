@@ -1,7 +1,7 @@
 ---
 title: Create and run component-based ML pipelines (CLI)
 titleSuffix: Azure Machine Learning
-description: Create and run machine learning pipelines using the Azure Machine Learning CLI. 
+description: Create and run machine learning pipelines using the Azure Machine Learning CLI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,12 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022, build-2023
+ms.custom:
+  - devplatv2
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - build-2023
+  - ignite-2023
 ms.devlang: azurecli, cliv2
 ---
 

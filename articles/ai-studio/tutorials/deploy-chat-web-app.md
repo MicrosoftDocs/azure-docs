@@ -5,6 +5,8 @@ description: Use this article to deploy a web app for chat on your data in the A
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 11/15/2023
 ms.author: eur

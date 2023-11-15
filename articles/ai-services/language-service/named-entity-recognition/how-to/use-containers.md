@@ -6,6 +6,8 @@ services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: jboback

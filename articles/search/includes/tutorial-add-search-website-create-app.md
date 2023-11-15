@@ -4,6 +4,8 @@ ms.date: 09/21/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ---
 
 Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  

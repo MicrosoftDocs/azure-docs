@@ -10,7 +10,10 @@ keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai ser
 ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: aahi
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - ignite-2023
 ms.devlang: azurecli
 ---
 
@@ -124,4 +127,3 @@ To remove the resource group and its associated resources, use the az group dele
 ```azurecli-interactive
 az group delete --name ai-services-resource-group
 ```
-

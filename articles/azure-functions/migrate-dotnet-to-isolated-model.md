@@ -1,9 +1,11 @@
 ---
 title: Migrate .NET function apps from the in-process model to the isolated worker model
-description: This article shows you how to upgrade your existing .NET function apps running on the in-process model to the isolated worker model. 
+description: This article shows you how to upgrade your existing .NET function apps running on the in-process model to the isolated worker model.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet
-ms.topic: how-to 
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
+ms.topic: how-to
 ms.date: 08/2/2023
 ---
 

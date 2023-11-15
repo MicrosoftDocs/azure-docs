@@ -4,6 +4,8 @@ ms.date: 07/18/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ---
 
 If the web app didn't deploy or work, use the following list to determine and fix the issue:

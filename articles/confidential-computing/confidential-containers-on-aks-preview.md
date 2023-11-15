@@ -7,7 +7,9 @@ ms.topic: article
 ms.date: 11/7/2023
 ms.author: ananyagarg
 ms.service: azure-kubernetes-service
-ms.custom: ignite-fall-2023
+ms.custom:
+  - ignite-fall-2023
+  - ignite-2023
 ---
 
 # Confidential containers on Azure Kubernetes Service
@@ -49,4 +51,3 @@ To get started and learn more about supported scenarios, please refer to our AKS
 
 > To learn more about this announcement, checkout our blog [here](https://aka.ms/coco-aks-preview). 
 > We also have a demo of a confidential container running an end-to-end encrypted messaging system on Kafka [here](https://aka.ms/Ignite2023-ConfContainers-AKS-Preview).
-

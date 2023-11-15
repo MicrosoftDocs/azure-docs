@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/27/2023
-ms.custom: contperf-fy21q2 
+ms.custom:
+  - contperf-fy21q2
+  - ignite-2023
 ---
 
 # Choose a service tier for Azure AI Search

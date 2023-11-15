@@ -5,6 +5,8 @@ description: This article introduces the Prompt tool for flows in Azure AI Studi
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur
@@ -94,4 +96,3 @@ Welcome to Bing! Hello there! Please select an option from the menu below: 1. Vi
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

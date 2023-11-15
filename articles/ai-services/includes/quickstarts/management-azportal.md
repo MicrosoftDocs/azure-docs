@@ -7,6 +7,8 @@ author: aahill
 manager: nitinme
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 02/13/2023
 ms.author: aahi

@@ -1,7 +1,9 @@
 ---
-title: Publish and consume events using namespace topics 
-description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model. 
+title: Publish and consume events using namespace topics
+description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model.
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.author: jafernan
 author: jfggdl
 ms.date: 05/24/2023
@@ -138,7 +140,7 @@ You receive events from Event Grid using an endpoint that refers to an event sub
 2. Submit a request to consume the event:
 
     ```azurecli-interactive
-    curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
+    curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" $receive_operation_uri
     ```
 
 ### Acknowledge an event
