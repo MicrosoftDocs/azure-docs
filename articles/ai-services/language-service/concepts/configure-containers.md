@@ -5,7 +5,9 @@ description: Language service provides each container with a common configuratio
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: ignite-fall-2021
+ms.custom:
+  - ignite-fall-2021
+  - ignite-2023
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
@@ -20,7 +22,8 @@ Language service provides each container with a common configuration framework, 
 * Language Detection
 * Key Phrase Extraction
 * Text Analytics for Health
-* Summarization 
+* Summarization
+* Named Entity Recognition (NER)
 
 ## Configuration settings
 

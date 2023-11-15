@@ -871,6 +871,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
       "redirect_document_id": false
@@ -1004,6 +1009,11 @@
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
@@ -12335,6 +12345,11 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
             "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/about-iot-operations-cli.md",
+            "redirect_url": "/cli/azure/iot/ops",
             "redirect_document_id": false
         },
         {
@@ -25710,6 +25725,10 @@
             "source_path_from_root": "/articles/operator-service-manager/overview.md",
 	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         }
     ]
 }

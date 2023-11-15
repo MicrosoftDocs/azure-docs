@@ -1,8 +1,38 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-policy.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-manage-aws-assessments-standards.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-manage-gcp-assessments-standards.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/release-notes.md",
             "redirect_url": "/azure/defender-for-cloud/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-credential-scanner-rules.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-devops-posture-management-overview.md",
+            "redirect_url": "/azure/defender-for-cloud/concept-devops-environment-posture-management-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/detect-exposed-secrets.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
             "redirect_document_id": false
         },
         {
@@ -707,8 +737,8 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
@@ -738,7 +768,7 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-pull-request-annotations.md",
@@ -752,8 +782,8 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/detect-credential-leaks.md",
-            "redirect_url": "/azure/defender-for-cloud/detect-exposed-secrets",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-ecr.md",
