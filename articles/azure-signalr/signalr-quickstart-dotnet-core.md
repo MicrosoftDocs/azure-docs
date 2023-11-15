@@ -152,9 +152,8 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
   <div class="container" style="height: calc(100% - 110px);">
     <div id="messages" style="background-color: whitesmoke; "></div>
     <div style="width: 100%; border-left-style: ridge; border-right-style: ridge;">
-      <textarea id="message"
-                style="width: 100%; padding: 5px 10px; border-style: hidden;"
-                placeholder="Type message and press Enter to send..."></textarea>
+      <textarea id="message" style="width: 100%; padding: 5px 10px; border-style: hidden;"
+        placeholder="Type message and press Enter to send..."></textarea>
     </div>
     <div style="overflow: auto; border-style: ridge; border-top-style: hidden;">
       <button class="btn-warning pull-right" id="echo">Echo</button>
@@ -177,7 +176,7 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
 
   <!--Add script to update the page and send messages.-->
   <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener("DOMContentLoaded", function () {
       function getUserName() {
         function generateRandomName() {
           return Math.random().toString(36).substring(2, 10);
@@ -185,12 +184,12 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
 
         // Get the user name and store it to prepend to messages.
         var username = generateRandomName();
-        var promptMessage = 'Enter your name:';
+        var promptMessage = "Enter your name:";
         do {
           username = prompt(promptMessage, username);
-          if (!username || username.startsWith('_') || username.indexOf('<') > -1 || username.indexOf('>') > -1) {
-            username = '';
-            promptMessage = 'Invalid input. Enter your name:';
+          if (!username || username.startsWith("_") || username.indexOf("<") > -1 || username.indexOf(">") > -1) {
+            username = "";
+            promptMessage = "Invalid input. Enter your name:";
           }
         } while (!username)
         return username;
@@ -198,11 +197,11 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
 
       username = getUserName();
       // Set initial focus to message input box.
-      var messageInput = document.getElementById('message');
+      var messageInput = document.getElementById("message");
       messageInput.focus();
 
       function createMessageEntry(encodedName, encodedMsg) {
-        var entry = document.createElement('div');
+        var entry = document.createElement("div");
         entry.classList.add("message-entry");
         if (encodedName === "_SYSTEM_") {
           entry.innerHTML = encodedMsg;
@@ -237,39 +236,39 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
           appendMessage(encodedName, encodedMsg);
         };
         // Create a function that the hub can call to broadcast messages.
-        connection.on('broadcastMessage', messageCallback);
-        connection.on('echo', messageCallback);
+        connection.on("broadcastMessage", messageCallback);
+        connection.on("echo", messageCallback);
         connection.onclose(onConnectionError);
       }
 
       function onConnected(connection) {
-        console.log('connection started');
-        connection.send('broadcastMessage', '_SYSTEM_', username + ' JOINED');
-        document.getElementById('sendmessage').addEventListener('click', function (event) {
+        console.log("connection started");
+        connection.send("broadcastMessage", "_SYSTEM_", username + " JOINED");
+        document.getElementById("sendmessage").addEventListener("click", function (event) {
           // Call the broadcastMessage method on the hub.
           if (messageInput.value) {
-            connection.send('broadcastMessage', username, messageInput.value)
+            connection.send("broadcastMessage", username, messageInput.value)
               .catch((e) => appendMessage("_BROADCAST_", e.message));
           }
 
           // Clear text box and reset focus for next comment.
-          messageInput.value = '';
+          messageInput.value = "";
           messageInput.focus();
           event.preventDefault();
         });
-        document.getElementById('message').addEventListener('keypress', function (event) {
+        document.getElementById("message").addEventListener("keypress", function (event) {
           if (event.keyCode === 13) {
             event.preventDefault();
-            document.getElementById('sendmessage').click();
+            document.getElementById("sendmessage").click();
             return false;
           }
         });
-        document.getElementById('echo').addEventListener('click', function (event) {
+        document.getElementById("echo").addEventListener("click", function (event) {
           // Call the echo method on the hub.
-          connection.send('echo', username, messageInput.value);
+          connection.send("echo", username, messageInput.value);
 
           // Clear text box and reset focus for next comment.
-          messageInput.value = '';
+          messageInput.value = "";
           messageInput.focus();
           event.preventDefault();
         });
@@ -279,13 +278,13 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
         if (error && error.message) {
           console.error(error.message);
         }
-        var modal = document.getElementById('myModal');
-        modal.classList.add('in');
-        modal.style = 'display: block;';
+        var modal = document.getElementById("myModal");
+        modal.classList.add("in");
+        modal.style = "display: block;";
       }
 
       var connection = new signalR.HubConnectionBuilder()
-        .withUrl('/chat')
+        .withUrl("/chat")
         .build();
       bindConnectionMessage(connection);
       connection.start()
