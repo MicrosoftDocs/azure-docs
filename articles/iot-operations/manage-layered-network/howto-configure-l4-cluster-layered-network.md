@@ -5,7 +5,9 @@ description: Deploy and configure Azure IoT Layered Network Management on a leve
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---

@@ -2,7 +2,9 @@
 title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
@@ -14,7 +16,7 @@ Client Life Cycle events allow applications to react to events about the client 
 - React with a mitigation action for client disconnections. For example, you can build an application that initiates an auto-mitigation flow or creates a support ticket every time a client is disconnected.
 - Track the namespace that your clients are attached to. For example, confirm that your clients are connected to the right namespace after you initiate a failover.  
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Event types
 

@@ -5,6 +5,8 @@ description: Learn about Azure IoT Layered Network Management.
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 
 #CustomerIntent: As an operator, I want understand how to use Azure IoT Layered Network Management to secure my devices.

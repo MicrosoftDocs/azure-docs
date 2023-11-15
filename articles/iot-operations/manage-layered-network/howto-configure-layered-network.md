@@ -5,6 +5,8 @@ description: Set up a test or sample network environment for Azure IoT Layered N
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
@@ -249,5 +251,3 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 ## Related content
 
 [What is Azure IoT Layered Network Management?](./overview-layered-network.md)
-
-

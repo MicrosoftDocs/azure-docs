@@ -4,11 +4,13 @@ description: How to autodetect OPC UA assets by using Azure IoT Akri Preview
 author: timlt
 ms.author: timlt
 # ms.subservice: akri
-ms.topic: how-to 
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/6/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create assets in my  
-# industrial edge environment so that I can reduce manual configuration overhead. 
+# CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create assets in my
+# industrial edge environment so that I can reduce manual configuration overhead.
 ---
 
 # Discover assets using Azure IoT Akri Preview

@@ -5,6 +5,8 @@ description: Prepare a level 3 cluster and connect it to the IoT Layered Network
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.

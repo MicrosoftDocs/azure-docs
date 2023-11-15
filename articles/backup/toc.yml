@@ -24,6 +24,10 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
+  - name: Configure AKS cluster backup
+    href: quick-backup-aks.md
+  - name: Install Backup extension in AKS cluster
+    href: quick-install-backup-extension.md    
   - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
@@ -52,6 +56,8 @@
     href: tutorial-backup-sap-hana-db.md
   - name: Back up PostgreSQL databases
     href: tutorial-postgresql-backup.md
+  - name: Configure item level backup of an AKS cluster
+    href: tutorial-configure-backup-aks.md  
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server

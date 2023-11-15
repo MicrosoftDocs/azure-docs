@@ -7,10 +7,11 @@ metadata:
   title: Azure IoT Operations Preview – enabled by Azure Arc # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: A unified data plane for the edge # Required; article description that is displayed in search results. < 160 chars.
   ms.topic: landing-page # Required
+  ms.custom:
+    - ignite-2023
   author: dominicbetts
   ms.author: dobett
   ms.date: 09/08/2023
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:

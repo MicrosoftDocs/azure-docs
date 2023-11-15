@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 09/07/2023
 
 #CustomerIntent: As an operator, I want understand what data formats Data Processor supports so that I can serialize and deserialize messages in a pipeline.
