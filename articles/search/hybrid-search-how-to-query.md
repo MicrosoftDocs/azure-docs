@@ -194,7 +194,7 @@ api-key: {{admin-api-key}}
 
 **Key points:**
 
-+ The filter mode can affect the number of results available to the semantic reranker. As a best practice, it's smart to give the semantic ranker the maximum number of documents (50). If post-filtering of results is too selective, you might be underserving the semantic ranker by giving it fewer than 50 documents to work with.
++ The filter mode can affect the number of results available to the semantic reranker. As a best practice, it's smart to give the semantic ranker the maximum number of documents (50). If prefilters or postfilters are too selective, you might be underserving the semantic ranker by giving it fewer than 50 documents to work with.
 
 ## Configure a query response
 
