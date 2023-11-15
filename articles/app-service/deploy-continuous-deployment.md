@@ -32,7 +32,7 @@ Select the tab that corresponds to your build provider to continue.
 
 # [GitHub](#tab/github)
 
-4. [GitHub Actions](#how-the-github-actions-build-provider-works) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** (Kudu) > **OK**.
+4. [GitHub Actions](#how-does-the-github-actions-build-provider-work) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** (Kudu) > **OK**.
 
     > [!NOTE]
     > To use Azure Pipelines as the build provider for your App Service app, configure CI/CD directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
@@ -45,7 +45,7 @@ Select the tab that corresponds to your build provider to continue.
 
 1. (Preview) Under **Authentication type**, select **User-assigned identity** for better security. For more information, see [frequently asked questions]().
 
-1. When GitHub Actions is selected as the build provider, you can select the workflow file you want by using the **Runtime stack** and **Version** dropdown lists. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, select **Preview file**.
+1. When **GitHub Actions** is selected as the build provider, you can select the workflow file you want by using the **Runtime stack** and **Version** dropdown lists. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, select **Preview file**.
 
     > [!NOTE]
     > App Service detects the [language stack setting](configure-common.md#configure-language-stack-settings) of your app and selects the most appropriate workflow template. If you choose a different template, it might deploy an app that doesn't run properly. For more information, see [How the GitHub Actions build provider works](#how-the-github-actions-build-provider-works).
@@ -95,7 +95,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
     ![Screenshot that shows how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-continuous-deployment/disable.png)
 
-1. By default, the GitHub Actions workflow file is preserved in your repository, but it will continue to trigger deployment to your app. To delete the file from your repository, select **Delete workflow file**.
+1. By default, the GitHub Actions workflow file is preserved in your repository, but it continues to trigger deployment to your app. To delete the file from your repository, select **Delete workflow file**.
 
 1. Select **OK**.
 
@@ -115,17 +115,17 @@ You can customize the GitHub Actions build provider in these ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
 - If the selected branch is protected, you can still preview the workflow file without saving the configuration and then manually add it into your repository. This method doesn't give you log integration with the Azure portal.
-- Instead of using a user-assigned managed identity or the publishing profile, you can also deploy by using a [service principal](deploy-github-actions.md#userlevel)[service principal] in Microsoft Entra ID.
+- Instead of using a user-assigned managed identity or the publishing profile, you can also deploy by using a [service principal](deploy-github-actions.md?tabs=userlevel) in Microsoft Entra ID.
 
-#### How do I configure continuous deployment if disable basic authentication?
+#### How do I configure continuous deployment without basic authentication?
 
 To configure continuous deployment [without basic authentication](configure-basic-auth-disable.md), try using GitHub Actions with the **user-assigned identity** option.
 
 #### What does the user-assigned identity option do?
 
-When you select **user-assigned identity** under the **GitHub Actions** source, Azure creates a [user-managed identity](/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) for you and [federates it with GitHub as an authorized client](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp). This user-managed identity is not shown in the **Identities** page for your app.
+When you select **user-assigned identity** under the **GitHub Actions** source, Azure creates a [user-managed identity](/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) for you and [federates it with GitHub as an authorized client](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp). This user-managed identity isn't shown in the **Identities** page for your app.
 
-This automatically created user-managed identity should be used only for the GitHub Actions deployment. Using it for other configurations is not supported.
+This automatically created user-managed identity should be used only for the GitHub Actions deployment. Using it for other configurations isn't supported.
 
 #### I get the message when I select the user-assigned identity option.
 

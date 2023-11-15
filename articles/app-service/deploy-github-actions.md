@@ -38,21 +38,11 @@ The file has three sections:
 
 ## Use the Deployment Center
 
-You can quickly get started with GitHub Actions by using the App Service Deployment Center. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
-
-1. Navigate to your webapp in the Azure portal
-1. On the left side, click **Deployment Center**
-1. Under **Continuous Deployment (CI / CD)**, select **GitHub**
-1. Next, select **GitHub Actions**
-1. Use the dropdowns to select your GitHub repository, branch, and application stack
-    - If the selected branch is protected, you can still continue to add the workflow file. Be sure to review your branch protections before continuing.
-1. On the final screen, you can review your selections and preview the workflow file that will be committed to the repository. If the selections are correct, click **Finish**
-
-This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
+You can quickly get started with GitHub Actions by using the App Service Deployment Center. This turn-key method automatically generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 ## Set up a workflow manually
 
-You can also deploy a workflow without using the Deployment Center. To do so, you will need to first generate deployment credentials. 
+You can also deploy a workflow without using the Deployment Center. To do so, you need to first generate deployment credentials. 
 
 ## Generate deployment credentials
 
@@ -77,7 +67,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
 > [!NOTE]
-> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
+> As of October 2020, Linux web apps needs the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
 
 # [Service principal](#tab/userlevel)
 
@@ -89,7 +79,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
+In the previous example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following JSON snippet. Copy this JSON object for later.
 
 ```output 
   {
@@ -108,13 +98,13 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
     ```azurecli-interactive
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+    This command outputs a JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
 
     You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
@@ -128,7 +118,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/ --assignee-principal-type ServicePrincipal
@@ -138,7 +128,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 
     * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
     * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+    * Set the `subject`. Its value is defined by GitHub depending on your workflow:
       * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
       * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
       * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
@@ -1074,20 +1064,13 @@ jobs:
 
 ## Next steps
 
-You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
-
-- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+Check out references on Azure GitHub Actions and workflows:
 
 - [Azure login](https://github.com/Azure/login)
-
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
-
 - [Azure WebApp for containers](https://github.com/Azure/webapps-container-deploy)
-
 - [Docker login/logout](https://github.com/Azure/docker-login)
-
-- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
-
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
-
+- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 - [Starter Workflows](https://github.com/actions/starter-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
