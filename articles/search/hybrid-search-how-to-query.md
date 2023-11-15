@@ -49,8 +49,8 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [{
-        "value": [
+    "vectorQueries": [{
+        "vector": [
             -0.009154141,
             0.018708462,
             . . . 
@@ -87,9 +87,9 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [
+    "vectorQueries": [
         {
-            "value": [
+            "vector": [
                 -0.009154141,
                 0.018708462,
                 . . . 
@@ -114,6 +114,8 @@ api-key: {{admin-api-key}}
 
 + In hybrid queries, filters can be applied before query execution to reduce the query surface, or after query execution to trim results. `"preFilter"` is the default. To use `postFilter`, set the [filter processing mode](vector-search-filters.md).
 
++ When you postfilter query results, the number of results might be less than top-n.
+
 ## Semantic hybrid search
 
 Assuming that you [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search. Semantic ranking occurs over the merged result set, adding captions and answers. 
@@ -123,9 +125,9 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [
+    "vectorQueries": [
         {
-            "value": [
+            "vector": [
                 -0.009154141,
                 0.018708462,
                 . . . 
@@ -164,9 +166,9 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [
+    "vectorQueries": [
         {
-            "value": [
+            "vector": [
                 -0.009154141,
                 0.018708462,
                 . . . 
@@ -189,6 +191,10 @@ api-key: {{admin-api-key}}
     "top": "50"
 }
 ```
+
+**Key points:**
+
++ The filter mode can affect the number of results available to the semantic reranker. As a best practice, it's smart to give the semantic ranker the maximum number of documents (50). If post-filtering of results is too selective, you might be underserving the semantic ranker by giving it fewer than 50 documents to work with.
 
 ## Configure a query response
 
@@ -215,7 +221,7 @@ A query might match to any number of documents, as many as all of them if the se
 
 Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
 
-If you're using semantic ranking, it's a best practice to set both "k" and "top" to 50. The semantic ranker can take up to 50 results. By specifying 50 for each query, you get equal representation from both search subsystems. 
+If you're using semantic ranking, it's a best practice to set both "k" and "top" to at least 50. The semantic ranker can take up to 50 results. By specifying 50 for each query, you get equal representation from both search subsystems.
 
 ### Ranking
 
