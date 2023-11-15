@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/11/2023
+ms.date: 11/03/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -390,7 +390,7 @@ The preceding example is equivalent to the following JSON.
 
 ## Multiple-line declarations
 
-You can now use multiple lines in function, array and object declarations. This feature requires **Bicep version 0.7.4 or later**.
+You can now use multiple lines in function, array and object declarations. This feature requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 In the following example, the `resourceGroup()` definition is broken into multiple lines.
 

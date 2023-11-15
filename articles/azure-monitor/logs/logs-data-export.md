@@ -17,9 +17,9 @@ Data in Log Analytics is available for the retention period defined in your work
 * **Integration with Azure services and other tools:** Export to Event Hubs as data arrives and is processed in Azure Monitor.
 * **Long-term retention of audit and security data:** Export to a Storage Account in the workspace's region. Or you can replicate data to other regions by using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
 
-After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
+After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives. Data export traffic is in Azure backbone network and doesn't leave the Azure network.
 
-[![Diagram that shows a data export flow.](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
+:::image type="content" source="media/logs-data-export/data-export-overview.png" lightbox="media/logs-data-export/data-export-overview.png" alt-text="Diagram that shows a data export flow.":::
 
 Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time. Alternatively, you can filter or modify exported data by configuring [transformations](./../essentials/data-collection-transformations.md) in your workspace, which apply to incoming data, before it's sent to your Log Analytics workspaces and to export destinations.
 
@@ -71,7 +71,7 @@ Blobs are stored in 5-minute folders in the following path structure: *Workspace
 
 The format of blobs in a Storage Account is in [JSON lines](/previous-versions/azure/azure-monitor/essentials/resource-logs-blob-format), where each record is delimited by a new line, with no outer records array and no commas between JSON records.
 
-[![Screenshot that shows data format in a blob.](media/logs-data-export/storage-data.png "Screenshot that shows data format in a blob.")](media/logs-data-export/storage-data-expand.png#lightbox)
+:::image type="content" source="media/logs-data-export/storage-data.png" lightbox="media/logs-data-export/storage-data.png" alt-text="Screenshot that shows data format in a blob.":::
 
 ### Event Hubs
 
@@ -119,8 +119,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 
 ### Allow trusted Microsoft services
 If you've configured your Storage Account to allow access from selected networks, you need to add an exception to allow Azure Monitor to write to the account. From **Firewalls and virtual networks** for your Storage Account, select **Allow Azure services on the trusted services list to access this Storage Account**.
-
-[![Screenshot that shows the option Allow Azure services on the trusted services list.](media/logs-data-export/storage-account-network.png "Screenshot that shows the option Allow Azure services on the trusted services list.")](media/logs-data-export/storage-account-network.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/logs-data-export/storage-account-network.png" lightbox="media/logs-data-export/storage-account-network.png" alt-text="Screenshot that shows the option Allow Azure services on the trusted services list." border="false":::
 
 ### Monitor destinations
 
@@ -170,7 +170,7 @@ A data export rule defines the destination and tables for which data is exported
 
 1. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select **New export rule** at the top of the pane.
 
-   [![Screenshot that shows the data export entry point.](media/logs-data-export/export-create-1.png "Screenshot that shows the data export entry point.")](media/logs-data-export/export-create-1.png#lightbox)
+   :::image type="content" source="media/logs-data-export/export-create-1.png" lightbox="media/logs-data-export/export-create-1.png" alt-text="Screenshot that shows the data export entry point.":::
 
 1. Follow the steps, and then select **Create**.
 
@@ -472,11 +472,11 @@ Use the following command to create a data export rule to a specific Event Hub b
 
 1. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section.
 
-   [![Screenshot that shows the Data Export screen.](media/logs-data-export/export-view-1.png "Screenshot that shows the Data Export screen.")](media/logs-data-export/export-view-1.png#lightbox)
+   :::image type="content" source="media/logs-data-export/export-view-1.png" lightbox="media/logs-data-export/export-view-1.png" alt-text="Screenshot that shows the Data Export screen.":::
 
 1. Select a rule for a configuration view.
-
-   <img src="media/logs-data-export/export-view-2.png" alt="Screenshot of data export rule view." title= "Data export rule configuration view" width="65%"/>
+   <!-- convertborder later -->
+   :::image type="content" source="media/logs-data-export/export-view-2.png" lightbox="media/logs-data-export/export-view-2.png" alt-text="Screenshot of data export rule view." border="false":::
 
 # [PowerShell](#tab/powershell)
 
@@ -514,7 +514,7 @@ The template option doesn't apply.
 
 You can disable export rules to stop the export for a certain period, such as when testing is being held. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select the **Status** toggle to disable or enable the export rule.
 
-[![Screenshot that shows disabling the data export rule.](media/logs-data-export/export-disable.png "Screenshot that shows disabling the data export rule.")](media/logs-data-export/export-disable.png#lightbox)
+:::image type="content" source="media/logs-data-export/export-disable.png" lightbox="media/logs-data-export/export-disable.png" alt-text="Screenshot that shows disabling the data export rule.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -567,7 +567,7 @@ You can disable export rules to stop export when testing is performed and you do
 
 On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select the ellipsis to the right of the rule and select **Delete**.
 
-[![Screenshot that shows deleting the data export rule.](media/logs-data-export/export-delete.png "Screenshot that shows deleting the data export rule.")](media/logs-data-export/export-delete.png#lightbox)
+:::image type="content" source="media/logs-data-export/export-delete.png" lightbox="media/logs-data-export/export-delete.png" alt-text="Screenshot that shows deleting the data export rule.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -605,7 +605,7 @@ The template option doesn't apply.
 
 On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section to view all export rules in the workspace.
 
-[![Screenshot that shows the data export rules view.](media/logs-data-export/export-view.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view.png#lightbox)
+:::image type="content" source="media/logs-data-export/export-view.png" lightbox="media/logs-data-export/export-view.png" alt-text="Screenshot that shows the data export rules view.":::
 
 # [PowerShell](#tab/powershell)
 

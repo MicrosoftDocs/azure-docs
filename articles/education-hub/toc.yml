@@ -44,6 +44,8 @@
     href: azure-dev-tools-teaching/manage-students.md
   - name: How to download software
     href: azure-dev-tools-teaching/download-software.md
+  - name: How to Track Usage and Create Budgets in Azure for Students
+    href: navigate-costs.md
 - name: Tutorials
   items:
   - name: Find IDs required for calling Azure Education Hub APIs

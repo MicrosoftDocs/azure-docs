@@ -45,6 +45,10 @@ landingContent:
         links:
           - text: What is Azure for Students?
             url: about-azure-for-students.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Resources with Azure for Students
+            url: deploy-resources-azure-for-students.md
       - linkListType: how-to-guide
         links:
           - text: How to Track Usage and Create Budgets in Azure for Students

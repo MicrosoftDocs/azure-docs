@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # Troubleshoot MedTech service deployment errors
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 
 > [!TIP]
@@ -101,7 +98,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: MedTech service's FHIR destination resource quota is reached (default is one per MedTech service).
+**Description**: MedTech service's FHIR&reg; destination resource quota is reached (default is one per MedTech service).
 
 **Fix**: Delete the existing instance of the MedTech service's FHIR destination resource. Only one FHIR destination resource is permitted per MedTech service.
 
@@ -134,11 +131,6 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix MedTech service deployment errors. 
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

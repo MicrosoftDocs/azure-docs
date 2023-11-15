@@ -5,14 +5,14 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: release-notes
-ms.date: 09/21/2023
+ms.date: 11/01/2023
 ---
 
 # Azure Private 5G Core 2308 release notes
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2308 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2308 release (2308.0-4). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2303 and ASE 2309 releases and is supported by the 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2308 release (2308.0-7). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2303 and ASE 2309 releases and by the 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more details about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
@@ -53,22 +53,22 @@ When the UE MTU is set to any valid value (see API Spec), then the other MTUs ar
 - Access MTU: UE MTU + 60
 - Data MTU: UE MTU
   
-Rollbacks to Packet Core versions earlier than 2308 are not possible if the UE MTU field is changed following an upgrade.
+Rollbacks to Packet Core versions earlier than 2308 aren't possible if the UE MTU field is changed following an upgrade.
 
 To change the UE MTU signaled by the packet core, see [Modify a packet core instance](modify-packet-core.md).
 
 ###	MTU Interop setting
-In this release the MTU Interop setting is deprecated and can't be set for Packet Core versions 2308 and above.
+In this release, the MTU Interop setting is deprecated and can't be set for Packet Core versions 2308 and above.
 
-<!-- Removed as no issues fixed in the AP5GC2308 release>
+<!-- Issues fixed in the AP5GC2308 release-->
 ## Issues fixed in the AP5GC 2308 release
 
 The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 |  | |
-<-->  
+  | 1 | Packet Forwarding |  If the packet forwarding component of the userplane crashes, it may not recover. If it does not, the system experiences an outage until manually recovered |
+  
 
 ## Known issues in the AP5GC 2308 release
   |No.  |Feature  | Issue | Workaround/comments |

@@ -6,7 +6,7 @@ ms.author: aarthiv
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 11/06/2023
 ms.custom: conceptual
 ---
 
@@ -20,7 +20,8 @@ You can protect your data and guard against extended downtime by creating virtua
 
 An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. You can use VM restore points to easily capture multi-disk consistent backups.  VM restore points contain a disk restore point for each of the attached disks and a disk restore point consists of a snapshot of an individual managed disk.
 
-VM restore points supports both application consistency and crash consistency (in preview).
+VM restore points supports both application consistency and crash consistency (in preview). Please fill this [form](https://forms.office.com/r/LjLBt6tJRL) if you wish to try crash consistent restore points in preview.
+
 Application consistency is supported for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
 
 Multi-disk crash consistent VM restore point stores the VM configuration and point-in-time write-order consistent snapshots for all managed disks attached to a virtual machine. This is the same as the status of data in the VM after a power outage or a crash. The "consistencyMode" optional parameter has to be set to "crashConsistent" in the creation request. This feature is currently in preview.
@@ -66,3 +67,5 @@ Most common restore points failures are attributed to the communication with the
 
 - [Create a VM restore point](create-restore-points.md).
 - [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+- [Learn more](virtual-machines-restore-points-vm-snapshot-extension.md) about the extensions used with application consistency mode.
+- [Learn more](virtual-machines-restore-points-copy.md) about copying VM restore points across region

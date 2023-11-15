@@ -8,9 +8,9 @@ metadata:
   description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
   ms.service: operator-insights
   ms.topic: landing-page
-  author: bettylew
-  ms.author: bettylew
-  ms.date: 10/16/2023
+  author: HollyCl
+  ms.author: HollyCl
+  ms.date: 11/02/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -58,3 +58,17 @@ landingContent:
             url: dashboards-use.md
           - text: Query data in the Data Product
             url: data-query.md
+
+  # Card 
+  - title: How to Deploy Ingestion Agents for MCC protobuf EDRs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and configure MCC EDR Ingestion Agents
+            url: how-to-install-mcc-edr-agent.md
+          - text: Manage MCC EDR Agents
+            url: how-to-manage-mcc-edr-agent.md
+          - text: Monitor and troubleshoot MCC EDR Ingestion Agents
+            url: troubleshoot-mcc-edr-agent.md
+          - text: MCC EDR Ingestion Agent configuration reference
+            url: mcc-edr-agent-configuration.md
