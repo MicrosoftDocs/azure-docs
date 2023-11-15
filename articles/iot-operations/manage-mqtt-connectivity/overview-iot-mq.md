@@ -50,7 +50,7 @@ Azure Arc technology enables the changes to take effect on IoT MQ services runni
 
 You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge *fast* path for high priority data or to power near real-time cloud dashboards and a lower-cost *slow* path for less time-critical data that can be updated in batches. 
 
-To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), Event Grid cloud MQTT Broker, Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
+To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
 Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management required!
 
