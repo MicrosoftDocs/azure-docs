@@ -106,16 +106,22 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
 
 # [CLI](#tab/cli)
 
-To begin, log-in to the Azure CLI:
+### Before you begin
+
+Log-in to the Azure CLI:
 
 ```azurecli
 az login
 ```
 
-### Create policies with recommended settings
+Make sure you have the latest version of the Azure Container App extension.
 
-> [!NOTE]
-> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+```azurecli
+az extension show --name containerapp
+az extension update --name containerapp
+```
+
+### Create policies with recommended settings
 
 To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--recommended` flag:
 
@@ -146,6 +152,9 @@ ircuitBreakerPolicy:
 ```
 
 ### Create specific policies
+
+> [!NOTE]
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
 
 Create resiliency policies by targeting an individual policy. For example, to create the `Timeout` policy, run the following command.
 
