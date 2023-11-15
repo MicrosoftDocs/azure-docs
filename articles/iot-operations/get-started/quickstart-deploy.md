@@ -50,7 +50,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```powershell
-  az extension add --name az-iot-ops
+  az extension add --name azure-iot-ops
   ```
 
 # [Linux](#tab/linux)
@@ -66,7 +66,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --name az-iot-ops
+  az extension add --name azure-iot-ops
   ```
 
 # [Virtual](#tab/codespaces)
