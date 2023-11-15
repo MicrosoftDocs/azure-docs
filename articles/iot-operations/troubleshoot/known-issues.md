@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Known issues: Azure IoT Operations
@@ -17,9 +17,9 @@ This article contains known issues for Azure IoT Operations Preview.
 
 ## Azure IoT Operations
 
-- QoS0 isn't currently supported.
-
 - You must use the Azure CLI interactive login `az login`. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+
+- Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you may encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
 ## Azure IoT MQ (preview)
 
@@ -56,15 +56,25 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## Layered Network Management (preview)
 
-- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without *trafeik ingress controller* using `--disable=traefik` option. 
+- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
 
     ```bash
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
     ```
+
     For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
 
-- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S. 
+- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
+## OPC UA Broker (preview)
+
+- Users are unable to add assets when there's more than one _AssetEndpointProfile_ for the OPC UA Connector. Resolution: You need to recreate the cluster.
+- If more than one transport authentication certificate is available, the OPC UA Broker might exhibit random behavior. Resolution: Provide only one certificate for transport authentication.
+- When you adjust the publishing interval in the Digital Operations Experience portal, the OPC UA Broker continues to use the default settings.
+- When you delete an asset in the Digital Operations Experience portal, the asset isn't removed from the cluster. Resolution: manually delete the retained messages associated with the asset from MQ and then restart OPC UA Connector pod (opc.tcp-1).
+- Configuration of OPC UA user authentication with an X.509 user certificate isn't currently supported.
+- Configuration of OPC UA issuer and trust lists isn't yet supported.
+- Support for QoS1 isn't available.
 
 ## OPC PLC simulator
 
