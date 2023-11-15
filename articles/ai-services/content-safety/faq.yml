@@ -11,14 +11,14 @@ metadata:
   ms.date: 07/03/2023
   ms.author: pafarley
   ms.custom:
-title: AI Content Safety API Frequently Asked Questions
+title: Azure AI Content Safety API Frequently Asked Questions
 summary: |
   > [!TIP]
   > If you can't find answers to your questions in this FAQ, ask the Cognitive Services API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
 
 
 sections:
-  - name: AI Content Safety API frequently asked questions
+  - name: Azure AI Content Safety API frequently asked questions
     questions:
       - question: |
           What is the difference between the Azure Content Moderator and Azure AI Content Safety services?

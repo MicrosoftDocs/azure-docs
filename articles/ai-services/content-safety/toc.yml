@@ -13,7 +13,7 @@ items:
     expanded: true
   - name: What's new
     href: whats-new.md
-  - name: AI Content Safety FAQ
+  - name: Azure AI Content Safety FAQ
     href: faq.yml
 - name: Quickstarts
   items:
