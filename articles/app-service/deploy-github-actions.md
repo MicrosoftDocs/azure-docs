@@ -2,7 +2,7 @@
 title: Configure CI/CD with GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.topic: article
-ms.date: 12/14/2021
+ms.date: 12/14/2023
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli
 author: cephalin
@@ -56,11 +56,17 @@ You can also deploy a workflow without using the Deployment Center. To do so, yo
 
 ## Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal or Open ID Connect but the process requires more steps. 
+The recommended way to authenticate with Azure App Services for GitHub Actions is with a user-defined managed identity, and the easiest way for that is by [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md)  instead and selecting **User-assigned managed identity**.
 
-Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
+> [!NOTE]
+> Authentication using a user-assigned managed identity is currently in preview. 
+
+Alternatively, you can authenticate with a service principal, OpenID Connect, or a publish profile. 
 
 # [Publish profile](#tab/applevel)
+
+> [!NOTE]
+> Publish profile requires [basic authentication](configure-basic-auth-disable.md) to be enabled.
 
 A publish profile is an app-level credential. Set up your publish profile as a GitHub secret. 
 
