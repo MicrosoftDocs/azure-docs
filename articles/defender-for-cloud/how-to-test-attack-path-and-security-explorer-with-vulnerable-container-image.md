@@ -33,7 +33,13 @@ If there are no entries in the list of attack paths, you can still test this fea
         az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001
         ```
 
-    1. If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
+    1.  If you don't have an AKS cluster, use the following command to create a new AKS cluster:
+
+        ```
+        az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
+        ```
+
+    1.  If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
 
         ```
         az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
