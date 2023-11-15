@@ -25,7 +25,7 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 # Requirements
 
 - A Kubernetes Fleet with a hub cluster and member clusters (see the [quickstart](quickstart-create-fleet-and-members.md) for provisioning instructions).
-- Member clusters must be tagged appropriately for the desired selection criteria. Example tags could include region, environment, team, availability zones, node availability, or anything else desired.
+- Member clusters must be labelled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
 
 # Resource placement with `ClusterResourcePlacement` resources
 
