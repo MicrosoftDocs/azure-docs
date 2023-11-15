@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 11/15/2023
 ms.custom: ignite-fall-2021, engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -101,13 +101,19 @@ For more information, review the [documentation for the Azurite extension in Vis
    > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    >
    > The dependency installer simply installs the required dependencies in a new binary folder and 
-   > leaves any existing dependecies unchanged. The installer doesn't perform the following tasks:
+   > leaves any existing dependencies unchanged. The installer doesn't perform the following tasks:
    >
    > - Check whether the required dependencies already exist.
    > - Install only the missing dependencies.
    > - Update older versions of existing dependencies.
+   >
+   > For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
-   1. [Download the VSIX file with this preview capability included in the Azure Logic Apps (Standard) extension for Visual Studio Code](TBD).
+   1. [Download the Azure Logic Apps (Standard) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps).
+
+      > [!NOTE]
+      >
+      > The dependency installer capability is included with the extension, starting with version 2.81.5.
 
    1. In Visual Studio Code, on the Activity bar, select **Extensions**. (Keyboard: Press Ctrl+Shift+X)
 
