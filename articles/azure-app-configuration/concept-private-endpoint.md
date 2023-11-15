@@ -55,7 +55,7 @@ When you create a private endpoint, the DNS CNAME resource record for the config
 
 When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled. Enabling geo-replication creates separate DNS records for each replica with unique IP addresses in the private DNS zone. 
 
-If you are using a custom DNS server on your network, you need to configure it to delegate your privatelink subdomain to the private DNS zone for the VNet. Alternatively, you can configure the A records for your store's private link URLs, which are either `[Your-store-name].privatelink.azconfig.io` or `[Your-store-name]-[replica-name].privatelink.azconfig.io` if geo-replication is enabled, with unique private IP addresses of the private endpoint.
+If you are using a custom DNS server on your network, you need to configure it to delegate your `privatelink` subdomain to the private DNS zone for the VNet. Alternatively, you can configure the A records for your store's private link URLs, which are either `[Your-store-name].privatelink.azconfig.io` or `[Your-store-name]-[replica-name].privatelink.azconfig.io` if geo-replication is enabled, with unique private IP addresses of the private endpoint.
 
 ## Pricing
 
