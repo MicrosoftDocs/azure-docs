@@ -276,7 +276,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 }
 '
 ```
-
+### Using the summaryParameter
 For the `summaryLength` parameter, three values are accepted:
 * short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.
 * medium : Generates a summary of mostly 4-6 sentences, with around 170 tokens.
