@@ -221,7 +221,7 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Entra Permissions Management (Preview)
+      - name: Enabling Permissions Management (Preview)
         href: enable-permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
@@ -290,13 +290,13 @@
       items: null
     - name: Cloud security posture
       items:
-        - name: Security posture at-a-glance with the Overview dashboard
+        - name: Review cloud security posture
           displayName: overview, compliance, inventory
           href: overview-page.md
-        - name: See all of your workloads in the workload protections dashboard
+        - name: Review workload protection
           displayName: workloads, dashboard, protections
           href: workload-protections-dashboard.md
-        - name: Programmatic ways to track your secure score
+        - name: Track secure score
           displayName: secure score, rest api, resource graph,
           href: secure-score-access-and-track.md
         - name: Create custom recommendations and security standards
@@ -304,7 +304,7 @@
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
-        - name: Integrate security solutions and data sources
+        - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
         - name: Security graph
@@ -489,6 +489,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Plan Defender for Servers deployment
+    - name: Settings & monitoring
       items:
         - name: Get started
           displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat
