@@ -1,10 +1,10 @@
 ---
-title: Visualize data with enrichment widgets
+title: Visualize data with enrichment widgets in Microsoft Sentinel
 description: This article shows you how to enable the enrichment widgets experience, allowing you to better visualize entity data and insights and make better, faster decisions.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 11/15/2023
 ---
 
 # Visualize data with enrichment widgets in Microsoft Sentinel 
@@ -32,11 +32,11 @@ Microsoft Sentinel has automated the process of creating a Key Vault for enrichm
 
 1. On the **Entity behavior** page, select **Enrichment widgets (preview)** from the toolbar.
 
-    :::image type="content" source="media/enable-enrichment-widgets/entity-behavior-page.png" alt-text="Screenshot of the entity behavior page.":::
+    :::image type="content" source="media/enable-enrichment-widgets/entity-behavior-page.png" alt-text="Screenshot of the entity behavior page." lightbox="media/enable-enrichment-widgets/entity-behavior-page.png":::
 
 1. On the **Widgets Onboarding Page**, select **Create Key Vault**.
 
-    :::image type="content" source="media/enable-enrichment-widgets/create-key-vault.png" alt-text="Screenshot of widget onboarding page instructions to create a key vault.":::
+    :::image type="content" source="media/enable-enrichment-widgets/create-key-vault.png" alt-text="Screenshot of widget onboarding page instructions to create a key vault." lightbox="media/enable-enrichment-widgets/create-key-vault.png":::
 
     You will see an Azure portal notification when the Key Vault deployment is in progress, and again when it has completed.
 
@@ -44,7 +44,7 @@ Microsoft Sentinel has automated the process of creating a Key Vault for enrichm
 
     Also, the section labeled **Step 2 - Add credentials**, previously grayed out, is now available.
 
-    :::image type="content" source="media/enable-enrichment-widgets/add-credentials.png" alt-text="Screenshot of widget onboarding page instructions to add secrets to your key vault.":::
+    :::image type="content" source="media/enable-enrichment-widgets/add-credentials.png" alt-text="Screenshot of widget onboarding page instructions to add secrets to your key vault." lightbox="media/enable-enrichment-widgets/add-credentials.png":::
 
 ### Step 2: Add relevant credentials to your widgets' Key Vault
 
@@ -62,7 +62,7 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
 1. The **Review + create** tab will present a summary of the configuration, and possibly the terms of the agreement. 
 
-    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" border="false" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source.":::
+    :::image type="content" source="media/enable-enrichment-widgets/create-data-source-credentials.png" border="false" alt-text="Screenshot of wizard to create a new set of credentials for your widget data source." lightbox="media/enable-enrichment-widgets/create-data-source-credentials.png":::
 
     > [!NOTE]
     >
@@ -72,7 +72,7 @@ The data sources accessed by all the available widgets are listed on the **Widge
 
 1. A new page will be displayed for your new secret, with a message that the deployment is complete.
 
-    :::image type="content" source="media/enable-enrichment-widgets/deployment-complete.png" alt-text="Screenshot of completed secret deployment.":::
+    :::image type="content" source="media/enable-enrichment-widgets/deployment-complete.png" alt-text="Screenshot of completed secret deployment." lightbox="media/enable-enrichment-widgets/deployment-complete.png":::
 
     Return to the Widgets Onboarding Page (in your original browser tab).
 
@@ -115,11 +115,11 @@ This section contains instructions for creating or finding your credentials for 
 
 1. After you select **Create** and deploy the template as described in paragraph 6 of [Step 2 above](#step-2-add-relevant-credentials-to-your-widgets-key-vault), a secret named "Recorded Future" will be added to your key vault.
 
-#### Credentials for Microsoft Defender Threat Intelligence (MDTI)
+#### Credentials for Microsoft Defender Threat Intelligence
 
-1. The MDTI widget should fetch the data automatically if you have the relevant MDTI license. There is no need for credentials.
+1. The Microsoft Defender Threat Intelligence widget should fetch the data automatically if you have the relevant Microsoft Defender Threat Intelligence license. There is no need for credentials.
 
-1. You can check if you have the relevant license, and if necessary, purchase it, at the [MDTI official website](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence).
+1. You can check if you have the relevant license, and if necessary, purchase it, at the [Microsoft Defender Threat Intelligence official website](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence).
 
 ## Add new widgets when they become available
 
