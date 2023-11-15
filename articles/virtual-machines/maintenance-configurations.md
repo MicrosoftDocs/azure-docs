@@ -69,7 +69,7 @@ To learn more about this topic, checkout [Update Manager and scheduled patching]
 
 > [!NOTE]
 > 1. If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system.
-> 2. Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation.
+> 2. Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation. It will be resolved by January, 2024.
 
 ## Shut Down Machines
 
