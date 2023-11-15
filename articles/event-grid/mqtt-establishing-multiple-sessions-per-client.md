@@ -1,8 +1,10 @@
 ---
-title: 'Azure Event Grid Namespace MQTT client establishing multiple sessions'
+title: 'MQTT client establishing multiple sessions with MQTT broker, a feature of Azure Event Grid'
 description: 'Describes how to configure MQTT clients to establish multiple sessions.'
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
@@ -12,7 +14,7 @@ ms.author: veyaddan
 
 In this guide, you learn how to establish multiple sessions for a single client to an Event Grid namespace.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Prerequisites
 - You have an Event Grid namespace created.  Refer to this [Quickstart - Publish and subscribe on a MQTT topic](mqtt-publish-and-subscribe-portal.md) to create the namespace, subresources, and to publish/subscribe on a topic.

@@ -8,7 +8,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 11/07/2023
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -238,6 +238,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * <a name="administrators-privilege-users"></a>**Administrators privilege users** 
 
         This option grants additional security privileges to AD DS domain users or groups that require elevated privileges to access the Azure NetApp Files volumes. The specified accounts will have elevated permissions at the file or folder level.
+  
+      >[!NOTE]
+      >The domain admins are automatically added to the Administrators privilege users group.
 
         ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
 

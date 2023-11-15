@@ -218,6 +218,15 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
 
+> [!CAUTION]
+> With Microsoft Playwright Testing, you get charged based on the number of total test minutes. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes.
+>
+> After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
+>
+> You can run a single test with the service by using the following command-line:
+>
+> ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
+
 ## Related content
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
