@@ -63,7 +63,7 @@ spec:
   resourceSelectors:
     - group: ""
       kind: Namespace
-      name: test-deployment
+      name: prod-deployment
       version: v1
 ```
 
@@ -281,5 +281,4 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 [fleet-apispec]: https://github.com/Azure/fleet/blob/main/docs/api-references.md
 [fleet-scheduler]: https://github.com/Azure/fleet/blob/main/docs/concepts/Scheduler/README.md
 [crp-howto]: https://github.com/Azure/fleet/blob/main/docs/howtos/crp.md
-[crp-spec]: https://github.com/Azure/fleet/tree/main/docs/concepts/ClusterResourcePlacement/README.md
 [crp-topo]: https://github.com/Azure/fleet/blob/main/docs/howtos/topology-spread-constraints.md
