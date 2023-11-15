@@ -472,10 +472,10 @@ To remove the associated namespace, use the `kubectl delete namespace` command.
 kubectl delete namespace hello-web-app-routing
 ```
 
-To remove the application routing add-on from your cluster, use the [`az aks disable-addons`][az-aks-disable-addons] command.
+To remove the application routing add-on from your cluster, use the [`az aks approuting disable`][az-aks-approuting-disable] command.
 
 ```azurecli-interactive
-az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 
+az aks approuting disable --name myAKSCluster --resource-group myResourceGroup 
 ```
 
 When the application routing add-on is disabled, some Kubernetes resources might remain in the cluster. These resources include *configMaps* and *secrets* and are created in the *app-routing-system* namespace. You can remove these resources if you want.
@@ -489,6 +489,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 <!-- LINKS - internal -->
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-aks-approuting-enable]: /cli/azure/aks/approuting#az-aks-approuting-enable
+[az-aks-approuting-disable]: /cli/azure/aks/approuting#az-aks-approuting-disable
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
