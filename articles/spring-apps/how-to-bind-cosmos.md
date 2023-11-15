@@ -70,7 +70,7 @@ For the default environment variable names, see the following articles:
 * [Azure Cosmos DB for Table](../service-connector/how-to-integrate-cosmos-table.md?tabs=spring-apps#default-environment-variable-names-or-application-properties-and-sample-code)
 * [Azure Cosmos DB for NoSQL](../service-connector/how-to-integrate-cosmos-sql.md?tabs=spring-apps#default-environment-variable-names-or-application-properties-and-sample-code)
 * [Azure Cosmos DB for MongoDB](../service-connector/how-to-integrate-cosmos-db.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
-* [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin.md?tabs=spring-apps#default-environment-variable-names-or-application-properties)
+* [Azure Cosmos DB for Gremlin](../service-connector/how-to-integrate-cosmos-gremlin.md?tabs=spring-apps#default-environment-variable-names-or-application-properties-and-sample-code)
 * [Azure Cosmos DB for Cassandra](../service-connector/how-to-integrate-cosmos-cassandra.md?tabs=spring-apps#default-environment-variable-names-or-application-properties-and-sample-code)
 
 ---

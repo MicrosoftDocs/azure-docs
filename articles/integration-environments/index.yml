@@ -1,0 +1,36 @@
+### YamlMime:Landing
+
+title: Azure Integration Environments documentation (preview) # < 60 chars
+summary: Centrally organize Azure resources for integration solutions. Model business processes that map to Azure resources. Collect and track key business data. # < 160 chars
+
+metadata:
+  title: Azure Integration Environments documentation
+  description: Centrally organize Azure resources for integration solutions. Model business processes that map to Azure resources. Collect and track key business data.
+  services: azure
+  ms.service: azure
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan; azla
+  ms.date: 11/15/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Azure Integration Environments
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Integration Environments?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an integration environment
+            url: create-integration-environment.md
+          - text: Create an application group
+            url: create-application-group.md
+          - text: Create a business process
+            url: create-business-process.md
+          - text: Map business process to workflow
+            url: map-business-process-workflow.md
+          - text: Deploy business process and tracking
+            url: deploy-business-process.md

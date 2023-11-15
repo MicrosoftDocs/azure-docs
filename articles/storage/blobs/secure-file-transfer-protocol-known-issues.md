@@ -97,6 +97,12 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - TLS and SSL aren't related to SFTP.
 
+## Blob Storage features
+
+When you enable SFTP support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.
+
+To see how each Blob Storage feature is supported in accounts that have SFTP support enabled, see [Blob Storage feature support for Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
+
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' isn't allowed for property isSftpEnabled.` error, ensure that the following prerequisites are met at the storage account level:
