@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for DevOps - DevOps security posture management overview
+title: DevOps environment posture management overview
 description: Learn how to discover security posture violations in DevOps environments 
 ms.date: 10/17/2023
 author: AlizaBernstein
@@ -7,7 +7,7 @@ ms.author: v-bernsteina
 ms.topic: conceptual
 ---
 
-# Improve DevOps security posture
+# Improve DevOps environment security posture
 
 With an increase of cyber attacks on source code management systems and continuous integration/continuous delivery pipelines, securing DevOps platforms against the diverse range of threats identified in the [DevOps Threat Matrix](https://www.microsoft.com/security/blog/2023/04/06/devops-threat-matrix/) is crucial. Such cyber attacks can enable code injection, privilege escalation, and data exfiltration, potentially leading to extensive impact.  
 
@@ -24,7 +24,7 @@ To provide findings, DevOps posture management uses DevOps scanners to identify 
 
 Azure DevOps and GitHub scanners are used internally within Microsoft to identify risks associated with DevOps resources, reducing attack surface and strengthening corporate DevOps systems.
 
-Once a DevOps environment is connected, Defender for Cloud autoconfigures these scanners to conduct recurring scans every eight hours across multiple DevOps resources, including:  
+Once a DevOps environment is connected, Defender for Cloud autoconfigures these scanners to conduct recurring scans every 24 hours across multiple DevOps resources, including:  
 
 - Builds
 - Secure Files
