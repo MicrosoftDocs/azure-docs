@@ -100,4 +100,4 @@ Use the query link to share a query with other people. After creating a query, s
 
 View the [reference list of attack paths and cloud security graph components](attack-path-reference.md).
 
-Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md).
