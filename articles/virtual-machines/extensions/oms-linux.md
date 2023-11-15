@@ -229,7 +229,7 @@ Extension execution output is logged to the following file:
 To retrieve the OMS extension version installed on a VM, run the following command if you are using Azure CLI.
 
 ```azurecli
-az vm extension show --resource-group myResourceGroup --vm-name myVM -instance-view
+az vm extension show --resource-group myResourceGroup --vm-name myVM --instance-view
 ```
 
 To retrieve the OMS extension version installed on a VM, run the following command if you are using Azure PowerShell.
