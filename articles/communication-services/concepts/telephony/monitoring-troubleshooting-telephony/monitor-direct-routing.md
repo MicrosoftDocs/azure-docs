@@ -1,7 +1,7 @@
 ---
 title: "Monitor Azure Communication Services direct routing"
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 11/15/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro
@@ -46,12 +46,13 @@ When a call is made, the following logic applies:
 
 Direct routing takes the regular interval OPTIONS three times (the regular interval is one minute). If OPTIONS were sent during the last three minutes, the SBC is considered healthy.
 
-If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
+If the SBC in the example sent OPTIONS at any period between 10:12 AM and 10:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
 
-Demotion means that the SBC isn't tried first. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority in the same voice route.  
+Demotion means that the SBC isn't tried. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority in the same voice route, and `sbc3.contoso.com` in the lower priority route.  
 
-If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc.contoso.com` (demoted) is tried again before a failure is generated. 
-If both `sbc.contoso.com` and `sbc2.contoso.com` don't send OPTIONS, direct routing tries to place a call to both anyway, and then `sbc3.contoso.com` is tried.
+If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc3.contoso.com` is tried. 
+
+When an SBC stops sending OPTIONS but not yet marked as demoted, Azure tries to establish a call to it from three different datacenters before failover to another voice route. When an SBC is marked as demoted, it isn't tried until it starts sending OPTIONS again.
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 
