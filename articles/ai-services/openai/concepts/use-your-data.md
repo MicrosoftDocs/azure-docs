@@ -85,11 +85,16 @@ Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-
 
 **Data ingestion from local files**
 
-Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
+Using Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
+
+**Data ingestion from URLs**
+
+Using Azure OpenAI Studio, you can paste URLs and the service will store the webpage content, using it when generating responses from the model.
 
 ### Troubleshooting failed ingestion jobs
 
 To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
 
 **Quota Limitations Issues** 
 
