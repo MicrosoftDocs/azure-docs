@@ -30,7 +30,8 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- Azure CLI version 2.54.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- `aks-preview` Azure CLI extension of version 0.5.171 or later installed
 
 ## Limitations
 
@@ -46,18 +47,18 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 
 ### Enable on a new cluster
 
-To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `web_application_routing` with the `enable-addons` argument.
+To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying the `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons web_application_routing --generate-ssh-keys 
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
 ```
 
 ### Enable on an existing cluster
 
-To enable application routing on an existing cluster, use the [`az aks enable-addons`][az-aks-enable-addons] command specifying `web_application_routing` with the `--addons` argument.
+To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command.
 
 ```azurecli-interactive
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing 
+az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
 ```
 
 # [Open Service Mesh (OSM)](#tab/with-osm)
@@ -71,18 +72,19 @@ The following add-ons are required to support this configuration:
 
 ### Enable on a new cluster
 
-Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command and the `--enable-addons` parameter with the following add-ons:
+Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command specifying the `--enable-app-routing` flag and the `--enable-addons` parameter with the `open-service-mesh` add-on:
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons open-service-mesh,web_application_routing --generate-ssh-keys 
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing --enable-addons open-service-mesh 
 ```
 
 ### Enable on an existing cluster
 
-Enable application routing on an existing cluster using the [`az aks enable-addons`][az-aks-enable-addons] command and the `--addons` parameter with the following add-ons:
+To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command and the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `open-service-mesh`:
 
 ```azurecli-interactive
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-service-mesh,web_application_routing
+az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-service-mesh
 ```
 
 > [!NOTE]
@@ -95,18 +97,18 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-servi
 
 ### Enable on a new cluster
 
-Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command and the `--enable-addons` parameter with the following add-ons:
+To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons web_application_routing --generate-ssh-keys 
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
 ```
 
 ### Enable on an existing cluster
 
-Enable application routing on an existing cluster using the [`az aks enable-addons`][az-aks-enable-addons] command and the `--addons` parameter with the following add-ons:
+Enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
 
 ```azurecli-interactive
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing --enable-secret-rotation
+az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
 ```
 
 ---
@@ -486,6 +488,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 <!-- LINKS - internal -->
 [azure-dns-overview]: ../dns/dns-overview.md
+[az-aks-approuting-enable]: /cli/azure/aks/approuting#az-aks-approuting-enable
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
