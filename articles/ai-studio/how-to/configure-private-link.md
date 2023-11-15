@@ -22,10 +22,10 @@ We have two network isolation aspects. One is the network isolation to access an
 
 You get several Azure AI default resources in your resource group. You need to configure following network isolation configurations.
 
-- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry, Azure AI services and Azure AI Search.
-- Establish private endpoint connection to Azure AI resource.
-- Establish private endpoint connection to Azure AI services created with your Azure AI resource. For more information, see [this article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints).
-- (Optional) Private endpoint connection to Storage created with your Azure AI or your own Azure AI Search if you need direct access to them. Not required if you interact with them in Azure AI.
+- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry. Azure AI services and Azure AI Search should be public.
+- Establish private endpoint connection to Azure AI default resource. Note that you need to have blob and file PE for the default storage account.
+- [Managed identity configurations](#managed-identity-configuration) to allow Azure AI resources access your storage account if it's private.
+
 
 ## Prerequisites
 
@@ -36,17 +36,13 @@ You get several Azure AI default resources in your resource group. You need to c
 
 * Disable network policies for private endpoints before adding the private endpoint.
 
-## Limitations
-
-* You might encounter problems trying to access the private endpoint for your Azure AI if you're using Mozilla Firefox. This problem might be related to DNS over HTTPS in Mozilla Firefox. We recommend using Microsoft Edge or Google Chrome.
-
 ## Create an Azure AI that uses a private endpoint
 
 Use one of the following methods to create an Azure AI resource with a private endpoint. Each of these methods __requires an existing virtual network__:
 
 # [Azure CLI](#tab/cli)
 
-Create your Azure AI Studio
+Create your Azure AI resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
 
 ```azurecli-interactive
 ai init
@@ -225,9 +221,7 @@ To enable public access, use the following steps:
 
 # [Azure CLI](#tab/cli)
 
-```azurecli
-Not Available.
-```
+Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -237,11 +231,46 @@ Not Available.
 
 ---
 
+## Managed identity configuration
 
-## DNS configuration
+This is required if you make your storage account private. Our services need to read/write data in your private storage account using [Allow Azure services on the trusted services list to access this storage account](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) with below managed identity configurations. Enable system assigned managed identity of Azure AI Service and Azure AI Search, configure role-based access control for each managed identity.
 
-See [this documentation](/azure/machine-learning/how-to-custom-dns).
+| Role | Managed Identity | Resource | Purpose | Reference |
+|--|--|--|--|--|
+| `Storage File Data Privileged Contributor` | Azure AI project | Storage Account | Read/Write prompt flow data.  | [Prompt flow doc](../../machine-learning/prompt-flow/how-to-secure-prompt-flow.md#secure-prompt-flow-with-workspace-managed-virtual-network) |
+| `Storage Blob Data Contributor` | Azure AI Service | Storage Account | Read from input container, write to preprocess result to output container. | [Azure OpenAI Doc](../../ai-services/openai/how-to/managed-identity.md) |
+| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Read blob and write knowledge store | [Search doc](../../search/search-howto-managed-identities-data-sources.md)|
 
+## Custom DNS configuration
+
+See [Azure Machine Learning custom dns doc](../../machine-learning/how-to-custom-dns.md#example-custom-dns-server-hosted-in-vnet) for the DNS forwarding configurations.
+
+If you need to configure custom dns server without dns forwarding, the following is the required A records.
+
+* `<AI-STUDIO-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<AI-PROJECT-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<AI-STUDIO-GUID>.workspace.<region>.api.azureml.ms`
+* `<AI-PROJECT-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name, truncated>-<region>-<AI-STUDIO-GUID>.<region>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<AI-PROJECT-GUID>.<region>.notebooks.azure.net`
+
+    > [!NOTE]
+    > The workspace name for this FQDN might be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > * Compute instances can be accessed only from within the virtual network.
+    > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+* `<managed online endpoint name>.<region>.inference.ml.azure.com` - Used by managed online endpoints
+
+See [this documentation](../../machine-learning/how-to-custom-dns.md#find-the-ip-addresses) to check your private IP addresses for your A records. To check AI-PROJECT-GUID, go to Azure portal > Your Azure AI Project > JSON View > workspaceId.
+
+## Limitations
+
+* Private Azure AI services and Azure AI Search aren't supported.
+* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
+* You might encounter problems trying to access the private endpoint for your Azure AI if you're using Mozilla Firefox. This problem might be related to DNS over HTTPS in Mozilla Firefox. We recommend using Microsoft Edge or Google Chrome.
 
 ## Next steps
 

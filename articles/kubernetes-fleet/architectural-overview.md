@@ -66,25 +66,9 @@ Currently, the only supported update operations on the cluster are upgrades. Wit
 
 ## Kubernetes resource propagation
 
-Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. 
+Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. For more details, see the [resource propagation documentation](resource-propagation.md).
 
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
-
-A `ClusterResourcePlacement` has two parts to it:
-
-* **Resource selection**: The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
-    * Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
-    * Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
-    * Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
-    
-    > [!NOTE]
-    > `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
-
-* **Target cluster selection**: The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
-
-    * Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-    * Select clusters by listing names of `MemberCluster` custom resources
-    * Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
 ## Multi-cluster load balancing
 

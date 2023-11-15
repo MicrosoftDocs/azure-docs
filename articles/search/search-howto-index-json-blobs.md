@@ -75,7 +75,7 @@ api-key: [admin key]
 
 ### json example (single hotel JSON files)
 
-The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob Storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob Storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of five blobs, each containing a hotel document with an address collection and a rooms collection. The blob indexer detects both collections and reflects the structure of the input documents in the index schema.
 
@@ -110,7 +110,7 @@ api-key: [admin key]
 
 ### jsonArrays example (clinical trials sample data)
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 

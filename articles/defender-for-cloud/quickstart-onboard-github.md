@@ -56,7 +56,7 @@ To connect your GitHub account to Microsoft Defender for Cloud:
 
    The subscription is the location where Defender for Cloud creates and stores the GitHub connection.
 
-1. Select **Next: select plans**. Configure the Defender CSPM plan status for your GitHub connector. Advanced DevOps posture capabilities under Defender CSPM are free for all Defender for Cloud users until March 1, 2024.
+1. Select **Next: select plans**. Configure the Defender CSPM plan status for your GitHub connector. Learn more about [Defender CSPM](concept-cloud-security-posture-management.md) and see [Support and prerequisites](devops-support.md) for premium DevOps security features.
 
     :::image type="content" source="media/quickstart-onboard-ado/select-plans.png" alt-text="Screenshot that shows plan selection for DevOps connectors." lightbox="media/quickstart-onboard-ado/select-plans.png":::
 

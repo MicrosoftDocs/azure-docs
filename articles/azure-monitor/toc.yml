@@ -191,7 +191,7 @@ items:
             href: app/asp-net-trace-logs.md
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
+            href: app/sampling-classic-api.md
           - name: SDK support policy
             href: app/sdk-support-guidance.md
           - name: Statsbeat
@@ -621,7 +621,7 @@ items:
         href: ../network-watcher/network-insights-overview.md
       - name: Topology
         displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-topology.md
+        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshooting
         displayName: Network Insights, Network
         href: ../network-watcher/network-insights-troubleshooting.md

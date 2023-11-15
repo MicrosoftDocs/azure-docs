@@ -17,7 +17,11 @@ Microsoft Copilot for Azure (preview) can help you quickly build custom infrastr
 
 Throughout a conversation, Microsoft Copilot for Azure (preview) asks you questions to better understand your requirements and applications. Based on the provided information, it then provides several architecture options suitable for deploying that infrastructure. After you select an option, Microsoft Copilot for Azure (preview) provides detailed descriptions of the infrastructure, including how it can be configured. Finally, Microsoft Copilot for Azure provides templates and scripts using the language of your choice to deploy your infrastructure.
 
-To get help building infrastructure and deploying workloads, start on the **Virtual machines** page in the Azure portal. Select the arrow next to **Create**, then select **More VMs and related solutions**. Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
+To get help building infrastructure and deploying workloads, start on the **Virtual machines** page in the Azure portal. Select the arrow next to **Create**, then select **More VMs and related solutions**.
+
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-more-vms.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machines page in the Azure portal.":::
+
+Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -27,7 +31,6 @@ The prompts you use can vary depending on the type of workload you want to deplo
 
 - Starting the conversation:
   - "Help me deploy a website on Azure"
-  - "How can I deploy SAP based application on Azure?"
   - "Give me infrastructure for my new application."
 - Requirement gathering stage:
   - "Give me examples of these requirements."

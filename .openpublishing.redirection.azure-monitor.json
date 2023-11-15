@@ -6385,6 +6385,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/sampling.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/sampling",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/tutorial-asp-net-core.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core",
             "redirect_document_id": false
