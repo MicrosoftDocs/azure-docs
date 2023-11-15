@@ -16,7 +16,7 @@ ms.date: 11/13/2023
 
 ### Azure Migrate, Azure Backup, Azure Site Recovery VMs support
 
-Azure Update Manager now supports[specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery.
+Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md)
 
 ## September 2023
 

@@ -118,7 +118,7 @@ The Azure Marketplace image has the following attributes:
 - **SKU**: An instance of an offer, such as a major release of a distribution. Examples are `18.04LTS` and `2019-Datacenter`.
 - **Version**: The version number of an image SKU.
 
-Update Manager supports the following operating system versions. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
+Update Manager supports the following operating system versions on VMs. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
 #### Windows operating systems
 
@@ -167,7 +167,7 @@ The following table lists the operating systems for Azure Marketplace images tha
 
 ### Custom images
 
-We support customized images and the following table lists the operating systems that we support for customized images. For instructions on how to use Update Manager to manage updates on custom images, see [Custom images](manage-updates-customized-images.md).
+We support VMs created from customized images and the following table lists the operating systems that we support for the same. For instructions on how to use Update Manager to manage updates on custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
 > [!NOTE]
 > Automatic VM guest patching doesn't work on customized images even if the Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
@@ -209,9 +209,9 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
 ---
 
-## Unsupported operating systems
+## Unsupported workloads
 
-The following table lists the operating systems that aren't supported.
+The following table lists the workloads that aren't supported.
 
    | **Operating system**| **Notes**
    |----------|-------------|

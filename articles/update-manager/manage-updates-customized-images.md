@@ -25,19 +25,6 @@ For instance, an assessment call attempts to fetch the latest patch that's avail
 
 ## Limitations
 
-The Azure Compute Gallery images are of two types:
-- [Generalized](../virtual-machines/linux/imaging.md#generalized-images) images 
-- [Specialized](../virtual-machines/linux/imaging.md#specialized-images) images
-
-Currently, scheduled patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery are supported in preview.
- The following supported scenarios are for both types.
-
-| Images | Currently supported scenarios | Unsupported scenarios |
-|--- | --- | ---|
-| Azure Compute Gallery: Generalized images | - On-demand assessment </br> - On-demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
-| Azure Compute Gallery: Specialized images | - On-demand assessment </br> - On-demand patching  </br> - Periodic assessment (preview) </br> - Scheduled patching (preview) </br> | Automatic VM guest patching | 
-| Non-Azure Compute Gallery images (non-SIG)| - On-demand assessment </br> - On-demand patching </br> - Periodic assessment (preview) </br> - Scheduled patching (preview) </br> | Automatic VM guest patching |
-
 Automatic VM guest patching doesn't work on customized images even if Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines by defining your own schedules or by installing updates on-demand.
 
 ## Next steps
