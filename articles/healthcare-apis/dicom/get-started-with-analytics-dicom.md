@@ -275,6 +275,12 @@ After a few seconds, the results of the query appear in a table underneath the c
 
 If you've created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
 
+``` SQL
+SELECT sopInstanceUid, filePath from instance
+```
+:::image type="content" source="media/fabric-notebook-filepath.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query and results that includes the filePath." lightbox="media/fabric-notebook-filepath.png":::
+
+
 ## Summary
 
 In this article, you learned how to:
