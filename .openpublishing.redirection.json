@@ -867,6 +867,11 @@
     },
     {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
         "redirect_document_id": false
     },
