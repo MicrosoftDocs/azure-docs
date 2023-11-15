@@ -41,11 +41,6 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 ## Terminate HTTPS traffic with certificates from Azure Key Vault
 
 To enable support for HTTPS traffic, see the following prerequisites:
-  
-* **azure-keyvault-secrets-provider**: The [Secret Store CSI provider][secret-store-csi-provider] for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
-
-    > [!IMPORTANT]
-    > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
 
 * An SSL certificate. If you don't have one, you can [create a certificate][create-and-export-a-self-signed-ssl-certificate].
 
@@ -85,9 +80,15 @@ Import the SSL certificate into Azure Key Vault using the [`az keyvault certific
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
 ```
 
+    > [!IMPORTANT]
+    > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
+
+
 ### Enable the Azure Key Vault integration
 
-On a cluster with the application routing add-on enabled, use the [`az aks approuting update`][az-aks-approuting-update] command using the `--enable-kv` and  `--attach-kv` arguments to enable the Azure Key Vault provider for Secrets Store CSI Driver and apply the required role assignments to. Azure Key Vault offers [two authorization systems][authorization-systems]: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. The `--attach-kv` operation will choose the appropriate access model to use.
+On a cluster with the application routing add-on enabled, use the [`az aks approuting update`][az-aks-approuting-update] command using the `--enable-kv` and  `--attach-kv` arguments to enable the Azure Key Vault provider for Secrets Store CSI Driver and apply the required role assignments.
+
+Azure Key Vault offers [two authorization systems][authorization-systems]: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. The `--attach-kv` operation will choose the appropriate access model to use.
 
  > [!NOTE]
     > The `az aks approuting update --attach-kv` command uses the permissions of the user running the command to create the Azure Key Vault role assignment. This role is assigned to the add-on's managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
@@ -210,7 +211,7 @@ aks-helloworld   webapprouting.kubernetes.azure.com   myapp.contoso.com   20.51.
 
 ## Next steps
 
-Learn about monitoring the Ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
+Learn about monitoring the Ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] as part of analyzing the performance and usage of your application.
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
