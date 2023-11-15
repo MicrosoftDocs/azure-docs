@@ -1,28 +1,32 @@
 ---
-title: Configure IoT Layered Network Management level 4 cluster
+title: Configure Azure IoT Layered Network Management on level 4 cluster
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure IoT Layered Network Management level 4 cluster.
+description: Deploy and configure Azure IoT Layered Network Management on a level 4 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure IoT Layered Network Management level 4 cluster
+# Configure Azure IoT Layered Network Management on level 4 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management.
+Azure IoT Layered Network Management is one of the Azure IoT Operations components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
-In the top level of your network layers usually level 4 of the ISA-95 network architecture, the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forward it to Azure Arc.
-
-Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) cluster.
+## Prerequisites
+Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
+- Arc-connected cluster and GitOps in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
 
 ## Set up Kubernetes cluster in Level 4
 
-The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) with additional steps. You need to follow both documents to complete all the steps.
+To set up only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+
+Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) Kubernetes cluster. 
 
 ## Prepare Windows 11
 
@@ -38,58 +42,81 @@ The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your
     az extension add --name k8s-extension
     ```
 
-1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
+1. [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
 
 ## Create the AKS Edge Essentials cluster
 
-1. To deploy AKS Edge Essentials, you need an Azure service principal that has at least **contributor** access to your subscription. For more information on how to create an Azure service principal, see [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal) to create a service principal. For more information on prerequisites, see [AKS Edge Essentials prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
+1. Verify you meet the [Prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites) section of the AKS Edge Essentials quickstart.
+1. Follow the [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine) steps to install AKS Edge Essentials on your Windows 11 machine.
 1. Follow the steps in the [Single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment) article.
-1. Use the *New-AksEdgeDeployment* PowerShell command to create a file named **aks-ee-config.json**.
-1. Edit the **aks-ee-config.json** file.
-1. In the **Init** section, change the **ServiceIPRangeSize** property to **10**.
+    Use the *New-AksEdgeDeployment* PowerShell command to create a file named **aks-ee-config.json**, make the following modifications:
+    - In the **Init** section, change the **ServiceIPRangeSize** property to **10**.
 
-    ```json
-    "Init": {
-        "ServiceIPRangeSize": 10
-      },
-    ```
+        ```json
+        "Init": {
+            "ServiceIPRangeSize": 10
+          },
+        ```
 
-1. In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that is assigned within network layers.
+    - In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that is assigned within network layers.
 
-    ```json
-    "Network": {
-        "NetworkPlugin": "flannel",
-        "Ip4AddressPrefix": "<A.B.C.0/24>",
-        "Ip4PrefixLength": 24,
-        "InternetDisabled": false,
-        "SkipDnsCheck": false,
-    ```
+        ```json
+        "Network": {
+            "NetworkPlugin": "flannel",
+            "Ip4AddressPrefix": "<A.B.C.0/24>",
+            "Ip4PrefixLength": 24,
+            "InternetDisabled": false,
+            "SkipDnsCheck": false,
+        ```
 
-    For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
+        For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json).
 
 ## Arc enable the cluster
 
-Follow the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-
-In the **Arc** section of **aks-ee-config.json** that you created earlier, replace the placeholder text with values to reflect your specific environment.
-
-```json
-"Arc": {
-    "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
-    "Location": "<REGION>",
-    "ResourceGroupName": "<RESOURCE GROUP>",
-    "SubscriptionId": "<SUBSCRIPTION>",
-    "TenantId": "<TENANT ID>",
-    "ClientId": "<CLIENT ID>",
-    "ClientSecret": "<CLIENT SECRET>"
-  },
-```
-
-As an alternative, you can follow [Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) to Arc-enable your cluster. You need to sign in to Azure from the Windows 11 during the process, but won't need to create the service principal that described in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+1. Sign in with Azure CLI. To avoid permission issues later, it's important that you sign in interactively using a browser window:
+    ```powershell
+    az login
+    ```
+1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide:
+    ```powershell
+    # Id of the subscription where your resource group and Arc-enabled cluster will be created
+    $SUBSCRIPTION_ID = "<subscription-id>"
+    # Azure region where the created resource group will be located
+    # Currently supported regions: : "westus3" or "eastus2"
+    $LOCATION = "WestUS3"
+    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
+    $RESOURCE_GROUP = "<resource-group-name>"
+    # Name of the Arc-enabled cluster to create in your resource group
+    $CLUSTER_NAME = "<cluster-name>"
+    ```
+1. Set the Azure subscription context for all commands:
+    ```powershell
+    az account set -s $SUBSCRIPTION_ID
+    ```
+1. Register the required resource providers in your subscription:
+    ```powershell
+    az provider register -n "Microsoft.ExtendedLocation"
+    az provider register -n "Microsoft.Kubernetes"
+    az provider register -n "Microsoft.KubernetesConfiguration"
+    az provider register -n "Microsoft.IoTOperationsOrchestrator"
+    az provider register -n "Microsoft.IoTOperationsMQ"
+    az provider register -n "Microsoft.IoTOperationsDataProcessor"
+    az provider register -n "Microsoft.DeviceRegistry"
+    ```
+1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
+    ```bash
+    az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+    ```
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
+    ```powershell
+    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+    ```
+    > [!TIP]
+    > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 ## Deploy Layered Network Management Service to the cluster
 
-The following sections describe how to deploy the Layered Network Management service to the cluster.
+Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network Management service to the cluster.
 
 ### Install the Layered Network Management operator
 
@@ -98,7 +125,7 @@ The following sections describe how to deploy the Layered Network Management ser
     ```bash
     az login
 
-    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-e4in-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-alpha.5 --release-train private-preview
+    az k8s-extension create --resource-group <RESOURCE GROUP> --name kind-lnm-extension --cluster-type connectedClusters --cluster-name <CLUSTER NAME> --auto-upgrade false --extension-type Microsoft.IoTOperations.LayeredNetworkManagement --version 0.1.0-preview --release-train preview
     ```
 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.
@@ -163,6 +190,16 @@ Create the Layered Network Management custom resource.
         - destinationUrl: "graph.windows.net"
           destinationType: external
         - destinationUrl: "msit-onelake.pbidedicated.windows.net"
+          destinationType: external
+        - destinationUrl: "*.vault.azure.net"
+          destinationType: external
+        - destinationUrl: "*.k8s.io"
+          destinationType: external
+        - destinationUrl: "*.pkg.dev"
+          destinationType: external
+        - destinationUrl: "github.com"
+          destinationType: external
+        - destinationUrl: "raw.githubusercontent.com"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"

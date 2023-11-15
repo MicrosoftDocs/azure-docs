@@ -5,6 +5,8 @@ description: Learn about how with Azure Machine Learning prompt flow, you can us
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19

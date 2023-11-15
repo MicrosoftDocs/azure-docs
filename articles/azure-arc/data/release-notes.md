@@ -9,7 +9,11 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 11/14/2023
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - ignite-2023
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
@@ -1011,5 +1015,3 @@ This section describes the new features introduced or enabled for this release.
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
-
-

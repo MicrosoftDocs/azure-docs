@@ -5,6 +5,8 @@ description: Learn how to evaluate Semantic Kernel in prompt flow with Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao

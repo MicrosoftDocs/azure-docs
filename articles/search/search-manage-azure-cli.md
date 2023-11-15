@@ -7,7 +7,9 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/25/2023
 ---

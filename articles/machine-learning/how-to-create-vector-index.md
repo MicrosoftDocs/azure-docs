@@ -10,7 +10,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/30/2023
 ms.topic: how-to
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Create a vector index in an Azure Machine Learning prompt flow (preview)

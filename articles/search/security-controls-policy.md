@@ -6,7 +6,9 @@ ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: subject-policy-compliancecontrols
+ms.custom:
+  - subject-policy-compliancecontrols
+  - ignite-2023
 ---
 # Azure Policy Regulatory Compliance controls for Azure AI Search
 

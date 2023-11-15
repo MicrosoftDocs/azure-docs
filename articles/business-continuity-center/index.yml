@@ -1,17 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Business Continuity center documentation (preview)
-summary: The Azure Business Continuity center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+title: Azure Business Continuity Center documentation (preview)
+summary: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
 
 metadata:
-  title: Azure Business Continuity center Documentation 
-  description: The Azure Business Continuity center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more. 
+  title: Azure Business Continuity Center Documentation
+  description: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
   ms.service: backup
-  ms.topic: landing-page 
+  ms.custom:
+    - ignite-2023
+  ms.topic: landing-page
   author: AbhishekMallick-MS
-  ms.author: v-abhmallick 
+  ms.author: v-abhmallick
   ms.date: 09/29/2023
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

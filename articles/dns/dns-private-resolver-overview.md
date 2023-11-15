@@ -111,6 +111,7 @@ Subnets used for DNS resolver have the following limitations:
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
+- The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services.
 
 ### Outbound endpoint restrictions
 

@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 10/30/2023
  ms.author: dobett
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. At the current time, Microsoft only supports K3s on Ubuntu Linux.

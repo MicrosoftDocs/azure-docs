@@ -7,7 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/02/2023
 ---
@@ -82,7 +84,7 @@ The following samples are also published by the Azure AI Search team, but aren't
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
+| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
 | [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services) |  [azure-search-dotnet-scale](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Issue a single query across multiple search services and combine the results into a single page.  |
 | [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/check-storage-usage/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Invokes an Azure function that checks search service storage on a schedule. |
 | [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/export-data/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that partitions and export a large index. |

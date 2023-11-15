@@ -9,7 +9,9 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 01/27/2023
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - ignite-2023
 ---
 # Quickstart: Create a search index in PowerShell using REST APIs
 

@@ -5,7 +5,9 @@ description: Learn how to deploy your flow to a managed online endpoint or Kuber
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: how-to
 author: likebupt
 ms.author: keli19

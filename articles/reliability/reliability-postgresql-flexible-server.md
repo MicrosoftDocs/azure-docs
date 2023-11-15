@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.custom:
   - references_regions
   - subject-reliability
+  - ignite-2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Database for PostgreSQL - Flexible Server so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->

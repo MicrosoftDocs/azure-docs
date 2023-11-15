@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 11/07/2023
  ms.author: rogarana
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 Except for Ultra Disks and Premium SSD v2 managed disks, encryption at host is available in all regions.

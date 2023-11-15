@@ -8,6 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 03/09/2023
 ---

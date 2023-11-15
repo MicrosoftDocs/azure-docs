@@ -7,8 +7,9 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: overview
 ms.date: 03/20/2023
-ms.custom: template-overview
-
+ms.custom:
+  - template-overview
+  - ignite-2023
 # As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
 ---
 

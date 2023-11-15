@@ -9,7 +9,9 @@ manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
+ms.custom:
+  - kr2b-contr-experiment
+  - ignite-2023
 ms.date: 06/10/2022
 ---
 

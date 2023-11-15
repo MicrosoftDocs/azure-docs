@@ -1,6 +1,8 @@
 ---
 author: ggailey777
 ms.service: azure-functions
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/02/2023
 ms.author: glenga

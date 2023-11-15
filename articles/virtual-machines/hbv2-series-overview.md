@@ -41,7 +41,7 @@ Process pinning works on HBv2-series VMs because we expose the underlying silico
 | CPU Frequency (non-AVX)          | ~3.1 GHz (single + all cores)    | 
 | Memory                           | 4 GB/core (480 GB total)         | 
 | Local Disk                       | 960 GiB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 200 Gb/s EDR Mellanox ConnectX-6 | 
+| Infiniband                       | 200 Gb/s HDR Mellanox ConnectX-6 | 
 | Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
 
 

@@ -10,7 +10,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/12/2023
 ms.topic: how-to
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Secure your RAG workflows with network isolation (preview)

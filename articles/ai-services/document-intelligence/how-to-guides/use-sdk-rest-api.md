@@ -5,7 +5,12 @@ description: Learn how to use Document Intelligence SDKs or REST API and create 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: how-to
 ms.date: 08/21/2023
 ms.author: lajanuar

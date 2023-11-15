@@ -5,6 +5,8 @@ description: Create an alias to define a secondary name that can be used to refe
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 04/04/2023
 ---

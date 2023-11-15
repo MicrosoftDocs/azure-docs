@@ -3,6 +3,8 @@ title:  Managing the Azure Connected Machine agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
 ms.date: 05/04/2023
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ---
 
 # Managing and maintaining the Connected Machine agent
@@ -419,10 +421,10 @@ Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure 
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| `AAD` | `login.windows.net`</br>`login.microsoftonline.com`</br> `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net`|
-| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net` |
+| `Arc` | `his.arc.azure.com`</br>`guestconfiguration.azure.com`</br> `san-af-<location>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com`|
+| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com` |
 
 <sup>1</sup> To use proxy bypass value `ArcData`, you need a supported Azure Connected Machine agent and a supported Azure Extension for SQL Server version. Releases are supported beginning November, 2023. To see the latest release, check the release notes:
    - [Azure Connected Machine Agent](./agent-release-notes.md)

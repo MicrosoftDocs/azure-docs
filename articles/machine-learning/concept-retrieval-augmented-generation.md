@@ -10,7 +10,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/27/2023
 ms.topic: conceptual
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview)

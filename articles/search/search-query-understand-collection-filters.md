@@ -6,9 +6,10 @@ description: Learn the mechanics of how OData collection filters work in Azure A
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/30/2023
-
 ---
 # Understanding OData collection filters in Azure AI Search
 

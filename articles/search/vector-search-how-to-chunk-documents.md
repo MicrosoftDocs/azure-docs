@@ -6,13 +6,15 @@ description: Learn strategies for chunking PDFs, HTML files, and other large doc
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/30/2023
 ---
 
 # Chunking large documents for vector search solutions in Azure AI Search
 
-This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models. 
+This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models.
 
 > [!NOTE]
 > This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external library that performs data chunking. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded data chunking. Integrated vectorization takes a dependency on indexers, skillsets, and the Text Split skill. 
@@ -88,7 +90,7 @@ You can both ski in winter and swim in summer.
 **Example: maximum tokens = 16**
 
 ```
-Barcelona is a city in Spain. It is close to the sea /n and the mountain. /n
+Barcelona is a city in Spain. It is close to the sea /n and the mountains. /n
 You can both ski in winter and swim in summer.
 ```
 

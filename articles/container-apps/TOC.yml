@@ -6,8 +6,10 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
-    - name: Overview
-      href: start.md
+    - name: Introduction to containers
+      href: start-containers.md
+    - name: Introduction to serverless containers
+      href: start-serverless-containers.md
     - name: Quickstarts
       items: 
       - name: Deploy from an existing container image

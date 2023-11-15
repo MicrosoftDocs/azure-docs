@@ -6,6 +6,8 @@ description: Use the generally available REST APIs to call vector search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 11/02/2023
 ---
