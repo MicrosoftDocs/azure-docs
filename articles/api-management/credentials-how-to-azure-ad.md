@@ -1,6 +1,6 @@
 ---
 title: Create credential to Microsoft Graph API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a managed token credential to a backend Microsoft Graph API using the Azure API Management credential manager. 
+description: Learn how to create and use a managed credential connection to a backend Microsoft Graph API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.author: danlep
 
 # Configure credential manager - Microsoft Graph API
 
-This article guides you through the steps required to create a managed [token credential](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
+This article guides you through the steps required to create a managed [credential connection](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Create a Microsoft Entra application
-> * Create and configure a credential in API Management
+> * Create and configure a credential provider in API Management
 > * Configure a credential connection
 > * Create a Microsoft Graph API in API Management and configure a policy
 > * Test your Microsoft Graph API in API Management
@@ -53,7 +53,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
         > [!NOTE]
         > Make sure the permission **User.Read** with the type **Delegated** has already been added.
     1. Type **Team**, expand the **Team** options, and then select **Team.ReadBasic.All**. Select **Add permissions**.
-    1. Next, select **Grant admin consent for Default Directory**. The status of the permissions change to **Granted for Default Directory**.
+    1. Next, select **Grant admin consent for Default Directory**. The status of the permissions changes to **Granted for Default Directory**.
 1. On the left menu, select **Overview**. On the **Overview** page, find the **Application (client) ID** value and record it for use in Step 2.
 1. On the left menu, select **Certificates & secrets**, and then select **+ New client secret**.    
     :::image type="content" source="media/credentials-how-to-azure-ad/create-secret.png" alt-text="Screenshot of creating an app secret in the portal.":::
@@ -63,7 +63,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     1. Select **Add**.
     1. Copy the client secret's **Value** before leaving the page. You will need it in Step 2.
 
-## Step 2: Configure a credential in API Management
+## Step 2: Configure a credential provider in API Management
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
 1. On the left menu, select **Credential manager**, and then select **+ Create**.    
@@ -82,9 +82,18 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common*. |
     |**Scopes**     |    Optional for Microsoft Entra identity provider. Automatically configured from Microsoft Entra app's API permissions.      |
 
-## Step 3: Authorize with Microsoft Entra ID and configure an access policy
+## Step 3: Configure a credential connection
+
+On the **Connection** tab, complete the steps for your connection. 
+
+> [!NOTE]
+> When you configure a credential connection, API Management by default sets up an [access policy](credentials-process-flow.md#access-policy) that enables access by the instance's systems-assigned managed identity. This access is sufficient for this example. You can add additional access policies as needed. 
+
 
 [!INCLUDE [api-management-credential-create-connection](../../includes/api-management-credential-create-connection.md)]
+
+> [!TIP]
+> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple credential connections](configure-credential-connection.md). 
 
 > [!NOTE]
 > If you update your Microsoft Graph permissions after this step, you will have to repeat Steps 2 and 3.
@@ -140,7 +149,7 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     ```
 The preceding policy definition consists of two parts:
 
-* The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and credential that were created earlier. 
+* The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that were created earlier. 
 * The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched credential token.
 
 ## Step 5: Test the API 

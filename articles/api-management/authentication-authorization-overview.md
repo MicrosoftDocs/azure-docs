@@ -107,21 +107,21 @@ There are different reasons for doing this. For example:
 
 ### Scenario 3: API management authorizes to backend
 
-With [API credentials](credentials-overview.md), you configure API Management itself to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
+With managed [credential connections](credentials-overview.md) (formerly called *authorizations*), you use credential manager in API Management to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
 
 In the following example, a subscription key is used between the client and the gateway, and GitHub is the credential provider for the backend API.
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API credential.":::
 
-With an API credential, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Credentials simplify token management in multiple scenarios, such as:
+With a credential connection, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Connections simplify token management in multiple scenarios, such as:
 
 * A client app might need to authorize to multiple SaaS backends to resolve multiple fields using GraphQL resolvers.
 * Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account
 
 Examples:
 
-* [Create an API credential with the Microsoft Graph API](credentials-how-to-azure-ad.md)
-* [Create an API credential with the GitHub API](credentials-how-to-github.md)
+* [Configure credential manager - Microsoft Graph API](credentials-how-to-azure-ad.md)
+* [Configure credential manager - GitHub API](credentials-how-to-github.md)
 
 ## Other options to secure APIs
 

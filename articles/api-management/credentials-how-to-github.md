@@ -1,6 +1,6 @@
 ---
 title: Create credential to GitHub API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a managed token credential to a backend GitHub API using the Azure API Management credential manager.  
+description: Learn how to create and use a managed credential connection to a backend GitHub API using the Azure API Management credential manager.  
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.author: danlep
 
 # Configure credential manager - GitHub API
 
-In this article, you learn how to create a managed [token credential](credentials-overview.md) in API Management and call a GitHub API that requires an OAuth 2.0 token. The authorization code grant type is used in this example.
+In this article, you learn how to create a managed [credential connection](credentials-overview.md) in API Management and call a GitHub API that requires an OAuth 2.0 token. The authorization code grant type is used in this example.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Register an application in GitHub
-> * Configure a token credential in API Management.
-> * Authorize with GitHub and configure a credential connection
+> * Configure a credential provider in API Management.
+> * onfigure a credential connection
 > * Create an API in API Management and configure a policy.
 > * Test your GitHub API in API Management
 
@@ -43,7 +43,7 @@ You learn how to:
 
     :::image type="content" source="media/credentials-how-to-github/generate-secret.png" alt-text="Screenshot showing how to get client ID and client secret for the application in GitHub.":::
 
-## Step 2: Configure a token credential in API Management
+## Step 2: Configure a credential provider in API Management
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
 1. On the left menu, select **Credential manager** > **+ Create**.
@@ -63,9 +63,17 @@ You learn how to:
 1. Select **Create**.
 1. When prompted, review the OAuth redirect URL that's displayed, and select **Yes** to confirm that it matches the URL you entered in the app registration.
   
-## Step 3: Authorize with GitHub and configure access policies
+## Step 3: Configure a credential connection
+
+On the **Connection** tab, complete the steps for your connection. 
+
+> [!NOTE]
+> When you configure a credential connection, API Management by default sets up an [access policy](credentials-process-flow.md#access-policy) that enables access by the instance's systems-assigned managed identity. This access is sufficient for this example. You can add additional access policies as needed. 
 
 [!INCLUDE [api-management-credential-create-connection](../../includes/api-management-credential-create-connection.md)]
+
+> [!TIP]
+> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple credential connections](configure-credential-connection.md). 
 
 ## Step 4: Create an API in API Management and configure a policy
 

@@ -1,6 +1,6 @@
 ---
 title: Credential manager in Azure API Management - process flows
-description: Learn more about the management and runtime process flows for managing OAuth tokens using credential manager in Azure API Management
+description: Learn about the management and runtime process flows for managing OAuth credential connections using credential manager in Azure API Management
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
@@ -9,16 +9,16 @@ ms.author: danlep
 ms.custom: 
 ---
 
-# Process details and flows for OAuth 2.0 token credentials in credential manager
+# OAuth 2.0 credential connections in credential manager - process details and flows
 
-This article provides details about the process flows for managing OAuth 2.0 token credentials using credential manager in Azure API Management. The process flows are divided into two parts: **management** and **runtime**.
+This article provides details about the process flows for managing OAuth 2.0 credential connections using credential manager in Azure API Management. The process flows are divided into two parts: **management** and **runtime**.
 
 For details about managed OAuth 2.0 tokens in API Management, see [About credential manager and API credentials in API Management](credentials-overview.md).
 
-## Management of token credentials
+## Management of credential connections
     
-The **management** part of token credentials in credential manager takes care of setting up and configuring a *credential provider* and its associated *credential store* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. 
-The following image summarizes the process flow for creating a token credential in API Management that uses the authorization code grant type.
+The **management** part of credential connections in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. 
+The following image summarizes the process flow for creating a credential connection in API Management that uses the authorization code grant type.
 
 :::image type="content" source="media/credentials-process-flow/get-token.svg" alt-text="Diagram showing process flow for creating credentials." border="false":::
 
@@ -38,7 +38,7 @@ The following image summarizes the process flow for creating a token credential 
 
 ### Credential provider
 
-When configuring your credential provider, you can choose between different [providers](credentials-configure-common-providers.md) and grant types (authorization code or client credential). Each provider requires specific configurations. Important things to keep in mind:
+When configuring your credential provider, you can choose between different [OAuth providers](credentials-configure-common-providers.md) and grant types (authorization code or client credential). Each provider requires specific configurations. Important things to keep in mind:
 
 * A credential provider configuration can only have one grant type.
 * One credential provider configuration can have [multiple credential connections](configure-credential-connection.md). 
@@ -67,7 +67,7 @@ For credentials based on the authorization code grant type, you must authenticat
 
 #### Access policy
 
-You configure one or more *access policies* for each credential connection. The access policies determine which [Microsoft Entra identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your credentials at runtime. Credentials currently support access using service principals, your API Management instance's identity, users, and groups.
+You configure one or more *access policies* for each credential connection. The access policies determine which [Microsoft Entra IDidentities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your credentials at runtime. Credential connections currently support access using service principals, your API Management instance's identity, users, and groups.
 
 
 |Identity  |Description  | Benefits | Considerations |
@@ -79,11 +79,11 @@ You configure one or more *access policies* for each credential connection. The 
 
 
 
-## Runtime of token credentials
+## Runtime of credential connections
 
-The **runtime** part requires a backend OAuth 2.0 API to be configure with the [`get-authorization-context`](get-authorization-context-policy.md). At runtime, the policy fetches and stores access and refresh tokens from the credential store. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. F(credentials-process-flow.md#process-flow---runtime).  
+The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. F(credentials-process-flow.md#process-flow---runtime).  
    
-    During the policy execution, access to the tokens is also validated using access policies.
+During the policy execution, access to the tokens is also validated using access policies.
 
 
 The following image shows an example process flow to fetch and store authorization and refresh tokens based on a credential that uses the authorization code grant type. After the tokens have been retrieved, a call is made to the backend API. 

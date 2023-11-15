@@ -1,6 +1,6 @@
 ---
 title: Configure credential providers - Azure API Management | Microsoft Docs
-description: Learn how to configure common identity providers for managed token credentials in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider.  
+description: Learn how to configure common credential providers in Azure API Management's credential manager. Example providers are Microsoft Entra ID and generic OAuth 2.0.  
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -9,16 +9,16 @@ ms.date: 11/10/2023
 ms.author: danlep
 ---
 
-# Configure identity providers for API credentials
+# Configure common credential providers in credential manager
 
-In this article, you learn about configuring identity providers for managed [token credentials](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
+In this article, you learn about configuring identity providers for managed [credential connections](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
 * Microsoft Entra provider
 * Generic OAuth 2.0 provider
 
-You add identity provider settings when configuring a token credential in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
+You configure a credential provider in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
 
-* [Create a token credential with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
+* [Configure credential manager - Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ API credentials support the Microsoft Entra identity provider, which is the iden
 
 ## Generic OAuth 2.0 providers
 
-You can use two generic providers for configuring token credentials:
+You can use two generic providers for configuring credential connections:
 
 * Generic OAuth 2.0
 * Generic OAuth 2.0 with PKCE 
@@ -61,13 +61,13 @@ A generic provider allows you to use your own OAuth 2.0 identity provider based 
 
 * **Supported grant types**: authorization code, client credentials
 
-### Generic authorization provider settings
+### Generic credential provider settings
 
 [!INCLUDE [api-management-authorization-generic-provider](../../includes/api-management-authorization-generic-provider.md)]
 
 ## Other identity providers
 
-API Management supports several providers for popular SaaS offerings, including GitHub, LinkedIn, and others. You can select from a list of these providers in the Azure portal when you create a managed credential.
+API Management supports several providers for popular SaaS offerings, including GitHub, LinkedIn, and others. You can select from a list of these providers in the Azure portal when you create a credential provider.
 
 :::image type="content" source="media/credentials-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
 
@@ -77,5 +77,5 @@ Required settings for these providers differ from provider to provider but are s
 
 ## Related content
 
-* Learn more about [credentials](credentials-overview.md) in API Management.
+* Learn more about managing[credentials](credentials-overview.md) in API Management.
 * Create an authorization for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
