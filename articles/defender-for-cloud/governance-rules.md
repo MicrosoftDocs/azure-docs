@@ -13,7 +13,7 @@ While the security team is responsible for improving the security posture, team 
 
 Using governance rules driven by the security team helps you to drive accountability and an SLA around the remediation process.
 
-To learn more, Watch [this episode](episode-fifteen.md) of the Defender for Cloud in the Field video series.
+To learn more, watch [this episode](episode-fifteen.md) of the Defender for Cloud in the Field video series.
 
 ## Governance rules
 
@@ -25,7 +25,7 @@ For tracking, you can review the progress of the remediation tasks by subscripti
 - The rule assigns an owner and due date to ensure the recommendations are handled. Many governance rules can apply to the same recommendations, so the rule with lower priority value is the one that assigns the owner and due date.
 - The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule.
 - For example, if the rule identifies the resource on March 1 and the remediation timeframe is 14 days, March 15 is the due date.
-- You can apply a grace period so that the resources that 's given a due date don't affect your secure score until they're overdue.
+- You can apply a grace period so that the resources given a due date don't affect your secure score.
 - You can also set the owner of the resources that are affected by the specified recommendations.
 - In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 - The owner is shown as unspecified when the owner wasn't found on the resource, the associated resource group, or the associated subscription based on the specified tag.
@@ -42,7 +42,7 @@ For tracking, you can review the progress of the remediation tasks by subscripti
 
 ## Define a governance rule
 
-To define a governance rule that assigns an owner and due date.
+Define a governance rule as follows.
 
 1. In Defender for Cloud, open the **Environment settings** page, and select **Governance rules**.
 1. Select **Create governance rule**.
@@ -54,9 +54,9 @@ To define a governance rule that assigns an owner and due date.
 1. Priority is assigned automatically. Rules are run in priority order from the highest (1) to the lowest (1000).
 1. Specify a description to help you identify the rule. Then select **Next**.
 
-    :::image type="content" source="./media/governance-rules/add-rule.png" alt-text="Screenshot of page for adding a governance rule.":::
+    :::image type="content" source="./media/governance-rules/add-rule.png" alt-text="Screenshot of page for adding a governance rule." lightbox="media/governance-rules/add-rule.png":::
 
-1. In the **Conditions** tab, specify how recommendations are impacted by the rule
+1. In the **Conditions** tab, specify how recommendations are impacted by the rule.
     - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
     - **By specific recommendations** - Select the specific built-in or custom recommendations that the rule applies to. 
 1. In **Set owner**, specify who's responsible for fixing recommendations covered by the rule.
@@ -68,7 +68,7 @@ To define a governance rule that assigns an owner and due date.
 1. By default owners and their managers are notified weekly about open and overdue tasks. If you don't want them to receive these weekly emails, clear the notification options.
 1. Select **Create**.
 
-    :::image type="content" source="./media/governance-rules/create-rule-conditions.png" alt-text="Screenshot of page for adding conditions for a governance rule.":::
+    :::image type="content" source="./media/governance-rules/create-rule-conditions.png" alt-text="Screenshot of page for adding conditions for a governance rule." lightbox="media/governance-rules/create-rule-conditions.png":::
 
 
 - If there are existing recommendations that match the definition of the governance rule, you can either:
@@ -90,7 +90,7 @@ You can view the effect of government rules in your environment.
      - Filter on **Grace period** to find MCSB recommendations that won't affect your secure score.
      - Identify by status.
 
-        :::image type="content" source="./media/governance-rules/view-filter-rules.png" alt-text="Screenshot of page for viewing and filtering rules.":::
+        :::image type="content" source="./media/governance-rules/view-filter-rules.png" alt-text="Screenshot of page for viewing and filtering rules." lightbox="media/governance-rules/view-filter-rules.png":::
 
 
 

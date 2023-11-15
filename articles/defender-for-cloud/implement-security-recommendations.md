@@ -28,7 +28,7 @@ Before you start remediating, we recommend grouping your recommendations by risk
 
     :::image type="content" source="media/implement-security-recommendations/group-by-risk-level.png" alt-text="Screenshot of the recommendations page that shows how to group your recommendations." lightbox="media/implement-security-recommendations/group-by-risk-level.png":::
 
-Recommendations are displayed in groups of risk levels.
+    Recommendations are displayed in groups of risk levels.
 
 1. Review critical and other recommendations to understand the recommendation and remediation steps. Use the graph to understand the risk to your business, including which resources are exploitable, and the effect that the recommendation has on your business.
 
@@ -45,9 +45,9 @@ In addition to risk level, we recommend that you prioritize the security control
 1. In the recommendation details page, select **Take action** > **Remediate**.
 1. Follow the remediation instructions.
 
-As an example, the following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
+    As an example, the following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
-:::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
+    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="This screenshots shows manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
 
 1. Once completed, a notification appears informing you whether the issue is resolved.
 
@@ -57,7 +57,7 @@ To simplify remediation and improve your environment's security (and increase yo
 
 1. In the **Recommendations**  page, select a recommendation that shows the **Fix** action icon: :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
 
-    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="This screenshot shows recommendations with the Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
 1. In **Take action**, select **Fix**.
 1. Follow the rest of the remediation steps.

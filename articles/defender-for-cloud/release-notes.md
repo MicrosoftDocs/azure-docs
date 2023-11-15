@@ -871,9 +871,9 @@ The two versions of the recommendations:
 
 will both be available until the [Log Analytics agent is deprecated on August 31, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), which is when the older version (`System updates should be installed on your machines`) of the recommendation will be deprecated as well. Both recommendations return the same results and are available under the same control `Apply system updates`.
 
-The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Manager (Preview). This remediation process is still in Preview.
+The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)` has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Manager (Preview). This remediation process is still in Preview.
 
-The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
+The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)` isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
 
 The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) has a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md).
 

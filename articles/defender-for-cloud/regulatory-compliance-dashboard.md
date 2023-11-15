@@ -44,7 +44,7 @@ The dashboard helps you to focus on gaps in standards, and to monitor compliance
 
     - (1). Select a compliance standard to see a list of all controls for that standard.
     - (2). View the subscriptions on which the compliance standard is applied.
-    - (3) Select and expand a control to view the assessments associated with it. Select an assessment to view the associated resources, and possible remediation actions.
+    - (3). Select and expand a control to view the assessments associated with it. Select an assessment to view the associated resources, and possible remediation actions.
     - (4). Select **Control details** to view the **Overview**, **Your Actions**, and **Microsoft Actions** tabs.
     - (5). In **Your Actions**, you can see the automated and manual assessments associated with the control.
     - (6). Automated assessments show the number of failed resources and resource types, and link you directly to the remediation information.

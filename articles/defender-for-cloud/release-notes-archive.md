@@ -1383,7 +1383,7 @@ According to the [2021 State of the Cloud report](https://info.flexera.com/CM-RE
 
 **Microsoft Defender for Cloud** (formerly known as Azure Security Center and Azure Defender) is a Cloud Security Posture Management (CSPM) and cloud workload protection (CWP) solution that discovers weaknesses across your cloud configuration, helps strengthen the overall security posture of your environment, and protects workloads across multicloud and hybrid environments.
 
-At Ignite 2019, we shared our vision to create the most complete approach for securing your digital estate and integrating XDR technologies under the Microsoft Defender brand. Unifying Azure Security Center and Azure Defender under the new name **Microsoft Defender for Cloud**, reflects the integrated capabilities of our security offering and our ability to support any cloud platform.
+At Ignite 2019, we shared our vision to create the most complete approach for securing your digital estate and integrating XDR technologies under the Microsoft Defender brand. Unifying Azure Security Center and Azure Defender under the new name **Microsoft Defender for Cloud** reflects the integrated capabilities of our security offering and our ability to support any cloud platform.
 
 ### Native CSPM for AWS and threat protection for Amazon EKS, and AWS EC2
 
@@ -3119,7 +3119,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multifactor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -3418,7 +3418,7 @@ The details page for recommendations now includes a freshness interval indicator
 Updates in August include:
 
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
@@ -3433,13 +3433,13 @@ You can use the view and its filters to explore your security posture data and t
 
 Learn more about [asset inventory](asset-inventory.md).
 
-### Added support for Azure Active Directory security defaults (for multi-factor authentication)
+### Added support for Azure Active Directory security defaults (for multifactor authentication)
 
 Security Center has added full support for [security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), Microsoft's free identity security protections.
 
 Security defaults provide preconfigured identity security settings to defend your organization from common identity-related attacks. Security defaults already protecting more than 5 million tenants overall; 50,000 tenants are also protected by Security Center.
 
-Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults.
+Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multifactor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults.
 
 Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](secure-score-security-controls.md).
 
@@ -3532,7 +3532,7 @@ Although you can now deploy the integrated vulnerability assessment extension (p
 
 Learn more about the [integrated vulnerability scanner for virtual machines (requires Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Learn more about using your own privately-licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
 
@@ -3868,7 +3868,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
+Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 ## March 2020
 
@@ -4076,7 +4076,7 @@ In order to enable enterprise level scenarios on top of Security Center, it's no
 
 Windows Admin Center is a management portal for Windows Servers who are not deployed in Azure offering them several Azure management capabilities such as backup and system updates. We have recently added an ability to onboard these non-Azure servers to be protected by ASC directly from the Windows Admin Center experience.
 
-With this new experience users will be to onboard a WAC server to Azure Security Center and enable viewing its security alerts and recommendations directly in the Windows Admin Center experience.
+With this new experience users can onboard a WAC server to Azure Security Center and enable viewing its security alerts and recommendations directly in the Windows Admin Center experience.
 
 ## September 2019
 

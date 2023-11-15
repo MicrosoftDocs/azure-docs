@@ -75,7 +75,7 @@ You can perform a number of actions to interact with recommendations. If an opti
 
 ## Manage recommendations assigned to you
 
-Defender for Cloud support governance rules for recommendations, to specify a recommendation owner or due date for action. Governance rules help ensure accountability and an SLA for recommendations.
+Defender for Cloud supports governance rules for recommendations, to specify a recommendation owner or due date for action. Governance rules help ensure accountability and an SLA for recommendations.
 
 - Recommendations are listed as **On time** until their due date is passed, when they're changed to **Overdue**.
 - Before the recommendation is overdue, the recommendation doesn't affect the secure score.
@@ -97,18 +97,18 @@ Manage recommendations assigned to you as follows:
         - Override the default weekly email to the owner.
         - Notify owners weekly with a list of open/overdue tasks.
         - Notify the owner's direct manager with an open task list.
-1. Select **Save**
+1. Select **Save**.
 
-> [Note]
+> [!NOTE]
 > Changing the expected completion date doesn't change the due date for the recommendation, but security partners can see that you plan to update the resources by the specified date.
 
-## Review recommendations in Azure Resource Graph (ARG)
+## Review recommendations in Azure Resource Graph
 
-You can use [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml) to query Defender for Cloud security posture data across multiple subscriptions. Azure Resource Graph provides an efficient way to query at scale across cloud environments by viewing, filtering, grouping, and sorting data.
+You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to query Defender for Cloud security posture data across multiple subscriptions. Azure Resource Graph provides an efficient way to query at scale across cloud environments by viewing, filtering, grouping, and sorting data.
 
 1. In the Defender for Cloud portal > **Recommendations** page > select **Open query**.
 
-1. In [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), write a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference Defender for Cloud data across multiple subscriptions.
+1. In [Azure Resource Graph](../governance/resource-graph/index.yml), write a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/).
 1. You can open the query in one of two ways:
 
    - **Query returning affected resource** - Returns a list of all of the resources affected by this recommendation.
@@ -123,7 +123,7 @@ In this example,  this recommendation details page shows 15 affected resources:
 
 When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same 15 resources and their health status for this recommendation:
 
-:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
+:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Screenshot of Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
 
 
 

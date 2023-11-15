@@ -21,15 +21,15 @@ In such cases, you can create an exemption to:
 
 For the scope you need, you can create an exemption rule to:
 
-- Mark a specific **recommendation** or as "mitigated" or "risk accepted" for one or more subscriptions, or for an entire management group.
+- Mark a specific **recommendation** as "mitigated" or "risk accepted" for one or more subscriptions, or for an entire management group.
 - Mark **one or more resources** as "mitigated" or "risk accepted" for a specific recommendation.
 
 ## Before you start
 
-This feature is in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]. This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future. [Review Azure cloud support](support-matrix-cloud-environment.md).
+This feature is in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] This is a premium Azure Policy capability that's offered at no additional cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.
 
 - You need the following permissions to make exemptions:
-    - *Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
+    - **Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
     - To create a rule, you need permissions to edit policies in Azure Policy. [Learn more](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 - You can create exemptions for recommendations included in Defender for Cloud's default [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) standard, or any of the supplied regulatory standards.
