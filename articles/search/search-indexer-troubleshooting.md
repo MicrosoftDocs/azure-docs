@@ -1,13 +1,14 @@
 ---
 title: Indexer troubleshooting guidance
 titleSuffix: Azure AI Search
-description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search. 
+description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search.
 
 manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/04/2023
 ---

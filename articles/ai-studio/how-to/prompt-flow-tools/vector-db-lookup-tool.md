@@ -5,6 +5,8 @@ description: This article introduces the Vector DB Lookup tool for flows in Azur
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur
@@ -219,6 +221,3 @@ For Weaviate, the following fields are populated:
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-
-
-

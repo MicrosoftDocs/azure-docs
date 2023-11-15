@@ -5,6 +5,8 @@ description: Learn how to tune prompts using variants in prompt flow with Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: ishinzhang
 ms.author: yijunzhang

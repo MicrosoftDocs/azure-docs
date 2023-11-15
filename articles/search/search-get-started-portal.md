@@ -8,7 +8,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/01/2023
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - ignite-2023
 ---
 
 # Quickstart: Create a search index in the Azure portal

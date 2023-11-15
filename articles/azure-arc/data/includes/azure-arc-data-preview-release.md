@@ -2,6 +2,8 @@
 author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/1/2023
 ---

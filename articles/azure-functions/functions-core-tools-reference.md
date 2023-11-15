@@ -1,7 +1,9 @@
 ---
-title: Azure Functions Core Tools reference 
+title: Azure Functions Core Tools reference
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
+ms.custom:
+  - ignite-2023
 ms.date: 08/20/2023
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Index blobs containing multiple documents  
+title: Index blobs containing multiple documents
 titleSuffix: Azure AI Search
 description: Crawl Azure blobs for text content using the Azure AI Search Blob indexer, where each blob might yield one or more search index documents.
 
@@ -8,6 +8,8 @@ author: arv100kri
 ms.author: arjagann
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---

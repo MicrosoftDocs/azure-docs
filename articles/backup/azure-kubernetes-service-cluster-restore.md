@@ -1,8 +1,10 @@
 ---
-title: Restore Azure Kubernetes Service (AKS) using Azure Backup 
+title: Restore Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: backup
+ms.custom:
+  - ignite-2023
 ms.date: 05/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -100,4 +102,3 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
 
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
-

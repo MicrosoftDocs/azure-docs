@@ -1,10 +1,17 @@
 ---
-title: Migrate apps from Azure Functions version 1.x to 4.x 
-description: This article shows you how to upgrade your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
+title: Migrate apps from Azure Functions version 1.x to 4.x
+description: This article shows you how to upgrade your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet, devx-track-azurecli
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 

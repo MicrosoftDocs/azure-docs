@@ -4,6 +4,8 @@ description: In this article, you learn how to manage backup and replication pol
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -53,4 +55,3 @@ Follow these steps:
 
 - [Configure protection](./tutorial-configure-protection-datasource.md)
 - [View protectable resources](./tutorial-view-protectable-resources.md)
-

@@ -11,8 +11,9 @@ metadata:
   ms.service: azure-arc
   ms.topic: hub-page
   ms.date: 11/08/2022
-  ms.custom: e2e-hybrid
-
+  ms.custom:
+    - e2e-hybrid
+    - ignite-2023
 # highlightedContent section (optional)
 # Maximum of 8 items
 highlightedContent:
@@ -168,5 +169,3 @@ additionalContent:
         - title: Azure IoT Operations Preview – enabled by Azure Arc
           summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
           url: /azure/iot-operations/
-
-

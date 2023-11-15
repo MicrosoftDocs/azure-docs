@@ -5,6 +5,8 @@ description: Learn how to configure routing preference in Azure Route Server usi
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 

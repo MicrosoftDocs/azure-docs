@@ -5,6 +5,8 @@ description: This article provides instructions on how to install and get starte
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur
@@ -151,15 +153,3 @@ ai help
 ## Next steps
 
 - [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
-
-
-
-
-
-
-
-
-
-
-
-

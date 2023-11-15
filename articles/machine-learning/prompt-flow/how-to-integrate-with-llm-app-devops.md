@@ -5,6 +5,8 @@ description: Learn about integration of prompt flow with LLM-based application D
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao

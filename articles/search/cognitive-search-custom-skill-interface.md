@@ -5,6 +5,8 @@ description: Integrate a custom skill with an AI enrichment pipeline in Azure AI
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 06/29/2023
 ---

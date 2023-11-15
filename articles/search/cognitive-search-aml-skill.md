@@ -7,7 +7,8 @@ manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---

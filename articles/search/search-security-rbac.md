@@ -9,7 +9,10 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 05/16/2023
-ms.custom: subject-rbac-steps, references_regions
+ms.custom:
+  - subject-rbac-steps
+  - references_regions
+  - ignite-2023
 ---
 
 # Connect to Azure AI Search using Azure role-based access control (Azure RBAC)

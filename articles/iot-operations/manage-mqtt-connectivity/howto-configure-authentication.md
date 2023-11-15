@@ -5,6 +5,8 @@ description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.

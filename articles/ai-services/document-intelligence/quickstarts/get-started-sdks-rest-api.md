@@ -5,7 +5,12 @@ description: Use a Document Intelligence SDK or the REST API to create a forms p
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 08/15/2023
 ms.author: lajanuar

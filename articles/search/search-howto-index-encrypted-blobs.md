@@ -7,10 +7,11 @@ manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.devlang: rest-api
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/28/2022
-
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure AI Search

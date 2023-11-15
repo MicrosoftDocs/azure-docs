@@ -10,7 +10,9 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
 ms.date: 01/25/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 ---
 
 # Manage your Azure AI Search service with PowerShell

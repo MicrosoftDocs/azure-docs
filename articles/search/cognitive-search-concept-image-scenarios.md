@@ -7,7 +7,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 08/29/2022
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Extract text and information from images in AI enrichment

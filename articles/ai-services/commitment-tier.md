@@ -3,7 +3,10 @@ title: Create an Azure AI services resource with commitment tier pricing
 description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization, mode-other
+ms.custom:
+  - subject-cost-optimization
+  - mode-other
+  - ignite-2023
 ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 12/01/2022

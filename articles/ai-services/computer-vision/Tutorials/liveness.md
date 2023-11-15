@@ -4,7 +4,9 @@ description: In this Tutorial, you learn how to Detect liveness in faces, using 
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
-ms.topic: tutorial 
+ms.custom:
+  - ignite-2023
+ms.topic: tutorial
 ms.date: 11/06/2023
 ---
 
@@ -288,4 +290,3 @@ See the liveness SDK reference to learn about other options in the liveness APIs
 
 - [Java (Android)](https://aka.ms/liveness-sdk-java)
 - [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
-

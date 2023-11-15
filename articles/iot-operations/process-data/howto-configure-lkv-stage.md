@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/09/2023
 
 #CustomerIntent: As an operator, I want to track and maintain last known values for data in a pipeline so that I can create complete records by filling in missing values with last known values.

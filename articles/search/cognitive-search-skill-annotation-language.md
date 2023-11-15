@@ -6,6 +6,8 @@ description: Annotation syntax reference for annotation in the context, inputs a
 author: BertrandLeRoy
 ms.author: beleroy
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 01/27/2022
 ---

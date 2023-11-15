@@ -11,7 +11,9 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Use the HeadPose attribute

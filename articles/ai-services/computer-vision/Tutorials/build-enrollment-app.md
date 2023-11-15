@@ -7,6 +7,8 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: pafarley

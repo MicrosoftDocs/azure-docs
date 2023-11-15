@@ -3,6 +3,8 @@ title: View protected items and perform actions
 description: Learn how to view protected items and perform actions
 ms.topic: tutorial
 ms.service: backup
+ms.custom:
+  - ignite-2023
 ms.date: 10/30/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

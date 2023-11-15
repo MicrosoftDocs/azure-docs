@@ -5,7 +5,9 @@ description: You no longer need to create your own compute cluster to train your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
