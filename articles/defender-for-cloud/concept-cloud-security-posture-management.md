@@ -2,7 +2,8 @@
 title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.custom: ignite-2022, build-2023
+ms.date: 11/15/2023
 ---
 
 # Cloud security posture management (CSPM)
@@ -23,9 +24,15 @@ Defender for Cloud provides the following CSPM offerings:
 
 - **Defender Cloud Security Posture Management (CSPM) plan** - The optional, paid Defender for Cloud Secure Posture Management plan provides additional, advanced security posture features.
 
-The following table summarizes CSPM features.
 
-| **Feature** | **Foundational CSPM** | **Defender CSPM** | **Cloud support** |
+## Plan availability
+
+Learn more about [Defender CSPM pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+The following table summarizes each plan and their cloud availability.
+
+| Feature | Foundational CSPM | Defender CSPM | Cloud availability |
+>>>>>>> ca8b23cc26c2e8fd9b2676331fcbe1011ca94aed
 |--|--|--|--|
 | [Security recommendations](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
 | [Asset inventory](asset-inventory.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
@@ -45,7 +52,7 @@ The following table summarizes CSPM features.
 | [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 
-
+DevOps security features under the Defender CSPM plan will remain free until March 1, 2024. Defender CSPM DevOps security features include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings.
 
 ## Integrations (preview)
 
@@ -69,6 +76,14 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 For commercial and national cloud coverage, review [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
 
 
+
+## Integrations (preview)
+
+Microsoft Defender for Cloud now has built-in integrations to help you use third-party systems to seamlessly manage and track tickets, events, and customer interactions. You can push recommendations to a third-party ticketing tool, and assign responsibility to a team for remediation. 
+
+Integration streamlines your incident response process, and improves your ability to manage security incidents. You can track, prioritize, and resolve security incidents more effectively.
+
+You can choose which ticketing system to integrate. For preview, only ServiceNow integration is supported. For more information about how to configure ServiceNow integration, see [Integrate ServiceNow with Microsoft Defender for Cloud (preview)](integration-servicenow.md).
 
 ## Next steps
 

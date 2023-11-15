@@ -1,22 +1,23 @@
 ---
 title: Debug a skillset
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Investigate skillset errors and issues by starting a debug session in Azure portal.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/19/2022
 ---
 
-# Debug an Azure Cognitive Search skillset in Azure portal
+# Debug an Azure AI Search skillset in Azure portal
 
-Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
+Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure AI Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure AI Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Prerequisites
 
@@ -115,7 +116,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
-Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 The following steps show you how to get information about a skill.
 
