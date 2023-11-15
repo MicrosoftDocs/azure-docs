@@ -14,7 +14,7 @@ ms.date: 11/13/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application will consume simulated MQTT data published to Azure IoT MQ and then apply a windowing function and then publishes this back to IoT MQ. This represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and pushes the utilizes the IoT MQ State Store to cache past values needed for the window calculations.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application will consume simulated MQTT data published to Azure IoT MQ, apply a windowing function and then publish the result back to IoT MQ. This represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and pushes the utilizes the IoT MQ State Store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
