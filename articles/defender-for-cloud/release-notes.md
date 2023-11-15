@@ -98,7 +98,7 @@ You can now prioritize your security recommendations according to the risk level
 
 By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
-Learn more about [risk prioritization](security-policy-concept.md#what-is-a-security-recommendation).
+Learn more about [risk prioritization](security-policy-concept.md).
 
 ### Attack path analysis new engine and extensive enhancements
 
@@ -139,7 +139,7 @@ We're announcing the GA (General Availability) release of the Defender CSPM cont
 - **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
 - **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
-Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
 > [!NOTE]
 > Billing for the GA release of GCP support in Defender CSPM will begin on February 1st 2024.
