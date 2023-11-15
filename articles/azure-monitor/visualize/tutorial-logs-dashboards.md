@@ -4,7 +4,7 @@ description: This tutorial helps you understand how Log Analytics dashboards can
 ms.topic: tutorial
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 05/28/2020
+ms.date: 11/07/2023
 
 ms.custom: mvc
 ---

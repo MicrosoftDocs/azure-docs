@@ -71,9 +71,9 @@ ms.author: wchi
 
     // for service principal
     // ClientSecretCredential defaultCredential = new ClientSecretCredentialBuilder()
-    //   .clientId(System.getenv("<AZURE_APPCONFIGURATION_CLIENTID>"))
-    //   .clientSecret(System.getenv("<AZURE_APPCONFIGURATION_CLIENTSECRET>"))
-    //   .tenantId(System.getenv("<AZURE_APPCONFIGURATION_TENANTID>"))
+    //   .clientId(System.getenv("AZURE_APPCONFIGURATION_CLIENTID"))
+    //   .clientSecret(System.getenv("AZURE_APPCONFIGURATION_CLIENTSECRET"))
+    //   .tenantId(System.getenv("AZURE_APPCONFIGURATION_TENANTID"))
     //   .build();
     
     String endpoint = System.getenv("AZURE_APPCONFIGURATION_ENDPOINT");

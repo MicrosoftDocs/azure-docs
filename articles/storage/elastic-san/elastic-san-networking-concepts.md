@@ -30,6 +30,10 @@ After configuring endpoints, you can configure network rules to further control 
 
 You can enable or disable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
 
+### Regional availability
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
+
 ## Storage service endpoints
 
 [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources so only specific virtual networks can access them.

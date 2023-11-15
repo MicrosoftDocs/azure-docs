@@ -10,7 +10,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/12/2023
 ms.topic: how-to
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Secure your RAG workflows with network isolation (preview)
@@ -75,4 +77,4 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 
 ## Next Steps
 
-- [Secure your Prompt Flow](./prompt-flow/how-to-secure-prompt-flow.md)
+- [Secure your prompt flow](./prompt-flow/how-to-secure-prompt-flow.md)

@@ -98,7 +98,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: MedTech service's FHIR destination resource quota is reached (default is one per MedTech service).
+**Description**: MedTech service's FHIR&reg; destination resource quota is reached (default is one per MedTech service).
 
 **Fix**: Delete the existing instance of the MedTech service's FHIR destination resource. Only one FHIR destination resource is permitted per MedTech service.
 
