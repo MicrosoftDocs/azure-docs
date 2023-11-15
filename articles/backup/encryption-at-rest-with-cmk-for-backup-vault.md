@@ -29,9 +29,9 @@ The encryption key used for encrypting backups might be different from the one u
 - Once you the enable encryption settings on the Backup vault, don't disable/detach the managed identity, or remove Key Vault permissions  used for encryption settings. If you do these actions, it'll lead to failure of backup, restore, tiering, restore points expiry jobs, and will incur cost for the data stored in the Backup vault until: 
 
 
-  - The Key vault permissions are restored.
-  -  If System-assigned identity was used for Encryption settings, then re-enable System Assigned identity, grant the key vault permissions to it and perform Encryption Settings update operation.
-3.	If User assigned identity was being used for Encryption settings, the managed identity is reattached and has the required Key Vault permissions.
+  - The You restore the Key vault permissions.
+  - You reenable System Assigned identity, grant the key vault permissions to it and perform Encryption Settings update operation, if the System-assigned identity was used for encryption settings.
+  - You reattach the managed identity is reattached and has the required Key Vault permissions.
 4.	To use new User assigned identity, ensure that it has permissions to access the key vault & key.
 
 
