@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 11/06/2023
+ms.date: 11/15/2023
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -126,7 +126,7 @@ Optional storage pool parameters:
 | --storage-pool-option | NVMe |
 
 ```azurecli-interactive
-az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
+az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
 ```
 
 The deployment will take 10-15 minutes to complete.
@@ -152,7 +152,7 @@ Running this command will enable Azure Container Storage on a node pool named `n
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
 ```azurecli-interactive
-az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
+az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
 ```
 
 The deployment will take 10-15 minutes to complete.
@@ -170,7 +170,7 @@ If you want to install Azure Container Storage on specific node pools, follow th
 2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
    
    ```azurecli-interactive
-   az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names> 
+   az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names>
    ```
 
 ## Next steps
