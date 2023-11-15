@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom: 
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.date: 11/15/2023
 manager: nitinme
 ---
 
