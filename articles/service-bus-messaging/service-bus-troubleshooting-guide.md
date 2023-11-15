@@ -15,7 +15,7 @@ Depending on the host environment and network, a connectivity issue might presen
 
 To troubleshoot:
 
-- Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-quickstart-portal.md#get-the-connection-string).
+- Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-dotnet-get-started-with-queues?tabs=connection-string#get-the-connection-string).
 - Check the firewall and port permissions in your hosting environment. Check that the AMQP ports 5671 and 5672 are open and that the endpoint is allowed through the firewall.
 - Try using the Web Socket transport option, which connects using port 443. For details, see [configure the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport).
 - See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allowlist-)
@@ -26,7 +26,7 @@ To troubleshoot:
 This error can occur when an intercepting proxy is used. To verify, We recommend that you test the application in the host environment with the proxy disabled.
 
 ### Socket exhaustion errors
-Applications should prefer treating the Service Bus types as singletons, creating and using a single instance through the lifetime of the application. Each new [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) created results in a new AMQP connection, which uses a socket. The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) type manages the connection for all types created from that instance. Each [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) manages its own AMQP link for the associated Service Bus entity. When you use [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor), multiple AMQP links are established depending on the number of sessions that are being processed concurrently.
+Applications should prefer treating the Service Bus types as singletons, creating and using a single instance through the lifetime of the application. Each new [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) created results in a new AMQP connection, which uses a socket. The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) type manages the connection for all types created from that instance. Each [ServiceBusReceiver][ServiceBusReceiver], [ServiceBusSessionReceiver][ServiceBusSessionReceiver], [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) manages its own AMQP link for the associated Service Bus entity. When you use [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor), multiple AMQP links are established depending on the number of sessions that are being processed concurrently.
 
 The clients are safe to cache when idle; they'll ensure efficient management of network, CPU, and memory use, minimizing their impact during periods of inactivity. It's also important that either `CloseAsync` or `DisposeAsync` be called when a client is no longer needed to ensure that network resources are properly cleaned up.
 
@@ -50,7 +50,7 @@ The Service Bus client logs are available to any `EventListener` by opting into 
 For more information, see: [Logging with the Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/sdk/logging).
 
 ### Distributed tracing
-The Service Bus client library supports distributed tracing thorugh integration with the Application Insights SDK. It also has **experimental** support for the OpenTelemetry specification via the .NET [ActivitySource](/dotnet/api/system.diagnostics.activitysource) type introduced in .NET 5. In order to enable `ActivitySource` support for use with OpenTelemetry, see [ActivitySource support](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#activitysource-support).
+The Service Bus client library supports distributed tracing through integration with the Application Insights SDK. It also has **experimental** support for the OpenTelemetry specification via the .NET [ActivitySource](/dotnet/api/system.diagnostics.activitysource) type introduced in .NET 5. In order to enable `ActivitySource` support for use with OpenTelemetry, see [ActivitySource support](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#activitysource-support).
 
 In order to use the GA DiagnosticActivity support, you can integrate with the Application Insights SDK. More details can be found in [ApplicationInsights with Azure Monitor](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#applicationinsights-with-azure-monitor).
 
@@ -88,51 +88,42 @@ In the above screenshot, you see the end-to-end transaction that can be viewed i
 
 ## Troubleshoot sender issues
 
-### Can't send batch with multiple partition keys
-
-When an app sends a batch to a partition-enabled entity, all messages included in a single send operation must have the same `PartitionKey`. If your entity is session-enabled, the same requirement holds true for the `SessionId` property. In order to send messages with different `PartitionKey` or `SessionId` values, group the messages in separate [ServiceBusMessageBatch][ServiceBusMessageBatch] instances or include them in separate calls to the [SendMessagesAsync][SendMessages] overload that takes a set of [ServiceBusMessage] instances.
+### Can't send a batch with multiple partition keys
+When an app sends a batch to a partition-enabled entity, all messages included in a single send operation must have the same `PartitionKey`. If your entity is session-enabled, the same requirement holds true for the `SessionId` property. In order to send messages with different `PartitionKey` or `SessionId` values, group the messages in separate [`ServiceBusMessageBatch`][ServiceBusMessageBatch] instances or include them in separate calls to the [SendMessagesAsync][SendMessages] overload that takes a set of `ServiceBusMessage` instances.
 
 ### Batch fails to send
-
-We define a message batch as either [ServiceBusMessageBatch][ServiceBusMessageBatch] containing 2 or more messages, or a call to [SendMessagesAsync][SendMessages] where 2 or more messages are passed in. The service doesn't allow a message batch to exceed 1 MB. This is true whether or not the [Premium large message support][LargeMessageSupport] feature is enabled. If you intend to send a message greater than 1 MB, it must be sent individually rather than grouped with other messages. Unfortunately, the [ServiceBusMessageBatch][ServiceBusMessageBatch] type doesn't currently support validating that a batch doesn't contain any messages greater than 1 MB as the size is constrained by the service and might change. So if you intend to use the premium large message support feature, you'll need to ensure you send messages over 1 MB individually. See this [GitHub discussion][GitHubDiscussionOnBatching] for more info.
+A message batch is either [`ServiceBusMessageBatch`][ServiceBusMessageBatch] containing two or more messages, or a call to [SendMessagesAsync][SendMessages] where two or more messages are passed in. The service doesn't allow a message batch to exceed 1 MB. This behavior is true whether or not the [Premium large message support](service-bus-premium-messaging.md#large-messages-support) feature is enabled. If you intend to send a message greater than 1 MB, it must be sent individually rather than grouped with other messages. Unfortunately, the [ServiceBusMessageBatch][ServiceBusMessageBatch] type doesn't currently support validating that a batch doesn't contain any messages greater than 1 MB as the size is constrained by the service and might change. So, if you intend to use the premium large message support feature, you'll need to ensure you send messages over 1 MB individually. 
 
 ## Troubleshoot receiver issues
 
 ### Number of messages returned doesn't match number requested in batch receive
-
-When attempting to do a batch receive, that is, passing a `maxMessages` value of 2 or greater to the [ReceiveMessagesAsync][ReceiveMessages] method, you aren't guaranteed to receive the number of messages requested, even if the queue or subscription has that many messages available at that time, and even if the entire configured `maxWaitTime` hasn't yet elapsed. To maximize throughput and avoid lock expiration, once the first message comes over the wire, the receiver will wait an additional 20 milliseconds for any additional messages before dispatching the messages for processing.  The `maxWaitTime` controls how long the receiver will wait to receive the *first* message - subsequent messages will be waited for 20 milliseconds. Therefore, your application shouldn't assume that all messages available will be received in one call.
+When attempting to do a batch receive operation, that is, passing a `maxMessages` value of two or greater to the [ReceiveMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivemessagesasync) method, you aren't guaranteed to receive the number of messages requested, even if the queue or subscription has that many messages available at that time, and even if the entire configured `maxWaitTime` hasn't yet elapsed. To maximize throughput and avoid lock expiration, once the first message comes over the wire, the receiver will wait an additional 20 milliseconds for any additional messages before dispatching the messages for processing. The `maxWaitTime` controls how long the receiver will wait to receive the *first* message - subsequent messages will be waited for 20 milliseconds. Therefore, your application shouldn't assume that all messages available will be received in one call.
 
 ### Message or session lock is lost before lock expiration time
-
 The Service Bus service leverages the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. Because of this, you encounter `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time hasn't yet passed. 
 
 ### How to browse scheduled or deferred messages
-
-Scheduled and deferred messages are included when peeking messages. They can be identified by the [ServiceBusReceivedMessage.State][MessageState] property. Once you have the [SequenceNumber][SequenceNumber] of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync][ReceiveDeferredMessages] method.
+Scheduled and deferred messages are included when peeking messages. They can be identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
 
 When working with topics, you can't peek scheduled messages on the subscription, as the messages remain in the topic until the scheduled enqueue time. As a workaround, you can construct a [ServiceBusReceiver][ServiceBusReceiver] passing in the topic name in order to peek such messages. Note that no other operations with the receiver will work when using a topic name.
 
 ### How to browse session messages across all sessions
-
 You can use a regular [ServiceBusReceiver][ServiceBusReceiver] to peek across all sessions. To peek for a specific session you can use the [ServiceBusSessionReceiver][ServiceBusSessionReceiver], but you'll need to obtain a session lock.
 
 ### NotSupportedException thrown when accessing message body
-
 This issue occurs most often in interop scenarios when receiving a message sent from a different library that uses a different AMQP message body format. If you're interacting with these types of messages, see the [AMQP message body sample][MessageBody] to learn how to access the message body. 
 
 ## Troubleshoot processor issues
 
 ### Autolock renewal isn't working
-
 Autolock renewal relies on the system time to determine when to renew a lock for a message or session. If your system time isn't accurate, for example, your clock is slow, then lock renewal might not happen before the lock is lost. Ensure that your system time is accurate if autolock renewal isn't working.
 
 ### Processor appears to hang or have latency issues when using high concurrency
-
 This is often caused by thread starvation, particularly when using the session processor and using a very high value for [MaxConcurrentSessions][MaxConcurrentSessions], relative to the number of cores on the machine. The first thing to check would be to make sure you aren't doing sync-over-async in any of your event handlers. Sync-over-async is an easy way to cause deadlocks and thread starvation. Even if you aren't doing sync over async, any pure sync code in your handlers could contribute to thread starvation. If you've determined that this isn't the issue, for example, because you have pure async code, you can try increasing your [TryTimeout][TryTimeout]. This will relieve pressure on the thread pool by reducing the number of context switches and timeouts that occur when using the session processor in particular. The default value for [TryTimeout][TryTimeout] is 60 seconds, but it can be set all the way up to 1 hour.  We recommend testing with the `TryTimeout` set to 5 minutes as a starting point and iterate from there. If none of these suggestions work, you simply need to scale out to multiple hosts, reducing the concurrency in your application, but running the application on multiple hosts to achieve the desired overall concurrency.
 
 Further reading:
-- [Debug thread pool Starvation][DebugThreadPoolStarvation]
-- [Diagnosing .NET Core thread pool Starvation with PerfView (Why my service isn't saturating all cores or seems to stall)](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
+- [Debug thread pool starvation][DebugThreadPoolStarvation]
+- [Diagnosing .NET Core thread pool starvation with PerfView (Why my service isn't saturating all cores or seems to stall)](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
 - [Diagnosing thread pool exhaustion Issues in .NET Core Apps][DiagnoseThreadPoolExhaustion] _(video)_
 
 ### Session processor takes too long to switch sessions
@@ -308,3 +299,13 @@ See the following articles:
 
 - [Azure Resource Manager exceptions](service-bus-resource-manager-exceptions.md). It list exceptions generated when interacting with Azure Service Bus using Azure Resource Manager (via templates or direct calls).
 - [Messaging exceptions](service-bus-messaging-exceptions-latest.md). It provides a list of exceptions generated by .NET Framework for Azure Service Bus.
+
+[ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
+[SendMessages]: /dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync
+[ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
+[ServiceBusReceiver]: /dotnet/api/azure.messaging.servicebus.servicebusreceiver
+[ServiceBusSessionReceiver]: /dotnet/api/azure.messaging.servicebus.servicebussessionreceiver
+[MessageBody]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample14_AMQPMessage.md#message-body
+[MaxConcurrentSessions]: /dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.maxconcurrentsessions
+[DebugThreadPoolStarvation]: /dotnet/core/diagnostics/debug-threadpool-starvation
+[DiagnoseThreadPoolExhaustion]: /shows/on-net/diagnosing-thread-pool-exhaustion-issues-in-net-core-apps
