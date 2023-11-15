@@ -1,25 +1,26 @@
 ---
 title: Model complex data types
-titleSuffix: Azure Cognitive Search
-description: Nested or hierarchical data structures can be modeled in an Azure Cognitive Search index using ComplexType and Collections data types.
+titleSuffix: Azure AI Search
+description: Nested or hierarchical data structures can be modeled in an Azure AI Search index using ComplexType and Collections data types.
 
 manager: nitinme
 author: bevloh
 ms.author: beloh
 tags: complex data types; compound data types; aggregate data types
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/30/2023
 ---
 
-# Model complex data types in Azure Cognitive Search
+# Model complex data types in Azure AI Search
 
-External datasets used to populate an Azure Cognitive Search index can come in many shapes. Sometimes they include hierarchical or nested substructures. Examples might include multiple addresses for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex*, *compound*, *composite*, or *aggregate* data types. The term Azure Cognitive Search uses for this concept is **complex type**. In Azure Cognitive Search, complex types are modeled using **complex fields**. A complex field is a field that contains children (sub-fields) which can be of any data type, including other complex types. This works in a similar way as structured data types in a programming language.
+External datasets used to populate an Azure AI Search index can come in many shapes. Sometimes they include hierarchical or nested substructures. Examples might include multiple addresses for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex*, *compound*, *composite*, or *aggregate* data types. The term Azure AI Search uses for this concept is **complex type**. In Azure AI Search, complex types are modeled using **complex fields**. A complex field is a field that contains children (sub-fields) which can be of any data type, including other complex types. This works in a similar way as structured data types in a programming language.
 
 Complex fields represent either a single object in the document, or an array of objects, depending on the data type. Fields of type `Edm.ComplexType` represent single objects, while fields of type `Collection(Edm.ComplexType)` represent arrays of objects.
 
-Azure Cognitive Search natively supports complex types and collections. These types allow you to model almost any JSON structure in an Azure Cognitive Search index. In previous versions of Azure Cognitive Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
+Azure AI Search natively supports complex types and collections. These types allow you to model almost any JSON structure in an Azure AI Search index. In previous versions of Azure AI Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
 To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
 
@@ -205,7 +206,7 @@ Queries get more nuanced when you have multiple terms and operators, and some te
 
 > `search=Address/City:Portland AND Address/State:OR`
 
-Queries like this are *uncorrelated* for full-text search, unlike filters. In filters, queries over sub-fields of a complex collection are correlated using range variables in [`any` or `all`](search-query-odata-collection-operators.md). The Lucene query above returns documents containing both "Portland, Maine" and "Portland, Oregon", along with other cities in Oregon. This happens because each clause applies to all values of its field in the entire document, so there's no concept of a "current sub-document". For more information on this, see [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+Queries like this are *uncorrelated* for full-text search, unlike filters. In filters, queries over sub-fields of a complex collection are correlated using range variables in [`any` or `all`](search-query-odata-collection-operators.md). The Lucene query above returns documents containing both "Portland, Maine" and "Portland, Oregon", along with other cities in Oregon. This happens because each clause applies to all values of its field in the entire document, so there's no concept of a "current sub-document". For more information on this, see [Understanding OData collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 
 ## Select complex fields
 

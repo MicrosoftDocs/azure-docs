@@ -6,6 +6,8 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 11/13/2023
+ms.custom:
+  - ignite-2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
 ---

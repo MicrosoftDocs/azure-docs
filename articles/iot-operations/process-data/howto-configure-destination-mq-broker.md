@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/09/2023
 
 #CustomerIntent: As an operator, I want to publish data from a pipeline to an MQTT broker so that it's available to other subscribers including other data pipelines.

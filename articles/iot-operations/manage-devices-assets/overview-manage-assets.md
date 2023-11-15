@@ -1,9 +1,11 @@
 ---
 title: Manage assets overview
-description: Understand the options to manage the assets that are part of your Azure IoT Operations Preview solution. 
+description: Understand the options to manage the assets that are part of your Azure IoT Operations Preview solution.
 author: timlt
 ms.author: timlt
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 ---
 

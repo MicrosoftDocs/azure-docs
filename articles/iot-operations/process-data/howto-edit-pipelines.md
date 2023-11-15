@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/17/2023
 
 #CustomerIntent: As an OT user, I want edit and manage my pipelines so that I have greater flexibility in advanced editing capabilities.

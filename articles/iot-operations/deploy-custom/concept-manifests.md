@@ -4,7 +4,9 @@ description: Understand how Azure IoT Orchestrator uses manifests to define reso
 author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
-ms.topic: concept-article 
+ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 10/25/2023
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.

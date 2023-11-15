@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.

@@ -5,7 +5,9 @@ description: Develop distributed applications that talk with Azure IoT MQ using 
 author: timlt
 ms.author: timlt
 # ms.subservice: mq
-ms.topic: how-to 
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 
 # CustomerIntent: As an developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.

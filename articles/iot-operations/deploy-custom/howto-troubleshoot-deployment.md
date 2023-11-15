@@ -5,6 +5,8 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/02/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
@@ -64,4 +66,3 @@ The following sections provide details about specific error codes that you might
 | Delete resource failed | Failed to delete the custom resource | Confirm that the resource that you're using for deletion already exists.<br><br> Ensure that the resource definitions don't have dependencies on other resources that aren't created or applied yet.<br><br> Ensure that the resource names match the names of the existing resources in the cluster.<br><br> Use the `--dry-run` option with the `kubectl delete` command to test the delete operation without deleting the resource. |
 | Check resource status failed | Failed to check the resource status within the timeout period | Verify that the name of the resource being used exists.<br><br> Check the cluster where the resource exists and pass that as a component property. |
 | YAML or resource property not found | Component doesn't have a YAML or resource property | Set the YAML or resource property for the component. The kubectl provider requires at least one of the two property values to be defined.<br><br> Check the configuration setting for the correct property value. |
-

@@ -5,6 +5,8 @@ description: Develop distributed applications that talk with Azure IoT MQ using 
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/29/2023
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
