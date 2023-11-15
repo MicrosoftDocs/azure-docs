@@ -1,5 +1,5 @@
 items:
-- name: Oracle on Azure VMs
+- name: Oracle Database on Azure
   href: index.yml
 - name: Overview 
   items:
