@@ -227,7 +227,7 @@ If you're using a [DICOM service with Data Lake Storage](dicom-data-lake.md), yo
 
 1. Select **New shortcut** to create a new shortcut to the storage account that contains the DICOM data.
 
-   :::image type="content" source="media/fabric-create-shortcut-files.png" alt-text="Screenshot that shows the New shortcut option of the Files menu in the Explorer view." lightbox="media/fabric-create-shortcut-files.png":::
+   :::image type="content" source="media/fabric-new-shortcut-files.png" alt-text="Screenshot that shows the New shortcut option of the Files menu in the Explorer view." lightbox="media/fabric-new-shortcut-files.png":::
 
 1. Select **Azure Data Lake Storage Gen2** as the source for the shortcut.
 
