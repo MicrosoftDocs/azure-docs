@@ -4,7 +4,7 @@ description: This guide is on using DICOM service for digital pathology
 services: healthcare-apis
 author: smithasa
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/9/2023
 ms.author: smithasa

@@ -107,6 +107,8 @@
       items:
       - name: Confidential containers overview
         href: confidential-containers.md
+      - name: Confidential containers on AKS (preview)
+        href: confidential-containers-on-aks-preview.md
       - name: Confidential containers with Azure Container Instances (ACI)
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
@@ -191,3 +193,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-confidential-computing
   - name: Virtual Machines on Azure
     href: ../virtual-machines/index.yml
+  - name: Security patch status
+    href: https://microsoft-my.sharepoint.com/:w:/p/irakaul/EbZErJv7pXpJv-DJn6oZtwgBPLeTa12q3sbTZFAGU8BfvQ?e=Rs2RxX

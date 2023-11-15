@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 10/31/2023
 ms.author: wchi
 ---
 
@@ -10,58 +10,58 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies
-```bash
-dotnet add package CassandraCSharpDriver --version 3.19.3
-```
+    ```bash
+    dotnet add package CassandraCSharpDriver --version 3.19.3
+    ```
 
 2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
-```csharp
-using System;
-using System.Security.Authentication;
-using System.Net.Security;
-using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Cassandra;
-
-public class Program
-{
-	public static async Task Main()
-	{
-        var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
-        var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
-        var password = Environment.GetEnvironmentVariable("AZURE_COSMOS_PASSWORD");
-        var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
-        var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
-        
-        var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-        options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
-        Cluster cluster = Cluster
-            .Builder()
-            .WithCredentials(userName, password)
-            .WithPort(cassandraPort)
-            .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
-        ISession session = await cluster.ConnectAsync();
-    }
-
-    public static bool ValidateServerCertificate
-	(
-        object sender,
-        X509Certificate certificate,
-        X509Chain chain,
-        SslPolicyErrors sslPolicyErrors
-    )
+    ```csharp
+    using System;
+    using System.Security.Authentication;
+    using System.Net.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Threading.Tasks;
+    using Cassandra;
+    
+    public class Program
     {
-        if (sslPolicyErrors == SslPolicyErrors.None)
-            return true;
-
-        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
-        // Do not allow this client to communicate with unauthenticated servers.
-        return false;
+    	public static async Task Main()
+    	{
+            var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
+            var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
+            var password = Environment.GetEnvironmentVariable("AZURE_COSMOS_PASSWORD");
+            var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
+            var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
+            
+            var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+            options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
+            Cluster cluster = Cluster
+                .Builder()
+                .WithCredentials(userName, password)
+                .WithPort(cassandraPort)
+                .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
+            ISession session = await cluster.ConnectAsync();
+        }
+    
+        public static bool ValidateServerCertificate
+    	(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
+            SslPolicyErrors sslPolicyErrors
+        )
+        {
+            if (sslPolicyErrors == SslPolicyErrors.None)
+                return true;
+    
+            Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+            // Do not allow this client to communicate with unauthenticated servers.
+            return false;
+        }
     }
-}
-
-```
+    
+    ```
 
 For more information, see [Build an Apache Cassandra app with .NET SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-dotnet).
 
@@ -226,4 +226,4 @@ For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cos
 
 
 ### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

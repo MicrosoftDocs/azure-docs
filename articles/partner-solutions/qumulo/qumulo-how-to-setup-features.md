@@ -3,8 +3,9 @@ title: Azure Native Qumulo Scalable File Service feature setup
 description: Learn about features available with Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: conceptual
-ms.date: 11/15/2023
-
+ms.custom:
+  - ignite-2023
+ms.date: 11/13/2003
 ---
 
 # Get Started with Azure Native Qumulo Scalable File Service: Key Features and Set-Up Guides

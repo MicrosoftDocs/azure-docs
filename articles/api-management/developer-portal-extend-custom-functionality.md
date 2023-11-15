@@ -117,7 +117,11 @@ For more advanced use cases, you can create and upload a custom widget to the de
     npm run deploy
     ```
 
-    If prompted, sign in to your Azure account. 
+    If prompted, sign in to your Azure account.
+
+   > [!NOTE]
+   > When prompted to sign in, you must use a member account from the Microsoft Entra ID tenant that's associated with the Azure subscription where your API Management service resides. The account must not be a guest or a federated account and must have the appropriate permission to access the portal's administrative interface. 
+
 
 The custom widget is now deployed to your developer portal. Using the portal's administrative interface, you can add it on pages in the developer portal and set values for any custom properties configured in the widget.
 

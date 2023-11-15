@@ -1,6 +1,6 @@
 ---
-title: Azure Chaos Studio Preview fault and action library
-description: Understand the available actions you can use with Azure Chaos Studio Preview, including any prerequisites and parameters.
+title: Azure Chaos Studio  fault and action library
+description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -10,9 +10,9 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Azure Chaos Studio Preview fault and action library
+# Azure Chaos Studio fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio Preview](./chaos-studio-fault-providers.md).
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
@@ -503,7 +503,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability name | NetworkLatency-1.1 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux (outbound traffic only) |
 | Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
@@ -559,6 +559,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
+* When running in a Linux environment, the agent-based network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 
 ## Network disconnect
@@ -1430,7 +1431,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | DisableCertificate-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | By using certificate properties, the fault disables the certificate for a specific duration (provided by the user). It enables the certificate after this fault duration. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
 | Fault type | Continuous. |
 | Parameters (key, value) | |
@@ -1471,7 +1472,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) | |
@@ -1506,7 +1507,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | UpdateCertificatePolicy-1.0        |
 | Target type | Microsoft-KeyVault        |
 | Description | Certificate policies (for example, certificate validity period, certificate type, key size, or key type) are updated based on user input and reverted after the fault duration.        |
-| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault.       |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
 | Fault type | Continuous.        |
 | Parameters (key, value) |     |    
@@ -1613,3 +1614,72 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
+## Start load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Start-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Starts a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Stop load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Stops a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+

@@ -1,17 +1,19 @@
 ---
 title: Create a knowledge store using REST
-titleSuffix: Azure Cognitive Search
-description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting AI enrichments from skillset.
+titleSuffix: Azure AI Search
+description: Use the REST API and Postman to create an Azure AI Search knowledge store for persisting AI enrichments from skillset.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 06/29/2023
 ---
 # Create a knowledge store using REST and Postman
 
-In Azure Cognitive Search, a [knowledge store](knowledge-store-concept-intro.md) is a repository of [AI-generated content](cognitive-search-concept-intro.md) that's used for non-search scenarios. You create the knowledge store using an indexer and skillset, and specify Azure Storage to store the output. After the knowledge store is populated, use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
+In Azure AI Search, a [knowledge store](knowledge-store-concept-intro.md) is a repository of [AI-generated content](cognitive-search-concept-intro.md) that's used for non-search scenarios. You create the knowledge store using an indexer and skillset, and specify Azure Storage to store the output. After the knowledge store is populated, use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
 
 In this article, you use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store. The knowledge store contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
 
@@ -26,7 +28,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use the free service for this exercise.
++ Azure AI Search. [Create a service](search-create-service-portal.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use the free service for this exercise.
 
 + Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
 
@@ -34,7 +36,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 ## Load data
 
-This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
+This step uses Azure AI Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
 
 1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
@@ -92,7 +94,7 @@ On the **Variables** tab, you can add values that Postman swaps in every time it
 
 Variables are defined for Azure services, service connections, and object names. Replace the service and connection placeholder values with actual values for your search service and storage account. You can find these values in the Azure portal.
 
-+ To get the values for `search-service-name` and `search-service-admin-key`, go to the Azure Cognitive Search service in the portal and copy the values from **Overview** and **Keys** pages.
++ To get the values for `search-service-name` and `search-service-admin-key`, go to the Azure AI Search service in the portal and copy the values from **Overview** and **Keys** pages.
 
 + To get the values for `storage-account-name` and `storage-account-connection-string`, check the **Access Keys** page in the portal, or format a [connection string that references a managed identity](search-howto-managed-identities-data-sources.md).
 
@@ -100,12 +102,12 @@ Variables are defined for Azure services, service connections, and object names.
 
 | Variable    | Where to get it |
 |-------------|-----------------|
-| `admin-key` | On the **Keys** page of the Azure Cognitive Search service.  |
+| `admin-key` | On the **Keys** page of the Azure AI Search service.  |
 | `api-version` | Leave as **2020-06-30**. |
 | `datasource-name` | Leave as **hotel-reviews-ds**. | 
 | `indexer-name` | Leave as **hotel-reviews-ixr**. | 
 | `index-name` | Leave as **hotel-reviews-ix**. | 
-| `search-service-name` | The name of the Azure Cognitive Search service. If the URL is `https://mySearchService.search.windows.net`, the value you should enter is `mySearchService`. | 
+| `search-service-name` | The name of the Azure AI Search service. If the URL is `https://mySearchService.search.windows.net`, the value you should enter is `mySearchService`. | 
 | `skillset-name` | Leave as **hotel-reviews-ss**. | 
 | `storage-account-name` | The Azure storage account name. | 
 | `storage-connection-string` | Use the storage account's connection string from **Access Keys** or paste in a connection string that references a managed identity. | 
@@ -168,7 +170,7 @@ At this point, the index is created but not loaded. Importing documents occurs l
 
 ## Create a data source
 
-Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
+Next, connect Azure AI Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
 
 In Postman, go to the **Create Datasource** request, and then to the **Body** pane. You should see the following code:
 
@@ -394,7 +396,7 @@ Select **Send** in Postman to create and run the indexer. Data import, skillset 
 
 After you send each request, the search service should respond with a 201 success message. If you get errors, recheck your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
 
-In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
+In the Azure portal, go to the Azure AI Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
 ## Check tables in Azure portal
 

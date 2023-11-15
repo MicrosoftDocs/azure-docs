@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.custom: devx-track-python
-ms.date: 06/28/2023
+ms.date: 10/31/2023
 ms.author: vijaysr
 ms.reviewer: shravan
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
-Azure Synapse Analytics uses Microsoft Entra passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The mssparkutils simplifies the process of retrieving SAS tokens, Microsoft Entra tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
+Azure Synapse Analytics uses Microsoft Entra passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The [mssparkutils](microsoft-spark-utilities.md) package simplifies the process of retrieving SAS tokens, Microsoft Entra tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
 
 Microsoft Entra passthrough uses permissions assigned to you as a user in Microsoft Entra ID, rather than permissions assigned to Synapse or a separate service principal. For example, if you want to use Microsoft Entra passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
@@ -169,9 +169,77 @@ df.show()
 
 ::: zone-end
 
-#### ADLS Gen2 storage (without linked services)
+#### ADLS Gen2 storage without linked services
 
-Connect to ADLS Gen2 storage directly by using a SAS key use the **ConfBasedSASProvider** and provide the SAS key to the **spark.storage.synapse.sas** configuration setting.
+Connect to ADLS Gen2 storage directly by using a SAS key. Use the `ConfBasedSASProvider` and provide the SAS key to the `spark.storage.synapse.sas` configuration setting. SAS tokens can be set at the container level, account level, or global. We do not recommend setting SAS keys at the global level, as the job will not be able to read/write from more than one storage account.
+
+**SAS configuration per storage container**
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+sc.hadoopConfiguration.set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<CONTAINER>.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+
+sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<CONTAINER>.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+**SAS configuration per storage account**
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+sc.hadoopConfiguration.set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+
+sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+**SAS configuration of all storage accounts**
 
 ::: zone pivot = "programming-language-scala"
 
@@ -380,15 +448,20 @@ While Azure Synapse Analytics supports a variety of linked service connections (
 | Azure Database for MySQL            | `AzureOSSDB`                          |
 | Azure Database for MariaDB          | `AzureOSSDB`                          |
 | Azure Database for PostgreSQL       | `AzureOSSDB`                          |
+
 #### Unsupported linked service access from the Spark runtime
 
 The following methods of accessing the linked services are not supported from the Spark runtime:
 
   - Passing arguments to parameterized linked service
   - Connections with User assigned managed identities (UAMI)
+  - System Assigned Managed identities are not supported on Keyvault resource
+  - For Azure Cosmos DB connections, key based access alone is supported. Token based access is not supported.
 
-While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
+While running a notebook or a Spark job, requests to get a token / secret using a linked service might fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
-## Next steps
+## Related content
 
 - [Write to dedicated SQL pool](./synapse-spark-sql-pool-import-export.md)
+- [Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
+- [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md)

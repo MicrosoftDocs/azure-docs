@@ -6,11 +6,12 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 11/06/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:
+  - ignite-2023
 ---
 
 # Azure OpenAI Service REST API reference
@@ -59,6 +60,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 - `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
 - `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 
 **Request body**
 
@@ -391,7 +393,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `indexName` | string | Required | null | The search index to be used. |
 | `fieldsMapping` | dictionary | Optional | null | Index data column mapping.   |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
-| `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
+| `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
@@ -399,6 +401,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
+| `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 ### Start an ingestion job 
 
@@ -506,7 +509,74 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 
 ## Image generation
 
-### Request a generated image
+### Request a generated image (DALL-E 3)
+
+Generate and retrieve a batch of images from a text caption.
+
+```http
+POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version={api-version} 
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```deployment-id``` | string | Required | The name of your DALL-E 3 model deployment such as *MyDalle3*. You're required to first deploy a DALL-E 3 model before you can make calls. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+
+**Supported versions**
+
+- `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| `n` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
+| `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
+| `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid`. |
+
+
+#### Example request
+
+
+```console
+curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version=2023-12-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+    "prompt": "An avocado chair",
+    "size": "1024x1024",
+    "n": 3,
+    "quality": "hd", 
+    "style": "vivid"
+  }'
+```
+
+#### Example response
+
+The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
+
+```json
+{ 
+    "created": 1698116662, 
+    "data": [ 
+        { 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
+        }, 
+        { 
+            "url": "url to the image" 
+        },
+        ...
+    ]
+} 
+```
+
+### Request a generated image (DALL-E 2)
 
 Generate a batch of images from a text caption.
 
@@ -559,7 +629,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
-### Get a generated image result
+### Get a generated image result (DALL-E 2)
 
 
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
@@ -567,7 +637,6 @@ Use this API to retrieve the results of an image generation operation. Image gen
 ```http
 GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
 ```
-
 
 **Path parameters**
 
@@ -614,7 +683,7 @@ Upon success the operation returns a `200` status code and an `OperationResponse
 }
 ```
 
-### Delete a generated image from the server
+### Delete a generated image from the server (DALL-E 2)
 
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 
@@ -789,5 +858,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [ Models, and fine-tuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/files).
+Learn about [ Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

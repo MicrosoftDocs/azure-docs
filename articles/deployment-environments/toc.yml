@@ -25,7 +25,7 @@ items:
     - name: Usage scenarios
       href: concept-environments-scenarios.md
     - name: Reliability in Azure Deployment Environments
-      href: concept-environments-reliability-availability.md  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: How-to guides
   expanded: true
   items:
@@ -62,6 +62,8 @@ items:
       items:         
       - name: Request a quota limit increase
         href: how-to-request-quota-increase.md  
+    - name: Create an environment with AZD
+      href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
     - name: Authenticate to REST APIs

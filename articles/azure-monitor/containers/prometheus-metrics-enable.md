@@ -72,7 +72,7 @@ This option adds Prometheus metrics to a cluster already enabled for Container i
 See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations-during-enablementdeployment)
 
 #### From an existing cluster
-This options enables Prometheus, Grafana, and Container insights on a cluster.
+This option enables Prometheus, Grafana, and Container insights on a cluster.
 
 1. Open the clusters menu in the Azure portal and  select **Insights**.
 3. Select **Configure monitoring**.
@@ -537,6 +537,16 @@ To uninstall the metrics add-on, see [Disable Prometheus metrics collection on a
 ## Supported regions
 
 The list of regions Azure Monitor Metrics and Azure Monitor Workspace is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does enabling managed service for Prometheus on my Azure Kubernetes Service cluster also enable Container insights?
+
+You have options for how you can collect your Prometheus metrics. If you use the Azure portal and enable Prometheus metrics collection and install the Azure Kubernetes Service (AKS) add-on from the Azure Monitor workspace UX, it won't enable Container insights and collection of log data. When you go to the Insights page on your AKS cluster, you're prompted to enable Container insights to collect log data.<br>
+          
+If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster, it enables log collection into a Log Analytics workspace. and Prometheus metrics collection into an Azure Monitor workspace. 
 
 ## Next steps
 

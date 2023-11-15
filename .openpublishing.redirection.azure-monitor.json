@@ -6400,6 +6400,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/usage-estimated-costs.md",
+            "redirect_url": "/azure/azure-monitor/cost-usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/metrics-getting-started.md",
             "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
             "redirect_document_id": false
@@ -6413,6 +6418,11 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts.md",
             "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
             "redirect_document_id": false
-        } 
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/faq.yml",
+            "redirect_url": "/azure/azure-monitor/overview#frequently-asked-questions",
+            "redirect_document_id": false
+        }
     ]
 }

@@ -3,8 +3,9 @@ title: Azure Native Qumulo Scalable File Service for disaster recovery
 description: In this article, learn about the use case for Azure Native Qumulo Scalable File Service for disaster recovery.
 
 ms.topic: overview
-ms.date: 11/15/2023
-
+ms.custom:
+  - ignite-2023
+ms.date: 11/13/2003
 ---
 
 # What is Azure Native Qumulo Scalable File Service for disaster recovery?

@@ -2,6 +2,8 @@
 title: 'MQTT Features Support by Azure Event Grid’s MQTT broker feature'
 description: 'Describes the MQTT features supported by Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
@@ -10,7 +12,7 @@ ms.author: geguirgu
 # MQTT features supported by Azure Event Grid’s MQTT broker feature
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios.  MQTT broker supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. MQTT broker also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 MQTT v5 has introduced many improvements over MQTT v3.1.1 to deliver a more seamless, transparent, and efficient communication. It added:
 - Better error reporting.
@@ -133,9 +135,9 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 - Message ordering isn't guaranteed.
 - Subscription Identifiers aren't supported.
 - Assigned Client Identifiers aren't supported yet.
-- The server responds to a CONNECT request with either Authentication Method or Authentication Data with a CONNACK with code 0x8C (Bad authentication method) or 0x87 (Not Authorized) respectively.
 - Topic Alias Maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
+- User Properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, AUTH packets are not used by the service so they're not supported. If any of these requests include user properties, the request will fail.
 - If the server receives a PUBACK from a client with non-success response code, the connection is terminated.
 - Keep Alive Maximum is 1160 seconds.
 

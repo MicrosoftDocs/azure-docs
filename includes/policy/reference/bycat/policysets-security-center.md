@@ -2,15 +2,13 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/23/2023
+ms.date: 11/06/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name |Description |Policies |Version |
 |---|---|---|---|
-|[\[Preview\]: Configure machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_AzureMonitoring_UAI_DefaultWorkspace.json) |Configure machines to automatically install the Azure Monitor and Azure Security agents. Microsoft Defender for Cloud collects events from the agents and uses them to provide security alerts and tailored hardening tasks (recommendations). Create a resource group, a Data Collection Rule and Log Analytics workspace in the same region as the machine to store audit records. Target machines must be in a supported location. |13 |1.0.1-preview |
-|[\[Preview\]: Configure machines to create the user-defined Microsoft Defender for Cloud pipeline using Azure Monitor Agent](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_AzureMonitoring_UAI_UserWorkspace.json) |Configure machines to automatically install the Azure Monitor and Azure Security agents. Microsoft Defender for Cloud collects events from the agents and uses them to provide security alerts and tailored hardening tasks (recommendations). Use the user-provided Log Analytics workspace to store audit records. Creates a resource group and a Data Collection Rule in the same region as the user-provided Log Analytics workspace. Target machines must be in a supported location. |13 |1.0.1-preview |
 |[\[Preview\]: Configure SQL VMs and Arc-enabled SQL Servers to install Microsoft Defender for SQL and AMA with a LA workspace](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_DfSQL_AMA_DefaultWorkspace.json) |Microsoft Defender for SQL collects events from the agents and uses them to provide security alerts and tailored hardening tasks (recommendations). Creates a resource group and a Data Collection Rule and Log Analytics workspace in the same region as the machine. |9 |1.2.0-preview |
 |[\[Preview\]: Configure SQL VMs and Arc-enabled SQL Servers to install Microsoft Defender for SQL and AMA with a user-defined LA workspace](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_DfSQL_AMA_UserWorkspace.json) |Microsoft Defender for SQL collects events from the agents and uses them to provide security alerts and tailored hardening tasks (recommendations). Creates a resource group and a Data Collection Rule in the same region as the user-defined Log Analytics workspace. |8 |1.1.0-preview |
 |[\[Preview\]: Deploy Microsoft Defender for Endpoint agent](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_MicrosoftDefenderForEndpointAgent.json) |Deploy Microsoft Defender for Endpoint agent on applicable images. |4 |1.0.0-preview |

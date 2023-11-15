@@ -9,7 +9,9 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 08/24/2023
-ms.custom: FY23 content-maintenance
+ms.custom:
+  - FY23 content-maintenance
+  - ignite-2023
 ---
 
 # Default outbound access in Azure
@@ -34,7 +36,7 @@ The public IPv4 address used for the access is called the default outbound acces
 
 ## When is default outbound access provided?
 
-If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP. The image below shows the underlying logic behind deciding which method of outbound to utilize, with default outbound being a "last resort".
+If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
 
 :::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.svg"  alt-text="Diagram of decision tree for default outbound access.":::
 
@@ -58,6 +60,17 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
 
 There are multiple ways to turn off default outbound access:
+
+>[!Important]
+> Private Subnet is currently in public preview.  It is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Utilize the Private Subnet parameter
+    * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
+    * The parameter to create a Private Subnet can only be modified during the creation of a subnet.
+    * VMs on a Private Subnet can still access the Internet using explicit outbound connectivity.
+
+    > [!NOTE]
+    > Certain services will not function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
 
 *  Add an explicit outbound connectivity method.
 
@@ -86,10 +99,10 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 ## Next steps
 
-For more information on outbound connections in Azure and Azure Virtual Network NAT (NAT gateway), see:
+For more information on outbound connections in Azure and Azure NAT Gateway, see:
 
 * [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md).
 
-* [What is Azure Virtual Network NAT?](../../nat-gateway/nat-overview.md)
+* [What is Azure NAT Gateway?](../../nat-gateway/nat-overview.md)
 
-* [Azure Virtual Network NAT FAQ](../../nat-gateway/faq.yml)
+* [Azure NAT Gateway FAQ](../../nat-gateway/faq.yml)
