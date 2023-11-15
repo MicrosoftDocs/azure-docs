@@ -51,8 +51,10 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data (preview)
+    - name: Using your data - text (preview)
       href: ./concepts/use-your-data.md
+    - name: Using your data - image (preview)
+      href: ./concepts/use-your-image-data.md
 - name: How-to 
   items:
   - name: Completions & chat completions
