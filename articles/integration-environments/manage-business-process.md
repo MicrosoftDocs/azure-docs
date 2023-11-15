@@ -30,7 +30,7 @@ This guide shows how to perform the following tasks:
 
 - An [integration environment](create-integration-environment.md) that contains an [application group](create-application-group.md), which has at least the [Standard logic app resources, workflows, and operations](../logic-apps/create-single-tenant-workflows-azure-portal.md) that you mapped to your business process stages
 
-- A [business process](create-business-process.md) that can be either undeployed or deployed
+- A [business process](create-business-process.md) that's either not deployed or deployed
 
 <a name="edit-description"></a>
 
