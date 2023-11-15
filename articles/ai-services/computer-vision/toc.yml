@@ -324,10 +324,10 @@ items:
         href: identity-encrypt-data-at-rest.md
   - name: Tutorials
     items:
+    - name: Detect liveness in face
+      href: Tutorials/liveness.md
     - name: Add users to a Face identification app
       items:
-      - name: Detect liveness in face
-        href: Tutorials/liveness.md
       - name: Best practices for enrolling users
         href: enrollment-overview.md
       - name: Build a React Native app to enroll users
