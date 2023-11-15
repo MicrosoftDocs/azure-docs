@@ -52,7 +52,6 @@ The following table summarizes the current subset of metrics available in Azure 
 |Metric|Category|Aggregation|Description|Dimensions|
 |---|---|---|---|---|
 |`Azure OpenAI Requests`|HTTP|Count|Total number of calls made to the Azure OpenAI API over a period of time. Applies to PayGo, PTU, and PTU-managed SKUs.| `ApiName`, `ModelDeploymentName`,`ModelName`,`ModelVersion`, `OperationName`, `Region`, `StatusCode`, `StreamType`|
-|`Active Tokens`| Usage | Sum | Total tokens minus cached tokens over a period of time. Applies to PTU deployments. As the active tokens per minute (TPM) increases, the utilization for PTUs increases. |`ModelDeploymentName`,`ModelName`,`ModelVersion` `Region`|
 | `Generated Completion Tokens` | Usage | Sum | Number of generated tokens (output) from an OpenAI model. Applies to PayGo, PTU, and PTU-manged SKUs | `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed FineTuned Training Hours` | Usage |Sum| Number of Training Hours Processed on an OpenAI FineTuned Model |  `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed Inference Tokens` | Usage | Sum|  Number of inference tokens processed by an OpenAI model. Calculated as prompt tokens (input) + generated tokens. Applies to PayGo, PTU, and PTU-manged SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
