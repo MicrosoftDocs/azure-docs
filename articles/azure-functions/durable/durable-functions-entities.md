@@ -17,7 +17,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 ::: zone pivot="csharp,javascript,python"
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker ([preview](durable-functions-dotnet-entities.md)), JavaScript, and Python, but not in PowerShell or Java.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java.
 ::: zone-end  
 ::: zone pivot="powershell,java"  
 >[!IMPORTANT]

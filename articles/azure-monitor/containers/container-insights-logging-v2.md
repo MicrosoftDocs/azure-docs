@@ -68,7 +68,7 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [CLI](#tab/configure-CLI)
 
-1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#configuring-aks-data-collection-settings-using-azure-cli), update the `enableContainerLogV2` field in the config file to be true.
+1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#enable-cost-settings), update the `enableContainerLogV2` field in the config file to be true.
 
 
 ---

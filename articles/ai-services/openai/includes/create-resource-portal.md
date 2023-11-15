@@ -27,7 +27,7 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
 
 1. Sign in with your Azure subscription in the Azure portal.
 
-1. Select **Create a resource** and search for the **Azure OpenAI Service**. When you locate the service, select **Create**.
+1. Select **Create a resource** and search for the **Azure OpenAI**. When you locate the service, select **Create**.
 
    :::image type="content" source="../media/create-resource/create-azure-openai-resource-portal.png" alt-text="Screenshot that shows how to create a new Azure OpenAI Service resource in the Azure portal.":::
 
