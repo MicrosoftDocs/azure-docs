@@ -6,7 +6,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/10/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -115,7 +115,12 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
+grant_type=authorization_code
+&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 ```
 
 | Parameter | Required? | Description |
@@ -189,7 +194,11 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token
+&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required? | Description |
