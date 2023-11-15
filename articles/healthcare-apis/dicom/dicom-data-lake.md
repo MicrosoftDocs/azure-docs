@@ -16,7 +16,7 @@ The [DICOM&reg; service](overview.md) provides cloud-scale storage for medical i
 
 By using Azure Data Lake Storage with the DICOM service, you're able to:
 
-- **Directly access to medical imaging data** stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+- **Directly access medical imaging data** stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
 - **Open medical imaging data up to the entire ecosystem of tools** for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
 - **Unlock new analytics and AI/ML scenarios** by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric. 
 - **Grant controls to manage storage permissions, access controls, tiers, and rules**. 
@@ -43,9 +43,9 @@ AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
 
 | Parameter            | Description |
 |----------------------|-------------|
-| {workspace-name}     | The name of the Health Data Services workspace that contains the DICOM service. |
-| {dicom-service-name} | The name of the DICOM service instance. |
-| {partition-name}     | The name of the data partition. Note, if no partitions are specified, all DICOM data is stored in the default partition, named `Microsoft.Default`. |
+| `{workspace-name}`     | The name of the Health Data Services workspace that contains the DICOM service. |
+| `{dicom-service-name}` | The name of the DICOM service instance. |
+| `{partition-name}`     | The name of the data partition. Note, if no partitions are specified, all DICOM data is stored in the default partition, named `Microsoft.Default`. |
 
 > [!NOTE]
 > During public preview, the DICOM service will write data to the storage container and read data that it has written, but user added data will not be read and indexed by the DICOM service.  Similarly, if DICOM data written by the DICOM service is modified or removed, it may result in errors when access data via the DICOMweb APIs.
@@ -53,6 +53,12 @@ AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
 ## Permissions
 
 The DICOM service is granted access to the data like any other service or application accessing data in a storage account, and that access can be revoked at any time without affecting a customer’s ability to access their data.  Specifically, the DICOM service needs to be granted the [Storage Blob Data Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role via a system-assigned or user-assigned managed identity.  
+
+## Access tiers
+
+You can manage costs for imaging data stored by the DICOM service using Azure Storage access tiers for the data lake storage account.  Currently, the DICOM service only supports online access tiers (either hot, cool, or cold), and can retrieve imaging data in those tiers immediately.  The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently, but that still must be available for reading and writing.
+
+To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/articles/storage/blobs/access-tiers-overview.md)
 
 ## Limitations
 
@@ -62,8 +68,9 @@ During public preview, the DICOM service with data lake storage has the followin
 - [Private link](../healthcare-apis-configure-private-link.md) isn't yet supported.  
 - UPS-RS work items aren't stored in the data lake storage account.  
 - User data added to the data lake storage account won't be read and indexed by the DICOM service.  It's possible that a filename collision could occur, so it's recommended to not write data to the folder structure used by the DICOM service.
-- If DICOM data written by the DICOM service is modified or removed, it might result in errors when access data via the DICOMweb APIs.
+- If DICOM data written by the DICOM service is modified or removed, it might result in errors when accessing data via the DICOMweb APIs.
 - Configuration of customer-managed keys isn't supported during the creation of a DICOM service when opting to use external storage.
+- The archive access tier isn't yet supported by the DICOM service.  Moving data to the archive tier will result in errors when accessing data via the DICOMweb APIs.
 
 ## Next steps
 
