@@ -3,7 +3,7 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022, build-2023
-ms.date: 11/01/2023
+ms.date: 11/15/2023
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -62,6 +62,19 @@ The following table summarizes each plan and their cloud availability.
 | [Container registries vulnerability assessment](concept-agentless-containers.md), including registry scanning | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
 | [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+
+> [!NOTE]
+> If you have enabled Defender for DevOps, you will only gain cloud security graph and attack path analysis to the artifacts that arrive through those connectors.
+>
+> To enable Governance for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
+
+## Integrations (preview)
+
+Microsoft Defender for Cloud now has built-in integrations to help you use third-party systems to seamlessly manage and track tickets, events, and customer interactions. You can push recommendations to a third-party ticketing tool, and assign responsibility to a team for remediation. 
+
+Integration streamlines your incident response process, and improves your ability to manage security incidents. You can track, prioritize, and resolve security incidents more effectively.
+
+You can choose which ticketing system to integrate. For preview, only ServiceNow integration is supported. For more information about how to configure ServiceNow integration, see [Integrate ServiceNow with Microsoft Defender for Cloud (preview)](integration-servicenow.md).
 
 ## Next steps
 
