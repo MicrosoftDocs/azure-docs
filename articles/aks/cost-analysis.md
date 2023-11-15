@@ -32,6 +32,8 @@ To address this challenge, AKS has integrated with MCM to offer detailed cost dr
 
 The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.io/), an open-source Cloud Native Computing Foundation Sandbox project for usage data collection, which gets reconciled with your Azure invoice data. Post-processed data is visible directly in the [MCM Cost Analysis portal experience](/azure/cost-management-billing/costs/quick-acm-cost-analysis).
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Prerequisites and limitations
 
 * Your cluster must be either `Standard` or `Premium` tier, not the `Free` tier.
@@ -45,6 +47,11 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 * If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
 
 * The `ClusterCostAnalysis` feature flag must be registered on your subscription.
+
+* Kubernetes cost views are available only for the following subscription agreement types:
+    * Enterprise Agreement
+    * Microsoft Customer Agreement
+
 
 ### Install or update the `aks-preview` Azure CLI extension
 
@@ -113,10 +120,14 @@ az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-c
 
 ## View cost information
 
-You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/).
+You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/view-kubernetes-costs).
 
 > [!NOTE]
 > It might take up to one day for data to finalize
+
+## Troubleshooting
+
+See the following guide to troubleshoot [AKS cost analysis add-on issues](/troubleshoot/azure/azure-kubernetes/aks-cost-analysis-add-on-issues).
 
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
