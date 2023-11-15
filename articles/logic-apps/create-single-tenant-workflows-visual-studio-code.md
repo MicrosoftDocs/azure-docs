@@ -576,7 +576,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
 
-   1. To find your authentication token page, for example, **https://dashboard.ngrok.com/auth/<your-authtoken>**, on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
+   1. To find your authentication token page, on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
 
    1. From the **Your Authtoken** box, copy the token to a safe location.
 
