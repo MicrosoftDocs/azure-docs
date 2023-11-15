@@ -1,5 +1,5 @@
 ---
-title: Auto-shutdown the VM
+title: Auto-shutdown a VM
 description: Learn how to set up auto-shutdown for VMs in Azure.
 author: ericd-mst-github
 ms.author: erd
@@ -9,9 +9,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 09/27/2023
 ---
 
-# Auto-shutdown the VM
+# Auto-shutdown a virtual machine
 
-In this tutorial, you learn how to automatically shut-down virtual machines (VMs) in Azure. The auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they aren't needed and automatically restarting them when they're needed again.
+In this tutorial, you learn how to automatically shut down virtual machines (VMs) in Azure. The auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they aren't needed and automatically restarting them when they're needed again.
 
 ## Configure auto-shutdown for a virtual machine
 

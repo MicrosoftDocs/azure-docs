@@ -26,9 +26,9 @@ items:
   - name: Deploy Cloud Shell in a virtual network
     items:
       - name: Overview
-        href: private-vnet.md
+        href: vnet-overview.md
       - name: Deploy using quickstart templates
-        href: quickstart-deploy-vnet.md
+        href: vnet-deployment.md
       - name: Troubleshoot Azure Cloud Shell in a virtual network
         href: vnet-troubleshooting.md
   - name: Pricing

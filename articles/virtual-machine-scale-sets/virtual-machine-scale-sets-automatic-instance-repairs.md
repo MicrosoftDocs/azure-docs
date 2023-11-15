@@ -374,6 +374,17 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 }
 ```
 
+Use [Set Orchestration Service State](/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state) to suspend or resume the *serviceState* for automatic repairs.
+
+```http
+POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2023-07-01'
+
+{
+  "serviceName": "AutomaticRepairs",
+  "action": "Suspend"
+}
+```
+
 ### [Azure CLI](#tab/cli-4)
 
 Use [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs.

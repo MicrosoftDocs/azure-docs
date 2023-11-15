@@ -1337,6 +1337,22 @@ productDirectory:
         - networking
         - 5g-space
       url: private-5g-core/index.yml
+      # Card
+    - title: Azure Operator Service Manager
+      summary: Manage network services across hybrid cloud sites
+      imageSrc: ./media/index/operator-service-manager.svg
+      azureCategories:
+        - networking
+        - 5g-space
+      url: operator-service-manager/index.yml
+      # Card
+    - title: Azure Operator Insights
+      summary: Analyze network data from multiple sources
+      imageSrc: ./media/index/operator-insights.svg
+      azureCategories:
+        - networking
+        - 5g-space
+      url: operator-insights/index.yml
     # Card
     - title: Load Balancer
       summary: Deliver high availability and network performance to your applications

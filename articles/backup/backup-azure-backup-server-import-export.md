@@ -89,7 +89,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 3. Provide the inputs on the **Use your Own Disk** page.
 
-   ![Screenshot shows how how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
+   ![Screenshot shows how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
 
    The description of the inputs is as follows:
 

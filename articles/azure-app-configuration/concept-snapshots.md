@@ -75,8 +75,6 @@ For stores that use HMAC authentication, both the "read snapshot" operation (to 
 
 ## Billing considerations and limits
 
-The storage quota for snapshots is detailed in the "storage per resource section" of the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
-
 App Configuration has two tiers, Free and Standard. Check the following details for snapshot quotas in each tier.
 
 * **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.

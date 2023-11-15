@@ -94,12 +94,13 @@ Actions |Permission |Scope |
 
 For more information, see the [list of supported operating systems and VM images](support-matrix.md#supported-operating-systems).
 
-Currently, Update Manager has the following limitations regarding operating system support:
+- [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) - Azure Update Manager now supports scheduled patching and periodic assessment for VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
+
+Currently, Update Manager has the following limitation regarding operating system support:
 
  - Marketplace images other than the [list of supported Marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
- - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and *VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery* aren't fully supported for now. You can use on-demand operations such as **One-time update** and **Check for updates** in Update Manager.
 
-For the preceding limitations, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager. To learn more, see [Supported operating systems](support-matrix.md#supported-operating-systems).
+For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager. To learn more, see [Supported operating systems](support-matrix.md#supported-operating-systems).
 
 ## VM extensions
 

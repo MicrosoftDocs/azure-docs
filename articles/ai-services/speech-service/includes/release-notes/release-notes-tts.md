@@ -5,6 +5,19 @@ ms.topic: include
 ms.date: 02/28/2023
 ms.author: eur
 ---
+
+### November 2023 release
+
+#### Custom neural voice
+
+- Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
+### October 2023 release
+
+#### Custom neural voice
+
+- Added support for the 12 new locales with Custom Neural Voice Pro. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
 ### September 2023 release
 
 #### Prebuilt neural voice

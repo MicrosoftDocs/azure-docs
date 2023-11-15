@@ -49,6 +49,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Pass-through WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 | [Pass-through GraphQL APIs](graphql-apis-overview.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
 | [Synthetic GraphQL APIs](graphql-apis-overview.md)                                            | Yes           | Yes       | Yes   | Yes      | Yes     |
+| [Pass-through gRPC APIs](grpc-api.md) (preview)                                                                              | No          | Yes       | No   | No      | Yes     |
 
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>

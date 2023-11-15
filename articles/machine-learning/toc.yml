@@ -596,9 +596,9 @@
       href: how-to-use-openai-models-in-azure-ml.md
 - name: Use Generative AI
   items:
-    - name: Build AI solutions with Prompt flow
+    - name: Build AI solutions with prompt flow
       items:
-        - name: What is Prompt flow?
+        - name: What is prompt flow?
           href: ./prompt-flow/overview-what-is-prompt-flow.md
         - name: Concepts
           items:
@@ -614,7 +614,7 @@
               href: ./prompt-flow/concept-variants.md
             - name: Evaluation monitoring metrics
               href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
-        - name: Get started in Prompt flow
+        - name: Get started in prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Prompt flow Ecosystem
           href: ./prompt-flow/community-ecosystem.md
@@ -644,26 +644,30 @@
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
             - name: Develop a customized evaluation flow
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
-            - name: Evaluate your Semantic Kernel with Prompt flow
+            - name: Evaluate your Semantic Kernel with prompt flow
               href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
         - name: Deploy a flow to online endpoint for real-time inference with UI
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
         - name: "Code first: Dev to Prod"
           items:
-            - name: Integrate Prompt Flow with LLM-based application DevOps 
+            - name: Integrate prompt flow with LLM-based application DevOps 
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
-            - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
+            - name: Set up end-to-end LLMOps with prompt flow and GitHub 
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Transparency note
+          href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
           items:
+            - name: Overview
+              href: ./prompt-flow/tools-reference/overview.md
             - name: LLM tool
               href: ./prompt-flow/tools-reference/llm-tool.md
             - name: Prompt tool
@@ -684,8 +688,6 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Source LLM tool
               href: ./prompt-flow/tools-reference/open-source-llm-tool.md
-            - name: More tools
-              href: ./prompt-flow/tools-reference/more-tools.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
@@ -694,7 +696,7 @@
           href: concept-retrieval-augmented-generation.md
         - name: What is a vector store
           href: concept-vector-stores.md
-        - name: How to use RAG in Prompt flow
+        - name: How to use RAG in prompt flow
           href: how-to-use-retrieval-augmented-generation.md
         - name: How to create a vector index
           href: how-to-create-vector-index.md
@@ -1082,7 +1084,7 @@
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
-      - name: Set up LLMOps with Prompt Flow and GitHub 
+      - name: Set up LLMOps with prompt flow and GitHub 
         href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
 - name: Monitor your models
   items:

@@ -90,7 +90,7 @@ To enable a disabled recommendation and ensure it's assessed for your resources:
 
 ## Manage a security recommendation's settings
 
-It may be necessary to configure additional parameters for some recommendations.
+It might be necessary to configure additional parameters for some recommendations.
 As an example, diagnostic logging recommendations have a default retention period of 1 day. You can change the default value if your organizational security requirements require logs to be kept for more than that, for example: 30 days.
 The **additional parameters** column indicates whether a recommendation has associated additional parameters:
 

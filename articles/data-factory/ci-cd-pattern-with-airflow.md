@@ -33,10 +33,10 @@ Continuous Deployment (CD) is an extension of CI that takes the automation one s
 **CI Pipeline with Dev IR:** 
 
 When a pull request (PR) is made from a feature branch to the Dev branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
-1. **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
-2. **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
-3. **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
-4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
+- **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
+- **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
+- **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
+- **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
 #### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
@@ -50,9 +50,9 @@ Once the Feature branch successfully merges with the Dev branch, you can create
 
 It allows you to continuously deploy the DAGs/ code into Managed Airflow environment.  
 
-1. **Fail-fast approach:** Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
+- **Fail-fast approach:** Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
 
-2. **Code quality improvement:** Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
+- **Code quality improvement:** Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
 
 ## Deployment Patterns in Azure Managed Airflow: 
 
@@ -66,13 +66,13 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 ### Advantages: 
 
-1. **No Local Development Environment Required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure. 
+- **No Local Development Environment Required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure. 
 
-2. **Scalability:** Managed Airflow provides auto scaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
+- **Scalability:** Managed Airflow provides auto scaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
 
-3. **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
+- **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
 
-4. **Git Integration**: Managed Airflow supports Git-sync feature, allowing you to store your DAGs in Git repository, making it easier to manage changes and collaborate with the team.  
+- **Git Integration**: Managed Airflow supports Git-sync feature, allowing you to store your DAGs in Git repository, making it easier to manage changes and collaborate with the team.  
 
 ### Workflow: 
 
@@ -114,7 +114,7 @@ Synchronize your GitHub repository’s branch with Azure Managed Airflow Service
 
 Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository.md).
 
-3. **Utilize Managed Airflow Service as Production environment:** 
+- **Utilize Managed Airflow Service as Production environment:** 
 
 You can raise a Pull Request (PR) to the branch that is sync with the Managed Airflow Service after successfully developing and testing data pipelines on local development setup. Once the branch is merged you can utilize the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
 
@@ -197,7 +197,7 @@ jobs:
 
 **Step 5:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
 
-1. At the least, it's crucial to conduct initial testing using `import_errors` to ensure the DAG's integrity and correctness.   
+* At the least, it's crucial to conduct initial testing using `import_errors` to ensure the DAG's integrity and correctness.   
 This test ensures: 
 
 - **Your DAG does not contain cyclicity:** Cyclicity, where a task forms a loop or circular dependency within  the workflow, can lead to unexpected and infinite execution loops. 
@@ -205,6 +205,7 @@ This test ensures: 
 - **There are no import errors:** Import errors can arise due to issues like missing dependencies, incorrect module paths, or coding errors.  
 
 - **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined.
+
 ```python
 @pytest.fixture() 
 
@@ -217,9 +218,9 @@ def test_no_import_errors(dagbag):
     """ 
     assert not dagbag.import_errors 
 ```
- 
 
-1. Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
+* Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
+
 ```python
 def test_expected_dags(dagbag): 
     """ 
@@ -234,7 +235,8 @@ def test_expected_dags(dagbag):
         assert dag_id == dag.dag_id 
 ```
 
-2. Test to ensure only approved tags are associated with your DAGs. This test helps to enforce the approved tag usage. 
+* Test to ensure only approved tags are associated with your DAGs. This test helps to enforce the approved tag usage. 
+
 ```python
 def test_requires_approved_tag(dagbag): 
     """ 
@@ -252,7 +254,7 @@ def test_requires_approved_tag(dagbag):
 
 **Step 6:** Now, when you raise pull request to dev branch, GitHub Actions triggers the CI pipeline, to run all the tests. 
 
-#### For information: 
+#### For More Information: 
 
 - [https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html) 
 

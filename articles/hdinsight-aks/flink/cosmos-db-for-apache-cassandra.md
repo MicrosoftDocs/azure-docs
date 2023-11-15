@@ -3,7 +3,7 @@ title: Using Azure Cosmos DB for Apache Cassandra® with HDInsight on AKS for Ap
 description: Learn how to Sink Apache Kafka® message into Azure Cosmos DB for Apache Cassandra®, with Apache Flink® running on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/30/2023
 ---
 
 # Sink Apache Kafka® messages into Azure Cosmos DB for Apache Cassandra, with Apache Flink® on HDInsight on AKS
@@ -183,7 +183,7 @@ drwxr-xr-x 2 root root 4096 May 15 02:43 util/
 **CassandraUtils.java**
 
 > [!NOTE]
-> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS Apache Flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
+> Change ssl_keystore_file_path depends on the java cert location. Apache Flink cluster on HDInsight on AKS, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
 
 ``` java
 package com.azure.cosmosdb.cassandra.util;
@@ -212,7 +212,7 @@ public class CassandraUtils {
 
 
     /**
-     * This method creates a Cassandra Session based on the the end-point details given in config.properties.
+     * This method creates a Cassandra Session based on the end-point details given in config.properties.
      * This method validates the SSL certificate based on ssl_keystore_file_path & ssl_keystore_password properties.
      * If ssl_keystore_file_path & ssl_keystore_password are not given then it uses 'cacerts' from JDK.
      * @return Session Cassandra Session

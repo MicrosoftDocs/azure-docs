@@ -58,7 +58,7 @@ The contribution of each security control towards the overall secure score is sh
 To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
 > [!NOTE]
-> Each control is calculated every eight hours per subscription or cloud connector. Recommendations within a control are updated more frequently than the control, and so there may be discrepancies between the resources count on the recommendations versus the one found on the control.
+> Each control is calculated every eight hours per subscription or cloud connector. Recommendations within a control are updated more frequently than the control, and so there might be discrepancies between the resources count on the recommendations versus the one found on the control.
 
 ### Example scores for a control
 

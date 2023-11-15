@@ -8,7 +8,7 @@ ms.author: glenga
 
 These steps assume a local C# project, and if your app is instead using C# script (`.csx` files), you should [convert to the project model](../articles/azure-functions/functions-reference-csharp.md#convert-a-c-script-app-to-a-c-project) before continuing.
 
-The following changes are required in the .csproj XML project file: 
+The following changes are required in the `.csproj` XML project file: 
 
 1. Set the value of `PropertyGroup`.`TargetFramework` to `net6.0`.
 
@@ -16,15 +16,30 @@ The following changes are required in the .csproj XML project file:
 
 1. Add the following `OutputType` element to the `PropertyGroup`:
 
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="5-5":::
+    ```xml
+    <OutputType>Exe</OutputType>
+    ```
 
-1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
+1. In the `ItemGroup`.`PackageReference` list, replace the package reference to `Microsoft.NET.Sdk.Functions` with the following references:
 
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
+    ```xml
+      <FrameworkReference Include="Microsoft.AspNetCore.App" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.15.1" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="1.0.0" />
+      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />
+    ```
+
+    Make note of any references to other packages in the `Microsoft.Azure.WebJobs.*` namespaces. You'll replace these packages in a later step.
 
 1. Add the following new `ItemGroup`:
 
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
+    ```xml
+    <ItemGroup>
+      <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
+    </ItemGroup>
+    ```
 
 After you make these changes, your updated project should look like the following example:
 
@@ -39,8 +54,13 @@ After you make these changes, your updated project should look like the followin
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.18.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.13.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.15.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="1.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />
+    <!-- Other packages may also be in this list -->
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

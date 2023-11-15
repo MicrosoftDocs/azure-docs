@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 11/06/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -59,6 +59,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 - `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
 - `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 
 **Request body**
 
@@ -391,14 +392,15 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `indexName` | string | Required | null | The search index to be used. |
 | `fieldsMapping` | dictionary | Optional | null | Index data column mapping.   |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
-| `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
+| `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
 | `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
 | `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
-| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models-1) starting in API versions `2023-06-01-preview` and later.|
+| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
+| `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 ### Start an ingestion job 
 
@@ -789,5 +791,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [ Models, and fine-tuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/files).
+Learn about [ Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

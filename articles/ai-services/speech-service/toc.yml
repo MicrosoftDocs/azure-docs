@@ -107,6 +107,9 @@ items:
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+    - name: How to use Pronunciation Assessment
+      href: how-to-pronunciation-assessment.md
+      displayName: pronounce, language learn, assess pron, scripted, unscripted
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Display text formatting
@@ -241,11 +244,8 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Pronunciation Assessment in Speech Studio
+        - name: Reading and speaking assessment in Speech Studio
           href: pronunciation-assessment-tool.md
-          displayName: pronounce, learn language, assess pron
-        - name: How to use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md

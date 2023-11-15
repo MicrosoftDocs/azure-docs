@@ -1,13 +1,13 @@
 ---
-title: Azure Arc resource bridge (preview) system requirements
-description: Learn about system requirements for Azure Arc resource bridge (preview).
+title: Azure Arc resource bridge system requirements
+description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 11/03/2023
 ---
 
-# Azure Arc resource bridge (preview) system requirements
+# Azure Arc resource bridge system requirements
 
-This article describes the system requirements for deploying Azure Arc resource bridge (preview).
+This article describes the system requirements for deploying Azure Arc resource bridge.
 
 Arc resource bridge is used with other partner products, such as [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), [Arc-enabled VMware vSphere](../vmware-vsphere/index.yml), and [Arc-enabled System Center Virtual Machine Manager (SCVMM)](../system-center-virtual-machine-manager/index.yml). These products may have additional requirements.  
 
@@ -81,7 +81,8 @@ Appliance VM IP address requirements:
 - Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 - Static IP assigned (strongly recommended)
-   - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+
+  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
 
 - Must be from within the IP address prefix.
 - Internal and external DNS resolution. 
@@ -103,13 +104,13 @@ Reserved appliance VM IP requirements:
 
 - Static IP assigned (strongly recommended)
 
-   - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
 
-   - Must be from within the IP address prefix.
+  - Must be from within the IP address prefix.
 
-   - Internal and external DNS resolution. 
+  - Internal and external DNS resolution.
 
-   - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
+  - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
 
 ## Control plane IP requirements
 
@@ -198,11 +199,11 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 
 ## Next steps
 
-- Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
+- Understand [network requirements for Azure Arc resource bridge](network-requirements.md).
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
+- Review the [Azure Arc resource bridge overview](overview.md) to understand more about features and benefits.
 
-- Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+- Learn about [security configuration and considerations for Azure Arc resource bridge](security-overview.md).
 
 
 
