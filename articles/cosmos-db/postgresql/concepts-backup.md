@@ -51,7 +51,6 @@ Geo-redundant backup is supported in the following Azure regions.
 | Canada Central        | Canada East                    |
 | Central US            | East US 2                      |
 | East Asia             | Southeast Asia                 |
-| East US               | West US                        |
 | East US 2             | Central US                     |
 | Japan East            | Japan West                     |
 | Japan West            | Japan East                     |

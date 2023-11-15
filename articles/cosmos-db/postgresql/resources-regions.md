@@ -37,6 +37,7 @@ Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 	* Japan East
 	* Japan West
 	* Korea Central
+    * South India
 	* Southeast Asia
 * Europe:
 	* France Central
