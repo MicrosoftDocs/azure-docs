@@ -257,7 +257,7 @@ productDirectory:
         - analytics
       url: analysis-services/index.yml
     # Card
-    - title: Azure Chaos Studio (Preview)
+    - title: Azure Chaos Studio
       summary: Improve application resilience by introducing faults and simulating outages
       imageSrc: ./media/index/chaos-studio.svg
       azureCategories:
