@@ -105,9 +105,9 @@ from PIL import Image
 import json
 
 client = AzureOpenAI(
-    api_version="2023-12-01-preview",
-    api_base=os.environ['AZURE_OPENAI_ENDPOINT'],
-    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+    api_version="2023-12-01-preview",  
+    api_key=os.environ["AZURE_OPENAI_API_KEY"],  
+    azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT']
 )
 
 result = client.images.generate(

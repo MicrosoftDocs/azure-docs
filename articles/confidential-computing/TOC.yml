@@ -107,6 +107,10 @@
       items:
       - name: Confidential containers overview
         href: confidential-containers.md
+      - name: Confidential containers AKS security policy
+        href: confidential-containers-aks-security-policy.md
+      - name: Confidential containers on AKS overview
+        href: ../aks/confidential-containers-overview.md
       - name: Confidential containers on AKS (preview)
         href: confidential-containers-on-aks-preview.md
       - name: Confidential containers with Azure Container Instances (ACI)
