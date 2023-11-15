@@ -115,7 +115,7 @@ az login
 ### Create policies with recommended settings
 
 > [!NOTE]
-> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings.
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
 
 To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--recommended` flag:
 
@@ -126,25 +126,34 @@ az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --conta
 This command passes the recommeded resiliency policy configurations, as shown in the following example:
 
 ```yaml
-properties:
-  httpRetryPolicy:
-    matches:
-      errors:
-      - 5xx
-    maxRetries: 3
-    retryBackOff:
-      initialDelayInMilliseconds: 1000
-      maxIntervalInMilliseconds: 10000
-  tcpRetryPolicy:
-    maxConnectAttempts: 3
-  timeoutPolicy:
-    connectionTimeoutInSeconds: 5
-    responseTimeoutInSeconds: 60
- circuitBreakerPolicy:
-    consecutiveErrors: 5
-    intervalInSeconds: 10
-    maxEjectionPercent: 100
+httpRetryPolicy:
+  matches:
+    errors:
+    - 5xx
+  maxRetries: 3
+  retryBackOff:
+    initialDelayInMilliseconds: 1000
+    maxIntervalInMilliseconds: 10000
+tcpRetryPolicy:
+  maxConnectAttempts: 3
+timeoutPolicy:
+  connectionTimeoutInSeconds: 5
+  responseTimeoutInSeconds: 60
+ircuitBreakerPolicy:
+  consecutiveErrors: 5
+  intervalInSeconds: 10
+  maxEjectionPercent: 100
 ```
+
+### Create specific policies
+
+Create resiliency policies by targeting an individual policy. For example, to create the `Timeout` policy, run the following command.
+
+```azurecli
+az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container-app-name MyContainerApp --timeout 20 --timeout-connect 5
+```
+
+[For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
 
 ### Create policies with resiliency YAML
 
