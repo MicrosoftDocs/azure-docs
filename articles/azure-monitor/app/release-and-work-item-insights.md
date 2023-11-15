@@ -3,7 +3,7 @@ title: Release and work item insights for Application Insights
 description: Learn how to set up continuous monitoring of your release pipeline, create work items in GitHub or Azure DevOps, and track deployment or other significant events.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/06/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 

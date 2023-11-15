@@ -24,10 +24,27 @@ The listed features were released in the last three months. For information abou
 ## November 2023
 
 - [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
+- [Visualize data with enrichment widgets](#visualize-data-with-enrichment-widgets-preview)
 
 ### Near-real-time rules now generally available
 
 Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
+
+### Visualize data with enrichment widgets (Preview)
+
+In the fast-moving, high-pressure environment of your Security Operations Center, data visualization is one of your SIEM's key capabilities to help you quickly and effectively find usable information within the vast sea of data that constantly confronts you. Microsoft Sentinel uses widgets, the latest evolution of its data visualization capabilities, to present you with its most relevant findings.
+
+Widgets are already available in Microsoft Sentinel today (in Preview). They currently appear for IP entities, both on their full [entity pages](entity-pages.md) and on their [entity info panels](incident-investigation.md) that appear in Incident pages. These widgets show you valuable information about the entities, from both internal and third-party sources.
+
+**What makes widgets essential in Microsoft Sentinel?**
+
+- **Real-time updates:** In the ever-evolving cybersecurity landscape, real-time data is of paramount importance. Widgets provide live updates, ensuring that your analysts are always looking at the most recent data.
+
+- **Integration:** Widgets are seamlessly integrated into Microsoft Sentinel data sources, drawing from their vast reservoir of logs, alerts, and intelligence. This integration means that the visual insights presented by widgets are backed by the robust analytical power of Microsoft Sentinel.
+
+In essence, widgets are more than just visual aids. They are powerful analytical tools that, when used effectively, can greatly enhance the speed and efficiency of threat detection, investigation, and response.
+
+- [Enable the enrichment widgets experience in Microsoft Sentinel](enable-enrichment-widgets.md)
 
 ## October 2023
 

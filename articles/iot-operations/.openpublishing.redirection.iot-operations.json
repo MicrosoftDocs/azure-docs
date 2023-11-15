@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/about-iot-operations-cli.md",
+            "redirect_url": "/cli/azure/iot/ops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
+            "redirect_document_id": false
+        }
+    ]
+}

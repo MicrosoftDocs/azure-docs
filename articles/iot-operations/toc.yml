@@ -1,0 +1,226 @@
+items:
+  - name: Azure IoT Operations
+    href: index.yml
+    items:
+    - name: Get started
+      expanded: true
+      items:
+      - name: Overview
+        href: get-started/overview-iot-operations.md
+      - name: Deploy Azure IoT Operations
+        href: get-started/quickstart-deploy.md
+      - name: Add OPC UA assets to your cluster
+        href: get-started/quickstart-add-assets.md
+      - name: Use pipelines to process data
+        href: get-started/quickstart-process-telemetry.md
+      - name: Get insights from your data
+        href: get-started/quickstart-get-insights.md
+    - name: Deploy Azure IoT Operations components
+      items:
+      - name: Prepare a cluster
+        href: deploy-iot-ops/howto-prepare-cluster.md
+      - name: Deploy to a cluster
+        href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Manage secrets
+        href: deploy-iot-ops/howto-manage-secrets.md
+    - name: Deploy custom workloads
+      items:
+      - name: Overview
+        href: deploy-custom/overview-orchestrator.md
+        displayName: Deploy, Orchestrator
+      - name: Concepts
+        items:
+        - name: Manifests
+          href: deploy-custom/concept-manifests.md
+        - name: Providers and components
+          href: deploy-custom/concept-providers.md
+      - name: Deploy K8s custom resources
+        href: deploy-custom/howto-k8s.md
+      - name: Deploy Helm charts
+        href: deploy-custom/howto-helm.md
+      - name: Troubleshoot
+        href: deploy-custom/howto-troubleshoot-deployment.md
+        displayName: Deploy, Orchestrator
+    - name: Manage assets
+      items:
+      - name: Overview
+        href: manage-devices-assets/overview-manage-assets.md
+      - name: Concepts
+        items: 
+        - name: Akri overview
+          href: manage-devices-assets/overview-akri.md
+        - name: Akri architecture
+          href: manage-devices-assets/concept-akri-architecture.md
+        - name: OPC UA broker overview
+          href: manage-devices-assets/overview-opcua-broker.md
+      - name: How to 
+        items:
+        - name: Manage assets remotely
+          href: manage-devices-assets/howto-manage-assets-remotely.md
+        - name: Autodetect assets
+          href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+        - name: Configure an OPC PLC simulator
+          href: manage-devices-assets/howto-configure-opc-plc-simulator.md
+        - name: Configure OPC UA authentication options
+          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
+    - name: Manage MQTT connectivity
+      items:
+      - name: Overview
+        href: manage-mqtt-connectivity/overview-iot-mq.md
+      - name: Configure core MQTT broker settings
+        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
+      - name: Secure MQTT communication endpoints
+        href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
+      - name: Configure automatic TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-auto.md
+      - name: Configure manual TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-manual.md
+      - name: Configure authentication
+        href: manage-mqtt-connectivity/howto-configure-authentication.md
+      - name: Configure authorization
+        href: manage-mqtt-connectivity/howto-configure-authorization.md
+      - name: Test connection
+        href: manage-mqtt-connectivity/howto-test-connection.md  
+      - name: Configure diagnostic settings
+        href: manage-mqtt-connectivity/howto-configure-diagnostics.md
+      - name: Manage secrets
+        href: manage-mqtt-connectivity/howto-manage-secrets.md
+    - name: Process data
+      items:
+      - name: Overview
+        href: process-data/overview-data-processor.md
+      - name: Concepts
+        items: 
+        - name: Message structure
+          href: process-data/concept-message-structure.md
+        - name: Supported message formats
+          href: process-data/concept-supported-formats.md
+        - name: Pipeline partitioning
+          href: process-data/concept-partitioning.md
+        - name: Configuration patterns
+          href: process-data/concept-configuration-patterns.md
+      - name: Edit and manage pipelines
+        href: process-data/howto-edit-pipelines.md
+      - name: Read data
+        items:
+        - name: Configure a pipeline MQ data source stage
+          href: process-data/howto-configure-datasource-mq.md
+        - name: Configure a pipeline HTTP endpoint source stage
+          href: process-data/howto-configure-datasource-http.md
+        - name: Configure a pipeline SQL Server source stage
+          href: process-data/howto-configure-datasource-sql.md
+      - name: Process data
+        items:
+        - name: Aggregate data in a pipeline
+          href: process-data/howto-configure-aggregate-stage.md
+        - name: Filter data in a pipeline
+          href: process-data/howto-configure-filter-stage.md
+        - name: Call out to a gRPC endpoint from a pipeline
+          href: process-data/howto-configure-grpc-callout-stage.md
+        - name: Call out to an HTTP endpoint from a pipeline
+          href: process-data/howto-configure-http-callout-stage.md
+        - name: Use last known values in a pipeline
+          href: process-data/howto-configure-lkv-stage.md
+        - name: Transform data in a pipeline
+          href: process-data/howto-configure-transform-stage.md
+      - name: Enrich data
+        items:
+        - name: Pipeline contextualization
+          href: process-data/concept-contextualization.md
+        - name: Configure reference data store
+          href: process-data/howto-configure-reference.md
+        - name: Send data to the reference data store
+          href: process-data/howto-configure-destination-reference-store.md
+        - name: Configure enrich stage
+          href: process-data/howto-configure-enrich-stage.md
+      - name: Send data
+        items:   
+        - name: Send data to a gRPC endpoint
+          href: process-data/howto-configure-destination-grpc.md
+        - name: Publish data to an MQTT broker
+          href: process-data/howto-configure-destination-mq-broker.md
+      - name: jq guide
+        items:
+        - name: What is jq?
+          href: process-data/concept-jq.md
+        - name: jq paths
+          href: process-data/concept-jq-path.md
+        - name: jq expressions
+          href: process-data/concept-jq-expression.md
+
+    - name: Connect to the cloud
+      items:
+      - name: Connect to MQTT or Event Grid
+        href: connect-to-cloud/howto-configure-mqtt-bridge.md
+      - name: Send data to a data lake
+        href: connect-to-cloud/howto-configure-data-lake.md
+      - name: Send data to Kafka or Azure Event Hubs
+        href: connect-to-cloud/howto-configure-kafka.md
+      - name: Send data to Azure Data Explorer from a pipeline
+        href: connect-to-cloud/howto-configure-destination-data-explorer.md
+      - name: Send data to Microsoft Fabric from a pipeline
+        href: connect-to-cloud/howto-configure-destination-fabric.md
+
+    - name: Monitor service and asset health
+      items:
+      - name: Configure observability
+        href: monitor/howto-configure-observability.md
+    - name: Manage layered network
+      items:
+      - name: Overview
+        href: manage-layered-network/overview-layered-network.md
+      - name: Get started with a simplified VM and network
+        href: manage-layered-network/howto-deploy-aks-layered-network.md
+      - name: Deploy Azure IoT Operations in isolated network
+        href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
+      - name: How to
+        items:
+        - name: Create sample network environment
+          href: manage-layered-network/howto-configure-layered-network.md
+        - name: Configure L4 cluster
+          href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
+        - name: Configure L3 cluster
+          href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+
+    - name: Send, view, and analyze data
+      items:
+      - name: Build a real-time dashboard in Microsoft Fabric 
+        href: send-view-analyze-data/tutorial-real-time-dashboard-fabric.md
+      - name: Upload MQTT data to a lakehouse
+        href: send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md
+      - name: Build event-driven apps with Dapr
+        href: send-view-analyze-data/tutorial-event-driven-with-dapr.md
+      - name: Bridge MQTT data between IoT MQ and Azure Event Grid
+        href: send-view-analyze-data/tutorial-connect-event-grid.md
+
+    - name: Developer guide
+      items:
+      - name: About distributed apps
+        href: develop/concept-about-distributed-apps.md
+      - name: About the MQ state store protocol 
+        href: develop/concept-about-state-store-protocol.md
+      - name: Develop Dapr apps
+        href: develop/howto-develop-dapr-apps.md
+      - name: Develop MQTTnet apps
+        href: develop/howto-develop-mqttnet-apps.md
+    - name: Troubleshoot
+      href: troubleshoot/troubleshoot.md
+    - name: Known issues
+      href: troubleshoot/known-issues.md
+    - name: Reference # supporting information like APIs, tools, code libraries
+      items: 
+      - name: Azure IoT Operations Arc Jumpstart scenario
+        href: https://aka.ms/ArcJumpstartAIO
+      - name: Azure IoT Operations CLI
+        href: /cli/azure/iot/ops
+      - name: Available metrics for observability
+        items:
+        - name: Azure IoT MQ
+          href: reference/observability-metrics-mq.md
+        - name: Azure IoT Akri
+          href: reference/observability-metrics-akri.md
+        - name: Azure IoT OPC UA Broker
+          href: reference/observability-metrics-opcua-broker.md
+        - name: Azure IoT Layered Network Management
+          href: reference/observability-metrics-layered-network.md
+
