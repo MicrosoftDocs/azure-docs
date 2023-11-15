@@ -4,9 +4,13 @@ description: How to enable end-to-end encryption for your Azure VMs using encryp
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 11/02/2023
 ms.author: rogarana
-ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
+ms.custom:
+  - references_regions
+  - devx-track-azurepowershell
+  - ignite-fall-2021
+  - ignite-2023
 ---
 
 # Use the Azure PowerShell module to enable end-to-end encryption using encryption at host
@@ -19,6 +23,9 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
+## Regional availability
+
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
