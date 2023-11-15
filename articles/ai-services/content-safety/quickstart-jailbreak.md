@@ -34,7 +34,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **1K** characters. 
+    > The default maximum length for text submissions is **1K** characters. Jailbreak risk detection is meant to be run on LLM prompts, not completions. 
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:detectJailbreak?api-version=2023-10-15-preview' \
