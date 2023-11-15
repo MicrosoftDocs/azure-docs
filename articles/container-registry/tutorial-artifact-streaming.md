@@ -60,5 +60,5 @@ Here is a brief overview on how to use artifact streaming with Azure Container R
 
 ## Next steps
 
-[!div class="nextstepaction"]
-[Enable Artifact Streaming- Azure CLI](tutorial-artifact-streaming-cli.md)
+> [!div class="nextstepaction"]
+> [Enable Artifact Streaming- Azure CLI](tutorial-artifact-streaming-cli.md)
