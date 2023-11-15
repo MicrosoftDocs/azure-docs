@@ -23,7 +23,7 @@ This article is part one in a four-part tutorial series. In this tutorial, you l
 
 * [Artifact Streaming (Preview)](tutorial-artifact-streaming.md)
 * [Artifact Streaming - Azure CLI](tutorial-artifact-streaming-cli.md)
-* [Artifact Streaming - Azure Portal](tutorial-artifact-streaming-portal.md)
+* [Artifact Streaming - Azure portal](tutorial-artifact-streaming-portal.md)
 * [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)
 
 ## Preview limitations
@@ -54,7 +54,7 @@ Benefits of enabling and using artifact streaming at a registry level include:
 Here is a brief overview on how to use artifact streaming with Azure Container Registry (ACR). 
 
 * Customers with new and existing registries can enable artifact streaming for specific repositories or tags. 
-* Once you enable artifact streaming, two versions of the artifact are stored in the your container registry: the original artifact and the artifact streaming artifact. 
+* Once you enable artifact streaming, two versions of the artifact are stored in the container registry: the original artifact and the artifact streaming artifact. 
 * If you disable or turn off artifact streaming for repositories or artifacts, the artifact streaming copy and original artifact still exist.
 * If you delete a repository or artifact with artifact streaming and soft delete enabled, then both the original and artifact streaming versions are deleted. However, only the original version is available on the soft delete blade.
 

@@ -16,7 +16,7 @@ This article is part four in a four-part tutorial series. In this tutorial, you 
 
 *  [Artifact Streaming(Preview)](tutorial-artifact-streaming.md)
 * [Artifact Streaming - Azure CLI](tutorial-artifact-streaming-cli.md)
-* [Artifact Streaming - Azure Portal](tutorial-artifact-streaming-portal.md)
+* [Artifact Streaming - Azure portal](tutorial-artifact-streaming-portal.md)
 * [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)
 
 ## Symptoms

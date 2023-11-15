@@ -74,7 +74,7 @@ For example, run the `az acr artifact-streaming update` command to enable auto-c
 az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming true
 ```
 
-Use the `az acr artifact-streaming operation show` command to verify the streaming conversion progress. For example, this command check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
+Use the `az acr artifact-streaming operation show` command to verify the streaming conversion progress. For example, this command checks the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
