@@ -28,14 +28,14 @@ To get started using priority-based execution, navigate to the **Features** page
 
 :::image type="content" source="media/priority-based-execution/priority-based-execution-enable-feature.png" alt-text="Screenshot of Priority-based execution feature in the Features page in an Azure Cosmos DB account.":::
 
-## SDK Requirements 
+## SDK requirements 
 
 - .NET v3: [v3.33.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) or later
 - Java v4: [v4.45.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.45.0) or later
 - Spark 3.2: [v4.19.0](https://central.sonatype.com/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-2_2-12/4.19.0) or later
 - JavaScript v4: [v4.0.0](https://www.npmjs.com/package/@azure/cosmos) or later
 
-## Code Samples
+## Code samples
 
 #### [.NET SDK v3](#tab/net-v3)
 
@@ -132,7 +132,7 @@ When Priority-based execution is enabled for a Cosmos DB account, all requests i
 > [!NOTE]
 >This client-side configuration is specific to the concerned user's Data explorer view only and won't affect other users' Data explorer priority level or the default priority level of the Cosmos DB account.
 
-:::image type="content" source="media/priority-based-execution/priority-based-execution-data-explorer-conf.png" alt-text="Screenshot of priority levels in Data explorer of an Azure Cosmos DB account.":::
+:::image type="content" source="media/priority-based-execution/priority-based-execution-data-explorer-config.png" alt-text="Screenshot of priority levels in Data explorer of an Azure Cosmos DB account.":::
 
 
 ## Limitations
@@ -144,7 +144,7 @@ Priority-based execution is currently not supported with following features:
 
 The behavior of priority-based execution feature is nondeterministic for shared throughput database containers.
 
-## Next Steps
+## Next steps
 
 - See the FAQ on [Priority-based execution](priority-based-execution-faq.yml)
 - Learn more about [Burst capacity](burst-capacity.md)
