@@ -107,7 +107,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
+    [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
