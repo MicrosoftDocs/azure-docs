@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Data Lake Storage Gen1. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/18/2023
+ms.date: 11/06/2023
 ms.topic: sample
 author: normesta
 ms.author: normesta

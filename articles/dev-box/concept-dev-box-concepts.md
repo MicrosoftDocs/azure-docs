@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dev Box key concepts
-description: Learn key concepts and terminology for Microsoft Dev Box.
+description: Learn key concepts and terminology for Microsoft Dev Box. Get an understanding about dev center, dev box, dev box definitions, and dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,12 +11,14 @@ ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
-# Key concepts for Microsoft Dev Box 
+# Key concepts for Microsoft Dev Box
 
-This article describes the key concepts and components of Microsoft Dev Box.
+This article describes the key concepts and components of Microsoft Dev Box to help you set up the service successfully.
 
-As you learn about Microsoft Dev Box, you'll also encounter components of [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md), a complementary service that shares certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. 
+Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
 
+Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
+    
 ## Dev center
 
 A dev center is a collection of [Projects](#project) that require similar settings. Dev centers enable platform engineers to:

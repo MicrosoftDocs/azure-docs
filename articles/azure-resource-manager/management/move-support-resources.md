@@ -1304,7 +1304,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
 > | applicationsecuritygroups | **Yes** | **Yes** | No |
 > | azurefirewalls | No | No | No |
-> | bastionhosts | No | No | No |
+> | bastionhosts | Yes | No | No |
 > | bgpservicecommunities | No | No | No |
 > | connections | **Yes** | **Yes** | No |
 > | ddoscustompolicies | **Yes** | **Yes** | No |
@@ -1397,6 +1397,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | linktargets | No | No | No |
 > | storageinsightconfigs | No | No | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | querypacks | No | No | No |
+
 
 ## Microsoft.OperationsManagement
 
@@ -1987,3 +1989,4 @@ Third-party services currently don't support the move operation.
 - For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you want those properties and region move support, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+

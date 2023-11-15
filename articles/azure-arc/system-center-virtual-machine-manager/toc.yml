@@ -1,14 +1,14 @@
-- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+- name: Azure Arc-enabled System Center Virtual Machine Manager
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+  - name: Azure Arc-enabled System Center Virtual Machine Manager
     href: overview.md
-  - name: Switch to the new preview version
-    href: switch-to-the-new-preview-version.md
+  - name: Switch to the new version
+    href: switch-to-the-new-version-scvmm.md
 - name: Quickstarts
   items:
-  - name: Connect a System Center Virtual Machine Manager management server to Azure Arc (preview)
+  - name: Connect a System Center Virtual Machine Manager management server to Azure Arc
     href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
 - name: Tutorials
   items:
@@ -16,10 +16,6 @@
     href: create-virtual-machine.md
 - name: Concepts
   items:
-  - name: Custom locations
-    href: custom-locations.md
-  - name: Azure Arc Resource Bridge
-    href: azure-arc-resource-bridge.md
   - name: Azure Arc agent
     href: agent-overview-scvmm.md
 - name: How-to guides
@@ -47,9 +43,8 @@
   items:
   - name: Azure CLI
     items:
-    - name: Azure Arc-enabled System Center VMM (preview)
+    - name: Azure Arc-enabled System Center VMM
       href: /cli/azure/scvmm
     - name: Azure Arc resource bridge
       href:  /cli/azure/arcappliance
-
 

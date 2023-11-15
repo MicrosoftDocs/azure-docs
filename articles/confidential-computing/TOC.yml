@@ -39,8 +39,8 @@
       href: confidential-vm-overview.md
     - name: FAQ for AMD confidential VMs
       href: confidential-vm-faq-amd.yml
-    - name: AMD processor options for confidential VMs
-      href: virtual-machine-solutions-amd.md
+    - name: Confidential VM solutions
+      href: virtual-machine-solutions.md
     - name: Guest attestation for confidential VMs
       href: guest-attestation-confidential-vms.md
     - name: Microsoft Defender for Cloud integration
@@ -107,6 +107,12 @@
       items:
       - name: Confidential containers overview
         href: confidential-containers.md
+      - name: Confidential containers AKS security policy
+        href: confidential-containers-aks-security-policy.md
+      - name: Confidential containers on AKS overview
+        href: ../aks/confidential-containers-overview.md
+      - name: Confidential containers on AKS (preview)
+        href: confidential-containers-on-aks-preview.md
       - name: Confidential containers with Azure Container Instances (ACI)
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
@@ -191,3 +197,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-confidential-computing
   - name: Virtual Machines on Azure
     href: ../virtual-machines/index.yml
+  - name: Security patch status
+    href: https://microsoft-my.sharepoint.com/:w:/p/irakaul/EbZErJv7pXpJv-DJn6oZtwgBPLeTa12q3sbTZFAGU8BfvQ?e=Rs2RxX

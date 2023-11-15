@@ -71,7 +71,7 @@ Note the public IP address of the VM. You will use this address to connect to 
 
 ## Create an Azure Database for MariaDB server 
 
-Create a Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create an Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 # Create a server in the resource group 

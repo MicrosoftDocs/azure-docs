@@ -11,22 +11,20 @@ ms.reviewer: rijolly
 
 Application Insights now supports [Microsoft Entra authentication](../../active-directory/authentication/overview-authentication.md). By using Microsoft Entra ID, you can ensure that only authenticated telemetry is ingested in your Application Insights resources.
 
-Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts)and [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
+Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts) and [autoscaling](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
 > [!NOTE]
-> Note
-> This document covers data ingestion into Application Insights using Microsoft Entra ID. authentication. For information on querying data within Application Insights, see [Query Application Insights using Microsoft Entra authentication](./app-insights-azure-ad-api.md).
+> This document covers data ingestion into Application Insights using Microsoft Entra ID-based authentication. For information on querying data within Application Insights, see [Query Application Insights using Microsoft Entra authentication](./app-insights-azure-ad-api.md).
 
 ## Prerequisites
-> 
 
-The following prerequisites enable Microsoft Entra authenticated ingestion. You need to:
+The following preliminary steps are required to enable Microsoft Entra authenticated ingestion. You need to:
 
 - Be in the public cloud.
-- Have familiarity with:
-    - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
-    - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
-    - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
+- Be familiar with:
+  - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+  - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
+  - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
 - Have an Owner role to the resource group to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 - Understand the [unsupported scenarios](#unsupported-scenarios).
 
@@ -34,12 +32,12 @@ The following prerequisites enable Microsoft Entra authenticated ingestion. You 
 
 The following SDKs and features are unsupported for use with Microsoft Entra authenticated ingestion:
 
-- [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).<br>
+- [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).<br />
  Microsoft Entra authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
 - [Certificate/secret-based Microsoft Entra ID](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use managed identities instead.
-- On-by-default codeless monitoring (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
+- On-by-default [autoinstrumentation/codeless monitoring](codeless-overview.md) (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
 
@@ -75,10 +73,10 @@ Application Insights .NET SDK supports the credential classes provided by [Azure
 
 - We recommend `DefaultAzureCredential` for local development.
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
-    - For system-assigned, use the default constructor without parameters.
-    - For user-assigned, provide the client ID to the constructor.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
 - We recommend `ClientSecretCredential` for service principals.
-    - Provide the tenant ID, client ID, and client secret to the constructor.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
 
 The following example shows how to manually create and configure `TelemetryConfiguration` by using .NET:
 
@@ -150,7 +148,7 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
 1. Add the JSON configuration to the *ApplicationInsights.json* configuration file depending on the authentication you're using. We recommend using managed identities.
 
 > [!NOTE]
->  For more information about migrating from the 2.X SDK to the 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
+> For more information about migrating from the `2.X` SDK to the `3.X` Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
 
 #### System-assigned managed identity
 
@@ -180,6 +178,7 @@ The following example shows how to configure the Java agent to use user-assigned
   } 
 } 
 ```
+
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot that shows user-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
 
 #### Client secret
@@ -198,6 +197,7 @@ The following example shows how to configure the Java agent to use a service pri
   } 
 } 
 ```
+
 :::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot that shows the client secret with the tenant ID and the client ID." lightbox="media/azure-ad-authentication/client-secret-tenant-id.png":::
 
 :::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot that shows the Client secrets section with the client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
@@ -206,17 +206,17 @@ The following example shows how to configure the Java agent to use a service pri
 
 The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable lets Application Insights authenticate to Microsoft Entra ID and send telemetry.
 
-   - For system-assigned identity:
+- For system-assigned identity:
 
-       | App setting    | Value    |
-       | -------------- |--------- |
-       | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
+| App setting    | Value    |
+| -------------- |--------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
 
-   - For user-assigned identity:
+- For user-assigned identity:
 
-       | App setting   | Value    |
-       | ------------- | -------- |
-       | APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
+| App setting   | Value    |
+| ------------- | -------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 Set the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable using this string.
 
@@ -242,7 +242,7 @@ is included starting with beta version [opencensus-ext-azure 1.1b0](https://pypi
 
 Construct the appropriate [credentials](/python/api/overview/azure/identity-readme#credentials) and pass them into the constructor of the Azure Monitor exporter. Make sure your connection string is set up with the instrumentation key and ingestion endpoint of your resource.
 
-The `OpenCensus`` Azure Monitor exporters support these authentication types. We recommend using managed identities in production environments.
+The `OpenCensus` Azure Monitor exporters support these authentication types. We recommend using managed identities in production environments.
 
 #### System-assigned managed identity
 
@@ -300,6 +300,7 @@ tracer = Tracer(
 )
 ...
 ```
+
 ---
 
 ## Disable local authentication
@@ -444,7 +445,7 @@ When developing a custom client to obtain an access token from Microsoft Entra I
 
 If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
 
-_InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}_
+*InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}*
 
 The audience parameter, AADAudience, may vary depending on your specific environment.
 
@@ -486,7 +487,7 @@ Next, you should review the Application Insights resource's access control. The 
 The Application Insights .NET SDK emits error logs by using the event source. To learn more about collecting event source logs, see [Troubleshooting no data - collect logs with PerfView](asp-net-troubleshoot-no-data.md#PerfView).
 
 If the SDK fails to get a token, the exception message is logged as
-`Failed to get AAD Token. Error message: `.
+`Failed to get AAD Token. Error message:`.
 
 ### [Node.js](#tab/nodejs)
 
@@ -531,6 +532,7 @@ If the following WARN message is seen in the log file `WARN c.m.a.TelemetryChann
 If you're using Fiddler, you might see the response header `HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component`.
 
 The root cause might be one of the following reasons:
+
 - You've created the resource with a system-assigned managed identity or associated a user-assigned identity with it. However, you might have forgotten to add the Monitoring Metrics Publisher role to the resource (if using SAMI) or the user-assigned identity (if using UAMI).
 - You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (VM or app service) or user-assigned identity with Monitoring Metrics Publisher roles in your Application Insights resource.
 
@@ -567,8 +569,9 @@ You're probably missing a credential or your credential is set to `None`, but yo
 This error usually occurs when the provided credentials don't grant access to ingest telemetry for the Application Insights resource. Make sure your Application Insights resource has the correct role assignments.
 
 ---
+
 ## Next steps
 
-* [Monitor your telemetry in the portal](overview-dashboard.md)
-* [Diagnose with Live Metrics Stream](live-stream.md)
-* [Query Application Insights using Microsoft Entra authentication](./app-insights-azure-ad-api.md)
+- [Monitor your telemetry in the portal](overview-dashboard.md)
+- [Diagnose with Live Metrics Stream](live-stream.md)
+- [Query Application Insights using Microsoft Entra authentication](./app-insights-azure-ad-api.md)

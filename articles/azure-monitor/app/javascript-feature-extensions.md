@@ -153,9 +153,24 @@ Telemetry data generated from the click events are stored as `customEvents` in t
 ### `name`
 
 The `name` column of the `customEvent` is populated based on the following rules:
-  1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
-  1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
+  1. If [`customDataPrefix`](#customdataprefix) isn't declared in the advanced configuration, the `id` provided in the `data-id` is used as the `customEvent` name.
+  1. If [`customDataPrefix`](#customdataprefix) is declared, the `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
+  1. If the `data-id` or `data-*-id` attribute doesn't exist and if [`useDefaultContentNameOrId`](#icustomdatatags) is set to `true`, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
   1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`. We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
+
+### `contentName`
+
+If you have the [`contentName` callback function](#ivaluecallback) in advanced configuration defined, the `contentName` column of the `customEvent` is populated based on the following rules:
+
+- For a clicked HTML `<a>` element, the plugin attempts to collect the value of its innerText (text) attribute. If the plugin can't find this attribute, it attempts to collect the value of its innerHtml attribute.
+- For a clicked HTML `<img>` or `<area>` element, the plugin collects the value of its `alt` attribute.
+- For all other clicked HTML elements, `contentName` is populated based on the following rules, which are listed in order of precedence:
+
+   1. The value of the `value` attribute for the element
+   1. The value of the `name` attribute for the element
+   1. The value of the `alt` attribute for the element
+   1. The value of the innerText attribute for the element
+   1. The value of the `id` attribute for the element
 
 ### `parentId` key
 
@@ -183,13 +198,13 @@ For examples showing which value is fetched as the `parentId` for different conf
 
 ### `customDataPrefix`
 
-The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
+The [`customDataPrefix` option in advanced configuration](#icustomdatatags) provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix must always be lowercase and start with `data-`. For example:
 
 - `data-heart-` 
 - `data-team-name-`
 - `data-example-`
   
-n HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers like Internet Explorer and Safari drop attributes they don't understand, unless they start with `data-`.
+In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers like Internet Explorer and Safari drop attributes they don't understand, unless they start with `data-`.
 
 You can replace the asterisk (`*`) in `data-*` with any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions.
 - The name must not start with "xml," whatever case is used for the letters.

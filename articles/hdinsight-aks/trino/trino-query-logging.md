@@ -1,16 +1,16 @@
 ---
 title: Query logging 
-description: Log Query lifecycle events in Trino Cluster
+description: Log query lifecycle events in Trino cluster
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Query logging
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Trino supports custom [event listeners](https://trino.io/docs/current/develop/event-listener.html) that can be used to listen for Query lifecycle events. You can author your own event listeners or use a built-in plugin provided by HDInsight on AKS Trino that logs events to Azure Blob Storage.
+Trino supports custom [event listeners](https://trino.io/docs/current/develop/event-listener.html) that can be used to listen for Query lifecycle events. You can author your own event listeners or use a built-in plugin provided by HDInsight on AKS that logs events to Azure Blob Storage.
 
 You can enable built-in query logging in two ways:
 
@@ -22,7 +22,7 @@ This article covers addition of query logging to your cluster using ARM template
 
 ## Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
 * Review complete cluster [ARM template](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json) sample.
 * Familiarity with [ARM template authoring and deployment](/azure/azure-resource-manager/templates/overview).

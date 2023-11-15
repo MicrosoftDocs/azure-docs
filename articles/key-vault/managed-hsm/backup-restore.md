@@ -9,11 +9,11 @@ ms.custom: devx-track-azurecli
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/04/2023
+ms.date: 10/23/2023
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
-# Full backup and restore
+# Full backup and restore and selective key restore
 
 > [!NOTE]
 > This feature is only available for resource type managed HSM.
@@ -38,7 +38,7 @@ You must provide following information to execute a full backup:
 
 Backup is a long running operation but will immediately return a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes, and seconds of date/time in UTC when the backup command was received.
 
-While the backup is in progress, the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
+While the backup is in progress, the HSM might not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
 > [!IMPORTANT]
 > Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
@@ -102,6 +102,14 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
+```
+
+## Selective key restore
+
+Selective key restore allows you to restore one individual key with all its key versions from a previous backup to an HSM.
+
+```
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860 -–key-name rsa-key2
 ```
 
 ## Next Steps

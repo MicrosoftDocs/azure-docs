@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Orbital Documentation
+title: Azure Orbital Ground Station Documentation
 summary: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
 
 metadata:
@@ -19,63 +19,24 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Orbital Ground Station
+  - title: About the Azure Orbital Ground Station Service
     linkLists:
       - linkListType: overview
         links:
           - text: Why use Azure Orbital Ground Station?
             url: overview.md
-          - text: Get started with Azure Orbital Ground Station
-            url: get-started.md
+          - text: Learn about Microsoft and partner ground stations
+            url: about-ground-stations.md
 
   # Card
-  - title: Get started with Earth Observation
+  - title: Quickstart
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Register a spacecraft 
-            url: register-spacecraft.md
-          - text: Configure a contact profile
-            url: contact-profile.md
-          - text: Schedule a contact
-            url: schedule-contact.md
-
-  # Card
-  - title: Manage your resources
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Prepare network to receive and send data
-            url: prepare-network.md
-          - text: Integrate partner network ground stations
-            url: partner-network-integration.md
-          - text: Receive real-time telemetry
-            url: receive-real-time-telemetry.md
-          - text: Update the spacecraft TLE
-            url: update-tle.md  
-
-  # Card
-  - title: Tutorials & Architectures
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Downlink data from NASA's Aqua public satellite
-            url: downlink-aqua.md
-          - text: Process Aqua satellite data using NASA-provided tools
-            url: satellite-imagery-with-orbital-ground-station.md
-          - text: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
-            url: virtual-rf-tutorial.md
-      - linkListType: architecture
-        links:
-          - text: Geospatial reference architecture
-            url: geospatial-reference-architecture.md
-          - text: Spaceborne data analysis with Azure Synapse Analytics
-            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
-          - text: Organize spaceborne geospatial data with STAC
-            url: organize-stac-data.md
-          - text: Process Synthetic Aperture Radar (SAR) data
-            url: sar-reference-architecture.md   
-
+          - text: Get started with Azure Orbital Ground Station
+            url: get-started.md
+          - text: Learn how Azure Orbital Ground Station supports all mission phases
+            url: mission-phases.md
 
   # Card
   - title: Concepts
@@ -88,3 +49,39 @@ landingContent:
             url: concepts-contact-profile.md
           - text: Spacecraft object
             url: spacecraft-object.md
+    
+  # Card
+  - title: How to use the service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Initiate ground station licensing
+            url: initiate-licensing.md
+          - text: Register a spacecraft 
+            url: register-spacecraft.md
+          - text: Prepare network to receive and send data
+            url: prepare-network.md
+          - text: Configure a contact profile
+            url: contact-profile.md
+          - text: Configure the RF chain
+            url: modem-chain.md
+          - text: Schedule a spacecraft contact
+            url: schedule-contact.md
+          - text: Update the spacecraft TLE
+            url: update-tle.md  
+          - text: Receive real-time antenna telemetry
+            url: receive-real-time-telemetry.md
+          - text: Prepare for launch
+            url: prepare-for-launch.md
+          - text: Use Azure Resource Graph to view contacts
+            url: resource-graph-samples.md
+          
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Downlink data from public satellites
+            url: downlink-aqua.md
+          - text: Understand virtual RF through demodulation of Aqua using GNU Radio
+            url: virtual-rf-tutorial.md

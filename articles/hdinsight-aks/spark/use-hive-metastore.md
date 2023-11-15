@@ -1,12 +1,12 @@
 ---
-title: How to use Hive metastore in Spark
-description: Learn how to use Hive metastore in Spark
+title: How to use Hive metastore in Apache Spark™
+description: Learn how to use Hive metastore in Apache Spark™
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# How to use Hive metastore in Spark
+# How to use Hive metastore with Apache Spark™ cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -16,7 +16,7 @@ Azure HDInsight on AKS supports custom meta stores, which are recommended for pr
 
 1. Create Azure SQL database
 1. Create a key vault for storing the credentials
-1. Configure Metastore while you create a HDInsight Spark cluster 
+1. Configure Metastore while you create a HDInsight on AKS cluster with Apache Spark™ 
 1. Operate on External Metastore (Shows databases and do a select limit 1).
 
 While you create the cluster, HDInsight service needs to connect to the external metastore and verify your credentials.
@@ -68,7 +68,7 @@ While you create the cluster, HDInsight service needs to connect to the external
 
     :::image type="content" source="./media/use-hive-metastore/basic-tab.png" alt-text="Screenshot showing the basic tab." lightbox="./media/use-hive-metastore/basic-tab.png":::
 
-1. The rest of the details are to be filled in as per the cluster creation rules for [HDInsight on AKS Spark cluster](./create-spark-cluster.md).
+1. The rest of the details are to be filled in as per the cluster creation rules for [Apache Spark cluster in HDInsight on AKS](./create-spark-cluster.md).
 
 1. Click on **Review and Create.**
 
@@ -97,5 +97,8 @@ While you create the cluster, HDInsight service needs to connect to the external
     `>> spark.sql("select * from sampleTable").show()`
 
     :::image type="content" source="./media/use-hive-metastore/read-table.png" alt-text="Screenshot showing how to read table." lightbox="./media/use-hive-metastore/read-table.png":::
+   
+## Reference
 
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 

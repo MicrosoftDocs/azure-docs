@@ -762,7 +762,7 @@ For more information about Java, see the [Java supplemental documentation](java-
     ```sh
         npm install @opentelemetry/api
         npm install @opentelemetry/exporter-trace-otlp-http
-        npm install @opentelemetry/@opentelemetry/sdk-trace-base
+        npm install @opentelemetry/sdk-trace-base
         npm install @opentelemetry/sdk-trace-node
     ```
 

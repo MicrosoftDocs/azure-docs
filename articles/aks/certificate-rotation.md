@@ -46,7 +46,7 @@ Microsoft maintains all certificates mentioned in this section, except for the c
 * Check the expiration date of the cluster certificate using the `kubectl config view` command.
 
     ```console
-    kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+   kubectl config view --raw -o jsonpath="{.clusters[?(@.name == '')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
     ```
 
 ### Check API server certificate expiration date
