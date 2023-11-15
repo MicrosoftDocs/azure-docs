@@ -26,7 +26,7 @@ The application routing add-on with nginx delivers the following:
 - An AKS cluster with the [application routing add-on][app-routing-add-on-basic-configuration].
 - Azure Key Vault if you want to configure SSL termination and store certificates in the vault hosted in Azure.
 - Azure DNS if you want to configure public and private zone management and host them in Azure.
-- To attach an Azure Key Vault or Azure DNS Zone, you need the [**Owner**][rbac-owner], [**Azure account administrator**][rbac-classic], or [**Azure co-administrator**][rbac-classic] role on your Azure subscription.
+- To attach an Azure Key Vault or Azure DNS Zone, you need the [Owner][rbac-owner], [Azure account administrator][rbac-classic], or [Azure co-administrator][rbac-classic] role on your Azure subscription.
 
 ## Connect to your AKS cluster
 
