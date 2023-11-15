@@ -10,6 +10,6 @@
       tocHref: /azure/virtual-machines/workloads/
       topicHref: /azure/virtual-machines/
       items: 
-      - name: oracle-db
+      - name: oracle
         tocHref: /azure/developer/java/migration/
-        topicHref: /azure/virtual-machines/workloads/oracle-db/index
+        topicHref: /azure/virtual-machines/workloads/oracle/index
