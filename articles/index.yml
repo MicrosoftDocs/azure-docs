@@ -9,7 +9,9 @@ metadata:
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
   services: azure-resource-manager
   ms.service: azure
-  ms.custom: ignite-2022
+  ms.custom:
+    - ignite-2022
+    - ignite-2023
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
@@ -49,7 +51,7 @@ productDirectory:
     # Card
     - title: Azure AI services
       summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
-      imageSrc: ai-services/media/service-icons/cognitive-services.svg
+      imageSrc: ai-services/media/service-icons/ai-services.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -58,7 +60,7 @@ productDirectory:
     # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to a variety of use cases
-      imageSrc: ai-services/openai/media/icon/azure-openai-dark.svg
+      imageSrc: ai-services/media/service-icons/azure-openai.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -127,9 +129,9 @@ productDirectory:
         - ai-machine-learning
       url: ./ai-services/document-intelligence/index.yml
     # Card
-    - title: Azure Cognitive Search
+    - title: Azure AI Search
       summary: AI-powered cloud search service for mobile and web app development
-      imageSrc: ai-services/media/service-icons/cognitive-search.svg
+      imageSrc: ai-services/media/service-icons/search.svg
       azureCategories:
         - ai-machine-learning
         - mobile
@@ -979,6 +981,13 @@ productDirectory:
       azureCategories:
         - iot
       url: iot-hub/index.yml
+    # Card
+    - title: Azure IoT Operations (Preview)
+      summary: Unlock insights for intelligent local actions and global visibility
+      imageSrc: media/index/iot-operations.svg
+      azureCategories:
+        - iot
+      url: iot-operations/index.yml
     # Card
     - title: Azure Maps
       summary: Simple and secure location APIs provide geospatial context to data

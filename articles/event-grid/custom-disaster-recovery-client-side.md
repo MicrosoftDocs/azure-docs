@@ -1,10 +1,13 @@
 ---
 title: Build your own client-side failover implementation in Azure Event Grid
-description: This article describes how to build your own client-side failover implementation in Azure Event Grid resources. 
+description: This article describes how to build your own client-side failover implementation in Azure Event Grid resources.
 ms.topic: tutorial
 ms.date: 05/02/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, build-2023
+ms.custom:
+  - devx-track-csharp
+  - build-2023
+  - ignite-2023
 ---
 
 # Client-side failover implementation in Azure Event Grid
@@ -26,7 +29,7 @@ The following table illustrates the client-side failover and geo disaster recove
 | Namespaces          | Supported                                 | Not supported                         |
 
 
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
+
 
 ## Client-side failover considerations
 

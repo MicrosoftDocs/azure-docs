@@ -2,7 +2,9 @@
 title: 'Topic Spaces'
 description: 'An overview of Topic Spaces and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
@@ -11,7 +13,7 @@ ms.author: geguirgu
 
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 Topic spaces are used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:
 

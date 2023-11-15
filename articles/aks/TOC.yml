@@ -628,6 +628,10 @@
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Cost analysis
+          items:
+          - name: Enable cost analysis on your cluster
+            href: cost-analysis.md
         - name: Network Observability
           items:
             - name: BYO Prometheus and Grafana
@@ -735,7 +739,7 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
-        - name: Deploy an AI model with the AI toolchain operator (Preview)
+        - name: Deploy an AI model with the AI toolchain operator
           href: ai-toolchain-operator.md 
     - name: DevOps
       items:
