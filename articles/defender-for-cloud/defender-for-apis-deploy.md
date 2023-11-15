@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/02/2023
 ---
 
-# Protect your APIs with Defender for APIs (Preview)
+# Protect your APIs with Defender for APIs
 
 Defender for APIs in Microsoft Defender for Cloud offers full lifecycle protection, detection, and response coverage for APIs.
 
 Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
-Learn more about the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud. Defender for APIs is currently in preview.
+Learn more about the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud.
 
 ## Prerequisites
 

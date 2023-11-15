@@ -792,6 +792,9 @@
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
           maintainContext: true
+        - name: Parsing Protobuf
+          href: stream-analytics-parsing-protobuf.md
+          maintainContext: true
     - name: Query Language Elements
       items:
         - name: Query Language Elements Overview

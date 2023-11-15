@@ -22,7 +22,7 @@ Because the model has access to, and can reference specific sources to support i
 
 Azure OpenAI on your data works with OpenAI's powerful GPT-35-Turbo and GPT-4 language models, enabling them to provide responses based on your data. You can access Azure OpenAI on your data using a REST API or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/) to create a solution that connects to your data to enable an enhanced chat experience. 
 
-One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output.  Azure OpenAI on your data, together with Azure Cognitive Search, determines what data to retrieve from the designated data source based on the user input and provided conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. Although retrieved data is being appended to the prompt, the resulting input is still processed by the model like any other prompt. Once the data has been retrieved and the prompt has been submitted to the model, the model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
+One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output.  Azure OpenAI on your data, together with Azure AI Search, determines what data to retrieve from the designated data source based on the user input and provided conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. Although retrieved data is being appended to the prompt, the resulting input is still processed by the model like any other prompt. Once the data has been retrieved and the prompt has been submitted to the model, the model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
 
 ## Get started
 
@@ -33,7 +33,7 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 <!--## Data source options
 
-Azure OpenAI on your data uses an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.-->
+Azure OpenAI on your data uses an [Azure AI Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.-->
 
 ## Data formats and file types
 
@@ -50,7 +50,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 * The model provides the best citation titles from markdown (`.md`) files. 
 
-* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure Cognitive Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
+* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
 
 * If you're converting data from an unsupported format into a supported format, make sure the conversion:
 
@@ -61,26 +61,26 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Ingesting your data
 
-There are several different sources of data that you can use. The following sources will be connected to Azure Cognitive Search: 
+There are several different sources of data that you can use. The following sources will be connected to Azure AI Search: 
 * Blobs in an Azure storage container that you provide
 * Local files uploaded using the Azure OpenAI Studio
 
-You can additionally ingest your data from an existing Azure Cognitive Search service, or use Azure Cosmos DB for MongoDB vCore.
+You can additionally ingest your data from an existing Azure AI Search service, or use Azure Cosmos DB for MongoDB vCore.
 
-# [Azure Cognitive Search](#tab/ai-search)
+# [Azure AI Search](#tab/ai-search)
 
 > [!TIP]
 > For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
-Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
+Once data is ingested, an [Azure AI Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
 
 **Data ingestion from Azure storage containers**
 
-1. Ingestion assets are created in Azure Cognitive Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
+1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
 
 2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
-3. The preprocessed data is loaded from the chunks container, and indexed in the Azure Cognitive Search index. 
+3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index. 
 
 
 **Data ingestion from local files**
@@ -165,7 +165,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](#using-the-web-app)
-* [REST API](../reference.md#azure-cognitive-search)
+* [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample08_UseYourOwnData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
 * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
@@ -225,11 +225,11 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
-## Virtual network support & private endpoint support (Azure Cognitive Search only)
+## Virtual network support & private endpoint support (Azure AI Search only)
 
-See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure Cognitive Search index**. 
+See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure AI Search index**. 
 
-| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Is vector search enabled? | Azure OpenAI studio | Chat with the model using the API |
+| Network access to the Azure OpenAI Resource | Network access to the Azure AI Search resource | Is vector search enabled? | Azure OpenAI studio | Chat with the model using the API |
 |---------------------------------------------|-------------------------------------------------------|---------------------------|---------------------|-----------------------------------|
 | Public                                      | Public                                                | Either                    | Supported           | Supported                         |
 | Private                                     | Public                                                | Yes                       | Not supported       | Supported                         |
@@ -238,7 +238,7 @@ See the following table for scenarios supported by virtual networks and private 
 
 Additionally, data ingestion has the following configuration support:
 
-| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
+| Network access to the Azure OpenAI Resource | Network access to the Azure AI Search resource | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
 |---------------------------------------------|-------------------------------------------------------|-----------------------------|-----------------------------------------------------------------|
 | Public                                      | Public                                                | Supported                   | Supported                                                       |
 | Private                                     | Regardless of resource access allowances.             | Not supported               | Not supported                                                   |
@@ -250,9 +250,9 @@ Additionally, data ingestion has the following configuration support:
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
-### Azure Cognitive Search resources
+### Azure AI Search resources
 
-If you have an Azure Cognitive Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+If you have an Azure AI Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -264,10 +264,10 @@ After you approve the request in your search service, you can start using the [c
 
 Storage accounts in virtual networks, firewalls, and private endpoints are supported by Azure OpenAI on your data. To use a storage account in a private network:
 
-1. Ensure you have the system assigned managed identity principal enabled for your Azure OpenAI and Azure Cognitive Search resources.
+1. Ensure you have the system assigned managed identity principal enabled for your Azure OpenAI and Azure AI Search resources.
     1. Using the Azure portal, navigate to your resource, and select **Identity** from the navigation menu on the left side of the screen.
     1. Set **Status** to **On**.
-    1. Perform these steps for both of your Azure OpenAI and Azure Cognitive Search resources.
+    1. Perform these steps for both of your Azure OpenAI and Azure AI Search resources.
 
     :::image type="content" source="../media/use-your-data/managed-identity.png" alt-text="A screenshot showing managed identity settings in the Azure portal." lightbox="../media/use-your-data/managed-identity.png":::
 
@@ -288,22 +288,22 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 |Azure RBAC role  | Which resource needs this role? | Needed when  |
 |---------|---------|---------|
-| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
-|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You want to use Azure OpenAI on your data.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You plan to create a new Azure Cognitive Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure Cognitive Search and Azure OpenAI resources, to access the storage account.       |
+| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
+|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
+|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
 | [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
 | [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
+| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
 
 
 
 
-## Document-level access control (Azure Cognitive Search only)
+## Document-level access control (Azure AI Search only)
 
-Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure Cognitive Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure Cognitive Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure Cognitive search indexes. To enable document-level access:
+Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
 
-1. Follow the steps in the [Azure Cognitive Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
+1. Follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
         
     ```json
@@ -317,7 +317,7 @@ Azure OpenAI on your data lets you restrict the documents that can be used in re
 
 **Azure OpenAI Studio**
 
-Once the Azure Cognitive Search index is connected, your responses in the studio will have document access based on the Microsoft Entra permissions of the logged in user.
+Once the Azure AI Search index is connected, your responses in the studio will have document access based on the Microsoft Entra permissions of the logged in user.
 
 **Web app**
 
@@ -351,16 +351,16 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
-## Schedule automatic index refreshes (Azure Cognitive Search only)
+## Schedule automatic index refreshes (Azure AI Search only)
 
-To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
+To keep your Azure AI Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
 1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
 1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
 
     :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
 
-After the data ingestion is set to a cadence other than once, Azure Cognitive Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure Cognitive Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
    - `{Index Name}-index`
    - `{Index Name}-indexer`
    - `{Index Name}-indexer-chunk`
@@ -457,7 +457,7 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 
 > [!NOTE]
 > Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
-> Power Virtual Agents supports Azure Cognitive Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
+> Power Virtual Agents supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
 
 #### Using the web app
 
@@ -475,7 +475,7 @@ When customizing the app, we recommend:
 
 - Clearly communicating the impact on the user experience that each setting you implement will have.
 
-- When you rotate API keys for your Azure OpenAI or Azure Cognitive Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
+- When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
@@ -519,7 +519,7 @@ After you upload your data through Azure OpenAI studio, you can make a call agai
 
 |Parameter  |Recommendation  |
 |---------|---------|
-|`fieldsMapping`    | Explicitly set the title and content fields of your index. This impacts the search retrieval quality of Azure Cognitive Search, which impacts the overall response and citation quality.         |
+|`fieldsMapping`    | Explicitly set the title and content fields of your index. This impacts the search retrieval quality of Azure AI Search, which impacts the overall response and citation quality.         |
 |`roleInformation`     | Corresponds to the "System Message" in the Azure OpenAI Studio. See the [System message](#system-message) section above for recommendations. |
 
 #### Streaming data

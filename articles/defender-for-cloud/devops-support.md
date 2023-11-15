@@ -47,7 +47,7 @@ DevOps security requires the following permissions:
 The following tables summarize the availability and prerequisites for each feature within the supported DevOps platforms:
 
 > [!NOTE]
-> DevOps security features under the Defender CSPM plan will remain free until March 1, 2024.  Defender CSPM DevOps security features include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings.
+> Starting March 1, 2024, [Defender CSPM](concept-cloud-security-posture-management.md) must be enabled to have premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See details below to learn more.
 
 ### Azure DevOps
 

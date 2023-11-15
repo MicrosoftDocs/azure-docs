@@ -98,7 +98,7 @@ You can now prioritize your security recommendations according to the risk level
 
 By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
-Learn more about [risk prioritization](security-policy-concept.md#what-is-a-security-recommendation).
+Learn more about [risk prioritization](security-policy-concept.md).
 
 ### Attack path analysis new engine and extensive enhancements
 
@@ -139,7 +139,7 @@ We're announcing the GA (General Availability) release of the Defender CSPM cont
 - **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
 - **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
-Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
 > [!NOTE]
 > Billing for the GA release of GCP support in Defender CSPM will begin on February 1st 2024.
@@ -174,7 +174,7 @@ An extra agent is no longer needed on your Azure VMs and Azure Arc machines to e
 
 The new system updates recommendation, `System updates should be installed on your machines (powered by Azure Update Manager)` in the `Apply system updates` control, is based on the [Update Manager](/azure/update-center/overview) and is now fully GA. The recommendation relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The quick fix in the new recommendation navigates you to a one-time installation of the missing updates in the Update Manager portal.
 
-The old and the new versions of the recommendations to find missing system updates will both be available until August 2024, which is when the older version will be deprecated. Both recommendations: `System updates should be installed on your machines (powered by Azure Update Manager)`and `System updates should be installed on your machines` are available under the same control: `Apply system updates` and has the same results. Thus, there's no duplication in the effect on the secure score.
+The old and the new versions of the recommendations to find missing system updates will both be available until August 2024, which is when the older version is deprecated. Both recommendations: `System updates should be installed on your machines (powered by Azure Update Manager)`and `System updates should be installed on your machines` are available under the same control: `Apply system updates` and has the same results. Thus, there's no duplication in the effect on the secure score.
 
 We recommend migrating to the new recommendation and remove the old one, by disabling it from Defender for Cloud's built-in initiative in Azure policy.
 
@@ -215,7 +215,7 @@ To keep viewing this alert in the “Security alerts” blade in the Microsoft D
 
 October 25, 2023
 
-Defender for APIs has updated its support for Azure API Management API revisions. Offline revisions no longer appear in the onboarded Defender for APIs inventory and no longer appear to be onboarded to Defender for APIs. Offline revisions don't allow any traffic to be sent to them and pose no risk from a security perspective.
+Defender for APIs updated its support for Azure API Management API revisions. Offline revisions no longer appear in the onboarded Defender for APIs inventory and no longer appear to be onboarded to Defender for APIs. Offline revisions don't allow any traffic to be sent to them and pose no risk from a security perspective.
 
 ### DevOps security posture management recommendations available in public preview
 
@@ -378,7 +378,7 @@ Agentless discovery for Kubernetes is now available to all Defender For Containe
 > [!NOTE]
 > Enabling the latest additions won't incur new costs to active Defender for Containers customers.
 
-For more information, see [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes).
+For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 
@@ -417,7 +417,7 @@ We're announcing the preview release of the Defender CSPM contextual cloud secur
 - **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
 - **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
-Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
 ### New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions
 
@@ -471,12 +471,12 @@ These plans have transitioned to a new business model with different pricing and
 
 Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per-subscription model.
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per subscription model.
 
 Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
 
-- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per-subscription model.
-- **Defender for Key Vault**: This plan has a fixed price per vault, per month with no overage charge. Customers can switch to the new business model by selecting the Defender for Key Vault new per-vault model
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per subscription model.
+- **Defender for Key Vault**: This plan has a fixed price per vault, per month with no overage charge. Customers can switch to the new business model by selecting the Defender for Key Vault new per vault model
 - **Defender for DNS**: Defender for Servers Plan 2 customers gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS are no longer charged for Defender for DNS. Defender for DNS is no longer available as a standalone plan.
 
 Learn more about the pricing for these plans in the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
@@ -487,12 +487,12 @@ Updates in July include:
 
 |Date |Update  |
 |----------|----------|
-| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries)
+| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | July 30 | [Agentless container posture in Defender CSPM is now Generally Available](#agentless-container-posture-in-defender-cspm-is-now-generally-available) |
-| July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux)
+| July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux) |
 | July 18 | [Agentless secret scanning for virtual machines in Defender for servers P2 & Defender CSPM](#agentless-secret-scanning-for-virtual-machines-in-defender-for-servers-p2--defender-cspm) |
-| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
-| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
+| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions) |
+| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings) |
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
 
 ### Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
@@ -525,7 +525,7 @@ Learn how to [manage automatic updates configuration for Linux](integration-defe
 
 July 18, 2023
 
-Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and Defender CSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines, both in Azure or AWS resources, that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+Secret scanning is now available as part of the agentless scanning in Defender for Servers P2 and Defender CSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines in Azure or AWS resources that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
 For more information about how to protect your secrets with secret scanning, see [Manage secrets with agentless secret scanning](secret-scanning.md).
 
@@ -749,7 +749,7 @@ The following recommendations are now released as General Availability (GA) and 
 
 The V2 release of identity recommendations introduces the following enhancements:
 
-- The scope of the scan has been expanded to include all Azure resources, not just subscriptions. Which enables security administrators to view role assignments per account.
+- The scope of the scan has been expanded to include all Azure resources, not just subscriptions. This enables security administrators to view role assignments per account.
 - Specific accounts can now be exempted from evaluation. Accounts such as break glass or service accounts can be excluded by security administrators.
 - The scan frequency has been increased from 24 hours to 12 hours, thereby ensuring that the identity recommendations are more up-to-date and accurate.
 
@@ -985,7 +985,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 ### New Azure Active Directory authentication-related recommendations for Azure Data Services
 
-We have added four new Azure Active Directory authentication-related recommendations for Azure Data Services.
+We have added four new Azure Active Directory authentication recommendations for Azure Data Services.
 
 | Recommendation Name | Recommendation Description | Policy |
 |--|--|--|
@@ -1013,9 +1013,9 @@ The two versions of the recommendations:
 
 will both be available until the [Log Analytics agent is deprecated on August 31, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), which is when the older version (`System updates should be installed on your machines`) of the recommendation will be deprecated as well. Both recommendations return the same results and are available under the same control `Apply system updates`.
 
-The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Manager (Preview). This remediation process is still in Preview.
+The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)` has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Manager (Preview). This remediation process is still in Preview.
 
-The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
+The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)` isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
 
 The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) has a negative effect on your Secure Score. You can remediate the negative effect with the available [Fix button](implement-security-recommendations.md).
 

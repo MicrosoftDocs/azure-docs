@@ -13,7 +13,7 @@ ms.custom: devx-track-bicep
 # Use Bicep to create an experiment in Azure Chaos Studio 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-This article includes a sample Bicep file to get started in Azure Chaos Studio , including:
+This article includes a sample Bicep file to get started in Azure Chaos Studio, including:
 
 * Onboarding a resource as a target (for example, a Virtual Machine)
 * Enabling capabilities on the target (for example, Virtual Machine Shutdown)

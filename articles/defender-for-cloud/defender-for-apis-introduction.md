@@ -17,7 +17,7 @@ Defender for APIs helps you to gain visibility into business-critical APIs. You 
 > Defender for APIs is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. 
+Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal.
 
 ## What can I do with Defender for APIs?
 
@@ -25,7 +25,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **API data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization.
-- **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats. 
+- **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats.
 - **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
@@ -43,12 +43,12 @@ You can drill down into the API collection to review security findings for onboa
 API endpoint information includes:
 
 - **Endpoint name**: The name of API endpoint/operation as defined in Azure API Management.
-- **Endpoint**: The URL path of the API endpoints, and the HTTP method. 
-Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone). 
-- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*. 
+- **Endpoint**: The URL path of the API endpoints, and the HTTP method.
+Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone).
+- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*.
 - **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as *unauthenticated*.
-- **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint. 
-- **Data classification**: Classifies API request and response bodies based on supported data types. 
+- **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint.
+- **Data classification**: Classifies API request and response bodies based on supported data types.
 
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status **Awaiting data** in the API dashboard.
