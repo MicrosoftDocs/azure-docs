@@ -22,9 +22,11 @@ To follow this tutorial, ensure that you have a Virtual Machine scale set with [
 5.	Under the **Actions** tab, select an existing action group or see [Create action group](#creating-an-action-group) 
 6.	Under the **Details** tab > **Alert rule name**, set a name for your alert. Then select **Review + create** > **Create** to create your alert.
 :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture4.png" alt-text="Review and create alert rule":::
+
 Once the alert is created and enabled on your scale set, you'll receive a notification every time a change to the ServiceState is detected on your scale set.
 
-Sample Email Notification from alert
+### Sample Email Notification from Alert Rule
+Below is an example of an email notification created from a configured alert rule. 
 :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture5.png" alt-text="Sample email notification from alert rule":::
 
 ## Creating an Action Group
