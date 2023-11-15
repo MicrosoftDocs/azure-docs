@@ -103,6 +103,12 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 ## Frequently asked questions
 
+- [How does the GitHub Actions build provider work?](#how-does-the-github-actions-build-provider-work)
+- [How do I configure continuous deployment without basic authentication?](#how-do-i-configure-continuous-deployment-without-basic-authentication)
+- [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
+- [I see "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials." when I select the user-assigned identity option with GitHut Actions.](#i-see-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials-when-i-select-the-user-assigned-identity-option-with-githut-actions)
+- [How do I deploy from other repositories](#how-do-i-deploy-from-other-repositories)
+
 #### How does the GitHub Actions build provider work?
 
 The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-the-deployment-source). It completes these actions to set up CI/CD:
@@ -121,13 +127,13 @@ You can customize the GitHub Actions build provider in these ways:
 
 To configure continuous deployment [without basic authentication](configure-basic-auth-disable.md), try using GitHub Actions with the **user-assigned identity** option.
 
-#### What does the user-assigned identity option do?
+#### What does the user-assigned identity option do for GitHub Actions?
 
 When you select **user-assigned identity** under the **GitHub Actions** source, Azure creates a [user-managed identity](/en-us/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) for you and [federates it with GitHub as an authorized client](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp). This user-managed identity isn't shown in the **Identities** page for your app.
 
 This automatically created user-managed identity should be used only for the GitHub Actions deployment. Using it for other configurations isn't supported.
 
-#### I get the message when I select the user-assigned identity option.
+#### I see "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials." when I select the user-assigned identity option with GitHut Actions.
 
 To use the **user-assigned identity** option for your GitHub Actions deployment, you need the `Microsoft.Authorization/roleAssignments/write` permission on your app. By default, the **User Access Administrator** role and **Owner** role have this permission already, but the **Contributor** role doesn't.
 
