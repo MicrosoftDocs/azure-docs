@@ -13,7 +13,7 @@ ms.custom:
 
 This article provides details about the process flows for managing OAuth 2.0 credential connections using credential manager in Azure API Management. The process flows are divided into two parts: **management** and **runtime**.
 
-For details about managed OAuth 2.0 tokens in API Management, see [About credential manager and API credentials in API Management](credentials-overview.md).
+For details about managed OAuth 2.0 connections in API Management, see [About credential manager and API credentials in API Management](credentials-overview.md).
 
 ## Management of credential connections
     

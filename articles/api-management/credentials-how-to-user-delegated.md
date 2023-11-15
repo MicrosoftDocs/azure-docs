@@ -66,7 +66,7 @@ You need to provision the Azure API Management Data Plane service principal to g
     New-AzureADServicePrincipal -AppId c8623e40-e6ab-4d2b-b123-2ca193542c65 -DisplayName "Azure API Management Data Plane"
     ```
 
-## Create a Microsoft Entra ID app registration
+## Step 2: Create a Microsoft Entra ID app registration
 
 Create a Microsoft Entra ID application for user delegation and give it the appropriate permissions to read the credential in API Management.
 
@@ -87,16 +87,16 @@ Create a Microsoft Entra ID application for user delegation and give it the appr
     1. Select **Add**.
     1. Copy the client secret's **Value** before leaving the page. You need it in a later step.
 
-## Step 2: Configure a credential provider in API Management
+## Step 3: Configure a credential provider in API Management
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
 1. On the left menu, select **Credential manager**, and then select **+ Create**.    
     :::image type="content" source="media/credentials-how-to-azure-ad/create-credential.png" alt-text="Screenshot of creating an API credential in the portal.":::    
-1. On the **Create credential provider** page, enter the settings for the credential provider for your API. For this scenario, in **Grant type**, you must select **Authorization code**. For more information, see [Configure identity providers for API credentials](credentials-configure-common-providers.md). 
+1. On the **Create credential provider** page, enter the settings for the credential provider for your API. For this scenario, in **Grant type**, you must select **Authorization code**. For more information, see [Configure credential providers in credential manager](credentials-configure-common-providers.md). 
 1. Select **Create**.
 1. When prompted, review the OAuth redirect URL that's displayed, and select **Yes** to confirm that it matches the URL you entered in the app registration.     
 
-## Step 3: Configure a credential connection
+## Step 4: Configure a credential connection
 
 After you create a credential provider, you can add a credential connection. On the **Connection** tab, complete the steps for your connection:
 
@@ -114,7 +114,7 @@ The new connection appears in the list of connections, and shows a status of **C
 > [!TIP]
 > Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple credential connections](configure-credential-connection.md). 
 
-## Step 4: Acquire a Microsoft Entra ID access token
+## Step 5: Acquire a Microsoft Entra ID access token
 
 To enable user-delegated access to the backend API, an access token for the delegated user or group must be provided at runtime in the `get-authorization-context` policy. Typically this is done programmatically in your client app by using the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL). This section provides manual steps to create an access token for testing.
 
@@ -145,7 +145,7 @@ To enable user-delegated access to the backend API, an access token for the dele
 1. In the response body, copy the value of **access_token** that’s provided (example: `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjZqQmZ1...`). You'll pass this value in the policy configuration in the next step.
 
 
-## Step 4: Configure get-authorization-context policy for backend API
+## Step 6: Configure get-authorization-context policy for backend API
 
 Configure the `get-authorization-context` policy for the backend API that you want to access on behalf of the user or group. For test purposes, you can configure the policy using the Microsoft Entra ID access token for the user that you obtained in the previous section.
 
@@ -171,7 +171,7 @@ In the preceding policy definition, replace:
 
 * `<access-token>` with the Microsoft Entra ID access token that you generated in the preceding step. 
 
-## Step 5: Test the API 
+## Step 7: Test the API 
 
 1. On the **Test** tab, select one operation that you configured.
 1. Select **Send**. 

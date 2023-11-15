@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Configure multiple credential connections
 
-You can configure multiple connections (also called *credential connections*) to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple credentials for different scenarios and users.
+You can configure multiple connections (also called *credential connections*) to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple connections for different scenarios and users.
 
 In this article, you learn how to add a credential connection to an existing provider, using credential manager in the portal. For an overview of credential manager, see [About API credentials and credential manager](credentials-overview.md).
 
@@ -60,5 +60,5 @@ To update a credential connection:
 
 ## Related content
 
-* Learn more about [configuring identity providers](credentials-configure-common-providers.md) for credentials.
+* Learn more about [configuring credential providers](credentials-configure-common-providers.md) in credential manager.
 * Review [limits](credentials-overview.md#limits) for credential providers and credential connections.

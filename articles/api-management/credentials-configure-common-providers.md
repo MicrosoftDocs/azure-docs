@@ -16,7 +16,7 @@ In this article, you learn about configuring identity providers for managed [cre
 * Microsoft Entra provider
 * Generic OAuth 2.0 provider
 
-You configure a credential provider in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
+You configure a credential provider in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and credential connection, see:
 
 * [Configure credential manager - Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
@@ -77,5 +77,5 @@ Required settings for these providers differ from provider to provider but are s
 
 ## Related content
 
-* Learn more about managing[credentials](credentials-overview.md) in API Management.
+* Learn more about managing [credential connections](credentials-overview.md) in API Management.
 * Create an authorization for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
