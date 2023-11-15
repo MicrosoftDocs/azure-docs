@@ -24,6 +24,9 @@ ms.custom:
 - [Single Server](../overview-single-server.md)
 
 This article provides an overview and introduction to the core concepts of flexible server deployment model.
+Whether you're just starting out or looking to refresh your knowledge, this introductory video offers a comprehensive overview of Azure Database for PostgreSQL - Flexible Server, helping you get acquainted with its key features and capabilities.
+
+>[!Video https://www.youtube.com/watch?v=NSEmJfUgNzE&t=121s]
 
 ## Overview
 
