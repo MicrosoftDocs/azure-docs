@@ -773,6 +773,7 @@
         "articles/baremetal-infrastructure/**/*.md": "akashdubey",
         "articles/batch/**/*.md": "mamccrea",
         "articles/cloud-shell/**/*.md": "jasongroce",
+        "articles/connectors/*.md": "mijacobs",
         "articles/ai-studio/**/*.md": "nitinme",
         "articles/ai-services/**/*.md": "nitinme",
         "articles/defender-for-cloud/*.md": "raynew",
@@ -898,9 +899,9 @@
         "articles/hdinsight-aks/*.md": "sairamyeturi",
         "articles/hdinsight-aks/*.yml": "sairamyeturi",
         "articles/hdinsight-aks/**/*.md": "sairamyeturi",
-        "articles/jenkins/**/*.md": "tarcher",
         "articles/integration-environments/*.md": "estfan",
         "articles/integration-environments/*.yml": "estfan",
+        "articles/jenkins/**/*.md": "tarcher",
         "articles/lab-services/**/*.md": "nicktrog",
         "articles/playwright-testing/**/*.md": "nicktrog",
         "articles/lighthouse/**/*.md": "jenhayes",
@@ -1555,6 +1556,5 @@
         ]
       }
     }
-
   }
 }
