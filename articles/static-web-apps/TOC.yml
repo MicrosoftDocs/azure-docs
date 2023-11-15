@@ -198,25 +198,25 @@
       href: /training/modules/create-deploy-static-webapp-gatsby-app-service
     - name: Create and publish a static web app with Blazor
       href: /training/modules/publish-app-service-static-web-app-api-dotnet
-    - name: Troubleshoot errors
-      href: troubleshooting.md
-      displayName: deployment, runtime, errors
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/app-service/static/
-    - name: Quotas
-      href: quotas.md
-    - name: Azure CLI
-      href: /cli/azure/staticwebapp
-    - name: REST API
-      href: /rest/api/appservice/static-sites
-    - name: SWA CLI
-      items:
-        - name: Summary
-          href: static-web-apps-cli.yml
-        - name: Configure SWA CLI
-          href: static-web-apps-cli-configuration.md
-        - name: Deploy static web app with SWA CLI
-          href: static-web-apps-cli-deploy.md
+  - name: Troubleshoot errors
+    href: troubleshooting.md
+    displayName: deployment, runtime, errors
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/app-service/static/
+  - name: Quotas
+    href: quotas.md
+  - name: Azure CLI
+    href: /cli/azure/staticwebapp
+  - name: REST API
+    href: /rest/api/appservice/static-sites
+  - name: SWA CLI
+    items:
+      - name: Summary
+        href: static-web-apps-cli.yml
+      - name: Configure SWA CLI
+        href: static-web-apps-cli-configuration.md
+      - name: Deploy static web app with SWA CLI
+        href: static-web-apps-cli-deploy.md
 - name: Samples & FAQs
   items:
   - name: Samples
