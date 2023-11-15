@@ -269,12 +269,12 @@ The Fleet scheduler prioritizes the stability of existing workload placements, a
   - A new cluster becoming eligible may trigger placement if it meets the placement policy - for example, a `PickAll` policy.
   - A cluster with a placement is removed from the fleet will attempt to re-place all affected workloads without affecting their other placements.
 
-Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) will be reflected in existing placements but will **not** trigger rescheduling of the workload.
+Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) will be rolled out gradually in existing placements but will **not** trigger rescheduling of the workload.
 
 ## Next steps
 
 * Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md).
-* Review the [`ClusterResourcePlacement` documentation and how-to in the open-source project][crp-howto] for more examples.
+* Review the [`ClusterResourcePlacement` documentation and more in the open-source fleet repository][fleet-doc] for more examples
 * Review the [API specifications][fleet-apispec] for all fleet custom resources.
 * Review more information about [the fleet scheduler][fleet-scheduler] and how placement decisions are made.
 
@@ -283,5 +283,4 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 [fleet-doc]: https://github.com/Azure/fleet/blob/main/docs/README.md
 [fleet-apispec]: https://github.com/Azure/fleet/blob/main/docs/api-references.md
 [fleet-scheduler]: https://github.com/Azure/fleet/blob/main/docs/concepts/Scheduler/README.md
-[crp-howto]: https://github.com/Azure/fleet/blob/main/docs/howtos/crp.md
 [crp-topo]: https://github.com/Azure/fleet/blob/main/docs/howtos/topology-spread-constraints.md
