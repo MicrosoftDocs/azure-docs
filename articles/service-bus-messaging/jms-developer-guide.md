@@ -55,7 +55,7 @@ Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionF
 To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively.
 
 > [!IMPORTANT]
-> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Azure Active Directory (Azure AD) backed authentication. When using Azure AD backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) to the identity as needed.
+> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Microsoft Entra backed authentication. When using Microsoft Entra backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) to the identity as needed.
 
 # [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
 
@@ -110,7 +110,7 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 Create a [service principal](authenticate-application.md#register-your-application-with-an-azure-ad-tenant) on Azure, and use this identity to create a `TokenCredential`.
 
 ```java
-TokenCredential tokenCredential = new new ClientSecretCredentialBuilder()
+TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
                 .tenantId("")
                 .clientId("")
                 .clientSecret("")

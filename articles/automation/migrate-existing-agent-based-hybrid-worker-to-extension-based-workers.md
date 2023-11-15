@@ -3,7 +3,7 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/11/2023
+ms.date: 09/17/2023
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell, devx-track-linux
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
@@ -12,7 +12,7 @@ ms.topic: how-to
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
 
 > [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers. 
 
@@ -30,7 +30,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - **Ease of Manageability** – It offers native integration with Azure Resource Manager (ARM) identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates. 
 
-- **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials. 
+- **Microsoft Entra ID based authentication** – It uses a VM system-assigned managed identities provided by Microsoft Entra ID. This centralizes control and management of identities and resource credentials. 
 
 - **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines. 
 

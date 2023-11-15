@@ -111,7 +111,7 @@ After successfully running these commands, the Event Grid topic, event hub, or S
 
 ## Endpoint options: Identity-based authentication
 
-This section describes how to use a [managed identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources) when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md). Managed identities can be *system-assigned* or *user-assigned*.
+This section describes how to use a [managed identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources) when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Microsoft Entra protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md). Managed identities can be *system-assigned* or *user-assigned*.
 
 The rest of this section walks through three steps for setting up an endpoint with a managed identity. 
 

@@ -1,8 +1,8 @@
 ---
-title: Save and manage MARS agent passphrase securely in Azure Key Vault (preview)
+title: Save and manage MARS agent passphrase securely in Azure Key Vault
 description: Learn how to save MARS agent passphrase securely in Azure Key Vault and retrieve them during restore.
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 11/07/2023
 ms.reviewer: sooryar
 ms.service: backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -10,7 +10,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Save and manage MARS agent passphrase securely in Azure Key Vault (preview)
+# Save and manage MARS agent passphrase securely in Azure Key Vault
 
 Azure Backup using the Recovery Services agent (MARS) allows you back up files/folders and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase you provide during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location.
 
@@ -26,7 +26,7 @@ Now, you can save your encryption passphrase securely in Azure Key Vault as a Se
 -	You should use a single Azure Key Vault to store all your passphrases. [Create a Key Vault](../key-vault/general/quick-create-portal.md) in case you don't have one.
   - [Azure Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) is applicable when you create a new Azure Key Vault to store your passphrase.
   - After you create the Key Vault, to protect against accidental or malicious deletion of passphrase, [ensure that soft-delete and purge protection is turned on](../key-vault/general/soft-delete-overview.md).
--	This feature is supported only in Azure public regions with MARS agent version  *2.0.9254.0* or above.
+-	This feature is supported only in Azure public regions with MARS agent version  *2.0.9262.0* or above.
 
 ## Configure the Recovery Services vault to store passphrase to Azure Key Vault
 
@@ -116,24 +116,36 @@ Based on the Key Vault permission model (either role-based access permissions or
 To assign the permissions, follow these steps:
 
 1. Go to your *Azure Key Vault* > **Settings** > **Access Configuration** to ensure that the permission model is **RBAC**.
- 
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/open-access-configuration.png" alt-text="Screenshot shows how to open access configuration under settings." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/open-access-configuration.png":::
+
 2. Select **Access control (IAM)** > **+Add** to add role assignment.
 
 3. The Recovery Services vault identity requires the **Set permission on Secret** to create and add the passphrase as a Secret to the Key Vault. 
 
    You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](../key-vault/general/rbac-guide.md?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
 
-   Select **Details** to view the permissions granted by the role and ensure Set permission on Secret is available.
+   Under **Details**, select **View** to view the permissions granted by the role and ensure *Set* permission on *Secret* is available.
  
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png" alt-text="Screenshot shows how to view the permission details." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png":::
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png" alt-text="Screenshot shows how to check the Set permission availability." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png":::
+
 4. Select **Next** to proceed to select Members for assignment. 
 
 5. Select **Managed identity** and then **+ Select members**. choose the **Subscription** of the target Recovery Services vault, select Recovery Services vault under **System-assigned managed identity**.
 
    Search and select the *name of the Recovery Services vault*.
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/add-members-in-managed-identity.png" alt-text="Screenshot shows how to add members in managed identity." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/add-members-in-managed-identity.png":::
  
 6. Select **Next**, review the assignment, and select **Review + assign**.
- 
-7.	Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png" alt-text="Screenshot shows how to review and assign permissions." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png":::
+
+7. Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+
+     :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png" alt-text="Screenshot shows the Recovery Services vault is listed in access control." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png":::
  
 
 # [PowerShell](#tab/powershell)
@@ -335,7 +347,7 @@ You can automate this process by using the new KeyVaultUri option in `Set-OBMach
 
 ## Save passphrase to Azure Key Vault for an existing MARS installation
 
-If you have an existing MARS agent installation and want to save your passphrase to Azure Key Vault, [update your agent](upgrade-mars-agent.md) to version *2.0.9254.0* or above and perform a change passphrase operation.
+If you have an existing MARS agent installation and want to save your passphrase to Azure Key Vault, [update your agent](upgrade-mars-agent.md) to version *2.0.9262.0* or above and perform a change passphrase operation.
 
 After updating your MARS agent, ensure that you have [configured the Recovery Services vault to store passphrase to Azure Key Vault](#configure-the-recovery-services-vault-to-store-passphrase-to-azure-key-vault) and you have successfully:
 
@@ -437,6 +449,19 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 **Recommended action**: Ensure that you have entered a Key Vault URI copied from the Azure portal.  For example, `https://myvault.vault.azure.net/`. 
  
 :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png" alt-text="Screenshot shows how to copy Kay Vault URL." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/copy-key-vault-url.png":::
+
+ 
+### UserErrorSecretExistsSoftDeleted (391282) 
+
+**Cause**: A secret in the expected format already exists in the Key Vault, but it's in a soft-deleted state. Unless the secret is restored, MARS can't save the passphrase for that machine to the provided Key Vault.
+
+**Recommended action**: Check if a secret exists in the vault with the name `AzBackup-<machine name>-<vaultname>` and if it's in a soft-deleted state. Recover the soft deleted Secret to save the passphrase to it.
+
+### UserErrorKeyVaultSoftDeleted (391283) 
+
+**Cause**: The Key Vault provided to MARS is in a soft-deleted state.
+
+**Recommended action**: Recover the Key Vault or provide a new Key Vault.
 
 ### Registration is incomplete
 

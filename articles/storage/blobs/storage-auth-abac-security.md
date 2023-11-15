@@ -2,12 +2,11 @@
 title: Security considerations for Azure role assignment conditions in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Security considerations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
-author: jimmart-dev
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/09/2023
-ms.author: jammart
 ms.reviewer: nachakra
 ---
 
@@ -45,7 +44,7 @@ When using blob path as a *@Resource* attribute for a condition, you should also
 
 [Blob index tags](storage-manage-find-blobs.md) are used as free-form attributes for conditions in storage. If you author any access conditions by using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. You can restrict this action to prevent users from manipulating a tag key or value to gain access to unauthorized objects.
 
-In addition, if blob index tags are used in conditions, data may be vulnerable if the data and the associated index tags are updated in separate operations. You can use `@Request` conditions on blob write operations to require that index tags be set in the same update operation. This approach can help secure data from the instant it's written to storage.
+In addition, if blob index tags are used in conditions, data might be vulnerable if the data and the associated index tags are updated in separate operations. You can use `@Request` conditions on blob write operations to require that index tags be set in the same update operation. This approach can help secure data from the instant it's written to storage.
 
 #### Tags on copied blobs
 
@@ -75,7 +74,7 @@ If you're using role assignment conditions for [Azure built-in roles](../../role
 
 Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has the same permission assigned to them through multiple role assignments, then access for an operation using that permission is evaluated separately for each assignment at every level.
 
-Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. The result will be that the user has unrestricted access to the storage account through the role assignment at the subscription level.
+Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. The result is that the user has unrestricted access to the storage account through the role assignment at the subscription level.
 
 Therefore, you should apply conditions consistently for all role assignments across a resource hierarchy.
 

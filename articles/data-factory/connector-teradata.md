@@ -7,15 +7,12 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
 # Copy data from Teradata Vantage using Azure Data Factory and Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
->
-> * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Current version](connector-teradata.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

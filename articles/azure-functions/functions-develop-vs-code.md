@@ -1,9 +1,15 @@
 ---
-title: Develop Azure Functions by using Visual Studio Code 
+title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22, vscode-azure-extension-update-complete
+ms.custom:
+  - devdivchpfy22
+  - vscode-azure-extension-update-complete
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.date: 09/01/2023
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
@@ -140,7 +146,7 @@ The project template creates a project in your chosen language and installs requ
 Depending on your language, these other files are created:
 
 ::: zone pivot="programming-language-csharp"  
-An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#net-isolated-worker-process-project) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
+An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#net-isolated-worker-model-project) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
@@ -250,13 +256,13 @@ You can connect your function to other Azure services by adding input and output
 ::: zone pivot="programming-language-csharp"  
 For example, the way you define an output binding that writes data to a storage queue depends on your process model:
 
-### [In-process](#tab/in-process)
-
-Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
-
 ### [Isolated process](#tab/isolated-process)
 
 Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
+
+### [In-process](#tab/in-process)
+
+Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
 
 ---
 

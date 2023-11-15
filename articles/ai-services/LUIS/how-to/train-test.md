@@ -1,11 +1,11 @@
 ---
 title: How to use train and test
 description:  Learn how to train and test the application.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 01/10/2022
 ---

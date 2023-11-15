@@ -6,6 +6,8 @@ ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 Azure Blueprints provides functions making a blueprint definition more dynamic. These functions are
 for use with blueprint definitions and blueprint artifacts. An Azure Resource Manager Template (ARM
 template) artifact supports the full use of Resource Manager functions in addition to getting a

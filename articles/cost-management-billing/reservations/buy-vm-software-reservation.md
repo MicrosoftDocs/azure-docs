@@ -10,7 +10,7 @@ ms.date: 12/06/2022
 ms.author: banders
 ---
 
-# Prepay for Virtual machine software reservations (Azure Marketplace)
+# Prepay for Virtual machine software reservations (VMSR) - Azure Marketplace
 
 When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for more savings.
 
@@ -20,7 +20,7 @@ You can buy virtual machine software reservation in the Azure portal. To buy a r
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
-## Buy a virtual machine software reservation
+## Buy a virtual machine software reservation (VMSR)
 
 There are two ways to purchase a virtual machine software reservation:
 
@@ -70,7 +70,7 @@ Like Reserved VM Instances, Virtual machine software reservation purchases offer
 
 ## Self-service cancellation and exchanges
 
-You can't exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies.
+You can't exchange a Virtual machine software reservation that you bought yourself. You can, however, cancel the reservation within 72 hours of purchase for a full refund. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies. Please note that any reservations purchased via a private offer from an ISV cannot be canceled at any time. 
 
 Check your usage before purchasing to make sure you buy the right software reservation.
 

@@ -4,20 +4,21 @@ titleSuffix: Azure AI services
 description: Use a Document Intelligence SDK or the REST API to create a forms processing app that extracts key data and structure elements from your documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 08/15/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Get started with Document Intelligence
-
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 
 > [!IMPORTANT]
 >
@@ -25,7 +26,10 @@ monikerRange: '<=doc-intel-3.1.0'
 > * Some platforms are still awaiting the renaming update.
 > * All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+
 ::: moniker range="doc-intel-3.1.0"
+
 
 * Get started with Azure AI Document Intelligence latest GA version (v3.1).
 
@@ -41,6 +45,8 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: moniker range="doc-intel-3.0.0"
 
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** **Newer version:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1](?view=doc-intel-3.1.0&preserve-view=true)   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+
 Get started with Azure AI Document Intelligence GA version (3.0). Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
@@ -53,7 +59,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-csharp"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [C# SDK](includes/v3-csharp-sdk.md)]
 ::: moniker-end
 
@@ -61,7 +67,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-java"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [Java SDK](includes/v3-java-sdk.md)]
 ::: moniker-end
 
@@ -69,7 +75,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-javascript"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [NodeJS SDK](includes/v3-javascript-sdk.md)]
 ::: moniker-end
 
@@ -77,7 +83,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-python"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [Python SDK](includes/v3-python-sdk.md)]
 ::: moniker-end
 
@@ -85,13 +91,13 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-rest-api"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [REST API](includes/v3-rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
 
 That's it, congratulations!
 
@@ -107,7 +113,7 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

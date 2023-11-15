@@ -38,6 +38,8 @@ If there has never been a storage mover deployed in this subscription and you ar
 
 To deploy a storage mover into a resource group, you must be a member of the *Contributor* or *Owner* [RBAC (Role Based Access Control)](../role-based-access-control/overview.md) role for the selected resource group. The section *[Permissions](deployment-planning.md#permissions)* in the planning guide has a table outlining the permissions you need for various migration scenarios.
 
+Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+
 ## Deploy a storage mover resource
 
 ### [Azure portal](#tab/portal)
@@ -48,11 +50,40 @@ To deploy a storage mover into a resource group, you must be a member of the *Co
 
    1. Search for *Azure Storage Mover*. When you identify the correct search result, select the **Create** button. A wizard to create a storage mover resource opens.
 
-   1. Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+### [Azure CLI](#tab/CLI)
 
-### [PowerShell](#tab/powershell)
+### Prepare your Azure CLI environment
 
-Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+To create a storage mover resource, use the [az storage-mover create](/cli/azure/storage-mover#az-storage-mover-create) command.  You'll need to supply values for the required `--name`, `--resource-group`, `--location` parameters. The `-description` and `tags` parameters are optional.
+
+```azurecli-interactive
+
+## Log into your Azure CLI account, a browser window will appear so that you can confirm your login.
+az login
+
+## The Azure Storage Mover extension for CLI is not installed by default and needs to be installed manually. Install the Azure Storage Mover extension without a prompt.
+az config set extension.use_dynamic_install=yes_without_prompt
+
+## Set variables
+$storageMoverName = "The name of the Storage Mover resource."
+$resourceGroupName = "Name of resource group"
+$description = "A description for the storage mover."
+$location = "The geo-location where the resource lives. When not specified, the location fo the resource group will be used."
+$tags = "Resource tags. Support shorthand-syntax, json-file and yaml-file. Try '??' to show more."
+
+## Create a Storage Mover resource.
+az storage-mover create --Name $storageMoverName \
+                        --ResourceGroupName $resourceGroupName  \
+                        --Location $location   \
+
+```
+### [Azure PowerShell](#tab/powershell)
+
+### Prepare your Azure PowerShell environment 
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/includes/azure-powershell-requirements-no-header.md)]
 
 The `New-AzStorageMover` cmdlet is used to create new storage mover resource in a resource group. If you haven't yet installed the `Az.StorageMover` module:
 

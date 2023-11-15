@@ -103,17 +103,13 @@
           items:
             - name: Delete Run As account
               href: delete-run-as-account.md
-            - name: Manage Run As account
-              href: manage-runas-account.md
             - name: Migrate Run As account to managed identity
-              href: migrate-run-as-accounts-managed-identity.md
-            - name: FAQ on Migration to managed identity
-              href: automation-managed-identity-faq.md
+              href: migrate-run-as-accounts-managed-identity.md    
         - name: Use Automation extension for Visual Studio Code
           href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
-        - name: Configure authentication with Azure AD
+        - name: Configure authentication with Microsoft Entra ID
           href: automation-use-azure-ad.md
         - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
@@ -255,6 +251,10 @@
               href: change-tracking/manage-change-tracking-monitoring-agent.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
+        - name: Migration guidance
+          items:
+            - name: Migration from Log Analytics to Azure Monitoring Agent version
+              href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
         - name: Use Log Analytics
           items:
             - name: Overview

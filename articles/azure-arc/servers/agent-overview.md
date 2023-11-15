@@ -54,7 +54,7 @@ Installing the Connected Machine agent for Window applies the following system-w
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
-    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Azure Active Directory managed identity tokens |
+    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
     | GCArcService | Guest configuration Arc Service | gc_service | Audits and enforces Azure guest configuration policies on the machine. |
     | ExtensionService | Guest configuration Extension Service | gc_service | Installs, updates, and manages extensions on the machine. |
 
@@ -65,13 +65,13 @@ Installing the Connected Machine agent for Window applies the following system-w
     | NT SERVICE\\himds | Unprivileged account used to run the Hybrid Instance Metadata Service. |
 
     > [!TIP]
-    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
+    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you might need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
 
 * Agent installation creates the following local security group.
 
     | Security group name | Description |
     |---------------------|-------------|
-    | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
+    | Hybrid agent extension applications | Members of this security group can request Microsoft Entra tokens for the system-assigned managed identity |
 
 * Agent installation creates the following environmental variables
 
@@ -152,7 +152,7 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions may apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
@@ -160,10 +160,10 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   | AzureMonitorWindowsAgent | Windows | 100% |
   | AzureSecurityLinuxAgent | Linux | 30% |
   | LinuxOsUpdateExtension | Linux | 60% |
-  | MDE.Linux | Linux | 30% |
+  | MDE.Linux | Linux | 60% |
   | MicrosoftDnsAgent | Windows | 100% |
   | MicrosoftMonitoringAgent | Windows | 60% |
-  | OmsAgentForLinux | Windows | 60%|
+  | OmsAgentForLinux | Linux | 60%|
 
 During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
 
@@ -216,7 +216,7 @@ The agent requests the following metadata information from Azure:
 * Resource location (region)
 * Virtual machine ID
 * Tags
-* Azure Active Directory managed identity certificate
+* Microsoft Entra managed identity certificate
 * Guest configuration policy assignments
 * Extension requests - install, update, and delete.
 

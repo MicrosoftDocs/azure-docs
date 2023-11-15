@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 10/21/2022
+ms.date: 10/20/2023
 ---
 
 # Plan to manage costs for Azure Data Factory

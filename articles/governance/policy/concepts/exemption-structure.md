@@ -11,13 +11,9 @@ author: davidsmatlak
 The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
-see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
-[Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
+see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions  work with
+[Resource Manager modes](./definition-structure.md#resource-manager-modes), Microsoft.Kubneretes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data and don't work with the other 
 [Resource Provider modes](./definition-structure.md#resource-provider-modes).
-
-> [!NOTE]
-> By design, Azure Policy exempts all resources under the `Microsoft.Resources` resource provider (RP) from
-policy evaluation with the exception of subscriptions and resource groups, which can be evaluated.
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
@@ -31,17 +27,14 @@ You use JavaScript Object Notation (JSON) to create a policy exemption. The poli
 - [resource selectors](#resource-selectors-preview)
 - [assignment scope validation](#assignment-scope-validation-preview)
 
-> [!NOTE]
-> A policy exemption is created as a child object on the resource hierarchy or the individual
-> resource granted the exemption, so the target isn't included in the exemption definition.
-> If the parent resource to which the exemption applies is removed, then the exemption
-> is removed as well.
+
+A policy exemption is created as a child object on the resource hierarchy or the individual resource granted the exemption. Exemptions cannot be created at the Resource Provider mode component level. 
+If the parent resource to which the exemption applies is removed, then the exemption is removed as well.
 
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
 an initiative assignment named `resourceShouldBeCompliantInit`. The resource is _exempt_ from only
 two of the policy definitions in the initiative, the `customOrgPolicy` custom policy definition
-(reference `requiredTags`) and the **Allowed locations** built-in policy definition (ID:
-`e56962a6-4747-49cd-b67b-bf8b01975c4c`, reference `allowedLocations`):
+( `policyDefinitionReferenceId`: `requiredTags`) and the **Allowed locations** built-in policy definition ( `policyDefinitionReferenceId` : `allowedLocations`):
 
 ```json
 {
@@ -70,32 +63,6 @@ two of the policy definitions in the initiative, the `customOrgPolicy` custom po
 }
 ```
 
-Snippet of the related initiative with the matching `policyDefinitionReferenceIds` used by the
-policy exemption:
-
-```json
-"policyDefinitions": [
-    {
-        "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/customOrgPolicy",
-        "policyDefinitionReferenceId": "requiredTags",
-        "parameters": {
-            "reqTags": {
-                "value": "[parameters('init_reqTags')]"
-            }
-        }
-    },
-    {
-        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
-        "policyDefinitionReferenceId": "allowedLocations",
-        "parameters": {
-            "listOfAllowedLocations": {
-                "value": "[parameters('init_listOfAllowedLocations')]"
-            }
-        }
-    }
-]
-```
-
 ## Display name and description
 
 You use **displayName** and **description** to identify the policy exemption and provide context for
@@ -105,7 +72,7 @@ its use with the specific resource. **displayName** has a maximum length of _128
 ## Metadata
 
 The **metadata** property allows creating any child property needed for storing relevant
-information. In the example above, properties **requestedBy**, **approvedBy**, **approvedOn**, and
+information. In the example, properties **requestedBy**, **approvedBy**, **approvedOn**, and
 **ticketRef** contains customer values to provide information on who requested the exemption, who
 approved it and when, and an internal tracking ticket for the request. These **metadata** properties
 are examples, but they aren't required and **metadata** isn't limited to these child properties.
@@ -145,7 +112,7 @@ format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 ## Resource selectors (preview)
 
-Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Below is an example exemption JSON which leverages resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
+Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Here is an example exemption JSON, which uses resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
 
 ```json
 {
@@ -174,7 +141,7 @@ Exemptions support an optional property `resourceSelectors`. This property works
 }
 ```
 
-Regions can be added or removed from the `resourceLocation` list in the example above. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
+Regions can be added or removed from the `resourceLocation` list in the example. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
 
 ## Assignment scope validation (preview)
 
@@ -214,12 +181,17 @@ requiring the `Microsoft.Authorization/policyExemptions/write` operation on the 
 or individual resource, the creator of an exemption must have the `exempt/Action` verb on the target
 assignment.
 
+## Exemption creation and management
+
+Exemptions are recommended for time-bound or specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there's a specific reason it shouldn't be assessed for compliance. For example, if an environment has the built-in definition `Storage accounts should disable public network access` (ID: `b2982f36-99f2-4db5-8eff-283140c09693`) assigned with _effect_ set to _audit_. Upon compliance assessment, resource "StorageAcc1" is non-compliant, but StorageAcc1 must have public network access enable for business purposes. At that time, a request should be submitted to create an exemption resource that targets StorageAcc1. Once the exemption is created, StorageAcc1 will be shown as _exempt_ in compliance review. 
+
+Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any no longer qualifying for exemption. At that time, exemption resources that have expired could be deleted as well. 
+
+
 ## Next steps
 
+- Leverage [Azure Resource Graph queries on exemptions](../samples/resource-graph-samples.md#azure-policy-exemptions).
+- Learn about [the difference between exclusions and exemptions](./scope.md#scope-comparison).
 - Study the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
-- Learn about the [policy definition structure](./definition-structure.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with
-  [Organize your resources with Azure management groups](../../management-groups/overview.md).

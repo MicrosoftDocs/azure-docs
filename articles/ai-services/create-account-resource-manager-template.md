@@ -5,11 +5,15 @@ keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognit
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 09/01/2022
 ms.author: aahi
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - ignite-2023
 ---
 
 # Quickstart: Create an Azure AI services resource using an ARM template
@@ -129,12 +133,10 @@ az group delete --name $resourceGroupName
 
 ---
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
-
 ## See also
 
-* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure AI services?](./what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
-* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.
+* See [Authenticate requests to Azure AI services](authentication.md) on how to securely work with Azure AI services.
+* See [What are Azure AI services?](./what-are-ai-services.md) for a list of Azure AI services.
+* See [Natural language support](language-support.md) to see the list of natural languages that Azure AI services supports.
+* See [Use Azure AI services as containers](cognitive-services-container-support.md) to understand how to use Azure AI services on-prem.
+* See [Plan and manage costs for Azure AI services](../ai-studio/how-to/costs-plan-manage.md) to estimate cost of using Azure AI services.

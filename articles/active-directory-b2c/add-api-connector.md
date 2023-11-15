@@ -127,7 +127,7 @@ These steps only exist for **Sign up and sign in (Recommended)** and **Sign up (
 
 ## After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, and Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
 
 ### Example request sent to the API at this step
 ```http
@@ -156,7 +156,7 @@ The exact claims sent to the API depend on the information is provided by the id
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -217,7 +217,7 @@ The claims that are sent to the API depend on the information is collected from 
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -280,7 +280,7 @@ The claims that are sent to the API depend on the information defined for the us
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 
@@ -574,8 +574,7 @@ To return the promo code claim back to the relying party application, add an out
 ## Test the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml*. 

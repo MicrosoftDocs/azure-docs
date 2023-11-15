@@ -5,8 +5,7 @@ description: Details the speech to text helm chart configuration options.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 05/05/2020
 ms.author: eur

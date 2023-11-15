@@ -37,7 +37,7 @@ Through the combination of these two tools, Defender for Cloud becomes your sing
     - The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]
-    > It may take some time after onboarding for recommendations to appear. In fact, depending on on your server activity you may not receive *any* alerts. To generate test alerts to test your alerts are working correctly, follow the instructions in [the alert validation procedure](alert-validation.md).
+    > It might take some time after onboarding for recommendations to appear. In fact, depending on your server activity you might not receive *any* alerts. To generate test alerts to test your alerts are working correctly, follow the instructions in [the alert validation procedure](alert-validation.md).
 
 ## View security recommendations and alerts in Windows Admin Center
 

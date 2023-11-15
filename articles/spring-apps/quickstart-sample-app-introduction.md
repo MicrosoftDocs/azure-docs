@@ -7,7 +7,6 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/12/2021
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Introduction to the sample app
@@ -18,59 +17,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
-
-::: zone pivot="programming-language-csharp"
-
-This series of quickstarts uses a sample app composed of two Spring apps to show how to deploy a .NET Core Steeltoe app to the Azure Spring Apps service. You use Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
-
-## Functional services
-
-The sample app is composed of two Spring apps:
-
-* The `planet-weather-provider` service returns weather text in response to an HTTP request that specifies the planet name. For example, it may return "very warm" for planet Mercury. It gets the weather data from the Config server. The Config server gets the weather data from a YAML file in a Git repository, for example:
-
-  ```yaml
-  MercuryWeather: very warm
-  VenusWeather: quite unpleasant
-  MarsWeather: very cool
-  SaturnWeather: a little bit sandy
-  ```
-
-* The `solar-system-weather` service returns data for four planets in response to an HTTP request. It gets the data by making four HTTP requests to `planet-weather-provider`. It uses the Eureka server discovery service to call `planet-weather-provider`. It returns JSON, for example:
-
-  ```json
-  [{
-      "Key": "Mercury",
-      "Value": "very warm"
-  }, {
-      "Key": "Venus",
-      "Value": "quite unpleasant"
-  }, {
-      "Key": "Mars",
-      "Value": "very cool"
-  }, {
-      "Key": "Saturn",
-      "Value": "a little bit sandy"
-  }]
-  ```
-
-The following diagram illustrates the sample app architecture:
-
-:::image type="content" source="media/quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Diagram of sample app architecture.":::
-
-> [!NOTE]
-> When the application is hosted in Azure Spring Apps Enterprise plan, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md) and [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).
-
-## Code repository
-
-The sample app is located in the [steeltoe-sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample) folder of the Azure-Samples/Azure-Spring-Cloud-Samples repository on GitHub.
-
-The instructions in the following quickstarts refer to the source code as needed.
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) to show you how to deploy apps to the Azure Spring Apps service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You see how to deploy services to Azure with Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
@@ -81,7 +28,7 @@ The following diagram shows the architecture of the PetClinic application.
 ![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
 > [!NOTE]
-> When the application is hosted in Azure Spring Apps Enterprise plan, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Apps](#infrastructure-services-hosted-by-azure-spring-apps) section later in this article.
+> When the application is hosted in Azure Spring Apps Enterprise plan, the managed Application Configuration Service for VMware Tanzu assumes the role of Spring Cloud Config Server and the managed VMware Tanzu Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Apps](#infrastructure-services-hosted-by-azure-spring-apps) section later in this article.
 
 ## Functional services to be deployed
 
@@ -115,8 +62,6 @@ In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB)
 ## Sample usage of PetClinic
 
 For full implementation details, see our fork of [PetClinic](https://github.com/Azure-Samples/spring-petclinic-microservices). The samples reference the source code as needed.
-
-::: zone-end
 
 ## Next steps
 

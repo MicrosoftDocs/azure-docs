@@ -64,19 +64,19 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: ../active-directory/external-identities/external-identities-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
-  - name: Supported Azure AD features
+    href: /entra/external-id/external-identities-overview?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+  - name: Supported Microsoft Entra ID features
     href: supported-azure-ad-features.md
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
-      href: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/identity-platform/authentication-vs-authorization?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Tokens
-      href: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/identity-platform/security-tokens?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Application authentication request
-      href: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/identity-platform/v2-app-types?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Authentication library
-      href: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/identity-platform/msal-overview?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
       displayName: MSAL, client library, Microsoft Authentication Library
   - name: Azure AD B2C global identity framework
     items:
@@ -156,7 +156,7 @@
         href: microsoft-graph-get-started.md
       - name: Register a SAML application
         href: saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy 
-      - name: Publish app in Azure AD app gallery
+      - name: Publish app in Microsoft Entra app gallery
         href: publish-app-to-azure-ad-app-gallery.md  
     - name: Create a user flow or custom policy
       items:
@@ -334,9 +334,9 @@
         href: identity-provider-amazon.md
       - name: Apple
         href: identity-provider-apple-id.md 
-      - name: Azure AD (single tenant)
+      - name: Microsoft Entra ID (single tenant)
         href: identity-provider-azure-ad-single-tenant.md
-      - name: Azure AD (multitenant)
+      - name: Microsoft Entra ID (multitenant)
         href: identity-provider-azure-ad-multi-tenant.md
       - name: Azure AD B2C
         href: identity-provider-azure-ad-b2c.md
@@ -509,7 +509,7 @@
         displayName: azure ad b2c security best practices
       - name: Enable MFA
         items:
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: multi-factor-authentication.md
           displayName: TOTP, multi-factor, multifactor, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
         - name: Secure phone-based MFA
@@ -722,12 +722,12 @@
         items:
         - name: About validation technical profiles
           href: validation-technical-profile.md
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: active-directory-technical-profile.md
-        - name: Azure AD Multi-Factor Authentication
+        - name: Microsoft Entra multifactor authentication
           href: multi-factor-auth-technical-profile.md
           displayName: mfa
-        - name: Azure AD SSPR
+        - name: Microsoft Entra SSPR
           href: aad-sspr-technical-profile.md
         - name: Claims transformation
           href: claims-transformation-technical-profile.md
@@ -798,15 +798,15 @@
   - name: Build for resilience
     items:
     - name: Azure AD B2C introduction to resilience
-      href: ../active-directory/architecture/resilience-b2c.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/architecture/resilience-b2c?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: End-user experience
-      href: ../active-directory/architecture/resilient-end-user-experience.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/architecture/resilient-end-user-experience?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Interfaces with external processes
-      href: ../active-directory/architecture/resilient-external-processes.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/architecture/resilient-external-processes?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Azure AD B2C developer best practices
-      href: ../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/architecture/resilience-b2c-developer-best-practices?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Monitoring and analytics
-      href: ../active-directory/architecture/resilience-with-monitoring-alerting.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+      href: /entra/architecture/resilience-with-monitoring-alerting?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
@@ -820,7 +820,7 @@
     href: ./faq.yml
     displayName: FAQ
   - name: Getting help
-    href: ../active-directory/develop/developer-support-help-options.md
+    href: /entra/identity-platform/developer-support-help-options
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/external-identities/
   - name: Pricing calculator

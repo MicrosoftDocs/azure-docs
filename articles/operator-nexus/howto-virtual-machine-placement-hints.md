@@ -6,7 +6,7 @@ ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 07/28/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+ms.custom: template-how-to-pattern, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
 # Working with placement hints in Azure Operator Nexus virtual machine
@@ -19,7 +19,7 @@ You can increase the overall resilience of your application by using anti-affini
 
 ## Prerequisites
 
-Before proceeding with this how-to guide, ensure you have completed all steps in the Azure Operator Nexus virtual machine [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
+Before proceeding with this how-to guide, ensure you have completed all steps in the Azure Operator Nexus virtual machine [QuickStart guide](./quickstarts-virtual-machine-deployment-cli.md).
 
 
 ## Placement hints configuration
@@ -53,7 +53,7 @@ The `resourceId` argument in placement hints specifies the target object against
 * A Rack: If the target object is a rack, the placement hint is checked against all the bare-metal machines running on that rack.
 
 > [!IMPORTANT]
-> The resourceId argument must be specified in the form of an ARM ID, and it must be a valid resource ID for the target object. If the resourceId is incorrect or invalid, the placement hint will not work correctly, and the VM scheduling may fail.
+> The resourceId argument must be specified in the form of an ARM ID, and it must be a valid resource ID for the target object. If the resourceId is incorrect or invalid, the placement hint will not work correctly, and the VM scheduling might fail.
 
 ### Scope
 
@@ -114,7 +114,7 @@ The schedulingExecution argument has two possible values: `Hard` or `Soft`.
 In this example, we explore the concepts of soft and hard affinities, particularly about placing virtual machines on specific racks.
 
 > [!NOTE]
-> In this and the following examples, only variations of the `--placement-hints` argument are provided. For the actual creation of the VM with placement hints, you should add `--placement-hints` to the CLI illustrated in the VM [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
+> In this and the following examples, only variations of the `--placement-hints` argument are provided. For the actual creation of the VM with placement hints, you should add `--placement-hints` to the CLI illustrated in the VM [QuickStart guide](./quickstarts-virtual-machine-deployment-cli.md).
 
 #### Strict scheduling (rack affinity)
 
@@ -125,7 +125,7 @@ This placement hint uses the `Affinity` hintType to ensure that the virtual mach
 ```
 
 > [!NOTE]
-> The current placement hint configuration with the Affinity hintType ensures that the virtual machine is scheduled exclusively on the specified rack with the provided rack ID. However, it's important to note that the rack affinity cannot be specified for more than one rack with `Hard` scheduling execution. This limitation may influence your deployment strategy, particularly if you are considering placing VMs on multiple racks and allowing the scheduler to select from them.
+> The current placement hint configuration with the Affinity hintType ensures that the virtual machine is scheduled exclusively on the specified rack with the provided rack ID. However, it's important to note that the rack affinity cannot be specified for more than one rack with `Hard` scheduling execution. This limitation might influence your deployment strategy, particularly if you are considering placing VMs on multiple racks and allowing the scheduler to select from them.
 
 #### Preferred scheduling (rack affinity)
 
@@ -141,7 +141,7 @@ In this example, we explore the concepts of soft and hard anti-affinities, parti
 
 #### Strict scheduling (rack anti-affinity)
 
-This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingExecution to prevent the virtual machine from being scheduled on the specified rack identified by the rack ID. In this configuration, the scheduler strictly follows these placement hints. However, if the rack ID is incorrect or there's not enough capacity on other racks, the VM placement may fail due to the strict application of the `Hard` scheduling rule
+This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingExecution to prevent the virtual machine from being scheduled on the specified rack identified by the rack ID. In this configuration, the scheduler strictly follows these placement hints. However, if the rack ID is incorrect or there's not enough capacity on other racks, the VM placement might fail due to the strict application of the `Hard` scheduling rule
 
 ```bash
 --placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/racks/<compute-rack-2>","schedulingExecution":"Hard","scope":"Rack"}]'
@@ -228,7 +228,7 @@ In this example, we explore the concepts of soft and hard anti-affinities, parti
 
 #### Strict scheduling (bare-metal machine anti-affinity)
 
-This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingExecution to prevent the virtual machine from being scheduled on the specified bare-metal machine identified by the bare-metal machine ID. In this configuration, the scheduler strictly follows these placement hints. However, if the bare-metal machine ID is incorrect or there's not enough capacity on other bare-metal machines, the VM placement may fail due to the strict application of the `Hard` scheduling rule
+This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingExecution to prevent the virtual machine from being scheduled on the specified bare-metal machine identified by the bare-metal machine ID. In this configuration, the scheduler strictly follows these placement hints. However, if the bare-metal machine ID is incorrect or there's not enough capacity on other bare-metal machines, the VM placement might fail due to the strict application of the `Hard` scheduling rule
 
 ```bash
 --placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Hard","scope":"Machine"}]'

@@ -1,10 +1,62 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 01/09/2023
+ms.date: 09/29/2023
 ms.author: eur
 ---
+
+### November 2023 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with 6 additional languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+  | Language | Locale (BCP-47) | 
+  |--|--|
+  |Arabic (Saudi Arabia)|`ar-SA` |
+  |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+  |Chinese (Mandarin, Simplified)|`zh-CN`|
+  |English (Australia)|`en-AU`|
+  |English (Canada)|`en-CA` |
+  |English (India)|`en-IN` |
+  |English (United Kingdom)|`en-GB`|
+  |English (United States)|`en-US`|  
+  |French (Canada)|`fr-CA`| 
+  |French (France)|`fr-FR`|  
+  |German (Germany)|`de-DE`|
+  |Hindi (India)|`hi-IN`<sup>1</sup>|
+  |Italian (Italy)|`it-IT`|
+  |Japanese (Japan)|`ja-JP`|
+  |Korean (Korea)|`ko-KR`|
+  |Malay (Malaysia)|`ms-MY`|
+  |Norwegian Bokmål (Norway)|`nb-NO`|
+  |Portuguese (Brazil)|`pt-BR`|
+  |Russian (Russia)|`ru-RU`<sup>1</sup>|
+  |Spanish (Mexico)|`es-MX` | 
+  |Spanish (Spain)|`es-ES` | 
+  |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
+  |Tamil (India)|`ta-IN`<sup>1</sup> | 
+  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+
+  <sup>1</sup> The language is in public preview for pronunciation assessment.
+
+- We are excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
+
+### September 2023 release
+
+#### Whisper public preview
+
+Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#using-whisper-models) guide. 
+
+> [!NOTE]
+> Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../../../openai/whisper-quickstart.md). 
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+#### Speech to text REST API v3.2 public preview
+
+Speech to text REST API v3.2 is available in preview. [Speech to text REST API](../../rest-speech-to-text.md) v3.1 is generally available. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
 
 ### August 2023 release
 

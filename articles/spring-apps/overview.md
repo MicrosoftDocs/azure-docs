@@ -85,10 +85,10 @@ The following video introduces the Azure Spring Apps Enterprise plan.
 
 ### Deploy and manage Spring and polyglot applications
 
-The Azure Spring Apps Enterprise plan provides the fully managed VMware Tanzu® Build Service™. The Tanzu Build Service automates the creation, management, and governance of containers at enterprise scale with the following buildpack options:
+The Azure Spring Apps Enterprise plan provides the fully managed VMware® Tanzu Build Service. The Tanzu Build Service automates the creation, management, and governance of containers at enterprise scale with the following buildpack options:
 
 * Open-source [Cloud Native Buildpacks](https://buildpacks.io/)
-* Commercial [Language Family Buildpacks for VMware Tanzu](https://docs.pivotal.io/tanzu-buildpacks/).
+* Commercial [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
 Tanzu Build Service offers a higher-level abstraction for building applications. Tanzu Build Service also provides a balance of control that reduces the operational burden on developers, and supports enterprise IT operators who manage applications at scale. You can configure what Tanzu Buildpacks to apply and build polyglot applications that run alongside Spring applications on Azure Spring Apps.
 
@@ -96,7 +96,7 @@ Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .
 
 ### Route client requests to applications
 
-You can manage and discover request routes and APIs exposed by applications using the fully managed Spring Cloud Gateway for VMware Tanzu® and API portal for VMware Tanzu®.
+You can manage and discover request routes and APIs exposed by applications using the fully managed Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu.
 
 Spring Cloud Gateway for Tanzu effectively routes diverse client requests to applications in Azure Spring Apps, Azure, and on-premises. Spring Cloud Gateway also addresses cross-cutting considerations for applications behind the Gateway. These considerations include securing, routing, rate limiting, caching, monitoring, resiliency and hiding applications. You can make the following configurations to Spring Cloud Gateway:
 
@@ -113,10 +113,10 @@ With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tan
 * [Tanzu Build Service](how-to-enterprise-build-service.md)
 * [Spring Cloud Gateway for Tanzu](how-to-configure-enterprise-spring-cloud-gateway.md)
 * [API Portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
-* [Application Configuration Service for VMware Tanzu®](how-to-enterprise-application-configuration-service.md)
-* [VMware Tanzu® Service Registry](how-to-enterprise-service-registry.md)
-* [Application Live View for VMware Tanzu®](how-to-use-application-live-view.md)
-* [Application Accelerator for VMware Tanzu®](how-to-use-accelerator.md)
+* [Application Configuration Service for VMware Tanzu](how-to-enterprise-application-configuration-service.md)
+* [VMware Tanzu Service Registry](how-to-enterprise-service-registry.md)
+* [Application Live View for VMware Tanzu](how-to-use-application-live-view.md)
+* [Application Accelerator for VMware Tanzu](how-to-use-accelerator.md)
 
 VMware Tanzu components deliver increased value so you can accomplish the following tasks:
 

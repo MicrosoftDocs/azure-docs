@@ -2,12 +2,14 @@
 title: "Quickstart: Azure management client library for Python"
 description: In this quickstart, get started with the Azure management client library for Python.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 06/04/2021
-ms.author: pafarley
+ms.date: 10/5/2023
+ms.author: eur
 ---
 
 [Reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Package (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
@@ -35,13 +37,22 @@ You can install the client library with:
 pip install azure-mgmt-cognitiveservices
 ```
 
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
+Also install the [Azure Identity library](/python/api/overview/azure/identity-readme) for Microsoft Entra token authentication support. 
+
+```console
+pip install azure-identity
+```
 
 ### Import libraries
 
 Open your Python script and import the following libraries.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_imports)]
+```python
+import time
+from azure.identity import ClientSecretCredential
+from azure.mgmt.cognitiveservices import CognitiveServicesManagementClient
+from azure.mgmt.cognitiveservices.models import Account, Sku
+```
 
 ## Authenticate the client
 
@@ -78,8 +89,6 @@ To view all of the resources under your Azure account (across all resource group
 The following function deletes the specified resource from the given resource group.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
-
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
 ## Call management functions
 

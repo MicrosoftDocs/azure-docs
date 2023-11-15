@@ -4,21 +4,34 @@ titleSuffix: Azure AI services
 description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 # Document Intelligence custom neural model
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
-Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru) ![blue-checkmark](media/blue-yes-icon.png) [**v3.0 (GA)**](?view=doc-intel-3.0.0&preserve-view=tru)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+::: moniker-end
+
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -40,85 +53,13 @@ Custom neural models currently only support key-value pairs and selection marks 
 
 ### Build mode
 
-The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+The build custom model operation supports *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
-Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
+Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but can vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-:::moniker range="doc-intel-3.1.0"
-
-Neural models now support added languages for the ```v3.1``` APIs.
-
-|Language| Code (optional) |
-|:-----|:----:|
-|Afrikaans| `af`|
-|Albanian| `sq`|
-|Arabic|`ar`|
-|Bulgarian|`bg`|
-|Chinese (Han (Simplified variant))| `zh-Hans`|
-|Chinese (Han (Traditional variant))|`zh-Hant`|
-|Croatian|`hr`|
-|Czech|`cs`|
-|Danish|`da`|
-|Dutch|`nl`|
-|Estonian|`et`|
-|Finnish|`fi`|
-|French|`fr`|
-|German|`de`|
-|Hebrew|`he`|
-|Hindi|`hi`|
-|Hungarian|`hu`|
-|Indonesian|`id`|
-|Italian|`it`|
-|Japanese|`ja`|
-|Korean|`ko`|
-|Latvian|`lv`|
-|Lithuanian|`lt`|
-|Macedonian|`mk`|
-|Marathi|`mr`|
-|Modern Greek (1453-)|`el`|
-|Nepali (macrolanguage)|`ne`|
-|Norwegian|`no`|
-|Panjabi|`pa`|
-|Persian|`fa`|
-|Polish|`pl`|
-|Portuguese|`pt`|
-|Romanian|`rm`|
-|Russian|`ru`|
-|Slovak|`sk`|
-|Slovenian|`sl`|
-|Somali (Arabic)|`so`|
-|Somali (Latin)|`so-latn`|
-|Spanish|`es`|
-|Swahili (macrolanguage)|`sw`|
-|Swedish|`sv`|
-|Tamil|`ta`|
-|Thai|`th`|
-|Turkish|`tr`|
-|Ukrainian|`uk`|
-|Urdu|`ur`|
-|Vietnamese|`vi`|
-
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-
-Neural models now support added languages for the ```v3.0``` APIs.
-
-| Languages | API version |
-|:--:|:--:|
-| English | `2023-07-31` (GA), `2023-07-31` (GA)|
-| German |  `2023-07-31` (GA)|
-| Italian |  `2023-07-31` (GA)|
-| French |  `2023-07-31` (GA)|
-| Spanish |  `2023-07-31` (GA)|
-| Dutch |  `2023-07-31` (GA)|
-
-:::moniker-end
+*See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
 ## Tabular fields
 
@@ -157,10 +98,64 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 * US Gov Arizona
 * US Gov Virginia
 
+:::moniker range="doc-intel-4.0.0"
+
+> [!TIP]
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
 > Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+> [!TIP]
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
+
+## Input requirements
+
+* For best results, provide one clear photo or high-quality scan per document.
+
+* Supported file formats:
+
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |--------|:----:|:-----:|:---------------:
+    |Read            | ✔    | ✔    | ✔  |
+    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |General&nbsp;Document| ✔  | ✔ |   |
+    |Prebuilt        |  ✔  | ✔ |   |
+    |Custom          |  ✔  | ✔ |   |
+
+    &#x2731; Microsoft Office files are currently not supported for other models or versions.
+
+* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+
+* The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
+
+* Image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels.
+
+* If your PDFs are password-locked, you must remove the lock before submission.
+
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
+
+* For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
+
+* For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
+
+* For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
 ## Best practices
 
@@ -194,7 +189,7 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-guide.md).
+Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
@@ -202,8 +197,10 @@ Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-gu
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
+:::moniker range="doc-intel-4.0.0"
+
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10-31-preview
 
 {
   "modelId": "string",
@@ -216,6 +213,46 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
   }
 }
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+```REST
+https://{endpoint}/formrecognizer/documentModels:build?api-version=v3.1:2023-07-31
+
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "neural",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```REST
+https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=2022-08-31
+
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "neural",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
+```
+
+:::moniker-end
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 10/20/2023
 ---
 
 # Power Query activity in Azure Data Factory

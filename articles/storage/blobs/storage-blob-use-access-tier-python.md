@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Set or change a block blob's access tier with Python
 
+[!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
+
 This article shows how to set or change the access tier for a block blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). 
 
 ## Prerequisites
@@ -79,4 +81,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 ### See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

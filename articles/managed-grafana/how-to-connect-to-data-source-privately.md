@@ -3,9 +3,9 @@ title: How to connect to a data source privately in Azure Managed Grafana
 description: Learn how to connect an Azure Managed Grafana instance to a data source using Managed Private Endpoint
 ms.service: managed-grafana
 ms.topic: how-to
-author: mcleanbyron
-ms.author: mcleans
-ms.date: 5/18/2023
+author: maud-lv
+ms.author: malev
+ms.date: 10/06/2023
 --- 
 
 # Connect to a data source privately (preview)
@@ -36,7 +36,7 @@ Managed private endpoints work with Azure services that support private link. Us
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana instance in the Standard tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 
 ## Create a managed private endpoint for Azure Monitor workspace
 
@@ -75,7 +75,7 @@ Once you've set up the private link service, you can create a managed private en
    > The *Private link service url* field is optional unless you need TLS. If you specify a URL, Managed Grafana will ensure that the host IP address for that URL matches the private endpoint's IP address. Due to security reasons, AMG have an allowed list of the URL.
 
 1. Click **Create** to add the managed private endpoint resource.
-1. Contact the owner of target Azure Monitor workspace to approve the connection request.
+1. Contact the owner of target private link service to approve the connection request.
 1. After the connection request is approved, click **Refresh** to see the connection status and private IP address.
 
 > [!NOTE]

@@ -5,21 +5,24 @@ description: Learn about which languages are supported by document summarization
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 11/01/2023
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-fall-2021, ignite-2022
+ms.custom:
+  - language-service-summarization
+  - ignite-fall-2021
+  - ignite-2022
+  - ignite-2023
 ---
 
-# Summarization language support
+# Language support for document and conversation summarization
 
-Use this article to learn which natural languages are supported by document and conversation summarization. 
+Use this article to learn which natural languages are supported by document and conversation summarization.
 
-# [Document summarization](#tab/document-summarization)
+## Document summarization
 
-## Languages supported by extractive and abstractive document summarization
+Extractive and abstractive document summarization supports the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
@@ -27,25 +30,33 @@ Use this article to learn which natural languages are supported by document and 
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
 | Italian               | `it`          |                     |
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
-| Spanish               | `es`          |                     |
+| Polish                | `pl`          |                     |
 | Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
-# [Conversation summarization](#tab/conversation-summarization)
-
-## Languages supported by conversation summarization
+## Conversation summarization
 
 Conversation summarization supports the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
 | English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Polish                | `pl`          |                     |
+| Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
----
-
-## Languages supported by custom summarization
+## Custom summarization
 
 Custom summarization supports the following languages:
 

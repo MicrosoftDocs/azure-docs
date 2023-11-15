@@ -1,16 +1,18 @@
 ---
 title: Synonyms for query expansion over a search index
-titleSuffix: Azure Cognitive Search
-description: Create a synonym map to expand the scope of a search query on an Azure Cognitive Search index. Scope is broadened to include equivalent terms you provide in a list.
+titleSuffix: Azure AI Search
+description: Create a synonym map to expand the scope of a search query on an Azure AI Search index. Scope is broadened to include equivalent terms you provide in a list.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/12/2022
 ---
-# Synonyms in Azure Cognitive Search
+# Synonyms in Azure AI Search
 
 Within a search service, synonym maps are a global resource that associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog".
 

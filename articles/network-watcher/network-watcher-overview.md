@@ -5,8 +5,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 09/13/2023
-# Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+ms.date: 09/15/2023
+
+# CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
 # What is Azure Network Watcher?
@@ -16,7 +17,7 @@ Azure Network Watcher provides a suite of tools to monitor, diagnose, view metri
 Network Watcher consists of three major sets of tools and capabilities:
 
 - [Monitoring](#monitoring)
-- [Network diagnostics tools](#network-diagnostics-tools)
+- [Network diagnostic tools](#network-diagnostic-tools)
 - [Traffic](#traffic)
 
 :::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
@@ -37,11 +38,11 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Connection monitor
 
-**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](connection-monitor.md).
+**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](monitor-vm-communication.md).
 
-## Network diagnostics tools
+## Network diagnostic tools
 
-Network Watcher offers seven network diagnostics tools that help troubleshoot and diagnose network issues:
+Network Watcher offers seven network diagnostic tools that help troubleshoot and diagnose network issues:
 
 - IP flow verify
 - NSG diagnostics
@@ -53,7 +54,7 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### IP flow verify
 
-**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](network-watcher-ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### NSG diagnostics
 
@@ -65,11 +66,11 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### Effective security rules
 
-**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](network-watcher-security-group-view-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
+**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](effective-security-rules-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](network-watcher-connectivity-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
 
 ### Packet capture
 
@@ -128,5 +129,5 @@ To view the latest Network Watcher feature updates, see [Service updates](https:
 
 ## Related content
 
-- To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
-- [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
+- To get started using Network Watcher diagnostic tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- To learn more about Network Watcher, see [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

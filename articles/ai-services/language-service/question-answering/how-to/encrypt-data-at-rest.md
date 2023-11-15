@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for custom question answering, and how to enable and manage CMK.
 author: erindormier
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 06/03/2022
 ms.author: egeaney
@@ -39,9 +38,6 @@ Follow these steps to enable CMKs:
 
 > [!IMPORTANT]
 > It is recommended to set your CMK in a fresh Azure Cognitive Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
-
-> [!NOTE]
-> To request the ability to use customer-managed keys, fill out and submit the [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
 
 ## Regional availability
 

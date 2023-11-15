@@ -4,18 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/01/2023
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 ::: zone pivot="programming-language-csharp"
 The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 
 
 The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
 
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
@@ -31,6 +33,8 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v1.x](#tab/v1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework) |
@@ -39,14 +43,15 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level | Expected community EOL date |
+| Supported version | Support level<sup>1</sup> | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 8 | Preview<sup>*</sup> | N/A |
-| [.NET 7](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | May 14, 2024 |
-| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
-| .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
+| .NET 8 | GA | [See policy][dotnet-policy] |
+| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
+| .NET 6 | GA | [November 12, 2024][dotnet-policy] |
+| .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
-<sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
+[dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -74,6 +79,7 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
@@ -96,7 +102,7 @@ The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Python 3.11 | Preview | N/A |
+| Python 3.11 | GA | N/A |
 | Python 3.10 | GA | October, 2026 |
 | Python 3.9 | GA | October, 2025 |
 | Python 3.8 | GA | October, 2024 |

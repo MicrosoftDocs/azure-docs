@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for iOS and
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 06/22/2023
+ms.date: 11/08/2023
 ---
 
 # What's new in the Remote Desktop client for iOS and iPadOS

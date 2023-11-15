@@ -5,8 +5,7 @@ description: Learn how to use Azure RBAC for managing individual access to Azure
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: mbullwin
@@ -15,7 +14,7 @@ recommendations: false
 
 # Role-based access control for Azure OpenAI Service
 
-Azure OpenAI Service supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions based on their needs for a given project. For more information, see the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
+Azure OpenAI Service supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions based on their needs for a given project. For more information, see the [Azure RBAC documentation](../../../role-based-access-control/index.yml).
 
 ## Add role assignment to an Azure OpenAI resource
 

@@ -1,17 +1,24 @@
 ---
 title: Install the Speech SDK
 titleSuffix: Azure AI services
-description: In this quickstart, you'll learn how to install the Speech SDK for your preferred programming language.
+description: In this quickstart, you learn how to install the Speech SDK for your preferred programming language.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 09/05/2023
 ms.author: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go
-zone_pivot_groups: programming-languages-speech-sdk
+ms.custom:
+  - devx-track-python
+  - devx-track-js
+  - devx-track-csharp
+  - mode-other
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-go
+  - ignite-2023
+zone_pivot_groups: programming-languages-ai-services
 ---
 
 # Install the Speech SDK
@@ -50,6 +57,6 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 ## Next steps
 
-* [Speech to text quickstart](../get-started-speech-to-text.md)
-* [Text to speech quickstart](../get-started-text-to-speech.md)
-* [Speech translation quickstart](../get-started-speech-translation.md)
+- [Speech to text quickstart](../get-started-speech-to-text.md)
+- [Text to speech quickstart](../get-started-text-to-speech.md)
+- [Speech translation quickstart](../get-started-speech-translation.md)

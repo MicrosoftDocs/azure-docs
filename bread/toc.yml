@@ -257,6 +257,9 @@
       - name: Industrial IoT
         tocHref: /azure/industrial-iot/
         topicHref: /azure/industrial-iot/index
+      - name: IoT Operations
+        tocHref: /azure/iot-operations/
+        topicHref: /azure/iot-operations/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -350,13 +353,16 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
-  - name: Cognitive Search
-    tocHref: /azure/search/
-    topicHref: /azure/search/
+  - name: AI Studio
+    tocHref: /azure/ai-studio/
+    topicHref: /azure/ai-studio/
   - name: AI Services
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
+    - name: Azure AI Search
+      tocHref: /azure/search/
+      topicHref: /azure/search/
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
@@ -412,9 +418,6 @@
     - name: Custom Vision Service
       tocHref: /azure/ai-services/custom-vision-service/
       topicHref: /azure/ai-services/custom-vision-service/
-    - name: Entity Linking
-      tocHref: /azure/cognitive-services/entitylinking/
-      topicHref: /azure/cognitive-services/entitylinking/home
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/anomaly-detector/overview
@@ -649,6 +652,22 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: HDInsight on AKS
+    tocHref: /azure/hdinsight-aks/
+    topicHref: ../articles/hdinsight-aks/index.yml
+    items:
+      - name: Flink
+        tocHref: /azure/hdinsight-aks/flink
+        topicHref: ../articles/hdinsight-aks/flink/flink-overview.md
+      - name: Release Notes
+        tocHref: /azure/hdinsight-aks/release-notes
+        topicHref: ../articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes.md
+      - name: Spark
+        tocHref: /azure/hdinsight-aks/spark
+        topicHref: ../articles/hdinsight-aks/spark/hdinsight-on-aks-spark-overview.md
+      - name: Trino
+        tocHref: /azure/hdinsight-aks/trino
+        topicHref: ../articles/hdinsight-aks/trino/trino-overview.md
   - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
@@ -709,7 +728,7 @@
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
-  - name: Logic Apps
+  - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
   - name: Machine Learning
@@ -1129,6 +1148,9 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Playwright Testing
+    tocHref: /azure/playwright-testing/
+    topicHref: /azure/playwright-testing/index
   - name: Azure Spring Apps
     tocHref: /azure/spring-apps/
     topicHref: /azure/spring-apps/index
@@ -1141,3 +1163,9 @@
   - name: Operator Nexus
     tocHref: /azure/operator-nexus/
     topicHref: /azure/operator-nexus/index
+  - name: Operator Service Manager
+    tocHref: /azure/operator-service-manager/
+    topicHref: /azure/operator-service-manager/index
+  - name: Operator Insights
+    tocHref: /azure/operator-insights/
+    topicHref: /azure/operator-insights/index
