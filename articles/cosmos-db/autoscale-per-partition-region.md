@@ -61,7 +61,8 @@ This feature is available for new Azure Cosmos DB accounts. To enable this featu
 
 Use Azure Monitor to analyze how the new autoscaling is being applied across partitions and regions. Filter to your desired database account and container, then filter or split by the `PhysicalPartitionID` metric. This metric shows all partitions across their various regions.
 
-Then, use `AutoscaledRUs` metrics to see what throughput value each partition scales to per hour across all regions. The expected behavior should be that partitions across regions can now scale independently to their respective workloads if the traffic pattern is different across partitions and regions.
+Then, use `NormalizedRUConsumption' to see which partitions are scaling indpendently and which regions are scaling independently if applicable. You can use the 'ProvisionedThroughput' metric to see what throughput value is getting emmitted to our billing service.
 
-> [!WARNING]
-> The `AutoscaledRUs` metric is still a work in progress. It's functionality may change over time.
+## Requirements/Limitations
+
+Accounts must be created after 11/15/2023 to enable this feature. Support for multi-region write accounts is planned, but not yet supported. 

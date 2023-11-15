@@ -379,7 +379,20 @@ az spring gateway restart \
 
 ### Set up autoscale settings
 
-You can set autoscale modes for VMware Spring Cloud Gateway by using the Azure CLI.
+You can set autoscale modes for VMware Spring Cloud Gateway.
+
+#### [Azure portal](#tab/Azure-portal)
+
+The following list shows the options available for Autoscale demand management:
+
+* The **Manual scale** option maintains a fixed instance count. You can scale out to a maximum of 10 instances. This value changes the number of separate running instances of the Spring Cloud Gateway.
+* The **Custom autoscale** option scales on any schedule, based on any metrics.
+
+On the Azure portal, choose how you want to scale. The following screenshot shows the **Custom autoscale** option and mode settings:
+
+:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted.":::
+
+#### [Azure CLI](#tab/Azure-CLI) 
 
 Use the following command to create an autoscale setting:
 
@@ -404,9 +417,9 @@ az monitor autoscale rule create \
     --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
 ```
 
-For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
-
 ---
+
+For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Configure environment variables
 
