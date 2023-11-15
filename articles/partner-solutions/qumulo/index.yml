@@ -7,8 +7,9 @@ metadata:
   title: Azure Native Qumulo Scalable File Service documentation
   description: Azure Native Qumulo Scalable File Service offers a scalable, performant, and simple-to-use cloud-native file system on Azure.
   ms.topic: landing-page
-  ms.date: 01/18/2023
-
+  ms.custom:
+    - ignite-2023
+  ms.date: 11/13/2003
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -19,6 +20,11 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: qumulo-overview.md
+
+          - text: What is Azure Native Qumulo for disaster recovery?
+            url: qumulo-disaster-recovery.md
+          # - text: What is Azure Native Qumulo for video editing?
+          #   url: qumulo-video-editing.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Native Qumulo Scalable File Service deployment
@@ -40,9 +46,9 @@ landingContent:
             url: qumulo-how-to-manage.md
           - text: Troubleshoot Azure Native Qumulo Scalable File Service
             url: qumulo-troubleshoot.md 
-          - text: Setting up Azure Native Qumulo Scalable File Service 
+          - text: Setting up Azure Native Qumulo Scalable File Service
             url: qumulo-how-to-setup-features.md
- 
+
       
   #Card
   - title: SDKs and command-lines
