@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/14/2023
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -17,9 +17,7 @@ ms.date: 09/27/2023
 ## PostgreSQL versions
 
 The version of PostgreSQL running in a cluster is
-customizable during creation. Azure Cosmos DB for PostgreSQL currently supports the
-following major [PostgreSQL
-versions](https://www.postgresql.org/docs/release/):
+customizable during creation and can be upgraded in-place once the cluster is created. Azure Cosmos DB for PostgreSQL currently supports the following major [PostgreSQL versions](https://www.postgresql.org/docs/release/):
 
 ### PostgreSQL version 16
 
