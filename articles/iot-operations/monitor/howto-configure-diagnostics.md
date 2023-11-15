@@ -1,18 +1,19 @@
 ---
-title: Configure Azure IoT MQ diagnostics
+title: Configure Azure IoT MQ diagnostics service
 # titleSuffix: Azure IoT MQ
 description: How to configure Azure IoT MQ diagnostics service.
-author: PatAltimore
-ms.author: patricka
+author: timlt
+ms.author: timlt
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/27/2023
+ms.date: 11/14/2023
 
-#CustomerIntent: As an operator, I want to understand availability and scale options for MQTT broker.
+#CustomerIntent: As an operator, I want to understand how to use observability and diagnostics 
+#to monitor the health of the MQ service.
 ---
 
-# Configure Azure IoT MQ diagnostic settings
+# Configure Azure IoT MQ diagnostic service settings
 
 Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
@@ -53,4 +54,5 @@ spec:
 
 ## Related content
 
-[Configure observability](../monitor/howto-configure-observability.md)
+- [Configure MQ broker diagnostic settings](../manage-mqtt-connectivity/howto-configure-availability-scale.md#configure-mq-broker-diagnostic-settings)
+- [Configure observability](../monitor/howto-configure-observability.md)
