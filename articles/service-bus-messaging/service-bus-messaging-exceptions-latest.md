@@ -195,7 +195,7 @@ An [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception)
 
 We recommend that you follow these verification steps, depending on the type of authorization provided when constructing the [`ServiceBusClient`](/dotnet/api/azure.messaging.servicebus.servicebusclient).
 
-- [Verify the connection string is correct](service-bus-dotnet-get-started-with-queues?tabs=connection-string#get-the-connection-string)
+- [Verify the connection string is correct](service-bus-dotnet-get-started-with-queues.md?tabs=connection-string#get-the-connection-string)
 - [Verify the SAS token was generated correctly](service-bus-sas.md)
 - [Verify the correct role-based access control (RBAC) roles were granted](service-bus-managed-service-identity.md)
 

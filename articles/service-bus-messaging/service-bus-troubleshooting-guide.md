@@ -15,10 +15,10 @@ Depending on the host environment and network, a connectivity issue might presen
 
 To troubleshoot:
 
-- Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-dotnet-get-started-with-queues?tabs=connection-string#get-the-connection-string).
+- Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-dotnet-get-started-with-queues.md?tabs=connection-string#get-the-connection-string).
 - Check the firewall and port permissions in your hosting environment. Check that the AMQP ports 5671 and 5672 are open and that the endpoint is allowed through the firewall.
 - Try using the Web Socket transport option, which connects using port 443. For details, see [configure the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport).
-- See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allowlist-)
+- See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](/azure/service-bus-messaging/service-bus-faq#what-ip-addresses-do-i-need-to-add-to-allowlist-)
 - If applicable, verify the proxy configuration. For details, see: [Configuring the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport)
 - For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues][#connectivity-certificate-or-timeout-issues].
 
@@ -47,7 +47,7 @@ The Service Bus client library is fully instrumented for logging information at 
 ### Enable logging
 The Service Bus client logs are available to any `EventListener` by opting into the sources starting with `Azure-Messaging-ServiceBus` or by opting into all sources that have the trait `AzureEventSource`. To make capturing logs from the Azure client libraries easier, the `Azure.Core` library used by Service Bus offers an `AzureEventSourceListener`.
 
-For more information, see: [Logging with the Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/sdk/logging).
+For more information, see: [Logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
 
 ### Distributed tracing
 The Service Bus client library supports distributed tracing through integration with the Application Insights SDK. It also has **experimental** support for the OpenTelemetry specification via the .NET [ActivitySource](/dotnet/api/system.diagnostics.activitysource) type introduced in .NET 5. In order to enable `ActivitySource` support for use with OpenTelemetry, see [ActivitySource support](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#activitysource-support).
@@ -123,7 +123,7 @@ This is often caused by thread starvation, particularly when using the session p
 
 Further reading:
 - [Debug thread pool starvation][DebugThreadPoolStarvation]
-- [Diagnosing .NET Core thread pool starvation with PerfView (Why my service isn't saturating all cores or seems to stall)](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
+- [Diagnosing .NET Core thread pool starvation with PerfView (Why my service isn't saturating all cores or seems to stall)](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
 - [Diagnosing thread pool exhaustion Issues in .NET Core Apps][DiagnoseThreadPoolExhaustion] _(video)_
 
 ### Session processor takes too long to switch sessions
@@ -250,25 +250,6 @@ Do one of the following steps:
 - Reduce the number of concurrent links in a single connection or use a new connection
 - Use SDKs for Azure Service Bus, which ensures that you don't get into this situation (recommended)
 
-
-## Adding virtual network rule using PowerShell fails
-
-### Symptoms
-You have configured two subnets from a single virtual network in a virtual network rule. When you try to remove one subnet using the [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet, it doesn't remove the subnet from the virtual network rule. 
-
-```azurepowershell-interactive
-Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
-```
-
-### Cause
-The Azure Resource Manager ID that you specified for the subnet might be invalid. This issue might happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
-
-### Resolution
-Specify the full Azure Resource Manager ID of the subnet that includes the name of the resource group that has the virtual network. For example:
-
-```azurepowershell-interactive
-Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
-```
 
 ## Resource locks don't work when using the data plane SDK
 
