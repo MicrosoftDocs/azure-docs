@@ -65,6 +65,8 @@
       items:
       - name: Use built-in views
         href: cost-analysis-built-in-views.md
+      - name: View Kubernetes costs
+        href: view-kubernetes-costs.md
       - name: Customize views
         href: customize-cost-analysis-views.md
       - name: Save and share customized views
@@ -163,8 +165,6 @@
       href: enable-tag-inheritance.md
     - name: Split shared costs
       href: allocate-costs.md
-    - name: View Kubernetes costs
-      href: view-kubernetes-costs.md
   - name: Reference
     items:
     - name: Cost allocation rules API
