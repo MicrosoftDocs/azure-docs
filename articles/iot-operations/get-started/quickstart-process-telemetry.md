@@ -120,7 +120,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
+1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to enter insert mode, _ESC_ to exit insert mode, and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
