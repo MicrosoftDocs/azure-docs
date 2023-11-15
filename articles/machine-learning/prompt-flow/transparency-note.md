@@ -1,7 +1,7 @@
 ---
 title: Transparency Note for auto-generate prompt variants in prompt flow
 titleSuffix: Azure Machine Learning
-description: Transparency Note for auto-generate prompt variants in prompt flow
+description: Learn about the feature in prompt flow that automatically generates variations of a base prompt with the help of language models.
 author: prakharg-msft
 ms.author: prakharg
 manager: omkarm
@@ -31,7 +31,7 @@ Transparency Notes are part of a broader effort at Microsoft to put AI principle
 
 Prompt engineering is at the center of building applications by using language models. Microsoft's prompt flow offers rich capabilities to interactively edit, bulk test, and evaluate prompts with built-in flows to choose the best prompt.
 
-The auto-generate prompt variants feature in prompt flow can automatically generate variations of your base prompt with help of language models. You can test those variations in prompt flow to reach the optimal solution for your model and use case.
+The auto-generate prompt variants feature in prompt flow can automatically generate variations of your base prompt with the help of language models. You can test those variations in prompt flow to reach the optimal solution for your model and use case.
 
 This Transparency Note uses the following key terms:
 
