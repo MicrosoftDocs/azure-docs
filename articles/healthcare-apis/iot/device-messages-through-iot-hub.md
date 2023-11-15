@@ -236,7 +236,7 @@ For your MedTech service metrics, you can see that your MedTech service complete
 
 ## View test data in the FHIR service
 
-If you provided your own Microsoft Entra user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query FHIR resources in your FHIR service. You can expect to see the following FHIR Observation resources in your FHIR service based on the test message that was sent to your IoT hub and MedTech service:
+If you provided your own Microsoft Entra user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query for FHIR resources in your FHIR service. You can expect to see the following FHIR Observation resources in the FHIR service based on the test message that was sent to the IoT hub and processed by the MedTech service:
 
 * HeartRate
 * RespiratoryRate
@@ -244,7 +244,7 @@ If you provided your own Microsoft Entra user object ID as the optional value fo
 * BodyTemperature
 * BloodPressure
 
-To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md). You need to use the following values in your Postman `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation?patient={{patientid}}`  
+To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md). You need to use the following values in your Postman `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
 
 ## Next steps
 
