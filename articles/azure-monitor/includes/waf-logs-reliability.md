@@ -40,4 +40,4 @@ Some availability features require a dedicated cluster, which currently requires
 | Dual ingestion         | :white_check_mark:           | :white_check_mark:   |  :white_check_mark: | Protection from regional failure                                                                       | Enable per monitored resource.         | Up to twice the cost of retention (depending on how much data you dual ingest) + egress charges. |
 
 
-<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. In the event of an incident, previously exported data is backed up and remains readily available; however, further export may fail, depending on the nature of the incident.
+<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. In the event of an incident, previously exported data is backed up and readily available; however, further export might fail, depending on the nature of the incident.
