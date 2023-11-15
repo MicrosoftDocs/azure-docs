@@ -2,9 +2,10 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.date: 07/31/2023
-
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -50,6 +51,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
+| Add-on | Cost analysis | Used to gather cost allocation data | | 
 | OSS project | Microsoft Entra ID-pod-identity | Enables applications to access cloud resources securely with Microsoft Entra ID. | N/A | Steps to grant permission at [Microsoft Entra Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
 
 ## Enable managed identities on a new AKS cluster

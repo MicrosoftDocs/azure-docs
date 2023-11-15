@@ -133,6 +133,6 @@ Learn how to [delete a user's Software OATH token authentication method](/graph/
 
 ## Next steps
 
-- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md)
+- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md)
 
 ::: zone-end
