@@ -52,42 +52,23 @@ As you progress, you'll complete these high-level tasks:
 
 ### Access and connectivity
 
-* Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
+* If you plan to locally build Standard logic app projects and run workflows using only the [built-in connectors](../connectors/built-in.md) that run natively on the Azure Logic Apps runtime, you don't need the following requirements. However, to publish or deploy your from Visual Studio Code to Azure, use the [managed connectors](../connectors/managed.md) that run in global Azure, or access Standard logic app resources and workflows already deployed in Azure, make sure that you have connectivity and Azure account credentials:
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
+
+  * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * To create the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose a [different email connector](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Outlook.com, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
-<a name="storage-requirements"></a>
-
-### Storage requirements
-
-For local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
-
-1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite) for your Windows, macOS, or Linux operating system. You can install either [from inside Visual Studio Code](../storage/common/storage-use-azurite.md?tabs=visual-studio-code) or by [using npm](../storage/common/storage-use-azurite.md?tabs=npm).
-
-1. Before you run your logic app workflow, make sure to start the emulator.
-
-   1. In Visual Studio Code, from the **View** menu, select **Command Palette**.
-
-   1. After the command palette appears, enter **Azurite: Start**.
-
-For more information, review the [documentation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
-
 ### Tools
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/), which is free.
 
-1. Download and install the following Visual Studio Code tools:
+1. Download and install the [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) to use a single common experience for Azure sign-in and subscription filtering across all Azure extensions in Visual Studio Code.
 
-   | Tool | Description |
-   |------|-------------|
-   | [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) | Provides a single common Azure sign-in and subscription filtering experience for all other Azure extensions in Visual Studio Code. |
-   | [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) | Enables F5 functionality to run your workflow. |
-
-1. Download and install the following Visual Studio Code dependencies for your specific operating system (Windows, macOS, or Linux) using either method:
+1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
    - [Install all dependencies automatically (preview)](#dependency-installer).
    - [Download and install each dependency separately](#install-dependencies-individually).
@@ -99,21 +80,26 @@ For more information, review the [documentation for the Azurite extension in Vis
    > [!IMPORTANT]
    > This capability is in preview and is subject to the 
    > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-   >
-   > The dependency installer simply installs the required dependencies in a new binary folder and 
-   > leaves any existing dependencies unchanged. The installer doesn't perform the following tasks:
-   >
-   > - Check whether the required dependencies already exist.
-   > - Install only the missing dependencies.
-   > - Update older versions of existing dependencies.
-   >
-   > For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
-   1. [Download the Azure Logic Apps (Standard) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps).
+   Starting with version **2.81.5**, the Azure Logic Apps (Standard) extension for Visual Studio Code includes a dependency installer that automatically installs all the required dependencies in a new binary folder and leaves any existing dependencies unchanged. For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
-      > [!NOTE]
-      >
-      > The preview dependency installer is included, starting with extension version 2.81.5.
+   This extension includes the following dependencies:
+
+   | Dependency | Description |
+   |------------|-------------|
+   | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) | Enables F5 functionality to run your workflow. |
+   | [Azurite for Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension) | Provides a local data store and emulator to use with Visual Studio Code so that you can work on your logic app project and run your workflows in your local development environment. If you don't want Azurite to automatically start, you can disable this option: <br><br>1. On the **File** menu, select **Preferences** > **Settings**. <br><br>2. On the **User** tab, select **Extensions** > **Azure Logic Apps (Standard)**. <br><br>3. Find the setting named **Azure Logic Apps Standard: Auto Start Azurite**, and clear the selected checkbox. |
+   | [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0) | Includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime. |
+   | Azure Functions Core Tools - 4.x version | Installs the version based on the your operating system (Windows, macOS, or Linux). <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. |
+   | [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/) | Required to enable the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript. |
+
+   The installer doesn't perform the following tasks:
+
+   - Check whether the required dependencies already exist.
+   - Install only the missing dependencies.
+   - Update older versions of existing dependencies.
+
+   1. [Download and install the Azure Logic Apps (Standard) extension for Visual Studio Code, starting with version 2.81.5)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps).
 
    1. In Visual Studio Code, on the Activity bar, select **Extensions**. (Keyboard: Press Ctrl+Shift+X)
 
@@ -162,11 +148,17 @@ For more information, review the [documentation for the Azurite extension in Vis
       | **Always start the background design-time process at launch?** | To open the workflow designer faster, select **Yes (Recommended)**. |
       | **Configure Azurite to autostart on project launch?** | To have Azurite storage automatically start when the project opens, select **Enable AutoStart**. At the top of Visual Studio Code, in the command window that appears, press enter to accept the default path: <br><br>**C\Users\\<your-user-name\>\\.azurelogicapps\\.azurite** |
 
+   <a name="known-issues-preview"></a>
+
    **Known issues with preview**
 
-   - The word `dotnet` isn't recognized as an internal or external command. When you start the debugging task (tasks.json) for **func host start**, an error appears that the `dotnet` command isn't recognized.
+   - If you opted in to automatically install all dependencies on a computer that doesn't have any version of the .NET Core SDK, the following message appears:
 
-     To resolve this error, follow these steps:
+     **"The .NET Core SDK cannot be located: Error running dotnet -- info: Error: Command failed: dotnet --info 'dotnet is not recognized as an internal or external command, operable program, or batch file. 'dotnet' is not recognized as an internal or external command, operable program, or batch file. . .NET Core debugging will not be enabled. Make sure the .NET Core SDK is installed and is on the path."**
+
+     You get this message because the .NET Core framework is still installing when the extension activates. You can safely choose to disable this message.
+
+     If you have trouble with opening an existing logic app project or starting the debugging task (tasks.json) for **func host start**, and this message appears, follow these steps to resolve the problem:
 
      1. Add the dotnet binary path to your environment PATH variable.
 
@@ -196,6 +188,12 @@ For more information, review the [documentation for the Azurite extension in Vis
 
      1. When the command window appears, enter and run the **Validate and install binary dependencies** command.
 
+   - If you don't have .NET Core 7 or a later version installed, and you open an Azure Logic Apps workspace that contains an Azure Functions project, you get the following message:
+
+     **There were problems loading project [function-name].csproj. See log for details.**
+
+     This missing component doesn't affect the Azure Functions project, so you can safely ignore this message.
+
    <a name="install-dependencies-individually"></a>
 
    **Install each dependency separately**
@@ -203,7 +201,7 @@ For more information, review the [documentation for the Azurite extension in Vis
    | Dependency | Description |
    |------------|-------------|
    | [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0) | Includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime. |
-   | Azure Functions Core Tools - 4.x version | - [Windows](https://github.com/Azure/azure-functions-core-tools/releases): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. <br>- [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools) <br>- [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools) <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. <br><br>If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install. <br><br>**Note**: Azure Functions v3 support in Azure Logic Apps ends on March 31, 2023. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Since January 31, 2023, existing Standard workflows in the Azure portal were automatically migrated to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects, pinned your logic apps to a specific bundle version, or Microsoft determined that you had to take action before the automatic migration, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072). |
+   | Azure Functions Core Tools - 4.x version | - [Windows](https://github.com/Azure/azure-functions-core-tools/releases): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. <br>- [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools) <br>- [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools) <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. <br><br>If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install. |
    | [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/) | Required to enable the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript. <br><br>**Note**: For Windows, download the MSI version. If you use the ZIP version instead, you have to manually make Node.js available by using a PATH environment variable for your operating system. |
 
 1. If you already installed the version of the Azure Logic Apps (Standard) extension that automatically installs all the dependencies (preview), skip this step. Otherwise, [download and install the Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
@@ -679,11 +677,9 @@ For general information, see [Breakpoints - Visual Studio Code](https://code.vis
 
 ## Run, test, and debug locally
 
-To test your logic app, follow these steps to start a debugging session, and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
+To test your logic app workflow, follow these steps to start a debugging session, and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
 1. To debug a stateless workflow more easily, you can [enable the run history for that workflow](#enable-run-history-stateless).
-
-1. Make sure that your Azurite emulator is running. For more information, review [Storage requirements](#storage-requirements).
 
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
