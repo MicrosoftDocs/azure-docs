@@ -61,7 +61,7 @@ To enable application routing on an existing cluster, use the [`az aks approutin
 az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
 ```
 
-# [Open Service Mesh (OSM)](#tab/with-osm)
+# [Open Service Mesh (OSM) (retired)](#tab/with-osm)
 
 >[!NOTE]
 >Open Service Mesh (OSM) has been retired by the CNCF. Creating Ingresses using the application routing add-on with OSM integration is not recommended and will be retired.
