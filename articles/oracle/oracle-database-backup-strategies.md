@@ -24,7 +24,7 @@ Backups also help protect against regional outages when a disaster recovery tech
 
 ## Azure Storage
 
-The [Azure Storage services](../../../storage/common/storage-introduction.md) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services that you can use to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from Azure Storage.
+The [Azure Storage services](../storage/common/storage-introduction.md) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services that you can use to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from Azure Storage.
 
 Azure Storage services offer the following benefits:
 
@@ -50,19 +50,19 @@ The Azure Storage platform includes the following data services that are suitabl
 
 ### Cross-regional storage mounting
 
-The ability to access backup storage across regions is an important aspect of business continuity and disaster recovery (BCDR). It's also useful for cloning databases from backups into different geographical regions. Azure cloud storage provides five levels of [redundancy](../../../storage/common/storage-redundancy.md):
+The ability to access backup storage across regions is an important aspect of business continuity and disaster recovery (BCDR). It's also useful for cloning databases from backups into different geographical regions. Azure cloud storage provides five levels of [redundancy](../storage/common/storage-redundancy.md):
 
-- [Locally redundant storage (LRS)](../../../storage/common/storage-redundancy.md#locally-redundant-storage): Your data is replicated three times within a single physical location in the primary region.  
-- [Zone-redundant storage (ZRS)](../../../storage/common/storage-redundancy.md#zone-redundant-storage): Your data is replicated synchronously across three availability zones in the primary region. LRS helps protect your data in the primary region and helps protect each availability zone.
-- [Geo-redundant storage (GRS)](../../../storage/common/storage-redundancy.md#geo-redundant-storage): Your data is replicated asynchronously to a secondary region. LRS helps protect your data in the primary and secondary regions.
-- [Geo-zone-redundant storage (GZRS)](../../../storage/common/storage-redundancy.md#geo-redundant-storage): Your data is copied synchronously across three Azure availability zones in the primary region via ZRS. Your data is then copied asynchronously to a single physical location in the secondary region. In all locations, LRS helps protect the data.
-- [Read-access geo-redundant storage (RA-GRS)](../../../storage/common/storage-redundancy.md#geo-redundant-storage) and [read-access geo-zone-redundant storage (RA-GZRS)](../../../storage/common/storage-redundancy.md#geo-redundant-storage): You have read-only access to data replicated to the secondary region at all times.
+- [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage): Your data is replicated three times within a single physical location in the primary region.  
+- [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage): Your data is replicated synchronously across three availability zones in the primary region. LRS helps protect your data in the primary region and helps protect each availability zone.
+- [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage): Your data is replicated asynchronously to a secondary region. LRS helps protect your data in the primary and secondary regions.
+- [Geo-zone-redundant storage (GZRS)](../storage/common/storage-redundancy.md#geo-redundant-storage): Your data is copied synchronously across three Azure availability zones in the primary region via ZRS. Your data is then copied asynchronously to a single physical location in the secondary region. In all locations, LRS helps protect the data.
+- [Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) and [read-access geo-zone-redundant storage (RA-GZRS)](../storage/common/storage-redundancy.md#geo-redundant-storage): You have read-only access to data replicated to the secondary region at all times.
 
 #### Blob and file storage
 
 When you're using Azure Files with either the Server Message Block (SMB) protocol or the Network File System (NFS) 4.1 protocol to mount as backup storage, Azure Files doesn't support RA-GRS or RA-GZRS.
 
-If the backup storage requirement is greater than 5 tebibytes (TiB), Azure Files requires you to enable the [large file shares](../../../storage/files/storage-files-planning.md) feature. This feature doesn't support GRS or GZRS redundancy. It supports only LRS.
+If the backup storage requirement is greater than 5 tebibytes (TiB), Azure Files requires you to enable the [large file shares](../storage/files/storage-files-planning.md) feature. This feature doesn't support GRS or GZRS redundancy. It supports only LRS.
 
 Azure Blob Storage mounted via the NFS 3.0 protocol currently supports only LRS and ZRS redundancy. Azure Blob Storage configured with any redundancy option can be mounted via Blobfuse.
 
@@ -80,21 +80,21 @@ Azure Blob Storage is a cloud-based service for storing large amounts of unstruc
 
 #### Blobfuse
 
-[Blobfuse](../../../storage/blobs/storage-how-to-mount-container-linux.md) is an open-source project that provides a virtual file system backed by Azure Blob Storage. It uses the libfuse open-source library to communicate with the Linux FUSE kernel module. It implements file-system operations by using the Azure Blob Storage REST APIs.
+[Blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) is an open-source project that provides a virtual file system backed by Azure Blob Storage. It uses the libfuse open-source library to communicate with the Linux FUSE kernel module. It implements file-system operations by using the Azure Blob Storage REST APIs.
 
 Blobfuse is currently available for Ubuntu and Centos/RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
 
-Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
+Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
 
 #### NFS v3.0
 
-Azure support for the NFS v3.0 protocol is available. [NFS support](../../../storage/blobs/network-file-system-protocol-support.md) enables Windows and Linux clients to mount an Azure Blob Storage container to an Azure VM.
+Azure support for the NFS v3.0 protocol is available. [NFS support](../storage/blobs/network-file-system-protocol-support.md) enables Windows and Linux clients to mount an Azure Blob Storage container to an Azure VM.
 
 To ensure network security, the storage account that you use for NFS mounting must be contained within a virtual network. Azure Active Directory (Azure AD) security and access control lists (ACLs) are not yet supported in accounts that have NFS 3.0 protocol support enabled on them.
 
 ### Azure Files
 
-[Azure Files](../../../storage/files/storage-files-introduction.md) is a cloud-based, fully managed distributed file system. You can mount it to on-premises or cloud-based Windows, Linux, or macOS clients.
+[Azure Files](../storage/files/storage-files-introduction.md) is a cloud-based, fully managed distributed file system. You can mount it to on-premises or cloud-based Windows, Linux, or macOS clients.
 
 Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the SMB and NFS protocols. Azure Files doesn't currently support multiple-protocol access, so a share can only be either an NFS share or an SMB share. We recommend determining which protocol best suits your needs before you create Azure file shares.
 
@@ -102,7 +102,7 @@ You can also help protect Azure file shares by using Azure Backup for a Recovery
 
 #### Azure Files with NFS v4.1
 
-You can mount Azure file shares in Linux distributions by using the NFS v4.1 protocol. There are limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features).
+You can mount Azure file shares in Linux distributions by using the NFS v4.1 protocol. There are limitations to supported features. For more information, see [Support for Azure Storage features](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features).
 
 [!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
 
@@ -112,7 +112,7 @@ You can mount Azure file shares in Linux distributions by using the SMB kernel c
 
 The ability to mount Azure file shares via SMB is generally available in all Azure regions. It shows the same performance characteristics as NFS v3.0 and v4.1 protocols, so we currently recommend it as the method to provide backup storage media to Azure Linux VMs.  
 
-Two supported versions of SMB are available: SMB 2.1 and SMB 3.0. We recommend SMB 3.0, because it supports encryption in transit. However, Linux kernel versions have differing support for SMB 2.1 and 3.0. To ensure that your application supports SMB 3.0, see [Mount an SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md).
+Two supported versions of SMB are available: SMB 2.1 and SMB 3.0. We recommend SMB 3.0, because it supports encryption in transit. However, Linux kernel versions have differing support for SMB 2.1 and 3.0. To ensure that your application supports SMB 3.0, see [Mount an SMB Azure file share on Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 Because Azure Files is a multiuser file-share service, you should tune certain characteristics to make it more suitable as backup storage media. We recommend turning off caching and setting the user and group IDs for created files.
 
@@ -138,8 +138,8 @@ Azure Backup uses the Azure cloud to deliver high availability with no maintenan
 
 Azure Backup offers multiple types of replication to keep your backup data highly available:
 
-- [LRS](../../../storage/common/storage-redundancy.md#locally-redundant-storage) replicates your data three times (that is, it creates three copies of your data) in a storage scale unit in a datacenter.
-- [GRS](../../../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region, hundreds of miles away from the primary location of the source data.
+- [LRS](../storage/common/storage-redundancy.md#locally-redundant-storage) replicates your data three times (that is, it creates three copies of your data) in a storage scale unit in a datacenter.
+- [GRS](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region, hundreds of miles away from the primary location of the source data.
 
 A vault created with GRS redundancy includes the option to configure the [Cross Region Restore](../../../backup/backup-create-rs-vault.md#set-storage-redundancy) feature. You can use this feature to restore data in a secondary Azure paired region.
 
