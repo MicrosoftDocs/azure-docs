@@ -28,13 +28,13 @@ This table describes Azure Monitor features that provide analysis of collected d
 
  [Azure Workbooks](./visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports. You can use workbooks to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They're especially useful to prepare end-to-end monitoring views across multiple Azure resources. Insights use prebuilt workbooks to present you with critical health and performance information for a particular service. You can access a gallery of workbooks on the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet the requirements of your different users.
 
-![Diagram that shows screenshots of three pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualizations/workbook.png)
+:::image type="content" source="media/visualizations/workbook.png" lightbox="media/visualizations/workbook.png" alt-text="Diagram that shows screenshots of three pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.":::
 
 ### Azure dashboards
 
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are useful in providing a "single pane of glass" of your Azure infrastructure and services. While a workbook provides richer functionality, a dashboard can combine Azure Monitor data with data from other Azure services.
 
-![Screenshot that shows an example of an Azure dashboard with customizable information.](media/visualizations/dashboard.png)
+:::image type="content" source="media/visualizations/dashboard.png" lightbox="media/visualizations/dashboard.png" alt-text="Screenshot that shows an example of an Azure dashboard with customizable information.":::
 
 Here's a video about how to create dashboards:
 
@@ -57,13 +57,13 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
  - For more information on define Azure Monitor alerts, see [Create a new alert rule](alerts/alerts-create-new-alert-rule.md).
  - For Azure Monitor managed service for Prometheus, define your alerts using [Prometheus alert rules](alerts/prometheus-alerts.md) that are created as part of a [Prometheus rule group](essentials/prometheus-rule-groups.md), applied on the Azure Monitor workspace.
 
-![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
+:::image type="content" source="media/visualizations/grafana.png" lightbox="media/visualizations/grafana.png" alt-text="Screenshot that shows Grafana visualizations.":::
 
 ### Power BI
 
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset. Then you can take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
-
-![Screenshot that shows an example Power B I report for I T operations.](media/visualizations/power-bi.png)
+<!-- convertborder later -->
+:::image type="content" source="media/visualizations/power-bi.png" lightbox="media/visualizations/power-bi.png" alt-text="Screenshot that shows an example Power BI report for IT operations." border="false":::
 
 ## Choose the right visualization tool
 

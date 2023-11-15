@@ -2,14 +2,15 @@
 author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/1/2023
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
 
--->
+<!--
  
 Nov 2023 test release is now available.
 
@@ -57,3 +58,5 @@ Nov 2023 test release is now available.
 - Availability group status - Track the availability upload status | public preview.
   - Beginning with this release, track the status and see the last time that the availability group inventory data is updated.  The portal shows two new properties, **Upload status** and **Last collected time**" in the **Availability Groups** tab of the Arc-enabled SQL Server. 
 - Support for separate proxy bypass value for Arc SQL Server only - general availability.
+
+-->

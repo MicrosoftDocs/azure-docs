@@ -1,10 +1,12 @@
 ---
-title: Named Entity Recognition cognitive skill (v2)
-titleSuffix: Azure Cognitive Search
-description: Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure Cognitive Search.
+title: Named Entity Recognition skill (v2)
+titleSuffix: Azure AI Search
+description: Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure AI Search.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/17/2022
 ---
@@ -14,12 +16,12 @@ ms.date: 08/17/2022
 The **Named Entity Recognition** skill (v2) extracts named entities from text. Available entities include the types `person`, `location` and `organization`.
 
 > [!IMPORTANT]
-> Named entity recognition skill (v2) (**Microsoft.Skills.Text.NamedEntityRecognitionSkill**) is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
+> Named entity recognition skill (v2) (**Microsoft.Skills.Text.NamedEntityRecognitionSkill**) is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated Azure AI Search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
  > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Azure AI services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Azure AI services, and for image extraction as part of the document-cracking stage in Azure AI Search. There are no charges for text extraction from documents. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 > 
-> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
+> Image extraction is an extra charge metered by Azure AI Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
 >
 
 

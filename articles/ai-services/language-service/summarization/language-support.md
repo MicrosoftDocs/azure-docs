@@ -9,7 +9,11 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-fall-2021, ignite-2022
+ms.custom:
+  - language-service-summarization
+  - ignite-fall-2021
+  - ignite-2022
+  - ignite-2023
 ---
 
 # Language support for document and conversation summarization
@@ -26,11 +30,13 @@ Extractive and abstractive document summarization supports the following languag
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
 | Italian               | `it`          |                     |
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
-| Spanish               | `es`          |                     |
+| Polish                | `pl`          |                     |
 | Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
 ## Conversation summarization
 
@@ -38,7 +44,17 @@ Conversation summarization supports the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
 | English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Polish                | `pl`          |                     |
+| Portuguese            | `pt`          |                     |
+| Spanish               | `es`          |                     |
 
 ## Custom summarization
 
