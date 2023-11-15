@@ -15,7 +15,7 @@ The application sends data to a [data collection endpoint (DCE)](../essentials/d
 
 The data sent by your application to the API must be formatted in JSON and match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure. You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
-:::image type="content" source="../essentials/media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="../essentials/media/media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows an overview of logs ingestion API." border="false":::
+:::image type="content" source="../essentials/media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="../essentials/media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows an overview of logs ingestion API." border="false":::
 
 
 ## Supported tables
