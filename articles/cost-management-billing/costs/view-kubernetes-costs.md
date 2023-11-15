@@ -1,9 +1,9 @@
 ---
-title: View Kubernetes costs
+title: View Kubernetes costs (Preview)
 description: This article helps you view Azure Kubernetes Service (AKS) cost in Microsoft Cost management.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.custom:
 ms.reviewer: sadoulta
 ---
 
-# View Kubernetes costs
+# View Kubernetes costs (Preview)
 
 This article helps you view Azure Kubernetes Service (AKS) cost in Microsoft Cost management. You use the following views to analyze your Kubernetes costs, which are available at the subscription scope.
 
@@ -24,7 +24,7 @@ Visibility into a Kubernetes cluster cost helps you identify opportunities for o
 
 ## Prerequisites
 
-- You must install the AKS cost analysis addon on the cluster to view its costs. For more information about how to install the addon and setting up your cluster, see [AKS cost analysis addon](https://aka.ms/aks/costanalysis). If you have multiple clusters running in a subscription, you must install the addon on every cluster.
+- You must install the AKS cost analysis addon on the cluster to view its costs. For more information about how to install the addon and setting up your cluster, see [AKS cost analysis addon](https://aka.ms/aks/costanalysis). If you have multiple clusters running in a subscription, you must install the addon on every cluster. For more information about prerequisites and how to enable cost analysis for clusters, see [Azure Kubernetes Service cost analysis (preview)](../../aks/cost-analysis.md).
 - Kubernetes cost views are available only for the following subscription agreement types:
   - Enterprise Agreement
   - Microsoft Customer Agreement  
