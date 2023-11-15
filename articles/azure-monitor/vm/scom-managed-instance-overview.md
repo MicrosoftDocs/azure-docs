@@ -5,7 +5,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/14/2023
+ms.date: 11/15/2023
 
 ---
 
@@ -42,7 +42,7 @@ The documentation for SCOM Managed Instance is maintained with the [other docume
 
 This section provides answers to common questions.
 
-### What's the upgrade path from the Log Analytics agent to Azure Monitor Agent for monitoring System Center Operations Manager? Can we use Azure Monitor Agent for System Center Operations Manager scenarios?
+**What's the upgrade path from the Log Analytics agent to Azure Monitor Agent for monitoring System Center Operations Manager? Can we use Azure Monitor Agent for System Center Operations Manager scenarios?**
 
 Here's how Azure Monitor Agent affects the two System Center Operations Manager monitoring scenarios:
 - **Scenario 1**: Monitoring the Windows operating system of System Center Operations Manager. The upgrade path is the same as for any other machine. You can migrate from the Microsoft Monitoring Agent (versions 2016 and 2019) to Azure Monitor Agent as soon as your required parity features are available on Azure Monitor Agent.
