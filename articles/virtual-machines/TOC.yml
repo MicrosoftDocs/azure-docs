@@ -145,8 +145,10 @@
       href: ./linux/openshift-azure-stack.md
   - name: SAP on Azure
     href: ../sap/index.yml
-  - name: Oracle
+  - name: Oracle on Azure Virtual Machines
     href: ./workloads/oracle/index.yml
+  - name: Oracle database on Azure
+    href: ./workloads/oracle-db/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch

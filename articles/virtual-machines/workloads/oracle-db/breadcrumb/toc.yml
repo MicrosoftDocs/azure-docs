@@ -1,0 +1,15 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Virtual Machines
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/virtual-machines/index
+    items:
+    - name: Workloads
+      tocHref: /azure/virtual-machines/workloads/
+      topicHref: /azure/virtual-machines/
+      items: 
+      - name: Oracle
+        tocHref: /azure/developer/java/migration/
+        topicHref: /azure/virtual-machines/workloads/oracle-db/index
