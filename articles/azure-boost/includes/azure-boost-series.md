@@ -25,6 +25,6 @@ ms.custom:
 | [Lasv3](../../virtual-machines/lasv3-series.md)                | Local storage optimized        | Production |
 | [Dplsv5](../../virtual-machines/dplsv5-dpldsv5-series.md)      | General Purpose                | Production |
 | [Dpsv5](../../virtual-machines/dpsv5-dpdsv5-series.md)         | General Purpose                | Production |
-| [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | General Purpose                | Production |
+| [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | Memory Optimized               | Production |
 | [Nvadsv5](../../virtual-machines/nva10v5-series.md)            | GPU/AI workload optimized      | Production |
 | [HBv4](../../virtual-machines/hbv4-series.md)                  | High Performance Compute (HPC) | Production |
