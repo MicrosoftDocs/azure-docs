@@ -13,42 +13,32 @@ ms.author: mmitrik
 
 By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
+Customer-managed keys enable organizations to:
+
+- Create your own encryption keys and store them in a key vault, or use the [Azure Key Vault API](/rest/api/keyvault/) to generate keys.
+  
+- Maintain full control and responsibility for the key lifecycle, including key rotation.
+
 ## Prerequisites
 - Make sure you're familiar with [best practices for customer-managed keys](customer-managed-keys.md).
+
+- Verify you're assigned the [Azure Contributor](../../role-based-access-control/role-assignments-steps.md) RBAC role, which lets you create and modify Azure resources.
 
 - Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
    - The key is versioned.
   
-   - The key type is **RSA-HSM** or **RSA**.
+   - The key type is **RSA**.
   
    - The key is **2048-bit** or **3072-bit**.
   
-   - The key vault is located in the same Azure tenant as the FHIR service.
+   - The key vault is located in the same region as a created resource, but can be in different Azure subscriptions or tenants. 
+
+   - The combined length for the key vault name and key name can't exceed **94 characters**.
   
    - When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
 
    - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
-
-## Enable a managed identity for the FHIR service
-
- You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
-
-#### System-assigned managed identity
-
-1. In the Azure portal, go to the FHIR instance. Select **Identity** from the left pane.
-
-2. On the **Identity** page, select the **System assigned** tab.
-   
-3. Set the **Status** field to **On**. 
-   
-4. Choose **Save**.
-
-:::image type="content" source="media/configure-customer-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system-assigned managed identity toggle on the Identity page." lightbox="media/configure-customer-managed-keys/system-assigned-managed-identity.png":::
-
-#### User-assigned managed identity
-
-For steps to add a user-assigned managed identity, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 
 ## Assign the Key Vault Crypto Service Encryption User role
 
@@ -122,7 +112,7 @@ After you add the key, you need to update the FHIR service with the key URL.
         "workspaceName": {
             "type": "String"
         },
-        "dicomServiceName": {
+        "fhirServiceName": {
             "type": "String"
         },
         "keyEncryptionKeyUrl": {
@@ -135,9 +125,9 @@ After you add the key, you need to update the FHIR service with the key URL.
     },
     "resources": [
         {
-            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+            "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
             "apiVersion": "2023-06-01-preview",
-            "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
             "location": "[parameters('region')]",
             "identity": {
                 "type": "SystemAssigned"
@@ -163,7 +153,7 @@ After you add the key, you need to update the FHIR service with the key URL.
         "workspaceName": {
             "type": "String"
         },
-        "dicomServiceName": {
+        "fhirServiceName": {
             "type": "String"
         },
         "keyVaultName": {
@@ -247,9 +237,9 @@ After you add the key, you need to update the FHIR service with the key URL.
             "location": "[parameters('region')]"
         },
         {
-            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+            "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
             "apiVersion": "2023-06-01-preview",
-            "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
             "location": "[parameters('region')]",
             "dependsOn": [
                 "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]",
@@ -294,12 +284,7 @@ For the FHIR service to operate properly, it must always have access to the key 
 
 In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
 
-If key access is lost, ensure you have updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
-
-## Update the FHIR service after changing a managed identity
-If you change the managed identity in any way, such as moving your FHIR service to a different tenant or subscription, the FHIR service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
-
-:::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
+If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
 
 ## Configure a key when you create the FHIR service
 

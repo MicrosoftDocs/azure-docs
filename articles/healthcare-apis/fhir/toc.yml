@@ -46,7 +46,7 @@ items:
 - name: Configuration
   expanded: true
   items:
-    - name: Best practices for customer managed keys
+    - name: Customer-managed keys best practices
       href: customer-managed-keys.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-keys.md
@@ -68,7 +68,7 @@ items:
     - name: Search examples
       href: search-samples.md
 - name: FHIR operations
-  expanded: false
+  expanded: true
   items:
     - name: $convert-data
       expanded: false
@@ -117,7 +117,7 @@ items:
     - name: Copy data to Synapse
       href: copy-to-synapse.md 
 - name: API reference
-  expanded: true
+  expanded: false
   items:
   - name: Access the FHIR service
     expanded: false
@@ -129,7 +129,7 @@ items:
     - name: Access using REST Client
       href: using-rest-client.md 
 - name: Resources
-  expanded: true
+  expanded: false
   items:
   - name: FHIR service FAQ
     href: fhir-faq.md
