@@ -114,13 +114,16 @@ az login
 
 ### Create policies with recommended settings
 
-To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--default` flag:
+> [!NOTE]
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings.
+
+To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--recommended` flag:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
+az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --recommended
 ```
 
-This command passes the "default", or recommended, resiliency policy configurations, as shown in the following example:
+This command passes the recommeded resiliency policy configurations, as shown in the following example:
 
 ```yaml
 properties:
