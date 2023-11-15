@@ -12353,6 +12353,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/jenkins/index.yml",
             "redirect_url": "/azure/developer/jenkins/",
             "redirect_document_id": false

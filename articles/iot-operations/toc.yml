@@ -173,9 +173,7 @@ items:
         href: manage-layered-network/howto-deploy-aks-layered-network.md
       - name: Deploy Azure IoT Operations in isolated network
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
-      - name: Configure MQ in an isolated network
-        href: manage-layered-network/howto-configure-mq-layered-network.md
-      - name: Concepts
+      - name: How to
         items:
         - name: Create sample network environment
           href: manage-layered-network/howto-configure-layered-network.md
