@@ -48,7 +48,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
    :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane.":::
 
-If your environment is configured to accept parameters, you're able to enter them on a separate pane. In this example, you don't need to specify any parameters.
+   If your environment is configured to accept parameters, you're able to enter them on a separate pane. In this example, you don't need to specify any parameters.
 
 1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
  
