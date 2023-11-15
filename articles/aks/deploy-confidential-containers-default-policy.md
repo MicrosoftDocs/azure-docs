@@ -263,12 +263,12 @@ For this preview release, we recommend for test and evaluation purposes to eithe
       containers:
         - image: "mcr.microsoft.com/aci/skr:2.7"
           imagePullPolicy: Always
-          name: aasp
+          name: skr
           env:
             - name: SkrSideCarArgs
               value: ewogICAgImNlcnRjYWNoZSI6IHsKCQkiZW5kcG9pbnRfdHlwZSI6ICJMb2NhbFRISU0iLAoJCSJlbmRwb2ludCI6ICIxNjkuMjU0LjE2OS4yNTQvbWV0YWRhdGEvVEhJTS9hbWQvY2VydGlmaWNhdGlvbiIKCX0gIAp9
           command:
-            - /bin/aasp
+            - /bin/skr
           volumeMounts:
             - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64d
               name: endor-loc
@@ -387,9 +387,9 @@ Encrypted Kafka Message:
 Msg 1: Azure Confidential Computing
 ```
 
-You should also attempt to run the consumer as a regular Kubernetes pod by removing the `aasp container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
+You should also attempt to run the consumer as a regular Kubernetes pod by removing the `skr container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
 
-Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `aasp container` is missing, preventing decryption of messages.
+Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `skr container` is missing, preventing decryption of messages.
 
 ## Cleanup
 
