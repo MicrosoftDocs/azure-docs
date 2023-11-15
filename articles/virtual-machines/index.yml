@@ -23,6 +23,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Boost
+            url: ../azure-boost/overview.md
           - text: Hibernation
             url: hibernate-resume.md
           - text: Flexible Virtual Machine Scale Sets Orchestration
