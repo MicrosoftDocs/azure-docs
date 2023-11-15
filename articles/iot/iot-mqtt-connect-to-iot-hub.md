@@ -8,7 +8,13 @@ services: iot
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.author: kgremban
-ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: IoT Device"
+  - "Role: Cloud Development"
+  - iot
+  - ignite-2023
 ---
 
 # Communicate with an IoT hub using the MQTT protocol
@@ -24,7 +30,7 @@ All device communication with IoT Hub must be secured using TLS/SSL. Therefore, 
 
 ## Compare MQTT support in IoT Hub and Event Grid
 
-IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs MQTT, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a pub-sub messaging model. It also enables you to route MQTT messages to Azure services or custom endpoints for further processing.
+IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs MQTT, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a pub-sub messaging model. It also enables you to route MQTT messages to Azure services or custom endpoints for further processing.
 
 The following table explains the differences in MQTT support between the two services:
 
@@ -448,4 +454,3 @@ To learn more about planning your IoT Hub deployment, see:
 * [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
 * [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md)
 * [Choose the right IoT Hub tier for your solution](../iot-hub/iot-hub-scaling.md)
-
