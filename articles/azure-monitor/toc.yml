@@ -866,9 +866,6 @@ items:
     - name: Overview
       displayName: data ingestion
       href: logs/logs-ingestion-api-overview.md
-    - name: Configure
-      displayName: data ingestion
-      href: logs/logs-ingestion-api-configure.md
     - name: Configure with PowerShell
       displayName: logs ingestion
       href: logs/set-up-logs-ingestion-api-prerequisites.md

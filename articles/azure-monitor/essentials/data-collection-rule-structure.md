@@ -80,7 +80,7 @@ One or more streams defined in the previous section. You may include multiple st
 One or more destinations from the `destinations` section above. Multiple destinations are allowed for multi-homing scenarios.
 
 ### `dataFlows/transformKql`
-Optional [transformation](data-collection-transformations.d) applied to the incoming stream. The transformation must understand the schema of the incoming data and output data in the schema of the target table. If you use a transformation, the data flow should only use a single stream.
+Optional [transformation](data-collection-transformations.md) applied to the incoming stream. The transformation must understand the schema of the incoming data and output data in the schema of the target table. If you use a transformation, the data flow should only use a single stream.
 
 ### `dataFlows/outputStream`
 Describes which table in the workspace specified under the `destination` property the data will be sent to. The value of `outputStream` has the format `Microsoft-[tableName]` when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom table. Only one destination is allowed per stream.<br><br>This property isn't used for known data sources from Azure Monitor such as events and performance data since these are sent to predefined tables. |

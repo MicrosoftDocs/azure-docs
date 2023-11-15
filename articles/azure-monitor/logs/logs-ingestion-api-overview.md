@@ -33,47 +33,18 @@ Data sent to the ingestion API can be sent to the following tables:
 > Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Configuration
-Before you can use the Logs Ingestion API, you must configure the following components in Azure. 
+Before you can use the Logs Ingestion API, you must configure the following components in Azure.
 
 | Component | Function |
 |:---|:---|
-| App registration and secret | Used to authenticate the API call. The app registration must be granted permission to the DCR. |
-| Data collection endpoint (DCE) | Provides an endpoint for the application to send to. |
-| Table in Log Analytics workspace | The table in the Log Analytics workspace must exist before you can send data to it. |
-| Data collection rule (DCR) | Azure Monitor uses the DCR to understand the structure of the incoming data and what to do with it. |
-
-### 1. Create an app registration and secret
-The application registration is used to authenticate the API call. It must be granted permission to the DCR. The API call includes the **Application (client) ID**  and **Directory (tenant) ID** of the application and the **Value** of an application secret.
-
-See [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
-
-### 2. Create a Data collection endpoint (DCE)
-
-The DCE provides an endpoint for the application to send to. A single DCE can support multiple DCRs, so you can use an existing DCE if you already have one in the same region as your Log Analytics workspace.
-
-See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-
-### 3. Create table in Log Analytics workspace
-The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](logs-ingestion-api-overview.md#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manually as described in the next section.
-
-See [Create a custom table](create-custom-table.md#create-a-custom-table). 
-
-### 4. Create Data collection rule (DCR)
-Azure Monitor uses the [Data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to understand the structure of the incoming data and what to do with it. If the structure of the table and the incoming data don't match, the DCR can include a [transformation](../essentials/data-collection-transformations.md) to convert the source data to match the target table. You can also use the transformation to filter source data and perform any other calculations or conversions.
-
-There are two methods to create a DCR for use with the Logs Ingestion API as described in the following sections.
+| App registration and secret | The application registration is used to authenticate the API call. It must be granted permission to the DCR. The API call includes the **Application (client) ID**  and **Directory (tenant) ID** of the application and the **Value** of an application secret.<br><br>See [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). |
+| Data collection endpoint (DCE) | The DCE provides an endpoint for the application to send to. A single DCE can support multiple DCRs, so you can use an existing DCE if you already have one in the same region as your Log Analytics workspace.<br><br>See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). |
+| Table in Log Analytics workspace | The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](logs-ingestion-api-overview.md#supported-tables) or create a custom table using any of the available methods. If you use the Azure portal to create the table, then the DCR is created for you, including a transformation if it's required. With any other method, you need to create the DCR manually as described in the next section.<br><br>See [Create a custom table](create-custom-table.md#create-a-custom-table).  |
+| Data collection rule (DCR) | Azure Monitor uses the [Data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to understand the structure of the incoming data and what to do with it. If the structure of the table and the incoming data don't match, the DCR can include a [transformation](../essentials/data-collection-transformations.md) to convert the source data to match the target table. You can also use the transformation to filter source data and perform any other calculations or conversions.<br><br>If you create a custom table using the Azure portal, the DCR and the transformation are created for you based on sample data that you provide. See [Create a custom table](create-custom-table.md?tabs=azure-portal-1%2Cazure-portal-2%2Cazure-portal-3#create-a-custom-table). If you use an existing table or create a custom table using another method, then you must manually create the DCR using details in the following section.<br><br>Once your DCR is created, you must grant access to it for the application that you created in the first step. From the **Monitor** menu in the Azure portal, select **Data Collection rules** and then the DCR that you created. Select **Access Control (IAM)** for the DCR and then select **Add role assignment** to add  the **Monitoring Metrics Publisher** role. |
 
 
-**Azure portal**
-
-This method can only be used with a new custom table. The table and DCR are created based on sample data that you provide. If you're sending data to a built-in table or existing custom table, then you must create the DCR manually.
-
-See [Create a custom table](create-custom-table.md?tabs=azure-portal-1%2Cazure-portal-2%2Cazure-portal-3#create-a-custom-table).
-
-
-**Manually create DCR**
-
-To manually create the DCR, start with the [Sample DCR for Logs Ingestion API](../essentials/data-collection-rule-samples.md#logs-ingestion-api). Modify the following parameters in the template. Then use any of the methods described in [Create and edit data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-create-edit.md) to create the DCR.
+## **Manually create DCR**
+If you're sending data to a table that already exists, then you must create the DCR manually. Start with the [Sample DCR for Logs Ingestion API](../essentials/data-collection-rule-samples.md#logs-ingestion-api). Modify the following parameters in the template. Then use any of the methods described in [Create and edit data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-create-edit.md) to create the DCR.
 
 | Parameter | Description |
 |:---|:---|
@@ -85,21 +56,7 @@ To manually create the DCR, start with the [Sample DCR for Logs Ingestion API](.
 | `outputStream` | Name of the table to send the data. For a custom table, add the prefix *Custom-\<table-name\>*. For a built-in table, add the prefix *Microsoft-\<table-name\>*. |
 
 
-### 5. Grant access to the DCR
-The application that you created in the first step needs access to the DCR that you created. From the **Monitor** menu in the Azure portal, select **Data Collection rules** and then the DCR that you created. Select **Access Control (IAM)** for the DCR and then select **Add role assignment** to add  the **Monitoring Metrics Publisher** role.
 
-
-## Authentication
-
-Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described above. The application must have access to the DCR specified by the API call.
-
-When developing a custom client to obtain an access token from Microsoft Entra ID for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
-
-| Azure cloud version | Token audience value |
-| --- | --- |
-| Azure public cloud | `https://monitor.azure.com` |
-| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
-| Azure US Government cloud | `https://monitor.azure.us` |
 
 
 ## Client libraries
@@ -135,12 +92,13 @@ https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-00
 **Headers**
 The following table describes that headers for your API call.
 
-| Header | Required? | Value | Description |
-|:---|:---|:---|:---|
-| Authorization     | Yes | Bearer token obtained through the client credentials flow  | See [Sample code](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for sample code to generate the bearer token. |
-| Content-Type      | Yes | `application/json` |  |
-| Content-Encoding  | No  | `gzip` | Use the gzip compression scheme for performance optimization. |
-| x-ms-client-request-id | No | String-formatted GUID |  Request ID that can be used by Microsoft for any troubleshooting purposes.  |
+
+| Header | Required? |Description |
+|:---|:---|:---|
+| Authorization     | Yes | Bearer token obtained through the client credentials flow. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for sample code to generate the bearer token. Use the token audience value for your cloud:<br><br>Azure public cloud - `https://monitor.azure.com`<br>Microsoft Azure operated by 21Vianet cloud - `https://monitor.azure.cn`<br>Azure US Government cloud - `https://monitor.azure.us` |
+| Content-Type      | Yes | `application/json`   |
+| Content-Encoding  | No  | `gzip` |
+| x-ms-client-request-id | No | String-formatted GUID. This is a request ID that can be used by Microsoft for any troubleshooting purposes.  |
 
 **Body**
 
