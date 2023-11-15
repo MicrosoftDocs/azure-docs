@@ -681,11 +681,20 @@ To test your logic app workflow, follow these steps to start a debugging session
 
 1. To debug a stateless workflow more easily, you can [enable the run history for that workflow](#enable-run-history-stateless).
 
+1. If your Azurite emulator is already running, continue to the next step. Otherwise, make sure to start the emulator before you run your workflow:
+
+   1. In Visual Studio Code, from the **View** menu, select **Command Palette**.
+
+   1. After the command palette appears, enter **Azurite: Start**.
+
+   For more information about Azurite commands, see the [documenation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
+
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
    The **Terminal** window opens so that you can review the debugging session.
 
    > [!NOTE]
+   >
    > If you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**, 
    > see the troubleshooting section, [Debugging session fails to start](#debugging-fails-to-start).
 
