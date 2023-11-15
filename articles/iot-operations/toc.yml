@@ -213,6 +213,14 @@ items:
         href: https://aka.ms/ArcJumpstartAIO
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
+      - name: REST API
+        items:
+        - name: Azure IoT Data Processor
+          href: /rest/api/iotdataprocessor 
+        - name: Azure IoT MQ
+          href: /rest/api/iotmq
+        - name: Azure IoT Orchestrator
+          href: /rest/api/iotorchestrator
       - name: Available metrics for observability
         items:
         - name: Azure IoT MQ
