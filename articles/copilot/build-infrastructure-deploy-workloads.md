@@ -16,7 +16,7 @@ Throughout a conversation, Microsoft Copilot for Azure (preview) asks you questi
 
 To get help building infrastructure and deploying workloads, start on the **Virtual machines** page in the Azure portal. Select the arrow next to **Create**, then select **More VMs and related solutions**.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-more-vms.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machiense page in the Azure portal.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-more-vms.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machines page in the Azure portal.":::
 
 Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
 
