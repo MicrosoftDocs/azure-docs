@@ -16,14 +16,14 @@ DCRs are stored in Azure so that you can centrally manage them. Different compon
 
 
 ## Basic operation
-One example of how DCRs are used is the Logs Ingestion API that allows you to send custom data to Azure Monitor. This scenario is illustrated in the following diagram. Prior to using the API, you create a DCR that defines the structure of the data that your going to send and the Log Analytics workspace and table that will receive the data. If the data needs to be formatted before it's stored, you can include a [transformation](data-collection-transformations.md) in the DCR.
+One example of how DCRs are used is the Logs Ingestion API that allows you to send custom data to Azure Monitor. This scenario is illustrated in the following diagram. Prior to using the API, you create a DCR that defines the structure of the data that you're going to send and the Log Analytics workspace and table that will receive the data. If the data needs to be formatted before it's stored, you can include a [transformation](data-collection-transformations.md) in the DCR.
 
 Each call to the API specifies the DCR to use, and Azure Monitor references this DCR to determine what to do with the incoming data. If your requirements change, you can modify the DCR without making any changes to the application sending the data.
 
 :::image type="content" source="media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows basic operation for DCR using logs ingestion API." border="false":::
 
 ## Data collection rule associations (DCRAs)
-Data collection rule associations (DCRAs) associate a DCR with an object being monitored, for example a virtual machine with the Azure Monitor agent (AMA). A single object can be associated with multiple DCRs, and a single DCR can be be associated with multiple objects.
+Data collection rule associations (DCRAs) associate a DCR with an object being monitored, for example a virtual machine with the Azure Monitor agent (AMA). A single object can be associated with multiple DCRs, and a single DCR can be associated with multiple objects.
 
 The following diagram illustrates data collection for the Azure Monitor agent. When the agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. It then references the data sources section of each DCR to determine what data to collect from the machine. When the agent delivers this data,  Azure Monitor references other sections of the DCR to determine whether a transformation should be applied to it and then the workspace and table to send it to.
 
