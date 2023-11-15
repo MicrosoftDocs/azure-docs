@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 03/21/2023
 ---
 
-# Snapshots
+# Azure App Configuration REST API: snapshots
 
 A snapshot is a resource identified uniquely by its name. See details for each operation.
 
