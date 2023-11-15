@@ -46,6 +46,9 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://aka.ms/iot-operations-portal) portal in your browser and sign with your Microsoft Entra ID credentials.
 
+> [!IMPORTANT]
+> You must use an Microsoft Entra account, you can't use a Microsoft account (MSA) to sign in. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+
 ## Select your cluster
 
 When you sign in, select **Get started**. The portal displays the list of Kubernetes clusters that you have access to. Select the cluster that you deployed Azure IoT Operations to in the previous quickstart:

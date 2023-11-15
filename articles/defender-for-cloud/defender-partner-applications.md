@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 11/15/2023
 ---
 
 # Partner applications in Microsoft Defender for Cloud for API security testing (preview)
@@ -35,7 +35,7 @@ This feature requires a GitHub connector in Defender for Cloud. See [how to onbo
 
 | Logo | Partner name | Description                                                                                                                                                                                    | Enablement Guide |
 |----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| :::image type="content" source="media/defender-partner-applications/42crunch-logo.png" alt-text="42Crunch logo.":::         | 42Crunch         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. | [42Crunch onboarding guide](onboarding-guide-42crunch.md)                 |
+| :::image type="content" source="media/defender-partner-applications/42crunch-logo.png" alt-text="42Crunch logo.":::         | [42Crunch](https://aka.ms/APISecurityTestingPartnershipIgnite2023)         | Developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. | [42Crunch onboarding guide](onboarding-guide-42crunch.md)                 |
 
 ## Next steps
 

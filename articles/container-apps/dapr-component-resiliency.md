@@ -80,13 +80,25 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
 
 # [CLI](#tab/cli)
 
-To begin, log-in to the Azure CLI:
+### Before you begin
+
+Log-in to the Azure CLI:
 
 ```azurecli
 az login
 ```
 
+Make sure you have the latest version of the Azure Container App extension.
+
+```azurecli
+az extension show --name containerapp
+az extension update --name containerapp
+```
+
 ### Create specific policies
+
+> [!NOTE]
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
 
 Create resiliency policies by targeting an individual policy. For example, to create the `Outbound Timeout` policy, run the following command.
 

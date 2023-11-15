@@ -57,6 +57,12 @@
         href: how-to/index-add.md
     - name: Add and manage data
       href: how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: how-to/simulator-interaction-data.md
   - name: Build apps with prompt flow
     items:
     - name: Prompt flow overview
@@ -121,6 +127,8 @@
       href: how-to/deploy-models.md
     - name: Monitor quality and safety of deployed applications
       href: how-to/monitor-quality-safety.md
+    - name: Troubleshoot deployments and monitoring
+      href: how-to/troubleshoot-deploy-and-monitor.md
   - name: Set up your development environment
     items:
     - name: Get started with the Azure AI SDK
@@ -135,10 +143,12 @@
     items:
     - name: Plan and manage costs
       href: how-to/costs-plan-manage.md
+    - name: Manage quotas
+      href: how-to/quota.md
     - name: Increase rate limit
-      href: ../ai-services/autoscale.md
+      href: how-to/autoscale.md
     - name: Use commitment tier pricing 
-      href: ../ai-services/commitment-tier.md
+      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management

@@ -551,6 +551,12 @@ items:
         href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/ai-services/speech-service/context/context
       - name: Data, privacy, and security
         href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/ai-services/speech-service/context/context
+    - name: Text to speech
+      items:
+      - name: Transparency note
+        href: /legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context
+      - name: Code of conduct
+        href: /legal/cognitive-services/speech-service/text-to-speech/code-of-conduct?context=/azure/ai-services/speech-service/context/context
     - name: Pronunciation Assessment
       items:
       - name: Transparency Note

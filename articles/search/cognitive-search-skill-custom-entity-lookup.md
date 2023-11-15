@@ -404,7 +404,7 @@ This warning will be emitted if the number of matches detected is greater than t
 
 ## See also
 
-+ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/skill-examples/custom-entity-lookup-skill)
++ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/skill-examples/custom-entity-lookup-skill)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

@@ -1,5 +1,5 @@
 ---
-title: Monitor quality and safety of deployed applications
+title: Monitor quality and safety of deployed applications 
 titleSuffix: Azure AI Studio
 description: Learn how to monitor quality and safety of deployed applications with Azure AI Studio.
 author: eric-urban

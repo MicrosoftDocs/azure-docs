@@ -221,12 +221,9 @@ You're almost there! Now you can test the web app.
 
 ## Clean up resources
 
-To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
-
-- [Azure portal](https://portal.azure.com?azure-portal=true)
-- [Azure CLI](/cli/azure)
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
 
 ## Next steps
 
-* Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../what-is-ai-studio.md).
+- [Create a project in Azure AI Studio](../how-to/create-projects.md).
+- Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
