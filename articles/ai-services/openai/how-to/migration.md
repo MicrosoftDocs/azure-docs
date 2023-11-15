@@ -7,13 +7,13 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom: 
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/15/2023
 manager: nitinme
 ---
 
 # Migrating to the OpenAI Python API library 1.x
 
-OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/631) and will help bring you up to speed on the changes specific to Azure OpenAI.
+OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/742) and will help bring you up to speed on the changes specific to Azure OpenAI.
 
 ## Updates
 
@@ -28,9 +28,9 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`. For those who can't wait for native support for DALL-E and Azure OpenAI we're providing [two code examples](#dall-e-fix) which can be used as a workaround.
+- **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
-- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/703) for the OpenAI Python library.
+- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/) for the OpenAI Python library.
 
 ## Test before you migrate
 
@@ -252,6 +252,114 @@ completion = client.chat.completions.create(
 print(completion.model_dump_json(indent=2))
 ```
 
+## Use your data
+
+For the full configuration steps that are required to make these code examples work, please consult the [use your data quickstart](../use-your-data-quickstart.md).
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+import dotenv
+import requests
+
+dotenv.load_dotenv()
+
+openai.api_base = os.environ.get("AOAIEndpoint")
+openai.api_version = "2023-08-01-preview"
+openai.api_type = 'azure'
+openai.api_key = os.environ.get("AOAIKey")
+
+def setup_byod(deployment_id: str) -> None:
+    """Sets up the OpenAI Python SDK to use your own data for the chat endpoint.
+
+    :param deployment_id: The deployment ID for the model to use with your own data.
+
+    To remove this configuration, simply set openai.requestssession to None.
+    """
+
+    class BringYourOwnDataAdapter(requests.adapters.HTTPAdapter):
+
+     def send(self, request, **kwargs):
+         request.url = f"{openai.api_base}/openai/deployments/{deployment_id}/extensions/chat/completions?api-version={openai.api_version}"
+         return super().send(request, **kwargs)
+
+    session = requests.Session()
+
+    # Mount a custom adapter which will use the extensions endpoint for any call using the given `deployment_id`
+    session.mount(
+        prefix=f"{openai.api_base}/openai/deployments/{deployment_id}",
+        adapter=BringYourOwnDataAdapter()
+    )
+
+    openai.requestssession = session
+
+aoai_deployment_id = os.environ.get("AOAIDeploymentId")
+setup_byod(aoai_deployment_id)
+
+completion = openai.ChatCompletion.create(
+    messages=[{"role": "user", "content": "What are the differences between Azure Machine Learning and Azure AI services?"}],
+    deployment_id=os.environ.get("AOAIDeploymentId"),
+    dataSources=[  # camelCase is intentional, as this is the format the API expects
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": os.environ.get("SearchEndpoint"),
+                "key": os.environ.get("SearchKey"),
+                "indexName": os.environ.get("SearchIndex"),
+            }
+        }
+    ]
+)
+print(completion)
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import openai
+import dotenv
+
+dotenv.load_dotenv()
+
+endpoint = os.environ.get("AOAIEndpoint")
+api_key = os.environ.get("AOAIKey")
+deployment = os.environ.get("AOAIDeploymentId")
+
+client = openai.AzureOpenAI(
+    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
+    api_key=api_key,
+    api_version="2023-08-01-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "How is Azure machine learning different than Azure OpenAI?",
+        },
+    ],
+    extra_body={
+        "dataSources": [
+            {
+                "type": "AzureCognitiveSearch",
+                "parameters": {
+                    "endpoint": os.environ["SearchEndpoint"],
+                    "key": os.environ["SearchKey"],
+                    "indexName": os.environ["SearchIndex"]
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+```
+
+---
+
 ## DALL-E fix
 
 # [DALLE-Fix](#tab/dalle-fix)
@@ -417,6 +525,7 @@ asyncio.run(dall_e())
 ```
 
 ---
+
 ## Name changes
 
 > [!NOTE]

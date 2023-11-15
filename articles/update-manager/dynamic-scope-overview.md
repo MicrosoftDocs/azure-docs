@@ -36,8 +36,8 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
 
 For Dynamic Scoping and configuration assignment, ensure that you have the following permissions:
 
-- Write permissions to create or modify a schedule.
-- Read permissions to assign or read a schedule.
+- Write permissions at subscription level to create or modify a schedule.
+- Read permissions at subscription level to assign or read a schedule.
 
 ## Service limits
 

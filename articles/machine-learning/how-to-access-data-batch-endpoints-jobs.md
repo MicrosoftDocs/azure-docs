@@ -10,7 +10,10 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 5/01/2023
 ms.reviewer: larryfr
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom:
+  - devplatv2
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Create jobs and input data for batch endpoints
@@ -95,7 +98,7 @@ The following table summarizes it:
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
 | [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
-| [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
+| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 > [!TIP]
 > Inputs and outputs are always named. Those names serve as keys to indentify them and pass the actual value during invocation. For model deployments, since they always require 1 input and output, the name is ignored during invocation. You can assign the name its best describe your use case, like "sales_estimation".

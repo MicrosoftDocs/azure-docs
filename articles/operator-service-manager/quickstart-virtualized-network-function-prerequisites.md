@@ -62,6 +62,7 @@ Prior to using the Azure Operator Service Manager you must first register the re
 # Register Resource Provider
 az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
+az provider register --namespace Microsoft.ContainerInstance
 ```
 ## Verify registration status
 
@@ -71,6 +72,7 @@ To verify the registration status of the resource providers, you can run the fol
 # Query the Resource Provider
 az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
+az provider show -n Microsoft.ContainerInstance --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
 Upon success, the following output displays:
@@ -82,6 +84,10 @@ Upon success, the following output displays:
 }
 {
   "ProviderName": "Microsoft.ContainerRegistry",
+  "RegistrationState": "Registered"
+}
+{
+  "ProviderName": "Microsoft.ContainerInstance",
   "RegistrationState": "Registered"
 }
 ```
