@@ -300,9 +300,6 @@ The IMDS API contains multiple endpoint categories representing different data s
 
 ## Versions
 
-> [!NOTE]
-> This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
-
 ### List API versions
 
 Returns the set of supported API versions.

@@ -7,6 +7,7 @@ ms.date: 11/06/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
+ms.custom: references_regions
 ---
 
 # Encrypt an Azure Elastic SAN Preview
@@ -40,6 +41,10 @@ The following list explains the numbered steps in the diagram:
 1. Azure Elastic SAN uses the managed identity granted permissions in step 1 to authenticate access to the key vault via Microsoft Entra ID.
 1. Azure Elastic SAN wraps the data encryption key with the customer-managed key from the key vault.
 1. For read/write operations, Azure Elastic SAN sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
+### Regional availability
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Next steps
 

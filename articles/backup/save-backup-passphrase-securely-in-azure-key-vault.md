@@ -326,7 +326,7 @@ Before proceeding to install the MARS agent, ensure that you have  [configured t
 
 6. After providing the *Recovery Services vault credentials* during registration, in the **Encryption Setting**,  select the option to save the passphrase to Azure Key Vault.
 
-   
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png" alt-text="Screenshot shows the option to save the passphrase to Azure Key Vault to be selected." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/save-passphrase.png":::
 
 7. Enter your *passphrase* or select **Generate Passphrase**.
 4. In the *Azure portal*, open your *Key Vault*, copy the *Key Vault URI*.
@@ -371,7 +371,7 @@ To save the passphrase to Key Vault:
    >[!Note]
    >If the machine is already configured to save passphrase to Key Vault, the Key Vault URI will be populated in the text box automatically.
 
-   
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enter-key-vault-url.png" alt-text="Screenshot shows the option to save passphrase to Key Vault by providing a Key Vault URI gets generated." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/enter-key-vault-url.png":::
 
 3. Open the *Azure portal*, open your *Key Vault*, and then *copy the Key Vault URI*.
 

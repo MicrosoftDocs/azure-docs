@@ -11,6 +11,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:
+  - ignite-2023
 ---
 
 # Azure OpenAI Service REST API reference
@@ -508,7 +509,74 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 
 ## Image generation
 
-### Request a generated image
+### Request a generated image (DALL-E 3)
+
+Generate and retrieve a batch of images from a text caption.
+
+```http
+POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version={api-version} 
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```deployment-id``` | string | Required | The name of your DALL-E 3 model deployment such as *MyDalle3*. You're required to first deploy a DALL-E 3 model before you can make calls. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+
+**Supported versions**
+
+- `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| `n` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
+| `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
+| `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid`. |
+
+
+#### Example request
+
+
+```console
+curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version=2023-12-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+    "prompt": "An avocado chair",
+    "size": "1024x1024",
+    "n": 3,
+    "quality": "hd", 
+    "style": "vivid"
+  }'
+```
+
+#### Example response
+
+The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
+
+```json
+{ 
+    "created": 1698116662, 
+    "data": [ 
+        { 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
+        }, 
+        { 
+            "url": "url to the image" 
+        },
+        ...
+    ]
+} 
+```
+
+### Request a generated image (DALL-E 2)
 
 Generate a batch of images from a text caption.
 
@@ -561,7 +629,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
-### Get a generated image result
+### Get a generated image result (DALL-E 2)
 
 
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
@@ -569,7 +637,6 @@ Use this API to retrieve the results of an image generation operation. Image gen
 ```http
 GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
 ```
-
 
 **Path parameters**
 
@@ -616,7 +683,7 @@ Upon success the operation returns a `200` status code and an `OperationResponse
 }
 ```
 
-### Delete a generated image from the server
+### Delete a generated image from the server (DALL-E 2)
 
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 
@@ -791,5 +858,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [ Models, and fine-tuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/files).
+Learn about [ Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

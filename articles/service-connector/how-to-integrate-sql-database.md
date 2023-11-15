@@ -45,27 +45,27 @@ Use the connection details below to connect compute services to Azure SQL Databa
 
 ### System-assigned Managed Identity
 
-#### [.NET](#tab/dotnet)
+#### [.NET](#tab/sql-me-id-dotnet)
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
 
-#### [Java](#tab/java)
+#### [Java](#tab/sql-me-id-java)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/sql-me-id-spring)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
 > |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 > | `spring.datasource.url`             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` |
 
-#### [Python](#tab/python)
+#### [Python](#tab/sql-me-id-python)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -75,15 +75,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 > | `AZURE_SQL_DATABASE`                | Azure SQL Database database | `<sql-database>`                    |
 > | `AZURE_SQL_AUTHENTICATION`          | Azure SQL authentication    | `ActiveDirectoryMsi`                |
 
-#### [Django](#tab/django)
-
-The client type `Django` is not supported for system-assigned managed identity.
-
-#### [Go](#tab/go)
-
-The client type `Go` is not supported for system-assigned managed identity.
-
-#### [NodeJS](#tab/nodejs)
+#### [NodeJS](#tab/sql-me-id-nodejs)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -92,14 +84,6 @@ The client type `Go` is not supported for system-assigned managed identity.
 > | `AZURE_SQL_PORT`                    | Azure SQL Database port     | `1433`                              |
 > | `AZURE_SQL_DATABASE`                | Azure SQL Database database | `<sql-database>`                    |
 > | `AZURE_SQL_AUTHENTICATIONTYPE`      | Azure SQL Database authentication type | `azure-active-directory-default` |
-
-#### [PHP](#tab/php)
-
-The client type `PHP` is not supported for system-assigned managed identity.
-
-#### [Ruby](#tab/ruby)
-
-The client type `Ruby` is not supported for system-assigned managed identity.
 
 ---
 
@@ -111,28 +95,28 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 
 ### User-assigned managed identity
 
-#### [.NET](#tab/dotnet)
+#### [.NET](#tab/sql-me-id-dotnet)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=<identity-client-ID>;Authentication=ActiveDirectoryManagedIdentity` |
 
-#### [Java](#tab/java)
+#### [Java](#tab/sql-me-id-java)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/sql-me-id-spring)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
 > |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 > | `spring.datasource.url`             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### [Python](#tab/python)
+#### [Python](#tab/sql-me-id-python)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -143,15 +127,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 > | `AZURE_SQL_USER`                    | Azure SQL Database user     | `Object (principal) ID`             |
 > | `AZURE_SQL_AUTHENTICATION`          | Azure SQL authentication    | `ActiveDirectoryMsi`                |
 
-#### [Django](#tab/django)
-
-The client type `Django` is not supported for user-assigned managed identity.
-
-#### [Go](#tab/go)
-
-The client type `Go` is not supported for user-assigned managed identity.
-
-#### [NodeJS](#tab/nodejs)
+#### [NodeJS](#tab/sql-me-id-nodejs)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                        |
@@ -161,14 +137,6 @@ The client type `Go` is not supported for user-assigned managed identity.
 > | `AZURE_SQL_DATABASE`                | Azure SQL Database database            | `<sql-database>`                    |
 > | `AZURE_SQL_AUTHENTICATIONTYPE`      | Azure SQL Database authentication type | `azure-active-directory-default`    |
 > | `AZURE_SQL_CLIENTID`                | Azure SQL Database client ID           | `<identity-client-ID>`              |
-
-#### [PHP](#tab/php)
-
-The client type `PHP` is not supported for user-assigned managed identity.
-
-#### [Ruby](#tab/ruby)
-
-The client type `Ruby` is not supported for user-assigned managed identity.
 
 ---
 
@@ -180,21 +148,21 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 
 ### Connection String
 
-#### [.NET](#tab/dotnet)
+#### [.NET](#tab/sql-secret-dotnet)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Password=<sql-password>` |
 
-#### [Java](#tab/java)
+#### [Java](#tab/sql-secret-java)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/sql-secret-spring)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                     |
@@ -203,7 +171,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `spring.datasource.username`        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
 > | `spring.datasource.password`        | Azure SQL Database datasource password | `<sql-password>`                                                                 |
 
-#### [Python](#tab/python)
+#### [Python](#tab/sql-secret-python)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -214,7 +182,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `AZURE_SQL_USER`                    | Azure SQL Database user     | `<sql-username>`                    |
 > | `AZURE_SQL_PASSWORD`                | Azure SQL Database password | `<sql-password>`                    |
 
-#### [Django](#tab/django)
+#### [Django](#tab/sql-secret-django)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -225,14 +193,14 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `AZURE_SQL_USER`                    | Azure SQL Database user     | `<sql-username>`                    |
 > | `AZURE_SQL_PASSWORD`                | Azure SQL Database password | `<sql-password>`                    |
 
-#### [Go](#tab/go)
+#### [Go](#tab/sql-secret-go)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                                 |
 > |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
 
-#### [NodeJS](#tab/nodejs)
+#### [NodeJS](#tab/sql-secret-nodejs)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -243,7 +211,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `AZURE_SQL_USERNAME`                | Azure SQL Database username | `<sql-username>`                    |
 > | `AZURE_SQL_PASSWORD`                | Azure SQL Database password | `<sql-password>`                    |
 
-#### [PHP](#tab/php)
+#### [PHP](#tab/sql-secret-php)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                                | Sample value                        |
@@ -253,7 +221,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `AZURE_SQL_UID`                     | Azure SQL Database unique identifier (UID) | `<sql-username>`                    |
 > | `AZURE_SQL_PASSWORD`                | Azure SQL Database password                | `<sql-password>`                    |
 
-#### [Ruby](#tab/ruby)
+#### [Ruby](#tab/sql-secret-ruby)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -274,7 +242,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 
 ### Service Principal
 
-#### [.NET](#tab/dotnet)
+#### [.NET](#tab/sql-me-id-dotnet)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                       | Example value                                           |
@@ -284,7 +252,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_TENANTID`                | Your tenant ID                    | `<tenant-ID>`                                           |
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Password=asdfghwerty;Authentication=ActiveDirectoryServicePrincipal` |
 
-#### [Java](#tab/java)
+#### [Java](#tab/sql-me-id-java)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
@@ -292,7 +260,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<client-Id>;password=<client-secret>;authentication=ActiveDirectoryServicePrincipal;` |
 
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/sql-me-id-spring)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                     |
@@ -302,7 +270,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `spring.datasource.password`        | Azure SQL Database datasource password | `<client-Secret>`                                                                |
 
 
-#### [Python](#tab/python)
+#### [Python](#tab/sql-me-id-python)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
@@ -314,15 +282,8 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_AUTHENTICATION`          | Azure SQL authentication    | `ActiveDirectoryServerPrincipal`    |
 > | `AZURE_SQL_PASSWORD`               | Azure SQL Database password | `your Client Secret`                |
 
-#### [Django](#tab/django)
 
-The client type `Django` is not supported for service principal.
-
-#### [Go](#tab/go)
-
-The client type `Go` is not supported for service principal.
-
-#### [NodeJS](#tab/nodejs)
+#### [NodeJS](#tab/sql-me-id-nodejs)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                        |
@@ -334,14 +295,6 @@ The client type `Go` is not supported for service principal.
 > | `AZURE_SQL_CLIENTID`                | Azure SQL Database client ID           | `<your Client ID>`                  |
 > | `AZURE_SQL_CLIENTSECRET`            | Azure SQL Database client Secret       | `<your Client Secret >`             |
 > | `AZURE_SQL_TENANTID`                | Azure SQL Database Tenant ID           | `<your Tenant ID>`                  |
-
-#### [PHP](#tab/php)
-
-The client type `PHP` is not supported for service principal.
-
-#### [Ruby](#tab/ruby)
-
-The client type `Ruby` is not supported for service principal.
 
 ---
 

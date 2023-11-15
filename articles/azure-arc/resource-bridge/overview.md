@@ -110,6 +110,7 @@ Arc resource bridge supports the following Azure regions:
 * Canada Central
 * Australia East
 * Southeast Asia
+* East Asia
 
 ### Regional resiliency
 
@@ -143,3 +144,5 @@ Arc resource bridge typically releases a new version on a monthly cadence, at th
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
 * Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
+

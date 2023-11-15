@@ -130,7 +130,7 @@ If you've already installed the agent on any machines, ensure you're running the
 
    After granting the required permissions, you can save the passphrase to the Key Vault by copying the *Key Vault URI* from the Azure portal and to the Register Server Wizard.
 
-   
+   :::image type="content" source="./media/backup-configure-vault/encryption-settings-passphrase-to-encrypt-decrypt-backups.png" alt-text="Screenshot showing to specify a passphrase to be used to encrypt and decrypt backups for machines.":::
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
 

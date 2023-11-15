@@ -85,7 +85,7 @@ For information on how to migrate your existing VMs to availability zone support
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Migrate VMs using availability sets to Virtual Machine Scale Sets Flex**
 
-Availability sets will be retired soon. Modernize your workloads by migrating them from VMs to Virtual Machine Scale Sets Flex. 
+Modernize your workloads by migrating them from VMs to Virtual Machine Scale Sets Flex. 
 
 With Virtual Machine Scale Sets Flex, you can deploy your VMs in one of two ways:
 
@@ -528,3 +528,4 @@ For deploying virtual machines, you can use [flexible orchestration](../virtual-
 - [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
 - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
 - [Reliability in Azure](/azure/reliability/availability-zones-overview)
+

@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: tutorial
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ms.author: abell
 ---
 
@@ -53,7 +53,7 @@ You'll then configure diagnostic logs and alerts to monitor for attacks and traf
 
 ## Configure DDoS Protection metrics and alerts
 
-In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor for attacks and traffic patterns.
+In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor for attacks and traffic patterns. 
 
 ### Configure diagnostic logs
 
@@ -174,8 +174,9 @@ BreakingPoint Cloud is a self-service traffic generator where you can generate t
 BreakingPoint Cloud offers:
 
 - A simplified user interface and an “out-of-the-box” experience.
-- pay-per-use model.
+- Pay-per-use model.
 - Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
+- A free trail account. 
 
 > [!NOTE]
 > For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud).  

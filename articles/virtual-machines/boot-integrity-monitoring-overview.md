@@ -114,10 +114,9 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 ### [CLI](#tab/cli)
 
-If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. To deploy guest attestation extension use (`-- enable_integrity_monitoring`). Configuration of virtual machines are customizable by virtual machine owner (`az vm create`).
-1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure enable integrity monitoring is turned on (`-- enable_integrity_monitoring`).
+1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. To deploy guest attestation extension use (`--enable_integrity_monitoring`). Configuration of virtual machines are customizable by virtual machine owner (`az vm create`).
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure enable integrity monitoring is turned on (`--enable_integrity_monitoring`).
 
 > [!NOTE]
 > The Guest Attestation Extension needs to be configured explicitly.
