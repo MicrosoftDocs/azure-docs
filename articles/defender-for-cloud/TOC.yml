@@ -166,33 +166,33 @@
           href: zero-trust.md
         - name: Planning multicloud security
           items:
-            - name: Get started
-              displayName: begin, get started,
-              href: plan-multicloud-security-get-started.md
-            - name: Determine business needs
-              displayName: needs, goals, business, requirements
-              href: plan-multicloud-security-determine-business-needs.md
-            - name: Define an adoption strategy
-              displayName: strategy, adoption, ownership
-              href: plan-multicloud-security-define-adoption-strategy.md
-            - name: Determine data residency requirements
-              displayName: data, residency, cspm, cwp, plan
-              href: plan-multicloud-security-determine-data-residency-requirements.md
-            - name: Determine compliance requirements
-              displayName: compliance, standards
-              href: plan-multicloud-security-determine-compliance-requirements.md
-            - name: Determine ownership requirements
-              displayName: ownership, team, alignment, best practices,
-              href: plan-multicloud-security-determine-ownership-requirements.md
-            - name: Determine access control requirements
-              displayName: access, control
-              href: plan-multicloud-security-determine-access-control-requirements.md
-            - name: Determine multicloud dependencies
-              displayName: dependencies, cspm, cwpp, agents,
-              href: plan-multicloud-security-determine-multicloud-dependencies.md
-            - name: Automate connector deployment
-              displayName: rest api
-              href: plan-multicloud-security-automate-connector-deployment.md
+          - name: Get started
+            displayName: begin, get started,
+            href: plan-multicloud-security-get-started.md
+          - name: Determine business needs
+            displayName: needs, goals, business, requirements
+            href: plan-multicloud-security-determine-business-needs.md
+          - name: Define an adoption strategy
+            displayName: strategy, adoption, ownership
+            href: plan-multicloud-security-define-adoption-strategy.md
+          - name: Determine data residency requirements
+            displayName: data, residency, cspm, cwp, plan
+            href: plan-multicloud-security-determine-data-residency-requirements.md
+          - name: Determine compliance requirements
+            displayName: compliance, standards
+            href: plan-multicloud-security-determine-compliance-requirements.md
+          - name: Determine ownership requirements
+            displayName: ownership, team, alignment, best practices,
+            href: plan-multicloud-security-determine-ownership-requirements.md
+          - name: Determine access control requirements
+            displayName: access, control
+            href: plan-multicloud-security-determine-access-control-requirements.md
+          - name: Determine multicloud dependencies
+            displayName: dependencies, cspm, cwpp, agents,
+            href: plan-multicloud-security-determine-multicloud-dependencies.md
+          - name: Automate connector deployment
+            displayName: rest api
+            href: plan-multicloud-security-automate-connector-deployment.md
     - name: Improve your cloud security posture
       items:
       - name: Cloud Security Posture Management (CSPM)
@@ -210,21 +210,20 @@
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
       - name: Investigating risks with security explorer/attack paths
-        displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
+        displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer
         href: concept-attack-path.md
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Entra permissions Management (Preview)
+      - name: Enabling Entra Permissions Management (Preview)
         href: enable-permissions-management.md
       - name: Agentless machine scanning
-        displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
       - name: Integrations
-          items:  
-            - name: ServiceNow integration
-              displayName: CSPM, cloud security, posture, management, ServiceNow
-              href: integration-servicenow.md
+        items:  
+        - name: ServiceNow integration
+          displayName: CSPM, cloud security, posture, management, ServiceNow
+          href: integration-servicenow.md
       - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
