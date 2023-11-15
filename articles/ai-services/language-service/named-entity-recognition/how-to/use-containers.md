@@ -50,7 +50,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 The Named Entity Recognition container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `ner`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/ner`
 
- To use the latest version of the container, you can use the `latest` tag, which is for english. You can also find a full list of containers for supported languages using the [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/ner/tags).
+ To use the latest version of the container, you can use the `latest` tag, which is for English. You can also find a full list of containers for supported languages using the [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/ner/tags).
 
 The latest Named Entity Recognition container is available in several languages. To download the container for the English container, use the command below. 
 
@@ -104,7 +104,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-For information on how to call NER see [our guide](../how-to-call.md)
+For information on how to call NER see [our guide](../how-to-call.md).
 
 ## Run the container disconnected from the internet
 

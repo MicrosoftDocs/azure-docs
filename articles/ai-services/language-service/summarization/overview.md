@@ -1,5 +1,5 @@
 ---
-title: What is document and conversation summarization (preview)?
+title: What is document and conversation summarization?
 titleSuffix: Azure AI services
 description: Learn about summarizing text.
 services: cognitive-services

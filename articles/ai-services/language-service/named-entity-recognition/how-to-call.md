@@ -13,7 +13,7 @@ ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 
-# How to use Named Entity Recognition(NER)
+# How to use Named Entity Recognition (NER)
 
 The NER feature can evaluate unstructured text, and extract named entities from text in several predefined categories, for example: person, location, event, product, and organization.  
 
@@ -87,7 +87,7 @@ The above examples would return entities falling under the `Location` entity typ
     
 ```
 
-This method returns all `Location` entities only falling under the `GPE` tag and ignore any other entity falling under the `Location` type that is tagged with any other entity tag such as `Structural` or `Geological` tagged `Location` entities. We could also further drill-down on our results by using the `excludeList` parameter. `GPE` tagged entities could be tagged with the following tags: `City`, `State`, `CountryRegion`, `Continent`. We could, for example, exclude `Continent` and `CountryRegion` tags for our example:
+This method returns all `Location` entities only falling under the `GPE` tag and ignore any other entity falling under the `Location` type that is tagged with any other entity tag such as `Structural` or `Geological` tagged `Location` entities. We could also further drill down on our results by using the `excludeList` parameter. `GPE` tagged entities could be tagged with the following tags: `City`, `State`, `CountryRegion`, `Continent`. We could, for example, exclude `Continent` and `CountryRegion` tags for our example:
 
 ```bash
 

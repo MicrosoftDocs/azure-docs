@@ -125,8 +125,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20.
 
 2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+    - Replace the value `your-language-resource-key` with your key.
+    - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
@@ -279,8 +279,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 ### Using the summaryParameter
 For the `summaryLength` parameter, three values are accepted:
 * short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.
-* medium : Generates a summary of mostly 4-6 sentences, with around 170 tokens.
-* long : Generates a summary of mostly over 7 sentences, with around 210 tokens.
+* medium: Generates a summary of mostly 4-6 sentences, with around 170 tokens.
+* long: Generates a summary of mostly over 7 sentences, with around 210 tokens.
 
 ## Service and data limits
 
