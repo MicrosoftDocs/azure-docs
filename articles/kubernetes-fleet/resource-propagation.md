@@ -156,6 +156,32 @@ spec:
 
 For more details on how placement works with topology spread constraints, review the documentation [in the open source fleet project on the topic.][crp-topo].
 
+## Update strategy
+
+Azure Kubernetes Fleet uses a rolling update strategy to control how updates are rolled out across multiple cluster placements. The default settings are in this example:
+
+```yaml
+apiVersion: placement.kubernetes-fleet.io/v1beta1
+kind: ClusterResourcePlacement
+metadata:
+  name: crp
+spec:
+  resourceSelectors:
+    - ...
+  policy:
+    ...
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+      unavailablePeriodSeconds: 60
+```
+
+The scheduler will roll updates to each cluster sequentially, waiting at least `unavailablePeriodSeconds` between clusters. Rollout status is considered successful if all resources were correctly applied to the cluster. Rollout status checking doesn't cascade to child resources - for example, it doesn't confirm that pods created by a deployment become ready.
+
+For more details on cluster rollout strategy, see [the rollout strategy documentation in the open source project.][fleet-rollout]
+
 ## Placement status
 
 The fleet scheduler updates details and status on placement decisions onto the `ClusterResourcePlacement` object. This information can be viewed via the `kubectl describe crp <name>` command. The output includes the following information:
@@ -285,4 +311,5 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 [fleet-doc]: https://github.com/Azure/fleet/blob/main/docs/README.md
 [fleet-apispec]: https://github.com/Azure/fleet/blob/main/docs/api-references.md
 [fleet-scheduler]: https://github.com/Azure/fleet/blob/main/docs/concepts/Scheduler/README.md
+[fleet-rollout]: https://github.com/Azure/fleet/blob/main/docs/howtos/crp.md#rollout-strategy
 [crp-topo]: https://github.com/Azure/fleet/blob/main/docs/howtos/topology-spread-constraints.md
