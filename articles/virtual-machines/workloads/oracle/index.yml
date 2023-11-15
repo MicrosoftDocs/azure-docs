@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Oracle workloads on Azure Virtual Machines
-summary: Oracle on Azure virtual machines provides multiple options for running, managing and monitoring Oracle workloads on Azure.
+title: Oracle on Azure
+summary: Oracle applications and solutions on Azure.
 
 metadata:
-  title: Oracle on Azure VMs
+  title: Oracle on Azure
   description: Learn about solutions for Oracle workloads on Azure VMs
   ms.service: virtual-machines
   ms.subservice: oracle
@@ -95,15 +95,9 @@ landingContent:
   - title: Reference
     linkLists:
       - linkListType: reference
-<<<<<<< HEAD
-        links:          
-          - text: Oracle on Azure VMs landing zone accelerator
-            url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/
-=======
         links:
-          - text: Oracle on Azure VMs landing zone accelerator
+          - text: Oracle on Azure landing zone accelerator
             url: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
->>>>>>> 9082a1915ce4d9a3f1110e5d522bf0001451ee5f
           - text: Cloud Adoption Framework for Azure
             url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
           - text: Azure Architecture Center
