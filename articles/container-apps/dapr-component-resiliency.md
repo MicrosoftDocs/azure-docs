@@ -127,7 +127,7 @@ az containerapp env dapr-component resiliency update --name MyResiliency -g MyRe
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -135,13 +135,13 @@ az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDap
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp env dapr-component resiliency list -g MyResourceGroup --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency list --group MyResourceGroup --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 Use `resiliency show` command to show a single policy by name.
 
 ```azurecli
-az containerapp env dapr-component resiliency show -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency show --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 ### Delete policies
@@ -149,7 +149,7 @@ az containerapp env dapr-component resiliency show -g MyResourceGroup -n MyDaprR
 To delete resiliency policies, run the following command. 
 
 ```azurecli
-az containerapp env dapr-component resiliency delete -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency delete --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 # [Azure portal](#tab/portal)
