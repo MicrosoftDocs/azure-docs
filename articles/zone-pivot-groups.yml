@@ -929,6 +929,27 @@ groups:
     title: CLI
   - id: programming-language-rest
     title: REST
+- id: programming-languages-ai-services
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
 - id: speech-studio-cli-rest
 # Owner: eur
   title: Programming languages
@@ -949,6 +970,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: azure-ai-studio-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -1870,7 +1900,7 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Studio
+    title: Studio (DALL-E 3)
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1880,11 +1910,11 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-python
-    title: Python
+    title: Python (DALL-E 3)
   - id: programming-language-powershell
     title: PowerShell
   - id: rest-api
-    title: REST
+    title: REST (DALL-E 3)
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

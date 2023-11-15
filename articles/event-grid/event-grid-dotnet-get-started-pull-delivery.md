@@ -4,12 +4,15 @@ description: This quickstart shows you how to send messages to and receive messa
 ms.topic: quickstart
 ms.author: sonalikaroy
 author: sonalika-roy
-ms.custom: references_regions, devx-track-dotnet
+ms.custom:
+  - references_regions
+  - devx-track-dotnet
+  - ignite-2023
 ms.date: 07/26/2023
 ---
 
 
-# Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET) - (Preview)
+# Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET)
 
 In this quickstart, you'll do the following steps:
 

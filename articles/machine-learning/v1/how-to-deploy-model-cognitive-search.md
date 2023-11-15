@@ -1,7 +1,7 @@
 ---
-title: Deploy a model for use with Cognitive Search
+title: Deploy a model for use with Azure AI Search
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning to deploy a model for use with Cognitive Search. The model is used as a custom skill to enrich the search experience.
+description: Learn how to use Azure Machine Learning to deploy a model for use with Azure AI Search. The model is used as a custom skill to enrich the search experience.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,30 +10,35 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: ssalgado
 ms.date: 03/11/2021
-ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
+ms.custom:
+  - UpdateFrequency5
+  - deploy
+  - sdkv1
+  - event-tier1-build-2022
+  - ignite-2023
 monikerRange: 'azureml-api-1'
 ---
 
 
-# Deploy a model for use with Cognitive Search
+# Deploy a model for use with Azure AI Search
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](/azure/search/search-what-is-azure-search).
+This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure AI Search](/azure/search/search-what-is-azure-search).
 
-Cognitive Search performs content processing over heterogenous content, to make it queryable by humans or applications. This process can be enhanced by using a model deployed from Azure Machine Learning.
+Azure AI Search performs content processing over heterogenous content, to make it queryable by humans or applications. This process can be enhanced by using a model deployed from Azure Machine Learning.
 
-Azure Machine Learning can deploy a trained model as a web service. The web service is then embedded in a Cognitive Search _skill_, which becomes part of the processing pipeline.
+Azure Machine Learning can deploy a trained model as a web service. The web service is then embedded in a Azure AI Search _skill_, which becomes part of the processing pipeline.
 
 > [!IMPORTANT]
-> The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
+> The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Azure AI Search.
 >
-> For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
+> For information on how to configure Azure AI Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
 
-When deploying a model for use with Azure Cognitive Search, the deployment must meet the following requirements:
+When deploying a model for use with Azure AI Search, the deployment must meet the following requirements:
 
 * Use Azure Kubernetes Service to host the model for inference.
-* Enable transport layer security (TLS) for the Azure Kubernetes Service. TLS is used to secure HTTPS communications between Cognitive Search and the deployed model.
+* Enable transport layer security (TLS) for the Azure Kubernetes Service. TLS is used to secure HTTPS communications between Azure AI Search and the deployed model.
 * The entry script must use the `inference_schema` package to generate an OpenAPI (Swagger) schema for the service.
 * The entry script must also accept JSON data as input, and generate JSON as output.
 
@@ -83,7 +88,7 @@ The following code demonstrates how to create a new Azure Kubernetes Service (AK
 > You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
-> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Search.
+> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Azure AI Search.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -127,7 +132,7 @@ The entry script receives data submitted to the web service, passes it to the mo
 > The entry script is specific to your model. For example, the script must know the framework to use with your model, data formats, etc.
 
 > [!IMPORTANT]
-> When you plan on using the deployed model from Azure Cognitive Search you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
+> When you plan on using the deployed model from Azure AI Search you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
 
 ```python
 from azureml.core.model import Model
@@ -302,13 +307,13 @@ The result returned from the service is similar to the following JSON:
 {"sentiment": {"sentence": "This is a nice place for a relaxing evening out with friends. The owners seem pretty nice, too. I have been there a few times including last night. Recommend.", "terms": [{"text": "place", "type": "AS", "polarity": "POS", "score": 1.0, "start": 15, "len": 5}, {"text": "nice", "type": "OP", "polarity": "POS", "score": 1.0, "start": 10, "len": 4}]}}
 ```
 
-## Connect to Cognitive Search
+## Connect to Azure AI Search
 
-For information on using this model from Cognitive Search, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
+For information on using this model from Azure AI Search, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
 
 ## Clean up the resources
 
-If you created the AKS cluster specifically for this example, delete your resources after you're done testing it with Cognitive Search.
+If you created the AKS cluster specifically for this example, delete your resources after you're done testing it with Azure AI Search.
 
 > [!IMPORTANT]
 > Azure bills you based on how long the AKS cluster is deployed. Make sure to clean it up after you are done with it.

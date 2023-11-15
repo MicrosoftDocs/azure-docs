@@ -1,5 +1,5 @@
 ---
-title: "Example: Use the Large-Scale feature - Face"
+title: "Scale to handle more enrolled users - Face"
 titleSuffix: Azure AI services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
@@ -12,10 +12,12 @@ ms.topic: how-to
 ms.date: 05/01/2019
 ms.author: nitinme
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
-# Example: Use the large-scale feature
+# Scale to handle more enrolled users
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
