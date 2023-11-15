@@ -84,7 +84,7 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows a warmup trigger [JavaScript function](functions-reference-node.md) that runs on each new instance when added to your app:
+The following example shows a [JavaScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger1.js" :::
 
@@ -122,7 +122,7 @@ module.exports = async function (warmupContext, context) {
 ::: zone pivot="programming-language-typescript"
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows a warmup trigger [TypeScript function](functions-reference-node.md) that runs on each new instance when added to your app:
+The following example shows a [TypeScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
 
