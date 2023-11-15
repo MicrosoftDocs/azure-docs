@@ -1,6 +1,6 @@
 ---
-title: Azure Confidential virtual machine options on AMD processors
-description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
+title: Confidential VM solutions
+description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD processors backed by SEV-SNP technology and on Intel processors backed by Trust Domain Extensions technology.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mattmcinnes
@@ -9,23 +9,25 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 3/29/2023
+ms.date: 11/15/2023
 ---
 
-# Azure Confidential VM options on AMD
+# Azure Confidential VM options on AMD and Intel
 
-Azure Confidential Computing offers multiple options for confidential VMs that run on AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology.
+Azure Confidential Computing offers multiple options for confidential VMs that run on AMD and Intel processors. AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology. Intel Processors are backed by [Intel Trust Domain Extensions](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) technology.
+
+
 
 ## Sizes
 
-You can create confidential VMs that run on AMD processors in the following size families:
+You can create confidential VMs in the following size families:
 
 | Size family          | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary disk.                  |
-| **DCadsv5-series** | Confidential VM with a local temporary disk.                                        |
-| **ECasv5-series**  | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
-| **ECadsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
+| **DCasv5-series**/**DCesv5-series**| Confidential VM with remote storage only. No local temporary disk.                  |
+| **DCadsv5-series**/**DCedsv5-series** | Confidential VM with a local temporary disk.                                        |
+| **ECasv5-series**/**ECesv5-series** | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
+| **ECadsv5-series**/**ECedsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
@@ -34,7 +36,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential VMs.
 
-To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
+To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
 vm_series='DCASv5'
@@ -78,7 +80,7 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Confidential VMs run on specialized hardware, so you can only resize instances within the same family. For example, if you have a DCasv5-series VM, you can only resize to another DCasv5-series instance type.
+Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. If you would like to resize your VM you must stop it before resizing.
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
@@ -86,7 +88,7 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
-- Ubuntu 20.04 LTS
+- Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
 - Ubuntu 22.04 LTS
 - Windows Server 2019 Datacenter - x64 Gen 2
 - Windows Server 2019 Datacenter Server Core - x64 Gen 2
@@ -119,7 +121,7 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 - VM size (`vmSize`). Choose from the different [confidential VM families and sizes](#sizes).
 - OS image name (`osImageName`). Choose from the [qualified OS images](#disk-encryption).
-- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times.
+- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times. For Intel TDX instances only we also support another security type (`NonPersistedTPM`) which has no VMGS or OS disk encryption.
 
 ## Next steps 
 
