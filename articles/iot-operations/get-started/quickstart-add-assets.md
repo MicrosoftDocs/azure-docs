@@ -25,6 +25,19 @@ _OPC UA servers_ are software applications that communicate with assets. _OPC UA
 
 Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
 
+Install the [mqttui](https://github.com/EdJoPaTo/mqttui) tool on the Ubuntu machine where you're running Kubernetes:
+
+```bash
+wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
+sudo dpkg -i mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
+```
+
+Install the [k9s](https://k9scli.io/) tool on the Ubuntu machine where you're running Kubernetes:
+
+```bash
+sudo snap install k9s
+```
+
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor (preview) pipelines.
@@ -183,9 +196,70 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-## Discover assets by using Akri
+## Verify data is flowing
 
-In the previous section, you saw how to add assets manually. You can also use Akri to automatically discover assets that are available on an OPC UA server.
+To verify data is flowing from your assets by using the **mqttui** tool:
+
+1. Run the following command to make the MQ broker accessible from your local machine:
+
+    ```bash
+    # Create Listener
+    kubectl apply -f - <<EOF
+    apiVersion: mq.iotoperations.azure.com/v1beta1
+    kind: BrokerListener
+    metadata:
+      name: az-mqtt-non-tls-listener
+      namespace: azure-iot-operations
+    spec:
+      brokerRef: broker
+      authenticationEnabled: false
+      authorizationEnabled: false
+      port: 1883
+    EOF
+    ```
+
+1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
+
+    ```bash
+    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:mqtt-1883 -n azure-iot-operations
+    ```
+
+1. In a separate terminal window, run the following command to connect to the MQ broker using the **mqttui** tool:
+
+    ```bash
+    mqttui -b mqtt://127.0.0.1:1883
+    ```
+
+1. Verify that the thermostat asset you added is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
+
+    :::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
+
+    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically.
+
+The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
+
+```json
+{
+    "Timestamp": "2023-08-10T00:54:58.6572007Z", 
+    "MessageType": "ua-deltaframe",
+    "payload": {
+      "temperature": {
+        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
+        "Value": 7109
+      },
+      "Tag 10": {
+        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
+        "Value": 7109
+      }
+    },
+    "DataSetWriterName": "oven",
+    "SequenceNumber": 4660
+}
+```
+
+## Discover OPC UA data sources by using Akri
+
+In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
@@ -219,13 +293,13 @@ spec:
 Run the following command to apply the configuration:
 
 ```bash
-kubectl apply -f opcua-configuration.yaml
+kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
 ```
 
-To verify the configuration, run the following command:
+To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 
 ```bash
-kubectl get akrii -A
+kubectl get akrii -n azure-iot-operations
 ```
 
 The output from the previous command looks like the following example:
@@ -234,6 +308,8 @@ The output from the previous command looks like the following example:
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
 azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
 ```
+
+Now you can use these resources in the local cluster namespace.
 
 ## How did we solve the problem?
 

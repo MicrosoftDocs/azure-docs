@@ -484,6 +484,14 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: function-worker-process
+  title: .NET Azure Functions worker process 
+  prompt: Choose how to run   
+  pivots: 
+  - id: in-proc
+    title: In-process
+  - id: isolated
+    title: Isolated worker process
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -499,7 +507,7 @@ groups:
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
-#Owner: shinardi
+#Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
   prompt: Choose a programming language
