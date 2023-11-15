@@ -22,7 +22,7 @@ Azure confidential computing has two offerings: one for enclave-based workloads 
 
 The enclave-based offering uses [Intel Software Guard Extensions (SGX)](virtual-machine-solutions-sgx.md) to create a protected memory region called Encrypted Protected Cache (EPC) within a VM. This allows customers to run sensitive workloads with strong data protection and privacy guarantees. Azure Confidential computing launched the first enclave-based offering in 2020. 
 
-The lift and shift offering uses [AMD SEV-SNP (GA)](virtual-machine-solutions-amd.md) or [Intel TDX (preview)](tdx-confidential-vm-overview.md) to encrypt the entire memory of a VM. This allows customers to migrate their existing workloads to Azure confidential Compute without any code changes or performance degradation.
+The lift and shift offering uses [AMD SEV-SNP (GA)](virtual-machine-solutions.md) or [Intel TDX (preview)](tdx-confidential-vm-overview.md) to encrypt the entire memory of a VM. This allows customers to migrate their existing workloads to Azure confidential Compute without any code changes or performance degradation.
 
 Many of these underlying technologies are used to deliver [confidential IaaS and PaaS services](overview-azure-products.md) in the Azure platform making it simple for customers to adopt confidential computing in their solutions.
 
