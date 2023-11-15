@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 07/25/2023
+ms.date: 11/15/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -79,6 +79,39 @@ There are two recommended storage deployment patterns for SAP on Oracle on Azure
 2.  Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)
 
 Customers currently running Oracle databases on EXT4 or XFS file systems with LVM are encouraged to move to ASM. There are considerable performance, administration and reliability advantages to running on ASM compared to LVM. ASM reduces complexity, improves supportability and makes administration tasks simpler. This documentation contains links for Oracle DBAs to learn how to install and manage ASM.
+
+Azure provides [multiple storage solutions](../../virtual-machines/disks-types.md).  The table below details the support status 
+
+| Storage type  | Oracle support    | Sector Size     | Oracle Linux 8.x or higher | Windows Server 2019 |
+|--------|------------|--------| ------| -----|
+| **Block Storage Type** | | | | |
+| Premium SSD | Supported | 512e | ASM Recommended. LVM Supported | No support for ASM on Windows |
+| Premium SSD v2 | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| Standard SSD | Not supported | | | |
+| Standard HDD | Not supported | | | |
+| Ultra disk | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| | | | | |
+| **Network Storage Types** | | | | | 
+| Azure NetApp Service (ANF) | Supported | - | Oracle dNFS Required | Not supported |
+| Azure Files NFS | Not supported | | |
+| Azure files SMB | Not supported | | |
+
+Additional considerations that apply list like:
+1. No support for DIRECTIO with 4K Native sector size. **Do not set FILESYSTEMIO_OPTIONS for LVM configurations**
+2. Oracle 19c and higher fully supports 4K Native sector size with both ASM and LVM
+3. Oracle 19c and higher on Linux – when moving from 512e storage to 4K Native storage Log sector sizes must be changed  
+4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”
+5. No support for ASM on Windows platforms
+6. No support for 4K Native sector size for Log volume on Windows platforms.  SSDv2 and Ultra Disk must be changed to 512e via the “Edit Disk” pencil icon in the Azure Portal
+7. 4K Native sector size is supported on Data volume for Windows platforms only
+8. It is recommended to review these MOS articles:
+    - Oracle Linux: File System's Buffer Cache versus Direct I/O (Doc ID 462072.1)
+    - Supporting 4K Sector Disks (Doc ID 1133713.1)
+    - Using 4k Redo Logs on Flash, 4k-Disk and SSD-based Storage (Doc ID 1681266.1)
+    - Things To Consider For Setting filesystemio_options And disk_asynch_io (Doc ID 1987437.1)
+
+In all cases it is recommended to use Oracle ASM on Linux with ASMLib.  Performance, administration, support and configuration is optimized with deployment pattern.  Oracle ASM and Oracle dNFS will in general set the correct parameters or bypass parameters (such as FILESYSTEMIO_OPTIONS) and therefore deliver better performance and reliability. 
+
 
 ### Oracle Automatic Storage Management (ASM)
 
