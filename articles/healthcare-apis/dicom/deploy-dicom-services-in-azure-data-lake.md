@@ -25,7 +25,7 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 > [!NOTE]
 > The data lake storage option is currently only available for newly created instances of the DICOM service.  After GA, there will be options for existing DICOM service instances to migrate.
 
-## Deploy the DICOM service with Data Lake Storage
+## Deploy the DICOM service with Data Lake Storage using the Azure portal
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services workspace**.
 
@@ -65,6 +65,151 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
    The DICOM service overview shows the newly created service.
 
    :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
+
+## Deploy the DICOM service with Data Lake Storage using an ARM template
+
+Use the Azure portal to **Deploy a custom template** and use the sample ARM template to deploy the DICOM service with Data Lake Storage. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "String"
+    },
+    "dicomServiceName": {
+      "type": "String"
+    },
+    "region": {
+      "defaultValue": "westus3",
+      "type": "String"
+    },
+    "storageAccountName": {
+      "type": "String"
+    },
+    "storageAccountSku": {
+      "defaultValue": "Standard_LRS",
+      "type": "String"
+    },
+    "containerName": {
+      "type": "String"
+    }
+  },
+  "variables": {
+    "managedIdentityName": "[concat(parameters('workspacename'), '-', parameters('dicomServiceName'))]",
+    "StorageBlobDataContributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-05-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('region')]",
+      "sku": {
+        "name": "[parameters('storageAccountSku')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot",
+        "supportsHttpsTrafficOnly": true,
+        "isHnsEnabled": true,
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": false,
+        "encryption": {
+          "keySource": "Microsoft.Storage",
+          "requireInfrastructureEncryption": true,
+          "services": {
+            "blob": {
+              "enabled": true
+            },
+            "file": {
+              "enabled": true
+            },
+            "queue": {
+              "enabled": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-05-01",
+      "name": "[format('{0}/default/{1}', parameters('storageAccountName'), parameters('containerName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2023-01-31",
+      "name": "[variables('managedIdentityName')]",
+      "location": "[parameters('region')]"
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2021-04-01-preview",
+      "name": "[guid(resourceGroup().id, parameters('storageAccountName'), variables('managedIdentityName'))]",
+      "location": "[parameters('region')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('managedIdentityName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('StorageBlobDataContributor')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',variables('managedIdentityName'))).principalId]",
+        "principalType": "ServicePrincipal"
+      },
+      "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageAccountName'))]"
+    },
+    {
+      "type": "Microsoft.HealthcareApis/workspaces",
+      "apiVersion": "2023-02-28",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('region')]"
+    },
+    {
+      "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+      "apiVersion": "2023-02-28",
+      "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+      "location": "[parameters('region')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('managedIdentityName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ],
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('managedIdentityName'))]": {}
+        }
+      },
+      "properties": {
+        "storageConfiguration": {
+          "accountName": "[parameters('storageAccountName')]",
+          "containerName": "[parameters('containerName')]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "storageAccountResourceId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    },
+    "containerName": {
+      "type": "string",
+      "value": "[parameters('containerName')]"
+    }
+  }
+}
+```
+
+1. When prompted, select the values for the workspace name, DICOM service name, region, storage account name, storage account SKU, and container name.  
+
+1. Select **Review + create** to deploy the DICOM service.  
 
 ## Next steps
 
