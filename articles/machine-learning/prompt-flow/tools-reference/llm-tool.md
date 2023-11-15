@@ -5,6 +5,8 @@ description: Prompt flow LLM tool enables you to leverage widely used large lang
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

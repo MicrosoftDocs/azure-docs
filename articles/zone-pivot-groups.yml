@@ -484,6 +484,14 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: function-worker-process
+  title: .NET Azure Functions worker process 
+  prompt: Choose how to run   
+  pivots: 
+  - id: in-proc
+    title: In-process
+  - id: isolated
+    title: Isolated worker process
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -499,7 +507,7 @@ groups:
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
-#Owner: shinardi
+#Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
   prompt: Choose a programming language
@@ -929,6 +937,27 @@ groups:
     title: CLI
   - id: programming-language-rest
     title: REST
+- id: programming-languages-ai-services
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
 - id: speech-studio-cli-rest
 # Owner: eur
   title: Programming languages
@@ -949,6 +978,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: azure-ai-studio-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language

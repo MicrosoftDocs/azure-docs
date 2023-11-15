@@ -7,6 +7,8 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/24/2023
 # CustomerIntent: As a database owner, I want to use the native tools in MongoDB Core so that I can migrate an existing dataset to Azure Cosmos DB for MongoDB vCore.

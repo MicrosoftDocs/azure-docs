@@ -5,6 +5,8 @@ description: Use the Docker containers for Document Intelligence on-premises to 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: lajanuar

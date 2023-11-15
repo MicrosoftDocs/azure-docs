@@ -1,12 +1,13 @@
 ---
 title:  Enable guest management
 description: The article provides information about how to enable guest management and includes supported environments and prerequisites. 
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: jyothisuri
-ms.author: jsuri
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 keywords: "VMM, Arc, Azure"
 ---
 

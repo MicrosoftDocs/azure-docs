@@ -6,6 +6,8 @@ description: Explains prefilters and post-filters in vector queries, and how fil
 author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/01/2023
 ---

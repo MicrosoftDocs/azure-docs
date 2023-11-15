@@ -7,10 +7,11 @@ manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.devlang: rest-api
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/28/2022
-
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure AI Search
@@ -114,7 +115,7 @@ Install and set up Postman.
 
 ### Download and install Postman
 
-1. Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
+1. Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/main/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 
 1. Select **File** > **Import** to import the source code into Postman.
 

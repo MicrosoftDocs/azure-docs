@@ -1,8 +1,10 @@
 ---
 title: 'Tutorial: Route MQTT messages to Event Hubs using portal'
-description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.' 
-ms.topic: tutorial 
-ms.custom: build-2023
+description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.'
+ms.topic: tutorial
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan

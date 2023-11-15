@@ -7,6 +7,8 @@ ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 10/09/2023
 ---
@@ -29,9 +31,9 @@ Before you begin, have the following prerequisites in place:
 
 + Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting cached data created during a debug session.
 
-+ [Postman app](https://www.postman.com/downloads/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) to create objects using the REST APIs.
++ [Postman app](https://www.postman.com/downloads/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) to create objects using the REST APIs.
 
-+ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19).
++ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19).
 
 > [!NOTE]
 > This tutorial also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Azure AI services resource.
@@ -40,7 +42,7 @@ Before you begin, have the following prerequisites in place:
 
 This section creates the sample data set in Azure Blob Storage so that the indexer and skillset have content to work with.
 
-1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
+1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
@@ -70,7 +72,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 In this section, you will import a Postman collection containing a "buggy" workflow that you will fix in this tutorial. 
 
-1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
+1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
 
 1. Under **Files** > **New**, select the collection.
 

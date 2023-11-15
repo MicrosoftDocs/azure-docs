@@ -4,7 +4,9 @@ description: Learn how to use Azure PowerShell to configure Azure ExpressRoute D
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: duau
@@ -328,7 +330,7 @@ You can delete the ExpressRoute Direct resource by running the following command
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
 
-### Enable ExpressRoute Direct and circuits in different subscriptions
+## Enable ExpressRoute Direct and circuits in different subscriptions
 
 ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 

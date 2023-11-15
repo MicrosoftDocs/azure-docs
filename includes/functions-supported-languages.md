@@ -4,7 +4,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/01/2023
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 ::: zone pivot="programming-language-csharp"
 The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 

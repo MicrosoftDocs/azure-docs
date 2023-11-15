@@ -1,5 +1,5 @@
 ---
-title: "Load an index (.NET tutorial)" 
+title: "Load an index (.NET tutorial)"
 titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with .NET.
 manager: nitinme
@@ -8,7 +8,12 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet, devx-track-azurepowershell
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: csharp
 ---
 

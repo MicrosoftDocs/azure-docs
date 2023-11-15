@@ -5,9 +5,11 @@ description: Learn how to generate images with Azure OpenAI Service by using the
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords: 
+keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
@@ -103,9 +105,9 @@ from PIL import Image
 import json
 
 client = AzureOpenAI(
-    api_version="2023-12-01-preview",
-    api_base=os.environ['AZURE_OPENAI_ENDPOINT'],
-    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+    api_version="2023-12-01-preview",  
+    api_key=os.environ["AZURE_OPENAI_API_KEY"],  
+    azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT']
 )
 
 result = client.images.generate(
@@ -218,4 +220,3 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 * Learn more in this [Azure OpenAI overview](../overview.md).
 * Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
 * See the [API reference](../reference.md#image-generation)
-

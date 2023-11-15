@@ -5,7 +5,9 @@ ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # What is Azure Event Grid?

@@ -6,9 +6,10 @@ description: OData language overview for filters, select, and order-by for Azure
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/08/2023
-
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure AI Search

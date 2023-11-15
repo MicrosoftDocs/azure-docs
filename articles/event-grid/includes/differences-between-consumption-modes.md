@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 10/16/2023
  ms.author: robece
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 ## Push and pull delivery

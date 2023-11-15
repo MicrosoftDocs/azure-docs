@@ -1,11 +1,13 @@
 ---
 title: "Tutorial: Train a model"
 titleSuffix: Azure Machine Learning
-description: Dive in to the process of training a model  
+description: Dive in to the process of training a model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev

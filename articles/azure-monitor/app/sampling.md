@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 11/15/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---

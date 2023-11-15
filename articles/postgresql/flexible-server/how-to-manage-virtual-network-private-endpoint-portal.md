@@ -1,10 +1,12 @@
 ---
 title: Manage virtual networks - Azure portal with Private Link- Azure Database for PostgreSQL - Flexible Server
 description: Create and manage virtual networks for Azure Database with Private Link for PostgreSQL - Flexible Server using the Azure portal
-author: gennadNY 
+author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/23/2023
 ---
@@ -28,7 +30,7 @@ In this article, we'll focus on creation of PostgreSQL server with **Public acce
 
 To add a flexible server to the  virtual network using Private Link, you need:
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your flexible server. The virtual network shouldn't have any resource lock set at the virtual network or subnet level, as locks might interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your virtual network and all subnets before adding  server to a virtual network, and you can set it back after server creation.
-   
+- Add [**PostgreSQL Private Endpoint capability** preview feature to your subscription](../../azure-resource-manager/management/preview-features.md). 
 
 ## Create an Azure Database for PostgreSQL - Flexible Server with Private Endpoint
 

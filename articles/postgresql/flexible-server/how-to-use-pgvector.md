@@ -6,7 +6,9 @@ author: AvijitkGupta
 ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/03/2023
 ---

@@ -316,6 +316,8 @@
         href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
+      - name: NCads_H100_v5-series
+        href: ncads-h100-v5.md
       - name: NCv2-series
         href: ncv2-series.md
       - name: NCv3-series
@@ -334,7 +336,7 @@
         href: ndv2-series.md
       - name: NDm-H100-v5-series
         href: nd-h100-v5-series.md
-      - name: NGads V620-series (preview)
+      - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
@@ -794,6 +796,9 @@
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: /azure/architecture/guide/spot/spot-eviction
       maintainContext: true
+  - name: Azure Boost
+    displayname: Boost, Azure Boost, boost vm, boost virtual machine
+    href: ../azure-boost/overview.md
   - name: Azure Hybrid Benefit
     items:
     - name: Linux

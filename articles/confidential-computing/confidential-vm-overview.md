@@ -5,6 +5,8 @@ author: mamccrea
 ms.author: mmcrey
 ms.service: virtual-machines
 ms.subservice: confidential-computing
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
 ---
@@ -32,15 +34,24 @@ Some of the benefits of confidential VMs include:
 
 Azure confidential VMs offer a new and enhanced disk encryption scheme. This scheme protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If the compute platform is missing critical settings for your VM's isolation, then during boot [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) won't attest to the platform's health, and will prevent the VM from starting. 
+If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](../attestation/index.yml) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
 
 Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
 
-- A confidential VM without Confidential OS disk encryption before VM deployment.
 - A confidential VM with Confidential OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
+- A confidential VM without Confidential OS disk encryption before VM deployment.
 
-For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected. 
-With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot. 
+For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected.
+
+With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot.
+
+## Confidential temp disk encryption
+
+You can also extend the protection of confidential disk encryption to the temp disk. We enable this by leveraging an in-VM symmetric key encryption technology, after the disk is attached to the CVM.
+
+The temp disk provides fast, local, and short-term storage for applications and processes. It is intended to only store data such as page files, log files, cached data, and other types of temporary data. Temp disks on CVMs contain the page file, also known as swap file, that can contain sensitive data. Without encryption, data on these disks may be accessible to the host. After enabling this feature, data on the temp disks is no longer exposed to the host.
+
+This feature can be enabled through an opt-in process. To learn more, read [the documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 ### Encryption pricing differences
 

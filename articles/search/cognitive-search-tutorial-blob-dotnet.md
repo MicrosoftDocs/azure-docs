@@ -1,7 +1,7 @@
 ---
 title: 'C# tutorial: AI on Azure blobs'
 titleSuffix: Azure AI Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure AI Search .NET SDK. 
+description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure AI Search .NET SDK.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -9,7 +9,10 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
@@ -40,7 +43,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 * [Azure.Search.Documents 11.x NuGet package](https://www.nuget.org/packages/Azure.Search.Documents) 
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure AI Search](https://azure.microsoft.com/services/search/)
-* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media)
+* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
 
 > [!Note]
 > You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -49,7 +52,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
-1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) and copy them to your local computer. 
+1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) and copy them to your local computer. 
 
 1. Next, get the source code for this tutorial. Source code is in the **tutorial-ai-enrichment/v11** folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
 

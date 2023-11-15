@@ -8,7 +8,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/20/2022
-ms.custom: subject-monitoring
+ms.custom:
+  - subject-monitoring
+  - ignite-2023
 ---
 
 # Monitoring Azure AI Search

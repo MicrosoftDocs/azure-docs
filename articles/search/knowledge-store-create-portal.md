@@ -8,7 +8,9 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/29/2023
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - ignite-2023
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
@@ -29,7 +31,7 @@ Before you begin, have the following prerequisites in place:
 
 + Sample data hosted in Azure Storage:
 
-  [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
+  [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
   [Upload the file to a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) in Azure Storage.
 

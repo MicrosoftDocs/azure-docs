@@ -40,6 +40,8 @@ Azure Managed Grafana has the following known limitations:
   | Team sync with Microsoft Entra ID | &#x274C; | &#x274C; |
   | Enterprise plugins | &#x274C; | &#x274C; |
 
+* The *Current User* authentication option for Azure Data Explorer triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect Azure Data Explorer to the database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method. Rollout of this feature is in progress and will be complete in all regions by the end of 2023.
+
 ## Quotas
 
 The following quotas apply to the Essential (preview) and Standard plans.

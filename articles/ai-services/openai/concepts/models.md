@@ -99,8 +99,8 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) |
 |---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Canada East <br> France Central <br> Sweden Central <br> Switzerland North |
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> Japan East <br> UK South |
+| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North |
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South |
 
 ### GPT-3.5 models
 
@@ -133,7 +133,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
@@ -141,6 +141,7 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1000 |
+| dalle3 | Sweden Central | 4000 |
 
 ### Fine-tuning models (Preview)
 

@@ -6,7 +6,9 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: rogarana
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Use the Azure portal to enable end-to-end encryption using encryption at host
