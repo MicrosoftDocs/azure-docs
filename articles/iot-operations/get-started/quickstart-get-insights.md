@@ -15,7 +15,9 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you create a Power BI report to capture insights from your OPC UA data that you sent to the Microsoft Fabric OneLake lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
+In this quickstart, you populate a Power BI report to capture insights from your OPC UA data that you sent to a Microsoft Fabric lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
+
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data. 
 
 ## Prerequisites
 
@@ -68,7 +70,7 @@ These steps are for Power BI Desktop, so open that application now.
 
 ### Import template and load Asset Registry data
 
-1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure/azure-iot-operations/tree/main/samples/insightsTemplate.pbit).
+1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/insightsTemplate.pbit).
 1. Open a new instance of Power BI Desktop.
 1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
 1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  

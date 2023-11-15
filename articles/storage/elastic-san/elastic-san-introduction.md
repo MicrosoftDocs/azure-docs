@@ -75,7 +75,7 @@ The status of items in this table might change over time.
 | Private endpoints |	✔️ |
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Soft delete | ⛔  |
-| Snapshots | ⛔ |
+| Snapshots | ✔️ |
 
 ## Next steps
 

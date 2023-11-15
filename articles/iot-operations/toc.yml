@@ -67,7 +67,7 @@ items:
       items:
       - name: Overview
         href: manage-mqtt-connectivity/overview-iot-mq.md
-      - name: Configure availability and scale
+      - name: Configure core MQTT broker settings
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Secure MQTT communication endpoints
         href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
@@ -173,9 +173,7 @@ items:
         href: manage-layered-network/howto-deploy-aks-layered-network.md
       - name: Deploy Azure IoT Operations in isolated network
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
-      - name: Configure MQ in an isolated network
-        href: manage-layered-network/howto-configure-mq-layered-network.md
-      - name: Concepts
+      - name: How to
         items:
         - name: Create sample network environment
           href: manage-layered-network/howto-configure-layered-network.md
@@ -184,12 +182,23 @@ items:
         - name: Configure L3 cluster
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
 
+    - name: Send, view, and analyze data
+      items:
+      - name: Build a real-time dashboard in Microsoft Fabric 
+        href: send-view-analyze-data/tutorial-real-time-dashboard-fabric.md
+      - name: Upload MQTT data to a lakehouse
+        href: send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md
+      - name: Build event-driven apps with Dapr
+        href: send-view-analyze-data/tutorial-event-driven-with-dapr.md
+      - name: Bridge MQTT data between IoT MQ and Azure Event Grid
+        href: send-view-analyze-data/tutorial-connect-event-grid.md
+
     - name: Developer guide
       items:
-      - name: About the MQ state store protocol 
-        href: develop/concept-about-state-store-protocol.md
       - name: About distributed apps
         href: develop/concept-about-distributed-apps.md
+      - name: About the MQ state store protocol 
+        href: develop/concept-about-state-store-protocol.md
       - name: Develop Dapr apps
         href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps
@@ -201,7 +210,7 @@ items:
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
       - name: Azure IoT Operations CLI
-        href: reference/about-iot-operations-cli.md
+        href: /cli/azure/iot/ops
       - name: Available metrics for observability
         items:
         - name: Azure IoT MQ
