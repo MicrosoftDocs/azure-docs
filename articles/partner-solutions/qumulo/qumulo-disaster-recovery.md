@@ -10,7 +10,7 @@ ms.date: 11/13/2003
 
 # What is Azure Native Qumulo Scalable File Service for disaster recovery?
 
-Azure Native Qumulo Scalable File Service (ANQ) provides high-performance, exabyte-scale unstructured-data cloud storage for disaster recovery. This article describes the options for deploying an Azure-based disaster recovery solution with Azure Native Qumulo Scalable File Service.
+Azure Native Qumulo (ANQ) Scalable File Service provides high-performance, exabyte-scale unstructured-data cloud storage for disaster recovery. This article describes the options for deploying an Azure-based disaster recovery solution with Azure Native Qumulo Scalable File Service.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The ANQ solution can be deployed in three ways:
 
 In this setup, ANQ for disaster recovery is deployed into a single Azure region, with data replicating from the primary Qumulo storage instance to the ANQ service through your own Azure VPN Gateway or ExpressRoute connection.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud-2.png":::
+:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-premises-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-premises-cloud-2.png":::
 
 ### ANQ disaster recovery - between Azure regions
 

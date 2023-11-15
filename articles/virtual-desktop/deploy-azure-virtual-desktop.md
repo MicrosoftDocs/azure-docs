@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/25/2023
+ms.date: 11/01/2023
 ---
 
 # Deploy Azure Virtual Desktop

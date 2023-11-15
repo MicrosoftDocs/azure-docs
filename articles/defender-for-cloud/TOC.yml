@@ -207,6 +207,11 @@
           href: concept-cloud-security-posture-management.md
         - name: Enable Permissions Management (Preview)
           href: enable-permissions-management.md
+        - name: Integrations
+          items:  
+            - name: ServiceNow integration
+              displayName: CSPM, cloud security, posture, management, ServiceNow
+              href: integration-servicenow.md
         - name: Microsoft cloud security benchmark (MCSB)
           displayName: mcsb, azure, security, benchmark
           href: concept-regulatory-compliance.md
@@ -434,6 +439,45 @@
       href: how-to-use-the-classic-connector.md
 - name: Protect your workloads
   items:
+  - name: Settings & monitoring
+    items:
+    - name: Overview
+      displayName: auto, provisioning, auto-provisioning, Settings & monitoring
+      href: monitoring-components.md
+    - name: Azure Monitor Agent in Defender for Cloud
+      displayName: AMA, Azure monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
+    - name: Working with the Log Analytics agent
+      displayName: log analytics, agent
+      href: working-with-log-analytics-agent.md
+  - name: Defender for APIs
+    items: 
+    - name: About Defender for APIs
+      href: defender-for-apis-introduction.md
+    - name: Support and prerequisites
+      href: defender-for-apis-prepare.md
+    - name: Protect your APIs with Defender for APIs (Preview)
+      href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
+    - name: Investigate findings, recommendations, alerts
+      href: defender-for-apis-posture.md
+    - name: Manage Defender for APIs
+      href: defender-for-apis-manage.md
+    - name: Common questions about Defender for APIs
+      displayName: common questions, api, apis, faq, frequently asked questions
+      href: faq-defender-for-apis.yml
+    - name: Partners
+      items:
+      - name: Partner applications
+        href: defender-partner-applications.md
+      - name: Onboard 42Crunch (preview)
+        href: onboarding-guide-42crunch.md
+  - name: Defender for Servers
+    displayName: hybrid, arc, Defender for Servers
+    items:
+    - name: Plan Defender for Servers deployment
     - name: Settings & monitoring
       items:
         - name: Overview

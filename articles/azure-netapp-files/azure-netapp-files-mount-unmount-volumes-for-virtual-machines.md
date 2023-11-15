@@ -32,6 +32,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
   For example, if the NFS version is NFSv4.1: 
   `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT` 
       * If you use NFSv4.1 and your configuration requires using VMs with the same host names (for example, in a DR test), refer to [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
+      * In Azure NetApp Files, NFSv4.2 is enabled when NFSv4.1 is used, however NFSv4.2 is officially unsupported. If you don’t specify NFSv4.1 in the client’s mount options (`vers=4.1`), the client may negotiate to the highest allowed NFS version, meaning the mount is out of support compliance.
 4. If you want the volume mounted automatically when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
   For example: `$ANFIP:/$FILEPATH /$MOUNTPOINT nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
     * `$ANFIP` is the IP address of the Azure NetApp Files volume found in the volume properties menu

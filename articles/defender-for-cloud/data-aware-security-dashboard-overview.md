@@ -2,7 +2,7 @@
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 ---
 
 # Data security dashboard
@@ -70,12 +70,6 @@ The **Closer look** section provides a more detailed view into the sensitive dat
 You can select the **Manage data sensitivity settings** to get to the **Data sensitivity** page.  The **Data sensitivity** page allows you to manage the data sensitivity settings of cloud resources at the tenant level, based on selective info types and labels originating from the Purview compliance portal, and [customize sensitivity settings](data-sensitivity-settings.md) such as creating your own customized info types and labels, and setting sensitivity label thresholds.
 
 :::image type="content" source="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png" alt-text="Screenshot that shows where to access managing data sensitivity settings." lightbox="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png":::
-
-### Data resources security status
-
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days).
-
-:::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
 
 ## Next steps
 
