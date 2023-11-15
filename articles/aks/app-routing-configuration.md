@@ -1,13 +1,13 @@
 ---
-title: Customize the application routing add-on for Azure Kubernetes Service (AKS)
-description: Understand what advanced configuration options are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Use an Azure DNS zone with SSL/TLS certificates from Azure Key Vault
+description: Understand what Azure DNS zone and Azure Key Vault configuration options are supported with the application routing add-on for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/03/2023
 ---
 
-#  Advanced Ingress configurations with the application routing add-on
+#  Use an Azure DNS zone with SSL/TLS certificates from Azure Key Vault with the application routing add-on
 
 An Ingress is an API object that defines rules, which allow external access to services in an Azure Kubernetes Service (AKS) cluster. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
@@ -26,6 +26,7 @@ The application routing add-on with nginx delivers the following:
 - An AKS cluster with the [application routing add-on][app-routing-add-on-basic-configuration].
 - Azure Key Vault if you want to configure SSL termination and store certificates in the vault hosted in Azure.
 - Azure DNS if you want to configure public and private zone management and host them in Azure.
+- To attach an Azure Key Vault or Azure DNS Zone, you need the [**Owner**][rbac-owner], [**Azure account administrator**][rbac-classic], or [**Azure co-administrator**][rbac-classic] role on your Azure subscription.
 
 ## Connect to your AKS cluster
 
@@ -37,7 +38,7 @@ Configure kubectl to connect to your Kubernetes cluster using the [`az aks get-c
 az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 ```
 
-## Terminate HTTPS traffic
+## Terminate HTTPS traffic with certificates from Azure Key Vault
 
 To enable support for HTTPS traffic, see the following prerequisites:
   
@@ -47,14 +48,6 @@ To enable support for HTTPS traffic, see the following prerequisites:
     > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
 
 * An SSL certificate. If you don't have one, you can [create a certificate][create-and-export-a-self-signed-ssl-certificate].
-
-### Enable key vault secrets provider
-
-To enable application routing on your cluster, use the [`az aks enable-addons`][az-aks-enable-addons] command specifying `azure-keyvault-secrets-provider` with the `--addons` argument and the `--enable-secret-rotation` argument.
-
-```azurecli-interactive
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider --enable-secret-rotation
-```
 
 ### Create an Azure Key Vault to store the certificate
 
@@ -69,6 +62,9 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 
 ### Create and export a self-signed SSL certificate
 
+> [!NOTE]
+> If you already have a certificate, you can skip this step.
+> 
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
     ```bash
@@ -89,78 +85,60 @@ Import the SSL certificate into Azure Key Vault using the [`az keyvault certific
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
 ```
 
-### Retrieve the add-on's managed identity object ID
+### Enable the Azure Key Vault integration
 
-You use the managed identity in the next steps to grant permissions to manage the Azure DNS zone and retrieve secrets and certificates from the Azure Key Vault.
+On a cluster with the application routing add-on enabled, use the [`az aks approuting update`][az-aks-approuting-update] command using the `--enable-kv` and  `--attach-kv` arguments to enable the Azure Key Vault provider for Secrets Store CSI Driver and apply the required role assignments to. Azure Key Vault offers [two authorization systems][authorization-systems]: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. The `--attach-kv` operation will choose the appropriate access model to use.
 
-Get the add-on's managed identity object ID using the [`az aks show`][az-aks-show] command and setting the output to a variable named `MANAGEDIDENTITY_OBJECTID`.
+ > [!NOTE]
+    > The `az aks approuting update --attach-kv` command uses the permissions of the user running the command to create the Azure Key Vault role assignment. This role is assigned to the add-on's managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
 
-```bash
-# Provide values for your environment
-RGNAME=<ResourceGroupName>
-CLUSTERNAME=<ClusterName>
-MANAGEDIDENTITY_OBJECTID=$(az aks show -g ${RGNAME} -n ${CLUSTERNAME} --query ingressProfile.webAppRouting.identity.objectId -o tsv)
+Retrieve the Azure Key Vault resource ID.
+
+```
+az keyvault show --name <KeyVaultName> --query "id" --output tsv
 ```
 
-### Grant the add-on permissions to retrieve certificates from Azure Key Vault
-
-The application routing add-on creates a user-created managed identity in the cluster resource group. You need to grant permissions to the managed identity so it can retrieve SSL certificates from the Azure Key Vault.
-
-Azure Key Vault offers [two authorization systems][authorization-systems]: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. To find out which system your key vault is using, you can query the `enableRbacAuthorization` property.
+Then update the app routing add-on to enable the Azure Key Vault secret store CSI driver and apply the role assignment.
 
 ```azurecli-interactive
-az keyvault show --name <KeyVaultName> --query properties.enableRbacAuthorization
+az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --attach-kv <KeyVaultId>
 ```
 
-If Azure RBAC authorization is enabled for your key vault, you should configure permissions using Azure RBAC. Add the `Key Vault Secrets User` role assignment to the key vault by running the following commands.
-
-```azurecli-interactive
-KEYVAULTID=$(az keyvault show --name <KeyVaultName> --query "id" --output tsv)
-az role assignment create --role "Key Vault Secrets User" --assignee $MANAGEDIDENTITY_OBJECTID --scope $KEYVAULTID
-```
-
-If Azure RBAC authorization isn't enabled for your key vault, you should configure permissions using the access policy model. Grant `GET` permissions for the application routing add-on to retrieve certificates from Azure Key Vault using the [`az keyvault set-policy`][az-keyvault-set-policy] command.
-
-```azurecli-interactive
-az keyvault set-policy --name <KeyVaultName> --object-id $MANAGEDIDENTITY_OBJECTID --secret-permissions get --certificate-permissions get
-```
-
-## Configure the add-on to use Azure DNS to manage DNS zones
+## Enable the Azure DNS integration
 
 To enable support for DNS zones, see the following prerequisites:
 
 * The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
 
-   > [!NOTE]
-   > If you plan to use Azure DNS, you need to update the add-on to include the `--dns-zone-resource-ids` argument. You can pass a comma separated list of multiple public or private Azure DNS zone resource IDs.
-
 ### Create a global Azure DNS zone
 
+> [!NOTE]
+> If you already have an Azure DNS Zone, you can skip this step.
+> 
 1. Create an Azure DNS zone using the [`az network dns zone create`][az-network-dns-zone-create] command.
 
     ```azurecli-interactive
     az network dns zone create -g <ResourceGroupName> -n <ZoneName>
     ```
 
+### Attach Azure DNS zone to the application routing add-on
+
+ > [!NOTE]
+    > The `az aks approuting zone add` command uses the permissions of the user running the command to create the Azure DNS Zone role assignment. This role is assigned to the add-on's managed identity. For more   information on AKS managed identities, see [Summary of managed identities][summary-msi].
+> 
 1. Retrieve the resource ID for the DNS zone using the [`az network dns zone show`][az-network-dns-zone-show] command and set the output to a variable named *ZONEID*.
 
     ```azurecli-interactive
     ZONEID=$(az network dns zone show -g <ResourceGroupName> -n <ZoneName> --query "id" --output tsv)
     ```
 
-1. Grant **DNS Zone Contributor** permissions on the DNS zone using the [`az role assignment create`][az-role-assignment-create] command.
+1. Update the add-on to enable the integration with Azure DNS using the [`az aks approuting zone add`][az-aks-approuting-zone-add] command. You can pass a comma-separated list of DNZ zone resource IDs.
 
     ```azurecli-interactive
-    az role assignment create --role "DNS Zone Contributor" --assignee $MANAGEDIDENTITY_OBJECTID --scope $ZONEID
+    az aks approuting zone add -g <ResourceGroupName> -n <ClusterName> --ids=$ZONEID --attach-zones
     ```
 
-1. Update the add-on to enable the integration with Azure DNS and install the **external-dns** controller using the [`az aks addon update`][az-aks-addon-update] command.
-
-    ```azurecli-interactive
-    az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_application_routing --dns-zone-resource-ids=$ZONEID
-    ```
-
-## Create the Ingress
+## Create the Ingress that uses a host name and a certificate from Azure Key Vault
 
 The application routing add-on creates an Ingress class on the cluster named *webapprouting.kubernetes.azure.com*. When you create an Ingress object with this class, it activates the add-on.
 
@@ -188,7 +166,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
       ingressClassName: webapprouting.kubernetes.azure.com
       rules:
      - host: <Hostname>
-        http:
+       http:
           paths:
           - backend:
               service:
@@ -239,12 +217,17 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
+[rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md
 [secret-store-csi-provider]: csi-secrets-store-driver.md
 [csi-secrets-store-autorotation]: csi-secrets-store-configuration-options.md#enable-and-disable-auto-rotation
 [az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
 [azure-key-vault-overview]: ../key-vault/general/overview.md
 [az-aks-addon-update]: /cli/azure/aks/addon#az-aks-addon-update
+[az-aks-approuting-update]: /cli/azure/aks/approuting#az-aks-approuting-update
+[az-aks-approuting-zone]: /cli/azure/aks/approuting/zone
 [az-network-dns-zone-show]: /cli/azure/network/dns/zone#az-network-dns-zone-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-network-dns-zone-create]: /cli/azure/network/dns/zone#az-network-dns-zone-create
