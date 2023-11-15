@@ -32,6 +32,9 @@ When upgrading images, VMs in Azure Batch Pool will follow roughly the same work
 
 However, there will be a difference for Batch to handle upgrades if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process. Thus, We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* feature.
 
+> [!Note]
+> If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2023-11-01 or later. If you are using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
+
 ## Supported OS images
 Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
 
