@@ -1,9 +1,11 @@
 ---
-title: "Overview of Azure Kubernetes Fleet Manager (preview)"
+title: "Overview of Azure Kubernetes Fleet Manager"
 services: kubernetes-fleet
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022
-ms.date: 06/12/2023
+ms.custom:
+  - ignite-2022
+  - ignite-2023
+ms.date: 11/06/2023
 ms.topic: overview
 author: shashankbarsin
 ms.author: shasb
@@ -11,7 +13,7 @@ description: "This article provides an overview of Azure Kubernetes Fleet Manage
 keywords: "Kubernetes, Azure, multi-cluster, multi, containers"
 ---
 
-# What is Azure Kubernetes Fleet Manager (preview)?
+# What is Azure Kubernetes Fleet Manager?
 
 Azure Kubernetes Fleet Manager (Fleet) enables multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters. A Fleet resource creates a cluster that can be used to manage other member clusters.
 
@@ -23,9 +25,9 @@ Fleet supports the following scenarios:
 
 * Load balance incoming L4 traffic across service endpoints on multiple clusters
 
-* Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
+* Export a service from one member cluster to the Fleet resource. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any Fleet resource-scoped load balancer) can consume.
 
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
+* Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
 
 ## Next steps
 

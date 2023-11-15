@@ -213,8 +213,12 @@
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
   - name: Plan and manage costs
     href: plan-manage-cost.md
+  - name: Rate limit for ExpressRoute Direct circuit
+    href: rate-limit.md
   - name: Migrate to a new circuit
     href: circuit-migration.md
+  - name: Migrate to an AZ gateway
+    href: gateway-migration.md
   - name: Moving from classic to Resource Manager
     items:
     - name: Move a circuit from classic to Resource Manager
