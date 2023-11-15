@@ -1,33 +1,21 @@
 ---
-title: "Detect jailbreak attacks"
+title: "Quickstart: Detect jailbreak risk (preview)"
 titleSuffix: Azure AI services
-description: Learn how to detect large language model jailbreak attacks and mitigate risk with Azure AI Content Safety.
+description: Learn how to detect large language model jailbreak attack risks and mitigate risk with Azure AI Content Safety.
 services: ai-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: 
-ms.topic: how-to
-ms.date: 10/30/2023
+ms.topic: quickstart
+ms.date: 11/07/2023
 ms.author: pafarley
 keywords: 
 ---
 
-# Jailbreak Attack Detection (Public Preview)
-This new feature focuses on detecting Jailbreak Attacks, which pose significant risks to Large Language Model (LLM) deployments.  
+# Quickstart: Detect jailbreak risk (preview)
 
-## What is a Jailbreak Attack and why it is important to protect your Generative AI-powered product against them? 
-A Jailbreak Attack, also known as a User Prompt Injection Attack (UPIA), is an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors. These attacks can lead to the LLM generating inappropriate content or performing actions restricted by System Prompt or RHLF.  
-
-As AI technology becomes increasingly integrated into our daily lives, it is crucial to ensure its responsible and secure use. Protecting LLM deployments against Jailbreak Attacks helps maintain the integrity and safety of AI powered products, preventing potential misuse by malicious actors. 
-
-The Azure AI Platform Responsible AI team has developed a state-of-the-art Jailbreak Attack Detection model that identifies anomalies in user prompts as potential Jailbreak Attacks. The model was developed using multiple data sources like intel sourced and curated by the Bing DIRT team. 
-
-This powerful tool enhances the security of LLM deployments by detecting Jailbreak Attacks based on their patterns and intents, rather than the outcomes or the harmful completions that might follow. Attack Classes might include user prompts that present requests to the model to change or bypass rules in the System Message, role play, encoding attacks and more.  
-
-This new filter complements existing content filters and safety mechanisms that prevent AI systems from responding to inappropriate or dangerous requests. Please familiarize yourself with the documentation to better understand the risks associated with Jailbreak Attacks and the benefits of Jailbreak Attack Detection.  
-
-
+Follow this guide to use the Azure AI Content Safety jailbreak risk detection APIs to detect the risk of jailbreak attacks in your text content. For an overview of jailbreak risks, see the [jailbreak risk detection](./concepts/jailbreak-detection.md) guide.
 
 ## Prerequisites
 
@@ -36,7 +24,7 @@ This new filter complements existing content filters and safety mechanisms that 
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
-## Analyze Text Content for Jailbreak Risk Detection
+## Analyze text content for jailbreak risk
 
 The following section walks through a sample request with cURL. Paste the command below into a text editor, and make the following changes.
 
@@ -46,7 +34,8 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **1K** characters. 
+    > The default maximum length for text submissions is **1K** characters. Jailbreak risk detection is meant to be run on LLM prompts, not completions. 
+
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:detectJailbreak?api-version=2023-10-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
@@ -58,30 +47,21 @@ curl --location --request POST '<endpoint>/contentsafety/text:detectJailbreak?ap
 
 The below fields must be included in the url:
 
-| Name      |Required  |  Description | Type   |
+| Name      |Required?  |  Description | Type   |
 | :------- |-------- |:--------------- | ------ |
 | **API Version** |Required |This is the API version to be checked. The current version is: api-version=2023-10-15-preview. Example: `<endpoint>/contentsafety/text:detectJailbreak?api-version=2023-10-15-preview` | String |
 
 The parameters in the request body are defined in this table:
 
-| Name        | Required     | Description  | Type    |
+| Name        | Required?     | Description  | Type    |
 | :---------- | ----------- | :------------ | ------- |
 | **text**    | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
 
-See the following sample request body:
-
-```json
-{
-  "text": "string"
-}
-```
-
 Open a command prompt window and run the cURL command.
-
 
 ### Interpret the API response
 
-You should see the jailbreak detection results displayed as JSON data in the console output. For example:
+You should see the jailbreak risk detection results displayed as JSON data in the console output. For example:
 
 ```json
 {
@@ -96,4 +76,18 @@ The JSON fields in the output are defined here:
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
 | **jailbreakAnalysis**   | Each output class that the API predicts.  | String |
-| **detected** | A Jailbreak Attack was detected or not.	  | Boolean |
+| **detected** | Whether a jailbreak risk was detected or not.	  | Boolean |
+
+## Clean up resources
+
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
+
+## Next steps
+
+Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+
+> [!div class="nextstepaction"]
+> [Content Safety Studio quickstart](./studio-quickstart.md)
