@@ -39,7 +39,7 @@ The following set of commands are provided for a few popular operating systems.
 To install the .NET SDK, Azure CLI, and Azure AI CLI, run the following commands in a PowerShell terminal. Skip any that you don't need. 
 
 ```bash
-dotnet tool install --global Microsoft.Azure.AI.CLI
+dotnet tool install --prerelease --global Azure.AI.CLI
 ```
 
 # [Linux](#tab/linux)
@@ -56,7 +56,7 @@ On macOS, you can use *homebrew* and *wget*. For example, run the following comm
 
 
 ```bash
-dotnet tool install --global Microsoft.Azure.AI.CLI
+dotnet tool install --prerelease --global Azure.AI.CLI
 ```
 
 ---
