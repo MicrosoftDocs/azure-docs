@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/15/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
 
-# Embedded Speech (preview)
+# Embedded Speech
 
 Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
 
