@@ -43,8 +43,8 @@ Serverless compute can be used to fine-tune models in the model catalog such as 
 ## How to use serverless compute
 
 * You can finetune foundation models such as LLAMA 2 using notebooks as shown below:
-  *  [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/bd799ecf31b60cec650e3b0ea2ea790fe0c99c4e/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
-  *  [Fine Tune LLAMA 2 using multiple nodes](https://github.com/Azure/azureml-examples/blob/84ddcf23566038dfbb270da81c5b34b6e0fb3e5d/sdk/python/foundation-models/system/finetune/Llama-notebooks/multinode-text-classification/emotion-detection-llama-multinode-serverless.ipynb)
+  *  [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
+  *  [Fine Tune LLAMA 2 using multiple nodes](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/multinode-text-classification/emotion-detection-llama-multinode-serverless.ipynb)
 * When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  With serverless, you can skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a job, the job runs on serverless compute. Omit the compute name in your CLI or SDK jobs to use serverless compute in the following job types and optionally provide resources a job would need in terms of instance count and instance type:
 
   * Command jobs, including interactive jobs and distributed training
@@ -388,4 +388,4 @@ You can also set serverless compute as the default compute in Designer.
 View more examples of training with serverless compute at:-
 * [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
 * [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
-* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/bd799ecf31b60cec650e3b0ea2ea790fe0c99c4e/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
+* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
