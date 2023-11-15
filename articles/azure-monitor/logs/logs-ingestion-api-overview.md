@@ -15,7 +15,7 @@ The application sends data to a [data collection endpoint (DCE)](../essentials/d
 
 The data sent by your application to the API must be formatted in JSON and match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure. You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
-:::image type="content" source="media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="media/media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows an overview of logs ingestion API." border="false":::
+:::image type="content" source="../essentials/media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="../essentials/media/media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows an overview of logs ingestion API." border="false":::
 
 
 ## Supported tables
@@ -61,7 +61,7 @@ If you're sending data to a table that already exists, then you must create the 
 
 
 ## Client libraries
-In addition to making a REST API call, you can use the following client libraries to send data to the Logs ingestion API. The libraries require the same components described in [Configuration](logs-ingestion-api-configure.md). For examples using each of these libraries, see [Sample code to send data to Azure Monitor using Logs ingestion API](../logs/tutorial-logs-ingestion-code.md).
+In addition to making a REST API call, you can use the following client libraries to send data to the Logs ingestion API. The libraries require the same components described in [Configuration](#configuration). For examples using each of these libraries, see [Sample code to send data to Azure Monitor using Logs ingestion API](../logs/tutorial-logs-ingestion-code.md).
 
 - [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme)
 - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest)
@@ -72,9 +72,9 @@ In addition to making a REST API call, you can use the following client librarie
 ## REST API call
 To send data to Azure Monitor with a REST API call, make a POST call over HTTP. Details required for this call are described in this section.
 
-**Endpoint URI**
+### Endpoint URI
 
-The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-overview?tabs=portal#view-data-collection-rules). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
+The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-overview.md?tabs=portal#view-data-collection-rules). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
 {Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
@@ -86,19 +86,19 @@ For example:
 https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2021-11-01-preview
 ```
 
-**Headers**
+### Headers
 
 The following table describes that headers for your API call.
 
 
 | Header | Required? |Description |
 |:---|:---|:---|
-| Authorization     | Yes | Bearer token obtained through the client credentials flow. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for sample code to generate the bearer token. Use the token audience value for your cloud:<br><br>Azure public cloud - `https://monitor.azure.com`<br>Microsoft Azure operated by 21Vianet cloud - `https://monitor.azure.cn`<br>Azure US Government cloud - `https://monitor.azure.us` |
+| Authorization     | Yes | Bearer token obtained through the client credentials flow. Use the token audience value for your cloud:<br><br>Azure public cloud - `https://monitor.azure.com`<br>Microsoft Azure operated by 21Vianet cloud - `https://monitor.azure.cn`<br>Azure US Government cloud - `https://monitor.azure.us` |
 | Content-Type      | Yes | `application/json`   |
 | Content-Encoding  | No  | `gzip` |
 | x-ms-client-request-id | No | String-formatted GUID. This is a request ID that can be used by Microsoft for any troubleshooting purposes.  |
 
-**Body**
+### Body
 
 The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
 
@@ -111,6 +111,9 @@ For example:
     "Column02": "Value02"
 }
 ```
+### Example
+
+See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for an example of the API call using PowerShell.
 
 ## Limits and restrictions
 
