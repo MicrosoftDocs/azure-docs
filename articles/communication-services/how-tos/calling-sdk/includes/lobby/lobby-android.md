@@ -10,7 +10,7 @@ ms.author: tinaharter
 Object `CallLobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `participants` collection and subscribe the `addOnLobbyParticipantsUpdatedListener` event listener to receive notification.
 
 ### Get CallLobby object
-The first thing is to get the `Lobby` object  from the call instance: 
+The first thing is to get the `CallLobby` object  from the call instance: 
 ```java
 private CallLobby callLobby;
 callLobby = call.getCallLobby();
@@ -35,8 +35,8 @@ identifiers.add(new CommunicationUserIdentifier("<USER_ID>"));
 identifiers.add(new MicrosoftTeamsUserIdentifier("<USER_ID>"));
 ```
 
-### Admit participant from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams MeetingLobby. Method `admit` accepts identifiers collection as input, and it returns `AdmitParticipantsResult` object as result.
+### Admit participant from CallLobby
+CallLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams CallLobby. Method `admit` accepts identifiers collection as input, and it returns `AdmitParticipantsResult` object as result.
 
 ```java
 AdmitParticipantsResult result = this.callLobby.admit(identifiers).get();
@@ -44,18 +44,18 @@ String failedParticipants = this.convertListToString("", result.getFailedPartici
 Log.i(LOBBY_TAG, String.format("Admit result: success count: %s, failure count: %s, failure participants: %s", admitResult.getSuccessCount(), admitResult.getFailedCount(), failedParticipants));
 ```
 
-### Reject participant from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to reject participant from Teams MeetingLobby. Method `reject` accepts identifier and `RejectLobbyParticipantOptions` as input.
+### Reject participant from CallLobby
+MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to reject participant from Teams MeetingLobby. Method `reject` accepts identifier as input.
 
 ```java
-//To reject all participants from lobby:
+//To reject all participants from CallLobby:
 for (CommunicationIdentifier identifier : identifiers)
 {
     this.callLobby.reject(lobbyParticipantsIdentifiers.get(0)).get();
 }
 ```
 
-### Admit all participants from lobby
+### Admit all participants from CallLobby
 MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams MeetingLobby. Method `admitAll` returns `AdmitAllParticipantsResult` object as result.
 
 ```java
@@ -63,8 +63,8 @@ AdmitAllParticipantsResult result = this.callLobby.admitAll().get();
 Log.i(LOBBY_TAG, String.format("Admit result: success count: %s, failure count: %s, failure participants: %s", result.getSuccessCount(), result.getFailureCount()));
 ```
 
-### Handle lobby updated event
-You could subscribe to the `addOnLobbyParticipantsUpdatedListener` event listener to handle the changes in the `participants` collection. This event is triggered when the participants are added or removed from the lobby and it provides the added or removed participants list.
+### Handle CallLobby updated event
+You could subscribe to the `addOnLobbyParticipantsUpdatedListener` event listener to handle the changes in the `participants` collection. This event is triggered when the participants are added or removed from the CallLobby and it provides the added or removed participants list.
 
 ```java
 //To register listener:

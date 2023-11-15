@@ -56,7 +56,7 @@ callLobby.reject(identifiers.first!, completionHandler: { error in
 })
 ```
 
-### Admit all participants from lobby
+### Admit all participants from CallLobby
 CallLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams CallLobby. Method `admitAll` returns `AdmitAllParticipantsResult` object as result.
 
 ```swift
