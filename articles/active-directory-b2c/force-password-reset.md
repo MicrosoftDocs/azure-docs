@@ -9,10 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 10/31/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: b2c-support, has-azure-ad-ps-ref
+ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -42,8 +42,7 @@ The password reset flow is applicable to local accounts in Azure AD B2C that use
 To enable the **Forced password reset** setting in a sign-up or sign-in user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select the sign-up and sign-in, or sign-in user flow (of type **Recommended**) that you want to customize.
@@ -54,8 +53,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 ## Test the user flow
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Microsoft Entra ID](../active-directory/roles/permissions-reference.md#all-roles).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
@@ -78,8 +76,7 @@ Get the example of the force password reset policy on [GitHub](https://github.co
 ## Upload and test the policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. In **Custom Policies**, select **Upload Policy**.
@@ -171,3 +168,4 @@ Update-MgDomain -DomainId $domainId -BodyParameter $params
 ## Next steps
 
 Set up a [self-service password reset](add-password-reset-policy.md).
+

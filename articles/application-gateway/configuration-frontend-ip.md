@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/26/2023
+ms.date: 09/14/2023
 ms.author: greglin
 ---
 
@@ -28,6 +28,10 @@ A public IP address isn't required for an internal endpoint that's not exposed t
 
 Only one public IP address and one private IP address is supported. You choose the frontend IP when you create the application gateway.
 
+  > [!NOTE]
+  > Application Gateway frontend supports dual-stack IP addresses (Public Preview). You can create up to four frontend IPs: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
+
 - For a public IP address, you can create a new public IP address or use an existing public IP in the same location as the application gateway. For more information, see [static vs. dynamic public IP address](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
 - For a private IP address, you can specify a private IP address from the subnet where the application gateway is created. For Application Gateway v2 sku deployments, a static IP address must be defined when adding a private IP address to the gateway.  For Application Gateway v1 sku deployments, if you don't specify an IP address, an available IP address is automatically selected from the subnet. The IP address type that you select (static or dynamic) can't be changed later. For more information, see [Create an application gateway with an internal load balancer](./application-gateway-ilb-arm.md).
@@ -35,7 +39,7 @@ Only one public IP address and one private IP address is supported. You choose t
 A frontend IP address is associated to a *listener*, which checks for incoming requests on the frontend IP.
 
 >[!NOTE] 
-> You can create private and public listeners with the same port number (Preview feature). However, be aware of any Network Security Group (NSG) associated with the application gateway subnet. Depending on your NSG's configuration, you may need an allow-inbound rule with **Destination IP addresses** as your application gateway's Public and Private frontend IPs. When using the same port, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway.
+> You can create private and public listeners with the same port number. However, be aware of any Network Security Group (NSG) associated with the application gateway subnet. Depending on your NSG's configuration, you may need an allow-inbound rule with **Destination IP addresses** as your application gateway's Public and Private frontend IPs. When using the same port, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway.
 > 
 > **Inbound Rule**:
 > - Source: (as per your requirement)
@@ -48,7 +52,7 @@ A frontend IP address is associated to a *listener*, which checks for incoming r
 
 > [!IMPORTANT]
 > **The default domain name behavior for V1 SKU**:
-> - Deployments before 1st May 2023: These deployments will continue to have the default domain names like <label>.cloudapp.net mapped to the application gateway's Public IP address.
+> - Deployments before 1st May 2023: These deployments will continue to have the default domain names like \<label>.cloudapp.net mapped to the application gateway's Public IP address.
 > - Deployments after 1st May 2023: For deployments after this date, there will NOT be any default domain name mapped to the gateway's Public IP address. You must manually configure using your domain name by mapping its DNS record to the gateway's IP address
 
 ## Next steps

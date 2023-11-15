@@ -69,7 +69,7 @@
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-azure-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
@@ -85,7 +85,7 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgre-flexible.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#is-the-service-zone-resilient-
     - name: Azure Disk Encryption 
@@ -309,7 +309,7 @@
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-azure-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
@@ -325,7 +325,9 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgresql-flexible-server.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
+    - name: Azure Deployment Environments
+      href: reliability-deployment-environments.md
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Disk Encryption 

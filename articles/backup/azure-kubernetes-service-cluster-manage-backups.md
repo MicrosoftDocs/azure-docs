@@ -130,7 +130,7 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
    az aks trustedaccess rolebinding create \
    -g $myResourceGroup \ 
    --cluster-name $myAKSCluster 
-   –n <randomRoleBindingName> \ 
+   -n <randomRoleBindingName> \ 
    --source-resource-id <vaultID> \ 
    --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```

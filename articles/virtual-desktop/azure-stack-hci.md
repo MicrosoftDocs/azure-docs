@@ -18,7 +18,7 @@ This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure that are part of a [pooled host pool](terminology.md#host-pools) in Azure. To learn more, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
-You deploy an Azure Virtual Desktop environment with session hosts on Azure Stack HCI by using the Arc VM Management Resource Bridge to create virtual machines from an existing image, which are then then added to a new host pool.
+You deploy an Azure Virtual Desktop environment with session hosts on Azure Stack HCI by using the Arc VM Management Resource Bridge to create virtual machines from an existing image, which are then added to a new host pool.
 
 ## Prerequisites
 

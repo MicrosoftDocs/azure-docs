@@ -5,7 +5,7 @@ description: Learn how to create a BGP peering with Virtual WAN hub router.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 10/30/2023
 ms.author: cherylmc
 
 ---

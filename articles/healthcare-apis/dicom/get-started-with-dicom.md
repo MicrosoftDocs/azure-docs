@@ -3,7 +3,7 @@ title: Get started with the DICOM service - Azure Health Data Services
 description: This document describes how to get started with the DICOM service in Azure Health Data Services.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: quickstart
 ms.date: 06/03/2022
 ms.author: mmitrik
@@ -33,7 +33,7 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 ## Access the DICOM service
 
-The DICOM service is secured by a Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
+The DICOM service is secured by a Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
 
 ### Register a client application
 
@@ -41,7 +41,7 @@ You can create or register a client application from the [Azure portal](dicom-re
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
-You can delete a client application. Before doing that, ensure that it's not used in production, dev, test, or quality assurance environments.
+You can delete a client application. Before doing that, ensure the application isn't used in production, dev, test, or quality assurance environments.
 
 ### Grant access permissions
 

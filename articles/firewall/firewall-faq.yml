@@ -34,13 +34,15 @@ sections:
 
       - question: What are some Azure Firewall concepts?
         answer: |
-          Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule collections are executed in order of their priority. Network rule collections are higher priority than application rule collections, and all rules are terminating.
+          Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule collections are executed in order of their priority. DNAT rule collections are higher priority network rule collections,  which are higher priority than application rule collections, and all rules are terminating.
 
           There are three types of rule collections:
 
           * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
           * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
           * *NAT rules*: Configure DNAT rules to allow incoming Internet connections.
+
+          For more information, see [Configure Azure Firewall rules](rule-processing.md).
 
       - question: Does Azure Firewall support inbound traffic filtering?
         answer: |
@@ -188,10 +190,6 @@ sections:
       - question: Are there any firewall resource group restrictions?
         answer: Yes. The firewall, VNet, and the public IP address all must be in the same resource group.
 
-      - question: When configuring DNAT for inbound Internet network traffic, do I also need to configure a corresponding network rule to allow that traffic?
-        answer: |
-          No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
-
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |
          - **URL** - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
@@ -317,7 +315,7 @@ sections:
 
       - question: How many parallel connections can Azure Firewall support?
         answer: |
-          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of flows per virtual machine is 250k.
+          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of active connections per virtual machine is 250k.
 
           The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
 

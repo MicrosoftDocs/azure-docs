@@ -209,8 +209,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 [Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
-
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
 :::zone-end
