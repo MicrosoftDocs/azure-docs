@@ -437,7 +437,7 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
-    - name: gRPC configuartion
+    - name: gRPC configuration
       href: configure-grpc.md
     - name: App Service on Azure Arc (preview)
       items:
