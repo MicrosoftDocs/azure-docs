@@ -5,6 +5,8 @@ description: In this quickstart, you'll learn to use the Document Intelligence S
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar

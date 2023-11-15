@@ -3,6 +3,8 @@ title:  Managing the Azure Connected Machine agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
 ms.date: 05/04/2023
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ---
 
 # Managing and maintaining the Connected Machine agent

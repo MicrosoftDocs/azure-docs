@@ -9,6 +9,8 @@ metadata:
   services: service
   ms.service: cosmos-db
   ms.subservice: mongodb-vcore
+  ms.custom:
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   author: gahl-levy

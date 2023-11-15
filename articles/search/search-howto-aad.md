@@ -7,7 +7,9 @@ ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 05/09/2023
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
 # Authorize access to a search app using Microsoft Entra ID

@@ -9,7 +9,11 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-fall-2021, ignite-2022
+ms.custom:
+  - language-service-summarization
+  - ignite-fall-2021
+  - ignite-2022
+  - ignite-2023
 ---
 
 # How to use document summarization

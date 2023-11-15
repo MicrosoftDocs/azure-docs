@@ -1,6 +1,8 @@
 ---
 author: Blackmist
 ms.service: machine-learning
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 10/27/2023
 ms.author: larryfr

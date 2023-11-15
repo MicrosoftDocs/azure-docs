@@ -4,6 +4,8 @@ description: Learn how to use runtime services in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: cshoe

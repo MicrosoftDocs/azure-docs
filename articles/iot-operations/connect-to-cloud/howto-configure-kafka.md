@@ -5,6 +5,8 @@ description: Learn how to send and receive messages between Azure IoT MQ and Azu
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/31/2023
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.

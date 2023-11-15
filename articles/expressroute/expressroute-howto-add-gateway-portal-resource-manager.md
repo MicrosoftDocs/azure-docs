@@ -7,8 +7,9 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/31/2023
 ms.author: duau
-ms.custom: reference_regions
-
+ms.custom:
+  - reference_regions
+  - ignite-2023
 ---
 # Tutorial: Configure a virtual network gateway for ExpressRoute using the Azure portal
 > [!div class="op_single_selector"]

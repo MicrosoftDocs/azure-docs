@@ -5,7 +5,9 @@ description: The Python Tool empowers users to offer customized code snippets as
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

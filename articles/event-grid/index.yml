@@ -9,7 +9,9 @@ metadata:
   services: event-grid
   ms.service: event-grid
   ms.subservice:
-  ms.custom: build-2023
+  ms.custom:
+    - build-2023
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   author: spelluru

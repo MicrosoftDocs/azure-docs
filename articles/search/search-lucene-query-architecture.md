@@ -7,6 +7,8 @@ manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/09/2023
 ---

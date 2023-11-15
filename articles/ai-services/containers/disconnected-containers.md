@@ -6,6 +6,8 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 07/28/2023
 ms.author: aahi
@@ -50,11 +52,11 @@ Access is limited to customers that meet the following requirements:
   * Organization under strict regulation of not sending any kind of data back to cloud.
 * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
 
-## Purchase a commitment plan to use containers in disconnected environments
+## Purchase a commitment tier pricing plan for disconnected containers
 
 ### Create a new resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services listed above.
 
 2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
@@ -166,17 +168,11 @@ it will return a JSON response similar to the example below:
 }
 ```
 
-## Purchase a commitment tier pricing plan for disconnected containers
+## Purchase a commitment plan to use containers in disconnected environments
 
-Commitment plans for disconnected containers have a calendar year commitment period. These are different plans than web and connected container commitment plans. When you purchase a commitment plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. For more information about commitment tier pricing plans, see [purchase commitment tier pricing](../commitment-tier.md).
-
-## Overage pricing for disconnected containers
-
-To use a disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
-
-To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
+You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 
 ## End a commitment plan
 

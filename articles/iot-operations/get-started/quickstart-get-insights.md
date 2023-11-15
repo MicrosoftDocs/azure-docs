@@ -4,6 +4,8 @@ description: "Quickstart: Use a Power BI report to capture insights from your OP
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 11/01/2023
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.

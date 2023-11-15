@@ -4,6 +4,9 @@ description: This article describes the limited access policy for Microsoft Copi
 ms.date: 11/15/2023
 ms.topic: how-to
 ms.service: azure
+ms.custom:
+  - ignite-2023
+  - ignite-2023-copilotinAzure
 ms.author: jenhayes
 author: JnHs
 hideEdit: true

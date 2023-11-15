@@ -1,7 +1,9 @@
 ---
 title: Retention of events in namespace topics and subscriptions
-description: Describes the retention of events in Azure Event Grid namespace topics and event subscriptions to those topics. 
+description: Describes the retention of events in Azure Event Grid namespace topics and event subscriptions to those topics.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 09/29/2023
 ---
 

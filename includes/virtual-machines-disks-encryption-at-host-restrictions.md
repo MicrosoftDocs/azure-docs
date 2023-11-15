@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 11/02/2023
  ms.author: rogarana
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 - Supported for 4k sector size Ultra Disks and Premium SSD v2.
 - Only supported on 512e sector size Ultra Disks and Premium SSD v2 if they were created after 5/13/2023.

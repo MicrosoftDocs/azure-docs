@@ -5,6 +5,8 @@ description: Extract metadata and structured information from unstructured data 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/12/2021
 ---
