@@ -135,6 +135,9 @@ $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
 flow: <path_to_flow>
 data: <path_to_flow>/data.jsonl
 
+column_mapping:
+  url: ${data.url}
+
 # define cloud resource
 runtime: <runtime_name>
 connections:
@@ -182,8 +185,12 @@ connections = {"classify_with_llm":
 base_run = pf.run(
     flow=flow,
     data=data,
-    runtime=runtime,  
+    runtime=runtime, 
+    column_mapping={
+        "url": "${data.url}"
+    }, 
     connections=connections,  
+
 )
 print(base_run)
 ```
