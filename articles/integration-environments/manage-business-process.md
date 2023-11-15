@@ -15,12 +15,14 @@ ms.date: 11/15/2023
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create a business process in an application group to describe the stages that show the flow through a real-world business scenario, you can manage various aspects of that business process. This guide shows how to perform the following tasks:
+After you create a business process in an application group to show the flow through a real-world business scenario and track real-world data that moves through that flow, you can manage various aspects of that business process.
+
+This guide shows how to perform the following tasks:
 
 - [Edit the description for a business process](#edit-description).
 - [Duplicate a business process by providing a new name](#copy-business-process).
-- [Delete any pending or draft changes that you made to a deployed business process](#discard-pending-changes).
-- [Delete the deployment resource and tracking profile for a business process, but leave the business process untouched](#delete-deployment).
+- [Discard any pending or draft changes that you made to a deployed business process](#discard-pending-changes).
+- [Undeploy a business process, which removes the deployment artifacts but preserves the business process](#undeploy-process).
 
 ## Prerequisites
 
@@ -52,7 +54,12 @@ After you create a business process in an application group to describe the stag
 
 ## Duplicate a business process
 
-The following steps copy an existing business process using a new name.
+The following steps copy an existing business process using a new name. The duplicate that you create remains in [draft state](#process-states) until you deploy the duplicate version.
+
+> [!NOTE]
+>
+> If you have a deployed business process, and you have pending changes in draft state for that 
+> process, these steps duplicate the deployed version, not the draft version with pending changes.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 
@@ -74,7 +81,7 @@ The following steps copy an existing business process using a new name.
 
 ## Discard pending changes
 
-The following steps delete any pending or draft changes that you made to a deployed business process.
+The following steps remove any pending changes for a deployed business process, leaving the deployed version unchanged.
 
 > [!NOTE]
 >
@@ -94,11 +101,11 @@ The following steps delete any pending or draft changes that you made to a deplo
 
 1. In the confirmation box, select **Discard changes** to confirm.
 
-<a name="delete-deployment"></a>
+<a name="undeploy-process"></a>
 
-## Delete deployment for a business process
+## Undeploy a business process
 
-The following steps remove only the deployment resource and tracking profile for a deployed business process, leaving the actual business process untouched in the application group.
+The following steps remove only the deployment and tracking resources for a deployed business process. This action leaves the business process unchanged in the application group, but the process no longer captures and tracks data. Any previously captured data remains stored in your Azure Data Explorer database.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
 
@@ -113,6 +120,18 @@ The following steps remove only the deployment resource and tracking profile for
 1. In business process row, open the ellipses (**...**) menu, select **Undeploy**.
 
 1. in the confirmation box, select **Undeploy** to confirm.
+
+<a name="process-states"></a>
+
+## Business process states
+
+A business process exists in one of the following states:
+
+| State | Description |
+|------|-------------|
+| Draft | An unsaved or saved business process before deployment. |
+| Deployed | A business process that's tracking data during workflow run time. |
+| Deployed with pending changes | A business process that has both a deployed version and draft version with pending changes. |
 
 ## Next steps
 

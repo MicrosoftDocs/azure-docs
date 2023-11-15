@@ -129,3 +129,4 @@ Suppose you're an integration developer at a power company. You manage a solutio
 ## Next steps
 
 - [Map a business process to a Standard logic app workflow](map-business-process-workflow.md)
+- [Manage a business process](manage-business-process.md)
