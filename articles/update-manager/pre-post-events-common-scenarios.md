@@ -89,7 +89,7 @@ This article presents the frequently asked questions in the lifecycle of pre and
 For more information on how to retrieve details from Automation account's activity log:
 - Learn more on how to [Manage runbooks in Azure Automation](../automation/manage-runbooks.md).
 
-#### [With Azure Functions](#tab/events-runbooks)
+#### [With Azure Functions](#tab/events-functions)
 
 - See the [set up logs for Azure Functions to track their execution](../azure-functions/streaming-logs.md).
 
