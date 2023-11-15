@@ -21,7 +21,7 @@ In this article, you learn how to create an Azure Operator Insights Data Product
 - An Azure subscription for which the user account must be assigned the Contributor role. If needed, create a [free subscription](https://azure.microsoft.com/free/) before you begin.
 - Access granted to Azure Operator Insights for the subscription. Apply for access by [completing this form](https://aka.ms/AAn1mi6).
 - (Optional) If you plan to integrate Data Product with Microsoft Purview, you must have an active Purview account. Make note of the Purview collection ID when you [set up Microsoft Purview with a Data Product](purview-setup.md).
-- Once you have your subscription access is granted, please register the Microsoft.NetworkAnalytics and Microsoft.HybridNetwork Resource Providers RP(s) before proceeding further. Please refer [here](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for instructions on how to register RP in your subscription.
+- After obtaining your subscription access, register the Microsoft.NetworkAnalytics and Microsoft.HybridNetwork Resource Providers (RPs) to continue. For guidance on registering RPs in your subscription, see [Register resource providers in Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ### For CMK-based data encryption or Microsoft Purview
 
