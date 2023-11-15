@@ -35,7 +35,7 @@ Microsoft Defender CSPM protects across all your multicloud workloads, but billi
 >
 > - This price includes free vulnerability assessments for 20 unique images per charged resource, whereby the count will be based on the previous month's consumption. Every subsequent scan will be charged at $0.29 per image digest. The majority of customers are not expected to incur any additional image scan charges. For subscriptions that are both under the Defender CSPM and Defender for Containers plans, free vulnerability assessment will be calculated based on free image scans provided via the Defender for Containers plan, as specified [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 >
-> - DevOps security features under the Defender CSPM plan will remain free until March 1, 2024. Defender CSPM DevOps security features include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings.
+> - Starting March 1, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
 
 ## Plan availability
 
