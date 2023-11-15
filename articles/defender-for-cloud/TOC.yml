@@ -146,11 +146,9 @@
           displayName: coverage, machines, windows, linux, multicloud, supported features,
             endpoint protections
           href: support-matrix-defender-for-servers.md
-        - name: Defender for Containers support matrices
+        - name: Support matrices for Containers
           displayName: Containers, features availability, environment information
           href: support-matrix-defender-for-containers.md
-        - name: Defender for Containers CSPM support matrices
-          href: support-agentless-containers-posture.md
     - name: Protect multicloud resources
       items:
         - name: The Defender for Cloud multicloud solution
@@ -166,33 +164,33 @@
           href: zero-trust.md
         - name: Planning multicloud security
           items:
-          - name: Get started
-            displayName: begin, get started,
-            href: plan-multicloud-security-get-started.md
-          - name: Determine business needs
-            displayName: needs, goals, business, requirements
-            href: plan-multicloud-security-determine-business-needs.md
-          - name: Define an adoption strategy
-            displayName: strategy, adoption, ownership
-            href: plan-multicloud-security-define-adoption-strategy.md
-          - name: Determine data residency requirements
-            displayName: data, residency, cspm, cwp, plan
-            href: plan-multicloud-security-determine-data-residency-requirements.md
-          - name: Determine compliance requirements
-            displayName: compliance, standards
-            href: plan-multicloud-security-determine-compliance-requirements.md
-          - name: Determine ownership requirements
-            displayName: ownership, team, alignment, best practices,
-            href: plan-multicloud-security-determine-ownership-requirements.md
-          - name: Determine access control requirements
-            displayName: access, control
-            href: plan-multicloud-security-determine-access-control-requirements.md
-          - name: Determine multicloud dependencies
-            displayName: dependencies, cspm, cwpp, agents,
-            href: plan-multicloud-security-determine-multicloud-dependencies.md
-          - name: Automate connector deployment
-            displayName: rest api
-            href: plan-multicloud-security-automate-connector-deployment.md
+            - name: Get started
+              displayName: begin, get started,
+              href: plan-multicloud-security-get-started.md
+            - name: Determine business needs
+              displayName: needs, goals, business, requirements
+              href: plan-multicloud-security-determine-business-needs.md
+            - name: Define an adoption strategy
+              displayName: strategy, adoption, ownership
+              href: plan-multicloud-security-define-adoption-strategy.md
+            - name: Determine data residency requirements
+              displayName: data, residency, cspm, cwp, plan
+              href: plan-multicloud-security-determine-data-residency-requirements.md
+            - name: Determine compliance requirements
+              displayName: compliance, standards
+              href: plan-multicloud-security-determine-compliance-requirements.md
+            - name: Determine ownership requirements
+              displayName: ownership, team, alignment, best practices,
+              href: plan-multicloud-security-determine-ownership-requirements.md
+            - name: Determine access control requirements
+              displayName: access, control
+              href: plan-multicloud-security-determine-access-control-requirements.md
+            - name: Determine multicloud dependencies
+              displayName: dependencies, cspm, cwpp, agents,
+              href: plan-multicloud-security-determine-multicloud-dependencies.md
+            - name: Automate connector deployment
+              displayName: rest api
+              href: plan-multicloud-security-automate-connector-deployment.md
     - name: Improve your cloud security posture
       items:
       - name: Cloud Security Posture Management (CSPM)
@@ -235,9 +233,11 @@
           href: concept-data-security-posture-prepare.md
         - name: Data security dashboard
           href: data-aware-security-dashboard-overview.md
-    - name: Improve your container security posture
+        - name: Supported sensitive data information types
+          href: sensitive-info-types.md
+    - name: Improve your container security posture with Defender CSPM
       items:
-        - name: Agentless container posture
+        - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
     - name: Security recommendations
       items:
@@ -441,7 +441,7 @@
     - name: Overview
       displayName: auto, provisioning, auto-provisioning, Settings & monitoring
       href: monitoring-components.md
-    - name: Azure Monitor Agent in Defender for Cloud
+    - name: Deploy the Azure Monitor agent
       displayName: AMA, Azure monitor agent
       href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent
@@ -465,6 +465,8 @@
     - name: Common questions about Defender for APIs
       displayName: common questions, api, apis, faq, frequently asked questions
       href: faq-defender-for-apis.yml
+    - name: Classify APIs with sensitive data exposure
+      href: data-classification.md
     - name: Partners
       items:
       - name: Partner applications
@@ -480,7 +482,7 @@
         - name: Overview
           displayName: auto, provisioning, auto-provisioning, Settings & monitoring
           href: monitoring-components.md
-        - name: Azure Monitor Agent in Defender for Cloud
+        - name: Deploy the Azure Monitor agent
           displayName: AMA, Azure monitor agent
           href: auto-deploy-azure-monitoring-agent.md
         - name: Working with the Log Analytics agent
