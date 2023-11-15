@@ -16,7 +16,7 @@ Container Insights uses a containerized version of the Log Analytics agent for L
 
 ## Upgrade the Container insights agent
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.
+Container Insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.
 
 If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [Agent release announcements](https://aka.ms/ci-logs-agent-release-notes).
 
@@ -64,7 +64,7 @@ $ helm upgrade --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<y
 
 ## Disable environment variable collection on a container
 
-Container insights collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the Kubernetes cluster or after by setting the environment variable `AZMON_COLLECT_ENV`. This feature is available from the agent version ciprod11292018 and higher.
+Container Insights collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the Kubernetes cluster or after by setting the environment variable `AZMON_COLLECT_ENV`. This feature is available from the agent version ciprod11292018 and higher.
 
 To disable collection of environmental variables on a new or existing container, set the variable `AZMON_COLLECT_ENV` with a value of `False` in your Kubernetes deployment YAML configuration file.
 
@@ -93,7 +93,7 @@ To reenable discovery of the environmental variables, apply the same process you
 
 Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
 
-Semver is a universal software versioning schema which is defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
+Semver is a universal software versioning schema that's defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
 
 1. Increment the MAJOR version when you make incompatible API changes. 
 2. Increment the MINOR version when you add functionality in a backwards compatible manner. 
@@ -122,7 +122,7 @@ Current ama-logs default limit are below
 | Windows | ds-cpu-limit-windows   | 500m           |
 | Windows | ds-memory-limit-windows  | 1Gi            |
 
-Validate whether the current default settings and limits meet the customer's needs. And if not, create support tickets under containerinsights agent to help investigate and toggle memory/cpu limits for the customer. Through doing this, it can help address the scale limitations issues that some customers encountered previously which resulted in OOMKilled exceptions.
+Validate whether the current default settings and limits meet the customer's needs. And if not, create support tickets under containerinsights agent to help investigate and toggle memory/cpu limits for the customer. Through doing this, it can help address the scale limitations issues that some customers encountered previously that resulted in OOMKilled exceptions.
 
 4.	Fetch current Azure analytic workspace ID since we're going to re-onboard the container insights.
 
