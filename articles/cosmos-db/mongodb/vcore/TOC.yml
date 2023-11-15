@@ -18,6 +18,10 @@
           href: tutorial-nodejs-web-app.md
 - name: Concepts
   items:
+    - name: Free tier
+      href: free-tier.md
+    - name: Burstable tier
+      href: burstable-tier.md
     - name: Vector search
       items:
         - name: Vector search overview
