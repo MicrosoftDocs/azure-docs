@@ -103,6 +103,10 @@ Yes, migrating existing VNets to AVNM’s hub and spoke topology is easy and req
 
 In Azure, virtual network peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While virtual network peering works by creating a 1:1 mapping between each peered virtual network, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
 
+### How can I deploy multiple security admin configurations to a region?
+
+Only one security admin configuration can be deployed to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin configurations to a region, you can [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection) in a security configuration instead.
+
 ### Do security admin rules apply to Azure Private Endpoints?
 
 Currently, security admin rules don't apply to Azure Private Endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
