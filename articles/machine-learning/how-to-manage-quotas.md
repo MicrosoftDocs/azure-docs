@@ -157,9 +157,9 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
 
-### Azure Machine Learning kubernetes online endpoints
+### Azure Machine Learning Kubernetes online endpoints
 
-Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+Azure Machine Learning Kubernetes online endpoints have limits described in the following table. 
 
 | **Resource** | **Limit** |
 | --- | --- |
