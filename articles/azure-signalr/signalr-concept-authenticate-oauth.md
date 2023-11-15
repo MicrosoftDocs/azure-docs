@@ -76,10 +76,9 @@ Let's reuse the chat app created in tutorial [Create a chat room with SignalR Se
 
 ### Update `Program.cs` to support GitHub authentication
 
-1. Add a reference to the latest _Microsoft.AspNetCore.Authentication.Cookies_ and _AspNet.Security.OAuth.GitHub_ packages and restore all packages.
+1. Add a reference to the latest _AspNet.Security.OAuth.GitHub_ packages and restore all packages.
 
    ```dotnetcli
-   dotnet add package Microsoft.AspNetCore.Authentication.Cookies
    dotnet add package AspNet.Security.OAuth.GitHub
    ```
 
