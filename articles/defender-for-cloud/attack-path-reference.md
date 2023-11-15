@@ -129,13 +129,21 @@ Prerequisite: [Enable agentless container posture](concept-agentless-containers.
 | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image that has vulnerabilities allowing remote code execution. |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image that has vulnerabilities allowing remote code execution. |
 
-### GitHub repositories
+### Azure DevOps repositories
 
-Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
+Prerequisite: [Enable DevOps Security in Defender for Cloud](defender-for-devops-introduction.md).
 
 | Attack path display name | Attack path description |
 |--|--|
-| Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
+| Internet exposed Azure DevOps repository with plaintext secret is publicly accessible | An Azure DevOps repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
+
+### GitHub repositories
+
+Prerequisite: [Enable DevOps Security in Defender for Cloud](defender-for-devops-introduction.md).
+
+| Attack path display name | Attack path description |
+|--|--|
+| Internet exposed GitHub repository with plaintext secret is publicly accessible | A GitHub repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
 
 ### APIs
  
@@ -160,8 +168,8 @@ This section lists all of the cloud security graph components (connections and i
 | Gets data from (Preview) | Indicates that a resource gets its data from another resource | Storage account container, AWS S3, AWS RDS instance, AWS RDS cluster |
 | Has tags | Lists the resource tags of the cloud resource | All Azure, AWS, and GCP resources |
 | Installed software | Lists all software installed on the machine. This insight is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
-| Allows public access | Indicates that a public read access is allowed to the resource with no authorization required. [Learn more](concept-data-security-posture-prepare.md#exposed-to-the-internetallows-public-access) | Azure storage account, AWS S3 bucket, GitHub repository, GCP cloud storage bucket |
-| Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | Microsoft Entra user account, IAM user |
+| Allows public access | Indicates that a public read access is allowed to the resource with no authorization required. [Learn more](concept-data-security-posture-prepare.md#exposed-to-the-internetallows-public-access) | Azure storage account, AWS S3 bucket, Azure DevOps repository, GitHub repository, GCP cloud storage bucket |
+| Doesn't have MFA enabled | Indicates that the user account does not have a multifactor authentication solution enabled | Microsoft Entra user account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | Microsoft Entra user account |
 | Is managed | Indicates that an identity is managed by the cloud provider | Azure Managed Identity |
 | Contains common usernames | Indicates that a SQL server has user accounts with common usernames which are prone to brute force attacks. | SQL VM, Arc-Enabled SQL VM |
