@@ -210,4 +210,4 @@ The CSI driver updates secrets according to a polling interval, so a new secret 
 
 ### Azure IoT MQ
 
-The steps to manage secrets with Azure Key Vault for Azure IoT MQ are different. To learn more, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
+The steps to manage secrets with Azure Key Vault for Azure IoT MQ are different. For more information, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
