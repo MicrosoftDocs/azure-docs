@@ -66,7 +66,7 @@ As you progress, you'll complete these high-level tasks:
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/), which is free.
 
-1. Download and install the [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) to use a single common experience for Azure sign-in and subscription filtering across all Azure extensions in Visual Studio Code.
+1. Download and install the [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) so that you have a single common experience for Azure sign-in and subscription filtering across all Azure extensions in Visual Studio Code. This how-to guide includes steps that use this experience.
 
 1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
