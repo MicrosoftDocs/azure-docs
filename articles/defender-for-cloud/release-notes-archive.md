@@ -3418,7 +3418,7 @@ The details page for recommendations now includes a freshness interval indicator
 Updates in August include:
 
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
