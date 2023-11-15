@@ -1006,6 +1006,11 @@
           "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
             "redirect_URL": "tutorial-assess-webapps",
             "redirect_document_id": false
