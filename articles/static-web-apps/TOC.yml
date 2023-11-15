@@ -1,6 +1,7 @@
 - name: Azure Static Web Apps Documentation
   href: index.yml
 - name: Get started
+  expanded: true
   items:
     - name: About Azure Static Web Apps
       href: overview.md
@@ -179,8 +180,10 @@
     - name: Named environments
       href: named-environments.md
 - name: Monitoring
-  href: monitor.md
-  displayName: Application Insights
+  items:
+  - name: Overview
+    href: monitor.md
+    displayName: Application Insights
 - name: Resources
   items:
   - name: Supported languages and runtimes
