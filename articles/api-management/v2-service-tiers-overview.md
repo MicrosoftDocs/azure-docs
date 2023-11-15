@@ -100,6 +100,9 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Client certificate renegotiation
 * Requests to the gateway over localhost
 
+  > [!NOTE]
+  > Currently the policy document size limit in the v2 tiers is 16 KiB.
+
 ## Deployment
 
 Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager or Bicep template.
@@ -133,3 +136,5 @@ A: Yes, a Premium v2 preview is planned and will be announced separately.
 ## Related content
 
 * Learn more about the API Management [tiers](api-management-features.md).
+
+

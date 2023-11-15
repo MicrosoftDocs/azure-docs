@@ -41,5 +41,5 @@ The number of training images per project and tags per project are expected to i
 |Max number of tags per image (classification)|100|100|
 
 > [!NOTE]
-> Images smaller than than 256 pixels will be accepted but upscaled.
+> Images smaller than 256 pixels will be accepted but upscaled.
 > Image aspect ratio should not be larger than 25:1.

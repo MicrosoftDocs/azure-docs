@@ -11,7 +11,7 @@ ms.date: 02/09/2023
 
 # Create a Lambda function to send CloudWatch events to an S3 bucket
 
-In some cases, your CloudWatch logs may not match the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header. In this article, you use a [lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the accepted format. 
+In some cases, your CloudWatch logs may not match the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header. In this article, you use a [lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the accepted format. 
 
 ## Create the lambda function 
 

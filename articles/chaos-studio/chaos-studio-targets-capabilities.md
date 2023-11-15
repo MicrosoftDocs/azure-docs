@@ -110,4 +110,5 @@ Returns the following JSON:
 ## Next steps
 Now that you understand what targets and capabilities are, you're ready to:
 - [Learn about faults and actions](chaos-studio-faults-actions.md)
+- [Learn about target selection and scoping](chaos-studio-target-selection.md)
 - [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

@@ -85,7 +85,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
             },
             "ubuntu_vm_nfdg_nfd_version": "1.0.0"
         },
-        "managedIdentity": "`<managed-identity-resource-id>`"
+        "managedIdentity": "<managed-identity-resource-id>"
     }
     ```
 

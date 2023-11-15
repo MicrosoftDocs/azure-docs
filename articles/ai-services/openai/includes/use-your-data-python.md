@@ -1,11 +1,11 @@
 ---
 services: cognitive-services
 manager: nitinme
-author: travisw
-ms.author: travisw
+author: mrbullwinkle #travisw
+ms.author: mbullwin #travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 11/09/2023
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -14,21 +14,34 @@ ms.date: 08/29/2023
 
 1. Create a new folder named *openai-python* for your project and a new Python code file named *main.py*. Change into that directory:
 
-   ```cmd
-   mkdir openai-python
-   cd openai-python
-   ```
+```cmd
+mkdir openai-python
+cd openai-python
+```
 
-1. Install the following Python Libraries:
+2. Install the following Python Libraries:
 
-   ```cmd
-   pip install openai==0.28.1
-   pip install python-dotenv
-   ```
+# [OpenAI Python 0.28.1](#tab/python)
 
+```console
+pip install openai==0.28.1
+pip install python-dotenv
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```console
+pip install openai
+pip install python-dotenv
+```
+
+---
+  
 ## Create the Python app
 
 1. From the project directory, open the *main.py* file and add the following code:
+
+# [OpenAI Python 0.28.1](#tab/python)
 
    ```python
    import os
@@ -89,16 +102,62 @@ ms.date: 08/29/2023
    print(completion)
    ```
 
-   > [!IMPORTANT]
-   > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+# [OpenAI Python 1.x](#tab/python-new)
 
-1. Execute the following command:
+```python
+import os
+import openai
+import dotenv
 
-   ```cmd
-   python main.py
-   ```
+dotenv.load_dotenv()
 
-   The application prints the response in a JSON format suitable for use in many scenarios. It includes both answers to your query and citations from your uploaded files.
+endpoint = os.environ.get("AOAIEndpoint")
+api_key = os.environ.get("AOAIKey")
+deployment = os.environ.get("AOAIDeploymentId")
+
+client = openai.AzureOpenAI(
+    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
+    api_key=api_key,
+    api_version="2023-08-01-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "How is Azure machine learning different than Azure OpenAI?",
+        },
+    ],
+    extra_body={
+        "dataSources": [
+            {
+                "type": "AzureCognitiveSearch",
+                "parameters": {
+                    "endpoint": os.environ["SearchEndpoint"],
+                    "key": os.environ["SearchKey"],
+                    "indexName": os.environ["SearchIndex"]
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+```
+
+---
+
+> [!IMPORTANT]
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+
+2. Execute the following command:
+
+```cmd
+python main.py
+```
+
+The application prints the response in a JSON format suitable for use in many scenarios. It includes both answers to your query and citations from your uploaded files.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue when running the code samples.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=dotnet&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-dotnet-application)

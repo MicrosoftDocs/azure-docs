@@ -231,6 +231,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-app-arm-templates",
+      "url": "https://github.com/Azure-Samples/function-app-arm-templates",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
@@ -498,24 +504,6 @@
       "path_to_root": "azureml-examples-v2samplesreorg",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "v2samplesreorg",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-sdk-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "sdk-preview",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-online-endpoint-vnet",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-featurestore",
-      "url": "https://github.com/Azure/azureml-examples",
-      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {

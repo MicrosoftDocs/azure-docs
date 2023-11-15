@@ -65,6 +65,9 @@
   - name: Home
     href: mobile-app/home.md
     displayName: mobile, app, start
+  - name: Alerts and notifications
+    href: mobile-app/alerts-notifications.md
+    displayName: mobile, app, push
 - name: Reference
   items:
   - name: Keyboard shortcuts

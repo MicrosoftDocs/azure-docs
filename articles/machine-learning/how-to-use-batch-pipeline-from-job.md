@@ -1,5 +1,5 @@
 ---
-title: How to deploy existing pipeline jobs to a batch endpoint (preview)
+title: How to deploy existing pipeline jobs to a batch endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
 services: machine-learning
@@ -11,10 +11,13 @@ reviewer: msakande
 ms.reviewer: mopeakande
 ms.topic: how-to
 ms.date: 05/12/2023
-ms.custom: how-to, devplatv2
+ms.custom:
+  - how-to
+  - devplatv2
+  - ignite-2023
 ---
 
-# Deploy existing pipeline jobs to batch endpoints (preview)
+# Deploy existing pipeline jobs to batch endpoints
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
@@ -26,8 +29,6 @@ You'll learn to:
 > * Run and create the pipeline job that you want to deploy
 > * Create a batch deployment from the existing job
 > * Test the deployment
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
@@ -290,7 +291,7 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 
 ## Next steps
 
-- [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
-- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
+- [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
 - [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

@@ -54,7 +54,17 @@ Container insights supports clusters running the Linux and Windows Server 2019 o
 >[!NOTE]
 > Container insights support for Windows Server 2022 operating system is in public preview.
 
+## Frequently asked questions
 
+This section provides answers to common questions.
+
+### Is there support for collecting Kubernetes audit logs for ARO clusters?
+
+No. Container insights don't support collection of Kubernetes audit logs.
+
+### Does Container Insights support pod sandboxing?
+
+Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](/azure/aks/use-pod-sandboxing).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: "Azure Kubernetes Fleet Manager architectural overview"
 description: This article provides an architectural overview of Azure Kubernetes Fleet Manager
-ms.date: 10/03/2022
+ms.date: 11/06/2023
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022, build-2023
+ms.custom: ignite-2023
 ms.topic: conceptual
 ---
 
@@ -25,14 +25,18 @@ Fleet supports joining the following types of existing AKS clusters as member cl
 * AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
-During preview, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
+You can join up to 100 AKS clusters as member clusters to the same fleet resource.
 
-Once a cluster is joined to a fleet resource, a MemberCluster custom resource is created on the fleet.
+If you want to use fleet only for the update orchestration scenario, you can create a fleet resource without the hub cluster. The fleet resource is treated just as a grouping resource, and does not have its own data plane. This is the default behavior when creating a new fleet resource.
+
+If you want to use fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled. If you have a hub cluster data plane for the fleet, you can use it to check the member clusters joined.
+
+Once a cluster is joined to a fleet resource, a MemberCluster custom resource is created on the fleet. Note that once a fleet resource has been created, it is not possible to change the hub mode (with/without) for the fleet resource.
 
 The member clusters can be viewed by running the following command:
 
 ```bash
-kubectl get memberclusters
+kubectl get memberclusters -o yaml
 ```
 
 The complete specification of the `MemberCluster` custom resource can be viewed by running the following command:
@@ -56,30 +60,15 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 * **Update group**: A group of AKS clusters for which updates are done sequentially one after the other. Each member cluster of the fleet can only be a part of one update group.
 * **Update stage**: Update stages allow pooling together update groups for which the updates need to be run in parallel. It can be used to define wait time between two different collections of update groups.
 * **Update run**: An update being applied to a collection of AKS clusters in a sequential or stage-by-stage manner. An update run can be stopped and started. An update run can either upgrade clusters one-by-one or in a stage-by-stage fashion using update stages and update groups.
+* **Update strategy**: Update strategy allows you to store templates for your update runs instead of creating them individually for each update run.
 
-Currently the only supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image or you can choose to upgrade only the node image. Node image upgrades currently only allow upgrading to the latest available node image for each cluster.
+Currently, the only supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image or you can choose to upgrade only the node image. Node image upgrades currently only allow upgrading to either the latest available node image for each cluster, or applying the same consistent node image across all clusters of the update run. As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 ## Kubernetes resource propagation
 
-Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. 
+Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. For more details, see the [resource propagation documentation](resource-propagation.md).
 
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
-
-A `ClusterResourcePlacement` has two parts to it:
-
-* **Resource selection**: The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
-    * Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
-    * Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
-    * Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
-    
-    > [!NOTE]
-    > `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
-
-* **Target cluster selection**: The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
-
-    * Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-    * Select clusters by listing names of `MemberCluster` custom resources
-    * Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
 ## Multi-cluster load balancing
 
