@@ -26,7 +26,9 @@ Microsoft Transparency Notes help you understand:
 You can use Transparency Notes when you're developing or deploying your own system. Or you can share them with the people who use (or are affected by) your system.
 
 Transparency Notes are part of a broader effort at Microsoft to put AI principles into practice. To find out more, see the [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
-
+> [!IMPORTANT]
+> Auto-generate prompt variants is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## The basics of auto-generate prompt variants in prompt flow
 
 Prompt engineering is at the center of building applications by using language models. Microsoft's prompt flow offers rich capabilities to interactively edit, bulk test, and evaluate prompts with built-in flows to choose the best prompt.
