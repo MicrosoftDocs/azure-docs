@@ -21,6 +21,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
+
 ## Prerequisites
 
 A user must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:

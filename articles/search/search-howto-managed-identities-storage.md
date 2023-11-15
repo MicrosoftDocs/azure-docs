@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Storage
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity
 author: gmndrg
 ms.author: gimondra
@@ -9,7 +9,9 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
 # Set up an indexer connection to Azure Storage using a managed identity

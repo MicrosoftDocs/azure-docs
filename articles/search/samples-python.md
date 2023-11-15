@@ -1,20 +1,23 @@
 ---
 title: Python samples
-titleSuffix: Azure Cognitive Search
-description: Find Azure Cognitive Search demo Python code samples that use the Azure .NET SDK for Python or REST.
+titleSuffix: Azure AI Search
+description: Find Azure AI Search demo Python code samples that use the Azure .NET SDK for Python or REST.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-python
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/02/2023
 ---
 
-# Python samples for Azure Cognitive Search
+# Python samples for Azure AI Search
 
-Learn about the Python code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/python/api/overview/azure/search-documents-readme) for the [**Azure SDK for Python**](/azure/developer/python/), which you can explore through the following links.
+Learn about the Python code samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Azure AI Search client library**](/python/api/overview/azure/search-documents-readme) for the [**Azure SDK for Python**](/azure/developer/python/), which you can explore through the following links.
 
 | Target | Link |
 |--------|------|
@@ -42,7 +45,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 
 ## Doc samples
 
-Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples) on GitHub.
+Code samples from the Azure AI Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples) on GitHub.
 
 | Samples | Article |
 |---------|---------|
@@ -56,8 +59,8 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Repository | Description |
 |------------|-------------|
-| [**azure-search-vector-python-sample.ipynb**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Uses the latest beta release of the **azure.search.documents** library in the Azure SDK for Python to generate embeddings, create and load an index, and run several vector queries. For more vector search Python demos, see [cognitive-search-vector-pr/demo-python](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python). |
-| [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Python code showing how to use Cognitive Search with the large language models in Azure OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). |
+| [**azure-search-vector-python-sample.ipynb**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Uses the latest beta release of the **azure.search.documents** library in the Azure SDK for Python to generate embeddings, create and load an index, and run several vector queries. For more vector search Python demos, see [demo-python](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python). |
+| [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Python code showing how to use Azure AI Search with the large language models in Azure OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). |
 
 
 > [!TIP]

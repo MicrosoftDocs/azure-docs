@@ -1,18 +1,20 @@
 ---
 title: Configure search apps for Microsoft Entra ID
-titleSuffix: Azure Cognitive Search
-description: Acquire a token from Microsoft Entra ID to authorize search requests to an app built on Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Acquire a token from Microsoft Entra ID to authorize search requests to an app built on Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 05/09/2023
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
 # Authorize access to a search app using Microsoft Entra ID
 
-Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Microsoft Entra ID. A key [benefit of using Microsoft Entra ID](../active-directory/develop/how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Microsoft Entra authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Microsoft Entra ID returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
+Search applications that are built on Azure AI Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Microsoft Entra ID. A key [benefit of using Microsoft Entra ID](../active-directory/develop/how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Microsoft Entra authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Microsoft Entra ID returns the access token to the application, and the application can then use the access token to authorize requests to Azure AI Search.
 
 This article shows you how to configure your client for Microsoft Entra ID:
 
@@ -52,24 +54,24 @@ When you enable role-based access control in the portal, the failure mode will b
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
+Use the Management REST API [Create or Update Service](/rest/api/searchmanagement/services/create-or-update) to configure your service.
 
-All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure AI Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](search-security-rbac.md#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -100,7 +102,7 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 ## Assign a role to the managed identity
 
-Next, you need to grant your managed identity access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
+Next, you need to grant your managed identity access to your search service. Azure AI Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
 It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
@@ -217,7 +219,7 @@ Using an Azure SDK simplifies the OAuth 2.0 flow but you can also program direct
 
 ## See also
 
-+ [Use Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
++ [Use Azure role-based access control in Azure AI Search](search-security-rbac.md)
 + [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 + [Integrating with Microsoft Entra ID](../active-directory/develop/how-to-integrate.md#benefits-of-integration)
 + [Azure custom roles](../role-based-access-control/custom-roles.md)

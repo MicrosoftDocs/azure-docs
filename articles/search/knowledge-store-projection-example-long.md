@@ -1,12 +1,14 @@
 ---
 title: Projection examples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explore a detailed example that projects the output of a rich skillset into complex shapes that inform the structure and composition of content in a knowledge store.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
