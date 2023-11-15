@@ -26,12 +26,21 @@ In this tutorial, you learn how to:
 
 ## Create a function app
 
-1. [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). For example, if you're using PowerShell 7.2 as the Runtime stack, you can use a new storage account of link an existing storage account.
-1. If you're creating the storage account for the first time, ensure that you load the dependencies by following these steps:
+1. [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). For example, if you're using PowerShell 7.2 as the Runtime stack: 
+    - You can use a new storage account or link an existing storage account.
+    - In the **Do you want to deploy to code or container image?**, select the option **Code**.
+1. After you create the function app, In **Resource**, ensure that you load the dependencies by following these steps:
+
+    > [!NOTE]
+    > You have to load the dependencies only for the first time.
+
     1. On the **Function App**, select **App files**.
     1. Under the **host.json**, enable **ManagedDependecy** to **True**.
     1. Under the **requirements.psd1**, paste the following code: 
         ```
+        #This file enables modules to be automatically managed by the Functions service. 
+        # See https://aka.ms/functionsmanageddependency for additional information. 
+        # 
         { 
 		For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.        
          Uncomment the next line and replace the MAJOR_VERSION,
@@ -39,14 +48,12 @@ In this tutorial, you learn how to:
 		 'Az'='5.*' 
 		 'Az.ResourceGraph'='0.13.0' 
 		 'Az.Resources'='6.*' 
-            }
+        }
         ```
+    1. Select **Save**.
        
-[Learn more](https://aka.ms/functions) on how to enable modules so that they're automatically managed by the Functions service. 
-
-1. To query ARG through your function app, you must enable system-assigned identity, user-assigned identity and assign the right permissions on the subscriptions. [Learn more](../app-service/overview-managed-identity.md).
-1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the *requirments.psd1* file.
-
+1. To query ARG through your function app, follow the steps mentioned in [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md) to enable system-assigned identity and user-assigned identity and assign the right permissions on the subscriptions.
+1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirments.psd1** file.
 
 ## Create a function
 

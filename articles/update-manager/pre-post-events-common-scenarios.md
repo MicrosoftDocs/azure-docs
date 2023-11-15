@@ -75,10 +75,7 @@ This article presents the frequently asked questions in the lifecycle of pre and
 
 ## How to check if the endpoint has been triggered in the pre or post task?
 
-> [!NOTE]
-> This covers Webhooks using Runbooks and Azure Functions
-
-### How to use Webhooks with Automation Runbooks?
+#### [With webhooks using Automation Runbooks](#tab/events-runbooks)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -87,14 +84,18 @@ This article presents the frequently asked questions in the lifecycle of pre and
 
    :::image type="content" source="./media/pre-post-events-common-scenarios/trigger-endpoint.png" alt-text="Screenshot that shows how to view the status of the Runbook job." lightbox="./media/pre-post-events-common-scenarios/trigger-endpoint.png":::
 
-   Upon completion, you can confirm whether the prepatch installation process has been completed as planned. For instance, ensure that the VM has been either powered on or off. For more information on how to retrieve details from Automation account's activity log, see [Manage runbooks in Azure Automation](../automation/manage-runbooks.md).
+   Upon completion, you can confirm whether the prepatch installation process has been completed as planned. For instance, ensure that the VM has been either powered on or off. 
 
+For more information on how to retrieve details from Automation account's activity log:
+- Learn more on how to [Manage runbooks in Azure Automation](../automation/manage-runbooks.md).
 
-### How to create pre and post events using Azure Functions?
+#### [With Azure Functions](#tab/events-runbooks)
 
-- You can set up logs for Azure Functions to track their execution. [Learn more](../azure-functions/streaming-logs.md).
+- See the [set up logs for Azure Functions to track their execution](../azure-functions/streaming-logs.md).
 
-## Scenario 7: Check if the script in Webhooks using Runbooks is triggered from Event Grid
+---
+
+### How to check if the script in Webhooks using Runbooks is triggered from Event Grid?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -155,7 +156,7 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 1. Use the following Azure Resource Graph (ARG) query to view the status of the job in ARG.
 
    ```kusto
-   maintenanceresources  
+    maintenanceresources  
     | where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
     | where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
     | order by name desc	 
