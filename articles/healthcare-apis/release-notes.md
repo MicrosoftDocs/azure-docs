@@ -20,6 +20,15 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## November 2023
+
+### FHIR service
+
+**Bulk delete capability now available**
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
+
+Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+
 ## October 2023
 
 ### DICOM Service
@@ -27,8 +36,9 @@ This article provides details about the features and enhancements made to Azure 
 
 Bulk import simplifies the process of adding data to the DICOM service. When enabled, the capability creates a storage container and .dcm files that are copied to the container are automatically added to the DICOM service. For more information, see [Import DICOM files (preview)](./../healthcare-apis/dicom/import-files.md).  
 
-
 ## September 2023
+
+### FHIR service
 
 **Retirement announcement for Azure API for FHIR**
 

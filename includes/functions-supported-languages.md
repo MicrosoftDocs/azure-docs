@@ -4,7 +4,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/01/2023
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 ::: zone pivot="programming-language-csharp"
 The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 
@@ -41,14 +43,15 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level | Expected community EOL date |
+| Supported version | Support level<sup>1</sup> | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 8 | Preview<sup>*</sup> | N/A |
-| [.NET 7](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | May 14, 2024 |
-| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
-| .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
+| .NET 8 | GA | [See policy][dotnet-policy] |
+| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
+| .NET 6 | GA | [November 12, 2024][dotnet-policy] |
+| .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
-<sup>*</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
+[dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 

@@ -101,23 +101,7 @@ To create an action group:
     - If the work item type is **Incident**:
       
       :::image type="content" source="media/itsmc-definition/itsm-action-incident.png" lightbox="media/itsmc-definition/itsm-action-incident.png" alt-text="Screenshot that shows the ITSM Ticket area with an incident work item type.":::
-
-    - If the work item type is **Event**:
-
-        If you select **Create a work item for each row in the search results**, every row in the search results creates a new work item. Because several alerts occur for the same affected configuration items, there is also more than one work item. For example, an alert that has three configuration items creates three work items. An alert that has one configuration item creates one work item.
-
-        If you select the **Create a work item for configuration item in the search results**, ITSMC creates a single work item for each alert rule and adds all affected configuration items to that work item. A new work item is created if the previous one is closed. This means that some of the fired alerts won't generate new work items in the ITSM tool. For example, an alert that has three configuration items creates one work item. If an alert has one configuration item, that configuration item is attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item creates one work item.
-        
-        :::image type="content" source="media/itsmc-definition/itsm-action-event.png" lightbox="media/itsmc-definition/itsm-action-event.png" alt-text="Screenshot that shoes the ITSM Ticket section with an even work item type.":::
-
-    - If the work item type is **Alert**:
-
-        If you select **Create a work item for each row in the search results**, every row in the search results creates a new work item. Because several alerts occur for the same affected configuration items, there is also more than one work item. For example, an alert that has three configuration items creates three work items. An alert that has one configuration item creates one work item.
-
-        If you do not select **Create a work item for each row in the search results**, ITSMC creates a single work item for each alert rule and adds all affected configuration items to that work item. A new work item is created if the previous one is closed. This means that some of the fired alerts won't generate new work items in the ITSM tool. For example, an alert that has three configuration items creates one work item. If an alert has one configuration item, that configuration item is attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item creates one work item. 
-        
-        :::image type="content" source="media/itsmc-definition/itsm-action-alert.png" lightbox="media/itsmc-definition/itsm-action-alert.png" alt-text="Screenshot that shows the ITSM Ticket area with an alert work item type.":::
-
+   
 1. You can configure predefined fields to contain constant values as a part of the payload. Based on the work item type, three options can be used as a part of the payload:
     * **None**: Use a regular payload to ServiceNow without any extra predefined fields and values.
     * **Use default fields**: Use a set of fields and values that will be sent automatically as a part of the payload to ServiceNow. Those fields aren't flexible, and the values are defined in ServiceNow lists.

@@ -449,7 +449,7 @@ All the display name of jobs triggered by schedule will have the display name as
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
-:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="query_triggered_jobs":::  
 
 > [!NOTE]
 > For a simpler way to find all jobs triggered by a schedule, see the *Jobs history* on the *schedule detail page* using the studio UI.
