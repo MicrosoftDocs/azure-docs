@@ -191,7 +191,7 @@ items:
             href: app/asp-net-trace-logs.md
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
+            href: app/sampling-classic-api.md
           - name: SDK support policy
             href: app/sdk-support-guidance.md
           - name: Statsbeat

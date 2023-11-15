@@ -323,19 +323,23 @@
     - name: Mitigate OWASP API threats
       displayName: OWASP top 10, vulnerability, vulnerabilities
       href: mitigate-owasp-api-threats.md
-  - name: Manage API authorizations
+  - name: Manage API credentials 
     items:
-    - name: API authorizations
-      displayName: OAuth
-      href: authorizations-overview.md
-    - name: Configure common authorization providers
-      href: authorizations-configure-common-providers.md
-    - name: Configure and use authorization - Microsoft Entra ID
-      href: authorizations-how-to-azure-ad.md
-    - name: Configure and use authorization - GitHub
-      href: authorizations-how-to-github.md
-    - name: Configure multiple authorization connections
-      href: configure-authorization-connection.md
+    - name: Credential manager overview
+      displayName: OAuth, authorizations, SaaS, token
+      href: credentials-overview.md
+    - name: Managed connections - process flows
+      href: credentials-process-flow.md
+    - name: Configure common credential providers
+      href: credentials-configure-common-providers.md
+    - name: Configure credential manager - Microsoft Entra ID
+      href: credentials-how-to-azure-ad.md
+    - name: Configure credential manager - GitHub
+      href: credentials-how-to-github.md
+    - name: Configure credential manager - user-delegated permissions
+      href: credentials-how-to-user-delegated.md
+    - name: Configure multiple connections
+      href: configure-credential-connection.md
   - name: Set up backend authentication
     items:
     - name: Mutual certificate authentication

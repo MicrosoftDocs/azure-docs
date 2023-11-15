@@ -20,7 +20,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page." lightbox="./media/explore/ai-studio-home.png":::
 
-Azure AI Studio is designed for developers to:
+[Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
 - Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
