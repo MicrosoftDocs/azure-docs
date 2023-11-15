@@ -255,21 +255,21 @@ If the completion itself is blocked, the response returns `200`, as the completi
 You can also create custom blocklists in the Azure OpenAI Studio as part of your content filtering configurations (public preview). Instructions on how to create custom content filters can be found [here](/azure/ai-services/openai/how-to/content-filters). The following steps show how to create custom blocklists as part of your content filters via Azure OpenAI Studio. 
 
 1. Select the Blocklists tab next to Content filters tab.
-    :::image type="content" source="../media/content-filters/blocklist-select.jpg" alt-text="screenshot of blocklist selection.":::
+    :::image type="content" source="../media/content-filters/blocklist-select.jpg" alt-text="screenshot of blocklist selection." lightbox="../media/content-filters/blocklist-select.jpg":::
 1. Select Create blocklist
-    :::image type="content" source="../media/content-filters/blocklist-select-create.jpg" alt-text="Screenshot of blocklist create selection.":::
+    :::image type="content" source="../media/content-filters/blocklist-select-create.jpg" alt-text="Screenshot of blocklist create selection." lightbox="../media/content-filters/blocklist-select-create.jpg":::
 1. Create a name for your blocklist, add a description and select on Create.
-    :::image type="content" source="../media/content-filters/create-blocklist.jpg" alt-text="Screenshot of blocklist naming.":::
+    :::image type="content" source="../media/content-filters/create-blocklist.jpg" alt-text="Screenshot of blocklist naming." lightbox="../media/content-filters/create-blocklist.jpg":::
 1. Select your custom blocklist once it's created, and select Add term. 
-    :::image type="content" source="../media/content-filters/custom-blocklist-add.jpg" alt-text="Screenshot of custom blocklist add term.":::
+    :::image type="content" source="../media/content-filters/custom-blocklist-add.jpg" alt-text="Screenshot of custom blocklist add term." lightbox="../media/content-filters/custom-blocklist-add.jpg":::
 1. Add a term that should be filtered, and select Create. You can also create a regex.
-    :::image type="content" source="../media/content-filters/custom-blocklist-add-item.jpg" alt-text="Screenshot of custom blocklist add item.":::
+    :::image type="content" source="../media/content-filters/custom-blocklist-add-item.jpg" alt-text="Screenshot of custom blocklist add item." lightbox="../media/content-filters/custom-blocklist-add-item.jpg":::
 1. You can Edit and Delete every term in your blocklist. 
-    :::image type="content" source="../media/content-filters/custom-blocklist-edit.jpg" alt-text="Screenshot of custom blocklist edit.":::
+    :::image type="content" source="../media/content-filters/custom-blocklist-edit.jpg" alt-text="Screenshot of custom blocklist edit." lightbox="../media/content-filters/custom-blocklist-edit.jpg":::
 1. Once the blocklist is ready, navigate to the Content filters (Preview) section and create a new customized content filter configuration. This opens a wizard with several AI content safety components. You can find more information on how to configure the main filters and optional models [here](/azure/ai-services/openai/how-to/content-filters). Go to Add blocklist (Optional).
 1. You'll now see all available blocklists. There are two types of blocklists – the blocklists you created, and prebuilt blocklists that Microsoft provides, in this case a Profanity blocklist (English)
 1. You can now decide which of the available blocklists you would like to include in your content filtering configuration, and you can select if it should apply to and filter prompts, completions or both. In the below example, we apply CustomBlocklist1 that we just created to prompts and completions, and the Profanity blocklist to completions only. The last step is to review and finish the content filtering configuration by clicking on Next.
-    :::image type="content" source="../media/content-filters/filtering-configuration-manage.jpg" alt-text="Screenshot of filtering configuration management.":::
+    :::image type="content" source="../media/content-filters/filtering-configuration-manage.jpg" alt-text="Screenshot of filtering configuration management." lightbox="../media/content-filters/filtering-configuration-manage.jpg":::
 1. You can always go back and edit your configuration. Once it’s ready, select on Create content filter. The new configuration that includes your blocklists can now be applied to a deployment. Detailed instructions can be found [here](/azure/ai-services/openai/how-to/content-filters).
 
 
