@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/06/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -53,7 +53,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|

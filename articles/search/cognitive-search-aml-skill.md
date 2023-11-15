@@ -1,18 +1,19 @@
 ---
 title: Custom AML skill in skillsets
-titleSuffix: Azure Cognitive Search
-description: Extend capabilities of Azure Cognitive Search skillsets with Azure Machine Learning models.
+titleSuffix: Azure AI Search
+description: Extend capabilities of Azure AI Search skillsets with Azure Machine Learning models.
 
 manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---
 
-# AML skill in an Azure Cognitive Search enrichment pipeline
+# AML skill in an Azure AI Search enrichment pipeline
 
 > [!IMPORTANT] 
 > This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
@@ -55,9 +56,9 @@ Which AML skill parameters are required depends on what authentication your AML 
 
 * [Key-Based Authentication](../machine-learning/how-to-authenticate-online-endpoint.md). A static key is provided to authenticate scoring requests from AML skills
   * Use the _uri_ and _key_ parameters
-* [Token-Based Authentication](../machine-learning/how-to-authenticate-online-endpoint.md). The AML online endpoint is [deployed using token based authentication](../machine-learning/how-to-authenticate-online-endpoint.md). The Azure Cognitive Search service's [managed identity](../active-directory/managed-identities-azure-resources/overview.md) must be enabled. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML online endpoint, with no static keys required. The identity must be assigned owner or contributor role.
+* [Token-Based Authentication](../machine-learning/how-to-authenticate-online-endpoint.md). The AML online endpoint is [deployed using token based authentication](../machine-learning/how-to-authenticate-online-endpoint.md). The Azure AI Search service's [managed identity](../active-directory/managed-identities-azure-resources/overview.md) must be enabled. The AML skill then uses the service's managed identity to authenticate against the AML online endpoint, with no static keys required. The identity must be assigned owner or contributor role.
   * Use the _resourceId_ parameter.
-  * If the Azure Cognitive Search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML online endpoint was deployed in
+  * If the search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML online endpoint was deployed in
 
 ## Skill inputs
 

@@ -1,29 +1,27 @@
 ---
-title: Vector Index Lookup tool in Azure Machine Learning prompt flow (preview)
+title: Vector Index Lookup tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Vector Index Lookup is a tool tailored for querying within an Azure Machine Learning Vector Index. It empowers users to extract contextually relevant information from a domain knowledge base.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Vector index lookup (preview)
+# Vector index lookup
 
 Vector index lookup is a tool tailored for querying within an Azure Machine Learning vector index. It empowers users to extract contextually relevant information from a domain knowledge base.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 - Follow the instructions from sample flow `Bring your own Data QnA` to prepare a Vector Index as an input.
-- Based on where you put your Vector Index, the identity used by the promptflow runtime should be granted with certain roles. Please refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
+- Based on where you put your Vector Index, the identity used by the prompt flow runtime should be granted with certain roles. Please refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
 
     | Location | Role |
     | ---- | ---- |
@@ -49,7 +47,7 @@ The following is an example for JSON format response returned by the tool, which
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |
 | text | string | Text of the entity |
-| score | float | Depends on index type defined in Vector Index. If index type is Faiss, score is L2 distance. If index type is Azure Cognitive Search, score is cosine similarity. |
+| score | float | Depends on index type defined in Vector Index. If index type is Faiss, score is L2 distance. If index type is Azure AI Search, score is cosine similarity. |
 | metadata | dict | Customized key-value pairs provided by user when creating the index |
 | original_entity | dict | Depends on index type defined in Vector Index. The original response json from search REST API|
 
