@@ -300,7 +300,7 @@
 
 - name: Resources
   items:
-    - name: Learning parth - Azure Cosmos DB for PostgreSQL
+    - name: Learning path - Azure Cosmos DB for PostgreSQL
       href: /training/paths/azure-cosmos-db-for-postgresql/
     - name: Pricing
       href: resources-pricing.md

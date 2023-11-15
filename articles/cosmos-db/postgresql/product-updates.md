@@ -22,6 +22,13 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
+### November 2023
+* PostgreSQL 16 is now a default choice for new Azure Cosmos DB for PostgreSQL clusters in the Azure portal.
+    * Learn how to do [in-place upgrade of major PostgreSQL versions](./howto-upgrade.md) in Azure Cosmos DB for PostgreSQL.
+* Retirement: As of November 9, 2023, PostgreSQL 11 is unsupported by PostgreSQL community.
+    * See [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
+    * See [restrictions](./reference-versions.md#retired-postgresql-engine-versions-not-supported-in-azure-cosmos-db-for-postgresql) that apply to the retired PostgreSQL major versions in Azure Cosmos DB for PostgreSQL.
+
 ### October 2023
 * General availability: Azure SDKs are now generally available for all Azure Cosmos DB for PostgreSQL management operations supported in REST APIs.
     * [.NET SDK](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/)

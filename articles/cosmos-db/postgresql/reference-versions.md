@@ -53,6 +53,9 @@ learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
+> [!CAUTION]
+> PostgreSQL community ended support for PostgreSQL 11 on November 9, 2023. See [restrictions](./reference-versions.md#retired-postgresql-engine-versions-not-supported-in-azure-cosmos-db-for-postgresql) that apply to the retired PostgreSQL major versions in Azure Cosmos DB for PostgreSQL. Learn about [in-place upgrades for major PostgreSQL versions](./concepts-upgrade.md) in Azure Cosmos DB for PostgreSQL.
+
 The current minor release is 11.21. Refer to the [PostgreSQL
 documentation](https://www.postgresql.org/docs/release/11.21/) to
 learn more about improvements and fixes in this minor release.
@@ -88,7 +91,7 @@ policy](https://www.postgresql.org/support/versioning/).
 
 | Version | What's New | Supported since | Retirement date (Azure)|
 | ------- | ---------- | ------------------------ | ---------------------- |
-| [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | May 7, 2019  | Nov 9, 2023  |
+| [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | May 7, 2019  | Nov 9, 2023  (**retired**) |
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Apr 6, 2021  | Nov 14, 2024 |
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | Apr 6, 2021  | Nov 13, 2025 |
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | Oct 1, 2021  | Nov 12, 2026 |
