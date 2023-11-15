@@ -1,10 +1,16 @@
 items:
-- name: Oracle on Azure VMs
+- name: Oracle on Azure Documentation
   href: index.yml
 - name: Overview 
+  href: oracle-azure-overview.md
+- name: Oracle on Azure Virtual Machines
   items:
-  - name: Oracle applications and solutions on Azure
+  - name: Oracle on Azure
     href: oracle-overview.md
+- name: Oracle Database@Azure
+  items:
+  - name: Oracle Database @Azure
+    href: oracle-database.md
 - name: Get started
   items:
   - name: Create an Oracle DB in an Azure VM 

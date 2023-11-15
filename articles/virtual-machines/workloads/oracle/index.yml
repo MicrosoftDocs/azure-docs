@@ -12,17 +12,17 @@ metadata:
   ms.author: jjaygbay1
   author: jjaygbay1
   ms.date: 05/11/2023
-  keywords: oracle workloads on azure vms, oracle, data migration to cloud, workloads on azure, azure data migration 
+  keywords: oracle workloads on azure virtual machines, database, oracle, data migration to cloud, workloads on azure, azure data migration 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
   #card 1
-  - title: Overview
+  - title: Oracle on Azure
     linkLists:
       - linkListType: overview
         links:
-          - text: Oracle applications and solutions on Azure
+          - text: Oracle on Azure
             url: oracle-overview.md         
           
   #card 2  
