@@ -1,17 +1,19 @@
 ---
 title: Search over JSON blobs
-titleSuffix: Azure Cognitive Search
-description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
+titleSuffix: Azure AI Search
+description: Crawl Azure JSON blobs for text content using the Azure AI Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 03/22/2023
 ---
-# Index JSON blobs and files in Azure Cognitive Search
+# Index JSON blobs and files in Azure AI Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 

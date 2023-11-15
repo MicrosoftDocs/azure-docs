@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/09/2023
 manager: nitinme
 ---
 
@@ -103,7 +103,7 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   api_key=os.getenv("AZURE_OPENAI_KEY"),  
   api_version="2023-10-01-preview",
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
 messages= [
