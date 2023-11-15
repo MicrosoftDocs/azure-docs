@@ -51,7 +51,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
     az extension add --name k8s-extension
     az extension add --name customlocation
     ```
-1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
+1. [Install Azure CLI extension](/cli/azure/iot/ops).
 1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
 1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
@@ -104,7 +104,7 @@ You should complete this step in an *internet facing environment outside of the 
     az extension add --name k8s-extension
     az extension add --name customlocation
     ```
-1. [Install Azure CLI extension](../reference/about-iot-operations-cli.md).
+1. [Install Azure CLI extension](/cli/azure/iot/ops).
 1. Install `nfs-common` on the host machine.
 
     ```bash
