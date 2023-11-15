@@ -830,42 +830,42 @@
         - name: Respond to Microsoft Defender for DNS alerts
           displayName: DNS
           href: defender-for-dns-alerts.md
-    - name: DevOps security
-      items:
-        - name: DevOps security overview
-          href: defender-for-devops-introduction.md
-        - name: Support and prerequisites
-          href: devops-support.md
-        - name: DevOps environment security posture
-          href: concept-devops-environment-posture-management-overview.md
-        - name: Onboard
-          items:
-            - name: Connect your Azure DevOps organization
-              href: quickstart-onboard-devops.md
-            - name: Connect your GitHub organization
-              href: quickstart-onboard-github.md
-            - name: Connect your GitLab groups
-              href: quickstart-onboard-gitlab.md
-            - name: Configure the Microsoft Security DevOps Azure DevOps extension
-              href: azure-devops-extension.md
-            - name: Configure the Microsoft Security DevOps GitHub action
-              href: github-action.md
-            - name: Configure pull request annotations
-              href: enable-pull-request-annotations.md
-            - name: Map IaC templates from code to cloud
-              href: iac-template-mapping.md
-            - name: Map container images from code to cloud
-              href: container-image-mapping.md
-            - name: Edit your DevOps connector
-              href: edit-devops-connector.md
-        - name: Investigate and remediate
-          items:
-            - name: Discover IaC misconfigurations
-              href: iac-vulnerabilities.md
-            - name: Review pull request annotations
-              href: review-pull-request-annotations.md
-        - name: Common questions about DevOps security
-          href: faq-defender-for-devops.yml
+  - name: DevOps security
+    items:
+      - name: DevOps security overview
+        href: defender-for-devops-introduction.md
+      - name: Support and prerequisites
+        href: devops-support.md
+      - name: DevOps environment security posture
+        href: concept-devops-environment-posture-management-overview.md
+      - name: Onboard
+        items:
+          - name: Connect your Azure DevOps organization
+            href: quickstart-onboard-devops.md
+          - name: Connect your GitHub organization
+            href: quickstart-onboard-github.md
+          - name: Connect your GitLab group
+            href: quickstart-onboard-gitlab.md
+          - name: Configure the Microsoft Security DevOps Azure DevOps extension
+            href: azure-devops-extension.md
+          - name: Configure the Microsoft Security DevOps GitHub action
+            href: github-action.md
+          - name: Configure pull request annotations
+            href: enable-pull-request-annotations.md
+          - name: Map IaC templates from code to cloud
+            href: iac-template-mapping.md
+          - name: Map container images from code to cloud
+            href: container-image-mapping.md
+          - name: Edit your DevOps connector
+            href: edit-devops-connector.md
+      - name: Investigate and remediate
+        items:
+          - name: Discover IaC misconfigurations
+            href: iac-vulnerabilities.md
+          - name: Review pull request annotations
+            href: review-pull-request-annotations.md
+      - name: Common questions about DevOps security
+        href: faq-defender-for-devops.yml
 - name: Reference
   items:
     - name: Archived release notes (older than six months)
