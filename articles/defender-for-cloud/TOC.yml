@@ -236,6 +236,8 @@
           href: concept-data-security-posture-prepare.md
         - name: Data security dashboard
           href: data-aware-security-dashboard-overview.md
+        - name: Supported sensitive data information types
+          href: sensitive-info-types.md
     - name: Improve your container security posture with Defender CSPM
       items:
         - name: Agentless container posture in Defender CSPM
