@@ -4,6 +4,8 @@ description: "Quickstart: Use a Data Processor pipeline to process data from you
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 10/11/2023
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
@@ -23,19 +25,6 @@ Before you begin this quickstart, you must complete the following quickstarts:
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 
 You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
-
-Install the [mqttui](https://github.com/EdJoPaTo/mqttui) tool on the Ubuntu machine where you're running Kubernetes:
-
-```bash
-wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-sudo dpkg -i mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-```
-
-Install the [k9s](https://k9scli.io/) tool on the Ubuntu machine where you're running Kubernetes:
-
-```bash
-sudo snap install k9s
-```
 
 ## What problem will we solve?
 
@@ -118,7 +107,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
+1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to enter insert mode, _ESC_ to exit insert mode, and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
@@ -144,67 +133,6 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 1. Save the changes and exit from the editor.
 
 The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, restart the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically
-
-## Verify data is flowing
-
-To verify data is flowing from your assets by using the **mqttui** tool:
-
-1. Run the following command to make the MQ broker accessible from your local machine:
-
-    ```bash
-    # Create Listener
-    kubectl apply -f - <<EOF
-    apiVersion: mq.iotoperations.azure.com/v1beta1
-    kind: BrokerListener
-    metadata:
-      name: az-mqtt-non-tls-listener
-      namespace: azure-iot-operations
-    spec:
-      brokerRef: broker
-      authenticationEnabled: false
-      authorizationEnabled: false
-      port: 1883
-    EOF
-    ```
-
-1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
-
-    ```bash
-    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:mqtt-1883 -n azure-iot-operations
-    ```
-
-1. In a separate terminal window, run the following command to connect to the MQ broker using the mqttui tool:
-
-    ```bash
-    mqttui -b mqtt://127.0.0.1:1883
-    ```
-
-1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
-
-    :::image type="content" source="media/quickstart-process-telemetry/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
-
-    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically.
-
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
-
-```json
-{
-    "Timestamp": "2023-08-10T00:54:58.6572007Z", 
-    "MessageType": "ua-deltaframe",
-    "payload": {
-      "temperature": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
-        "Value": 7109
-      },
-      "Tag 10": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
-        "Value": 7109
-      }
-    },
-    "DataSetWriterName": "oven",
-    "SequenceNumber": 4660
-}
-```
 
 ## Create a basic pipeline
 
@@ -241,7 +169,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | -------------- | --------------------------------- |
     | Display name   | `output data`             |
     | Broker         | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication | `none`                            |
+    | Authentication | `Service account token (SAT)`      |
     | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
     | Path           | `.payload`                        |
@@ -274,7 +202,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | ------------- | ----------------------------------- |
     | Name          | `reference data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication| `none`                  |
+    | Authentication| `Service account token (SAT)`       |
     | Topic         | `reference_data`                    |
     | Data format   | `JSON`                              |
 

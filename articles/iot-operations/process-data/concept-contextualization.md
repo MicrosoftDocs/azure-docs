@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 09/28/2023
 
 #CustomerIntent: As an operator, I want understand what contextualization is so that I can enrich messages in my pipelines using reference or lookup data.

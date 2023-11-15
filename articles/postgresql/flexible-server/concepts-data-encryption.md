@@ -86,7 +86,7 @@ The following are requirements for configuring Key Vault:
 
 The following are requirements for configuring the customer-managed key in Flexible Server:
 
-- The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
+- The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA or RSA-HSM. Key sizes of 2048, 3072, and 4096 are supported.
 
 - The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 

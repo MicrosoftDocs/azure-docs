@@ -5,6 +5,8 @@ description: Configure Azure IoT MQ authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/28/2023
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
@@ -165,6 +167,14 @@ spec:
 
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
 
+## Distributed state store
+
+Azure IoT MQ Broker provides a distributed state store (DSS) that clients can use to store state. The DSS can also be configured to be highly available.
+
+To set up authorization for clients that use the DSS, provide the following permissions:
+
+- Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
+- Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
 
 ## Update authorization
 

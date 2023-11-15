@@ -16,13 +16,12 @@ ms.date: 08/30/2023
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-This article explains how to add a Kubernetes secret to pull a custom image from a private container registry with Managed Airflow in Data Factory for Microsoft Fabric.
+This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within Azure Data Factory's Managed Airflow environment.
 
 ## Prerequisites
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 - **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
-- **Azure Data Factory pipeline** - You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md).
 - **Azure Container Registry** - Configure an [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) with the custom Docker image you want to use in the DAG. For more information on push and pull container images, see [Push & pull container image - Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
 
 ### Step 1: Create a new Managed Airflow environment

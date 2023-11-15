@@ -95,7 +95,9 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 * Public connectivity is required for Windows Activation and Windows Updates.  It is recommended to set up an explicit form of public outbound connectivity.
 
-* Default outbound access IP doesn't support fragmented packets. 
+* Default outbound access IP doesn't support fragmented packets.
+
+* Default outbound access IP doesn't support ICMP pings.
 
 ## Next steps
 

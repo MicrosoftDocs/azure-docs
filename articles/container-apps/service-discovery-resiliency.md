@@ -114,78 +114,89 @@ az login
 
 ### Create policies with recommended settings
 
-To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--default` flag:
+> [!NOTE]
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+
+To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--recommended` flag:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
+az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --recommended
 ```
 
-This command passes the "default", or recommended, resiliency policy configurations, as shown in the following example:
+This command passes the recommeded resiliency policy configurations, as shown in the following example:
 
 ```yaml
-properties:
-  httpRetryPolicy:
-    matches:
-      errors:
-      - 5xx
-    maxRetries: 3
-    retryBackOff:
-      initialDelayInMilliseconds: 1000
-      maxIntervalInMilliseconds: 10000
-  tcpRetryPolicy:
-    maxConnectAttempts: 3
-  timeoutPolicy:
-    connectionTimeoutInSeconds: 5
-    responseTimeoutInSeconds: 60
- circuitBreakerPolicy:
-    consecutiveErrors: 5
-    intervalInSeconds: 10
-    maxEjectionPercent: 100
+httpRetryPolicy:
+  matches:
+    errors:
+    - 5xx
+  maxRetries: 3
+  retryBackOff:
+    initialDelayInMilliseconds: 1000
+    maxIntervalInMilliseconds: 10000
+tcpRetryPolicy:
+  maxConnectAttempts: 3
+timeoutPolicy:
+  connectionTimeoutInSeconds: 5
+  responseTimeoutInSeconds: 60
+ircuitBreakerPolicy:
+  consecutiveErrors: 5
+  intervalInSeconds: 10
+  maxEjectionPercent: 100
 ```
+
+### Create specific policies
+
+Create resiliency policies by targeting an individual policy. For example, to create the `Timeout` policy, run the following command.
+
+```azurecli
+az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container-app-name MyContainerApp --timeout 20 --timeout-connect 5
+```
+
+[For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
 
 ### Create policies with resiliency YAML
 
-To apply the resiliency policies from a YAML file you created for your container app, run the following command:
+To apply the resiliency policies from a YAML file, run the following command:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml <MY_YAML_FILE>
+az containerapp resiliency create -g MyResourceGroup –n MyResiliency --container-app-name MyContainerApp –yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
 
 ```yaml
-properties:
-  timeoutPolicy:
-    responseTimeoutInSeconds: 30
-    connectionTimeoutInSeconds: 5
-  httpRetryPolicy:
-    maxRetries: 5
-    retryBackOff:
-      initialDelayInMilliseconds: 1000
-      maxIntervalInMilliseconds: 10000
-    matches:
-      errors:
-        - retriable-headers
-        - retriable-status-codes
-  tcpRetryPolicy:
-    maxConnectAttempts: 3
-  circuitBreakerPolicy:
-    consecutiveErrors: 5
-    intervalInSeconds: 10
-    maxEjectionPercent: 50
-  tcpConnectionPool:
-    maxConnections: 100
-  httpConnectionPool:
-    http1MaxPendingRequests: 1024
-    http2MaxRequests: 1024
+timeoutPolicy:
+  responseTimeoutInSeconds: 30
+  connectionTimeoutInSeconds: 5
+httpRetryPolicy:
+  maxRetries: 5
+  retryBackOff:
+    initialDelayInMilliseconds: 1000
+    maxIntervalInMilliseconds: 10000
+  matches:
+    errors:
+      - retriable-headers
+      - retriable-status-codes
+tcpRetryPolicy:
+  maxConnectAttempts: 3
+circuitBreakerPolicy:
+  consecutiveErrors: 5
+  intervalInSeconds: 10
+  maxEjectionPercent: 50
+tcpConnectionPool:
+  maxConnections: 100
+httpConnectionPool:
+  http1MaxPendingRequests: 1024
+  http2MaxRequests: 1024
 ```
 
 ### Update specific policies
 
-Update your resiliency policies by targeting an individual policy. For example, to update the `timeout-response-in-seconds` policy, run the following command.
+Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --timeout-response-in-seconds 20
+az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container-app-name MyContainerApp --timeout 20
 ```
 
 ### Update policies with resiliency YAML
@@ -201,13 +212,13 @@ az containerapp resiliency update --name MyResiliency -g MyResourceGroup --conta
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp resiliency list --group MyResourceGroup -–name MyContainerApp​
+az containerapp resiliency list -g MyResourceGroup --container-app-name MyContainerApp​
 ```
 
 Use `resiliency show` command to show a single policy by name.
 
 ```azurecli
-az containerapp resiliency show --name MyResiliency --group MyResourceGroup --container-app-name MyContainerApp
+az containerapp resiliency show -g MyResourceGroup -n MyResiliency --container-app-name ​MyContainerApp
 ```
 
 ### Delete policies
@@ -215,7 +226,7 @@ az containerapp resiliency show --name MyResiliency --group MyResourceGroup --co
 To delete resiliency policies, run the following command. 
 
 ```azurecli
-az containerapp resiliency delete --group MyResourceGroup –-name MyResiliencyName --container-app-name ​MyContainerApp
+az containerapp resiliency delete -g MyResourceGroup -n MyResiliency --container-app-name ​MyContainerApp
 ```
 
 # [Azure portal](#tab/portal)

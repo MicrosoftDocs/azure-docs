@@ -5,10 +5,12 @@ description: Configure observability features in Azure IoT Operations to monitor
 author: timlt
 ms.author: timlt
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/7/2023
 
-# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data 
-# on the health of my industrial assets and edge environment. 
+# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
+# on the health of my industrial assets and edge environment.
 ---
 
 # Configure observability

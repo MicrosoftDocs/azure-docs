@@ -38,6 +38,8 @@ items:
     href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
+  - name: Use volume snapshots
+    href: elastic-san-snapshots.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
   - name: Manage Encryption

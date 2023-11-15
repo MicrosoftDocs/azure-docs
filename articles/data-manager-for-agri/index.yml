@@ -41,6 +41,8 @@ landingContent:
             url: concepts-ingest-sensor-data.md
           - text: Understanding ISV solutions
             url: concepts-isv-solutions.md
+          - text: Using LLM APIs
+            url: concepts-llm-apis.md
       - linkListType: whats-new
         links:
           - text: Release notes
