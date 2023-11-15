@@ -127,3 +127,11 @@ If the OPC PLC simulator isn't sending data to the IoT MQ broker after you creat
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
+
+## Azure IoT Operations (preview) portal
+
+- To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID. You can't sign in with a Microsoft account (MSA). To create an Entra ID in your Azure tenant:
+
+    1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+    1. Create a new identity using Entra Identity and grant it at least **Contributor** permissions to the resource group that contains your cluster and Azure IoT Operations deployment.
+    1. Return to the [Azure IoT Operations portal](https://iotoperations.azure.com) and use the new account to sign in.

@@ -16,6 +16,8 @@ ms.date: 10/25/2023
 
 Use Azure IoT Orchestrator to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
 
+:::image type="content" source="./media/overview-orchestrator/orchestrator-overview.svg" alt-text="Diagram that shows the architecture of Azure IoT Orchestrator components in the cloud and managing an Arc-enabled Kubernetes cluster.":::
+
 Orchestrator is a service that manages application workloads on Kubernetes clusters that have been Arc enabled. It utilizes existing tools like Helm, Kubectl, and Arc to achieve the desired state on the target cluster. Orchestrator uses an extensibility model called *providers*, which allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Orchestrator also provides reconciliation and status reporting capabilities to ensure that the desired state is maintained.
 
 ## Constructs

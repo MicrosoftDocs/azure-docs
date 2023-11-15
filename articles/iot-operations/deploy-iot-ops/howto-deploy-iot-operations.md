@@ -24,7 +24,13 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+
+* The Azure IoT Operations extension for Azure CLI.
+
+  ```bash
+  az extension add --name az-iot-ops
+  ```
 
 * An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
 
@@ -86,17 +92,50 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. Run the copied `az iot ops init` command on your development machine.
+1. Run the copied [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command on your development machine.
 
 1. Return to the Azure portal and select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
+#### [Azure CLI](#tab/cli)
+
+Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+
+Sign in to Azure CLI. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
+
+```azurecli-interactive
+az login
+```
+
+> [!NOTE]
+> If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+>
+> * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
+> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
+
+Deploy Azure IoT Operations to your cluster. The [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command does the following steps:
+
+* Creates a key vault in your resource group.
+* Sets up a service principal to give your cluster access to the key vault.
+* Configures TLS certificates.
+* Configures a secrets store on your cluster that connects to the key vault.
+* Deploys the Azure IoT Operations resources.
+
+```azurecli-interactive
+az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id)
+```
+
+>[!TIP]
+>If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
+
+Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+
 #### [GitHub Actions](#tab/github)
 
 Use GitHub Actions to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-Before you begin deploying, use the `az iot ops init` command to configure your cluster with a secrets store and a service principal so that it can connect securely to cloud resources.
+Before you begin deploying, use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster with a secrets store and a service principal so that it can connect securely to cloud resources.
 
 1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
 
@@ -114,6 +153,9 @@ Before you begin deploying, use the `az iot ops init` command to configure your 
    ```azurecli-interactive
    az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id) --no-deploy
    ```
+
+   >[!TIP]
+   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
 Now, you can deploy Azure IoT Operations to your cluster.
 
@@ -180,43 +222,29 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | **Resource group** | The name of the resource group that contains your Arc-enabled cluster. |
    | **Environment parameters file** | The path to the parameters file that you created. |
 
-#### [Azure CLI](#tab/cli)
-
-Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
-
-Sign in to Azure CLI. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
-
-```azurecli-interactive
-az login
-```
-
-> [!NOTE]
-> If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
->
-> * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
-> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
-
-Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does the following steps:
-
-* Creates a key vault in your resource group.
-* Sets up a service principal to give your cluster access to the key vault.
-* Configures TLS certificates.
-* Configures a secrets store on your cluster that connects to the key vault.
-* Deploys the Azure IoT Operations resources.
-
-```azurecli-interactive
-az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id)
-```
-
-Use optional flags to customize the `az iot ops init` command. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init). For example:
-
-| Parameter | Description |
-| --------- | ----------- |
-| `--no-tls` | Disable TLS workflows. |
-| `--no-deploy` | Disable Azure IoT Operations deployment workflows. |
-| `--sp-app-id` | Provide an existing app registration ID to disable the command from creating an app registration. |
-
 ---
+
+### Configure cluster network (AKS EE)
+
+On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+
+1. Enable a firewall rule for port 8883:
+
+    ```powershell
+    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    ```
+
+1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
+
+    ```cmd
+    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    ```
+
+1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+
+    ```cmd
+    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
+    ```
 
 ## View resources in your cluster
 

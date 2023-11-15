@@ -34,7 +34,7 @@ In this article, you learn how to:
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-cognitive-search). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/master/quickstart/101-azure-cognitive-search/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/main/quickstart/101-azure-cognitive-search). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/main/quickstart/101-azure-cognitive-search/TestRecord.md).
 > 
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
