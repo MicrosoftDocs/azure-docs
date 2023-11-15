@@ -1,7 +1,7 @@
 ---
 title: Video Retrieval API reference - Image Analysis 4.0
 titleSuffix: Azure AI services
-description: Learn how to call the Video retrieval APIs.
+description: Learn how to call the Video Retrieval APIs.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -28,6 +28,7 @@ Version: `2023-05-01-preview`
 
 
 ## CreateIndex
+
 ### URL
 PUT /retrieval/indexes/{indexName}?api-version=<verion_number>
 
@@ -55,6 +56,7 @@ An index needs to be created before ingestion can be performed.
 | 201 | Created | [GetIngestionIndexResponseModel](#getingestionindexresponsemodel) |
 
 ## GetIndex
+
 ### URL
 GET /retrieval/indexes/{indexName}?api-version=<verion_number>
 
@@ -81,6 +83,7 @@ Retrieves the index with the specified name.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## UpdateIndex
+
 ### URL
 PATCH /retrieval/indexes/{indexName}?api-version=<verion_number>
 
@@ -108,6 +111,7 @@ Updates an index with the specified name.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## DeleteIndex
+
 ### URL
 DELETE /retrieval/indexes/{indexName}?api-version=<verion_number>
 
@@ -133,6 +137,7 @@ Deletes an index and all its associated ingestion documents.
 | 204 | No Content |
 
 ## ListIndexes
+
 ### URL
 GET /retrieval/indexes?api-version=<verion_number>
 
@@ -160,6 +165,7 @@ Retrieves a list of all indexes across all ingestions.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## CreateIngestion
+
 ### URL
 PUT /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<verion_number>
 
@@ -190,7 +196,9 @@ Update mode will update the metadata only. In order to reprocess the video, the 
 | 202 | Accepted | [IngestionResponseModel](#ingestionresponsemodel) |
 
 ## GetIngestion
+
 ### URL
+
 GET /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<verion_number>
 
 ### Summary
@@ -218,7 +226,9 @@ Gets the ingestion status for the specified index and ingestion name.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## ListIngestions
+
 ### URL
+
 GET /retrieval/indexes/{indexName}/ingestions?api-version=<verion_number>
 
 ### Summary
@@ -244,7 +254,9 @@ Retrieves all ingestions for the specific index.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## ListDocuments
+
 ### URL
+
 GET /retrieval/indexes/{indexName}/documents?api-version=<verion_number>
 
 ### Summary
@@ -272,7 +284,9 @@ Retrieves all documents for the specific index.
 | default | Error | [ErrorResponse](#errorresponse) |
 
 ## SearchByText
+
 ### URL
+
 POST /retrieval/indexes/{indexName}:queryByText?api-version=<verion_number>
 
 ### Summary
@@ -319,8 +333,8 @@ Represents the create ingestion request model for the JSON document.
 | videos | [ [IngestionDocumentRequestModel](#ingestiondocumentrequestmodel) ] | Gets or sets the list of video document ingestion requests in the JSON document. | No |
 | moderation | boolean | Gets or sets the moderation flag, indicating if the content should be moderated. | No |
 | generateInsightIntervals | boolean | Gets or sets the interval generation flag, indicating if insight intervals should be generated. | No |
-| documentAuthenticationKind | string | Gets or sets the authentication kind that is be used for downloading the documents.<br>*Enum:* `"none"`, `"managedIdentity"` | No |
-| filterDefectedFrames | boolean | Frame filter flag indicating frames will be evaluated and all defected (e.g. blurry, lowlight, overexposure) frames will be filterd out. | No |
+| documentAuthenticationKind | string | Gets or sets the authentication kind that is to be used for downloading the documents.<br>*Enum:* `"none"`, `"managedIdentity"` | No |
+| filterDefectedFrames | boolean | Frame filter flag indicating frames will be evaluated and all defected (e.g. blurry, lowlight, overexposure) frames will be filtered out. | No |
 
 ### DatetimeFilterModel
 
