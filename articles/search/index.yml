@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure AI Search documentation # < 60 chars
-summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+summary: Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization.
 metadata:
   title: Azure AI Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.

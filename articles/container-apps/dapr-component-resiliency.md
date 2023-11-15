@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/15/2023
 ms.author: hannahhunter
 ms.custom:
   - ignite-fall-2023
@@ -86,40 +86,49 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-### Create policies
+### Create specific policies
 
-To apply the resiliency policies from a YAML file you created for your container app, run the following command:
+Create resiliency policies by targeting an individual policy. For example, to create the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+```
+
+[For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
+
+### Create policies with resiliency YAML
+
+To apply the resiliency policies from a YAML file, run the following command:
+
+```azurecli
+az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
 
 ```yml
-properties:
-  outboundPolicy:
-    httpRetryPolicy:
-      maxRetries: 5
-      retryBackOff:
-        initialDelayInMilliseconds: 1000
-        maxIntervalInMilliseconds: 10000
-    timeoutPolicy:
-      responseTimeoutInSeconds: 15
-  inboundPolicy:
-    httpRetryPolicy:
-      maxRetries: 3
-      retryBackOff:
-        initialDelayInMilliseconds: 500
-        maxIntervalInMilliseconds: 5000
+outboundPolicy:
+  httpRetryPolicy:
+    maxRetries: 5
+    retryBackOff:
+      initialDelayInMilliseconds: 1000
+      maxIntervalInMilliseconds: 10000
+  timeoutPolicy:
+    responseTimeoutInSeconds: 15
+inboundPolicy:
+  httpRetryPolicy:
+    maxRetries: 3
+    retryBackOff:
+      initialDelayInMilliseconds: 500
+      maxIntervalInMilliseconds: 5000
 ```
 
 ### Update specific policies
 
-Update your resiliency policies by targeting an individual policy. For example, to update the `timeout-response-in-seconds` policy, run the following command.
+Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --timeout-response-in-seconds 20
+az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
 ```
 
 ### Update policies with resiliency YAML
@@ -127,7 +136,7 @@ az containerapp env dapr-component resiliency update --name MyResiliency -g MyRe
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -135,13 +144,13 @@ az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDap
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp env dapr-component resiliency list -g MyResourceGroup --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency list --group MyResourceGroup --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 Use `resiliency show` command to show a single policy by name.
 
 ```azurecli
-az containerapp env dapr-component resiliency show -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency show --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 ### Delete policies
@@ -149,7 +158,7 @@ az containerapp env dapr-component resiliency show -g MyResourceGroup -n MyDaprR
 To delete resiliency policies, run the following command. 
 
 ```azurecli
-az containerapp env dapr-component resiliency delete -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency delete --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
 ```
 
 # [Azure portal](#tab/portal)

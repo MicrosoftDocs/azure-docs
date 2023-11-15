@@ -68,7 +68,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 The ECedsv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM, as well as up to 2.8 TB local disk storage. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator]
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### ECedsv5-series specifications
 
