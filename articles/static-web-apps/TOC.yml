@@ -131,8 +131,6 @@
     displayName: swa cli
 - name: Hosting & development
   items:
-  - name: Overview
-    href: UNKNOWN.md
   - name: Use external providers
     href: external-providers.md
   - name: Reset deployment tokens
