@@ -44,7 +44,6 @@ There's another feature in Azure AI Language, [key phrase extraction](./../../ke
     * Offset: The start position of each extracted sentence.
     * Length: The length of each extracted sentence.
 
-
 ## Determine how to process the data (optional)
 
 ### Submitting data
@@ -277,6 +276,11 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 }
 '
 ```
+
+For the `summaryLength` parameter, three values are accepted:
+* short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.
+* medium : Generates a summary of mostly 4-6 sentences, with around 170 tokens.
+* long : Generates a summary of mostly over 7 sentences, with around 210 tokens.
 
 ## Service and data limits
 
