@@ -138,6 +138,8 @@
           href: manage-custom-dns-migrate-domain.md
     - name: TLS/SSL certificates
       items:
+        - name: TLS overview
+          href: overview-tls.md
         - name: Secure custom domain with TLS/SSL
           href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert

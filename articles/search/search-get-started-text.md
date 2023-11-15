@@ -1,12 +1,17 @@
 ---
 title: 'Quickstart: Use Azure SDKs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: "Create, load, and query a search index using the Azure SDKs for .NET, Python, Java, and JavaScript."
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 06/09/2023
 ---
@@ -26,7 +31,7 @@ This quickstart has [steps](#create-load-and-query-an-index) for the following S
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
++ An Azure AI Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
 + An API key and service endpoint:
 
@@ -70,7 +75,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-In this quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try a tutorial hat calls the Cognitive Search APIs in a web app.
+In this quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try a tutorial that calls the Azure AI Search APIs in a web app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add search to web apps](tutorial-csharp-overview.md)

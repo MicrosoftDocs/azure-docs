@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 ---
 
 # Stream data from Azure Stream Analytics into confluent cloud
@@ -137,7 +137,7 @@ Use the following steps to grant special permissions to your stream analytics jo
 | Output Alias            | A friendly name used in queries to reference your input |
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to your confluent cloud kafka cluster. Example: pkc-56d1g.eastus.azure.confluent.cloud:9092 |
 | Kafka topic                  | The name of your kafka topic in your confluent cloud kafka cluster.|
-| Security Protocol            | Select **SASL_SSL** |
+| Security Protocol            | Select **SASL_SSL**. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM.  |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning. Keep blank if a key doesn't partition your input |
 | Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            | 

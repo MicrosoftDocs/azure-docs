@@ -25,7 +25,7 @@ Document score: 100 (520 words and 0 issues)
 
 # What is Azure Storage Mover?
 
-Azure Storage Mover is a new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload. You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for cloud migrations that you have to repeat occasionally. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
+Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload. You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for cloud migrations that you have to repeat occasionally. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
 
 ## Supported sources and targets
 
@@ -33,7 +33,9 @@ Azure Storage Mover is a new, fully managed migration service that enables you t
 
 An Azure blob container without the hierarchical namespace service feature doesn’t have a traditional file system. A standard blob container uses “virtual” folders to mimic this functionality. When this approach is used, files in folders on the source get their path prepended to their name and placed in a flat list in the target blob container.
 
-When the SMB protocol is used during a data migration, Storage Mover supports the same level of file fidelity as the underlying Azure file share. Folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained. When the NFS protocol is used, the Storage Mover service represents empty folders as an empty blob in the target. The metadata of the source folder is persisted in the custom metadata field of this blob, just as they are with files.
+When migrating data from a source endpoint using the SMB protocol, Storage Mover supports the same level of file fidelity as the underlying Azure file share. Folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained. When migrating data from an NFS source, the Storage Mover service represents empty folders as an empty blob in the target. The metadata of the source folder is persisted in the custom metadata field of this blob, just as they are with files.
+
+However, migrating data from a source endpoint using the NFS protocol might require “virtual” folders during the migration. Because Azure blob containers without HNS support don’t have a traditional file system, Storage Mover uses these folders to mimic a local file system. When files are found within folders on a source endpoint, Storage Mover prepends their paths to their names and places the file in a flat list within in the target blob container.
 
 :::image type="content" source="media/overview/source-to-target.png" alt-text="A screenshot illustrating a source NFS share migrated through an Azure Storage Mover agent VM to an Azure Storage blob container." lightbox="media/overview/source-to-target-lrg.png" :::
 

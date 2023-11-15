@@ -1,10 +1,8 @@
 ---
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ---
 
 # Data security dashboard
@@ -21,45 +19,21 @@ The data security dashboard addresses the need for an interactive, data-centric 
 
 You can select any element on the page to get more detailed information.
 
-| Aspect | Details |
-|---------|---------|
-|Release state: | Public Preview |
-| Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
-| Required roles and permissions: | No other roles needed aside from what is required for the security explorer. <br><br> To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**. |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+## Before you start
 
-## Prerequisites
+- You must [enable Defender CSPM](tutorial-enable-cspm-plan.md) and the [sensitive data discovery extension](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan) within Defender CSPM.  
+- To receive the alerts for data sensitivity 
+    - for storage related alerts, you must [enable the Defender for Storage plan](tutorial-enable-storage-plan.md).
+    - for database related alerts, you must [enable the Defender for Databases plan](tutorial-enable-databases-plan.md).
 
-In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extension button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan for storage related alerts or Defender for Databases for database related alerts.
+> [!NOTE]
+> The feature is turned on at the subscription level.
 
-:::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
+### Required roles and permissions: 
 
-The feature is turned on at the subscription level.
+No other roles needed aside from what is required for the security explorer.
 
-## Required permissions and roles
-
-- To view the dashboard, you must have either one of the following scenarios:
-
-  - **all of the following permissions**:
-
-    - Microsoft.Security/assessments/read
-    - Microsoft.Security/assessments/subassessments/read
-    - Microsoft.Security/alerts/read
-
-  - **the minimum required privileged RBAC role** of **Security Reader**.
-
-- Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
-
-    1. Sign-in to the Azure portal.
-    1. Select the affected subscription.
-    1. In the left-side menu, select the resource provider.
-
-        :::image type="content" source="media/data-aware-security-dashboard/select-resource-provider.png" alt-text="Screenshot that shows where to select the resource provider." lightbox="media/data-aware-security-dashboard/select-resource-provider.png":::
-
-    1. Search for and select the **Microsoft.Security** resource provider from the list.
-    1. Select **Register**.
-
-Learn more about [how to register for Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**.
 
 ## Data security overview section
 

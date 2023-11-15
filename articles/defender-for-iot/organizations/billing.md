@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT billing
 description: Learn how you're billed for the Microsoft Defender for IoT service.
 ms.topic: concept-article
-ms.date: 09/13/2023
+ms.date: 11/07/2023
 ms.custom: enterprise-iot
 #CustomerIntent: As a Defender for IoT customer, I want to understand how I'm billed for Defender for IoT services so that I can best plan my deployment.
 ---
@@ -40,3 +40,4 @@ For more information, see:
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
 - [Operational Technology (OT) networks frequently asked questions](faqs-ot.md)
+- [Microsoft Defender for IoT Plans and Pricing](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing)

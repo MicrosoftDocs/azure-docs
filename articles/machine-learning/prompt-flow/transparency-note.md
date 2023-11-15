@@ -1,7 +1,7 @@
 ---
-title: Transparency Note for Auto-Generate Prompt Variants in Prompt Flow
+title: Transparency Note for auto-generate prompt variants in prompt flow
 titleSuffix: Azure Machine Learning
-description: Transparency Note for Auto-Generate Prompt Variants in Prompt Flow
+description: Transparency Note for auto-generate prompt variants in prompt flow
 author: prakharg-msft
 ms.author: prakharg
 manager: omkarm
@@ -11,7 +11,7 @@ ms.date: 10/20/2023
 ms.topic: article
 ---
 
-# Transparency Note for Auto-Generate Prompt Variants in Prompt Flow
+# Transparency Note for auto-generate prompt variants in prompt flow
 
 ## What is a Transparency Note?
 
@@ -19,17 +19,17 @@ An AI system includes not only the technology, but also the people who use it, t
 
 Microsoft's Transparency Notes are part of a broader effort at Microsoft to put our AI Principles into practice. To find out more, see the [Microsoft's AI principles](https://www.microsoft.com/ai/responsible-ai).
 
-## The basics of Auto-Generate Prompt Variants in Prompt Flow
+## The basics of auto-generate prompt variants in prompt flow
 
 ### Introduction
 
-Prompt engineering is at the center of building applications using Large Language Models. Microsoft's Prompt Flow offers rich capabilities to interactively edit, bulk test, and evaluate prompts with built-in flows to pick the best prompt. With the Auto-Generate Prompt Variants feature in Prompt Flow, we provide the ability to automatically generate variations of a user's base prompt with help of large language models and allow users to test them in Prompt Flow to reach the optimal solution for the user's model and use case needs.
+Prompt engineering is at the center of building applications using Large Language Models. Microsoft's prompt flow offers rich capabilities to interactively edit, bulk test, and evaluate prompts with built-in flows to pick the best prompt. With the auto-generate prompt variants feature in prompt flow, we provide the ability to automatically generate variations of a user's base prompt with help of large language models and allow users to test them in prompt Flow to reach the optimal solution for the user's model and use case needs.
 
 ### Key terms
 
 | **Term** | **Definition** |
 | --- | --- |
-| Prompt flow | Prompt Flow offers rich capabilities to interactively edit prompts and bulk test them with built-in evaluation flows to pick the best prompt. More information available at [What is prompt flow](./overview-what-is-prompt-flow.md) |
+| Prompt flow | Prompt flow offers rich capabilities to interactively edit prompts and bulk test them with built-in evaluation flows to pick the best prompt. More information available at [What is prompt flow](./overview-what-is-prompt-flow.md) |
 | Prompt engineering | The practice of crafting and refining input prompts to elicit more desirable responses from a large language model, particularly in large language models. |
 | Prompt variants | Different versions or modifications of a given input prompt designed to test or achieve varied responses from a large language model. |
 | Base prompt | The initial or primary prompt that serves as a starting point for eliciting response from large language models. In this case it is provided by the user and is modified to create prompt variants. |
@@ -39,43 +39,43 @@ Prompt engineering is at the center of building applications using Large Languag
 
 ### System behavior
 
-The Auto-Generate Prompt Variants feature, as part of the Prompt Flow experience, provides the ability to automatically generate and easily assess prompt variations to quickly find the best prompt for your use case. This feature further empowers Prompt Flow's rich set of capabilities to interactively edit and evaluate prompts, with the goal of simplifying prompt engineering. 
+The auto-generate prompt variants feature, as part of the prompt flow experience, provides the ability to automatically generate and easily assess prompt variations to quickly find the best prompt for your use case. This feature further empowers prompt flow's rich set of capabilities to interactively edit and evaluate prompts, with the goal of simplifying prompt engineering. 
 
-When provided with the user's base prompt the Auto-Generate Prompt Variants feature generates several variations using the generative power of Azure OpenAI models and an internal system prompt. While Azure OpenAI provides content management filters, we recommend verifying any prompts generated before using them in production scenarios. 
+When provided with the user's base prompt the auto-generate prompt variants feature generates several variations using the generative power of Azure OpenAI models and an internal system prompt. While Azure OpenAI provides content management filters, we recommend verifying any prompts generated before using them in production scenarios. 
 
 ### Use cases 
 
 #### Intended uses 
 
-Auto-Generate Prompt Variants can be used in the following scenarios. The system's intended use is: 
+Auto-generate prompt variants can be used in the following scenarios. The system's intended use is: 
 
 **Generate new prompts from a provided base prompt**: "Generate Variants" feature will allow the users of prompt flow to automatically generate variants of their provided base prompt with help of LLMs (Large Language Models). 
 
 #### Considerations when choosing a use case 
 
-**Do not use Auto-Generate Prompt Variants for decisions that might have serious adverse impacts.**
+**Do not use auto-generate prompt variants for decisions that might have serious adverse impacts.**
 
-Auto-Generate Prompt Variants was not designed or tested to recommend items that require additional considerations related to accuracy, governance, policy, legal, or expert knowledge as these often exist outside the scope of the usage patterns carried out by regular (non-expert) users. Examples of such use cases include medical diagnostics, banking, or financial recommendations, hiring or job placement recommendations, or recommendations related to housing. 
+Auto-generate prompt variants was not designed or tested to recommend items that require additional considerations related to accuracy, governance, policy, legal, or expert knowledge as these often exist outside the scope of the usage patterns carried out by regular (non-expert) users. Examples of such use cases include medical diagnostics, banking, or financial recommendations, hiring or job placement recommendations, or recommendations related to housing. 
 
 ## Limitations
 
 Explicitly in the generation of prompt variants, it is important to understand that while AI systems are incredibly valuable tools, they are **non-deterministic**. This means that perfect **accuracy** (the measure of how well the system-generated events correspond to real events that happened in a space) of predictions is not possible. A good model will have high accuracy, but it will occasionally output incorrect predictions. Failure to understand this limitation can lead to over-reliance on the system and unmerited decisions that can impact stakeholders.  
 
-Furthermore, the prompt variants that are generated using LLMs, are returned to the user as is. It is encouraged to evaluate and compare these variants to determine the best prompt for a given scenario. There are **additional concerns** here because many of the evaluations offered in the Prompt Flow ecosystems also depend on LLMs, potentially further decreasing the utility of any given prompt. Manual review is strongly recommended. 
+Furthermore, the prompt variants that are generated using LLMs, are returned to the user as is. It is encouraged to evaluate and compare these variants to determine the best prompt for a given scenario. There are **additional concerns** here because many of the evaluations offered in the prompt flow ecosystems also depend on LLMs, potentially further decreasing the utility of any given prompt. Manual review is strongly recommended. 
 
 ### Technical limitations, operational factors, and ranges 
 
-As mentioned previously, the Auto-Generate Prompt Variants feature does not provide a measurement or evaluation of the provided prompt variants. It is strongly recommended that the user of this feature evaluates the suggested prompts in the way which best aligns with their specific use case and requirements. 
+As mentioned previously, the auto-generate prompt variants feature does not provide a measurement or evaluation of the provided prompt variants. It is strongly recommended that the user of this feature evaluates the suggested prompts in the way which best aligns with their specific use case and requirements. 
 
-The Auto-Generate Prompt Variants feature is limited to generating a maximum of five variations from a given base prompt. If more are required, additional prompt variants can be generated after modifying the original base prompt. 
+The auto-generate prompt variants feature is limited to generating a maximum of five variations from a given base prompt. If more are required, additional prompt variants can be generated after modifying the original base prompt. 
 
-Auto-Generate Prompt Variants only supports Azure OpenAI models at this time. In addition to limiting users to only the models which are supported by Azure OpenAI, it also limits content to what is acceptable in terms of the Azure OpenAI's content management policy. Uses outside of this policy are not supported by this feature. 
+Auto-generate prompt variants only supports Azure OpenAI models at this time. In addition to limiting users to only the models which are supported by Azure OpenAI, it also limits content to what is acceptable in terms of the Azure OpenAI's content management policy. Uses outside of this policy are not supported by this feature. 
 
 ## System performance 
 
-Performance for the Auto-Generate Prompt Variants feature is determined by the user's use case in each individual scenario – in this way the feature does not evaluate each prompt or generate metrics. 
+Performance for the auto-generate prompt variants feature is determined by the user's use case in each individual scenario – in this way the feature does not evaluate each prompt or generate metrics. 
 
-Operating in the Prompt Flow ecosystem, which focuses on Prompt Engineering, provides a strong story for error handling. Often retrying the operation will resolve an error. One error which might arise specific to this feature is response filtering from the Azure OpenAI resource for content or harm detection, this would happen in the case that content in the base prompt is determined to be against Azure OpenAI's content management policy. To resolve these errors please update the base prompt in accordance with the guidance at [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter). 
+Operating in the prompt flow ecosystem, which focuses on Prompt Engineering, provides a strong story for error handling. Often retrying the operation will resolve an error. One error which might arise specific to this feature is response filtering from the Azure OpenAI resource for content or harm detection, this would happen in the case that content in the base prompt is determined to be against Azure OpenAI's content management policy. To resolve these errors please update the base prompt in accordance with the guidance at [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter). 
 
 ### Best practices for improving system performance  
 
@@ -85,11 +85,11 @@ To improve performance there are several parameters which can be modified, depen
 - **Number of Variants**: This parameter specifies how many variants to generate. A larger number of variants will produce more prompts and therefore the likelihood of finding the best prompt for the use case. 
 - **Base Prompt**: Since this tool generates variants of the provided base prompt, a strong base prompt can set up the tool to provide the maximum value for your case. Please review the guidelines at Prompt engineering techniques with [Azure OpenAI](/azure/ai-services/openai/concepts/advanced-prompt-engineering). 
 
-## Evaluation of Auto-Generate Prompt Variants 
+## Evaluation of auto-generate prompt variants 
 
 ### Evaluation methods 
 
-The Auto-Generate Prompt Variants feature been testing by the internal development team, targeting fit for purpose and harm mitigation. 
+The auto-generate prompt variants feature been testing by the internal development team, targeting fit for purpose and harm mitigation. 
 
 ### Evaluation results 
 
@@ -97,11 +97,11 @@ Evaluation of harm management showed staunch support for the combination of syst
 
 Fit for purpose testing supported the quality of generated prompts from creative purposes (poetry) and chat-bot agents. The reader is cautioned from drawing sweeping conclusions given the breadth of possible base prompt and potential use cases. As previously mentioned, please use evaluations appropriate to the required use cases and ensure a human reviewer is part of the process. 
 
-## Evaluating and integrating Auto-Generate Prompt Variants for your use 
+## Evaluating and integrating auto-generate prompt variants for your use 
 
-The performance of the Auto-Generate Prompt Variants feature will vary depending on the base prompt and use case in it is used. True usage of the generated prompts will depend on a combination of the many elements of the system in which the prompt is used. 
+The performance of the auto-generate prompt variants feature will vary depending on the base prompt and use case in it is used. True usage of the generated prompts will depend on a combination of the many elements of the system in which the prompt is used. 
 
-To ensure optimal performance in their scenarios, customers should conduct their own evaluations of the solutions they implement using Auto-Generate Prompt Variants. Customers should, generally, follow an evaluation process that: 
+To ensure optimal performance in their scenarios, customers should conduct their own evaluations of the solutions they implement using auto-generate prompt variants. Customers should, generally, follow an evaluation process that: 
 
 - Uses internal stakeholders to evaluate any generated prompt. 
 - Uses internal stakeholders to evaluate results of any system which uses a generated prompt. 
@@ -113,6 +113,6 @@ To ensure optimal performance in their scenarios, customers should conduct their
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources) 
 - [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)
 
-## Learn more about Auto-Generate Prompt Variants 
+## Learn more about auto-generate prompt variants
  - [What is prompt flow](./overview-what-is-prompt-flow.md)
 
