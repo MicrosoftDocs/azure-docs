@@ -6,7 +6,7 @@ services: cognitive-services
 author: erindormier
 ms.service: azure-ai-services
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 11/15/2023
 ms.author: egeaney
 ---
 
@@ -42,4 +42,5 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Azure AI se
 
 ## Next steps
 
+* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) is still required for Speech and Content Moderator.
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
