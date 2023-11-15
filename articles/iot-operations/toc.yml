@@ -57,7 +57,7 @@ items:
         items:
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
-        - name: Autodetect assets
+        - name: Autodetect OPC UA data sources
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
         - name: Configure an OPC PLC simulator
           href: manage-devices-assets/howto-configure-opc-plc-simulator.md
