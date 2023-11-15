@@ -194,8 +194,8 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
     :::column:::
-        **Extraction models**</br>
-        Custom extraction models are trained to extract labeled fields from documents.
+        **✔️ Extraction models**</br>
+        *Custom extraction models are trained to extract labeled fields from documents.
     :::column-end:::
 :::row-end:::
 
@@ -216,15 +216,15 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
     :::column:::
-        **Classification model**</br>
-         Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
+        **✔️ Classification model**</br>
+         * Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>prior to invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
