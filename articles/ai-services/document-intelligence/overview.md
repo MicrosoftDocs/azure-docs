@@ -261,8 +261,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
 |{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
-|prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
-|prebuilt-businessCard (deprecated 2023-10-31-preview)|✓| | | | | | | |✓| | | | |
+|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
+|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | |✓| | | | |
 
 ✓ - Enabled</br>
 O - Optional</br>
