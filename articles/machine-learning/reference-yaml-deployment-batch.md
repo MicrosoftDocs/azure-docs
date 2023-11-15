@@ -10,7 +10,7 @@ ms.custom: cliv2, event-tier1-build-2022
 ms.reviewer: mopeakande 
 author: santiagxf 
 ms.author: fasantia
-ms.date: 03/31/2022
+ms.date: 11/15/2023
 ---
 
 # CLI (v2) batch deployment YAML schema
