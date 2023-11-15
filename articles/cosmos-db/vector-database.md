@@ -25,8 +25,8 @@ Here are some solutions:
 
 | | Description |
 | --- | --- |
-| **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-cosmos-db-for-mongodb-vcore)** | Store your application data and vector embeddings together in a single MongoDB-compatible service featuring native support for vector search. |
-| **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-cosmos-db-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with native support for vector search. |
+| **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-our-api-for-mongodb-vcore)** | Store your application data and vector embeddings together in a single MongoDB-compatible service featuring native support for vector search. |
+| **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-our-api-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with native support for vector search. |
 | **[Azure Cosmos DB for NoSQL with Azure Cognitive Search](#implement-vector-database-functionalities-using-nosql-api-and-cognitive-search)** | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure Cognitive Search. |
 
 ## Vector database and retrieval augmented generation
@@ -39,7 +39,7 @@ Prior to sending a request to the LLM, the user input/query/request is also tran
 
 Here are multiple ways to implement RAG on your data by using your the vector database functionalities in Azure Cosmos DB.
 
-## Vector database using our API for MongoDB vCore
+## Implement vector database functionalities using our API for MongoDB vCore
 
 Use the native vector search feature in Azure Cosmos DB for MongoDB vCore, which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
@@ -49,7 +49,7 @@ Use the native vector search feature in Azure Cosmos DB for MongoDB vCore, which
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore)
 
-## Vector database using our API for PostgreSQL
+## Implement vector database functionalities using our API for PostgreSQL
 
 Use the native vector search feature in Azure Cosmos DB for PostgreSQL, offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
@@ -57,7 +57,7 @@ Use the native vector search feature in Azure Cosmos DB for PostgreSQL, offers a
 
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
-## Vector database using our NoSQL API and Cognitive Search
+## Implement vector database functionalities using our NoSQL API and Cognitive Search
 
 Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search. This approach enables powerful integration of your data residing in Azure Cosmos DB for NoSQL into your AI-oriented applications. Azure Cognitive Search empowers you to efficiently index, and query high-dimensional vector data, allowing you to use Azure Cosmos DB for NoSQL for the same purpose as a vector database.
 
