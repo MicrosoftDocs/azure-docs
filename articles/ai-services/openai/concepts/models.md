@@ -141,6 +141,7 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1000 |
+| dalle3 | Sweden Central | 4000 |
 
 ### Fine-tuning models (Preview)
 
