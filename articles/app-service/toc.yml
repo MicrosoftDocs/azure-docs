@@ -138,6 +138,8 @@
           href: manage-custom-dns-migrate-domain.md
     - name: TLS/SSL certificates
       items:
+        - name: TLS overview
+          href: overview-tls.md
         - name: Secure custom domain with TLS/SSL
           href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert
@@ -251,7 +253,7 @@
     - name: Identity scenarios
       href: identity-scenarios.md
     - name: Identity fundamentals
-      href: ../active-directory/fundamentals/identity-fundamental-concepts.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+      href: /entra/fundamentals/identity-fundamental-concepts?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
         
     - name: Configure identity providers
       items:
@@ -289,6 +291,8 @@
       href: tutorial-secure-ntier-app.md
     - name: Isolate network traffic (tutorial)
       href: tutorial-networking-isolate-vnet.md
+    - name: Disable basic auth
+      href: configure-basic-auth-disable.md
     - name: Security
       items:
         - name: Security recommendations
@@ -394,55 +398,7 @@
 - name: Samples
   items:
     - name: Azure CLI
-      items:
-        - name: Overview
-          items:
-            - name: Overview
-              href: samples-cli.md
-        - name: Create App
-          items:
-            - name: Deploy with FTP
-              href: ./scripts/cli-deploy-ftp.md
-            - name: Deploy from GitHub
-              href: ./scripts/cli-deploy-github.md
-            - name: Deploy continuously from GitHub
-              href: ./scripts/cli-continuous-deployment-github.md
-            - name: Deploy into local Git repo
-              href: ./scripts/cli-deploy-local-git.md
-            - name: Deploy to a staging environment
-              href: ./scripts/cli-deploy-staging-environment.md
-            - name: Deploy in a Docker container
-              href: ./scripts/cli-linux-docker-aspnetcore.md
-            - name: Deploy with a private endpoint
-              href: ./scripts/cli-deploy-privateendpoint.md
-        - name: Configure app
-          items:
-            - name: Map a custom domain to an app
-              href: ./scripts/cli-configure-custom-domain.md
-            - name: Bind a custom TLS/SSL certificate to an app
-              href: ./scripts/cli-configure-ssl-certificate.md
-        - name: Scale app
-          items:
-            - name: Scale an app manually
-              href: ./scripts/cli-scale-manual.md
-            - name: Scale an app with HA architecture
-              href: ./scripts/cli-scale-high-availability.md
-        - name: Integrate with Azure Application Gateway
-          href: ./scripts/cli-integrate-app-service-with-application-gateway.md
-        - name: Connect app to resources
-          items:
-            - name: Connect to SQL
-              href: ./scripts/cli-connect-to-sql.md
-            - name: Connect to storage account
-              href: ./scripts/cli-connect-to-storage.md
-            - name: Connect to Azure Cache for Redis
-              href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Azure Cosmos DB
-              href: ./scripts/cli-connect-to-documentdb.md
-        - name: Backup and restore an app
-          href: ./scripts/cli-backup-schedule-restore.md
-        - name: Monitor an app with web server logs
-          href: ./scripts/cli-monitor.md
+      href: samples-cli.md
     - name: Azure PowerShell
       href: samples-powershell.md
     - name: Resource Manager templates

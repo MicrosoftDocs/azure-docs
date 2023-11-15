@@ -11,9 +11,6 @@ ms.date: 07/13/2023
 ms.author: jianleishen
 ---
 # Copy data from DB2 using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-db2-connector.md)
-> * [Current version](connector-db2.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

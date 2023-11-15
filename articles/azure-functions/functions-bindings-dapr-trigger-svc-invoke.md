@@ -4,7 +4,7 @@ description: Learn how to run Azure Functions as Dapr service invocation data ch
 ms.topic: reference
 ms.date: 10/11/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

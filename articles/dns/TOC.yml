@@ -143,7 +143,11 @@
       - name: Manage reverse DNS records for Azure services
         href: dns-reverse-dns-for-azure-services.md
     - name: Import and export a DNS zone file
-      href: dns-import-export.md
+      items:
+      - name: Azure portal
+        href: dns-import-export-portal.md
+      - name: Azure CLI
+        href: dns-import-export.md
     - name: Delegate a subdomain
       items:
       - name: Azure portal

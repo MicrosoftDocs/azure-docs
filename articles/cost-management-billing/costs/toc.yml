@@ -19,8 +19,6 @@
     items:
     - name: Cost Management best practices
       href: cost-mgt-best-practices.md
-    - name: AI-powered Cost Management
-      href: ai-powered-cost-management.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
@@ -117,6 +115,8 @@
       href: quick-create-budget-template.md
     - name: Use cost alerts
       href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Reservation utilization alerts
+      href: reservation-utilization-alerts.md
     - name: Automate actions with budgets
       href: ../manage/cost-management-budget-scenario.md
   - name: Reference
@@ -163,6 +163,8 @@
       href: enable-tag-inheritance.md
     - name: Split shared costs
       href: allocate-costs.md
+    - name: View Kubernetes costs
+      href: view-kubernetes-costs.md
   - name: Reference
     items:
     - name: Cost allocation rules API

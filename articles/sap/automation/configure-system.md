@@ -4,7 +4,7 @@ description: Define the SAP system properties for SAP Deployment Automation Fram
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/04/2023
+ms.date: 10/31/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -51,14 +51,15 @@ To configure this topology, define the database tier values and set `database_hi
 This section contains the parameters that define the environment settings.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                 | Description                                              | Type       | Notes                                                                                       |
-> | ------------------------ | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`            | Identifier for the workload zone (maximum five characters)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
-> | `location`               | The Azure region in which to deploy                     | Required   |                                                                                             |
-> | `custom_prefix`          | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`             | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | 'name_override_file'     | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                            |
-> | 'save_naming_information | Creates a sample naming JSON file                         | Optional   | See [Custom naming](naming-module.md).                                            |
+> | Variable                  | Description                                              | Type       | Notes                                                                                       |
+> | ------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`             | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                | The Azure region in which to deploy                      | Required   |                                                                                             |
+> | `custom_prefix`           | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`              | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | `name_override_file`      | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `save_naming_information` | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `tags`                    | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
 
 ## Resource group parameters
 
@@ -68,10 +69,45 @@ This section contains the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |  
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
 > | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated to the resource group              | Optional   |
 
+
+## Infrastructure parameters
+
+This section contains the parameters related to the Azure infrastructure.
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                       | Description                                                                                  | Type       |
+> | ---------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
+> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   |
+> | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks by using customer-provided keys. | Optional   |
+> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.             |            |
+> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                       |            |
+> | `resource_offset`                              | Provides an offset for resource naming.                                                      | Optional   |
+> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations                         | Optional   |
+> | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                   | Optional   |
+> | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                  | Optional   |
+> | `user_assigned_identity_id                     | User assigned identity to assign to the virtual machines                                     | Optional   |
+
+The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
+
+## SAP Application parameters
+
+This section contains the parameters related to the SAP Application.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                | Description                                              | Type       |
+> | ----------------------- | -------------------------------------------------------- | ---------- |
+> | `sid`	                  |	Defines the SAP application SID                          | Required	  |
+> | `database_sid`          | Defines the database SID                                 | Required   |
+> | `scs_instance_number`	  | The instance number of SCS                               | Optional   |
+> | `ers_instance_number`	  | The instance number of ERS                               | Optional	  |
+> | `pas_instance_number`	  | The instance number of the Primary Application Server    | Optional	  |
+> | `app_instance_number`	  | The instance number of the Application Server            | Optional	  |
+> | `web_instance_number`	  | The instance number of the Web Dispatcher                | Optional	  |
 
 ## SAP virtual hostname parameters
 
@@ -81,7 +117,8 @@ In SAP Deployment Automation Framework, the SAP virtual hostname is defined by s
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `use_secondary_ips`     | Boolean flag that indicates if SAP should be installed by using virtual hostnames                 | Optional   |  
+> | `use_secondary_ips`     | Boolean flag that indicates if SAP should be installed by using virtual hostnames                 | Optional   |
+
 
 ### Database tier parameters
 
@@ -95,26 +132,29 @@ The database tier defines the infrastructure for the database tier. Supported da
 - `SQLSERVER`
 - `NONE` (in this case, no database tier is deployed)
 
+See [High-availability configuration](configure-system.md#high-availability-configuration) for information on how to configure high availability.
+
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                         | Type         | Notes              |
-> | ---------------------------------- | ----------------------------------------------------------------------------------- | -----------  | ------------------ |
-> | `database_sid`                     | Defines the database SID                                                           | Required     |                    |
-> | `database_platform`                | Defines the database back end                                                       | Supported values are `HANA`, `DB2`, `ORACLE`, `ASE`, `SQLSERVER`, and `NONE`. |
-> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     | See [High-availability configuration](configure-system.md#high-availability-configuration). |
-> | `database_server_count`            | Defines the number of database servers                                             | Optional     | Default value is 1. |
-> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional	    |                    |
+> | Variable                           | Description                                                                        | Type         | Notes  |
+> | ---------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ------ |
+> | `database_platform`                | Defines the database back end                                                      | Required     |        |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     |        |
+> | `database_server_count`            | Defines the number of database servers                                             | Optional     |        |
+> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional     |        |
 > | `db_sizing_dictionary_key`         | Defines the database sizing information                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
-> | `db_disk_sizes_filename`           | Defines the custom database sizing file name                                       | Optional     | See [Custom sizing](configure-extra-disks.md). |
-> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |                    |
-> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |                    |
-> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |                    |
-> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |                    |
-> | `database_vm_image`	               | Defines the virtual machine image to use                                           | Optional	    |                    |
-> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional	    |                    |
-> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional	    | Default is false.   |
-> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional	    | Default is true.    |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional	    | Primarily used with ANF pinning. |
-> | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional	    | Default is true.   |
+> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |        |
+> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |        |
+> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |        |
+> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |        |
+> | `database_vm_image`                | Defines the virtual machine image to use                                           | Optional     |        |
+> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
+> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with ANF pinning. |
+> | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
+> | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
+
+
 
 The virtual machine and the operating system image are defined by using the following structure:
 
@@ -130,7 +170,7 @@ The virtual machine and the operating system image are defined by using the foll
 }
 ```
 
-### Common application tier parameters
+## Common application tier parameters
 
 The application tier defines the infrastructure for the application tier, which can consist of application servers, central services servers, and web dispatch servers.
 
@@ -138,22 +178,19 @@ The application tier defines the infrastructure for the application tier, which 
 > | Variable                           | Description                                                                 | Type       | Notes  |
 > | ---------------------------------- | --------------------------------------------------------------------------- | -----------| ------ |
 > | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                 | Optional	  |        |
-> | `sid`	                             |	Defines the SAP application SID                                            | Required	  |        |
 > | `app_tier_sizing_dictionary_key`   | Lookup value that defines the VM SKU and the disk layout for the application tier servers | Optional |
 > | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom sizing](configure-extra-disks.md). |
 > | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machines | Optional	  |       |
 > | `app_tier_use_DHCP`	               | Controls if Azure subnet-provided IP addresses should be used (dynamic)     | Optional	  |       |
 > | `app_tier_dual_nics`	             | Defines if the application tier server will have two network interfaces     | Optional	  |       |
 
-### SAP central services parameters
+## SAP central services parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                               | Description                                                              | Type      | Notes  |
 > | -------------------------------------- | ------------------------------------------------------------------------ | ----------| ------ |
 > | `scs_server_count`	                   | Defines the number of SCS servers                                       | Required	|        |
 > | `scs_high_availability`	               | Defines if the central services is highly available                     | Optional	| See [High availability configuration](configure-system.md#high-availability-configuration). |
-> | `scs_instance_number`	                 | The instance number of SCS                                              | Optional  |        |
-> | `ers_instance_number`	                 | The instance number of ERS                                              | Optional	|        |
 > | `scs_server_sku`	                     | Defines the virtual machine SKU to use                                  | Optional  |        |
 > | `scs_server_image`	                   | Defines the virtual machine image to use                                | Required  |        |
 > | `scs_server_zones`	                   | Defines the availability zones of the SCS servers                       | Optional  |        |
@@ -165,7 +202,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `scs_server_use_avset`	               | Controls if the SCS servers are placed in proximity placement groups    | Optional  |         |
 > | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers                 | Optional  |         |
 
-### Application server parameters
+## Application server parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                  | Description                                                                  | Type       | Notes  |
@@ -181,7 +218,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `application_server_use_avset`            | Controls if application servers are placed in proximity placement groups    | Optional   | |
 > | `application_server_tags`	                | Defines a list of tags to be applied to the application servers             | Optional   | |
 
-### Web dispatcher parameters
+## Web dispatcher parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                   | Description                                                                    | Type      | Notes  |
@@ -250,8 +287,8 @@ This section defines the parameters used for defining the key vault information.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                                    | Type         | Notes                               |
 > | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
-> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
+> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
+> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
 > | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                            | Optional     | Only use for test environments. |
 
 ### Anchor virtual machine parameters
@@ -301,15 +338,8 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                                                                     | Type        |
 > | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
-> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.           | Optional    |
-> | `resource_offset`                              | Provides an offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
-> | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks by using customer-provided keys. | Optional   |
-> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations. | Optional |
 > | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows, the possible values are `None`, `Windows_Client`, and `Windows_Server`. |
 > | `use_zonal_markers`                            | Specifies if zonal virtual machines will include a zonal identifier: `xooscs_z1_00l###` versus  `xooscs00l###`.| Default value is true. |
-> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups. |  |
-> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups. |  |
-> | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).       | Optional |
 
 ## NFS support
 
@@ -331,6 +361,9 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                            | Type         | Notes                       |
 > | ----------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
+> | `ANF_HANA_use_AVG`                  | Use Application Volume Group for the volumes.                          | Optional     |                             |
+> | `ANF_HANA_use_Zones`                | Deploy the Azure NetApp Files volume zonally.                          | Optional     |                             |
+> |                                     |                                                                        |              |                             |
 > | `ANF_HANA_data`                     | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
 > | `ANF_HANA_data_use_existing_volume` | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes. |
 > | `ANF_HANA_data_volume_name`         | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
@@ -372,6 +405,17 @@ These parameters need to be updated in the *sap-parameters.yaml* file when you d
 > | `ora_version`                      | Version of Oracle, for example, 19.0.0                                         | Mandatory    |        |
 > | `oracle_sbp_patch`                 | Oracle SBP patch file name, for example, SAP19P_2202-70004508.ZIP              | Mandatory    | Must be part of the Bill of Materials       |
 
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+                           ora_release          = "19",
+                           ora_version          = "19.0.0",
+                           oracle_sbp_patch     = "SAP19P_2202-70004508.ZIP",
+                           oraclegrid_sbp_patch = "GIRU19P_2202-70004508.ZIP",
+                         }
+```
+
 ## Terraform parameters
 
 This section contains the Terraform parameters. These parameters need to be entered manually if you're not using the deployment scripts.
@@ -390,6 +434,24 @@ This section contains the Terraform parameters. These parameters need to be ent
 The high-availability configuration for the database tier and the SCS tier is configured by using the `database_high_availability` and `scs_high_availability`	flags. Red Hat and SUSE should use the appropriate HA version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?).
 
 High-availability configurations use Pacemaker with Azure fencing agents.
+
+### Cluster parameters
+
+This section contains the parameters related to the cluster configuration.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                       | Description                                                                    | Type       |
+> | ---------------------------------------------- | ------------------------------------------------------------------------------ | ---------- |
+> | `database_cluster_disk_lun`                    | Specifies the The LUN of the shared disk for the Database cluster.             | Optional   |
+> | `database_cluster_disk_size`                   | The size of the shared disk for the Database cluster.                          | Optional   |
+> | `database_cluster_type`                        | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
+> | `fencing_role_name`                            | Specifies the Azure role assignment to assign to enable fencing.               | Optional   |
+> | `idle_timeout_scs_ers`                         | Sets the idle timeout setting for the SCS and ERS loadbalancer.                | Optional   |
+> | `scs_cluster_disk_lun`                         | Specifies the The LUN of the shared disk for the Central Services cluster.     | Optional   |
+> | `scs_cluster_disk_size`                        | The size of the shared disk for the Central Services cluster.                  | Optional   |
+> | `scs_cluster_type`                             | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
+> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.                    | Optional   |
+> | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).     | Optional   |
 
 > [!NOTE]
 > The highly available central services deployment requires using a shared file system for `sap_mnt`. You can use Azure Files or Azure NetApp Files by using the `NFS_provider` attribute. The default is Azure Files. To use Azure NetApp Files, set the `NFS_provider` attribute to `ANF`.

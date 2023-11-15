@@ -40,9 +40,13 @@
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: quickstarts-tenant-workload-deployment.md
+          href: quickstarts-virtual-machine-deployment-cli.md
+        - name: Use ARM template
+          href: quickstarts-virtual-machine-deployment-arm.md
+        - name: Use Bicep file
+          href: quickstarts-virtual-machine-deployment-bicep.md
         - name: Use Azure PowerShell
-          href: quickstarts-tenant-workload-deployment-ps.md 
+          href: quickstarts-virtual-machine-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
@@ -80,21 +84,29 @@
             href: howto-configure-isolation-domain.md
           - name: Network Fabric Route Policy
             href: how-to-route-policy.md  
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
         - name: Understand agent pools
           href: howto-kubernetes-cluster-agent-pools.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
+        - name: Configure role-based access control
+          href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Upgrade Nexus Kubernetes cluster
+          href: howto-kubernetes-cluster-upgrade.md
         - name: Configure huge-pages for cluster virtual machines
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
           href: howto-kubernetes-service-load-balancer.md
-        - name: Configure role-based access control
-          href: howto-kubernetes-cluster-aad-rbac.md
-        - name: Connect to the cluster
-          href: howto-kubernetes-cluster-connect.md
         - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
           href: howto-disable-cgroupsv2.md
+        - name: Restart cluster node
+          href: howto-kubernetes-cluster-action-restart.md
+        - name: Customize cluster DNS
+          href: how-to-customize-kubernetes-cluster-dns.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -122,6 +134,9 @@
           href: howto-set-up-defender-for-cloud-security.md
         - name: Use Azure Policy for AKS Clusters
           href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: MDE Runtime Protection
+          href: howto-use-mde-runtime-protection.md
+
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -132,6 +147,8 @@
       href: troubleshoot-isolation-domain.md
     - name: Troubleshoot Internet host virtual machine
       href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
+      href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
     - name: BareMetal Actions
@@ -151,6 +168,13 @@
   href: azure-operator-nexus-faq.md
 - name: Reference
   items:
+    - name: Nexus Kubernetes service
+      expanded: false
+      items:
+        - name: Supported VM sizes
+          href: reference-nexus-kubernetes-cluster-sku.md
+        - name: Supported Kubernetes versions
+          href: reference-nexus-kubernetes-cluster-supported-versions.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
@@ -161,5 +185,3 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
-    - name: Nexus Kubernetes service VM SKUs
-      href: reference-nexus-kubernetes-cluster-sku.md

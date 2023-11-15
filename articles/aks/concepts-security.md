@@ -62,7 +62,7 @@ Node authorization is a special-purpose authorization mode that specifically aut
 
 ### Node deployment
 
-Nodes are deployed onto a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address. Disabling SSH is during cluster and node pool creation, or for an existing cluster or node pool is in preview. See [Manage SSH access][manage-ssh-access] for more information. 
+Nodes are deployed onto a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address. Disabling SSH during cluster and node pool creation, or for an existing cluster or node pool, is in preview. See [Manage SSH access][manage-ssh-access] for more information. 
 
 ### Node storage
 

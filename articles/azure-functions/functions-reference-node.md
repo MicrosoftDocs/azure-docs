@@ -1167,7 +1167,7 @@ The `HttpRequest` object has the following properties:
 | **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
-| **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", `rawBody` is a Buffer. Otherwise, `rawBody` is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
+| **`rawBody`**    | `string` | The body as a string. Despite the name, this property doesn't return a Buffer. |
 | **`bufferBody`** | `Buffer` | The body as a buffer. |
 
 ::: zone-end

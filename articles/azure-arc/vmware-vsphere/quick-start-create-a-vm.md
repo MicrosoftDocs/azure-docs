@@ -1,17 +1,17 @@
 ---
 title: Create a virtual machine on VMware vCenter using Azure Arc
-description: In this quickstart, you'll learn how to create a virtual machine on VMware vCenter using Azure Arc
-ms.topic: quickstart 
-ms.date: 08/18/2023
+description: In this quickstart, you learn how to create a virtual machine on VMware vCenter using Azure Arc
+ms.topic: tutorial
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a self-service user, I want to provision a VM using vCenter resources through Azure so that I can deploy my code
 ---
 
-# Quickstart: Create a virtual machine on VMware vCenter using Azure Arc
+# Create a virtual machine on VMware vCenter using Azure Arc
 
-Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you permissions on those resources, you'll create a virtual machine.
+Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com). Navigate to virtual machines browse view. You'll see a unified browse experience for Azure and Arc virtual machines.
 
-   :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines.":::
+   :::image type="content" source="media/quick-start-create-a-vm/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines." lightbox="media/quick-start-create-a-vm/browse-virtual-machines.png":::
 
-2. Click **Add** and then select **Azure Arc machine** from the drop-down.
+2. Select **Add** and then select **Azure Arc machine** from the drop-down.
 
-   :::image type="content" source="media/create-azure-arc-virtual-machine-1.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
+   :::image type="content" source="media/quick-start-create-a-vm/create-azure-arc-virtual-machine.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine." lightbox="media/quick-start-create-a-vm/create-azure-arc-virtual-machine.png":::
 
 3. Select the **Subscription** and **Resource group** where you want to deploy the VM.
 
@@ -56,8 +56,8 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 10. (Optional) Add tags to the VM resource if necessary.
 
-11. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
+11. Select **Create** after reviewing all the properties.  It should take a few minutes to create the VM.
 
 ## Next steps
 
-- [Perform operations on VMware VMs in Azure](perform-vm-ops-through-azure.md)
+[Perform operations on VMware VMs in Azure](perform-vm-ops-through-azure.md).

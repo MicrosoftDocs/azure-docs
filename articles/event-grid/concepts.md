@@ -1,7 +1,9 @@
 ---
-title: Azure Event Grid concepts (push delivery)
+title: Azure Event Grid concepts (push delivery) in Event Grid basic
 description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 05/24/2023
 ---
 
@@ -10,11 +12,11 @@ ms.date: 05/24/2023
 This article describes the main Event Grid concepts related to push delivery.
 
 > [!NOTE]
-> For Event Grid concepts related to the new resource model that uses namespaces, see this [concepts](concepts-pull-delivery.md) article.
+> For Event Grid concepts related to the new resource model that uses namespaces, see this [concepts](concepts-event-grid-namespaces.md) article.
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice may have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
+An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice might have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
 
 ## CloudEvents
 
@@ -22,9 +24,9 @@ Event Grid uses CNCF’s open standard [CloudEvents 1.0](https://github.com/clou
 
 The following table shows the current support for CloudEvents specification:
 
-| CloudEvents content mode   | Supported?             | 
+| CloudEvents content mode   | Supported?             |
 |--------------|-----------|
-| [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |        
+| [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |
 |[Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | No|
 
 The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [CloudEvents schema](cloud-event-schema.md).
@@ -35,7 +37,7 @@ Event Grid also supports the proprietary [Event Grid schema](event-schema.md) fo
 
 ## Publishers
 
-A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
+A publisher is the application that sends events to Event Grid. It can be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
 
 ## Event sources
 
@@ -51,13 +53,13 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 ## Custom topics
 
-Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published. 
+Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published.
 
-Custom topics support [push delivery](push-delivery-overview.md#push-delivery-1). Consult [when to use pull or push delivery](push-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
+Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You might also want to refer to article [Custom topics](custom-topics.md).
 
 ## System topics
 
-System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md). 
+System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md).
 
 ## Partner topics
 
@@ -66,7 +68,7 @@ Partner topics are a kind of topic used to subscribe to events published by a [p
 ## Event subscriptions
 
 > [!NOTE]
-> For information on event subscriptions under a namespace topic see this [concepts](concepts-pull-delivery.md) artcle.
+> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) artcle.
 
 A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
 
@@ -86,7 +88,7 @@ For an example of setting an expiration, see [Subscribe with advanced filters](h
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md#push-delivery-1). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 

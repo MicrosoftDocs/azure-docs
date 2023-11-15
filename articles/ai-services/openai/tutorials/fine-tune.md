@@ -50,7 +50,7 @@ In this tutorial you learn how to:
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install openai json requests os tiktoken time
+pip install "openai==0.28.1" json requests os tiktoken time
 ```
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 10/20/2023
 ms.custom: event-tier1-build-2022, engagement-fy23
 ---
 
@@ -39,11 +39,11 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 > [!NOTE]
 > System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI. 
 
-## Default environment variable names or application properties and Sample codes
+## Default environment variable names or application properties and sample code
 
-Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
 
-### Connect with System-assigned Managed Identity
+### System-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -111,13 +111,13 @@ Reference the connection details and sample codes in following tables, according
 
 ---
 
-### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
+Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-me-id.md)]
 
 
-### Connect with User-assigned Managed Identity
+### User-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -164,7 +164,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 | Default environment variable name   | Description                     | Example value                                                                                                                   |
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                                                                          |
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>`|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>`|
 
 #### [NodeJS](#tab/nodejs)
 
@@ -182,23 +182,23 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 | Default environment variable name | Description                           | Example value                                                                                                                                                             |
 |-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                        | `<identity-client-ID>`|
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
 #### [Ruby](#tab/ruby)
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                           |
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> ` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> ` |
 
 ---
 
-### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
+Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-me-id.md)]
 
-### Connect with Connection String
+### Connection String
 
 #### [.NET](#tab/dotnet)
 
@@ -239,7 +239,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 | Default environment variable name   | Description                     | Example value                                                                                                                   |
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username> password=<password>`             |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username> password=<password>`             |
 
 #### [NodeJS](#tab/nodejs)
 
@@ -256,22 +256,22 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 | Default environment variable name | Description                          | Example value                                                                                                                   |
 |-----------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
 
 #### [Ruby](#tab/ruby)
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
 
 ---
 
-### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
+Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
 
-### Connect with Service Principal
+### Service Principal
 
 #### [.NET](#tab/dotnet)
 
@@ -331,7 +331,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                                                                   |
 | `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                                                               |
 | `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                                                                   |
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>` |
 
 #### [NodeJS](#tab/nodejs)
 
@@ -354,7 +354,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                        | `<client-ID>`                                                                                                        |
 | `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET                    | `<client-secret>`                                                                                                        |
 | `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                        | `<tenant-ID>`                                                                                                        |
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
 #### [Ruby](#tab/ruby)
 
@@ -363,13 +363,13 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 | `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                    |
 | `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                |
 | `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                    |
-| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
 ---
 
-### Sample codes
+#### Sample code
 
-Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
+Refer to the steps and code below to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-me-id.md)]
 
 

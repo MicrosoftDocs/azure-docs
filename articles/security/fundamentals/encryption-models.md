@@ -191,13 +191,13 @@ The Azure services that support each encryption model:
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
 | Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes, including Managed HSM ([learn more](../../cosmos-db/how-to-setup-cmk.md) and [learn more](../../cosmos-db/how-to-setup-customer-managed-keys-mhsm.md))                | -                  |
-| Azure Databricks                 | Yes                | Yes                | -                  |
+| Azure Databricks                 | Yes                | Yes, including Managed HSM                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **Identity**                     |                    |                    |                    |
 | Microsoft Entra ID           | Yes                | -                  | -                  |
 | Microsoft Entra Domain Services | Yes          | Yes                | -                  |
 | **Integration**                  |                    |                    |                    |
-| Service Bus                      | Yes                | Yes                | Yes                |
+| Service Bus                      | Yes                | Yes                | -                |
 | Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |

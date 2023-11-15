@@ -204,7 +204,15 @@ To edit an existing alert rule:
         |---------|---------|
         |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
         |Threshold value| A number value for the threshold. |
-        |Frequency of evaluation|How often the query is run. Can be set from a minute to a day.|
+        |Frequency of evaluation|How often the query is run. Can be set anywhere from one minute to one day (24 hours).|
+
+        > [!NOTE]
+        > There are some limitations to using a <a name="frequency">one minute</a> alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported:
+
+        > * The query contains the **search**, **union** or **take** (limit) operations
+        > * The query contains the **ingestion_time()** function
+        > * The query uses the **adx** pattern
+        > * The query calls a function that calls other tables
 
 
     1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
@@ -266,39 +274,6 @@ To edit an existing alert rule:
 ### Set the alert rule actions
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
-
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
-
-    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
-
-    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
-
-    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
-
-    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
-
-    **Example 1**
-
-    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
-
-    - **Name:** "Additional Details"
-    - **Value:** "Evaluation windowStartTime: \${data.context.condition.windowStartTime}. windowEndTime: \${data.context.condition.windowEndTime}"
-    - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
-
-
-    **Example 2**
-    This example adds the data regarding the reason of resolving or firing the alert. 
-
-    - **Name:** "Alert \${data.essentials.monitorCondition} reason"
-    - **Value:** "\${data.context.condition.allOf[0].metricName} \${data.context.condition.allOf[0].operator} \${data.context.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.context.condition.allOf[0].metricValue}"
-    - **Result:**  Example results could be something like:
-        - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
-        - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
-
-    > [!NOTE]
-    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
 ### Set the alert rule details
 
@@ -389,6 +364,40 @@ To edit an existing alert rule:
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     ---
+
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties**, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
+
+    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
+
+    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
+
+    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
+
+    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
+
+    **Example 1**
+
+    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
+
+    - **Name:** "Additional Details"
+    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
+    - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
+
+
+    **Example 2**
+    This example adds the data regarding the reason of resolving or firing the alert. 
+
+    - **Name:** "Alert \${data.essentials.monitorCondition} reason"
+    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
+    - **Result:**  Example results could be something like:
+        - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
+        - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
+
+    > [!NOTE]
+    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+   
 
 ### Finish creating the alert rule
 

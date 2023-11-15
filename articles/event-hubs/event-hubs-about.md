@@ -43,7 +43,7 @@ For more information, see [Azure Schema Registry in Event Hubs](schema-registry-
 ### Real-time processing of streaming events with Azure Stream Analytics 
 Event Hubs integrates seamlessly with Azure Stream Analytics to enable real-time stream processing. With the built-in no-code editor, you can effortlessly develop a Stream Analytics job using drag-and-drop functionality, without writing any code. 
 
-:::image type="content" source="../stream-analytics/media/filter-ingest-data-lake-storage-gen2/filter-data-lake-gen2-card-start.png" alt-text="Diagram that shows Stream Analytics no code editor templates.":::
+:::image type="content" source="./media/event-hubs-about/process-data.png" alt-text="Screenshot showing the Process data page with Enable real time insights from events tile selected." lightbox="./media/event-hubs-about/process-data.png":::
 
 Alternatively, developers can use the SQL-based Stream Analytics query language to perform real-time stream processing and take advantage of a wide range of functions for analyzing streaming data.  
 
@@ -75,7 +75,7 @@ Capture your data in near-real time in an Azure Blob storage or Azure Data Lake 
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-msi.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using Managed Identity":::
 
-## How it works? 
+## How it works 
 Event Hubs provides a unified event streaming platform with time retention buffer, decoupling event producers from event consumers. The producers and consumer applications can perform large scale data ingestion through multiple protocols. 
 
 The following figure shows the key components of Event Hubs architecture:

@@ -27,13 +27,14 @@ In this quickstart, you learn how to:
 - [Create and configure a project](quickstart-create-and-configure-projects.md).
 
 ## Create an environment
-You can create an environment from the developer portal. 
+
+An environment in Azure Deployment Environments is a collection of Azure resources on which your application is deployed. You can create an environment from the developer portal.
 
 > [!NOTE]
 > Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
-1. From the **New** menu at the top right, select **New environment**.
+1. From the **New** menu at the top left, select **New environment**.
  
    :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted.":::
  
@@ -48,20 +49,21 @@ You can create an environment from the developer portal.
 
    :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane.":::
 
-If your environment is configured to accept parameters, you are able to enter them on a separate pane. In this example, you don't need to specify any parameters.
+If your environment is configured to accept parameters, you're able to enter them on a separate pane. In this example, you don't need to specify any parameters.
 
 1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
  
 ## Access an environment
-You can access and manage your environments in the Microsoft Developer portal.
+
+You can access and manage your environments in the Azure Deployment Environments developer portal.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-1. You are able to view all of your existing environments. To access the specific resources created as part of an Environment, select the **Environment Resources** link.
+1. You're able to view all of your existing environments. To access the specific resources created as part of an Environment, select the **Environment Resources** link.
 
    :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted."::: 
 
-1. You are able to view the resources in your environment listed in the Azure portal.
+1. You're able to view the resources in your environment listed in the Azure portal.
    :::image type="content" source="media/quickstart-create-access-environments/azure-portal-view-of-environment.png" alt-text="Screenshot showing Azure portal list of environment resources.":::
 
    Creating an environment automatically creates a resource group that stores the environment's resources. The resource group name follows the pattern {projectName}-{environmentName}. You can view the resource group in the Azure portal.

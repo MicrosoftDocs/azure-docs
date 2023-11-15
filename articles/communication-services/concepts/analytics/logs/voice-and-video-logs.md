@@ -16,7 +16,7 @@ ms.subservice: calling
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
+The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Data concepts
 
@@ -82,8 +82,8 @@ The call summary log contains data to help you identify key properties of all ca
 |     `endpointType`              |     This value describes the properties of each endpoint that's connected to the call. It can contain `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, or `"Unknown"`.               |
 |     `sdkVersion`                |     The version string for the Communication Services Calling SDK version that each relevant endpoint uses (for example, `"1.1.00.20212500"`).                                               |
 |     `osVersion`                 |     A string that represents the operating system and version of each endpoint device.                                                                        |
-|     `participantTenantId`               |    The ID of the Microsoft tenant associated with the identity of the participant. The tenant can either be the Azure tenant that owns the ACS resource or the Microsoft tenant of an M365 identity. This field is used to guide cross-tenant redaction.
-|`participantType` | 	Description of the participant as a combination of its client (Azure Communication Services (ACS) or Teams), and its identity, (ACS or Microsoft 365). Possible values include: ACS (ACS identity and ACS SDK), Teams (Teams identity and Teams client), ACS as Teams external user (ACS identity and ACS SDK in Teams call or meeting), and ACS as Microsoft 365 user (M365 identity and ACS client).
+|     `participantTenantId`               |    The ID of the Microsoft tenant associated with the identity of the participant. The tenant can either be the Azure tenant that owns the Azure Communication Services resource or the Microsoft tenant of an M365 identity. This field is used to guide cross-tenant redaction.
+|`participantType` | 	Description of the participant as a combination of its client (Azure Communication Services (ACS) or Teams), and its identity, (ACS or Microsoft 365). Possible values include: Azure Communication Services (ACS identity and Azure Communication Services SDK), Teams (Teams identity and Teams client), Azure Communication Services as Teams external user (ACS identity and Azure Communication Services SDK in Teams call or meeting), and Azure Communication Services as Microsoft 365 user (M365 identity and Azure Communication Services client).
 | `pstnPartcipantCallType `|It represents the type and direction of PSTN participants including Emergency calling, direct routing, transfer, forwarding, etc.| 
 
 ### Call diagnostic log schema

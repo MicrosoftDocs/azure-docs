@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 10/10/2023
+ms.date: 10/18/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -490,6 +490,8 @@ To view detailed conditions for a configuration object, select its name.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png" alt-text="Screenshot showing condition details for a configuration object in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png":::
 
+For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md). 
+
 ---
 
 ## Work with parameters
@@ -660,3 +662,4 @@ az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managed
 
 * Read more about [configurations and GitOps](conceptual-gitops-flux2.md).
 * Learn how to [use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).
+* Learn about [monitoring GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md).

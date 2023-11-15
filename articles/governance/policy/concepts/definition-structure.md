@@ -1030,6 +1030,7 @@ within a policy rule, except the following functions and user-defined functions:
 - deployment()
 - environment()
 - extensionResourceId()
+- [lambda()](../../../azure-resource-manager/templates/template-functions-lambda.md)
 - listAccountSas()
 - listKeys()
 - listSecrets()

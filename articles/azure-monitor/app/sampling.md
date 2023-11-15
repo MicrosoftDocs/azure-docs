@@ -13,6 +13,11 @@ Sampling is a feature in [Application Insights](./app-insights-overview.md). It'
 
 When metric counts are presented in the portal, they're renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
 
+> [!NOTE]
+> - If you've adopted our OpenTelemetry Distro and are looking for configuration options, see [Enable Sampling](opentelemetry-configuration.md#enable-sampling).
+
+:::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="A screenshot of sampling configuration options.":::
+
 ## Brief summary
 
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
@@ -219,6 +224,8 @@ builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 
    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
    // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+
+   telemetryProcessorChainBuilder.Build();
 });
 
 builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
@@ -333,6 +340,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
+        builder.Build();
     });
     
     builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions

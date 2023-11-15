@@ -6,6 +6,8 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: container-apps
+  ms.custom:
+    - ignite-2023
   ms.date: 04/14/2023
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions
@@ -17,7 +19,7 @@ sections:
       - question: |
           Does Azure Container Apps provide direct access to the underlying Kubernetes API?
         answer: |
-          No, there is no access to the Kubernetes API.
+          No, there's no access to the Kubernetes API.
       - question: |
           Can I import my Azure Container Apps API from the context of API Management?
         answer: |
@@ -35,14 +37,14 @@ sections:
       - question: |
           Can I set up GitHub Actions to automatically build and deploy my code to Azure Container Apps?
         answer:
-          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, navigate to the "Continuous deployment" blade under your container app.
+          Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, go to the "Continuous deployment" window under your container app.
 
   - name: Data management
     questions:
       - question: |
           Where does Azure Container Apps store customer data?
         answer: |
-          Azure Container Apps does not move or store customer data out of the region it's deployed in.
+          Azure Container Apps doesn't move or store customer data out of the deployed region.
 
   - name: Quotas
     questions:
@@ -62,17 +64,17 @@ sections:
           | Problem Type | Configuration and Management |
           | Problem Subtype | Scaling |
 
-          Please keep in mind the following when it comes to quota increase requests: 
+          Keep in mind the following when it comes to quota increase requests: 
 
-          - **Scaling apps vs environments**: There are a number of different quotas available to increase. Use these descriptions to help identify your needs:
+          - **Scaling apps vs environments**: There are many different quotas available to increase. Use these descriptions to help identify your needs:
             - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
-            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: Additional business context may be required if your request involves increasing environment-level quotas.
+            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: A detailed business context might be required if your request involves increasing environment-level quotas.
 
           - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
 
-          - **Specific compute requirements**: The platform supports 4GB per container app. Memory limits overrides are evaluated on a per-case basis.
+          - **Specific compute requirements**: The platform supports 4 GB per container app. Memory limits overrides are evaluated on a per-case basis.
 
-          - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
+          - **Business reasoning for scaling**: You might be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
 
   - name: Dapr
     questions:
@@ -84,7 +86,7 @@ sections:
       - question: |
           Are alpha Dapr APIs and components supported or available in Azure Container Apps?
         answer: |
-          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components is not guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation.
+          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components isn't guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation.
 
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
@@ -95,3 +97,21 @@ sections:
           How can I request a Dapr feature enhancement for Azure Container Apps?
         answer:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+          You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+          
+  - name: Deploy Java applications
+    questions:
+      - question: |
+          Which JDK versions are supported?
+        answer: |
+          Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17 and JDK 21. 
+          For source code build, the default version is JDK 17.
+          For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
+      - question: |
+          Which Java build tools are supported?
+        answer: |
+          Maven
+      - question: |
+          Are build environment variables supported?
+        answer: |
+          No. Container Apps automatically selects the Maven version. 

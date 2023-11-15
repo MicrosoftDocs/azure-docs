@@ -62,6 +62,9 @@
         - name: Design a real-time dashboard
           href: tutorial-design-database-realtime.md
           displayName: tutorial, real-time
+        - name: Design for microservices
+          href: tutorial-design-database-microservices.md
+          displayName: tutorial, microservices
     - name: Administer
       items:
         - name: Set up private access
@@ -71,6 +74,8 @@
   items:
     - name: Clusters
       href: concepts-cluster.md
+    - name: Sharding models
+      href: concepts-sharding-models.md
     - name: Distributed data
       items:
         - name: Nodes and tables

@@ -9,6 +9,7 @@ ms.author: eur
 | Language | Locale (BCP-47) | 
 |--|--|
 |Arabic (Saudi Arabia)|`ar-SA` |
+|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |

@@ -5,7 +5,7 @@ description: Learn how to connect to a VNet via P2S using multiple authenticatio
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -84,6 +84,9 @@ The client address pool is a range of private IP addresses that you specify. The
 ## <a name="type"></a>Authentication and tunnel types
 
 In this section, you configure authentication type and tunnel type. On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+
+> [!IMPORTANT]
+> [!INCLUDE [Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
 
    :::image type="content" source="./media/howto-point-to-site-multi-auth/authentication-types.png" alt-text="Screenshot of authentication types and tunnel type.":::
 

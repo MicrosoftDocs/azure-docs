@@ -213,34 +213,28 @@ await call.removeParticipant(pstnIdentifier);
 Remote participants have a set of associated properties and collections:
 
 - `CommunicationIdentifier`: Get the identifier for a remote participant. Identity is one of the `CommunicationIdentifier` types:
-
-    ```js
-    const identifier = remoteParticipant.identifier;
-    ```
-
-It can be one of the following `CommunicationIdentifier` types:
-
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
-- `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
-- `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
-- `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
+```js
+const identifier = remoteParticipant.identifier;
+```
+- It can be one of the following `CommunicationIdentifier` types:
+    - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
+    - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
+    - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
+    - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
-
-    ```js
-    const state = remoteParticipant.state;
-    ```
-
-The state can be:
-
-- `Idle`: Initial state.
-- `Connecting`: Transition state while a participant is connecting to the call.
-- `Ringing`: Participant is ringing.
-- `Connected`: Participant is connected to the call.
-- `Hold`: Participant is on hold.
-- `EarlyMedia`: Announcement that plays before a participant connects to the call.
-- `InLobby`: Indicates that remote participant is in lobby.
-- `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
+```js
+const state = remoteParticipant.state;
+```
+- The state can be:
+    - `Idle`: Initial state.
+    - `Connecting`: Transition state while a participant is connecting to the call.
+    - `Ringing`: Participant is ringing.
+    - `Connected`: Participant is connected to the call.
+    - `Hold`: Participant is on hold.
+    - `EarlyMedia`: Announcement that plays before a participant connects to the call.
+    - `InLobby`: Indicates that remote participant is in lobby.
+    - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
     ```js
@@ -274,6 +268,10 @@ The state can be:
     ```js
     const displayName = remoteParticipant.displayName;
     ```
+- `endpointDetails`: Get the details of all the endpoints for this remote participant
+    ```js
+        const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
+    ```
 
 ## Check call properties
 
@@ -283,10 +281,18 @@ Get the unique ID (string) for a call:
 const callId: string = call.id;
 ```
 
-Retrieve the thread ID if joining a Teams meeting:
-
+Get the local participant Id:
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
-const threadId: string | undefined = call.threadId;
+const participantId: string = call.info.participantId;
+```
+
+Retrieve the thread ID if joining a Teams meeting:
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
+```js
+const threadId: string | undefined = call.info.threadId;
 ```
 
 Get information about the call:
@@ -372,57 +378,3 @@ Check is screen sharing is on. It returns `Boolean`.
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
 ```
-## Send or receive a reaction from other participants
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
-
-Within ACS you can send and receive reactions when on a group call:
-- Like :+1:
-- Love :heart:
-- Applause :clap:
-- Laugh :smile:
-- Surprise :open_mouth:
-
-To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
-
-You'll need to subscribe for events which provide the subscriber event data as:
-```javascript
-export interface ReactionEventPayload {
-    /**
-     * identifier for a participant
-     */
-    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
-    /**
-     * reaction type received
-     */
-    reactionMessage: ReactionMessage;
-}
-```
-
-You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
-
-### Sample on how to send a reaction in a meeting
-```javascript
-const reaction = call.feature(SDK.Features.Reaction);
-const reactionMessage: SDK.ReactionMessage = {
-       reactionType: 'like'
-};
-await reaction.sendReaction(reactionMessage);
-```
-
-### Sample on how to receive a reaction in a meeting
-```javascript
-const reaction = call.feature(SDK.Features.Reaction);
-reaction.on('reaction', event => {
-    // user identifier
-    console.log("User Mri - " + event.identifier);
-    // received reaction
-    console.log("User Mri - " + event.reactionMessage.reactionType);
-    // reaction message
-    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
-}
-```
-
-### Key things to note about using Reactions:
-- For teams interoperability scenarios, the functionality of the feature depends on the meeting poilicy for the reaction capability.
-- On direct 1:1 calls between a CTE user and a teams user, the reaction functionality is disabled.

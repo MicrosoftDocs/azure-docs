@@ -41,7 +41,7 @@ The **Insights** pane offers customized items for your environment including:
 
 - Actionable items to enhance your security.
 - Tips to handle alerts and recommendations.
-- Recommendations on how to to upgrade your service to enhance your environments protections.
+- Recommendations on how to upgrade your service to enhance your environments protections.
 - Recent blog posts by Microsoft Defender for Cloud experts.
 
 ## Next steps

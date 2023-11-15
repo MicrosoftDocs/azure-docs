@@ -22,15 +22,6 @@ Azure Spring Apps enables Spring Boot applications on Azure.
 
 You can launch applications directly from Java source code or from a pre-built JAR. This article explains the deployment procedures.
 
-This quickstart explains how to:
-
-> [!div class="checklist"]
-> * Provision a service instance
-> * Set a configuration server for an instance
-> * Build an application locally
-> * Deploy each application
-> * Assign a public endpoint for an application
-
 ## Prerequisites
 
 Before you begin, ensure that your Azure subscription has the required dependencies:
@@ -151,24 +142,10 @@ az spring app show-deploy-log --name <app-name>
 1. Open the **Apps** pane to view apps for your service instance.
 2. Select an application to view its **Overview** page.
 3. Select **Assign endpoint** to assign a public endpoint to the application. This process can take a few minutes.
-4. Copy the URL from the **Overview** page and then paste it into your browser to view your running application.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
+4. Copy the URL from the **Overview** page and paste it into your browser to view running application.
 
 ## Next steps
 
-In this quickstart, you learned how to:
+* [Quickstart: Monitoring Azure Spring Apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
-> [!div class="checklist"]
-> * Provision a service instance
-> * Set a configuration server for an instance
-> * Build an application locally
-> * Deploy each application
-> * Edit environment variables for applications
-> * Assign a public endpoint to an application
-
-> [!div class="nextstepaction"]
-> [Quickstart: Monitoring Azure Spring Apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
-
-More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
