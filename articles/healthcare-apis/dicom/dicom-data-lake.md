@@ -16,20 +16,22 @@ The [DICOM&reg; service](overview.md) provides cloud-scale storage for medical i
 
 By using Azure Data Lake Storage with the DICOM service, you're able to:
 
-- **Enable direct access to medical imaging data** stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+- **Directly access to medical imaging data** stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
 - **Open medical imaging data up to the entire ecosystem of tools** for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
 - **Unlock new analytics and AI/ML scenarios** by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric. 
 - **Grant controls to manage storage permissions, access controls, tiers, and rules**. 
 
 Another benefit of Azure Data Lake Storage is that it connects to [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview). Microsoft Fabric is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need to unlock the potential of their data and lay the foundation for the era of AI.  By using Microsoft Fabric, you can leverage the rich ecosystem of Azure services to perform advanced analytics and AI/ML with medical imaging data, such as building and deploying machine learning models, creating cohorts for clinical trials, and generating insights for patient care and outcomes.
 
-To learn more about analytics with imaging data, see [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md).
+To learn more about using Microsoft Fabric with imaging data, see [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md).
 
 ## Service architecture & APIs
 
-The new architecture provides you with the option to specify an Azure Data Lake Storage account and container at the time the DICOM service is deployed.  This storage container is used by the DICOM service to store DICOM files received by the DICOMweb APIs.  Likewise, the DICOM service retrieves data from the storage account to fulfill search and retrieve queries, allowing full DICOMweb interoperability with your DICOM data.  What's new in this architecture is that the storage container remains in your control and is directly accessible using familiar [Azure storage APIs](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) and tools. 
-
 :::image type="content" source="media/data-lake-layer-diagram.png" alt-text="Architecture diagram showing the relationship of the DICOMweb APIs, the DICOM service, Azure Data Lake Storage, and Azure Storage APIs." lightbox="media/data-lake-layer-diagram.png":::
+
+The DICOM service exposes the [DICOMweb APIs](dicomweb-standard-apis-with-dicom-services.md) to store, query for, and retrieve DICOM data.  This new architecture provides you with the option to specify an Azure Data Lake Storage account and container at the time the DICOM service is deployed.  This storage container is used by the DICOM service to store DICOM files received by the DICOMweb APIs.  Likewise, the DICOM service retrieves data from the storage account to fulfill search and retrieve queries, allowing full DICOMweb interoperability with your DICOM data.  
+
+What's new in this architecture is that the storage container remains in your control and is directly accessible using familiar [Azure storage APIs](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) and tools. 
 
 ## Data contracts
 
@@ -37,9 +39,13 @@ The DICOM service stores data in predictable locations in the data lake, followi
 
 ```
 AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
-```
+``` 
 
-If partitions are not specified, all DICOM data will be stored in the default partition, named `Microsoft.Default`. 
+| Parameter            | Description |
+|----------------------|-------------|
+| {workspace-name}     | The name of the Health Data Services workspace which contains the DICOM service. |
+| {dicom-service-name} | The name of the DICOM service instance. |
+| {partition-name}     | The name of the data partition. Note, if no partitions have been specified, all DICOM data will be stored in the default partition, named `Microsoft.Default`. |
 
 > [!NOTE]
 > During public preview, the DICOM service will write data to the storage container and read data that it has written, but user added data will not be read and indexed by the DICOM service.  Similarly, if DICOM data written by the DICOM service is modified or removed, it may result in errors when access data via the DICOMweb APIs.
@@ -57,6 +63,7 @@ During public preview, the DICOM service with data lake storage has the followin
 - UPS-RS work items are not stored in the data lake storage account.  
 - User data added to the data lake storage account will not be read and indexed by the DICOM service.  It is possible that a filename collision could occur, so it is recommended to not write data to the folder structure used by the DICOM service.
 - If DICOM data written by the DICOM service is modified or removed, it may result in errors when access data via the DICOMweb APIs.
+- Configuration of customer-managed keys is not supported during the creation of a DICOM service when opting to use external storage.
 
 ## Next steps
 
