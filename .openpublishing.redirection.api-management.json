@@ -12,7 +12,7 @@
     },
     {
         "source_path_from_root": "/articles/api-management/configure-authorization-connection.md",
-        "redirect_url": "/azure/api-management/credentials-configure-credential-connection",
+        "redirect_url": "/azure/api-management/configure-credential-connection",
         "redirect_document_id": false
     },
     {

@@ -11,7 +11,7 @@ ms.author: danlep
 | Identity provider  | Select **Azure Active Directory v1** |Yes | N/A | 
 | Grant type  | The OAuth 2.0 authorization grant type to use<br/><br/>Depending on your scenario, select either **Authorization code** or **Client credentials**. |Yes | Authorization code | 
 |**Authorization URL** | `https://graph.microsoft.com` | Yes | N/A |
-| Client ID | The application (client) id used to identify the Microsoft Entra app | Yes | N/A |
+| Client ID | The application (client) ID used to identify the Microsoft Entra app | Yes | N/A |
 | Client secret | The client secret used for the Microsoft Entra app | Yes | N/A |
 | Login URL | The Microsoft Entra login URL  | No | `https://login.windows.net` |
 | Resource URL | The URL of the resource that requires authorization<br/><br/> Example: `https://graph.microsoft.com` | Yes | N/A |
