@@ -105,7 +105,7 @@ With the rise of Kubernetes and the OSS ecosystem, Container Insights migrate to
 
 Customers who manually Container Insights using custom methods prior to October 2022 can end up with multiple versions of our agent running together. To clear this duplication, customers are recommended to follow the steps below: 
 
-### Migration Guidelines for AKS clusters 
+### Migration guidelines for AKS clusters 
 
 1.	Get details of customer's custom settings, such as memory and CPU limits on omsagent containers. 
 
