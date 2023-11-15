@@ -365,7 +365,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
     "messages": [
         {
             "role": "user",
-            "content": "who is Nebula"
+            "content": "What is the company insurance plan?"
         }
     ],
     "dataSources": [
@@ -443,7 +443,6 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `fieldsMapping` | dictionary | Optional for Azure AI Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
-| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
 | `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-ai-search-only)
@@ -458,7 +457,8 @@ The following parameters can be used inside of the `parameters` field inside of 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
-| `key` | string | Required | null | Azure AI Search. One of the Azure AI Search admin keys for your service. |
+| `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
+| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 
 **The following parameters are used for Azure Cosmos DB for MongoDB vCore**
 
