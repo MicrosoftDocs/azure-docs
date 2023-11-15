@@ -14,10 +14,10 @@ ms.custom: references_regions
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]
-> * Currently, you can use credential manager to configure and manage credential connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. Support for other types of API credentials is planned.
+> * Currently, you can use credential manager to configure and manage connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. Support for other types of API credentials is planned.
 > * No breaking changes are introduced with credential manager. OAuth 2.0 credential providers and connections use the existing API Management [authorization](/rest/api/apimanagement/authorization) APIs and resource provider.
 
-## Managed credential connections for OAuth 2.0 APIs
+## Managed connections for OAuth 2.0 APIs
 
 Using credential manager, you can greatly simplify the process of authenticating and authorizing users, groups, and service principals across one or more backend or SaaS services that use OAuth 2.0. Using API Management's credential manager, easily configure OAuth 2.0, consent, acquire tokens, cache tokens in a credential store, and refresh tokens without writing a single line of code. Use access policies to delegate authentication to your API Management instance, service principals, users, or groups. For background about the OAuth 2.0, see [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
@@ -27,7 +27,7 @@ This feature enables APIs to be exposed with or without a subscription key, use 
 
 ### Example use cases
 
-Using OAuth credential connections managed in API Management, customers can easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some examples:
+Using OAuth connections managed in API Management, customers can easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some examples:
 
 * Easily connect to a SaaS backend by attaching the stored authorization token and proxying requests
 
@@ -41,22 +41,22 @@ Using OAuth credential connections managed in API Management, customers can easi
 
 * Durable Functions gets a step closer to Logic Apps with SaaS connectivity.
 
-* With credential connections, every API in API Management can act as a Logic Apps custom connector.
+* With OAuth 2.0 connections, every API in API Management can act as a Logic Apps custom connector.
 
 ## How does credential manager work?
 
 Token credentials in credential manager consist of two parts: **management** and **runtime**.
 
-* The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. For details, see [Management of credential connections](credentials-process-flow.md#management-of-credential-connections).
+* The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* to the credential provider for access to the credentials. For details, see [Management of connections](credentials-process-flow.md#management-of-connections).
 
 
-* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of credential connections](credentials-process-flow.md#runtime-of-credential-connections).  
+* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of connections](credentials-process-flow.md#runtime-of-connections).  
    
     During the policy execution, access to the tokens is also validated using access policies.
 
 ## When to use credential manager?
 
-The following are three scenarios for using  credential manager.
+The following are three scenarios for using credential manager.
 
 ### Configuration scenario
 
@@ -67,7 +67,7 @@ After configuring the credential provider and a connection, the API manager can 
 
 ### Managed identity scenario
 
-By default when a connection is created, an access policy is preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, credential connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured credential connection that's not related to the user context, the same data is returned to all users.
+By default when a connection is created, an access policy is preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
 
 :::image type="content" source="media/credentials-overview/managed-identity-scenario.png" alt-text="Diagram of managed identity scenario for credential manager.":::
 
@@ -77,9 +77,6 @@ By default when a connection is created, an access policy is preconfigured for t
 To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
 
 :::image type="content" source="media/credentials-overview/user-delegated-scenario.png" alt-text="Diagram of user-delegated scenario for credential manager.":::
-
-
-
 
 ## How to configure credential manager?
 
@@ -112,9 +109,9 @@ The access token and other secrets (for example, client secrets) are encrypted w
 | Resource | Limit |
 | --------------------| ----|
 | Maximum number of credential providers per service instance| 1,000 |
-| Maximum number of credential connections per credential provider| 10,000 |
-| Maximum number of access policies per credential connection | 100 |
-| Maximum number of requests per minute per credential connection | 250 |
+| Maximum number of connections per credential provider| 10,000 |
+| Maximum number of access policies per connection | 100 |
+| Maximum number of authorization requests per minute per connection | 250 |
 
 
 ## Frequently asked questions (FAQ)
@@ -138,7 +135,7 @@ Yes, as long as outbound connectivity on port 443 is enabled to the **AzureConne
 
 ### What happens when a credential provider is deleted?
 
-All underlying credential connections and access policies are also deleted.
+All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 

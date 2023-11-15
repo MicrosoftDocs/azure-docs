@@ -12,9 +12,9 @@ ms.author: danlep
 
 # Get authorization context
 
-Use the `get-authorization-context` policy to get the authorization context of a specified [credential connection](credentials-overview.md) (formerly called an *authorization*) configured in the API Management instance. 
+Use the `get-authorization-context` policy to get the authorization context of a specified [connection](credentials-overview.md) (formerly called an *authorization*) to a credential provider that is configured in the API Management instance. 
 
-The policy fetches and stores authorization and refresh tokens from the configured credential provider using the credential connection.
+The policy fetches and stores authorization and refresh tokens from the configured credential provider using the connection.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -37,9 +37,9 @@ The policy fetches and stores authorization and refresh tokens from the configur
 | Attribute | Description | Required | Default |
 |---|---|---|---|
 | provider-id | The credential provider resource identifier. Policy expressions are allowed. | Yes | N/A  |
-| authorization-id | The credential connection resource identifier. Policy expressions are allowed. | Yes | N/A  |
+| authorization-id | The connection resource identifier. Policy expressions are allowed. | Yes | N/A  |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). Policy expressions are allowed.  | Yes | N/A  |
-| identity-type | Type of identity to check against the connection's access policy. <br> - `managed`: system-assigned managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute.<br/><br/>Policy expressions are allowed.  | No | `managed` |
+| identity-type | Type of identity to check against the connection's access policy. <br> - `managed`: system-assigned managed identity of the API Management instance. <br> - `jwt`: JWT bearer token specified in the `identity` attribute.<br/><br/>Policy expressions are allowed.  | No | `managed` |
 | identity | A Microsoft Entra JWT bearer token to check against the connection permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID<br/><br/>Policy expressions are allowed.  | No |  N/A |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the connection resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If you set the value to `false`, and the policy configuration includes an `on-error` section, the error is available in the `context.LastError` property.<br/><br/>Policy expressions are allowed.   | No | `false` |
 

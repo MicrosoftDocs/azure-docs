@@ -1,6 +1,6 @@
 ---
-title: Create credential to Microsoft Graph API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a managed credential connection to a backend Microsoft Graph API using the Azure API Management credential manager. 
+title: Create connection to Microsoft Graph API - Azure API Management | Microsoft Docs
+description: Learn how to create and use a managed connection to a backend Microsoft Graph API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.author: danlep
 
 # Configure credential manager - Microsoft Graph API
 
-This article guides you through the steps required to create a managed [credential connection](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
+This article guides you through the steps required to create a managed [connection](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Create a Microsoft Entra application
 > * Create and configure a credential provider in API Management
-> * Configure a credential connection
+> * Configure a connection
 > * Create a Microsoft Graph API in API Management and configure a policy
 > * Test your Microsoft Graph API in API Management
 
@@ -82,18 +82,18 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |**Tenant ID** | Optional for Microsoft Entra identity provider. Default is *Common*. |
     |**Scopes**     |    Optional for Microsoft Entra identity provider. Automatically configured from Microsoft Entra app's API permissions.      |
 
-## Step 3: Configure a credential connection
+## Step 3: Configure a connection
 
-On the **Connection** tab, complete the steps for your connection. 
+On the **Connection** tab, complete the steps for your connection to the provider. 
 
 > [!NOTE]
-> When you configure a credential connection, API Management by default sets up an [access policy](credentials-process-flow.md#access-policy) that enables access by the instance's systems-assigned managed identity. This access is sufficient for this example. You can add additional access policies as needed. 
+> When you configure a connection, API Management by default sets up an [access policy](credentials-process-flow.md#access-policy) that enables access by the instance's systems-assigned managed identity. This access is sufficient for this example. You can add additional access policies as needed. 
 
 
 [!INCLUDE [api-management-credential-create-connection](../../includes/api-management-credential-create-connection.md)]
 
 > [!TIP]
-> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple credential connections](configure-credential-connection.md). 
+> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple connections](configure-credential-connection.md). 
 
 > [!NOTE]
 > If you update your Microsoft Graph permissions after this step, you will have to repeat Steps 2 and 3.
@@ -150,7 +150,7 @@ On the **Connection** tab, complete the steps for your connection.
 The preceding policy definition consists of two parts:
 
 * The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that were created earlier. 
-* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched credential token.
+* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched access token.
 
 ## Step 5: Test the API 
 

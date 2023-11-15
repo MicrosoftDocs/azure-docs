@@ -1,6 +1,6 @@
 ---
-title: Manage credential connections for end users - Azure API Management | Microsoft Docs
-description: Learn how to configure a credential connection with user-delegated permissions to a backend OAuth 2.0 API using the Azure API Management credential manager. 
+title: Manage connections for end users - Azure API Management | Microsoft Docs
+description: Learn how to configure a connection with user-delegated permissions to a backend OAuth 2.0 API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.author: danlep
 
 # Configure credential manager - user-delegated access to backend API
 
-This article guides you through the high level steps to configure and use a managed [credential connection](credentials-overview.md) that grants Microsoft Entra users or groups delegated permissions to a backend OAuth 2.0 API. Follow these steps for scenarios when a client app (or bot) needs to access backend secured online resources on behalf of an authenticated user (for example, checking emails or placing an order).
+This article guides you through the high level steps to configure and use a managed [connection](credentials-overview.md) that grants Microsoft Entra users or groups delegated permissions to a backend OAuth 2.0 API. Follow these steps for scenarios when a client app (or bot) needs to access backend secured online resources on behalf of an authenticated user (for example, checking emails or placing an order).
 
 ## Scenario overview 
 
 > [!NOTE]
 > This scenario only applies to credential providers configured with the **authorization code** grant type.
 
-In this scenario, you configure a managed [credential connection](credentials-overview.md) that enables a client app (or bot) to access a backend API on behalf of a Microsoft Entra user or group. For example, you might have a static web app that accesses a backend GitHub API and which you want to access data specific to the signed-in user. The following diagram illustrates the scenario. 
+In this scenario, you configure a managed [connection](credentials-overview.md) that enables a client app (or bot) to access a backend API on behalf of a Microsoft Entra user or group. For example, you might have a static web app that accesses a backend GitHub API and which you want to access data specific to the signed-in user. The following diagram illustrates the scenario. 
 
 :::image type="content" source="media/credentials-how-to-user-delegated/scenario-overview.png" alt-text="Diagram showing process flow for user-delegated permissions." border="false":::
 
@@ -27,7 +27,7 @@ In this scenario, you configure a managed [credential connection](credentials-ov
 * Each external service has a way of securing those calls - for example, with a user token that uniquely identifies the user
 * To secure the call to the external service, the app must ask the user to sign-in, so it can acquire the user's token
 * As part of the configuration, a credential provider is registered using the credential manager in the API Management instance. It contains information about the identity provider to use, along with a valid OAuth client ID and secret, the OAuth scopes to enable, and other connection metadata required by that identity provider.
-* Also, a credential connection is created and used to help sign-in the user and get the user token so it can be managed
+* Also, a connection is created and used to help sign-in the user and get the user token so it can be managed
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ Create a Microsoft Entra ID application for user delegation and give it the appr
     1. Set the **Redirect URI** to **Web**,  and enter `https://www.postman-echo.com/get`.
 1. On the left menu, select **API permissions**, and then select **+ Add a permission**.
     1. Select the **APIs my organization uses** tab, type *Azure API Management Data Plane*, and select it.
-    1. Under ***Permissions**, select **Authorizations.Read**, and then select **Add permissions**. 
+    1. Under **Permissions**, select **Authorizations.Read**, and then select **Add permissions**. 
 1. On the left menu, select **Overview**. On the **Overview** page, find the **Application (client) ID** value and record it for use in a later step.
 1. On the left menu, select **Certificates & secrets**, and then select **+ New client secret**.    
     1. Enter a **Description**.
@@ -96,9 +96,9 @@ Create a Microsoft Entra ID application for user delegation and give it the appr
 1. Select **Create**.
 1. When prompted, review the OAuth redirect URL that's displayed, and select **Yes** to confirm that it matches the URL you entered in the app registration.     
 
-## Step 4: Configure a credential connection
+## Step 4: Configure a connection
 
-After you create a credential provider, you can add a credential connection. On the **Connection** tab, complete the steps for your connection:
+After you create a credential provider, you can add a connection to the provider. On the **Connection** tab, complete the steps for your connection:
 
 1. Enter a **Connection name**, then select **Save**. 
 1. Under **Step 2: Login to your connection**, select the link to login to the credential provider. Complete steps there to authorize access, and return to API Management. 
@@ -112,7 +112,7 @@ After you create a credential provider, you can add a credential connection. On 
 The new connection appears in the list of connections, and shows a status of **Connected**. If you want to create another connection for the credential provider, complete the preceding steps.
 
 > [!TIP]
-> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple credential connections](configure-credential-connection.md). 
+> Use the portal to add, update, or delete connections to a credential provider at any time. For more information, see [Configure multiple connections](configure-credential-connection.md). 
 
 ## Step 5: Acquire a Microsoft Entra ID access token
 
@@ -147,7 +147,7 @@ To enable user-delegated access to the backend API, an access token for the dele
 
 ## Step 6: Configure get-authorization-context policy for backend API
 
-Configure the `get-authorization-context` policy for the backend API that you want to access on behalf of the user or group. For test purposes, you can configure the policy using the Microsoft Entra ID access token for the user that you obtained in the previous section.
+Configure the [get-authorization-context](get-authorization-context-policy.md) policy for the backend API that you want to access on behalf of the user or group. For test purposes, you can configure the policy using the Microsoft Entra ID access token for the user that you obtained in the previous section.
 
 1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
 1. On the left menu, select **APIs** and then select your OAuth 2.0 backend API.
