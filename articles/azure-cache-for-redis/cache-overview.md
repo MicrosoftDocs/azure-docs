@@ -57,7 +57,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Scaling](cache-how-to-scale.md) |✔|✔|✔|Preview|Preview|
 | [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Available|Available|Available|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔ (Passive) |✔ (Active) |✔ (Active) |
 | [Connection audit logs](cache-monitor-diagnostic-settings.md) |-|-|✔ (Poll-based)|✔ (Event-based)|✔ (Event-based)|
 | [Redis Modules](cache-redis-modules.md) |-|-|-|✔|Preview|

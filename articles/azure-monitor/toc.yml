@@ -10,7 +10,7 @@ items:
     - name: What's new?
       href: whats-new.md
     - name: FAQ
-      href: faq.yml
+      href: overview.md#frequently-asked-questions
 - name: Getting started
   items:
   - name: Get started with Azure Monitor
@@ -367,7 +367,7 @@ items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
+        href: /answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
@@ -432,7 +432,7 @@ items:
       items:
       - name: Migrate from Operations Manager
         href: azure-monitor-operations-manager.md
-      - name: Azure Monitor SCOM Managed Instance (preview)
+      - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
       - name: Connect Operations Manager
         href: agents/om-agents.md
@@ -524,7 +524,7 @@ items:
       - name: Overview
         href: containers/container-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#container-insights
+        href: containers/container-insights-overview.md#frequently-asked-questions
       - name: Enable
         displayName: container insights
         items:
@@ -716,7 +716,7 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect text logs
+      - name: Collect logs from text or JSON files 
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
@@ -915,7 +915,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#prometheus
+        href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
       - name: Azure Monitor workspace
         items: 
         - name: Overview
@@ -1595,8 +1595,12 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
+    - name: Analyze usage and cost
+      href: cost-usage.md
+    - name: Billing meters
+      href: cost-meters.md
+    - name: Estimate cost
+      href: cost-estimate.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

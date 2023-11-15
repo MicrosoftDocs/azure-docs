@@ -1,7 +1,7 @@
 ---
-title:  Overview of the Azure Connected System Center Virtual Machine Manager (preview)
-description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager (preview).
-ms.date: 10/18/2023
+title:  Overview of the Azure Connected System Center Virtual Machine Manager 
+description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -12,7 +12,7 @@ keywords: "VMM, Arc, Azure"
 ms.custom: references_regions
 ---
 
-# Overview of Arc-enabled System Center Virtual Machine Manager (preview)
+# Overview of Arc-enabled System Center Virtual Machine Manager
 
 Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. Azure Arc-enabled SCVMM extends the Azure control plane to SCVMM managed infrastructure, enabling the use of Azure security, governance, and management capabilities consistently across System Center managed estate and Azure.
 
@@ -34,7 +34,7 @@ By using Arc-enabled SCVMM's capabilities to discover your SCVMM managed estate 
 
 ## How does it work?
 
-To Arc-enable a System Center VMM management server, deploy [Azure Arc resource bridge](../resource-bridge/overview.md) (preview) in the VMM environment. Arc resource bridge is a virtual appliance that connects VMM management server to Azure. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and do various operations on them.
+To Arc-enable a System Center VMM management server, deploy [Azure Arc resource bridge](../resource-bridge/overview.md) in the VMM environment. Arc resource bridge is a virtual appliance that connects VMM management server to Azure. Azure Arc resource bridge enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and do various operations on them.
 
 ## Architecture
 
@@ -51,7 +51,7 @@ You have the flexibility to start with either option, or incorporate the other o
 
 ### Supported scenarios
 
-The following scenarios are supported in Azure Arc-enabled SCVMM (preview):
+The following scenarios are supported in Azure Arc-enabled SCVMM:
 
 - SCVMM administrators can connect a VMM instance to Azure and browse the SCVMM virtual machine inventory in Azure.
 - Administrators can use the Azure portal to browse SCVMM inventory and register SCVMM cloud, virtual machines, VM networks, and VM templates into Azure.
@@ -61,17 +61,23 @@ The following scenarios are supported in Azure Arc-enabled SCVMM (preview):
 
 ### Supported VMM versions
 
-Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports SCVMM management servers with a maximum of 3500 VMs.
+Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM management servers with a maximum of 15000 VMs.
 
 ### Supported regions
 
-Azure Arc-enabled SCVMM (preview) is currently supported in the following regions:
+Azure Arc-enabled SCVMM is currently supported in the following regions:
 
 - East US
-- West US2
 - East US2
-- West Europe
+- West US2
+- West US3
+- South Central US
+- UK South
 - North Europe
+- West Europe
+- Sweden Central
+- Southeast Asia
+- Australia East
 
 ### Resource bridge networking requirements
 

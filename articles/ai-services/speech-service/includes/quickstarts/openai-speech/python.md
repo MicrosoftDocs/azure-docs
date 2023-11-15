@@ -41,7 +41,7 @@ Follow these steps to create a new console application.
     ```
 1. Run this command to install the OpenAI SDK:  
     ```console
-    pip install openai
+    pip install openai==0.28.1
     ```
     > [!NOTE]
     > This library is maintained by OpenAI (not Microsoft Azure). Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.

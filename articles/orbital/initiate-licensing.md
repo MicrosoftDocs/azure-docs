@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - initiate ground station licensing
+title: Azure Orbital Ground Station - Initiate ground station licensing
 description: How to initiate ground station licensing
 author: kellydevens
 ms.service: orbital
@@ -14,27 +14,31 @@ ms.author: kellydevens
 
 ## About satellite and ground station licensing
 
-Satellites and ground stations require authorizations from federal regulators and other government agencies to operate. If you're contacting [select public satellites supported by Azure Orbital Ground Station](https://learn.microsoft.com/azure/orbital/modem-chain#named-modem-configuration), Microsoft has already completed all regulatory requirements. If you're planning to launch a private satellite, we recommend that you hire outside counsel to assist you in filing with the appropriate regulators. The application process can be lengthy, so we recommend you start one year ahead of launch.
+Both satellites and ground stations require authorizations from federal regulators and other government agencies to operate.
 
-During the satellite licensing application process, Azure Orbital Ground Station provides the technical information for the ground station portion of your satellite license request. We require information from your satellite license to modify our ground station licenses and authorize your satellite for use with Microsoft ground stations. Similarly, if you plan to use partner network ground stations, work with the partner's regulatory team ensure their ground stations are updated for use with your spacecraft.
+Azure Orbital Ground Station consists of five first-party, Microsoft-owned ground stations and networks of third-party Partner ground stations. Except in South Africa, adding a new satellite point of communication to licensed Microsoft ground stations requires an authorization from the respective federal regulator. While the specifics of obtaining authorization vary by geography, coordination with incumbent users is always required.
 
-If your spacecraft is already licensed and in orbit, you must still work with Azure Orbital Ground Station and partner teams to update all relevant ground station licenses. Contact Microsoft as soon as you have an idea of which ground stations you might use.
+- If you're interested in contacting [select **public** satellites supported by Azure Orbital Ground Station](https://learn.microsoft.com/azure/orbital/modem-chain#named-modem-configuration), Microsoft has already completed all regulatory requirements to add these satellite points of communication to all Microsoft ground stations.
 
-## Coordination
+- If you're interested in having your **existing** satellite space station or constellation communicate with one or more Microsoft ground stations, you must modify your authorization for the US market to add each ground station.
 
-Coordination is required between regulators and outside counsel as well as between regulators and various government entities to avoid interference between radio frequencies. These entities include the International Telecommunication Union (ITU) and armed forces for the relevant country.
+- If you're interested in having your **planned** satellite space station or constellation communicate with one or more Microsoft ground stations, each ground station must be referenced in the technical exhibits accompanying your US license (or market access) application. As the US application process can be lengthy due to the required coordination with federal users in the X- and S-bands, we recommend you start at least one year ahead of launch if possible.
 
-The license application may need to be resubmitted based on feedback obtained during the coordination phase. If you have to update your satellite license request, you also need to inform the regulatory teams updating the ground station licenses. 
+If you are seeking a new or modified satellite license, Azure Orbital Ground Station provides your in-house or outside counsel with geo-coordinates and technical information for each Microsoft ground station. Similarly, we require information from your satellite space station or constellation license application in order to complete our applications to modify our first-party ground station licenses and add new satellite points of communication. If you plan to use Partner network ground stations, work with the Partner's regulatory team to ensure their ground station authorizations are updated for use with your spacecrafts.
+
+## Coordination during the authorization process
+
+During the process of licensing new satellite space stations, applications sometimes need to be amended or modified. It's important that the satellite operator keeps Microsoft and Partner ground station operators informed of these changes as soon as possible. Delays in the regulatory review process are more likely if the information in the satellite operator’s license application regarding Microsoft and Partner ground stations don't match the information in the respective ground station licenses. Likewise, delays can occur if the information in an application to add a new satellite point of communication to Microsoft or Partner ground stations does not match the information in the current satellite license application.
 
 ## Costs
 
-Regulators have filing fees for obtaining licenses; usually the authorizations aren't released until payment is made. In addition to the filing fees, there are fees for outside counsel. Satellite operators are responsible for all costs associated with obtaining the satellite licenses. 
+Satellite operators are responsible for all costs associated with obtaining satellite space station or constellation licenses. 
 
-The costs associated with ground station license are defined in your agreement with Azure Orbital Ground Station and/or the partner ground station network.
+The costs associated with ground station license are defined in your agreement with Azure Orbital Ground Station and/or the Partner ground station network.
 
 ## Enforcement
 
-Satellite operators are responsible for complying with their satellite licenses. 
+Satellite operators are responsible for complying with the conditions and restrictions in their satellite licenses. 
 
 When you're ready to use Azure Orbital Ground Station, you should [create a spacecraft resource](register-spacecraft.md). Here, you're required to provide your authorizations on a per-link and per-site level.
 

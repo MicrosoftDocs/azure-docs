@@ -265,93 +265,49 @@ Create a data collection rule for collecting events and sending to storage and e
 
     ```json
     { 
-    
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", 
-    
     "contentVersion": "1.0.0.0", 
-    
     "parameters": { 
-    
         "location": { 
-    
         "type": "string", 
-    
         "defaultValue": "[resourceGroup().location]", 
-    
         "metadata": { 
-    
             "description": "Location for all resources." 
-    
         } 
-    
         }, 
-    
         "dataCollectionRulesName": { 
-    
         "defaultValue": "[concat(resourceGroup().name, 'DCR')]", 
-    
         "type": "String" 
-    
         }, 
-    
         "storageAccountName": { 
-    
         "defaultValue": "[concat(resourceGroup().name, 'sa')]", 
-    
         "type": "String" 
-    
         }, 
-    
         "eventHubNamespaceName": { 
-    
         "defaultValue": "[concat(resourceGroup().name, 'eh')]", 
-    
         "type": "String" 
-    
         }, 
-    
         "eventHubInstanceName": { 
-    
         "defaultValue": "[concat(resourceGroup().name, 'ehins')]", 
-    
         "type": "String" 
-    
         } 
-    
     }, 
-    
     "resources": [ 
-    
         { 
-    
         "type": "Microsoft.Insights/dataCollectionRules", 
-    
         "apiVersion": "2022-06-01", 
-    
         "name": "[parameters('dataCollectionRulesName')]", 
-    
         "location": "[parameters('location')]", 
-    
         "kind": "AgentDirectToStore", 
-    
         "properties": { 
-    
             "dataSources": { 
-    
             "performanceCounters": [ 
-    
                 { 
-    
                 "streams": [ 
-    
                     "Microsoft-Perf" 
-    
                 ], 
-    
                 "samplingFrequencyInSeconds": 10, 
-    
                 "counterSpecifiers": [ 
-    
                     "Processor(*)\\% Processor Time",
     "Processor(*)\\% Idle Time",
     "Processor(*)\\% User Time",
@@ -390,26 +346,15 @@ Create a data collection rule for collecting events and sending to storage and e
     "Network(*)\\Total Rx Errors",
     "Network(*)\\Total Tx Errors",
     "Network(*)\\Total Collisions"
-    
-    
                 ], 
-    
                 "name": "perfCounterDataSource10" 
-    
                 } 
-    
             ], 
-    
             "syslog": [ 
-    
                 { 
-    
                 "streams": [ 
-    
                     "Microsoft-Syslog" 
-    
                 ], 
-    
                 "facilityNames": [
                                     "auth",
                                     "authpriv",
@@ -442,203 +387,103 @@ Create a data collection rule for collecting events and sending to storage and e
                                     "Alert",
                                     "Emergency"
                                 ], 
-    
                 "name": "syslogDataSource" 
-    
                 } 
-    
             ], 
-    
-            
-    
             "logFiles": [ 
-    
                 { 
-    
                 "streams": [ 
-    
                     "Custom-Text-logs" 
-    
                 ], 
-    
                 "filePatterns": [ 
-    
                     "/var/log/messages" 
-    
                 ], 
-    
                 "format": "text", 
-    
                 "settings": { 
-    
                     "text": { 
-    
                     "recordStartTimestampFormat": "ISO 8601" 
-    
                     } 
-    
                 }, 
-    
                 "name": "myTextLogs" 
-    
                 } 
-    
             ] 
-    
             }, 
-    
             "destinations": { 
-    
             "eventHubsDirect": [ 
-    
                 { 
-    
                 "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventHubNamespaceName'), parameters('eventHubInstanceName'))]", 
-    
                 "name": "myEh1" 
-    
                 } 
-    
             ], 
-    
             "storageBlobsDirect": [ 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "blobNamedPerf", 
-    
                 "containerName": "PerfBlob" 
-    
                 }, 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "blobNamedLinux", 
-    
                 "containerName": "SyslogBlob" 
-    
                 }, 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "blobNamedTextLogs", 
-    
                 "containerName": "TxtLogBlob" 
-    
                 } 
-    
             ], 
-    
             "storageTablesDirect": [ 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "tableNamedPerf", 
-    
                 "tableName": "PerfTable" 
-    
                 }, 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "tableNamedLinux", 
-    
                 "tableName": "LinuxTable" 
-    
                 }, 
-    
                 { 
-    
                 "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
-    
                 "name": "tableUnnamed" 
-    
                 } 
-    
             ] 
-    
             }, 
-    
             "dataFlows": [ 
-    
             { 
-    
                 "streams": [ 
-    
                 "Microsoft-Perf" 
-    
                 ], 
-    
                 "destinations": [ 
-    
                 "myEh1", 
-    
                 "blobNamedPerf", 
-    
                 "tableNamedPerf", 
-    
                 "tableUnnamed" 
-    
                 ] 
-    
             }, 
-    
             { 
-    
                 "streams": [ 
-    
                 "Microsoft-Syslog" 
-    
                 ], 
-    
                 "destinations": [ 
-    
                 "myEh1", 
-    
                 "blobNamedLinux", 
-    
                 "tableNamedLinux", 
-    
                 "tableUnnamed" 
-    
                 ] 
-    
             }, 
-    
             { 
-    
                 "streams": [ 
-    
                 "Custom-Text-logs" 
-    
                 ], 
-    
                 "destinations": [ 
-    
                 "blobNamedTextLogs" 
-    
                 ] 
-    
             } 
-    
             ] 
-    
         } 
-    
         } 
-    
     ] 
-    
     }
     ```
 

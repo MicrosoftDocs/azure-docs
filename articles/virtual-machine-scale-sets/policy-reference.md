@@ -6,7 +6,7 @@ author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.date: 10/23/2023
+ms.date: 11/06/2023
 ms.reviewer: mimckitt
 ---
 # Azure Policy built-in definitions for Azure Virtual Machine Scale Sets

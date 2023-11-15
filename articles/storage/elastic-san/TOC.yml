@@ -22,6 +22,8 @@ items:
     href: elastic-san-performance.md
   - name: Clustered applications
     href: elastic-san-shared-volumes.md
+  - name: Encryption
+    href: elastic-san-encryption-overview.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
@@ -38,6 +40,12 @@ items:
     href: elastic-san-expand.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
+  - name: Manage Encryption
+    items:
+    - name: Configure customer-managed keys with Key Vault
+      href: elastic-san-configure-customer-managed-keys.md
+    - name: Manage customer keys
+      href: elastic-san-encryption-manage-customer-keys.md
 - name: Samples
   items:
   - name: Create elastic SAN volumes in a batch

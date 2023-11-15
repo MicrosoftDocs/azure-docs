@@ -5,8 +5,10 @@ description: In this how-to guide, learn the differences between Document Intell
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -15,7 +17,7 @@ monikerRange: '<=doc-intel-3.1.0'
 # Document Intelligence v3.1 migration
 
 ::: moniker range="<=doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 ::: moniker-end
 
 > [!IMPORTANT]

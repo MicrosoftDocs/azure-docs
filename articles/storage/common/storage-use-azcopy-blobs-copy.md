@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 10/31/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
@@ -37,8 +37,6 @@ Apply the following guidelines to your AzCopy commands.
 
 -  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers.
 
-- If you copy to or from an account that has a hierarchical namespace, use `blob.core.windows.net` instead of `dfs.core.windows.net` in the URL syntax. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use `blob.core.windows.net`, and it's the only supported syntax for account to account copy scenarios.
-
 - You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
 - If the source blobs have index tags, and you want to retain those tags, you'll have to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
@@ -52,12 +50,18 @@ Copy a blob to another storage account by using the [azcopy copy](storage-ref-az
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>'`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
@@ -71,12 +75,18 @@ Copy a directory to another storage account by using the [azcopy copy](storage-r
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
 The copy operation is synchronous. All files have been copied when the command returns.
@@ -90,12 +100,18 @@ Copy a container to another storage account by using the [azcopy copy](storage-r
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
 The copy operation is synchronous. All files have been copied when the command returns.
@@ -109,12 +125,18 @@ Copy all containers, directories, and blobs to another storage account by using 
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/' 'https://mydestinationaccount.blob.core.windows.net' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/' 'https://mydestinationaccount.dfs.core.windows.net' --recursive
 ```
 
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
