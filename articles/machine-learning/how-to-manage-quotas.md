@@ -129,7 +129,7 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, kubernetes online endpoints, and batch endpoints).
+Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, Kubernetes online endpoints, and batch endpoints).
 
 | **Resource** | **Limit** | **Allows exception** |
 | --- | --- | --- |
@@ -145,7 +145,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 | Total connections active at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
 | Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>4</sup> | Yes |
 
-<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+<sup>1</sup> Single hyphens like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
 <sup>2</sup> Limit shared with other types of endpoints.
 
@@ -170,11 +170,11 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | Number of deployments per endpoint | 20 |
 | Max request time-out at endpoint level  | 300 seconds |
 
-The sum of kubernetes online endpoint, managed online endpoint, and managed batch endpoint under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments and managed batch deployments under each subscription can't exceed 200.
+The sum of Kubernetes online endpoints, managed online endpoints, and managed batch endpoints under each subscription can't exceed 50. Similarly, the sum of Kubernetes online deployments, managed online deployments and managed batch deployments under each subscription can't exceed 200.
 
 ### Azure Machine Learning batch endpoints
 
-Azure Machine Learning batch endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, kubernetes online endpoints, and batch endpoints).
+Azure Machine Learning batch endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits for each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, Kubernetes online endpoints, and batch endpoints).
 
 | **Resource** | **Limit** | **Allows exception** |
 | --- | --- | --- |
@@ -185,7 +185,7 @@ Azure Machine Learning batch endpoints have limits described in the following ta
 | Number of deployments per endpoint | 20 | Yes |
 | Number of instances per deployment | 50 | Yes |
 
-<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+<sup>1</sup> Single hyphens like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
 <sup>2</sup> Limit shared with other types of endpoints.
 
