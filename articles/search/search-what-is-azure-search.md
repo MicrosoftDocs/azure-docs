@@ -19,7 +19,7 @@ ms.custom:
 
 Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and conversational search applications.
 
-Information retrieval is foundational to any app that surfaces text to users. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
+Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
 
 + A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index 
 + Rich indexing, with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
@@ -44,9 +44,9 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 + [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes, and inbound vectors are stored in vector indexes. The document format that Azure AI Search can index is JSON. You can upload JSON documents that you've assembled, or use an indexer to retrieve and serialize your data into JSON. 
 
-  [AI enrichment](cognitive-search-concept-intro.md) through [cognitive skills](cognitive-search-working-with-skillsets.md) is an extension of indexing. If you have images or large unstructured text, you can attach image and language analysis in an indexing pipeline. AI enrichment can extract text embedded in application files, translate text, and also infer text and structure from non-text files by analyzing the content. 
+  [AI enrichment](cognitive-search-concept-intro.md) through [cognitive skills](cognitive-search-working-with-skillsets.md) is an extension of indexing. If you have images or large unstructured text in source document, you can attach skills that perform OCR, describe images, infer structure, translate text and more. You can also attach skills that perform [data chunking and vectorization](vector-search-integrated-vectorization.md).
 
-+ [**Querying**](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you control.
++ [**Querying**](search-query-overview.md) can happen once an index is populated with searchable content, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you control.
 
   [Semantic ranking](semantic-search-overview.md) is an extension of query execution. It adds language understanding to search results processing, promoting the most semantically relevant results to the top.
 
@@ -54,9 +54,9 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure AI Search is well suited for the following application scenarios:
 
-+ Search over your content, isolated from the internet.
++ Search over your vector and text content, isolated from the internet.
 
-+ Consolidate heterogeneous content into a user-defined and populated search index. 
++ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. 
 
 + [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
