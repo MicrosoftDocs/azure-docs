@@ -2,13 +2,15 @@
 title: 'Quickstart: Publish and subscribe on an MQTT topic using portal'
 description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure portal to publish and subscribe MQTT messages on a topic.'
 ms.topic: quickstart
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
-# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal (Preview)
+# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal
 
 In this article, you use the Azure portal to do the following tasks:
 
@@ -17,7 +19,7 @@ In this article, you use the Azure portal to do the following tasks:
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive messages between clients
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)] 
+ 
 
 ## Prerequisites
 

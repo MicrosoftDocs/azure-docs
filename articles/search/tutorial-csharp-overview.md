@@ -1,14 +1,17 @@
 ---
 title: "Add search to web sites (.NET tutorial)"
-titleSuffix: Azure Cognitive Search
-description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App with .NET. 
+titleSuffix: Azure AI Search
+description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App with .NET.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ms.devlang: csharp
 ---
 
@@ -31,7 +34,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/m
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
 |Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/client)|
-|Server|Azure .NET Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/api)|
+|Server|Azure .NET Function app (business layer) - calls the Azure AI Search API using .NET SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/api)|
 |Bulk insert|.NET file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/bulk-insert)|
 
 ## Set up your development environment
