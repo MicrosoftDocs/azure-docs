@@ -5,12 +5,14 @@ summary: Azure confidential computing offers solutions to enable isolation of yo
 
 metadata:
   title: Azure confidential computing
-  description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud. 
+  description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud.
   ms.service: virtual-machines
   ms.subservice: confidential-computing
-  ms.custom: ignite-2022
+  ms.custom:
+    - ignite-2022
+    - ignite-2023
   ms.topic: landing-page
-  author: stempesta # ananyagarg 
+  author: stempesta # ananyagarg
   ms.author: stempesta
   ms.date: 09/22/2020, 07/13/2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -68,8 +70,6 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
-          - text: Preview of Azure Confidential VM with Intel TDX
-            url: tdx-confidential-vm-overview.md
       - linkListType: concept
         links:
           - text: Guest attestation for confidential VMs
@@ -96,16 +96,20 @@ landingContent:
         links:
           - text: AMD confidential VMs FAQ 
             url: confidential-vm-faq-amd.yml
-          - text: DCasv5 and DCadsv5-series virtual machines
+          - text: DCasv5 and DCadsv5-series VM specs
             url: ../virtual-machines/dcasv5-dcadsv5-series.md
-          - text: ECasv5 and ECadsv5-series virtual machines
+          - text: ECasv5 and ECadsv5-series VM specs
             url: ../virtual-machines/ecasv5-ecadsv5-series.md
+          - text: DCesv5 and DCedsv5-series VM specs
+            url: ../virtual-machines/dcesv5-dcedsv5-series.md
+          - text: ECesv5 and ECedsv5-series VM specs
+            url: ../virtual-machines/ecesv5-ecedsv5-series.md
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: DCesv5 and ECesv5 Confidential VMs with Intel TDX
-            url: https://aka.ms/tdx-blog/
+          - text: Confidential VMs with Intel TDX (Public Preview)
+            url: https://aka.ms/TDX-CVM-pubprev
 
   # Card
   - title: Container compute
@@ -151,8 +155,8 @@ landingContent:
             url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
-          - text: Confidential containers with Azure Container Instances (ACI) with AMD SEV-SNP Protection - Public preview 
-            url: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-public-preview-of-confidential-containers-on-azure/ba-p/3755623
+          - text: Confidential containers on AKS (preview)
+            url: confidential-containers-on-aks-preview.md
 
 ## Row 2
 # Card

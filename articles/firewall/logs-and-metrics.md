@@ -203,6 +203,39 @@ The following metrics are available for Azure Firewall:
    
       As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.
 
+## Alert on Azure Firewall metrics
+
+Metrics provide critical signals to track your resource health. So, it’s important to monitor metrics for your resource and watch out for any anomalies. But what if the Azure Firewall metrics stop flowing? It could indicate a potential configuration issue or something more ominous like an outage. Missing metrics can happen because of publishing default routes that block Azure Firewall from uploading metrics, or the number of healthy instances going down to zero. In this section, you'll learn how to configure metrics to a log analytics workspace and to alert on missing metrics.
+
+### Configure metrics to a log analytics workspace
+
+The first step is to configure metrics availability to the log analytics workspace using diagnostics settings in the firewall.
+
+Browse to the Azure Firewall resource page to configure diagnostic settings as shown in the following screenshot. This pushes firewall metrics to the configured workspace.
+
+>[!Note]
+> The diagnostics settings for metrics must be a separate configuration than logs. Firewall logs can be configured to use Azure Diagnostics or Resource Specific. However, Firewall metrics must always use Azure Diagnostics.
+
+:::image type="content" source="media/logs-and-metrics/firewall-diagnostic-setting.png" alt-text="Screenshot of Azure Firewall diagnostic setting.":::
+
+### Create alert to track receiving firewall metrics without any failures
+
+Browse to the workspace configured in the metrics diagnostics settings. Check if metrics are available using the following query:
+
+```
+AzureMetrics
+
+| where MetricName contains "FirewallHealth"
+| where ResourceId contains "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/PARALLELIPGROUPRG/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/HUBVNET-FIREWALL"
+| where TimeGenerated > ago(30m)
+```
+
+Next, create an alert for missing metrics over a time period of 60 minutes. Browse to the Alert page in the log analytics workspace to setup new alerts on missing metrics.
+
+:::image type="content" source="media/logs-and-metrics/edit-alert-rule.png" alt-text="Screenshot showing the Edit alert rule page.":::
+
+
+
 ## Next steps
 
 - To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
