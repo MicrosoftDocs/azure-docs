@@ -41,3 +41,4 @@ Folders can be assigned inheritance flags, which means that parent folder permis
 
 * [Understand NFS file permissions](network-attached-file-permissions-nfs.md)
 * [Understand SMB file permissions](network-attached-file-permissions-smb.md)
+* [Understand NAS share permissions in Azure NetApp Files](network-attached-storage-permissions.md)

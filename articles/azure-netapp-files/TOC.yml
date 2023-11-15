@@ -28,15 +28,17 @@
         - name: Understand NAS share permissions 
           href: network-attached-storage-permissions.md
         - name: Understand NAS file permissions 
-          href: network-attached-storage-permissions.md
+          href: network-attached-file-permissions.md
         - name: Understand SMB file permissions 
           href: network-attached-file-permissions-smb.md
-        - name: Understand NFS file permissions
-          href: network-attached-file-permissions-nfs.md
-        - name: Understand auxiliary/supplemental groups 
-          href: auxiliary-groups.md
-        - name: Understand NFSv4.x access control lists
-          href: nfs-access-control-lists.md
+        - name: Understand NFS permissions 
+          items: 
+          - name: Understand mode bits
+            href: network-attached-file-permissions-nfs.md
+          - name: Understand auxiliary/supplemental groups 
+            href: auxiliary-groups.md
+          - name: Understand NFSv4.x access control lists
+            href: nfs-access-control-lists.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
       - name: Understand the use of LDAP

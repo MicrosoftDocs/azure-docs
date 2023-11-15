@@ -21,7 +21,7 @@ ms.author: anfdocs
 Azure NetApp Files provides several ways to secure your NAS data. One aspect of that security is permissions. In NAS, permissions can be broken down into two categories: 
 
 * **Share access permissions** limit who can mount a NAS volume. NFS controls share access permissions via IP address or hostname. SMB controls this via user and group access control lists (ACLs). 
-* **File access permissions** limit what users and groups can do once a NAS volume is mounted. File access permissions are applied to individual files and folders. 
+* **[File access permissions](network-attached-file-permissions.md)** limit what users and groups can do once a NAS volume is mounted. File access permissions are applied to individual files and folders. 
 
 Azure NetApp Files permissions rely on NAS standards, simplifying the process of security NAS volumes for administrators and end users with familiar methods. 
 

@@ -11,7 +11,7 @@ ms.date: 07/28/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
-You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). For more information about export policies, see [Understand NAS permissions in Azure NetApp Files]
+You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB).
 
 You can create up to five export policy rules.
 
@@ -21,7 +21,7 @@ Once created, you can modify details of the export policy rule. The modifiable f
 -	CIDR range (A subnet range; for example, 0.0.0.0/0)
 -	IP address comma separated list (For example, x.x.x.x, y.y.y.y)
 - Access level 
-- [Export policy rule order](network-attached-storage-permissions.md#understand-export-policy-rule-ordering)
+- [Export policy rule order](network-attached-storage-permissions.md#export-policy-rule-ordering)
 
 Before modifying policy rules with NFS Kerberos enabled, see [Export policy rules with NFS Kerberos enabled](network-attached-storage-permissions.md#export-policy-rule-ordering).
 

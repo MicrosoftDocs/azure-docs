@@ -1,6 +1,6 @@
 ---
 title: Understand NFS file permissions in Azure NetApp Files
-description: Learn about NFS file permissions options in Azure NetApp Files.   
+description: Learn about mode bits in NFS workloads on Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -16,7 +16,9 @@ ms.date: 11/13/2023
 ms.author: anfdocs
 ---
 
-# Understand NFS file permissions in Azure NetApp Files
+# Understand mode bits in Azure NetApp Files
+
+File access permissions in NFS limit what users and groups can do once a NAS volume is mounted. Mode bits are a key feature of NFS file permissions in Azure NetAPp Files. 
 
 ## NFS mode bits 
 
@@ -199,7 +201,7 @@ $ rm user2-file
 rm: can't remove 'user2-file': Operation not permitted
 ```
 
-Conversely, `user2` can't modify nor delete `user1-file` since they aren't the file’s owner, and the sticky bit is set on the parent directory.
+Conversely, `user2` can't modify nor delete `user1-file` since they don't own the file and the sticky bit is set on the parent directory.
 
 ```bash
 # su user2
@@ -219,7 +221,7 @@ Root, however, still can remove the files.
 # rm UNIX-file 
 ```
 
-To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. For more information, see [“root squashing”](networking-attached-storage-permissions#root-squashing).
+To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. For more information, see [“root squashing”](network-attached-storage-permissions.md#root-squashing).
 
 ### Umask 
 
@@ -259,7 +261,7 @@ drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
 -rw-r--r--.  1 root     root            0 Apr 23 14:39 umask_file
 ```
 
-
-
 ## Next steps 
 
+* [Understand auxiliary/supplemental groups with NFS](auxiliary-groups.md)
+* [Understand NFSv4.x access control lists](nfs-access-control-lists.md)

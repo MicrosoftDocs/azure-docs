@@ -18,22 +18,22 @@ ms.author: anfdocs
 
 # Understand NFSv4.x access control lists in Azure NetApp Files
 
-The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
+The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](/windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
 :::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
 
-Each NFSv4.x ACL is created in the following manner: `type:flags:principal:permissions`
+Each NFSv4.x ACL is created in the with the format of `type:flags:principal:permissions`.
 
 * **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
 * **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see [NFSv4.x ACE flags](#nfsv4x-ace-flags).
-* **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL uses the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see the following section.
-* **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information on permissions, see the following section.
+* **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL uses the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see [NFSv4.x user and group principals](#nfsv4x-user-and-group-principals).
+* **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information, see [NFSv4.x permissions](#nfsv4x-permissions).
 
-A valid NFSv4.x ACL takes the form of, for example, `A:g:group1@contoso.com:rwatTnNcCy`. This ACL grants full access to the group `group1` in the contoso.com ID domain. 
+`A:g:group1@contoso.com:rwatTnNcCy` is an example of a valid ACL, following the `type:flags:principal:permissions` format. The example ACL grants full access to the group `group1` in the contoso.com ID domain. 
 
 ## NFSv4.x ACE flags
 
-An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. This is because it's possible in Linux environments to have a user and a group name that are identical, so to ensure an ACE is properly honored, then the NFS server needs to know what type of principal is being defined.
+An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. It's possible in Linux environments to have a user and a group name that are identical, so the flag ensures an ACE is honored, then the NFS server needs to know what type of principal is being defined.
 
 Other flags can be used to control ACEs, such as inheritance and administrative flags.
 
@@ -351,7 +351,7 @@ See [NFSv4.x permissions](#nfsv4x-permissions) for a table outlining all the per
 
 Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There isn't anything to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they don't provide the same level of security as ACLs used with an LDAP server.
 
-There are a few considerations to keep in mind with ACL functionality in Azure NetApp Files, as covered in the following sections.
+There are considerations to keep in mind with ACL functionality in Azure NetApp Files.
 
 ### ACL inheritance
 
@@ -472,7 +472,7 @@ Removing system ACEs is a way to further secure files and folders, as only the u
 
 ### Root user behavior with NFSv4.x ACLs
 
-Root access with NFSv4.x ACLs can't be limited unless [root is squashed](network-attached-storage-permissions#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
+Root access with NFSv4.x ACLs can't be limited unless [root is squashed](network-attached-storage-permissions.md#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
 
 To configure root squashing, navigate to the **Export policy** menu on the volume then change “Root access” to “off” for the policy rule.
 
