@@ -205,6 +205,8 @@
         - name: Cloud Security Posture Management (CSPM)
           displayName: CSPM, cloud security, posture, management
           href: concept-cloud-security-posture-management.md
+        - name: Enable Permissions Management (Preview)
+          href: enable-permissions-management.md
         - name: Integrations
           items:  
             - name: ServiceNow integration
