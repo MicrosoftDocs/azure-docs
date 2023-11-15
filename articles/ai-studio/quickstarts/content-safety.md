@@ -19,7 +19,7 @@ ms.author: eur
 In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
 
 > [!CAUTION]
-> Some of the sample content provided by Azure AI Studio may be offensive. Sample images are blurred by default. User discretion is advised.
+> Some of the sample content provided by Azure AI Studio might be offensive. Sample images are blurred by default. User discretion is advised.
 
 ## Prerequisites
 
@@ -84,5 +84,5 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Next steps
 
-* Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).
+- [Create a project in Azure AI Studio](../how-to/create-projects.md)
+- [Learn more about content filtering in Azure AI Studio](../concepts/content-filtering.md)
