@@ -47,7 +47,6 @@ This section provides steps to prepare and Arc-enable clusters in validated envi
 >Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
 >Unblock-File .\AksEdgeQuickStartForAio.ps1
 >Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
->Import-Module AksEdge
 >.\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
 >```
 >
@@ -163,6 +162,8 @@ pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0           
 pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
+
+
 
 ## Next steps
 
