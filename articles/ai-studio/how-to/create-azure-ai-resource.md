@@ -27,11 +27,11 @@ To create a new Azure AI resource, you need either the Owner or Contributor role
 
 1. Fill in **Subscription**, **Resource group**, and **Location** for your new Azure AI resource.
 
-    :::image type="content" source="../media/how-to/resource-create-advanced.png" alt-text="Screenshot of the Create an Azure AI resource wizard with the option to set basic information." lightbox="../media/how-to/resource-create-basics.png":::
+    :::image type="content" source="../media/how-to/resource-create-advanced.png" alt-text="Screenshot of the Create an Azure AI resource wizard with the option to set basic information." lightbox="../media/how-to/resource-create-advanced.png":::
 
 1. Optionally, choose an existing Azure AI services provider. By default a new provider is created. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource.
 
-1. Optionally, connect an existing Azure AI Search instance to share search indices with all projects in this Azure AI resource. No AI Search instance is created for you if don't provide one.
+1. Optionally, connect an existing Azure AI Search instance to share search indices with all projects in this Azure AI resource. No AI Search instance is created for you if you don't provide one.
 
 ## Create a secure Azure AI resource in the Azure portal
 

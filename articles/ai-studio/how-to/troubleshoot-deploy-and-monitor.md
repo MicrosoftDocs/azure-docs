@@ -16,6 +16,8 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
+This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio. 
+
 ## Deployment issues
 
 For the general deployment error code reference, you can go to the [Azure Machine Learning documentation](/azure/machine-learning/how-to-troubleshoot-online-endpoints). Much of the information there also applies to Azure AI Studio deployments.
