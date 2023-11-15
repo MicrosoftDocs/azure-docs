@@ -943,9 +943,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.11 (preview) <br/>3.10<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11<br/>3.10<br/>3.9<br/>3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
-| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -1256,7 +1255,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
 
 ### The Azure Functions Python library
 

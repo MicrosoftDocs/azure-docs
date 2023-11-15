@@ -185,8 +185,9 @@ items:
           href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
-    - name: Add multiple sender addresses with ACS Management SDKs
+    - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    
   - name: Job Router
     items: 
       - name: Submit a job for queuing and routing
@@ -211,7 +212,7 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Managed Identity
     items:
-    - name: Enable Managed Identity on ACS resources
+    - name: Enable Managed Identity on Azure Communication Services resources
       href: how-tos/managed-identity.md
 - name: Tutorials
   items:
@@ -284,14 +285,8 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Calling widget
       items:
-        - name: Calling widget overview
-          href: tutorials/calling-widget/calling-widget-overview.md
-        - name: 1. Creating your widget
-          href: tutorials/calling-widget/calling-widget-tutorial-part-1-creating-your-widget.md
-        - name: 2. Creating a new window experience
-          href: tutorials/calling-widget/calling-widget-tutorial-part-2-creating-new-window-experience.md
-        - name: 3. (Optional) Embedding your calling experience
-          href: tutorials/calling-widget/calling-widget-tutorial-part-3-embedding-your-calling-experience.md
+        - name: Create Calling widget for Teams Voice Apps
+          href: tutorials/calling-widget/calling-widget-tutorial.md
     - name: Call management
       items:
       - name: Manage calls
@@ -308,6 +303,8 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
         href: how-tos/calling-sdk/raise-hand.md
+      - name: Reactions
+        href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
       - name: Show transcription state
@@ -958,6 +955,8 @@ items:
         href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
       - name: Messaging policy
         href: concepts/sms/messaging-policy.md
+      - name: Pricing
+        href: concepts/advanced-messaging/whatsapp/pricing.md
       - name: Events
         items:
         - name: Overview

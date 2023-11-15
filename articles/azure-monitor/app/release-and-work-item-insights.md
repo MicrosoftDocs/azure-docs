@@ -3,7 +3,7 @@ title: Release and work item insights for Application Insights
 description: Learn how to set up continuous monitoring of your release pipeline, create work items in GitHub or Azure DevOps, and track deployment or other significant events.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/06/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 
@@ -340,7 +340,7 @@ The new work item integration offers the following features over [classic](#clas
 
     :::image type="content" source="./media/release-and-work-item-insights/create-template-from-transaction-details.png" alt-text=" Screenshot of  end-to-end transaction details tab with create a work item, start with a workbook template selected." lightbox="./media/release-and-work-item-insights/create-template-from-transaction-details.png":::
 
-2. After you select **create a new template**, you can choose your tracking systems, name your workbook, link to your selected tracking system, and choose a region to storage the template (the default is the region your Application Insights resource is located in). The URL parameters are the default URL for your repository, for example, `https://github.com/myusername/reponame` or `https://mydevops.visualstudio.com/myproject`.
+2. After you select **create a new template**, you can choose your tracking systems, name your workbook, link to your selected tracking system, and choose a region to storage the template (the default is the region your Application Insights resource is located in). The URL parameters are the default URL for your repository, for example, `https://github.com/myusername/reponame` or `https://dev.azure.com/{org}/{project}`.
 
     :::image type="content" source="./media/release-and-work-item-insights/create-workbook.png" alt-text=" Screenshot of create a new work item workbook template.":::
 

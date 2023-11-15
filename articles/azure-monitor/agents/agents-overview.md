@@ -123,8 +123,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |
-|		|	Event Hubs	|		|		| ✓ |
+|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |
+|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
@@ -150,8 +150,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |		|
-|		|	Event Hubs	|		|		| ✓ |		|
+|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |		|
+|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	| ✓ |	✓ 	|		|
@@ -199,6 +199,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
+| AlmaLinux 9                                                 | ✓<sup>3</sup> | ✓ |   |
 | AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
 | Amazon Linux 2017.09                                        |  | ✓ |   |
 | Amazon Linux 2                                              | ✓ | ✓ |   |
@@ -210,14 +211,16 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Debian 9                                                    | ✓ | ✓ | ✓ |
 | Debian 8                                                    |   | ✓ |   |
 | OpenSUSE 15                                                 | ✓ |   |   |
+| Oracle Linux 9                                              | ✓ |  |   |
 | Oracle Linux 8                                              | ✓ | ✓ |   |
 | Oracle Linux 7                                              | ✓ | ✓ | ✓ |
 | Oracle Linux 6.4+                                           |   |  | ✓ |
 | Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
-| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓<sup>2</sup> | ✓<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
 | Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Rocky Linux 9                                               | ✓ | ✓ |   |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
@@ -225,7 +228,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
-| Ubuntu 22.04 LTS                                            | ✓ |   |   |
+| Ubuntu 22.04 LTS                                            | ✓ | ✓ |   |
 | Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
@@ -266,6 +269,60 @@ On the roadmap
 | Red Hat Enterprise Linux Server 8                                              | ✓ |   |   |
 
 <sup>1</sup> Supports only the above distros and versions
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does Azure Monitor require an agent?
+
+An agent is only required to collect data from the operating system and workloads in virtual machines. The virtual machines can be located in Azure, another cloud environment, or on-premises. See [Azure Monitor Agent overview](./agents-overview.md).
+
+### How can I be notified when data collection from the Log Analytics agent stops?
+
+Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+          
+- **Define alert condition**: Specify your Log Analytics workspace as the resource target.
+- **Alert criteria**:
+   - **Signal Name**: *Custom log search*.
+   - **Search query**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`.
+   - **Alert logic**: **Based on** *number of results*, **Condition** *Greater than*, **Threshold value** *0*.
+   - **Evaluated based on**: **Period (in minutes)** *30*, **Frequency (in minutes)** *10*.
+- **Define alert details**:
+   - **Name**: *Data collection stopped*.
+   - **Severity**: *Warning*.
+          
+Specify an existing or new [action group](../alerts/action-groups.md) so that when the log alert matches criteria, you're notified if you have a heartbeat missing for more than 15 minutes.
+       
+### Will Azure Monitor Agent support data collection for the various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel?
+
+Review the list of [Azure Monitor Agent extensions currently available in preview](#supported-services-and-features). These extensions are the same solutions and services now available by using the new Azure Monitor Agent instead. 
+
+You might see more extensions getting installed for the solution or service to collect extra data or perform transformation or processing as required for the solution or service. Then use Azure Monitor Agent to route the final data to Azure Monitor. 
+          
+The following diagram explains the new extensibility architecture.
+          
+![Diagram that shows extensions architecture.](./media/azure-monitor-agent/extensibility-arch-new.png)
+
+### Is Azure Monitor Agent at parity with the Log Analytics agents?
+
+Review the [current limitations](./azure-monitor-agent-overview.md#current-limitations) of Azure Monitor Agent when compared with Log Analytics agents.
+
+### Does Azure Monitor Agent support non-Azure environments like other clouds or on-premises?
+
+Both on-premises machines and machines connected to other clouds are supported for servers today, after you have the Azure Arc agent installed. For purposes of running Azure Monitor Agent and data collection rules, the Azure Arc requirement comes at *no extra cost or resource consumption*. The Azure Arc agent is only used as an installation mechanism. You don't need to enable the paid management features if you don't want to use them.
+
+### Does Azure Monitor Agent support auditd logs on Linux or AUOMS?
+
+Yes, but you need to [onboard to Defender for Cloud](./azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center). It's available as an extension to Azure Monitor Agent, which collects Linux auditd logs via AUOMS.
+
+### Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
+
+Azure Monitor Agent authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. Managed Identity is a more secure and manageable authentication solution from Azure. The legacy Log Analytics agent authenticated by using the workspace ID and key instead, so it didn't need Azure Arc.
+
+### Does the new Azure Monitor Agent have hardening support for Linux?
+
+Hardening support for Linux isn't available yet.
 
 ## Next steps
 

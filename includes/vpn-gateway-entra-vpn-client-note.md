@@ -6,4 +6,4 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-The Azure VPN Client is in the process of updating Azure Active Directory fields to Entra. If you see Microsoft Entra ID referenced and you don't see those values in the client yet, you can select Azure Active Directory values.
+We're in the process of changing the Azure VPN Client fields for Azure Active Directory to Microsoft Entra. If you see Microsoft Entra fields referenced in this article, but don't yet see those values reflected in the client, select the comparable Azure Active Directory values.

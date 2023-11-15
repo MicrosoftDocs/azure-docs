@@ -4,7 +4,7 @@ title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 08/10/2023
+ms.date: 11/01/2023
 ---
 
 # Identify and remediate attack paths
@@ -19,7 +19,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 | Aspect | Details |
 |--|--|
-| Release state | GA (General Availability) for Azure, AWS <Br> Preview for GCP |
+| Release state | GA (General Availability) |
 | Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender CSPM](enable-enhanced-security.md) <br> - Enable agentless container posture extension in Defender CSPM, or [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This also gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
@@ -56,7 +56,7 @@ You can use Attack path analysis  to locate the biggest risks to your environmen
     :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png" :::
 
     > [!NOTE]
-    > An attack path may have more than one path that is at risk. The path count will tell you how many paths need to be remediated. If the attack path has more than one path, you will need to select each path within that attack path to remediate all risks.
+    > An attack path might have more than one path that is at risk. The path count will tell you how many paths need to be remediated. If the attack path has more than one path, you will need to select each path within that attack path to remediate all risks.
 
 1. Select a node.
 

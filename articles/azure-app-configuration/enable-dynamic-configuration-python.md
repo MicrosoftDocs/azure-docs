@@ -59,7 +59,7 @@ Add the following key-value to your App Configuration store. For more informatio
     print("Update the `message` in your App Configuration store using Azure portal or CLI.")
     print("First, update the `message` value, and then update the `sentinel` key value.")
 
-    while (true):
+    while (True):
         # Refreshing the configuration setting
         config.refresh()
 

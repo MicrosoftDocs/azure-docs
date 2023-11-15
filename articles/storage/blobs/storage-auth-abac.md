@@ -2,12 +2,11 @@
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/21/2023
-ms.author: akashdubey
+ms.date: 11/15/2023
 ms.reviewer: nachakra
 ---
 
@@ -42,7 +41,7 @@ Role-assignment conditions in Azure Storage are supported for Azure blob storage
 
 ## Supported attributes and operations
 
-You can configure conditions on role assignments for [DataActions](../../role-based-access-control/role-definitions.md#dataactions) to achieve these goals. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. Note, conditions are not supported for management [Actions](../../role-based-access-control/role-definitions.md#actions) through the [Storage resource provider](/rest/api/storagerp).
+You can configure conditions on role assignments for [DataActions](../../role-based-access-control/role-definitions.md#dataactions) to achieve these goals. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. Note, conditions aren't supported for management [Actions](../../role-based-access-control/role-definitions.md#actions) through the [Storage resource provider](/rest/api/storagerp).
 
 You can add conditions to built-in roles or custom roles. The built-in roles on which you can use role-assignment conditions include:
 
@@ -59,22 +58,22 @@ If you're working with conditions based on [blob index tags](storage-manage-find
 
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows the use of `@Principal`, `@Resource`, `@Request` or `@Environment` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute or parameter included in a storage operation request. An `@Environment` attribute refers to the network environment or the date and time of a request.
 
-[Azure RBAC supports a limited number of role assignments per subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Microsoft Entra custom security attributes]() for principals.
+[Azure RBAC supports a limited number of role assignments per subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Microsoft Entra custom security attributes](/entra/fundamentals/custom-security-attributes-overview) for principals.
 
 ## Status of condition features in Azure Storage
 
-Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier. It is either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
+Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
+The following table shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
 
 | Performance tier | Resource types | Attribute types    | Attributes                | Availability |
-|--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource      | all attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+|---|---|---|---|---|
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
 | Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal | all attributes | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all attributes | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment | All attributes | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
 
 ## Next steps
 

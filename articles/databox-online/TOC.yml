@@ -264,15 +264,15 @@
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
       - name: View supported VMs
-        href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+        href: azure-stack-edge-gpu-virtual-machine-sizes.md
+      - name: Create a VM with custom VM size
+        href: azure-stack-edge-create-vm-with-custom-size.md
       - name: View supported API profiles
         href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: What are GPU VMs?
         href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
       - name: Create VM image
         items:
-        - name: Create custom VM image
-          href: azure-stack-edge-create-vm-with-custom-size.md
         - name: Custom image from Azure VM
           href: azure-stack-edge-gpu-create-virtual-machine-image.md
         - name: Windows generalized image from VHD

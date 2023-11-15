@@ -75,10 +75,10 @@
       href: tutorial-kubernetes-deploy-cluster.md
     - name: 4 - Run application
       href: tutorial-kubernetes-deploy-application.md
-    - name: 5 - Scale application
-      href: tutorial-kubernetes-scale.md        
-    - name: 6 - Update application
-      href: tutorial-kubernetes-app-update.md
+    - name: 5 - Use PaaS services
+      href: tutorial-kubernetes-paas-services.md        
+    - name: 6 - Scale application
+      href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
     - name: Security
@@ -111,6 +111,8 @@
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Container Security
           href: concepts-security.md
+        - name: Confidential Containers security policy
+          href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -180,6 +182,12 @@
           href: operator-best-practices-storage.md
         - name: Business continuity (BC) and disaster recovery (DR)
           href: operator-best-practices-multi-region.md
+    - name: Performance and scaling
+      items:
+        - name: For small to medium workloads
+          href: best-practices-performance-scale.md
+        - name: For large workloads
+          href: best-practices-performance-scale-large.md
     - name: Application development
       items:
         - name: Resource management
@@ -188,6 +196,8 @@
           href: developer-best-practices-pod-security.md
     - name: Back up and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Windows containers
+      href: windows-best-practices.md
 - name: How-to guides
   items:
     - name: Migration
@@ -218,8 +228,6 @@
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Cloud Controller Manager
-          href: out-of-tree.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -278,6 +286,12 @@
                         href: keda-integrations.md
                       - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
                         href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Containers
+      items:
+        - name: Confidential Containers overview
+          href: confidential-containers-overview.md
+        - name: Deploy Confidential Containers with default policy
+          href: deploy-confidential-containers-default-policy.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -449,12 +463,16 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
+                - name: Azure Key Vault provider with Secrets Store CSI Driver
+                  items:
+                    - name: 1 - Configure Secrets Store CSI Driver
+                      href: csi-secrets-store-driver.md
+                    - name: 2 - Provide Azure Key Vault access
+                      href: csi-secrets-store-identity-access.md
+                    - name: 3 - Apply extra configurations or perform troubleshooting
+                      href: csi-secrets-store-configuration-options.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -503,6 +521,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
+                - name: Application routing add-on advanced configurations
+                  href: app-routing-configuration.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -539,24 +559,25 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-            - name: Azure Container Storage 
-              href: ../storage/container-storage/container-storage-introduction.md
+           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
+        - name: Block storage
+          items:
+              - name: Provision Azure Disks storage
+                href: azure-csi-disk-storage-provision.md
+              - name: Azure Disks CSI driver
+                href: azure-disk-csi.md
+              - name: Use Azure Premium SSD v2 disks
+                href: use-premium-v2-disks.md
+              - name: Use Azure ultra disks
+                href: use-ultra-disks.md
+              - name: Bring your own keys for disks
+                href: azure-disk-customer-managed-keys.md
+              - name: Azure Container Storage 
+                href: ../storage/container-storage/container-storage-introduction.md
         - name: Shared file storage
           items:
-            - name: Block storage
-              items:
-                - name: Provision Azure Disks storage
-                  href: azure-csi-disk-storage-provision.md
-                - name: Azure Disks CSI driver
-                  href: azure-disk-csi.md
-                - name: Use Azure Premium SSD v2 disks
-                  href: use-premium-v2-disks.md
-                - name: Use Azure ultra disks
-                  href: use-ultra-disks.md
-                - name: Bring your own keys for disks
-                  href: azure-disk-customer-managed-keys.md
             - name: Azure Files storage
               items:
                 - name: Azure Files CSI driver
@@ -627,22 +648,33 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Upgrade an AKS cluster
-          href: upgrade-cluster.md
-        - name: Upgrade the node image
-          href: node-image-upgrade.md
-        - name: Automate and schedule upgrade events
+        - name: Upgrade options
           items:
-            - name: Automatically upgrade an AKS cluster
-              href: auto-upgrade-cluster.md
-            - name: Automatically upgrade AKS cluster node operating system images
-              href: auto-upgrade-node-image.md
-            - name: Upgrade the node image automatically with GitHub Actions
-              href: node-upgrade-github-actions.md
-            - name: Use planned maintenance to schedule and control upgrades
-              href: planned-maintenance.md
-        - name: Process node OS updates
-          href: node-updates-kured.md
+          - name: Upgrade options
+            href: upgrade-cluster.md
+          - name: Stop cluster upgrades automatically on API breaking changes
+            href: stop-cluster-upgrade-api-breaking-changes.md
+          - name: Perform manual upgrades
+            items:
+            - name: Upgrade an AKS cluster
+              href: upgrade-aks-cluster.md
+            - name: Upgrade the node image
+              href: node-image-upgrade.md
+            - name: Customize node surge upgrade
+              href: upgrade-aks-cluster.md#customize-node-surge-upgrade
+            - name: Process node OS updates
+              href: node-updates-kured.md
+          - name: Configure automatic upgrades
+            items:
+              - name: Automatically upgrade an AKS cluster
+                href: auto-upgrade-cluster.md
+              - name: Use Planned Maintenance to schedule and control upgrades
+                href: planned-maintenance.md
+              - name: Automatically upgrade AKS cluster node operating system images
+                href: auto-upgrade-node-image.md
+              - name: Upgrade the node image automatically with GitHub Actions
+                href: node-upgrade-github-actions.md
+
     - name: Azure Linux container host for AKS
       href: use-azure-linux.md
     - name: Windows Server containers
@@ -715,6 +747,8 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
+        - name: Deploy an AI model with the AI toolchain operator
+          href: ai-toolchain-operator.md 
     - name: DevOps
       items:
         - name: Azure DevOps Project

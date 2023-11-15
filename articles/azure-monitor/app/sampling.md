@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 11/15/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -12,6 +12,11 @@ ms.reviewer: mmcc
 Sampling is a feature in [Application Insights](./app-insights-overview.md). It's the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you're doing diagnostic investigations.
 
 When metric counts are presented in the portal, they're renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
+
+> [!NOTE]
+> - If you've adopted our OpenTelemetry Distro and are looking for configuration options, see [Enable Sampling](opentelemetry-configuration.md#enable-sampling).
+
+:::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="A screenshot of sampling configuration options.":::
 
 ## Brief summary
 
@@ -219,6 +224,8 @@ builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 
    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
    // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+
+   telemetryProcessorChainBuilder.Build();
 });
 
 builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
@@ -333,6 +340,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
+        builder.Build();
     });
     
     builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions

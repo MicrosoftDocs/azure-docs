@@ -7,13 +7,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: yexu
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Current version](copy-activity-fault-tolerance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

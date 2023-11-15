@@ -2,13 +2,13 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/17/2023
+ms.date: 10/20/2023
 ms.author: xiaofanzhou
 ---
 
 
 ### [.NET](#tab/dotnet)
-For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. For example, you can use  **Uncomment the corresponding part of the code snippet according to the authentication type.**
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 ```csharp
 using Azure.Core;
@@ -89,7 +89,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    # install Connector/Python https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
    pip install mysql-connector-python
    ```
-1. Authenticate with access token get via `azure-identity` library. Get connection information from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate with access token get via `azure-identity` library and get connection information from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```python
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -132,7 +132,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    ```bash
    pip install azure-identity
    ```
-1. Get access token via `azure-identity` library with the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Get access token via `azure-identity` library with the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
     ```python
@@ -184,7 +184,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
-1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
    ```go
@@ -234,7 +234,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    npm install --save @azure/identity
    npm install --save mysql2
    ```
-2. Get Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
    ```javascript
@@ -242,7 +242,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    const mysql = require('mysql2');
 
-   //Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines according to the authentication type.
    // for system-assigned managed identity
    // const credential = new DefaultAzureCredential();
 

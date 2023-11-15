@@ -50,7 +50,7 @@ ConfigMap is a global list and there can be only one ConfigMap applied to the ag
 
 | Key | Data type | Value | Description |
 |--|--|--|--|
-| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you may with for the proxy config to be ignored. . By default, this setting is set to `false`. |
+| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you might with for the proxy config to be ignored. . By default, this setting is set to `false`. |
 
 ## Configure and deploy ConfigMaps
 
@@ -120,6 +120,16 @@ Output similar to the following example appears with the annotation schema-versi
                   dockerProviderVersion=5.0.0-0
                     schema-versions=v1 
 ```
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I enable log collection for containers in the kube-system namespace through Helm?
+
+The log collection from containers in the kube-system namespace is disabled by default. You can enable log collection by setting an environment variable on Azure Monitor Agent. See the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
+          
+
 
 ## Next steps
 

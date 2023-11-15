@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/27/2022
+ms.date: 10/20/2023
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics

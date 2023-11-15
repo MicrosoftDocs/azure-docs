@@ -188,7 +188,7 @@ In addition to using the End of Call Survey API you can create your own survey q
 -  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-configuration.md).
 -  Build a UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
--  Submit survey results to ACS and send user response using App Insights:
+-  Submit survey results to Azure Communication Services and send user response using App Insights:
     ``` javascript
     currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
     // `improvementSuggesstion` contains custom, user response
@@ -206,7 +206,7 @@ In addition to using the End of Call Survey API you can create your own survey q
     appInsights.flush();
     ```
 User responses that were sent using AppInsights are available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
--  Create new [Workbooks](../../update-center/workbooks.md) (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
+-  Create new [Workbooks](../../update-center/workbooks.md) (Your Azure Communication Services Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your Azure Communication Services resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])

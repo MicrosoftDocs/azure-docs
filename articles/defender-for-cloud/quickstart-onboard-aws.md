@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 09/05/2023
+ms.date: 10/22/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -81,7 +81,12 @@ AWS Systems Manager manages auto-provisioning by using the SSM Agent. Some Amazo
 - [Install SSM Agent for a hybrid and multicloud environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 - [Install SSM Agent for a hybrid and multicloud environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
-Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service.
+Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service. 
+
+**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won’t be able to procced.**
+
+> [!NOTE]
+> As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
 
 If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
@@ -124,7 +129,10 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
-    Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
+    ```suggestion
+    (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
+    
+    (Optional) Use the AWS regions dropdown menu to select specific AWS regions to be scanned. All regions are selected by default.
 
 ## Select Defender plans
 
@@ -157,24 +165,21 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
 1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server.
 
-    Optionally, select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
+    (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 
-1. Select **Next: Configure access**.
+1. Select **Configure access** and select the following:
 
-1. On the **Configure access** tab, select **Click to download the CloudFormation template** to download the CloudFormation template.
-
-   :::image type="content" source="media/quickstart-onboard-aws/download-cloudformation-template.png" alt-text="Screenshot that shows the button to download the CloudFormation template." lightbox="media/quickstart-onboard-aws/download-cloudformation-template.png":::
-
-1. Continue to configure access by making the following selections:
-
-    a. Choose a deployment type:
+    a. Select a deployment type:
 
     - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
     - **Least privilege access**: Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
-    b. Choose a deployment method: **AWS CloudFormation** or **Terraform**.
+    b. Select a deployment method: **AWS CloudFormation** or **Terraform**.
 
-    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access." lightbox="media/quickstart-onboard-aws/add-aws-account-configure-access.png":::
+
+    > [!NOTE]
+    > If you select **Management account** to create a connector to a management account, then the tab to onboard with Terraform is not visible in the UI, but you can still onboard using Terraform, similar to what's covered at [Onboarding your AWS/GCP environment to Microsoft Defender for Cloud with Terraform - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/onboarding-your-aws-gcp-environment-to-microsoft-defender-for/ba-p/3798664).
 
 1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you need to run the CloudFormation template both as Stack and as StackSet. Connectors are created for the member accounts up to 24 hours after the onboarding.
 
@@ -220,6 +225,14 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
     }  
     ```
 
+    > [!NOTE]
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you might encounter the following error message:
+    > `You must enable organizations access to operate a service managed stack set`
+    >
+    > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
+    >
+    > To remediate this error message, your CloudFormation StackSets page has a prompt with a button that you can select to enable trusted access. After trusted access is enabled, the CloudFormation Stack must be run again.
+
 ## Monitor your AWS resources
 
 The security recommendations page in Defender for Cloud displays your AWS resources. You can use the environments filter to enjoy multicloud capabilities in Defender for Cloud.
@@ -247,3 +260,4 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector).
+

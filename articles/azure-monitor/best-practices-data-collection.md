@@ -54,7 +54,7 @@ Resources in Azure automatically generate [resource logs](essentials/platform-lo
 
 There's a cost for collecting resource logs in your Log Analytics workspace, so only select those log categories with valuable data. Collecting all categories will incur cost for collecting data with little value. See the monitoring documentation for each Azure service for a description of categories and recommendations for which to collect. Also see [Azure Monitor best practices - cost management](logs/cost-logs.md) for recommendations on optimizing the cost of your log collection.
 
-See [Create diagnostic settings to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-diagnostic-settings) to create a diagnostic setting for an Azure resource.
+See [Create diagnostic settings to collect resource logs and metrics in Azure](essentials/create-diagnostic-settings.md) to create a diagnostic setting for an Azure resource.
 
 Because a diagnostic setting needs to be created for each Azure resource, use Azure Policy to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 

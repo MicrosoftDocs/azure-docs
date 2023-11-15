@@ -4,9 +4,11 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 09/18/2023
+ms.date: 11/06/2023
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023-container-storage
 ---
 
 # What is Azure Container Storage? Preview
@@ -49,8 +51,10 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 
 ## What's new in Azure Container Storage
 
-Based on feedback from customers, we've included the following capabilities in the Azure Container Storage Preview update:
+Based on feedback from customers, we've included the following capabilities in the Azure Container Storage Preview:
 
+- Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md)
+- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#enable-server-side-encryption-with-customer-managed-keys) (Azure Disks only)
 - Scale up by [resizing volumes](resize-volume.md) backed by Azure Disks and NVMe storage pools without downtime
 - [Clone persistent volumes](clone-volume.md) within a storage pool
 

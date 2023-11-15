@@ -3,7 +3,7 @@ title: Log Analytics agent overview
 description: This article helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environments with Log Analytics.
 ms.topic: conceptual
 author: guywi-ms
-ms.author: guywi
+ms.author: guywild
 ms.date: 07/06/2023
 ms.reviewer: luki
 
@@ -108,7 +108,7 @@ To ensure the security of data in transit to Azure Monitor logs, we strongly enc
 
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the internet, review the following requirements to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the internet, set up a [Log Analytics gateway](gateway.md) and configure the agent to connect through the gateway to Azure Monitor. The agent can then receive configuration information and send data collected.
 
-![Diagram that shows Log Analytics agent communication.](./media/log-analytics-agent/log-analytics-agent-01.png)
+:::image type="content" source="./media/log-analytics-agent/log-analytics-agent-01.png" lightbox="./media/log-analytics-agent/log-analytics-agent-01.png" alt-text="Diagram that shows Log Analytics agent communication.":::
 
 The following table lists the proxy and firewall configuration information required for the Linux and Windows agents to communicate with Azure Monitor logs.
 

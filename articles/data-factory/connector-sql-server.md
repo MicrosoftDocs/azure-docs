@@ -13,9 +13,6 @@ ms.date: 07/13/2023
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-sqlserver-connector.md)
-> * [Current version](connector-sql-server.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to SQL Server database and use Data Flow to transform data in SQL Server database.  To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).

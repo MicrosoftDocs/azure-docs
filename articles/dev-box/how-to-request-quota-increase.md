@@ -13,6 +13,22 @@ ms.date: 08/22/2023
 
 This article describes how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. 
 
+To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota.  
+
+There are different types of quota limits that you might encounter, depending on the resource type. For example:
+
+**Developer portal** 
+
+Dev Box vCPU - you might encounter this quota error in the [developer portal](https://aka.ms/devbox-portal) during dev box creation.
+
+**Azure portal**  
+
+- Dev Centers
+- Network connections 
+- Projects 
+- Pools 
+- Dev Box Definitions 
+
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 The time it takes to increase your quota varies depending on the VM size, region, and number of resources requested.  You won't have to go through the process of requesting extra capacity often. To ensure you have the resources you require when you need them, you should:
@@ -32,7 +48,7 @@ Learn more about the general [process for creating Azure support requests](../az
 
 ## Gather information for your request
 
-You'll find submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
+Submitting a support request for an increase in quota is quicker if you gather the required information before you begin the request process. 
 
 - **Determine your current quota usage**
 
@@ -59,15 +75,33 @@ You'll find submitting a support request for additional quota is quicker if you 
 
 ## Submit a new support request
 
-Follow these steps to request a limit increase:  
+Start the process of requesting a limit increase by opening **Support + troubleshooting** from the right of the toolbar.
 
-1. On the Azure portal home page, select Support & troubleshooting, and then select  **Help + support**
+:::image type="content" source="media/how-to-request-quota-increase/help-support-toolbar.png" alt-text="Screenshot of the Azure portal showing the Support and troubleshoot button.":::
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
+Azure presents two different ways to get you the right help and support. When **Support + troubleshooting** opens, you see either:
+- A question asking **How can we help you?**
+- A classic style support request form
 
-1. On the **Help + support** page, select **Create a support request**.
+From the following tabs, select the style appropriate for your experience and use the steps to request a limit increase:  
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
+#### [Question style](#tab/Questions/)
+
+1. On the Azure portal home page, select Support & troubleshooting from the top right.
+ 
+   :::image type="content" source="media/how-to-request-quota-increase/help-support-question.png" alt-text="Screenshot showing the How can we help you question." lightbox="media/how-to-request-quota-increase/help-support-question.png"::: 
+ 
+1. In the **How can we help you?** box, enter *quota limit*, and then select **Go**.
+ 
+   :::image type="content" source="media/how-to-request-quota-increase/help-support-quota-limit.png" alt-text="Screenshot showing the How can we help you question and quota limit answer." lightbox="media/how-to-request-quota-increase/help-support-quota-limit.png":::
+
+1. From the **Which service are you having an issue with?** list, select **Service and subscription limits (quotas)**, and then select **Next**.
+
+   :::image type="content" source="media/how-to-request-quota-increase/help-support-service-list.png" alt-text="Screenshot showing the Service and subscription limits (quotas) item." lightbox="media/how-to-request-quota-increase/help-support-service-list.png":::
+
+1. In the Service and subscription limits (quotas) section, select **Create a support request**.
+
+   :::image type="content" source="media/how-to-request-quota-increase/help-support-result.png" alt-text="Screenshot showing the Create a support request button." lightbox="media/how-to-request-quota-increase/help-support-result.png":::
 
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
@@ -79,7 +113,7 @@ Follow these steps to request a limit increase:
 
 1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
-    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
+    :::image type="content" source="media/how-to-request-quota-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details." lightbox="media/how-to-request-quota-increase/enter-details.png"::: 
 
 1. In **Quota details**, enter the following information, and then select **Next**.
  
@@ -91,9 +125,48 @@ Follow these steps to request a limit increase:
     | **Is it a limit decrease?** | Select **Yes** or **No**. |
     | **Additional information** | Enter any extra information about your request. |
 
-    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
+    :::image type="content" source="media/how-to-request-quota-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-quota-increase/quota-details.png":::
 
 1. Select **Save and continue**.
+
+#### [Classic style](#tab/AzureADJoin/)
+
+1. On the Azure portal home page, select Support & troubleshooting from the top right, and then select  **Help + support**.
+
+    :::image type="content" source="./media/how-to-request-quota-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-quota-increase/submit-new-request.png":::
+
+1. On the **Help + support** page, select **Create a support request**.
+
+    :::image type="content" source="./media/how-to-request-quota-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request." lightbox="./media/how-to-request-quota-increase/create-support-request.png":::
+
+1. On the **New support request** page, enter the following information, and then select **Next**.
+
+    | Name              | Value   |
+    | ----------------- | ------- |
+    | **Issue type**    | *Service and subscription limits (quotas)* |
+    | **Subscription**  | Select the subscription to which the request applies. |
+    | **Quota type**    | *Microsoft Dev Box* |
+
+1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
+ 
+    :::image type="content" source="media/how-to-request-quota-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details." lightbox="media/how-to-request-quota-increase/enter-details.png"::: 
+
+1. In **Quota details**, enter the following information, and then select **Next**.
+ 
+    | Name              | Value   |
+    | ----------------- | ------- |
+    | **Region**        | Select the **Region** in which you want to increase your quota. | 
+    | **Quota type**    | When you select a Region, Azure displays your current usage and your current for all quota types. </br> Select the **Quota type** that you want to increase. | 
+    | **New total limit** | Enter the new total limit that you want to request. |
+    | **Is it a limit decrease?** | Select **Yes** or **No**. |
+    | **Additional information** | Enter any extra information about your request. |
+
+    :::image type="content" source="media/how-to-request-quota-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-quota-increase/quota-details.png":::
+
+1. Select **Save and continue**.
+
+---
+
 ## Complete the support request
 
 To complete the support request, enter the following information:
@@ -131,7 +204,7 @@ To complete the support request, enter the following information:
 1. Select **Next**.
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
- 
+
 ## Related content
 
 - To learn how to check your quota usage, see [Determine usage and quota](./how-to-determine-your-quota-usage.md).

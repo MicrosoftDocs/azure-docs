@@ -36,8 +36,6 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
 
 ### [Azure portal](#tab/azure-portal)
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 There are multiple options to enable Prometheus metrics on your cluster from the Azure portal.
 
@@ -74,7 +72,7 @@ This option adds Prometheus metrics to a cluster already enabled for Container i
 See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations-during-enablementdeployment)
 
 #### From an existing cluster
-This options enables Prometheus, Grafana, and Container insights on a cluster.
+This option enables Prometheus, Grafana, and Container insights on a cluster.
 
 1. Open the clusters menu in the Azure portal and  select **Insights**.
 3. Select **Configure monitoring**.
@@ -86,8 +84,6 @@ This options enables Prometheus, Grafana, and Container insights on a cluster.
 
 
 ### [CLI](#tab/cli)
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 #### Prerequisites
 
@@ -163,9 +159,6 @@ The output is similar to the following example:
 
 ## [Azure Resource Manager](#tab/resource-manager)
 
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
-
 ### Prerequisites
 
 - If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor workspace subscription, register the Azure Monitor workspace subscription with the `Microsoft.Dashboard` resource provider by following [this documentation](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
@@ -174,9 +167,6 @@ The output is similar to the following example:
 - Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Reader` role directly by deploying the template.
 
 ### Retrieve required values for Grafana resource
-
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
@@ -248,9 +238,6 @@ In this JSON, `full_resource_id_1` and `full_resource_id_2` were already in the 
 The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
 
 ## [Bicep](#tab/bicep)
-
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 ### Prerequisites
 
@@ -374,9 +361,6 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 > Edit the main.tf file appropriately before running the terraform template. Add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template. Else, older values gets deleted and replaced with what is there in the template during deployment. Users with 'User Access Administrator' role in the subscription  of the AKS cluster can enable 'Monitoring Reader' role directly by deploying the template. Edit the grafanaSku parameter if you're using a nonstandard SKU and finally run this template in the Grafana Resource's resource group.
 
 ## [Azure Policy](#tab/azurepolicy)
-
-> [!NOTE]
-> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 ### Prerequisites
 
@@ -553,6 +537,16 @@ To uninstall the metrics add-on, see [Disable Prometheus metrics collection on a
 ## Supported regions
 
 The list of regions Azure Monitor Metrics and Azure Monitor Workspace is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Does enabling managed service for Prometheus on my Azure Kubernetes Service cluster also enable Container insights?
+
+You have options for how you can collect your Prometheus metrics. If you use the Azure portal and enable Prometheus metrics collection and install the Azure Kubernetes Service (AKS) add-on from the Azure Monitor workspace UX, it won't enable Container insights and collection of log data. When you go to the Insights page on your AKS cluster, you're prompted to enable Container insights to collect log data.<br>
+          
+If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster, it enables log collection into a Log Analytics workspace. and Prometheus metrics collection into an Azure Monitor workspace. 
 
 ## Next steps
 

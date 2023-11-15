@@ -23,7 +23,7 @@ promoted to replace it.
 > Because HA doubles the number of servers in the group, it will also double
 > the cost.
 
-Enabling HA is possible during cluster creation on **Scale** page. Once cluster is provisioned, set Set **Enable high availability (HA)** checkbox in the **High availability** tab for your cluster in the Azure portal.
+Enabling HA is possible during cluster creation on **Scale** page. Once cluster is provisioned, set **Enable high availability (HA)** checkbox in the **High availability** tab for your cluster in the Azure portal.
 
 :::image type="content" source="media/howto-high-availability/01-ha-slider.png" alt-text="ha slider":::
 
