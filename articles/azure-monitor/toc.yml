@@ -432,7 +432,7 @@ items:
       items:
       - name: Migrate from Operations Manager
         href: azure-monitor-operations-manager.md
-      - name: Azure Monitor SCOM Managed Instance (preview)
+      - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
       - name: Connect Operations Manager
         href: agents/om-agents.md
@@ -557,6 +557,9 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
+        - name: Data Transformations
+          displayName: Container insights
+          href: containers/container-insights-transformations.md
         - name: Authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
@@ -618,7 +621,7 @@ items:
         href: ../network-watcher/network-insights-overview.md
       - name: Topology
         displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-topology.md
+        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshooting
         displayName: Network Insights, Network
         href: ../network-watcher/network-insights-troubleshooting.md

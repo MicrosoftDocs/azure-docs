@@ -66,6 +66,8 @@ items:
       href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
+    - name: Automatic deletion of an environment
+      href: how-to-schedule-environment-deletion.md  
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
 - name: Tutorials

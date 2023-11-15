@@ -228,17 +228,6 @@ The sections below delve into how these endpoints react to both "Promote to prim
 
 Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints-preview).
 
-### Considerations
-
-- Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require.
-- As the read replica has to apply all pending logs before it can be made a standalone server, RTO can be higher for write-heavy workloads when the stop replication happens, as there could be a significant delay on the replica. Pay attention to this when planning to promote a replica.
-
-- If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You might have to recreate replicas from the new, promoted server.
-
-When you promote a replica, the replica loses all links to its previous primary and other replicas.
-
-Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
-
 ## Monitor replication
 
 Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to adjust the number of transaction logs automatically (WAL segments) needed by all replica servers and, therefore, avoid situations when one or more replicas go out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case the replication slot remains inactive for an extended time. In such situations, primary accumulates WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations.  
