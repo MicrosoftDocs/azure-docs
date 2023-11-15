@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 11/15/2023
 ---
 
 # Create a hybrid query in Azure AI Search
@@ -58,6 +58,8 @@ api-key: {{admin-api-key}}
             -0.00086512347
         ],
         "fields": "contentVector",
+        "kind": "vector",
+        "exhaustive": true,
         "k": 10
     }],
     "search": "what azure services support full text search",
@@ -65,6 +67,16 @@ api-key: {{admin-api-key}}
     "top": "10"
 }
 ```
+
+**Key points:**
+
++ The vector query string is specified through the vector "vector.value" property. The query executes against the "contentVector" field. Set "kind" to "vector" to indicate the query type. Optionally, set "exhaustive" to true to query the full contents of the vector field.
+
++ Keyword search is specified through "search" property. It executes in parallel with the vector query.
+
++ "k" determines how many nearest neighbor matches are returned from the vector query and provided to the RRF ranker.
+
++ "top" determines how many matches are returned in the response all-up. In this example, the response includes 10 results, assuming there are at least 10 matches in the merged results.
 
 ## Hybrid search with filter
 
@@ -85,18 +97,26 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
+            "kind": "vector",
             "k": 10
         }
     ],
     "search": "what azure services support full text search",
+    "vectorFilterMode": "postFilter",
     "filter": "category eq 'Databases'",
     "top": "10"
 }
 ```
 
+**Key points:**
+
++ Filters are applied to the content of filterable fields. In this example, the category field is marked as filterable in the index schema.
+
++ In hybrid queries, filters can be applied before query execution to reduce the query surface, or after query execution to trim results. `"preFilter"` is the default. To use `postFilter`, set the [filter processing mode](vector-search-filters.md).
+
 ## Semantic hybrid search
 
-Assuming that you've [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
+Assuming that you [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search. Semantic ranking occurs over the merged result set, adding captions and answers. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
@@ -113,19 +133,27 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
-            "k": 10
+            "kind": "vector",
+            "k": 50
         }
     ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
     "semanticConfiguration": "my-semantic-config",
-    "queryLanguage": "en-us",
     "captions": "extractive",
     "answers": "extractive",
-    "top": "10"
+    "top": "50"
 }
 ```
+
+**Key points:**
+
++ Semantic ranking accepts up to 50 results from the merged response. Set "k" and "top" to 50 for equal representation of both queries.
+
++ "queryType" and "semanticConfiguration" are required.
+
++ "captions" and "answers" are optional. Values are extracted from verbatim text in the results. An answer is only returned if the results include content having the characteristics of an answer to the query.
 
 ## Semantic hybrid search with filter
 
@@ -146,26 +174,21 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
-            "k": 10
+            "kind": "vector",
+            "k": 50
         }
     ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
     "semanticConfiguration": "my-semantic-config",
-    "queryLanguage": "en-us",
     "captions": "extractive",
     "answers": "extractive",
     "filter": "category eq 'Databases'",
-    "top": "10"
+    "vectorFilterMode": "postFilter",
+    "top": "50"
 }
 ```
-
-**Key points:**
-
-+ Vector search is specified through the vector "vector.value" property. Keyword search is specified through "search" property.
-
-+ In a hybrid search, you can integrate vector search with full text search over keywords. Filters, spell check, and semantic ranking apply to textual content only, and not vectors. In this final query, there's no semantic "answer" because the system didn't produce one that was sufficiently strong.
 
 ## Configure a query response
 
@@ -191,6 +214,8 @@ A query might match to any number of documents, as many as all of them if the se
 + `"top": n` results for hybrid queries that include a "search" parameter
 
 Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
+
+If you're using semantic ranking, it's a best practice to set both "k" and "top" to 50. The semantic ranker can take up to 50 results. By specifying 50 for each query, you get equal representation from both search subsystems. 
 
 ### Ranking
 
