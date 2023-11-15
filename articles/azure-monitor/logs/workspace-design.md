@@ -126,11 +126,6 @@ To ensure that critical data in your workspace is available in the event of a re
 
 This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
 
-You might also want to:
-
-* Create the same monitoring artifacts - dashboards, queries, workbooks, alerts, and so on - in each region.
-* Use cross-workspace queries to target both workspaces - use the [union operator with isfuzzy=true](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) - and de-duplicate the results to avoid getting the same record twice.
-
 ## Work with multiple workspaces
 Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
 
